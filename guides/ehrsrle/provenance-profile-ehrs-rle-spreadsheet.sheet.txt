@@ -1,13 +1,6 @@
 ﻿
 === Sheet Bindings =====================================
 
- -- Row 1 -----------------------------------
-  Binding Name = EventPurposeOfUse
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
-  Definition = Indicates the why the event occurred
-  Conformance = extensible
-
 === Sheet EHRSRLE-Provenance =====================================
 
  -- Row 1 -----------------------------------
@@ -33,7 +26,6 @@
   Element = Provenance.reason
   Card. = !0..*
   Must Support = Y
-  Binding = EventPurposeOfUse
 
  -- Row 6 -----------------------------------
   Element = Provenance.activity

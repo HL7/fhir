@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2174,6 +2174,32 @@ public class Communication extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam MEDIUM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MEDIUM);
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter leading to message</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Communication.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="Communication.context", description="Encounter leading to message", type="reference", target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter leading to message</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Communication.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Communication:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Communication:encounter").toLocked();
 
  /**
    * Search parameter: <b>sent</b>

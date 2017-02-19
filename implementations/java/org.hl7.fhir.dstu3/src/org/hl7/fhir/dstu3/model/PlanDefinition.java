@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1928,12 +1928,11 @@ public class PlanDefinition extends MetadataResource {
         protected Type timing;
 
         /**
-         * The type of participant in the action.
+         * Indicates who should participate in performing the action described.
          */
-        @Child(name = "participantType", type = {CodeType.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
-        protected List<Enumeration<ActionParticipantType>> participantType;
+        @Child(name = "participant", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Who should participate in the action", formalDefinition="Indicates who should participate in performing the action described." )
+        protected List<PlanDefinitionActionDefinitionParticipantComponent> participant;
 
         /**
          * The type of action to perform (create, update, remove).
@@ -2021,7 +2020,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="A sub-action", formalDefinition="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition." )
         protected List<PlanDefinitionActionDefinitionComponent> actionDefinition;
 
-        private static final long serialVersionUID = 1046568085L;
+        private static final long serialVersionUID = 1839337960L;
 
     /**
      * Constructor
@@ -2796,64 +2795,56 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #participantType} (The type of participant in the action.)
+         * @return {@link #participant} (Indicates who should participate in performing the action described.)
          */
-        public List<Enumeration<ActionParticipantType>> getParticipantType() { 
-          if (this.participantType == null)
-            this.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
-          return this.participantType;
+        public List<PlanDefinitionActionDefinitionParticipantComponent> getParticipant() { 
+          if (this.participant == null)
+            this.participant = new ArrayList<PlanDefinitionActionDefinitionParticipantComponent>();
+          return this.participant;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public PlanDefinitionActionDefinitionComponent setParticipantType(List<Enumeration<ActionParticipantType>> theParticipantType) { 
-          this.participantType = theParticipantType;
+        public PlanDefinitionActionDefinitionComponent setParticipant(List<PlanDefinitionActionDefinitionParticipantComponent> theParticipant) { 
+          this.participant = theParticipant;
           return this;
         }
 
-        public boolean hasParticipantType() { 
-          if (this.participantType == null)
+        public boolean hasParticipant() { 
+          if (this.participant == null)
             return false;
-          for (Enumeration<ActionParticipantType> item : this.participantType)
+          for (PlanDefinitionActionDefinitionParticipantComponent item : this.participant)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        /**
-         * @return {@link #participantType} (The type of participant in the action.)
-         */
-        public Enumeration<ActionParticipantType> addParticipantTypeElement() {//2 
-          Enumeration<ActionParticipantType> t = new Enumeration<ActionParticipantType>(new ActionParticipantTypeEnumFactory());
-          if (this.participantType == null)
-            this.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
-          this.participantType.add(t);
+        public PlanDefinitionActionDefinitionParticipantComponent addParticipant() { //3
+          PlanDefinitionActionDefinitionParticipantComponent t = new PlanDefinitionActionDefinitionParticipantComponent();
+          if (this.participant == null)
+            this.participant = new ArrayList<PlanDefinitionActionDefinitionParticipantComponent>();
+          this.participant.add(t);
           return t;
         }
 
-        /**
-         * @param value {@link #participantType} (The type of participant in the action.)
-         */
-        public PlanDefinitionActionDefinitionComponent addParticipantType(ActionParticipantType value) { //1
-          Enumeration<ActionParticipantType> t = new Enumeration<ActionParticipantType>(new ActionParticipantTypeEnumFactory());
-          t.setValue(value);
-          if (this.participantType == null)
-            this.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
-          this.participantType.add(t);
+        public PlanDefinitionActionDefinitionComponent addParticipant(PlanDefinitionActionDefinitionParticipantComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.participant == null)
+            this.participant = new ArrayList<PlanDefinitionActionDefinitionParticipantComponent>();
+          this.participant.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #participantType} (The type of participant in the action.)
+         * @return The first repetition of repeating field {@link #participant}, creating it if it does not already exist
          */
-        public boolean hasParticipantType(ActionParticipantType value) { 
-          if (this.participantType == null)
-            return false;
-          for (Enumeration<ActionParticipantType> v : this.participantType)
-            if (v.getValue().equals(value)) // code
-              return true;
-          return false;
+        public PlanDefinitionActionDefinitionParticipantComponent getParticipantFirstRep() { 
+          if (getParticipant().isEmpty()) {
+            addParticipant();
+          }
+          return getParticipant().get(0);
         }
 
         /**
@@ -3330,7 +3321,7 @@ public class PlanDefinition extends MetadataResource {
           childrenList.add(new Property("output", "DataRequirement", "Defines the outputs of the action, if any.", 0, java.lang.Integer.MAX_VALUE, output));
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, java.lang.Integer.MAX_VALUE, timing));
-          childrenList.add(new Property("participantType", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, participantType));
+          childrenList.add(new Property("participant", "", "Indicates who should participate in performing the action described.", 0, java.lang.Integer.MAX_VALUE, participant));
           childrenList.add(new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, java.lang.Integer.MAX_VALUE, groupingBehavior));
           childrenList.add(new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, java.lang.Integer.MAX_VALUE, selectionBehavior));
@@ -3360,7 +3351,7 @@ public class PlanDefinition extends MetadataResource {
         case -1005512447: /*output*/ return this.output == null ? new Base[0] : this.output.toArray(new Base[this.output.size()]); // DataRequirement
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : this.relatedAction.toArray(new Base[this.relatedAction.size()]); // PlanDefinitionActionDefinitionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
-        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ActionParticipantType>
+        case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // PlanDefinitionActionDefinitionParticipantComponent
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
         case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // Enumeration<ActionGroupingBehavior>
         case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // Enumeration<ActionSelectionBehavior>
@@ -3421,9 +3412,8 @@ public class PlanDefinition extends MetadataResource {
         case -873664438: // timing
           this.timing = castToType(value); // Type
           return value;
-        case 841294093: // participantType
-          value = new ActionParticipantTypeEnumFactory().fromType(castToCode(value));
-          this.getParticipantType().add((Enumeration) value); // Enumeration<ActionParticipantType>
+        case 767422259: // participant
+          this.getParticipant().add((PlanDefinitionActionDefinitionParticipantComponent) value); // PlanDefinitionActionDefinitionParticipantComponent
           return value;
         case 3575610: // type
           this.type = castToCoding(value); // Coding
@@ -3495,9 +3485,8 @@ public class PlanDefinition extends MetadataResource {
           this.getRelatedAction().add((PlanDefinitionActionDefinitionRelatedActionComponent) value);
         } else if (name.equals("timing[x]")) {
           this.timing = castToType(value); // Type
-        } else if (name.equals("participantType")) {
-          value = new ActionParticipantTypeEnumFactory().fromType(castToCode(value));
-          this.getParticipantType().add((Enumeration) value);
+        } else if (name.equals("participant")) {
+          this.getParticipant().add((PlanDefinitionActionDefinitionParticipantComponent) value);
         } else if (name.equals("type")) {
           this.type = castToCoding(value); // Coding
         } else if (name.equals("groupingBehavior")) {
@@ -3546,7 +3535,7 @@ public class PlanDefinition extends MetadataResource {
         case -384107967:  return addRelatedAction(); 
         case 164632566:  return getTiming(); 
         case -873664438:  return getTiming(); 
-        case 841294093:  return addParticipantTypeElement();
+        case 767422259:  return addParticipant(); 
         case 3575610:  return getType(); 
         case 586678389:  return getGroupingBehaviorElement();
         case 168639486:  return getSelectionBehaviorElement();
@@ -3579,7 +3568,7 @@ public class PlanDefinition extends MetadataResource {
         case -1005512447: /*output*/ return new String[] {"DataRequirement"};
         case -384107967: /*relatedAction*/ return new String[] {};
         case -873664438: /*timing*/ return new String[] {"dateTime", "Period", "Duration", "Range", "Timing"};
-        case 841294093: /*participantType*/ return new String[] {"code"};
+        case 767422259: /*participant*/ return new String[] {};
         case 3575610: /*type*/ return new String[] {"Coding"};
         case 586678389: /*groupingBehavior*/ return new String[] {"code"};
         case 168639486: /*selectionBehavior*/ return new String[] {"code"};
@@ -3656,8 +3645,8 @@ public class PlanDefinition extends MetadataResource {
           this.timing = new Timing();
           return this.timing;
         }
-        else if (name.equals("participantType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.participantType");
+        else if (name.equals("participant")) {
+          return addParticipant();
         }
         else if (name.equals("type")) {
           this.type = new Coding();
@@ -3749,10 +3738,10 @@ public class PlanDefinition extends MetadataResource {
             dst.relatedAction.add(i.copy());
         };
         dst.timing = timing == null ? null : timing.copy();
-        if (participantType != null) {
-          dst.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
-          for (Enumeration<ActionParticipantType> i : participantType)
-            dst.participantType.add(i.copy());
+        if (participant != null) {
+          dst.participant = new ArrayList<PlanDefinitionActionDefinitionParticipantComponent>();
+          for (PlanDefinitionActionDefinitionParticipantComponent i : participant)
+            dst.participant.add(i.copy());
         };
         dst.type = type == null ? null : type.copy();
         dst.groupingBehavior = groupingBehavior == null ? null : groupingBehavior.copy();
@@ -3786,7 +3775,7 @@ public class PlanDefinition extends MetadataResource {
            && compareDeep(textEquivalent, o.textEquivalent, true) && compareDeep(code, o.code, true) && compareDeep(reason, o.reason, true)
            && compareDeep(documentation, o.documentation, true) && compareDeep(goalId, o.goalId, true) && compareDeep(triggerDefinition, o.triggerDefinition, true)
            && compareDeep(condition, o.condition, true) && compareDeep(input, o.input, true) && compareDeep(output, o.output, true)
-           && compareDeep(relatedAction, o.relatedAction, true) && compareDeep(timing, o.timing, true) && compareDeep(participantType, o.participantType, true)
+           && compareDeep(relatedAction, o.relatedAction, true) && compareDeep(timing, o.timing, true) && compareDeep(participant, o.participant, true)
            && compareDeep(type, o.type, true) && compareDeep(groupingBehavior, o.groupingBehavior, true) && compareDeep(selectionBehavior, o.selectionBehavior, true)
            && compareDeep(requiredBehavior, o.requiredBehavior, true) && compareDeep(precheckBehavior, o.precheckBehavior, true)
            && compareDeep(cardinalityBehavior, o.cardinalityBehavior, true) && compareDeep(definition, o.definition, true)
@@ -3802,18 +3791,18 @@ public class PlanDefinition extends MetadataResource {
           return false;
         PlanDefinitionActionDefinitionComponent o = (PlanDefinitionActionDefinitionComponent) other;
         return compareValues(label, o.label, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
-           && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(goalId, o.goalId, true) && compareValues(participantType, o.participantType, true)
-           && compareValues(groupingBehavior, o.groupingBehavior, true) && compareValues(selectionBehavior, o.selectionBehavior, true)
-           && compareValues(requiredBehavior, o.requiredBehavior, true) && compareValues(precheckBehavior, o.precheckBehavior, true)
-           && compareValues(cardinalityBehavior, o.cardinalityBehavior, true);
+           && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(goalId, o.goalId, true) && compareValues(groupingBehavior, o.groupingBehavior, true)
+           && compareValues(selectionBehavior, o.selectionBehavior, true) && compareValues(requiredBehavior, o.requiredBehavior, true)
+           && compareValues(precheckBehavior, o.precheckBehavior, true) && compareValues(cardinalityBehavior, o.cardinalityBehavior, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, title, description
           , textEquivalent, code, reason, documentation, goalId, triggerDefinition, condition
-          , input, output, relatedAction, timing, participantType, type, groupingBehavior
-          , selectionBehavior, requiredBehavior, precheckBehavior, cardinalityBehavior, definition
-          , transform, dynamicValue, actionDefinition);
+          , input, output, relatedAction, timing, participant, type, groupingBehavior, selectionBehavior
+          , requiredBehavior, precheckBehavior, cardinalityBehavior, definition, transform, dynamicValue
+          , actionDefinition);
       }
 
   public String fhirType() {
@@ -4514,6 +4503,225 @@ public class PlanDefinition extends MetadataResource {
 
   public String fhirType() {
     return "PlanDefinition.actionDefinition.relatedAction";
+
+  }
+
+  }
+
+    @Block()
+    public static class PlanDefinitionActionDefinitionParticipantComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The type of participant in the action.
+         */
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
+        protected Enumeration<ActionParticipantType> type;
+
+        /**
+         * The role the participant should play in performing the described action.
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="E.g. Nurse, Surgeon, Parent, etc", formalDefinition="The role the participant should play in performing the described action." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-role")
+        protected CodeableConcept role;
+
+        private static final long serialVersionUID = -1152013659L;
+
+    /**
+     * Constructor
+     */
+      public PlanDefinitionActionDefinitionParticipantComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public PlanDefinitionActionDefinitionParticipantComponent(Enumeration<ActionParticipantType> type) {
+        super();
+        this.type = type;
+      }
+
+        /**
+         * @return {@link #type} (The type of participant in the action.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public Enumeration<ActionParticipantType> getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionParticipantComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Enumeration<ActionParticipantType>(new ActionParticipantTypeEnumFactory()); // bb
+          return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (The type of participant in the action.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public PlanDefinitionActionDefinitionParticipantComponent setTypeElement(Enumeration<ActionParticipantType> value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type of participant in the action.
+         */
+        public ActionParticipantType getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type of participant in the action.
+         */
+        public PlanDefinitionActionDefinitionParticipantComponent setType(ActionParticipantType value) { 
+            if (this.type == null)
+              this.type = new Enumeration<ActionParticipantType>(new ActionParticipantTypeEnumFactory());
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #role} (The role the participant should play in performing the described action.)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionParticipantComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (The role the participant should play in performing the described action.)
+         */
+        public PlanDefinitionActionDefinitionParticipantComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("role", "CodeableConcept", "The role the participant should play in performing the described action.", 0, java.lang.Integer.MAX_VALUE, role));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActionParticipantType>
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: // type
+          value = new ActionParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ActionParticipantType>
+          return value;
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("type")) {
+          value = new ActionParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ActionParticipantType>
+        } else if (name.equals("role")) {
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getTypeElement();
+        case 3506294:  return getRole(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.type");
+        }
+        else if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public PlanDefinitionActionDefinitionParticipantComponent copy() {
+        PlanDefinitionActionDefinitionParticipantComponent dst = new PlanDefinitionActionDefinitionParticipantComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.role = role == null ? null : role.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof PlanDefinitionActionDefinitionParticipantComponent))
+          return false;
+        PlanDefinitionActionDefinitionParticipantComponent o = (PlanDefinitionActionDefinitionParticipantComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(role, o.role, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof PlanDefinitionActionDefinitionParticipantComponent))
+          return false;
+        PlanDefinitionActionDefinitionParticipantComponent o = (PlanDefinitionActionDefinitionParticipantComponent) other;
+        return compareValues(type, o.type, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, role);
+      }
+
+  public String fhirType() {
+    return "PlanDefinition.actionDefinition.participant";
 
   }
 

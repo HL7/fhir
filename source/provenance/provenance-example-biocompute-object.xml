@@ -14,19 +14,21 @@
       <display value="antiviral resistance detection"/>
   </reason>
 
-<agent>
+  <agent>
     <role>
-      <system value="http://hl7.org/fhir/provenance-participant-role"/>
-      <code value="author"/>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <code value="AUT"/>
+      </coding>
     </role>
     <whoReference>
     <reference value="Practitioner/example"/>
   </whoReference>
   </agent>
 
-<entity>
-  <role value="source"/>
-  <whatIdentifier>
+  <entity>
+    <role value="source"/>
+    <whatIdentifier>
 <!--    <reference value="https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1"/>  todo: this is not legal; fix once definition is fixed -->
       <type>
         <coding>
@@ -36,6 +38,6 @@
         </coding>
       </type>
       <value value="https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1"/>
-  </whatIdentifier>
-</entity>
+    </whatIdentifier>
+  </entity>
 </Provenance>

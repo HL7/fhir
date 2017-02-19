@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -784,7 +784,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Protocol or definition followed by this request.
      */
-    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class, HealthcareService.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Protocol or definition", formalDefinition="Protocol or definition followed by this request." )
     protected List<Reference> definition;
     /**
@@ -935,7 +935,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class, HealthcareService.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Requested perfomer", formalDefinition="The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc." )
     protected Reference performer;
 
@@ -2317,7 +2317,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition|HealthcareService)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("basedOn", "Reference(Any)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("replaces", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
         childrenList.add(new Property("requisition", "Identifier", "A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, java.lang.Integer.MAX_VALUE, requisition));
@@ -2334,7 +2334,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("authoredOn", "dateTime", "When the request transitioned to being actionable.", 0, java.lang.Integer.MAX_VALUE, authoredOn));
         childrenList.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the diagnostic testing.", 0, java.lang.Integer.MAX_VALUE, performerType));
-        childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)", "The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
@@ -2932,7 +2932,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ProcedureRequest.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="ProcedureRequest.performer", description="Requested perfomer", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="performer", path="ProcedureRequest.performer", description="Requested perfomer", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, HealthcareService.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
@@ -3240,7 +3240,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ProcedureRequest.definition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="definition", path="ProcedureRequest.definition", description="Protocol or definition", type="reference", target={ActivityDefinition.class, HealthcareService.class, PlanDefinition.class } )
+  @SearchParamDefinition(name="definition", path="ProcedureRequest.definition", description="Protocol or definition", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
   public static final String SP_DEFINITION = "definition";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>definition</b>

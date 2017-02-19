@@ -2,8 +2,7 @@
 	<!--This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen -->
 	<id value="example1"/>
 	<contained>
-		<!-- using contained resource for the purpose of this example only typically this would be a separate independent resource
-     -->
+		<!-- using contained resource for the purpose of this example only typically this would be a separate independent resource -->
 		<Provenance>
 			<id value="signature"/>
 			<target>
@@ -12,8 +11,10 @@
 			<recorded value="2016-10-31T08:25:05+10:00"/>
 			<agent>
 				<role>
-					<system value="http://hl7.org/fhir/provenance-participant-role"/>
-					<code value="author"/>
+					<coding>
+						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+						<code value="AUT"/>
+					</coding>
 				</role>
 				<whoReference>
 					<reference value="Practitioner/f202"/>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3361,13 +3361,25 @@ public class Claim extends DomainResource {
         protected List<CodeableConcept> subSite;
 
         /**
+         * A billed item may include goods or services provided in multiple encounters.
+         */
+        @Child(name = "encounter", type = {Encounter.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Encounters related to this billed item", formalDefinition="A billed item may include goods or services provided in multiple encounters." )
+        protected List<Reference> encounter;
+        /**
+         * The actual objects that are the target of the reference (A billed item may include goods or services provided in multiple encounters.)
+         */
+        protected List<Encounter> encounterTarget;
+
+
+        /**
          * Second tier of goods and services.
          */
-        @Child(name = "detail", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "detail", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
-        private static final long serialVersionUID = -1952982652L;
+        private static final long serialVersionUID = 784765825L;
 
     /**
      * Constructor
@@ -4246,6 +4258,81 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @return {@link #encounter} (A billed item may include goods or services provided in multiple encounters.)
+         */
+        public List<Reference> getEncounter() { 
+          if (this.encounter == null)
+            this.encounter = new ArrayList<Reference>();
+          return this.encounter;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ItemComponent setEncounter(List<Reference> theEncounter) { 
+          this.encounter = theEncounter;
+          return this;
+        }
+
+        public boolean hasEncounter() { 
+          if (this.encounter == null)
+            return false;
+          for (Reference item : this.encounter)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Reference addEncounter() { //3
+          Reference t = new Reference();
+          if (this.encounter == null)
+            this.encounter = new ArrayList<Reference>();
+          this.encounter.add(t);
+          return t;
+        }
+
+        public ItemComponent addEncounter(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.encounter == null)
+            this.encounter = new ArrayList<Reference>();
+          this.encounter.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #encounter}, creating it if it does not already exist
+         */
+        public Reference getEncounterFirstRep() { 
+          if (getEncounter().isEmpty()) {
+            addEncounter();
+          }
+          return getEncounter().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
+        public List<Encounter> getEncounterTarget() { 
+          if (this.encounterTarget == null)
+            this.encounterTarget = new ArrayList<Encounter>();
+          return this.encounterTarget;
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
+        public Encounter addEncounterTarget() { 
+          Encounter r = new Encounter();
+          if (this.encounterTarget == null)
+            this.encounterTarget = new ArrayList<Encounter>();
+          this.encounterTarget.add(r);
+          return r;
+        }
+
+        /**
          * @return {@link #detail} (Second tier of goods and services.)
          */
         public List<DetailComponent> getDetail() { 
@@ -4319,6 +4406,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "CodeableConcept", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("subSite", "CodeableConcept", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subSite));
+          childrenList.add(new Property("encounter", "Reference(Encounter)", "A billed item may include goods or services provided in multiple encounters.", 0, java.lang.Integer.MAX_VALUE, encounter));
           childrenList.add(new Property("detail", "", "Second tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
@@ -4344,6 +4432,7 @@ public class Claim extends DomainResource {
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : this.udi.toArray(new Base[this.udi.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
         case -1868566105: /*subSite*/ return this.subSite == null ? new Base[0] : this.subSite.toArray(new Base[this.subSite.size()]); // CodeableConcept
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : this.encounter.toArray(new Base[this.encounter.size()]); // Reference
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // DetailComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -4410,6 +4499,9 @@ public class Claim extends DomainResource {
         case -1868566105: // subSite
           this.getSubSite().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
+        case 1524132147: // encounter
+          this.getEncounter().add(castToReference(value)); // Reference
+          return value;
         case -1335224239: // detail
           this.getDetail().add((DetailComponent) value); // DetailComponent
           return value;
@@ -4458,6 +4550,8 @@ public class Claim extends DomainResource {
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("subSite")) {
           this.getSubSite().add(castToCodeableConcept(value));
+        } else if (name.equals("encounter")) {
+          this.getEncounter().add(castToReference(value));
         } else if (name.equals("detail")) {
           this.getDetail().add((DetailComponent) value);
         } else
@@ -4489,6 +4583,7 @@ public class Claim extends DomainResource {
         case 115642:  return addUdi(); 
         case 1702620169:  return getBodySite(); 
         case -1868566105:  return addSubSite(); 
+        case 1524132147:  return addEncounter(); 
         case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
@@ -4517,6 +4612,7 @@ public class Claim extends DomainResource {
         case 115642: /*udi*/ return new String[] {"Reference"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -1868566105: /*subSite*/ return new String[] {"CodeableConcept"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case -1335224239: /*detail*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -4603,6 +4699,9 @@ public class Claim extends DomainResource {
         else if (name.equals("subSite")) {
           return addSubSite();
         }
+        else if (name.equals("encounter")) {
+          return addEncounter();
+        }
         else if (name.equals("detail")) {
           return addDetail();
         }
@@ -4664,6 +4763,11 @@ public class Claim extends DomainResource {
           for (CodeableConcept i : subSite)
             dst.subSite.add(i.copy());
         };
+        if (encounter != null) {
+          dst.encounter = new ArrayList<Reference>();
+          for (Reference i : encounter)
+            dst.encounter.add(i.copy());
+        };
         if (detail != null) {
           dst.detail = new ArrayList<DetailComponent>();
           for (DetailComponent i : detail)
@@ -4686,7 +4790,8 @@ public class Claim extends DomainResource {
            && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true) && compareDeep(location, o.location, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
            && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(subSite, o.subSite, true) && compareDeep(detail, o.detail, true);
+           && compareDeep(subSite, o.subSite, true) && compareDeep(encounter, o.encounter, true) && compareDeep(detail, o.detail, true)
+          ;
       }
 
       @Override
@@ -4706,7 +4811,7 @@ public class Claim extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, careTeamLinkId, diagnosisLinkId
           , procedureLinkId, informationLinkId, revenue, category, service, modifier, programCode
           , serviced, location, quantity, unitPrice, factor, net, udi, bodySite, subSite
-          , detail);
+          , encounter, detail);
       }
 
   public String fhirType() {

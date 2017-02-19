@@ -28,8 +28,10 @@
   <!-- signer = Harold Hippocrates -->
   <agent>
     <role>
-      <system value="http://hl7.org/fhir/provenance-participant-role"/>
-      <code value="verifier"/>
+      <coding>
+        <system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
+        <code value="VERF"/>
+      </coding>
     </role>
 
     <!-- very often, the user won't have a known system - these aren't available 

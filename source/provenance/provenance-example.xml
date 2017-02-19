@@ -32,8 +32,10 @@
 	<!-- author = Harold Hippocrates -->
 	<agent>
 		<role>
-			<system value="http://hl7.org/fhir/provenance-participant-role"/>
-			<code value="author"/>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<code value="AUT"/>
+			</coding>
 		</role>
 		<whoReference>
 			<reference value="Practitioner/xcda-author"/>
@@ -47,8 +49,10 @@
 	<!-- device = software Harold used -->
 	<agent id="a1">
 		<role>
-			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
-			<code value="DEV"/>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<code value="DEV"/>
+			</coding>
 		</role>
 		<whoReference>
 			<reference value="Device/software"/>

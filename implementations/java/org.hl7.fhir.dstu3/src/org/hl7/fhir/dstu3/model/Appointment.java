@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -908,50 +908,74 @@ public class Appointment extends DomainResource {
     /**
      * The reason that this appointment is being scheduled. This is more clinical than administrative.
      */
-    @Child(name = "reason", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reason", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reason this appointment is scheduled", formalDefinition="The reason that this appointment is being scheduled. This is more clinical than administrative." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-reason")
-    protected CodeableConcept reason;
+    protected List<CodeableConcept> reason;
+
+    /**
+     * Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
+     */
+    @Child(name = "indication", type = {Condition.class, Procedure.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Reason the appointment is to takes place (resource)", formalDefinition="Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure." )
+    protected List<Reference> indication;
+    /**
+     * The actual objects that are the target of the reference (Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+     */
+    protected List<Resource> indicationTarget;
+
 
     /**
      * The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).
      */
-    @Child(name = "priority", type = {UnsignedIntType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "priority", type = {UnsignedIntType.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Used to make informed decisions if needing to re-prioritize", formalDefinition="The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)." )
     protected UnsignedIntType priority;
 
     /**
      * The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.
      */
-    @Child(name = "description", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "description", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Shown on a subject line in a meeting request, or appointment list", formalDefinition="The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field." )
     protected StringType description;
 
     /**
+     * Additional information to support the appointment provided when making the appointment.
+     */
+    @Child(name = "supportingInformation", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Additional information to support the appointment", formalDefinition="Additional information to support the appointment provided when making the appointment." )
+    protected List<Reference> supportingInformation;
+    /**
+     * The actual objects that are the target of the reference (Additional information to support the appointment provided when making the appointment.)
+     */
+    protected List<Resource> supportingInformationTarget;
+
+
+    /**
      * Date/Time that the appointment is to take place.
      */
-    @Child(name = "start", type = {InstantType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "start", type = {InstantType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When appointment is to take place", formalDefinition="Date/Time that the appointment is to take place." )
     protected InstantType start;
 
     /**
      * Date/Time that the appointment is to conclude.
      */
-    @Child(name = "end", type = {InstantType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "end", type = {InstantType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When appointment is to conclude", formalDefinition="Date/Time that the appointment is to conclude." )
     protected InstantType end;
 
     /**
      * Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).
      */
-    @Child(name = "minutesDuration", type = {PositiveIntType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "minutesDuration", type = {PositiveIntType.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Can be less than start/end (e.g. estimate)", formalDefinition="Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)." )
     protected PositiveIntType minutesDuration;
 
     /**
      * The slots from the participants' schedules that will be filled by the appointment.
      */
-    @Child(name = "slot", type = {Slot.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "slot", type = {Slot.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="The slots that this appointment is filling", formalDefinition="The slots from the participants' schedules that will be filled by the appointment." )
     protected List<Reference> slot;
     /**
@@ -963,32 +987,44 @@ public class Appointment extends DomainResource {
     /**
      * The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "created", type = {DateTimeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The date that this appointment was initially created", formalDefinition="The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment." )
     protected DateTimeType created;
 
     /**
      * Additional comments about the appointment.
      */
-    @Child(name = "comment", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "comment", type = {StringType.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Additional comments", formalDefinition="Additional comments about the appointment." )
     protected StringType comment;
 
     /**
+     * The referral request this appointment is allocated to assess (incoming referral).
+     */
+    @Child(name = "incomingReferral", type = {ReferralRequest.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="The ReferralRequest provided as information to allocate to the Encounter", formalDefinition="The referral request this appointment is allocated to assess (incoming referral)." )
+    protected List<Reference> incomingReferral;
+    /**
+     * The actual objects that are the target of the reference (The referral request this appointment is allocated to assess (incoming referral).)
+     */
+    protected List<ReferralRequest> incomingReferralTarget;
+
+
+    /**
      * List of participants involved in the appointment.
      */
-    @Child(name = "participant", type = {}, order=15, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "participant", type = {}, order=18, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Participants involved in appointment", formalDefinition="List of participants involved in the appointment." )
     protected List<AppointmentParticipantComponent> participant;
 
     /**
      * A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
      */
-    @Child(name = "requestedPeriod", type = {Period.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "requestedPeriod", type = {Period.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Potential date/time interval(s) requested to allocate the appointment during", formalDefinition="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time." )
     protected List<Period> requestedPeriod;
 
-    private static final long serialVersionUID = -1430302122L;
+    private static final long serialVersionUID = -1589372810L;
 
   /**
    * Constructor
@@ -1260,25 +1296,117 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #reason} (The reason that this appointment is being scheduled. This is more clinical than administrative.)
      */
-    public CodeableConcept getReason() { 
+    public List<CodeableConcept> getReason() { 
       if (this.reason == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Appointment.reason");
-        else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept(); // cc
+        this.reason = new ArrayList<CodeableConcept>();
       return this.reason;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setReason(List<CodeableConcept> theReason) { 
+      this.reason = theReason;
+      return this;
+    }
+
     public boolean hasReason() { 
-      return this.reason != null && !this.reason.isEmpty();
+      if (this.reason == null)
+        return false;
+      for (CodeableConcept item : this.reason)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addReason() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
+      return t;
+    }
+
+    public Appointment addReason(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #reason} (The reason that this appointment is being scheduled. This is more clinical than administrative.)
+     * @return The first repetition of repeating field {@link #reason}, creating it if it does not already exist
      */
-    public Appointment setReason(CodeableConcept value) { 
-      this.reason = value;
+    public CodeableConcept getReasonFirstRep() { 
+      if (getReason().isEmpty()) {
+        addReason();
+      }
+      return getReason().get(0);
+    }
+
+    /**
+     * @return {@link #indication} (Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+     */
+    public List<Reference> getIndication() { 
+      if (this.indication == null)
+        this.indication = new ArrayList<Reference>();
+      return this.indication;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setIndication(List<Reference> theIndication) { 
+      this.indication = theIndication;
       return this;
+    }
+
+    public boolean hasIndication() { 
+      if (this.indication == null)
+        return false;
+      for (Reference item : this.indication)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addIndication() { //3
+      Reference t = new Reference();
+      if (this.indication == null)
+        this.indication = new ArrayList<Reference>();
+      this.indication.add(t);
+      return t;
+    }
+
+    public Appointment addIndication(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.indication == null)
+        this.indication = new ArrayList<Reference>();
+      this.indication.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #indication}, creating it if it does not already exist
+     */
+    public Reference getIndicationFirstRep() { 
+      if (getIndication().isEmpty()) {
+        addIndication();
+      }
+      return getIndication().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getIndicationTarget() { 
+      if (this.indicationTarget == null)
+        this.indicationTarget = new ArrayList<Resource>();
+      return this.indicationTarget;
     }
 
     /**
@@ -1373,6 +1501,69 @@ public class Appointment extends DomainResource {
         this.description.setValue(value);
       }
       return this;
+    }
+
+    /**
+     * @return {@link #supportingInformation} (Additional information to support the appointment provided when making the appointment.)
+     */
+    public List<Reference> getSupportingInformation() { 
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      return this.supportingInformation;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setSupportingInformation(List<Reference> theSupportingInformation) { 
+      this.supportingInformation = theSupportingInformation;
+      return this;
+    }
+
+    public boolean hasSupportingInformation() { 
+      if (this.supportingInformation == null)
+        return false;
+      for (Reference item : this.supportingInformation)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addSupportingInformation() { //3
+      Reference t = new Reference();
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return t;
+    }
+
+    public Appointment addSupportingInformation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.supportingInformation == null)
+        this.supportingInformation = new ArrayList<Reference>();
+      this.supportingInformation.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
+     */
+    public Reference getSupportingInformationFirstRep() { 
+      if (getSupportingInformation().isEmpty()) {
+        addSupportingInformation();
+      }
+      return getSupportingInformation().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getSupportingInformationTarget() { 
+      if (this.supportingInformationTarget == null)
+        this.supportingInformationTarget = new ArrayList<Resource>();
+      return this.supportingInformationTarget;
     }
 
     /**
@@ -1692,6 +1883,81 @@ public class Appointment extends DomainResource {
     }
 
     /**
+     * @return {@link #incomingReferral} (The referral request this appointment is allocated to assess (incoming referral).)
+     */
+    public List<Reference> getIncomingReferral() { 
+      if (this.incomingReferral == null)
+        this.incomingReferral = new ArrayList<Reference>();
+      return this.incomingReferral;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Appointment setIncomingReferral(List<Reference> theIncomingReferral) { 
+      this.incomingReferral = theIncomingReferral;
+      return this;
+    }
+
+    public boolean hasIncomingReferral() { 
+      if (this.incomingReferral == null)
+        return false;
+      for (Reference item : this.incomingReferral)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addIncomingReferral() { //3
+      Reference t = new Reference();
+      if (this.incomingReferral == null)
+        this.incomingReferral = new ArrayList<Reference>();
+      this.incomingReferral.add(t);
+      return t;
+    }
+
+    public Appointment addIncomingReferral(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.incomingReferral == null)
+        this.incomingReferral = new ArrayList<Reference>();
+      this.incomingReferral.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #incomingReferral}, creating it if it does not already exist
+     */
+    public Reference getIncomingReferralFirstRep() { 
+      if (getIncomingReferral().isEmpty()) {
+        addIncomingReferral();
+      }
+      return getIncomingReferral().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<ReferralRequest> getIncomingReferralTarget() { 
+      if (this.incomingReferralTarget == null)
+        this.incomingReferralTarget = new ArrayList<ReferralRequest>();
+      return this.incomingReferralTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public ReferralRequest addIncomingReferralTarget() { 
+      ReferralRequest r = new ReferralRequest();
+      if (this.incomingReferralTarget == null)
+        this.incomingReferralTarget = new ArrayList<ReferralRequest>();
+      this.incomingReferralTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #participant} (List of participants involved in the appointment.)
      */
     public List<AppointmentParticipantComponent> getParticipant() { 
@@ -1806,14 +2072,17 @@ public class Appointment extends DomainResource {
         childrenList.add(new Property("specialty", "CodeableConcept", "The specialty of a practitioner that would be required to perform the service requested in this appointment.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("appointmentType", "CodeableConcept", "The style of appointment or patient that has been booked in the slot (not service type).", 0, java.lang.Integer.MAX_VALUE, appointmentType));
         childrenList.add(new Property("reason", "CodeableConcept", "The reason that this appointment is being scheduled. This is more clinical than administrative.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("indication", "Reference(Condition|Procedure)", "Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.", 0, java.lang.Integer.MAX_VALUE, indication));
         childrenList.add(new Property("priority", "unsignedInt", "The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("description", "string", "The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information to support the appointment provided when making the appointment.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("start", "instant", "Date/Time that the appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the appointment is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("minutesDuration", "positiveInt", "Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).", 0, java.lang.Integer.MAX_VALUE, minutesDuration));
         childrenList.add(new Property("slot", "Reference(Slot)", "The slots from the participants' schedules that will be filled by the appointment.", 0, java.lang.Integer.MAX_VALUE, slot));
         childrenList.add(new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
+        childrenList.add(new Property("incomingReferral", "Reference(ReferralRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral));
         childrenList.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod));
       }
@@ -1827,15 +2096,18 @@ public class Appointment extends DomainResource {
         case -1928370289: /*serviceType*/ return this.serviceType == null ? new Base[0] : this.serviceType.toArray(new Base[this.serviceType.size()]); // CodeableConcept
         case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
         case -1596426375: /*appointmentType*/ return this.appointmentType == null ? new Base[0] : new Base[] {this.appointmentType}; // CodeableConcept
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -597168804: /*indication*/ return this.indication == null ? new Base[0] : this.indication.toArray(new Base[this.indication.size()]); // Reference
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // UnsignedIntType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // InstantType
         case 100571: /*end*/ return this.end == null ? new Base[0] : new Base[] {this.end}; // InstantType
         case -413630573: /*minutesDuration*/ return this.minutesDuration == null ? new Base[0] : new Base[] {this.minutesDuration}; // PositiveIntType
         case 3533310: /*slot*/ return this.slot == null ? new Base[0] : this.slot.toArray(new Base[this.slot.size()]); // Reference
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
         case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case -1258204701: /*incomingReferral*/ return this.incomingReferral == null ? new Base[0] : this.incomingReferral.toArray(new Base[this.incomingReferral.size()]); // Reference
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // AppointmentParticipantComponent
         case -897241393: /*requestedPeriod*/ return this.requestedPeriod == null ? new Base[0] : this.requestedPeriod.toArray(new Base[this.requestedPeriod.size()]); // Period
         default: return super.getProperty(hash, name, checkValid);
@@ -1866,13 +2138,19 @@ public class Appointment extends DomainResource {
           this.appointmentType = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -934964668: // reason
-          this.reason = castToCodeableConcept(value); // CodeableConcept
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case -597168804: // indication
+          this.getIndication().add(castToReference(value)); // Reference
           return value;
         case -1165461084: // priority
           this.priority = castToUnsignedInt(value); // UnsignedIntType
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
+          return value;
+        case -1248768647: // supportingInformation
+          this.getSupportingInformation().add(castToReference(value)); // Reference
           return value;
         case 109757538: // start
           this.start = castToInstant(value); // InstantType
@@ -1891,6 +2169,9 @@ public class Appointment extends DomainResource {
           return value;
         case 950398559: // comment
           this.comment = castToString(value); // StringType
+          return value;
+        case -1258204701: // incomingReferral
+          this.getIncomingReferral().add(castToReference(value)); // Reference
           return value;
         case 767422259: // participant
           this.getParticipant().add((AppointmentParticipantComponent) value); // AppointmentParticipantComponent
@@ -1919,11 +2200,15 @@ public class Appointment extends DomainResource {
         } else if (name.equals("appointmentType")) {
           this.appointmentType = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("reason")) {
-          this.reason = castToCodeableConcept(value); // CodeableConcept
+          this.getReason().add(castToCodeableConcept(value));
+        } else if (name.equals("indication")) {
+          this.getIndication().add(castToReference(value));
         } else if (name.equals("priority")) {
           this.priority = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
+        } else if (name.equals("supportingInformation")) {
+          this.getSupportingInformation().add(castToReference(value));
         } else if (name.equals("start")) {
           this.start = castToInstant(value); // InstantType
         } else if (name.equals("end")) {
@@ -1936,6 +2221,8 @@ public class Appointment extends DomainResource {
           this.created = castToDateTime(value); // DateTimeType
         } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
+        } else if (name.equals("incomingReferral")) {
+          this.getIncomingReferral().add(castToReference(value));
         } else if (name.equals("participant")) {
           this.getParticipant().add((AppointmentParticipantComponent) value);
         } else if (name.equals("requestedPeriod")) {
@@ -1954,15 +2241,18 @@ public class Appointment extends DomainResource {
         case -1928370289:  return addServiceType(); 
         case -1694759682:  return addSpecialty(); 
         case -1596426375:  return getAppointmentType(); 
-        case -934964668:  return getReason(); 
+        case -934964668:  return addReason(); 
+        case -597168804:  return addIndication(); 
         case -1165461084:  return getPriorityElement();
         case -1724546052:  return getDescriptionElement();
+        case -1248768647:  return addSupportingInformation(); 
         case 109757538:  return getStartElement();
         case 100571:  return getEndElement();
         case -413630573:  return getMinutesDurationElement();
         case 3533310:  return addSlot(); 
         case 1028554472:  return getCreatedElement();
         case 950398559:  return getCommentElement();
+        case -1258204701:  return addIncomingReferral(); 
         case 767422259:  return addParticipant(); 
         case -897241393:  return addRequestedPeriod(); 
         default: return super.makeProperty(hash, name);
@@ -1980,14 +2270,17 @@ public class Appointment extends DomainResource {
         case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
         case -1596426375: /*appointmentType*/ return new String[] {"CodeableConcept"};
         case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case -597168804: /*indication*/ return new String[] {"Reference"};
         case -1165461084: /*priority*/ return new String[] {"unsignedInt"};
         case -1724546052: /*description*/ return new String[] {"string"};
+        case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
         case 109757538: /*start*/ return new String[] {"instant"};
         case 100571: /*end*/ return new String[] {"instant"};
         case -413630573: /*minutesDuration*/ return new String[] {"positiveInt"};
         case 3533310: /*slot*/ return new String[] {"Reference"};
         case 1028554472: /*created*/ return new String[] {"dateTime"};
         case 950398559: /*comment*/ return new String[] {"string"};
+        case -1258204701: /*incomingReferral*/ return new String[] {"Reference"};
         case 767422259: /*participant*/ return new String[] {};
         case -897241393: /*requestedPeriod*/ return new String[] {"Period"};
         default: return super.getTypesForProperty(hash, name);
@@ -2018,14 +2311,19 @@ public class Appointment extends DomainResource {
           return this.appointmentType;
         }
         else if (name.equals("reason")) {
-          this.reason = new CodeableConcept();
-          return this.reason;
+          return addReason();
+        }
+        else if (name.equals("indication")) {
+          return addIndication();
         }
         else if (name.equals("priority")) {
           throw new FHIRException("Cannot call addChild on a primitive type Appointment.priority");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type Appointment.description");
+        }
+        else if (name.equals("supportingInformation")) {
+          return addSupportingInformation();
         }
         else if (name.equals("start")) {
           throw new FHIRException("Cannot call addChild on a primitive type Appointment.start");
@@ -2044,6 +2342,9 @@ public class Appointment extends DomainResource {
         }
         else if (name.equals("comment")) {
           throw new FHIRException("Cannot call addChild on a primitive type Appointment.comment");
+        }
+        else if (name.equals("incomingReferral")) {
+          return addIncomingReferral();
         }
         else if (name.equals("participant")) {
           return addParticipant();
@@ -2081,9 +2382,23 @@ public class Appointment extends DomainResource {
             dst.specialty.add(i.copy());
         };
         dst.appointmentType = appointmentType == null ? null : appointmentType.copy();
-        dst.reason = reason == null ? null : reason.copy();
+        if (reason != null) {
+          dst.reason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reason)
+            dst.reason.add(i.copy());
+        };
+        if (indication != null) {
+          dst.indication = new ArrayList<Reference>();
+          for (Reference i : indication)
+            dst.indication.add(i.copy());
+        };
         dst.priority = priority == null ? null : priority.copy();
         dst.description = description == null ? null : description.copy();
+        if (supportingInformation != null) {
+          dst.supportingInformation = new ArrayList<Reference>();
+          for (Reference i : supportingInformation)
+            dst.supportingInformation.add(i.copy());
+        };
         dst.start = start == null ? null : start.copy();
         dst.end = end == null ? null : end.copy();
         dst.minutesDuration = minutesDuration == null ? null : minutesDuration.copy();
@@ -2094,6 +2409,11 @@ public class Appointment extends DomainResource {
         };
         dst.created = created == null ? null : created.copy();
         dst.comment = comment == null ? null : comment.copy();
+        if (incomingReferral != null) {
+          dst.incomingReferral = new ArrayList<Reference>();
+          for (Reference i : incomingReferral)
+            dst.incomingReferral.add(i.copy());
+        };
         if (participant != null) {
           dst.participant = new ArrayList<AppointmentParticipantComponent>();
           for (AppointmentParticipantComponent i : participant)
@@ -2120,11 +2440,12 @@ public class Appointment extends DomainResource {
         Appointment o = (Appointment) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(serviceCategory, o.serviceCategory, true)
            && compareDeep(serviceType, o.serviceType, true) && compareDeep(specialty, o.specialty, true) && compareDeep(appointmentType, o.appointmentType, true)
-           && compareDeep(reason, o.reason, true) && compareDeep(priority, o.priority, true) && compareDeep(description, o.description, true)
+           && compareDeep(reason, o.reason, true) && compareDeep(indication, o.indication, true) && compareDeep(priority, o.priority, true)
+           && compareDeep(description, o.description, true) && compareDeep(supportingInformation, o.supportingInformation, true)
            && compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(minutesDuration, o.minutesDuration, true)
            && compareDeep(slot, o.slot, true) && compareDeep(created, o.created, true) && compareDeep(comment, o.comment, true)
-           && compareDeep(participant, o.participant, true) && compareDeep(requestedPeriod, o.requestedPeriod, true)
-          ;
+           && compareDeep(incomingReferral, o.incomingReferral, true) && compareDeep(participant, o.participant, true)
+           && compareDeep(requestedPeriod, o.requestedPeriod, true);
       }
 
       @Override
@@ -2141,8 +2462,9 @@ public class Appointment extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, serviceCategory
-          , serviceType, specialty, appointmentType, reason, priority, description, start
-          , end, minutesDuration, slot, created, comment, participant, requestedPeriod);
+          , serviceType, specialty, appointmentType, reason, indication, priority, description
+          , supportingInformation, start, end, minutesDuration, slot, created, comment, incomingReferral
+          , participant, requestedPeriod);
       }
 
   @Override
@@ -2241,6 +2563,32 @@ public class Appointment extends DomainResource {
    * the path value of "<b>Appointment:practitioner</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("Appointment:practitioner").toLocked();
+
+ /**
+   * Search parameter: <b>incomingreferral</b>
+   * <p>
+   * Description: <b>The ReferralRequest provided as information to allocate to the Encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.incomingReferral</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="incomingreferral", path="Appointment.incomingReferral", description="The ReferralRequest provided as information to allocate to the Encounter", type="reference", target={ReferralRequest.class } )
+  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
+   * <p>
+   * Description: <b>The ReferralRequest provided as information to allocate to the Encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.incomingReferral</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Appointment:incomingreferral</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("Appointment:incomingreferral").toLocked();
 
  /**
    * Search parameter: <b>part-status</b>

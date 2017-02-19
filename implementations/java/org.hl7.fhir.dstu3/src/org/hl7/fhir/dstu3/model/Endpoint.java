@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -277,10 +277,10 @@ public class Endpoint extends DomainResource {
     protected List<CodeType> payloadMimeType;
 
     /**
-     * The uri that describes the actual end-point to send messages to.
+     * The uri that describes the actual end-point to connect to.
      */
     @Child(name = "address", type = {UriType.class}, order=9, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The technical address for conneccting to this endpoint", formalDefinition="The uri that describes the actual end-point to send messages to." )
+    @Description(shortDefinition="The technical base address for connecting to this endpoint", formalDefinition="The uri that describes the actual end-point to connect to." )
     protected UriType address;
 
     /**
@@ -716,7 +716,7 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @return {@link #address} (The uri that describes the actual end-point to send messages to.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
+     * @return {@link #address} (The uri that describes the actual end-point to connect to.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
      */
     public UriType getAddressElement() { 
       if (this.address == null)
@@ -736,7 +736,7 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @param value {@link #address} (The uri that describes the actual end-point to send messages to.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
+     * @param value {@link #address} (The uri that describes the actual end-point to connect to.). This is the underlying object with id, value and extensions. The accessor "getAddress" gives direct access to the value
      */
     public Endpoint setAddressElement(UriType value) { 
       this.address = value;
@@ -744,14 +744,14 @@ public class Endpoint extends DomainResource {
     }
 
     /**
-     * @return The uri that describes the actual end-point to send messages to.
+     * @return The uri that describes the actual end-point to connect to.
      */
     public String getAddress() { 
       return this.address == null ? null : this.address.getValue();
     }
 
     /**
-     * @param value The uri that describes the actual end-point to send messages to.
+     * @param value The uri that describes the actual end-point to connect to.
      */
     public Endpoint setAddress(String value) { 
         if (this.address == null)
@@ -832,7 +832,7 @@ public class Endpoint extends DomainResource {
         childrenList.add(new Property("period", "Period", "The interval during which the endpoint is expected to be operational.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("payloadType", "CodeableConcept", "The payload type describes the acceptable content that can be communicated on the endpoint.", 0, java.lang.Integer.MAX_VALUE, payloadType));
         childrenList.add(new Property("payloadMimeType", "code", "The mime type to send the payload in - e.g. application/fhir+xml, application/fhir+json. If the mime type is not specified, then the sender could send any content (including no content depending on the connectionType).", 0, java.lang.Integer.MAX_VALUE, payloadMimeType));
-        childrenList.add(new Property("address", "uri", "The uri that describes the actual end-point to send messages to.", 0, java.lang.Integer.MAX_VALUE, address));
+        childrenList.add(new Property("address", "uri", "The uri that describes the actual end-point to connect to.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("header", "string", "Additional headers / information to send as part of the notification.", 0, java.lang.Integer.MAX_VALUE, header));
       }
 

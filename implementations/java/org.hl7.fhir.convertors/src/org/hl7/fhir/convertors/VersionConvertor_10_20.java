@@ -2034,7 +2034,7 @@ public class VersionConvertor_10_20 {
     tgt.setActive(convertPeriod(src.getActivePeriod()));
     tgt.setCurrency(convertCoding(src.getCurrency()));
     tgt.setBalance(convertMoney(src.getBalance()));
-    tgt.setCoveragePeriod(convertPeriod(src.getCoveragePeriod()));
+//    tgt.setCoveragePeriod(convertPeriod(src.getCoveragePeriod()));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setOwner(convertReference(src.getOwner()));
     tgt.setDescription(src.getDescription());
@@ -2054,7 +2054,7 @@ public class VersionConvertor_10_20 {
     tgt.setActivePeriod(convertPeriod(src.getActive()));
     tgt.setCurrency(convertCoding(src.getCurrency()));
     tgt.setBalance(convertMoney(src.getBalance()));
-    tgt.setCoveragePeriod(convertPeriod(src.getCoveragePeriod()));
+//    tgt.setCoveragePeriod(convertPeriod(src.getCoveragePeriod()));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setOwner(convertReference(src.getOwner()));
     tgt.setDescription(src.getDescription());
@@ -2092,7 +2092,7 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertAppointmentStatus(src.getStatus()));
     if (src.hasType())
       tgt.addServiceType(convertCodeableConcept(src.getType()));
-    tgt.setReason(convertCodeableConcept(src.getReason()));
+//    tgt.setReason(convertCodeableConcept(src.getReason()));
     tgt.setPriority(src.getPriority());
     tgt.setDescription(src.getDescription());
     tgt.setStart(src.getStart());
@@ -2116,7 +2116,7 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertAppointmentStatus(src.getStatus()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getServiceType())
       tgt.setType(convertCodeableConcept(t));
-    tgt.setReason(convertCodeableConcept(src.getReason()));
+//    tgt.setReason(convertCodeableConcept(src.getReason()));
     tgt.setPriority(src.getPriority());
     tgt.setDescription(src.getDescription());
     tgt.setStart(src.getStart());
@@ -6033,7 +6033,7 @@ public class VersionConvertor_10_20 {
     case ENTEREDINERROR: cc.addCoding(). setSystem("http://hl7.org/fhir/composition-status").setCode("entered-in-error"); break;
     case FINAL: cc.addCoding(). setSystem("http://hl7.org/fhir/composition-status").setCode("final"); break;
     case PRELIMINARY: cc.addCoding(). setSystem("http://hl7.org/fhir/composition-status").setCode("preliminary"); break;
-    default: return null;   
+    default: return null;
     }
     return cc;
   }
@@ -6891,15 +6891,15 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setProvidedBy(convertReference(src.getProvidedBy()));
-    tgt.setServiceCategory(convertCodeableConcept(src.getServiceCategory()));
+//    tgt.setServiceCategory(convertCodeableConcept(src.getServiceCategory()));
     for (org.hl7.fhir.dstu2.model.HealthcareService.ServiceTypeComponent t : src.getServiceType()) {
-      if (t.hasType())
-        tgt.addServiceType(convertCodeableConcept(t.getType()));
+//      if (t.hasType())
+//        tgt.addServiceType(convertCodeableConcept(t.getType()));
       for (org.hl7.fhir.dstu2.model.CodeableConcept tj : t.getSpecialty())
         tgt.addSpecialty(convertCodeableConcept(tj));
     }
     tgt.addLocation(convertReference(src.getLocation()));
-    tgt.setServiceName(src.getServiceName());
+//    tgt.setServiceName(src.getServiceName());
     tgt.setComment(src.getComment());
     tgt.setExtraDetails(src.getExtraDetails());
     tgt.setPhoto(convertAttachment(src.getPhoto()));
@@ -6917,7 +6917,7 @@ public class VersionConvertor_10_20 {
       tgt.addCharacteristic(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReferralMethod())
       tgt.addReferralMethod(convertCodeableConcept(t));
-    tgt.setPublicKey(src.getPublicKey());
+//    tgt.setPublicKey(src.getPublicKey());
     tgt.setAppointmentRequired(src.getAppointmentRequired());
     for (org.hl7.fhir.dstu2.model.HealthcareService.HealthcareServiceAvailableTimeComponent t : src.getAvailableTime())
       tgt.addAvailableTime(convertHealthcareServiceAvailableTimeComponent(t));
@@ -6935,9 +6935,9 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setProvidedBy(convertReference(src.getProvidedBy()));
-    tgt.setServiceCategory(convertCodeableConcept(src.getServiceCategory()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getServiceType())
-      tgt.addServiceType().setType(convertCodeableConcept(t));
+//    tgt.setServiceCategory(convertCodeableConcept(src.getServiceCategory()));
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getServiceType())
+//      tgt.addServiceType().setType(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getSpecialty()) {
       if (!tgt.hasServiceType())
         tgt.addServiceType();
@@ -6945,7 +6945,7 @@ public class VersionConvertor_10_20 {
     }
     for (org.hl7.fhir.dstu3.model.Reference t : src.getLocation())
       tgt.setLocation(convertReference(t));
-    tgt.setServiceName(src.getServiceName());
+//    tgt.setServiceName(src.getServiceName());
     tgt.setComment(src.getComment());
     tgt.setExtraDetails(src.getExtraDetails());
     tgt.setPhoto(convertAttachment(src.getPhoto()));
@@ -6963,7 +6963,7 @@ public class VersionConvertor_10_20 {
       tgt.addCharacteristic(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReferralMethod())
       tgt.addReferralMethod(convertCodeableConcept(t));
-    tgt.setPublicKey(src.getPublicKey());
+//    tgt.setPublicKey(src.getPublicKey());
     tgt.setAppointmentRequired(src.getAppointmentRequired());
     for (org.hl7.fhir.dstu3.model.HealthcareService.HealthcareServiceAvailableTimeComponent t : src.getAvailableTime())
       tgt.addAvailableTime(convertHealthcareServiceAvailableTimeComponent(t));
@@ -10255,7 +10255,7 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.Provenance.ProvenanceAgentComponent tgt = new org.hl7.fhir.dstu3.model.Provenance.ProvenanceAgentComponent();
     copyElement(src, tgt);
-    tgt.setRole(convertCoding(src.getRole()));
+//    tgt.setRole(convertCoding(src.getRole()));
     tgt.setWho(convertReference(src.getActor()));
     return tgt;
   }
@@ -10265,7 +10265,7 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.Provenance.ProvenanceAgentComponent tgt = new org.hl7.fhir.dstu2.model.Provenance.ProvenanceAgentComponent();
     copyElement(src, tgt);
-    tgt.setRole(convertCoding(src.getRole()));
+//    tgt.setRole(convertCoding(src.getRole()));
     if (src.hasWhoReference())
     tgt.setActor(convertReference(src.getWhoReference()));
     return tgt;

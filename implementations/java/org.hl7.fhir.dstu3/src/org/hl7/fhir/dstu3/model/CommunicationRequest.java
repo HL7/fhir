@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2539,19 +2539,39 @@ public class CommunicationRequest extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam MEDIUM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MEDIUM);
 
  /**
+   * Search parameter: <b>occurrence</b>
+   * <p>
+   * Description: <b>When scheduled</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CommunicationRequest.occurrenceDateTime</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="occurrence", path="CommunicationRequest.occurrence.as(DateTime)", description="When scheduled", type="date" )
+  public static final String SP_OCCURRENCE = "occurrence";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>occurrence</b>
+   * <p>
+   * Description: <b>When scheduled</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CommunicationRequest.occurrenceDateTime</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam OCCURRENCE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_OCCURRENCE);
+
+ /**
    * Search parameter: <b>encounter</b>
    * <p>
-   * Description: <b>Encounter or episode leading to message</b><br>
+   * Description: <b>Encounter leading to message</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CommunicationRequest.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="CommunicationRequest.context", description="Encounter or episode leading to message", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="CommunicationRequest.context", description="Encounter leading to message", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
-   * Description: <b>Encounter or episode leading to message</b><br>
+   * Description: <b>Encounter leading to message</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CommunicationRequest.context</b><br>
    * </p>
@@ -2733,26 +2753,6 @@ public class CommunicationRequest extends DomainResource {
    * the path value of "<b>CommunicationRequest:context</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("CommunicationRequest:context").toLocked();
-
- /**
-   * Search parameter: <b>time</b>
-   * <p>
-   * Description: <b>When scheduled</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CommunicationRequest.occurrenceDateTime</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="time", path="CommunicationRequest.occurrence.as(DateTime)", description="When scheduled", type="date" )
-  public static final String SP_TIME = "time";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>time</b>
-   * <p>
-   * Description: <b>When scheduled</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CommunicationRequest.occurrenceDateTime</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_TIME);
 
  /**
    * Search parameter: <b>category</b>

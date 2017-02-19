@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -51,21 +51,65 @@ public class Contract extends DomainResource {
 
     public enum ContractStatus {
         /**
-         * The instance is currently in-force.
+         * Contract is augmented with additional information to correct errors in a predecessor or to updated values in a predecessor. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: revised; replaced.
          */
-        ACTIVE, 
+        AMENDED, 
         /**
-         * The instance is withdrawn, rescinded or reversed.
+         * Contract is augmented with additional information that was missing from a predecessor Contract. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: updated, replaced.
+         */
+        APPENDED, 
+        /**
+         * Contract is terminated due to failure of the Grantor and/or the Grantee to fulfil one or more contract provisions. Usage: Abnormal contract termination. Precedence Order = 10. Comparable FHIR and v.3 status codes: stopped; failed; aborted.
          */
         CANCELLED, 
         /**
-         * A new instance the contents of which is not complete.
+         * Contract is pended to rectify failure of the Grantor or the Grantee to fulfil contract provision(s). E.g., Grantee complaint about Grantor's failure to comply with contract provisions. Usage: Contract pended. Precedence Order = 7.Comparable FHIR and v.3 status codes: on hold; pended; suspended.
          */
-        DRAFT, 
+        DISPUTED, 
         /**
-         * The instance was entered in error.
+         * Contract was created in error. No Precedence Order.  Status may be applied to a Contract with any status.
          */
         ENTEREDINERROR, 
+        /**
+         * Contract execution pending; may be executed when either the Grantor or the Grantee accepts the contract provisions by signing. I.e., where either the Grantor or the Grantee has signed, but not both. E.g., when an insurance applicant signs the insurer’s application, which references the policy. Usage: Optional first step of contract execution activity.  May be skipped and contracting activity moves directly to executed state. Precedence Order = 3. Comparable FHIR and v.3 status codes: draft; preliminary; planned; intended; active.
+         */
+        EXECUTABLE, 
+        /**
+         * Contract is activated for period stipulated when both the Grantor and Grantee have signed it. Usage: Required state for normal completion of contracting activity.  Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted; completed.
+         */
+        EXECUTED, 
+        /**
+         * Contract execution is suspended while either or both the Grantor and Grantee propose and consider new or revised contract provisions. I.e., where the party which has not signed proposes changes to the terms.  E .g., a life insurer declines to agree to the signed application because the life insurer has evidence that the applicant, who asserted to being younger or a non-smoker to get a lower premium rate – but offers instead to agree to a higher premium based on the applicant’s actual age or smoking status. Usage: Optional contract activity between executable and executed state. Precedence Order = 4. Comparable FHIR and v.3 status codes: in progress; review; held.
+         */
+        NEGOTIABLE, 
+        /**
+         * Contract is a proposal by either the Grantor or the Grantee. Aka - A Contract hard copy or electronic 'template','form' or 'application'. E.g., health insurance application; consent directive form. Usage: Beginning of contract negotiation, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 2. Comparable FHIR and v.3 status codes: requested; new.
+         */
+        OFFERED, 
+        /**
+         * Contract template is available as the basis for an application or offer by the Grantor or Grantee. E.g., health insurance policy; consent directive policy.  Usage: Required initial contract activity, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 1. Comparable FHIR and v.3 status codes: proposed; intended.
+         */
+        POLICY, 
+        /**
+         *  Execution of the Contract is not completed because either or both the Grantor and Grantee decline to accept some or all of the contract provisions. Usage: Optional contract activity between executable and abnormal termination. Precedence Order = 5. Comparable FHIR and v.3 status codes:  stopped; cancelled.
+         */
+        REJECTED, 
+        /**
+         * Beginning of a successor Contract at the termination of predecessor Contract lifecycle. Usage: Follows termination of a preceding Contract that has reached its expiry date. Precedence Order = 13. Comparable FHIR and v.3 status codes: superseded.
+         */
+        RENEWED, 
+        /**
+         * A Contract that is rescinded.  May be required prior to replacing with an updated Contract. Comparable FHIR and v.3 status codes: nullified.
+         */
+        REVOKED, 
+        /**
+         * Contract is reactivated after being pended because of faulty execution. *E.g., competency of the signer(s), or where the policy is substantially different from and did not accompany the application/form so that the applicant could not compare them. Aka - ''reactivated''. Usage: Optional stage where a pended contract is reactivated. Precedence Order = 8. Comparable FHIR and v.3 status codes: reactivated.
+         */
+        RESOLVED, 
+        /**
+         * Contract reaches its expiry date. It may or may not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted.
+         */
+        TERMINATED, 
         /**
          * added to help the parsers with the generic types
          */
@@ -73,14 +117,36 @@ public class Contract extends DomainResource {
         public static ContractStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("active".equals(codeString))
-          return ACTIVE;
+        if ("amended".equals(codeString))
+          return AMENDED;
+        if ("appended".equals(codeString))
+          return APPENDED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
-        if ("draft".equals(codeString))
-          return DRAFT;
+        if ("disputed".equals(codeString))
+          return DISPUTED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("executable".equals(codeString))
+          return EXECUTABLE;
+        if ("executed".equals(codeString))
+          return EXECUTED;
+        if ("negotiable".equals(codeString))
+          return NEGOTIABLE;
+        if ("offered".equals(codeString))
+          return OFFERED;
+        if ("policy".equals(codeString))
+          return POLICY;
+        if ("rejected".equals(codeString))
+          return REJECTED;
+        if ("renewed".equals(codeString))
+          return RENEWED;
+        if ("revoked".equals(codeString))
+          return REVOKED;
+        if ("resolved".equals(codeString))
+          return RESOLVED;
+        if ("terminated".equals(codeString))
+          return TERMINATED;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -88,37 +154,81 @@ public class Contract extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case ACTIVE: return "active";
+            case AMENDED: return "amended";
+            case APPENDED: return "appended";
             case CANCELLED: return "cancelled";
-            case DRAFT: return "draft";
+            case DISPUTED: return "disputed";
             case ENTEREDINERROR: return "entered-in-error";
+            case EXECUTABLE: return "executable";
+            case EXECUTED: return "executed";
+            case NEGOTIABLE: return "negotiable";
+            case OFFERED: return "offered";
+            case POLICY: return "policy";
+            case REJECTED: return "rejected";
+            case RENEWED: return "renewed";
+            case REVOKED: return "revoked";
+            case RESOLVED: return "resolved";
+            case TERMINATED: return "terminated";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/fm-status";
-            case CANCELLED: return "http://hl7.org/fhir/fm-status";
-            case DRAFT: return "http://hl7.org/fhir/fm-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/fm-status";
+            case AMENDED: return "http://hl7.org/fhir/contract-status";
+            case APPENDED: return "http://hl7.org/fhir/contract-status";
+            case CANCELLED: return "http://hl7.org/fhir/contract-status";
+            case DISPUTED: return "http://hl7.org/fhir/contract-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/contract-status";
+            case EXECUTABLE: return "http://hl7.org/fhir/contract-status";
+            case EXECUTED: return "http://hl7.org/fhir/contract-status";
+            case NEGOTIABLE: return "http://hl7.org/fhir/contract-status";
+            case OFFERED: return "http://hl7.org/fhir/contract-status";
+            case POLICY: return "http://hl7.org/fhir/contract-status";
+            case REJECTED: return "http://hl7.org/fhir/contract-status";
+            case RENEWED: return "http://hl7.org/fhir/contract-status";
+            case REVOKED: return "http://hl7.org/fhir/contract-status";
+            case RESOLVED: return "http://hl7.org/fhir/contract-status";
+            case TERMINATED: return "http://hl7.org/fhir/contract-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "The instance is currently in-force.";
-            case CANCELLED: return "The instance is withdrawn, rescinded or reversed.";
-            case DRAFT: return "A new instance the contents of which is not complete.";
-            case ENTEREDINERROR: return "The instance was entered in error.";
+            case AMENDED: return "Contract is augmented with additional information to correct errors in a predecessor or to updated values in a predecessor. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: revised; replaced.";
+            case APPENDED: return "Contract is augmented with additional information that was missing from a predecessor Contract. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: updated, replaced.";
+            case CANCELLED: return "Contract is terminated due to failure of the Grantor and/or the Grantee to fulfil one or more contract provisions. Usage: Abnormal contract termination. Precedence Order = 10. Comparable FHIR and v.3 status codes: stopped; failed; aborted.";
+            case DISPUTED: return "Contract is pended to rectify failure of the Grantor or the Grantee to fulfil contract provision(s). E.g., Grantee complaint about Grantor's failure to comply with contract provisions. Usage: Contract pended. Precedence Order = 7.Comparable FHIR and v.3 status codes: on hold; pended; suspended.";
+            case ENTEREDINERROR: return "Contract was created in error. No Precedence Order.  Status may be applied to a Contract with any status.";
+            case EXECUTABLE: return "Contract execution pending; may be executed when either the Grantor or the Grantee accepts the contract provisions by signing. I.e., where either the Grantor or the Grantee has signed, but not both. E.g., when an insurance applicant signs the insurer’s application, which references the policy. Usage: Optional first step of contract execution activity.  May be skipped and contracting activity moves directly to executed state. Precedence Order = 3. Comparable FHIR and v.3 status codes: draft; preliminary; planned; intended; active.";
+            case EXECUTED: return "Contract is activated for period stipulated when both the Grantor and Grantee have signed it. Usage: Required state for normal completion of contracting activity.  Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted; completed.";
+            case NEGOTIABLE: return "Contract execution is suspended while either or both the Grantor and Grantee propose and consider new or revised contract provisions. I.e., where the party which has not signed proposes changes to the terms.  E .g., a life insurer declines to agree to the signed application because the life insurer has evidence that the applicant, who asserted to being younger or a non-smoker to get a lower premium rate – but offers instead to agree to a higher premium based on the applicant’s actual age or smoking status. Usage: Optional contract activity between executable and executed state. Precedence Order = 4. Comparable FHIR and v.3 status codes: in progress; review; held.";
+            case OFFERED: return "Contract is a proposal by either the Grantor or the Grantee. Aka - A Contract hard copy or electronic 'template','form' or 'application'. E.g., health insurance application; consent directive form. Usage: Beginning of contract negotiation, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 2. Comparable FHIR and v.3 status codes: requested; new.";
+            case POLICY: return "Contract template is available as the basis for an application or offer by the Grantor or Grantee. E.g., health insurance policy; consent directive policy.  Usage: Required initial contract activity, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 1. Comparable FHIR and v.3 status codes: proposed; intended.";
+            case REJECTED: return " Execution of the Contract is not completed because either or both the Grantor and Grantee decline to accept some or all of the contract provisions. Usage: Optional contract activity between executable and abnormal termination. Precedence Order = 5. Comparable FHIR and v.3 status codes:  stopped; cancelled.";
+            case RENEWED: return "Beginning of a successor Contract at the termination of predecessor Contract lifecycle. Usage: Follows termination of a preceding Contract that has reached its expiry date. Precedence Order = 13. Comparable FHIR and v.3 status codes: superseded.";
+            case REVOKED: return "A Contract that is rescinded.  May be required prior to replacing with an updated Contract. Comparable FHIR and v.3 status codes: nullified.";
+            case RESOLVED: return "Contract is reactivated after being pended because of faulty execution. *E.g., competency of the signer(s), or where the policy is substantially different from and did not accompany the application/form so that the applicant could not compare them. Aka - ''reactivated''. Usage: Optional stage where a pended contract is reactivated. Precedence Order = 8. Comparable FHIR and v.3 status codes: reactivated.";
+            case TERMINATED: return "Contract reaches its expiry date. It may or may not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case ACTIVE: return "Active";
+            case AMENDED: return "Amended";
+            case APPENDED: return "Appended";
             case CANCELLED: return "Cancelled";
-            case DRAFT: return "Draft";
-            case ENTEREDINERROR: return "Entered in Error";
+            case DISPUTED: return "Disputed";
+            case ENTEREDINERROR: return "entered-in-error";
+            case EXECUTABLE: return "Executable";
+            case EXECUTED: return "Executed";
+            case NEGOTIABLE: return "Negotiable";
+            case OFFERED: return "Offered";
+            case POLICY: return "Policy";
+            case REJECTED: return "Rejected";
+            case RENEWED: return "Renewed";
+            case REVOKED: return "Revoked";
+            case RESOLVED: return "Resolved";
+            case TERMINATED: return "Terminated";
             default: return "?";
           }
         }
@@ -129,14 +239,36 @@ public class Contract extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("active".equals(codeString))
-          return ContractStatus.ACTIVE;
+        if ("amended".equals(codeString))
+          return ContractStatus.AMENDED;
+        if ("appended".equals(codeString))
+          return ContractStatus.APPENDED;
         if ("cancelled".equals(codeString))
           return ContractStatus.CANCELLED;
-        if ("draft".equals(codeString))
-          return ContractStatus.DRAFT;
+        if ("disputed".equals(codeString))
+          return ContractStatus.DISPUTED;
         if ("entered-in-error".equals(codeString))
           return ContractStatus.ENTEREDINERROR;
+        if ("executable".equals(codeString))
+          return ContractStatus.EXECUTABLE;
+        if ("executed".equals(codeString))
+          return ContractStatus.EXECUTED;
+        if ("negotiable".equals(codeString))
+          return ContractStatus.NEGOTIABLE;
+        if ("offered".equals(codeString))
+          return ContractStatus.OFFERED;
+        if ("policy".equals(codeString))
+          return ContractStatus.POLICY;
+        if ("rejected".equals(codeString))
+          return ContractStatus.REJECTED;
+        if ("renewed".equals(codeString))
+          return ContractStatus.RENEWED;
+        if ("revoked".equals(codeString))
+          return ContractStatus.REVOKED;
+        if ("resolved".equals(codeString))
+          return ContractStatus.RESOLVED;
+        if ("terminated".equals(codeString))
+          return ContractStatus.TERMINATED;
         throw new IllegalArgumentException("Unknown ContractStatus code '"+codeString+"'");
         }
         public Enumeration<ContractStatus> fromType(Base code) throws FHIRException {
@@ -147,25 +279,69 @@ public class Contract extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("active".equals(codeString))
-          return new Enumeration<ContractStatus>(this, ContractStatus.ACTIVE);
+        if ("amended".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.AMENDED);
+        if ("appended".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.APPENDED);
         if ("cancelled".equals(codeString))
           return new Enumeration<ContractStatus>(this, ContractStatus.CANCELLED);
-        if ("draft".equals(codeString))
-          return new Enumeration<ContractStatus>(this, ContractStatus.DRAFT);
+        if ("disputed".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.DISPUTED);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<ContractStatus>(this, ContractStatus.ENTEREDINERROR);
+        if ("executable".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.EXECUTABLE);
+        if ("executed".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.EXECUTED);
+        if ("negotiable".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.NEGOTIABLE);
+        if ("offered".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.OFFERED);
+        if ("policy".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.POLICY);
+        if ("rejected".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.REJECTED);
+        if ("renewed".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.RENEWED);
+        if ("revoked".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.REVOKED);
+        if ("resolved".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.RESOLVED);
+        if ("terminated".equals(codeString))
+          return new Enumeration<ContractStatus>(this, ContractStatus.TERMINATED);
         throw new FHIRException("Unknown ContractStatus code '"+codeString+"'");
         }
     public String toCode(ContractStatus code) {
-      if (code == ContractStatus.ACTIVE)
-        return "active";
+      if (code == ContractStatus.AMENDED)
+        return "amended";
+      if (code == ContractStatus.APPENDED)
+        return "appended";
       if (code == ContractStatus.CANCELLED)
         return "cancelled";
-      if (code == ContractStatus.DRAFT)
-        return "draft";
+      if (code == ContractStatus.DISPUTED)
+        return "disputed";
       if (code == ContractStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == ContractStatus.EXECUTABLE)
+        return "executable";
+      if (code == ContractStatus.EXECUTED)
+        return "executed";
+      if (code == ContractStatus.NEGOTIABLE)
+        return "negotiable";
+      if (code == ContractStatus.OFFERED)
+        return "offered";
+      if (code == ContractStatus.POLICY)
+        return "policy";
+      if (code == ContractStatus.REJECTED)
+        return "rejected";
+      if (code == ContractStatus.RENEWED)
+        return "renewed";
+      if (code == ContractStatus.REVOKED)
+        return "revoked";
+      if (code == ContractStatus.RESOLVED)
+        return "resolved";
+      if (code == ContractStatus.TERMINATED)
+        return "terminated";
       return "?";
       }
     public String toSystem(ContractStatus code) {
@@ -427,7 +603,7 @@ public class Contract extends DomainResource {
          * Role of this Contract signer, e.g. notary, grantee.
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Signer Type", formalDefinition="Role of this Contract signer, e.g. notary, grantee." )
+        @Description(shortDefinition="Contract Signatory Role", formalDefinition="Role of this Contract signer, e.g. notary, grantee." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-signer-type")
         protected Coding type;
 
@@ -729,7 +905,7 @@ public class Contract extends DomainResource {
          * Identifies a Contract Valued Item instance.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Valued Item Identifier", formalDefinition="Identifies a Contract Valued Item instance." )
+        @Description(shortDefinition="Contract Valued Item Number", formalDefinition="Identifies a Contract Valued Item instance." )
         protected Identifier identifier;
 
         /**
@@ -1317,7 +1493,7 @@ public class Contract extends DomainResource {
          * Unique identifier for this particular Contract Provision.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Contract Term identifier", formalDefinition="Unique identifier for this particular Contract Provision." )
+        @Description(shortDefinition="Contract Term Number", formalDefinition="Unique identifier for this particular Contract Provision." )
         protected Identifier identifier;
 
         /**
@@ -1338,7 +1514,7 @@ public class Contract extends DomainResource {
          * Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Type", formalDefinition="Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit." )
+        @Description(shortDefinition="Contract Term Type or Form", formalDefinition="Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-term-type")
         protected CodeableConcept type;
 
@@ -1346,7 +1522,7 @@ public class Contract extends DomainResource {
          * Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
          */
         @Child(name = "subType", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Subtype", formalDefinition="Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment." )
+        @Description(shortDefinition="Contract Term Type specific classification", formalDefinition="Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-term-subtype")
         protected CodeableConcept subType;
 
@@ -1366,7 +1542,7 @@ public class Contract extends DomainResource {
          * Action stipulated by this Contract Provision.
          */
         @Child(name = "action", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Action", formalDefinition="Action stipulated by this Contract Provision." )
+        @Description(shortDefinition="Contract Term Activity", formalDefinition="Action stipulated by this Contract Provision." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-action")
         protected List<CodeableConcept> action;
 
@@ -1374,7 +1550,7 @@ public class Contract extends DomainResource {
          * Reason or purpose for the action stipulated by this Contract Provision.
          */
         @Child(name = "actionReason", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Action Reason", formalDefinition="Reason or purpose for the action stipulated by this Contract Provision." )
+        @Description(shortDefinition="Purpose for the Contract Term Action", formalDefinition="Reason or purpose for the action stipulated by this Contract Provision." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
         protected List<CodeableConcept> actionReason;
 
@@ -1396,7 +1572,7 @@ public class Contract extends DomainResource {
          * Contract Provision Valued Item List.
          */
         @Child(name = "valuedItem", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Valued Item", formalDefinition="Contract Provision Valued Item List." )
+        @Description(shortDefinition="Contract Term Valued Item List", formalDefinition="Contract Provision Valued Item List." )
         protected List<TermValuedItemComponent> valuedItem;
 
         /**
@@ -2219,7 +2395,7 @@ public class Contract extends DomainResource {
          * The agent assigned a role in this Contract Provision.
          */
         @Child(name = "actor", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Agent List", formalDefinition="The agent assigned a role in this Contract Provision." )
+        @Description(shortDefinition="Contract Term Agent Subject", formalDefinition="The agent assigned a role in this Contract Provision." )
         protected Reference actor;
 
         /**
@@ -2231,7 +2407,7 @@ public class Contract extends DomainResource {
          * Role played by the agent assigned this role in the execution of this Contract Provision.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Agent Role", formalDefinition="Role played by the agent assigned this role in the execution of this Contract Provision." )
+        @Description(shortDefinition="Type of the Contract Term Agent", formalDefinition="Role played by the agent assigned this role in the execution of this Contract Provision." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-actorrole")
         protected List<CodeableConcept> role;
 
@@ -2474,7 +2650,7 @@ public class Contract extends DomainResource {
          * Identifies a Contract Provision Valued Item instance.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Valued Item Identifier", formalDefinition="Identifies a Contract Provision Valued Item instance." )
+        @Description(shortDefinition="Contract Term Valued Item Number", formalDefinition="Identifies a Contract Provision Valued Item instance." )
         protected Identifier identifier;
 
         /**
@@ -3588,15 +3764,15 @@ public class Contract extends DomainResource {
      * Unique identifier for this Contract.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Contract identifier", formalDefinition="Unique identifier for this Contract." )
+    @Description(shortDefinition="Contract number", formalDefinition="Unique identifier for this Contract." )
     protected Identifier identifier;
 
     /**
      * The status of the resource instance.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | cancelled | draft | entered-in-error", formalDefinition="The status of the resource instance." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fm-status")
+    @Description(shortDefinition="amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated", formalDefinition="The status of the resource instance." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-status")
     protected Enumeration<ContractStatus> status;
 
     /**
@@ -3665,7 +3841,7 @@ public class Contract extends DomainResource {
      * Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Contract Type", formalDefinition="Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc." )
+    @Description(shortDefinition="Type or form", formalDefinition="Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-type")
     protected CodeableConcept type;
 
@@ -3673,7 +3849,7 @@ public class Contract extends DomainResource {
      * More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.
      */
     @Child(name = "subType", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Contract Subtype", formalDefinition="More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent." )
+    @Description(shortDefinition="Subtype within the context of type", formalDefinition="More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-subtype")
     protected List<CodeableConcept> subType;
 
@@ -3704,14 +3880,14 @@ public class Contract extends DomainResource {
      * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
      */
     @Child(name = "signer", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Signer", formalDefinition="Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness." )
+    @Description(shortDefinition="Contract Signatory", formalDefinition="Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness." )
     protected List<SignatoryComponent> signer;
 
     /**
      * Contract Valued Item List.
      */
     @Child(name = "valuedItem", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Valued Item", formalDefinition="Contract Valued Item List." )
+    @Description(shortDefinition="Contract Valued Item List", formalDefinition="Contract Valued Item List." )
     protected List<ValuedItemComponent> valuedItem;
 
     /**
@@ -5356,32 +5532,6 @@ public class Contract extends DomainResource {
    * the path value of "<b>Contract:domain</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DOMAIN = new ca.uhn.fhir.model.api.Include("Contract:domain").toLocked();
-
- /**
-   * Search parameter: <b>topic</b>
-   * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
-  public static final String SP_TOPIC = "topic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
-   * <p>
-   * Description: <b>The identity of the topic of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:topic</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
 
  /**
    * Search parameter: <b>term-topic</b>

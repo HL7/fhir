@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1269,17 +1269,17 @@ public class Organization extends DomainResource {
  /**
    * Search parameter: <b>partof</b>
    * <p>
-   * Description: <b>Search all organizations that are part of the given organization</b><br>
+   * Description: <b>An organization of which this organization forms a part</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Organization.partOf</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="partof", path="Organization.partOf", description="Search all organizations that are part of the given organization", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="partof", path="Organization.partOf", description="An organization of which this organization forms a part", type="reference", target={Organization.class } )
   public static final String SP_PARTOF = "partof";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>partof</b>
    * <p>
-   * Description: <b>Search all organizations that are part of the given organization</b><br>
+   * Description: <b>An organization of which this organization forms a part</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Organization.partOf</b><br>
    * </p>
@@ -1295,17 +1295,17 @@ public class Organization extends DomainResource {
  /**
    * Search parameter: <b>address</b>
    * <p>
-   * Description: <b>A (part of the) address of the Organization</b><br>
+   * Description: <b>A (part of the) address of the organization</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Organization.address</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address", path="Organization.address", description="A (part of the) address of the Organization", type="string" )
+  @SearchParamDefinition(name="address", path="Organization.address", description="A (part of the) address of the organization", type="string" )
   public static final String SP_ADDRESS = "address";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address</b>
    * <p>
-   * Description: <b>A (part of the) address of the Organization</b><br>
+   * Description: <b>A (part of the) address of the organization</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Organization.address</b><br>
    * </p>
@@ -1461,17 +1461,17 @@ public class Organization extends DomainResource {
  /**
    * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>A portion of the organization's name, or alias</b><br>
+   * Description: <b>A portion of the organization's name or alias</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Organization.name, Organization.alias</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="Organization.name | Organization.alias", description="A portion of the organization's name, or alias", type="string" )
+  @SearchParamDefinition(name="name", path="Organization.name | Organization.alias", description="A portion of the organization's name or alias", type="string" )
   public static final String SP_NAME = "name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>A portion of the organization's name, or alias</b><br>
+   * Description: <b>A portion of the organization's name or alias</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Organization.name, Organization.alias</b><br>
    * </p>

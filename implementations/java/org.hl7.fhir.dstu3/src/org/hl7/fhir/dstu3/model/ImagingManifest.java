@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1063,9 +1063,9 @@ public class ImagingManifest extends DomainResource {
     /**
      * Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
      */
-    @Child(name = "uid", type = {OidType.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="SOP Instance UID", formalDefinition="Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents." )
-    protected OidType uid;
+    protected Identifier identifier;
 
     /**
      * A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingManifest.
@@ -1113,7 +1113,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
     @Description(shortDefinition="Study identity of the selected instances", formalDefinition="Study identity and locating information of the DICOM SOP instances in the selection." )
     protected List<StudyComponent> study;
 
-    private static final long serialVersionUID = 786246918L;
+    private static final long serialVersionUID = 245941978L;
 
   /**
    * Constructor
@@ -1131,51 +1131,26 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
     }
 
     /**
-     * @return {@link #uid} (Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
+     * @return {@link #identifier} (Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.)
      */
-    public OidType getUidElement() { 
-      if (this.uid == null)
+    public Identifier getIdentifier() { 
+      if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImagingManifest.uid");
+          throw new Error("Attempt to auto-create ImagingManifest.identifier");
         else if (Configuration.doAutoCreate())
-          this.uid = new OidType(); // bb
-      return this.uid;
+          this.identifier = new Identifier(); // cc
+      return this.identifier;
     }
 
-    public boolean hasUidElement() { 
-      return this.uid != null && !this.uid.isEmpty();
-    }
-
-    public boolean hasUid() { 
-      return this.uid != null && !this.uid.isEmpty();
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
-     * @param value {@link #uid} (Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
+     * @param value {@link #identifier} (Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.)
      */
-    public ImagingManifest setUidElement(OidType value) { 
-      this.uid = value;
-      return this;
-    }
-
-    /**
-     * @return Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
-     */
-    public String getUid() { 
-      return this.uid == null ? null : this.uid.getValue();
-    }
-
-    /**
-     * @param value Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.
-     */
-    public ImagingManifest setUid(String value) { 
-      if (Utilities.noString(value))
-        this.uid = null;
-      else {
-        if (this.uid == null)
-          this.uid = new OidType();
-        this.uid.setValue(value);
-      }
+    public ImagingManifest setIdentifier(Identifier value) { 
+      this.identifier = value;
       return this;
     }
 
@@ -1419,7 +1394,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("uid", "oid", "Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.", 0, java.lang.Integer.MAX_VALUE, uid));
+        childrenList.add(new Property("identifier", "Identifier", "Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("patient", "Reference(Patient)", "A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingManifest.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("authoringTime", "dateTime", "Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).", 0, java.lang.Integer.MAX_VALUE, authoringTime));
         childrenList.add(new Property("author", "Reference(Practitioner|Device|Organization|Patient|RelatedPerson)", "Author of ImagingManifest. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.", 0, java.lang.Integer.MAX_VALUE, author));
@@ -1430,7 +1405,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 115792: /*uid*/ return this.uid == null ? new Base[0] : new Base[] {this.uid}; // OidType
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case -1724532252: /*authoringTime*/ return this.authoringTime == null ? new Base[0] : new Base[] {this.authoringTime}; // DateTimeType
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
@@ -1444,8 +1419,8 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 115792: // uid
-          this.uid = castToOid(value); // OidType
+        case -1618432855: // identifier
+          this.identifier = castToIdentifier(value); // Identifier
           return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -1469,8 +1444,8 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("uid")) {
-          this.uid = castToOid(value); // OidType
+        if (name.equals("identifier")) {
+          this.identifier = castToIdentifier(value); // Identifier
         } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
         } else if (name.equals("authoringTime")) {
@@ -1489,7 +1464,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792:  return getUidElement();
+        case -1618432855:  return getIdentifier(); 
         case -791418107:  return getPatient(); 
         case -1724532252:  return getAuthoringTimeElement();
         case -1406328437:  return getAuthor(); 
@@ -1503,7 +1478,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 115792: /*uid*/ return new String[] {"oid"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case -1724532252: /*authoringTime*/ return new String[] {"dateTime"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
@@ -1516,8 +1491,9 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("uid")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ImagingManifest.uid");
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
         }
         else if (name.equals("patient")) {
           this.patient = new Reference();
@@ -1548,7 +1524,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
       public ImagingManifest copy() {
         ImagingManifest dst = new ImagingManifest();
         copyValues(dst);
-        dst.uid = uid == null ? null : uid.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.authoringTime = authoringTime == null ? null : authoringTime.copy();
         dst.author = author == null ? null : author.copy();
@@ -1572,7 +1548,7 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
         if (!(other instanceof ImagingManifest))
           return false;
         ImagingManifest o = (ImagingManifest) other;
-        return compareDeep(uid, o.uid, true) && compareDeep(patient, o.patient, true) && compareDeep(authoringTime, o.authoringTime, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(authoringTime, o.authoringTime, true)
            && compareDeep(author, o.author, true) && compareDeep(description, o.description, true) && compareDeep(study, o.study, true)
           ;
       }
@@ -1584,12 +1560,12 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
         if (!(other instanceof ImagingManifest))
           return false;
         ImagingManifest o = (ImagingManifest) other;
-        return compareValues(uid, o.uid, true) && compareValues(authoringTime, o.authoringTime, true) && compareValues(description, o.description, true)
+        return compareValues(authoringTime, o.authoringTime, true) && compareValues(description, o.description, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(uid, patient, authoringTime
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, authoringTime
           , author, description, study);
       }
 
@@ -1602,21 +1578,21 @@ The value may be derived from the DICOM Standard Part 16, CID-7010 descriptions 
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingManifest.uid</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingManifest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ImagingManifest.uid", description="UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)", type="uri" )
+  @SearchParamDefinition(name="identifier", path="ImagingManifest.identifier", description="UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ImagingManifest.uid</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImagingManifest.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>endpoint</b>

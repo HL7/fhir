@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1662,7 +1662,7 @@ public class Observation extends DomainResource {
     /**
      * The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class, Timing.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Clinically relevant time/time-period for observation", formalDefinition="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself." )
     protected Type effective;
 
@@ -2141,19 +2141,6 @@ public class Observation extends DomainResource {
 
     public boolean hasEffectivePeriod() { 
       return this.effective instanceof Period;
-    }
-
-    /**
-     * @return {@link #effective} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
-     */
-    public Timing getEffectiveTiming() throws FHIRException { 
-      if (!(this.effective instanceof Timing))
-        throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.effective.getClass().getName()+" was encountered");
-      return (Timing) this.effective;
-    }
-
-    public boolean hasEffectiveTiming() { 
-      return this.effective instanceof Timing;
     }
 
     public boolean hasEffective() { 
@@ -2838,7 +2825,7 @@ public class Observation extends DomainResource {
         childrenList.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation \"name\".", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, effective));
+        childrenList.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, effective));
         childrenList.add(new Property("issued", "instant", "The date and time this observation was made available to providers, typically after the results have been reviewed and verified.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "Who was responsible for asserting the observed value as \"true\".", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("value[x]", "Quantity|CodeableConcept|string|boolean|Range|Ratio|SampledData|Attachment|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, java.lang.Integer.MAX_VALUE, value));
@@ -3046,7 +3033,7 @@ public class Observation extends DomainResource {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
-        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period", "Timing"};
+        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case -1179159893: /*issued*/ return new String[] {"instant"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case 111972721: /*value*/ return new String[] {"Quantity", "CodeableConcept", "string", "boolean", "Range", "Ratio", "SampledData", "Attachment", "time", "dateTime", "Period"};
@@ -3097,10 +3084,6 @@ public class Observation extends DomainResource {
         }
         else if (name.equals("effectivePeriod")) {
           this.effective = new Period();
-          return this.effective;
-        }
-        else if (name.equals("effectiveTiming")) {
-          this.effective = new Timing();
           return this.effective;
         }
         else if (name.equals("issued")) {

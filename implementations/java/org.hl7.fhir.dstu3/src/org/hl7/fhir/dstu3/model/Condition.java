@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -917,7 +917,7 @@ public class Condition extends DomainResource {
      * Encounter during which the condition was first asserted.
      */
     @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Encounter when condition first asserted", formalDefinition="Encounter during which the condition was first asserted." )
+    @Description(shortDefinition="Encounter or episode when condition first asserted", formalDefinition="Encounter during which the condition was first asserted." )
     protected Reference context;
 
     /**
@@ -2351,6 +2351,32 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICAL_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICAL_STATUS);
 
  /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter when condition first asserted</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="Condition.context", description="Encounter when condition first asserted", type="reference", target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounter when condition first asserted</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Condition:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Condition:encounter").toLocked();
+
+ /**
    * Search parameter: <b>abatement-boolean</b>
    * <p>
    * Description: <b>Abatement boolean (boolean is true or non-boolean values are present)</b><br>
@@ -2505,17 +2531,17 @@ public class Condition extends DomainResource {
  /**
    * Search parameter: <b>context</b>
    * <p>
-   * Description: <b>Encounter when condition first asserted</b><br>
+   * Description: <b>Encounter or episode when condition first asserted</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Condition.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="context", path="Condition.context", description="Encounter when condition first asserted", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
+  @SearchParamDefinition(name="context", path="Condition.context", description="Encounter or episode when condition first asserted", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
   public static final String SP_CONTEXT = "context";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>context</b>
    * <p>
-   * Description: <b>Encounter when condition first asserted</b><br>
+   * Description: <b>Encounter or episode when condition first asserted</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Condition.context</b><br>
    * </p>

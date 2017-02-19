@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -424,11 +424,11 @@ public class Consent extends DomainResource {
     @Block()
     public static class ConsentActorComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * How the individual is or was involved in the resources content that is described in the consent.
+         * How the individual is involved in the resources content that is described in the consent.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="How the actor is/was involved", formalDefinition="How the individual is or was involved in the resources content that is described in the consent." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-actor-role")
+        @Description(shortDefinition="How the actor is involved", formalDefinition="How the individual is involved in the resources content that is described in the consent." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-role-type")
         protected CodeableConcept role;
 
         /**
@@ -462,7 +462,7 @@ public class Consent extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (How the individual is or was involved in the resources content that is described in the consent.)
+         * @return {@link #role} (How the individual is involved in the resources content that is described in the consent.)
          */
         public CodeableConcept getRole() { 
           if (this.role == null)
@@ -478,7 +478,7 @@ public class Consent extends DomainResource {
         }
 
         /**
-         * @param value {@link #role} (How the individual is or was involved in the resources content that is described in the consent.)
+         * @param value {@link #role} (How the individual is involved in the resources content that is described in the consent.)
          */
         public ConsentActorComponent setRole(CodeableConcept value) { 
           this.role = value;
@@ -526,7 +526,7 @@ public class Consent extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "How the individual is or was involved in the resources content that is described in the consent.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("role", "CodeableConcept", "How the individual is involved in the resources content that is described in the consent.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("reference", "Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)", "The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').", 0, java.lang.Integer.MAX_VALUE, reference));
         }
 
@@ -1926,11 +1926,11 @@ public class Consent extends DomainResource {
     @Block()
     public static class ExceptActorComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * How the individual is or was involved in the resourcescontent that is described in the exception.
+         * How the individual is involved in the resources content that is described in the exception.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="How the actor is/was involved", formalDefinition="How the individual is or was involved in the resourcescontent that is described in the exception." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-actor-role")
+        @Description(shortDefinition="How the actor is involved", formalDefinition="How the individual is involved in the resources content that is described in the exception." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-role-type")
         protected CodeableConcept role;
 
         /**
@@ -1964,7 +1964,7 @@ public class Consent extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (How the individual is or was involved in the resourcescontent that is described in the exception.)
+         * @return {@link #role} (How the individual is involved in the resources content that is described in the exception.)
          */
         public CodeableConcept getRole() { 
           if (this.role == null)
@@ -1980,7 +1980,7 @@ public class Consent extends DomainResource {
         }
 
         /**
-         * @param value {@link #role} (How the individual is or was involved in the resourcescontent that is described in the exception.)
+         * @param value {@link #role} (How the individual is involved in the resources content that is described in the exception.)
          */
         public ExceptActorComponent setRole(CodeableConcept value) { 
           this.role = value;
@@ -2028,7 +2028,7 @@ public class Consent extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "How the individual is or was involved in the resourcescontent that is described in the exception.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("role", "CodeableConcept", "How the individual is involved in the resources content that is described in the exception.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("reference", "Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)", "The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').", 0, java.lang.Integer.MAX_VALUE, reference));
         }
 

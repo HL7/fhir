@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -191,12 +191,12 @@ public class Provenance extends DomainResource {
     @Block()
     public static class ProvenanceAgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The function of the agent with respect to the activity.
+         * The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.
          */
-        @Child(name = "role", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="What the agents involvement was", formalDefinition="The function of the agent with respect to the activity." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/provenance-agent-role")
-        protected Coding role;
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="What the agents role was", formalDefinition="The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-role-type")
+        protected List<CodeableConcept> role;
 
         /**
          * The individual, device or organization that participated in the event.
@@ -220,7 +220,7 @@ public class Provenance extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-RoleLinkType")
         protected CodeableConcept relatedAgentType;
 
-        private static final long serialVersionUID = 1272491531L;
+        private static final long serialVersionUID = -1431948744L;
 
     /**
      * Constructor
@@ -232,34 +232,62 @@ public class Provenance extends DomainResource {
     /**
      * Constructor
      */
-      public ProvenanceAgentComponent(Coding role, Type who) {
+      public ProvenanceAgentComponent(Type who) {
         super();
-        this.role = role;
         this.who = who;
       }
 
         /**
-         * @return {@link #role} (The function of the agent with respect to the activity.)
+         * @return {@link #role} (The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.)
          */
-        public Coding getRole() { 
+        public List<CodeableConcept> getRole() { 
           if (this.role == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProvenanceAgentComponent.role");
-            else if (Configuration.doAutoCreate())
-              this.role = new Coding(); // cc
+            this.role = new ArrayList<CodeableConcept>();
           return this.role;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ProvenanceAgentComponent setRole(List<CodeableConcept> theRole) { 
+          this.role = theRole;
+          return this;
+        }
+
         public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
+          if (this.role == null)
+            return false;
+          for (CodeableConcept item : this.role)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public CodeableConcept addRole() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.role == null)
+            this.role = new ArrayList<CodeableConcept>();
+          this.role.add(t);
+          return t;
+        }
+
+        public ProvenanceAgentComponent addRole(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.role == null)
+            this.role = new ArrayList<CodeableConcept>();
+          this.role.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #role} (The function of the agent with respect to the activity.)
+         * @return The first repetition of repeating field {@link #role}, creating it if it does not already exist
          */
-        public ProvenanceAgentComponent setRole(Coding value) { 
-          this.role = value;
-          return this;
+        public CodeableConcept getRoleFirstRep() { 
+          if (getRole().isEmpty()) {
+            addRole();
+          }
+          return getRole().get(0);
         }
 
         /**
@@ -378,7 +406,7 @@ public class Provenance extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "Coding", "The function of the agent with respect to the activity.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("role", "CodeableConcept", "The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, java.lang.Integer.MAX_VALUE, who));
           childrenList.add(new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
           childrenList.add(new Property("relatedAgentType", "CodeableConcept", "The type of relationship between agents.", 0, java.lang.Integer.MAX_VALUE, relatedAgentType));
@@ -387,7 +415,7 @@ public class Provenance extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // Coding
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : this.role.toArray(new Base[this.role.size()]); // CodeableConcept
         case 117694: /*who*/ return this.who == null ? new Base[0] : new Base[] {this.who}; // Type
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Type
         case 1228161012: /*relatedAgentType*/ return this.relatedAgentType == null ? new Base[0] : new Base[] {this.relatedAgentType}; // CodeableConcept
@@ -400,7 +428,7 @@ public class Provenance extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3506294: // role
-          this.role = castToCoding(value); // Coding
+          this.getRole().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 117694: // who
           this.who = castToType(value); // Type
@@ -419,7 +447,7 @@ public class Provenance extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("role")) {
-          this.role = castToCoding(value); // Coding
+          this.getRole().add(castToCodeableConcept(value));
         } else if (name.equals("who[x]")) {
           this.who = castToType(value); // Type
         } else if (name.equals("onBehalfOf[x]")) {
@@ -434,7 +462,7 @@ public class Provenance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); 
+        case 3506294:  return addRole(); 
         case -788654078:  return getWho(); 
         case 117694:  return getWho(); 
         case 418120340:  return getOnBehalfOf(); 
@@ -448,7 +476,7 @@ public class Provenance extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return new String[] {"Coding"};
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
         case 117694: /*who*/ return new String[] {"uri", "Reference"};
         case -14402964: /*onBehalfOf*/ return new String[] {"uri", "Reference"};
         case 1228161012: /*relatedAgentType*/ return new String[] {"CodeableConcept"};
@@ -460,8 +488,7 @@ public class Provenance extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("role")) {
-          this.role = new Coding();
-          return this.role;
+          return addRole();
         }
         else if (name.equals("whoUri")) {
           this.who = new UriType();
@@ -490,7 +517,11 @@ public class Provenance extends DomainResource {
       public ProvenanceAgentComponent copy() {
         ProvenanceAgentComponent dst = new ProvenanceAgentComponent();
         copyValues(dst);
-        dst.role = role == null ? null : role.copy();
+        if (role != null) {
+          dst.role = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : role)
+            dst.role.add(i.copy());
+        };
         dst.who = who == null ? null : who.copy();
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         dst.relatedAgentType = relatedAgentType == null ? null : relatedAgentType.copy();
@@ -1879,6 +1910,26 @@ public class Provenance extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam RECORDED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_RECORDED);
+
+ /**
+   * Search parameter: <b>agent-role</b>
+   * <p>
+   * Description: <b>What the agents role was</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.role</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="agent-role", path="Provenance.agent.role", description="What the agents role was", type="token" )
+  public static final String SP_AGENT_ROLE = "agent-role";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>agent-role</b>
+   * <p>
+   * Description: <b>What the agents role was</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.role</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT_ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT_ROLE);
 
  /**
    * Search parameter: <b>entity-id</b>

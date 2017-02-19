@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -988,24 +988,24 @@ public class MedicationAdministration extends DomainResource {
     protected List<CodeableConcept> reasonNotGiven;
 
     /**
+     * A code indicating why the medication was given.
+     */
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Reason administration performed", formalDefinition="A code indicating why the medication was given." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-given-codes")
+    protected List<CodeableConcept> reasonCode;
+
+    /**
      * Condition or observation that supports why the medication was administered.
      */
-    @Child(name = "reasonGivenReference", type = {Condition.class, Observation.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition or Observation that supports why the medication was administered", formalDefinition="Condition or observation that supports why the medication was administered." )
-    protected List<Reference> reasonGivenReference;
+    protected List<Reference> reasonReference;
     /**
      * The actual objects that are the target of the reference (Condition or observation that supports why the medication was administered.)
      */
-    protected List<Resource> reasonGivenReferenceTarget;
+    protected List<Resource> reasonReferenceTarget;
 
-
-    /**
-     * A code indicating why the medication was given.
-     */
-    @Child(name = "reasonGivenCodeableConcept", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Reason administration performed", formalDefinition="A code indicating why the medication was given." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-given-codes")
-    protected List<CodeableConcept> reasonGivenCodeableConcept;
 
     /**
      * The original request, instruction or authority to perform the administration.
@@ -1057,7 +1057,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -1935546457L;
+    private static final long serialVersionUID = 673777544L;
 
   /**
    * Constructor
@@ -1708,119 +1708,119 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonGivenReference} (Condition or observation that supports why the medication was administered.)
+     * @return {@link #reasonCode} (A code indicating why the medication was given.)
      */
-    public List<Reference> getReasonGivenReference() { 
-      if (this.reasonGivenReference == null)
-        this.reasonGivenReference = new ArrayList<Reference>();
-      return this.reasonGivenReference;
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationAdministration setReasonGivenReference(List<Reference> theReasonGivenReference) { 
-      this.reasonGivenReference = theReasonGivenReference;
+    public MedicationAdministration setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
       return this;
     }
 
-    public boolean hasReasonGivenReference() { 
-      if (this.reasonGivenReference == null)
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
         return false;
-      for (Reference item : this.reasonGivenReference)
+      for (CodeableConcept item : this.reasonCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addReasonGivenReference() { //3
-      Reference t = new Reference();
-      if (this.reasonGivenReference == null)
-        this.reasonGivenReference = new ArrayList<Reference>();
-      this.reasonGivenReference.add(t);
+    public CodeableConcept addReasonCode() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return t;
     }
 
-    public MedicationAdministration addReasonGivenReference(Reference t) { //3
+    public MedicationAdministration addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.reasonGivenReference == null)
-        this.reasonGivenReference = new ArrayList<Reference>();
-      this.reasonGivenReference.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonGivenReference}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
      */
-    public Reference getReasonGivenReferenceFirstRep() { 
-      if (getReasonGivenReference().isEmpty()) {
-        addReasonGivenReference();
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
       }
-      return getReasonGivenReference().get(0);
+      return getReasonCode().get(0);
+    }
+
+    /**
+     * @return {@link #reasonReference} (Condition or observation that supports why the medication was administered.)
+     */
+    public List<Reference> getReasonReference() { 
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      return this.reasonReference;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setReasonReference(List<Reference> theReasonReference) { 
+      this.reasonReference = theReasonReference;
+      return this;
+    }
+
+    public boolean hasReasonReference() { 
+      if (this.reasonReference == null)
+        return false;
+      for (Reference item : this.reasonReference)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addReasonReference() { //3
+      Reference t = new Reference();
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addReasonReference(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
+     */
+    public Reference getReasonReferenceFirstRep() { 
+      if (getReasonReference().isEmpty()) {
+        addReasonReference();
+      }
+      return getReasonReference().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getReasonGivenReferenceTarget() { 
-      if (this.reasonGivenReferenceTarget == null)
-        this.reasonGivenReferenceTarget = new ArrayList<Resource>();
-      return this.reasonGivenReferenceTarget;
-    }
-
-    /**
-     * @return {@link #reasonGivenCodeableConcept} (A code indicating why the medication was given.)
-     */
-    public List<CodeableConcept> getReasonGivenCodeableConcept() { 
-      if (this.reasonGivenCodeableConcept == null)
-        this.reasonGivenCodeableConcept = new ArrayList<CodeableConcept>();
-      return this.reasonGivenCodeableConcept;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public MedicationAdministration setReasonGivenCodeableConcept(List<CodeableConcept> theReasonGivenCodeableConcept) { 
-      this.reasonGivenCodeableConcept = theReasonGivenCodeableConcept;
-      return this;
-    }
-
-    public boolean hasReasonGivenCodeableConcept() { 
-      if (this.reasonGivenCodeableConcept == null)
-        return false;
-      for (CodeableConcept item : this.reasonGivenCodeableConcept)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public CodeableConcept addReasonGivenCodeableConcept() { //3
-      CodeableConcept t = new CodeableConcept();
-      if (this.reasonGivenCodeableConcept == null)
-        this.reasonGivenCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonGivenCodeableConcept.add(t);
-      return t;
-    }
-
-    public MedicationAdministration addReasonGivenCodeableConcept(CodeableConcept t) { //3
-      if (t == null)
-        return this;
-      if (this.reasonGivenCodeableConcept == null)
-        this.reasonGivenCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonGivenCodeableConcept.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #reasonGivenCodeableConcept}, creating it if it does not already exist
-     */
-    public CodeableConcept getReasonGivenCodeableConceptFirstRep() { 
-      if (getReasonGivenCodeableConcept().isEmpty()) {
-        addReasonGivenCodeableConcept();
-      }
-      return getReasonGivenCodeableConcept().get(0);
+    public List<Resource> getReasonReferenceTarget() { 
+      if (this.reasonReferenceTarget == null)
+        this.reasonReferenceTarget = new ArrayList<Resource>();
+      return this.reasonReferenceTarget;
     }
 
     /**
@@ -2109,8 +2109,8 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("performer", "", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("notGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, notGiven));
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
-        childrenList.add(new Property("reasonGivenReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonGivenReference));
-        childrenList.add(new Property("reasonGivenCodeableConcept", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonGivenCodeableConcept));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("prescription", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  For example, a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("note", "Annotation", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -2134,8 +2134,8 @@ public class MedicationAdministration extends DomainResource {
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // MedicationAdministrationPerformerComponent
         case 1554065514: /*notGiven*/ return this.notGiven == null ? new Base[0] : new Base[] {this.notGiven}; // BooleanType
         case 2101123790: /*reasonNotGiven*/ return this.reasonNotGiven == null ? new Base[0] : this.reasonNotGiven.toArray(new Base[this.reasonNotGiven.size()]); // CodeableConcept
-        case 1721736114: /*reasonGivenReference*/ return this.reasonGivenReference == null ? new Base[0] : this.reasonGivenReference.toArray(new Base[this.reasonGivenReference.size()]); // Reference
-        case 928850632: /*reasonGivenCodeableConcept*/ return this.reasonGivenCodeableConcept == null ? new Base[0] : this.reasonGivenCodeableConcept.toArray(new Base[this.reasonGivenCodeableConcept.size()]); // CodeableConcept
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
+        case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
         case -1335157162: /*device*/ return this.device == null ? new Base[0] : this.device.toArray(new Base[this.device.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
@@ -2189,11 +2189,11 @@ public class MedicationAdministration extends DomainResource {
         case 2101123790: // reasonNotGiven
           this.getReasonNotGiven().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 1721736114: // reasonGivenReference
-          this.getReasonGivenReference().add(castToReference(value)); // Reference
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 928850632: // reasonGivenCodeableConcept
-          this.getReasonGivenCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case -1146218137: // reasonReference
+          this.getReasonReference().add(castToReference(value)); // Reference
           return value;
         case 460301338: // prescription
           this.prescription = castToReference(value); // Reference
@@ -2244,10 +2244,10 @@ public class MedicationAdministration extends DomainResource {
           this.notGiven = castToBoolean(value); // BooleanType
         } else if (name.equals("reasonNotGiven")) {
           this.getReasonNotGiven().add(castToCodeableConcept(value));
-        } else if (name.equals("reasonGivenReference")) {
-          this.getReasonGivenReference().add(castToReference(value));
-        } else if (name.equals("reasonGivenCodeableConcept")) {
-          this.getReasonGivenCodeableConcept().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonReference")) {
+          this.getReasonReference().add(castToReference(value));
         } else if (name.equals("prescription")) {
           this.prescription = castToReference(value); // Reference
         } else if (name.equals("device")) {
@@ -2281,8 +2281,8 @@ public class MedicationAdministration extends DomainResource {
         case 481140686:  return addPerformer(); 
         case 1554065514:  return getNotGivenElement();
         case 2101123790:  return addReasonNotGiven(); 
-        case 1721736114:  return addReasonGivenReference(); 
-        case 928850632:  return addReasonGivenCodeableConcept(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
         case 460301338:  return getPrescription(); 
         case -1335157162:  return addDevice(); 
         case 3387378:  return addNote(); 
@@ -2309,8 +2309,8 @@ public class MedicationAdministration extends DomainResource {
         case 481140686: /*performer*/ return new String[] {};
         case 1554065514: /*notGiven*/ return new String[] {"boolean"};
         case 2101123790: /*reasonNotGiven*/ return new String[] {"CodeableConcept"};
-        case 1721736114: /*reasonGivenReference*/ return new String[] {"Reference"};
-        case 928850632: /*reasonGivenCodeableConcept*/ return new String[] {"CodeableConcept"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 460301338: /*prescription*/ return new String[] {"Reference"};
         case -1335157162: /*device*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
@@ -2375,11 +2375,11 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("reasonNotGiven")) {
           return addReasonNotGiven();
         }
-        else if (name.equals("reasonGivenReference")) {
-          return addReasonGivenReference();
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
         }
-        else if (name.equals("reasonGivenCodeableConcept")) {
-          return addReasonGivenCodeableConcept();
+        else if (name.equals("reasonReference")) {
+          return addReasonReference();
         }
         else if (name.equals("prescription")) {
           this.prescription = new Reference();
@@ -2447,15 +2447,15 @@ public class MedicationAdministration extends DomainResource {
           for (CodeableConcept i : reasonNotGiven)
             dst.reasonNotGiven.add(i.copy());
         };
-        if (reasonGivenReference != null) {
-          dst.reasonGivenReference = new ArrayList<Reference>();
-          for (Reference i : reasonGivenReference)
-            dst.reasonGivenReference.add(i.copy());
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
         };
-        if (reasonGivenCodeableConcept != null) {
-          dst.reasonGivenCodeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reasonGivenCodeableConcept)
-            dst.reasonGivenCodeableConcept.add(i.copy());
+        if (reasonReference != null) {
+          dst.reasonReference = new ArrayList<Reference>();
+          for (Reference i : reasonReference)
+            dst.reasonReference.add(i.copy());
         };
         dst.prescription = prescription == null ? null : prescription.copy();
         if (device != null) {
@@ -2493,7 +2493,7 @@ public class MedicationAdministration extends DomainResource {
            && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(effective, o.effective, true)
            && compareDeep(performer, o.performer, true) && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
-           && compareDeep(reasonGivenReference, o.reasonGivenReference, true) && compareDeep(reasonGivenCodeableConcept, o.reasonGivenCodeableConcept, true)
+           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(prescription, o.prescription, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
            && compareDeep(dosage, o.dosage, true) && compareDeep(eventHistory, o.eventHistory, true);
       }
@@ -2511,8 +2511,8 @@ public class MedicationAdministration extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, partOf
           , status, category, medication, subject, context, supportingInformation, effective
-          , performer, notGiven, reasonNotGiven, reasonGivenReference, reasonGivenCodeableConcept
-          , prescription, device, note, dosage, eventHistory);
+          , performer, notGiven, reasonNotGiven, reasonCode, reasonReference, prescription
+          , device, note, dosage, eventHistory);
       }
 
   @Override
@@ -2663,17 +2663,17 @@ public class MedicationAdministration extends DomainResource {
    * <p>
    * Description: <b>Reasons for administering the medication</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.reasonGivenCodeableConcept</b><br>
+   * Path: <b>MedicationAdministration.reasonCode</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="reason-given", path="MedicationAdministration.reasonGivenCodeableConcept", description="Reasons for administering the medication", type="token" )
+  @SearchParamDefinition(name="reason-given", path="MedicationAdministration.reasonCode", description="Reasons for administering the medication", type="token" )
   public static final String SP_REASON_GIVEN = "reason-given";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>reason-given</b>
    * <p>
    * Description: <b>Reasons for administering the medication</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.reasonGivenCodeableConcept</b><br>
+   * Path: <b>MedicationAdministration.reasonCode</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_GIVEN);

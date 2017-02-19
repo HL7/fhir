@@ -17,8 +17,10 @@
   </reason>
  <agent> 
     <role>
-      <system value="http://hl7.org/fhir/provenance-participant-role"/>
-      <code value="author"/>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <code value="AUT"/>
+      </coding>
     </role>
     <whoReference>
       <reference value="Patient/example"/>

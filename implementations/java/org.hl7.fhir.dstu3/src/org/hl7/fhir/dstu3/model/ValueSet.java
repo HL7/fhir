@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1741,10 +1741,10 @@ public class ValueSet extends MetadataResource {
         protected Enumeration<FilterOperator> op;
 
         /**
-         * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
+         * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
          */
         @Child(name = "value", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Code from the system, or regex criteria", formalDefinition="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value." )
+        @Description(shortDefinition="Code from the system, or regex criteria, or boolean value for exists", formalDefinition="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." )
         protected CodeType value;
 
         private static final long serialVersionUID = 1985515000L;
@@ -1857,7 +1857,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @return {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @return {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public CodeType getValueElement() { 
           if (this.value == null)
@@ -1877,7 +1877,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @param value {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         * @param value {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public ConceptSetFilterComponent setValueElement(CodeType value) { 
           this.value = value;
@@ -1885,14 +1885,14 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @return The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
+         * @return The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
          */
         public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
+         * @param value The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
          */
         public ConceptSetFilterComponent setValue(String value) { 
             if (this.value == null)
@@ -1905,7 +1905,7 @@ public class ValueSet extends MetadataResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("property", "code", "A code that identifies a property defined in the code system.", 0, java.lang.Integer.MAX_VALUE, property));
           childrenList.add(new Property("op", "code", "The kind of operation to perform as a part of the filter criteria.", 0, java.lang.Integer.MAX_VALUE, op));
-          childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override

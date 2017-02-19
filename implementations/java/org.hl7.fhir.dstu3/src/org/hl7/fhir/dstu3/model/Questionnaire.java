@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -508,17 +508,17 @@ public class Questionnaire extends DomainResource {
 * maxLength (ElementDefinition.maxLength)
 * options (ElementDefinition.binding)
 
-Any information provided in these elements overrides the information from the definition.
+Any information provided in these elements on a Questionnaire Item overrides the information from the definition.
          */
         @Child(name = "definition", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="ElementDefinition - details for the item", formalDefinition="A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements overrides the information from the definition." )
+        @Description(shortDefinition="ElementDefinition - details for the item", formalDefinition="A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements on a Questionnaire Item overrides the information from the definition." )
         protected UriType definition;
 
         /**
-         * Terminology code that corresponds to this group or question (e.g. LOINC).
+         * A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).
          */
         @Child(name = "code", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Concept that represents this item within in a questionnaire", formalDefinition="Terminology code that corresponds to this group or question (e.g. LOINC)." )
+        @Description(shortDefinition="Corresponding Concept for this item in a terminology", formalDefinition="A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-questions")
         protected List<Coding> code;
 
@@ -686,7 +686,7 @@ Any information provided in these elements overrides the information from the de
 * maxLength (ElementDefinition.maxLength)
 * options (ElementDefinition.binding)
 
-Any information provided in these elements overrides the information from the definition.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+Any information provided in these elements on a Questionnaire Item overrides the information from the definition.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public UriType getDefinitionElement() { 
           if (this.definition == null)
@@ -715,7 +715,7 @@ Any information provided in these elements overrides the information from the de
 * maxLength (ElementDefinition.maxLength)
 * options (ElementDefinition.binding)
 
-Any information provided in these elements overrides the information from the definition.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+Any information provided in these elements on a Questionnaire Item overrides the information from the definition.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public QuestionnaireItemComponent setDefinitionElement(UriType value) { 
           this.definition = value;
@@ -732,7 +732,7 @@ Any information provided in these elements overrides the information from the de
 * maxLength (ElementDefinition.maxLength)
 * options (ElementDefinition.binding)
 
-Any information provided in these elements overrides the information from the definition.
+Any information provided in these elements on a Questionnaire Item overrides the information from the definition.
          */
         public String getDefinition() { 
           return this.definition == null ? null : this.definition.getValue();
@@ -748,7 +748,7 @@ Any information provided in these elements overrides the information from the de
 * maxLength (ElementDefinition.maxLength)
 * options (ElementDefinition.binding)
 
-Any information provided in these elements overrides the information from the definition.
+Any information provided in these elements on a Questionnaire Item overrides the information from the definition.
          */
         public QuestionnaireItemComponent setDefinition(String value) { 
           if (Utilities.noString(value))
@@ -762,7 +762,7 @@ Any information provided in these elements overrides the information from the de
         }
 
         /**
-         * @return {@link #code} (Terminology code that corresponds to this group or question (e.g. LOINC).)
+         * @return {@link #code} (A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).)
          */
         public List<Coding> getCode() { 
           if (this.code == null)
@@ -1518,8 +1518,8 @@ Any information provided in these elements overrides the information from the de
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("linkId", "string", "An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource.", 0, java.lang.Integer.MAX_VALUE, linkId));
-          childrenList.add(new Property("definition", "uri", "A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements overrides the information from the definition.", 0, java.lang.Integer.MAX_VALUE, definition));
-          childrenList.add(new Property("code", "Coding", "Terminology code that corresponds to this group or question (e.g. LOINC).", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("definition", "uri", "A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements on a Questionnaire Item overrides the information from the definition.", 0, java.lang.Integer.MAX_VALUE, definition));
+          childrenList.add(new Property("code", "Coding", "A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("prefix", "string", "A short label for a particular group, question or set of display text within the questionnaire.", 0, java.lang.Integer.MAX_VALUE, prefix));
           childrenList.add(new Property("text", "string", "The name of a section, the text of a question or text content for a text item.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("type", "code", "Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).", 0, java.lang.Integer.MAX_VALUE, type));

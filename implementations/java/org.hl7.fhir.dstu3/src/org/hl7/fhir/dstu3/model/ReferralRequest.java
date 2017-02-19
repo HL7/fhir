@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -784,7 +784,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
      */
-    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class, HealthcareService.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request." )
     protected List<Reference> definition;
     /**
@@ -920,7 +920,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.
      */
-    @Child(name = "recipient", type = {Practitioner.class, Organization.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "recipient", type = {Practitioner.class, Organization.class, HealthcareService.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Receiver of referral / transfer of care request", formalDefinition="The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request." )
     protected List<Reference> recipient;
     /**
@@ -2142,7 +2142,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Business identifier that uniquely identifies the referral/care transfer request instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition|HealthcareService)", "A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition)", "A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("basedOn", "Reference(ReferralRequest|CarePlan|ProcedureRequest)", "Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("replaces", "Reference(ReferralRequest)", "Completed or terminated request(s) whose function is taken by this new request.", 0, java.lang.Integer.MAX_VALUE, replaces));
         childrenList.add(new Property("groupIdentifier", "Identifier", "The business identifier of the logical \"grouping\" request/order that this referral is a part of.", 0, java.lang.Integer.MAX_VALUE, groupIdentifier));
@@ -2157,7 +2157,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("authoredOn", "dateTime", "Date/DateTime of creation for draft requests and date of activation for active requests.", 0, java.lang.Integer.MAX_VALUE, authoredOn));
         childrenList.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("specialty", "CodeableConcept", "Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology.", 0, java.lang.Integer.MAX_VALUE, specialty));
-        childrenList.add(new Property("recipient", "Reference(Practitioner|Organization)", "The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("recipient", "Reference(Practitioner|Organization|HealthcareService)", "The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource whose existence justifies this request.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("description", "string", "The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -2607,26 +2607,6 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    }
 
  /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Creation or activation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ReferralRequest.authoredOn</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="ReferralRequest.authoredOn", description="Creation or activation date", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Creation or activation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ReferralRequest.authoredOn</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
    * Search parameter: <b>requester</b>
    * <p>
    * Description: <b>Individual making the request</b><br>
@@ -2745,6 +2725,52 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ReferralRequest:subject").toLocked();
 
  /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Originating encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="ReferralRequest.context", description="Originating encounter", type="reference", target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Originating encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ReferralRequest:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ReferralRequest:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>authored-on</b>
+   * <p>
+   * Description: <b>Creation or activation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.authoredOn</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="authored-on", path="ReferralRequest.authoredOn", description="Creation or activation date", type="date" )
+  public static final String SP_AUTHORED_ON = "authored-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>authored-on</b>
+   * <p>
+   * Description: <b>Creation or activation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.authoredOn</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED_ON = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED_ON);
+
+ /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The type of the referral</b><br>
@@ -2783,26 +2809,6 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
-
- /**
-   * Search parameter: <b>authored-on</b>
-   * <p>
-   * Description: <b>Date of creation/activation</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ReferralRequest.authoredOn</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="authored-on", path="ReferralRequest.authoredOn", description="Date of creation/activation", type="date" )
-  public static final String SP_AUTHORED_ON = "authored-on";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>authored-on</b>
-   * <p>
-   * Description: <b>Date of creation/activation</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ReferralRequest.authoredOn</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED_ON = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED_ON);
 
  /**
    * Search parameter: <b>intent</b>
@@ -2878,7 +2884,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ReferralRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ReferralRequest.subject", description="Who the referral is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
+  @SearchParamDefinition(name="patient", path="ReferralRequest.subject", description="Who the referral is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -2944,7 +2950,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ReferralRequest.recipient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="recipient", path="ReferralRequest.recipient", description="The person that the referral was sent to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="recipient", path="ReferralRequest.recipient", description="The person that the referral was sent to", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={HealthcareService.class, Organization.class, Practitioner.class } )
   public static final String SP_RECIPIENT = "recipient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>recipient</b>
@@ -2996,7 +3002,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ReferralRequest.definition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="definition", path="ReferralRequest.definition", description="Instantiates protocol or definition", type="reference", target={ActivityDefinition.class, HealthcareService.class, PlanDefinition.class } )
+  @SearchParamDefinition(name="definition", path="ReferralRequest.definition", description="Instantiates protocol or definition", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
   public static final String SP_DEFINITION = "definition";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>definition</b>

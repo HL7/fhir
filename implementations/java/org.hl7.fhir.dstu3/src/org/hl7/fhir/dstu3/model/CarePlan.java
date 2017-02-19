@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -4190,6 +4190,32 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * the path value of "<b>CarePlan:part-of</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PART_OF = new ca.uhn.fhir.model.api.Include("CarePlan:part-of").toLocked();
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Created in context of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="CarePlan.context", description="Created in context of", type="reference", target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Created in context of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("CarePlan:encounter").toLocked();
 
  /**
    * Search parameter: <b>intent</b>

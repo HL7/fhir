@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
  */
 @ResourceDef(name="ActivityDefinition", profile="http://hl7.org/fhir/Profile/ActivityDefinition")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "kind", "code", "timing[x]", "location", "participantType", "product[x]", "quantity", "dosageInstruction", "bodySite", "transform", "dynamicValue"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "kind", "code", "timing[x]", "location", "participant", "product[x]", "quantity", "dosage", "bodySite", "transform", "dynamicValue"})
 public class ActivityDefinition extends MetadataResource {
 
     public enum ActivityDefinitionKind {
@@ -2141,6 +2141,225 @@ The catalog does not replicate the content of the item, since that is expected t
     }
 
     @Block()
+    public static class ActivityDefinitionParticipantComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The type of participant in the action.
+         */
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
+        protected Enumeration<ActivityParticipantType> type;
+
+        /**
+         * The role the participant should play in performing the described action.
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="E.g. Nurse, Surgeon, Parent, etc", formalDefinition="The role the participant should play in performing the described action." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-role")
+        protected CodeableConcept role;
+
+        private static final long serialVersionUID = -1450932564L;
+
+    /**
+     * Constructor
+     */
+      public ActivityDefinitionParticipantComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ActivityDefinitionParticipantComponent(Enumeration<ActivityParticipantType> type) {
+        super();
+        this.type = type;
+      }
+
+        /**
+         * @return {@link #type} (The type of participant in the action.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public Enumeration<ActivityParticipantType> getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ActivityDefinitionParticipantComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory()); // bb
+          return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (The type of participant in the action.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public ActivityDefinitionParticipantComponent setTypeElement(Enumeration<ActivityParticipantType> value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return The type of participant in the action.
+         */
+        public ActivityParticipantType getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value The type of participant in the action.
+         */
+        public ActivityDefinitionParticipantComponent setType(ActivityParticipantType value) { 
+            if (this.type == null)
+              this.type = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory());
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #role} (The role the participant should play in performing the described action.)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ActivityDefinitionParticipantComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (The role the participant should play in performing the described action.)
+         */
+        public ActivityDefinitionParticipantComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("role", "CodeableConcept", "The role the participant should play in performing the described action.", 0, java.lang.Integer.MAX_VALUE, role));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ActivityParticipantType>
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: // type
+          value = new ActivityParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ActivityParticipantType>
+          return value;
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("type")) {
+          value = new ActivityParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ActivityParticipantType>
+        } else if (name.equals("role")) {
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getTypeElement();
+        case 3506294:  return getRole(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.type");
+        }
+        else if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ActivityDefinitionParticipantComponent copy() {
+        ActivityDefinitionParticipantComponent dst = new ActivityDefinitionParticipantComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.role = role == null ? null : role.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ActivityDefinitionParticipantComponent))
+          return false;
+        ActivityDefinitionParticipantComponent o = (ActivityDefinitionParticipantComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(role, o.role, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ActivityDefinitionParticipantComponent))
+          return false;
+        ActivityDefinitionParticipantComponent o = (ActivityDefinitionParticipantComponent) other;
+        return compareValues(type, o.type, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, role);
+      }
+
+  public String fhirType() {
+    return "ActivityDefinition.participant";
+
+  }
+
+  }
+
+    @Block()
     public static class ActivityDefinitionDynamicValueComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A brief, natural language description of the intended semantics of the dynamic value.
@@ -2636,12 +2855,11 @@ The catalog does not replicate the content of the item, since that is expected t
     protected Location locationTarget;
 
     /**
-     * The type of participant in the action.
+     * Indicates who should participate in performing the action described.
      */
-    @Child(name = "participantType", type = {CodeType.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
-    protected List<Enumeration<ActivityParticipantType>> participantType;
+    @Child(name = "participant", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Who should participate in the action", formalDefinition="Indicates who should participate in performing the action described." )
+    protected List<ActivityDefinitionParticipantComponent> participant;
 
     /**
      * Identifies the food, drug or other product being consumed or supplied in the activity.
@@ -2661,9 +2879,9 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.
      */
-    @Child(name = "dosageInstruction", type = {Dosage.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosage", type = {Dosage.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Detailed dosage instructions", formalDefinition="Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources." )
-    protected List<Dosage> dosageInstruction;
+    protected List<Dosage> dosage;
 
     /**
      * Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).
@@ -2692,7 +2910,7 @@ The catalog does not replicate the content of the item, since that is expected t
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = 663160319L;
+    private static final long serialVersionUID = 1741931476L;
 
   /**
    * Constructor
@@ -4020,64 +4238,56 @@ The catalog does not replicate the content of the item, since that is expected t
     }
 
     /**
-     * @return {@link #participantType} (The type of participant in the action.)
+     * @return {@link #participant} (Indicates who should participate in performing the action described.)
      */
-    public List<Enumeration<ActivityParticipantType>> getParticipantType() { 
-      if (this.participantType == null)
-        this.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
-      return this.participantType;
+    public List<ActivityDefinitionParticipantComponent> getParticipant() { 
+      if (this.participant == null)
+        this.participant = new ArrayList<ActivityDefinitionParticipantComponent>();
+      return this.participant;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setParticipantType(List<Enumeration<ActivityParticipantType>> theParticipantType) { 
-      this.participantType = theParticipantType;
+    public ActivityDefinition setParticipant(List<ActivityDefinitionParticipantComponent> theParticipant) { 
+      this.participant = theParticipant;
       return this;
     }
 
-    public boolean hasParticipantType() { 
-      if (this.participantType == null)
+    public boolean hasParticipant() { 
+      if (this.participant == null)
         return false;
-      for (Enumeration<ActivityParticipantType> item : this.participantType)
+      for (ActivityDefinitionParticipantComponent item : this.participant)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    /**
-     * @return {@link #participantType} (The type of participant in the action.)
-     */
-    public Enumeration<ActivityParticipantType> addParticipantTypeElement() {//2 
-      Enumeration<ActivityParticipantType> t = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory());
-      if (this.participantType == null)
-        this.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
-      this.participantType.add(t);
+    public ActivityDefinitionParticipantComponent addParticipant() { //3
+      ActivityDefinitionParticipantComponent t = new ActivityDefinitionParticipantComponent();
+      if (this.participant == null)
+        this.participant = new ArrayList<ActivityDefinitionParticipantComponent>();
+      this.participant.add(t);
       return t;
     }
 
-    /**
-     * @param value {@link #participantType} (The type of participant in the action.)
-     */
-    public ActivityDefinition addParticipantType(ActivityParticipantType value) { //1
-      Enumeration<ActivityParticipantType> t = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory());
-      t.setValue(value);
-      if (this.participantType == null)
-        this.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
-      this.participantType.add(t);
+    public ActivityDefinition addParticipant(ActivityDefinitionParticipantComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.participant == null)
+        this.participant = new ArrayList<ActivityDefinitionParticipantComponent>();
+      this.participant.add(t);
       return this;
     }
 
     /**
-     * @param value {@link #participantType} (The type of participant in the action.)
+     * @return The first repetition of repeating field {@link #participant}, creating it if it does not already exist
      */
-    public boolean hasParticipantType(ActivityParticipantType value) { 
-      if (this.participantType == null)
-        return false;
-      for (Enumeration<ActivityParticipantType> v : this.participantType)
-        if (v.getValue().equals(value)) // code
-          return true;
-      return false;
+    public ActivityDefinitionParticipantComponent getParticipantFirstRep() { 
+      if (getParticipant().isEmpty()) {
+        addParticipant();
+      }
+      return getParticipant().get(0);
     }
 
     /**
@@ -4150,56 +4360,56 @@ The catalog does not replicate the content of the item, since that is expected t
     }
 
     /**
-     * @return {@link #dosageInstruction} (Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.)
+     * @return {@link #dosage} (Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.)
      */
-    public List<Dosage> getDosageInstruction() { 
-      if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<Dosage>();
-      return this.dosageInstruction;
+    public List<Dosage> getDosage() { 
+      if (this.dosage == null)
+        this.dosage = new ArrayList<Dosage>();
+      return this.dosage;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setDosageInstruction(List<Dosage> theDosageInstruction) { 
-      this.dosageInstruction = theDosageInstruction;
+    public ActivityDefinition setDosage(List<Dosage> theDosage) { 
+      this.dosage = theDosage;
       return this;
     }
 
-    public boolean hasDosageInstruction() { 
-      if (this.dosageInstruction == null)
+    public boolean hasDosage() { 
+      if (this.dosage == null)
         return false;
-      for (Dosage item : this.dosageInstruction)
+      for (Dosage item : this.dosage)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Dosage addDosageInstruction() { //3
+    public Dosage addDosage() { //3
       Dosage t = new Dosage();
-      if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<Dosage>();
-      this.dosageInstruction.add(t);
+      if (this.dosage == null)
+        this.dosage = new ArrayList<Dosage>();
+      this.dosage.add(t);
       return t;
     }
 
-    public ActivityDefinition addDosageInstruction(Dosage t) { //3
+    public ActivityDefinition addDosage(Dosage t) { //3
       if (t == null)
         return this;
-      if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<Dosage>();
-      this.dosageInstruction.add(t);
+      if (this.dosage == null)
+        this.dosage = new ArrayList<Dosage>();
+      this.dosage.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #dosage}, creating it if it does not already exist
      */
-    public Dosage getDosageInstructionFirstRep() { 
-      if (getDosageInstruction().isEmpty()) {
-        addDosageInstruction();
+    public Dosage getDosageFirstRep() { 
+      if (getDosage().isEmpty()) {
+        addDosage();
       }
-      return getDosageInstruction().get(0);
+      return getDosage().get(0);
     }
 
     /**
@@ -4381,10 +4591,10 @@ The catalog does not replicate the content of the item, since that is expected t
         childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("timing[x]", "CodeableConcept|Timing", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
         childrenList.add(new Property("location", "Reference(Location)", "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("participantType", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, participantType));
+        childrenList.add(new Property("participant", "", "Indicates who should participate in performing the action described.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("product[x]", "Reference(Medication|Substance)|CodeableConcept", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
         childrenList.add(new Property("quantity", "SimpleQuantity", "Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).", 0, java.lang.Integer.MAX_VALUE, quantity));
-        childrenList.add(new Property("dosageInstruction", "Dosage", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
+        childrenList.add(new Property("dosage", "Dosage", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosage));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, java.lang.Integer.MAX_VALUE, transform));
         childrenList.add(new Property("dynamicValue", "", "Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue));
@@ -4420,10 +4630,10 @@ The catalog does not replicate the content of the item, since that is expected t
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ActivityParticipantType>
+        case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // ActivityDefinitionParticipantComponent
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
-        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // Dosage
+        case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // Dosage
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
         case 572625010: /*dynamicValue*/ return this.dynamicValue == null ? new Base[0] : this.dynamicValue.toArray(new Base[this.dynamicValue.size()]); // ActivityDefinitionDynamicValueComponent
@@ -4518,9 +4728,8 @@ The catalog does not replicate the content of the item, since that is expected t
         case 1901043637: // location
           this.location = castToReference(value); // Reference
           return value;
-        case 841294093: // participantType
-          value = new ActivityParticipantTypeEnumFactory().fromType(castToCode(value));
-          this.getParticipantType().add((Enumeration) value); // Enumeration<ActivityParticipantType>
+        case 767422259: // participant
+          this.getParticipant().add((ActivityDefinitionParticipantComponent) value); // ActivityDefinitionParticipantComponent
           return value;
         case -309474065: // product
           this.product = castToType(value); // Type
@@ -4528,8 +4737,8 @@ The catalog does not replicate the content of the item, since that is expected t
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           return value;
-        case -1201373865: // dosageInstruction
-          this.getDosageInstruction().add(castToDosage(value)); // Dosage
+        case -1326018889: // dosage
+          this.getDosage().add(castToDosage(value)); // Dosage
           return value;
         case 1702620169: // bodySite
           this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
@@ -4603,15 +4812,14 @@ The catalog does not replicate the content of the item, since that is expected t
           this.timing = castToType(value); // Type
         } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
-        } else if (name.equals("participantType")) {
-          value = new ActivityParticipantTypeEnumFactory().fromType(castToCode(value));
-          this.getParticipantType().add((Enumeration) value);
+        } else if (name.equals("participant")) {
+          this.getParticipant().add((ActivityDefinitionParticipantComponent) value);
         } else if (name.equals("product[x]")) {
           this.product = castToType(value); // Type
         } else if (name.equals("quantity")) {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-        } else if (name.equals("dosageInstruction")) {
-          this.getDosageInstruction().add(castToDosage(value));
+        } else if (name.equals("dosage")) {
+          this.getDosage().add(castToDosage(value));
         } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("transform")) {
@@ -4654,11 +4862,11 @@ The catalog does not replicate the content of the item, since that is expected t
         case 164632566:  return getTiming(); 
         case -873664438:  return getTiming(); 
         case 1901043637:  return getLocation(); 
-        case 841294093:  return addParticipantTypeElement();
+        case 767422259:  return addParticipant(); 
         case 1753005361:  return getProduct(); 
         case -309474065:  return getProduct(); 
         case -1285004149:  return getQuantity(); 
-        case -1201373865:  return addDosageInstruction(); 
+        case -1326018889:  return addDosage(); 
         case 1702620169:  return addBodySite(); 
         case 1052666732:  return getTransform(); 
         case 572625010:  return addDynamicValue(); 
@@ -4697,10 +4905,10 @@ The catalog does not replicate the content of the item, since that is expected t
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -873664438: /*timing*/ return new String[] {"CodeableConcept", "Timing"};
         case 1901043637: /*location*/ return new String[] {"Reference"};
-        case 841294093: /*participantType*/ return new String[] {"code"};
+        case 767422259: /*participant*/ return new String[] {};
         case -309474065: /*product*/ return new String[] {"Reference", "CodeableConcept"};
         case -1285004149: /*quantity*/ return new String[] {"SimpleQuantity"};
-        case -1201373865: /*dosageInstruction*/ return new String[] {"Dosage"};
+        case -1326018889: /*dosage*/ return new String[] {"Dosage"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case 1052666732: /*transform*/ return new String[] {"Reference"};
         case 572625010: /*dynamicValue*/ return new String[] {};
@@ -4800,8 +5008,8 @@ The catalog does not replicate the content of the item, since that is expected t
           this.location = new Reference();
           return this.location;
         }
-        else if (name.equals("participantType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.participantType");
+        else if (name.equals("participant")) {
+          return addParticipant();
         }
         else if (name.equals("productReference")) {
           this.product = new Reference();
@@ -4815,8 +5023,8 @@ The catalog does not replicate the content of the item, since that is expected t
           this.quantity = new SimpleQuantity();
           return this.quantity;
         }
-        else if (name.equals("dosageInstruction")) {
-          return addDosageInstruction();
+        else if (name.equals("dosage")) {
+          return addDosage();
         }
         else if (name.equals("bodySite")) {
           return addBodySite();
@@ -4899,17 +5107,17 @@ The catalog does not replicate the content of the item, since that is expected t
         dst.code = code == null ? null : code.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.location = location == null ? null : location.copy();
-        if (participantType != null) {
-          dst.participantType = new ArrayList<Enumeration<ActivityParticipantType>>();
-          for (Enumeration<ActivityParticipantType> i : participantType)
-            dst.participantType.add(i.copy());
+        if (participant != null) {
+          dst.participant = new ArrayList<ActivityDefinitionParticipantComponent>();
+          for (ActivityDefinitionParticipantComponent i : participant)
+            dst.participant.add(i.copy());
         };
         dst.product = product == null ? null : product.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
-        if (dosageInstruction != null) {
-          dst.dosageInstruction = new ArrayList<Dosage>();
-          for (Dosage i : dosageInstruction)
-            dst.dosageInstruction.add(i.copy());
+        if (dosage != null) {
+          dst.dosage = new ArrayList<Dosage>();
+          for (Dosage i : dosage)
+            dst.dosage.add(i.copy());
         };
         if (bodySite != null) {
           dst.bodySite = new ArrayList<CodeableConcept>();
@@ -4941,8 +5149,8 @@ The catalog does not replicate the content of the item, since that is expected t
            && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(relatedArtifact, o.relatedArtifact, true)
            && compareDeep(library, o.library, true) && compareDeep(kind, o.kind, true) && compareDeep(code, o.code, true)
-           && compareDeep(timing, o.timing, true) && compareDeep(location, o.location, true) && compareDeep(participantType, o.participantType, true)
-           && compareDeep(product, o.product, true) && compareDeep(quantity, o.quantity, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
+           && compareDeep(timing, o.timing, true) && compareDeep(location, o.location, true) && compareDeep(participant, o.participant, true)
+           && compareDeep(product, o.product, true) && compareDeep(quantity, o.quantity, true) && compareDeep(dosage, o.dosage, true)
            && compareDeep(bodySite, o.bodySite, true) && compareDeep(transform, o.transform, true) && compareDeep(dynamicValue, o.dynamicValue, true)
           ;
       }
@@ -4956,14 +5164,14 @@ The catalog does not replicate the content of the item, since that is expected t
         ActivityDefinition o = (ActivityDefinition) other;
         return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(approvalDate, o.approvalDate, true)
            && compareValues(lastReviewDate, o.lastReviewDate, true) && compareValues(copyright, o.copyright, true)
-           && compareValues(kind, o.kind, true) && compareValues(participantType, o.participantType, true);
+           && compareValues(kind, o.kind, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
           , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
-          , library, kind, code, timing, location, participantType, product, quantity
-          , dosageInstruction, bodySite, transform, dynamicValue);
+          , library, kind, code, timing, location, participant, product, quantity, dosage
+          , bodySite, transform, dynamicValue);
       }
 
   @Override

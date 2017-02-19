@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -399,7 +399,7 @@ public class MedicationStatement extends DomainResource {
      * The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
      */
     @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Over what period was medication consumed?", formalDefinition="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true)." )
+    @Description(shortDefinition="The date/time or interval when the medication was taken", formalDefinition="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true)." )
     protected Type effective;
 
     /**
@@ -464,21 +464,21 @@ public class MedicationStatement extends DomainResource {
     /**
      * A reason for why the medication is being/was taken.
      */
-    @Child(name = "reasonForUseCodeableConcept", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason for why the medication is being/was taken", formalDefinition="A reason for why the medication is being/was taken." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-code")
-    protected List<CodeableConcept> reasonForUseCodeableConcept;
+    protected List<CodeableConcept> reasonCode;
 
     /**
      * Condition or observation that supports why the medication is being/was taken.
      */
-    @Child(name = "reasonForUseReference", type = {Condition.class, Observation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition or observation that supports why the medication is being/was taken", formalDefinition="Condition or observation that supports why the medication is being/was taken." )
-    protected List<Reference> reasonForUseReference;
+    protected List<Reference> reasonReference;
     /**
      * The actual objects that are the target of the reference (Condition or observation that supports why the medication is being/was taken.)
      */
-    protected List<Resource> reasonForUseReferenceTarget;
+    protected List<Resource> reasonReferenceTarget;
 
 
     /**
@@ -489,13 +489,13 @@ public class MedicationStatement extends DomainResource {
     protected List<Annotation> note;
 
     /**
-     * Indicates how the medication is/was used by the patient.
+     * Indicates how the medication is/was or should be taken by the patient.
      */
     @Child(name = "dosage", type = {Dosage.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
+    @Description(shortDefinition="Details of how medication is/was taken or should be taken", formalDefinition="Indicates how the medication is/was or should be taken by the patient." )
     protected List<Dosage> dosage;
 
-    private static final long serialVersionUID = 34936969L;
+    private static final long serialVersionUID = -1529480075L;
 
   /**
    * Constructor
@@ -1181,119 +1181,119 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonForUseCodeableConcept} (A reason for why the medication is being/was taken.)
+     * @return {@link #reasonCode} (A reason for why the medication is being/was taken.)
      */
-    public List<CodeableConcept> getReasonForUseCodeableConcept() { 
-      if (this.reasonForUseCodeableConcept == null)
-        this.reasonForUseCodeableConcept = new ArrayList<CodeableConcept>();
-      return this.reasonForUseCodeableConcept;
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationStatement setReasonForUseCodeableConcept(List<CodeableConcept> theReasonForUseCodeableConcept) { 
-      this.reasonForUseCodeableConcept = theReasonForUseCodeableConcept;
+    public MedicationStatement setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
       return this;
     }
 
-    public boolean hasReasonForUseCodeableConcept() { 
-      if (this.reasonForUseCodeableConcept == null)
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
         return false;
-      for (CodeableConcept item : this.reasonForUseCodeableConcept)
+      for (CodeableConcept item : this.reasonCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addReasonForUseCodeableConcept() { //3
+    public CodeableConcept addReasonCode() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.reasonForUseCodeableConcept == null)
-        this.reasonForUseCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonForUseCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return t;
     }
 
-    public MedicationStatement addReasonForUseCodeableConcept(CodeableConcept t) { //3
+    public MedicationStatement addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.reasonForUseCodeableConcept == null)
-        this.reasonForUseCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonForUseCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonForUseCodeableConcept}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
      */
-    public CodeableConcept getReasonForUseCodeableConceptFirstRep() { 
-      if (getReasonForUseCodeableConcept().isEmpty()) {
-        addReasonForUseCodeableConcept();
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
       }
-      return getReasonForUseCodeableConcept().get(0);
+      return getReasonCode().get(0);
     }
 
     /**
-     * @return {@link #reasonForUseReference} (Condition or observation that supports why the medication is being/was taken.)
+     * @return {@link #reasonReference} (Condition or observation that supports why the medication is being/was taken.)
      */
-    public List<Reference> getReasonForUseReference() { 
-      if (this.reasonForUseReference == null)
-        this.reasonForUseReference = new ArrayList<Reference>();
-      return this.reasonForUseReference;
+    public List<Reference> getReasonReference() { 
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      return this.reasonReference;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationStatement setReasonForUseReference(List<Reference> theReasonForUseReference) { 
-      this.reasonForUseReference = theReasonForUseReference;
+    public MedicationStatement setReasonReference(List<Reference> theReasonReference) { 
+      this.reasonReference = theReasonReference;
       return this;
     }
 
-    public boolean hasReasonForUseReference() { 
-      if (this.reasonForUseReference == null)
+    public boolean hasReasonReference() { 
+      if (this.reasonReference == null)
         return false;
-      for (Reference item : this.reasonForUseReference)
+      for (Reference item : this.reasonReference)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addReasonForUseReference() { //3
+    public Reference addReasonReference() { //3
       Reference t = new Reference();
-      if (this.reasonForUseReference == null)
-        this.reasonForUseReference = new ArrayList<Reference>();
-      this.reasonForUseReference.add(t);
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
       return t;
     }
 
-    public MedicationStatement addReasonForUseReference(Reference t) { //3
+    public MedicationStatement addReasonReference(Reference t) { //3
       if (t == null)
         return this;
-      if (this.reasonForUseReference == null)
-        this.reasonForUseReference = new ArrayList<Reference>();
-      this.reasonForUseReference.add(t);
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonForUseReference}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
      */
-    public Reference getReasonForUseReferenceFirstRep() { 
-      if (getReasonForUseReference().isEmpty()) {
-        addReasonForUseReference();
+    public Reference getReasonReferenceFirstRep() { 
+      if (getReasonReference().isEmpty()) {
+        addReasonReference();
       }
-      return getReasonForUseReference().get(0);
+      return getReasonReference().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getReasonForUseReferenceTarget() { 
-      if (this.reasonForUseReferenceTarget == null)
-        this.reasonForUseReferenceTarget = new ArrayList<Resource>();
-      return this.reasonForUseReferenceTarget;
+    public List<Resource> getReasonReferenceTarget() { 
+      if (this.reasonReferenceTarget == null)
+        this.reasonReferenceTarget = new ArrayList<Resource>();
+      return this.reasonReferenceTarget;
     }
 
     /**
@@ -1350,7 +1350,7 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
+     * @return {@link #dosage} (Indicates how the medication is/was or should be taken by the patient.)
      */
     public List<Dosage> getDosage() { 
       if (this.dosage == null)
@@ -1418,10 +1418,10 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("taken", "code", "Indicator of the certainty of whether the medication was taken by the patient.", 0, java.lang.Integer.MAX_VALUE, taken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
-        childrenList.add(new Property("reasonForUseCodeableConcept", "CodeableConcept", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseCodeableConcept));
-        childrenList.add(new Property("reasonForUseReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseReference));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("note", "Annotation", "Provides extra information about the medication statement that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("dosage", "Dosage", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
+        childrenList.add(new Property("dosage", "Dosage", "Indicates how the medication is/was or should be taken by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
       @Override
@@ -1441,8 +1441,8 @@ public class MedicationStatement extends DomainResource {
         case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : this.derivedFrom.toArray(new Base[this.derivedFrom.size()]); // Reference
         case 110124231: /*taken*/ return this.taken == null ? new Base[0] : new Base[] {this.taken}; // Enumeration<MedicationStatementTaken>
         case 2112880664: /*reasonNotTaken*/ return this.reasonNotTaken == null ? new Base[0] : this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
-        case 909630431: /*reasonForUseCodeableConcept*/ return this.reasonForUseCodeableConcept == null ? new Base[0] : this.reasonForUseCodeableConcept.toArray(new Base[this.reasonForUseCodeableConcept.size()]); // CodeableConcept
-        case -370888183: /*reasonForUseReference*/ return this.reasonForUseReference == null ? new Base[0] : this.reasonForUseReference.toArray(new Base[this.reasonForUseReference.size()]); // Reference
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
+        case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // Dosage
         default: return super.getProperty(hash, name, checkValid);
@@ -1497,11 +1497,11 @@ public class MedicationStatement extends DomainResource {
         case 2112880664: // reasonNotTaken
           this.getReasonNotTaken().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 909630431: // reasonForUseCodeableConcept
-          this.getReasonForUseCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case -370888183: // reasonForUseReference
-          this.getReasonForUseReference().add(castToReference(value)); // Reference
+        case -1146218137: // reasonReference
+          this.getReasonReference().add(castToReference(value)); // Reference
           return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
@@ -1546,10 +1546,10 @@ public class MedicationStatement extends DomainResource {
           this.taken = (Enumeration) value; // Enumeration<MedicationStatementTaken>
         } else if (name.equals("reasonNotTaken")) {
           this.getReasonNotTaken().add(castToCodeableConcept(value));
-        } else if (name.equals("reasonForUseCodeableConcept")) {
-          this.getReasonForUseCodeableConcept().add(castToCodeableConcept(value));
-        } else if (name.equals("reasonForUseReference")) {
-          this.getReasonForUseReference().add(castToReference(value));
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonReference")) {
+          this.getReasonReference().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("dosage")) {
@@ -1578,8 +1578,8 @@ public class MedicationStatement extends DomainResource {
         case 1077922663:  return addDerivedFrom(); 
         case 110124231:  return getTakenElement();
         case 2112880664:  return addReasonNotTaken(); 
-        case 909630431:  return addReasonForUseCodeableConcept(); 
-        case -370888183:  return addReasonForUseReference(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
         case 3387378:  return addNote(); 
         case -1326018889:  return addDosage(); 
         default: return super.makeProperty(hash, name);
@@ -1604,8 +1604,8 @@ public class MedicationStatement extends DomainResource {
         case 1077922663: /*derivedFrom*/ return new String[] {"Reference"};
         case 110124231: /*taken*/ return new String[] {"code"};
         case 2112880664: /*reasonNotTaken*/ return new String[] {"CodeableConcept"};
-        case 909630431: /*reasonForUseCodeableConcept*/ return new String[] {"CodeableConcept"};
-        case -370888183: /*reasonForUseReference*/ return new String[] {"Reference"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case -1326018889: /*dosage*/ return new String[] {"Dosage"};
         default: return super.getTypesForProperty(hash, name);
@@ -1671,11 +1671,11 @@ public class MedicationStatement extends DomainResource {
         else if (name.equals("reasonNotTaken")) {
           return addReasonNotTaken();
         }
-        else if (name.equals("reasonForUseCodeableConcept")) {
-          return addReasonForUseCodeableConcept();
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
         }
-        else if (name.equals("reasonForUseReference")) {
-          return addReasonForUseReference();
+        else if (name.equals("reasonReference")) {
+          return addReasonReference();
         }
         else if (name.equals("note")) {
           return addNote();
@@ -1729,15 +1729,15 @@ public class MedicationStatement extends DomainResource {
           for (CodeableConcept i : reasonNotTaken)
             dst.reasonNotTaken.add(i.copy());
         };
-        if (reasonForUseCodeableConcept != null) {
-          dst.reasonForUseCodeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reasonForUseCodeableConcept)
-            dst.reasonForUseCodeableConcept.add(i.copy());
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
         };
-        if (reasonForUseReference != null) {
-          dst.reasonForUseReference = new ArrayList<Reference>();
-          for (Reference i : reasonForUseReference)
-            dst.reasonForUseReference.add(i.copy());
+        if (reasonReference != null) {
+          dst.reasonReference = new ArrayList<Reference>();
+          for (Reference i : reasonReference)
+            dst.reasonReference.add(i.copy());
         };
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
@@ -1768,7 +1768,7 @@ public class MedicationStatement extends DomainResource {
            && compareDeep(medication, o.medication, true) && compareDeep(effective, o.effective, true) && compareDeep(dateAsserted, o.dateAsserted, true)
            && compareDeep(informationSource, o.informationSource, true) && compareDeep(subject, o.subject, true)
            && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(taken, o.taken, true) && compareDeep(reasonNotTaken, o.reasonNotTaken, true)
-           && compareDeep(reasonForUseCodeableConcept, o.reasonForUseCodeableConcept, true) && compareDeep(reasonForUseReference, o.reasonForUseReference, true)
+           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(note, o.note, true) && compareDeep(dosage, o.dosage, true);
       }
 
@@ -1786,8 +1786,8 @@ public class MedicationStatement extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
           , context, status, category, medication, effective, dateAsserted, informationSource
-          , subject, derivedFrom, taken, reasonNotTaken, reasonForUseCodeableConcept, reasonForUseReference
-          , note, dosage);
+          , subject, derivedFrom, taken, reasonNotTaken, reasonCode, reasonReference, note
+          , dosage);
       }
 
   @Override

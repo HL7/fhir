@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -456,11 +456,11 @@ public class AuditEvent extends DomainResource {
     @Block()
     public static class AuditEventAgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
+         * The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Agent role in the event", formalDefinition="Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/dicm-402-roleid")
+        @Description(shortDefinition="Agent role in the event", formalDefinition="The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-role-type")
         protected List<CodeableConcept> role;
 
         /**
@@ -563,7 +563,7 @@ public class AuditEvent extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
+         * @return {@link #role} (The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
          */
         public List<CodeableConcept> getRole() { 
           if (this.role == null)
@@ -1029,7 +1029,7 @@ public class AuditEvent extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("role", "CodeableConcept", "The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("reference", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Direct reference to a resource that identifies the agent.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("userId", "Identifier", "Unique identifier for the user actively participating in the event.", 0, java.lang.Integer.MAX_VALUE, userId));
           childrenList.add(new Property("altId", "string", "Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, altId));
@@ -3645,24 +3645,24 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
 
  /**
-   * Search parameter: <b>role</b>
+   * Search parameter: <b>entity-role</b>
    * <p>
    * Description: <b>What role the entity played</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.role</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="role", path="AuditEvent.entity.role", description="What role the entity played", type="token" )
-  public static final String SP_ROLE = "role";
+  @SearchParamDefinition(name="entity-role", path="AuditEvent.entity.role", description="What role the entity played", type="token" )
+  public static final String SP_ENTITY_ROLE = "entity-role";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>role</b>
+   * <b>Fluent Client</b> search parameter constant for <b>entity-role</b>
    * <p>
    * Description: <b>What role the entity played</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.role</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_ROLE);
 
  /**
    * Search parameter: <b>source</b>
@@ -3849,6 +3849,26 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
+
+ /**
+   * Search parameter: <b>agent-role</b>
+   * <p>
+   * Description: <b>Agent role in the event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.role</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="agent-role", path="AuditEvent.agent.role", description="Agent role in the event", type="token" )
+  public static final String SP_AGENT_ROLE = "agent-role";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>agent-role</b>
+   * <p>
+   * Description: <b>Agent role in the event</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.role</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT_ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT_ROLE);
 
  /**
    * Search parameter: <b>user</b>

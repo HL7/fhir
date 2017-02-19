@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1965,14 +1965,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<CodeableConcept> performerType;
 
     /**
-     * The owner of this task.  The participant who can execute this task.
+     * Individual organization or Device currently responsible for task execution.
      */
     @Child(name = "owner", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=20, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Task Owner", formalDefinition="The owner of this task.  The participant who can execute this task." )
+    @Description(shortDefinition="Responsible individual", formalDefinition="Individual organization or Device currently responsible for task execution." )
     protected Reference owner;
 
     /**
-     * The actual object that is the target of the reference (The owner of this task.  The participant who can execute this task.)
+     * The actual object that is the target of the reference (Individual organization or Device currently responsible for task execution.)
      */
     protected Resource ownerTarget;
 
@@ -2878,7 +2878,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #owner} (The owner of this task.  The participant who can execute this task.)
+     * @return {@link #owner} (Individual organization or Device currently responsible for task execution.)
      */
     public Reference getOwner() { 
       if (this.owner == null)
@@ -2894,7 +2894,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #owner} (The owner of this task.  The participant who can execute this task.)
+     * @param value {@link #owner} (Individual organization or Device currently responsible for task execution.)
      */
     public Task setOwner(Reference value) { 
       this.owner = value;
@@ -2902,14 +2902,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #owner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The owner of this task.  The participant who can execute this task.)
+     * @return {@link #owner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual organization or Device currently responsible for task execution.)
      */
     public Resource getOwnerTarget() { 
       return this.ownerTarget;
     }
 
     /**
-     * @param value {@link #owner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The owner of this task.  The participant who can execute this task.)
+     * @param value {@link #owner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual organization or Device currently responsible for task execution.)
      */
     public Task setOwnerTarget(Resource value) { 
       this.ownerTarget = value;
@@ -3220,7 +3220,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("lastModified", "dateTime", "The date and time of last modification to this task.", 0, java.lang.Integer.MAX_VALUE, lastModified));
         childrenList.add(new Property("requester", "", "The creator of the task.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("performerType", "CodeableConcept", "The type of participant that can execute the task.", 0, java.lang.Integer.MAX_VALUE, performerType));
-        childrenList.add(new Property("owner", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The owner of this task.  The participant who can execute this task.", 0, java.lang.Integer.MAX_VALUE, owner));
+        childrenList.add(new Property("owner", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "Individual organization or Device currently responsible for task execution.", 0, java.lang.Integer.MAX_VALUE, owner));
         childrenList.add(new Property("reason", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("note", "Annotation", "Free-text information captured about the task as it progresses.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("relevantHistory", "Reference(Provenance)", "Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
@@ -4075,52 +4075,6 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * the path value of "<b>Task:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Task:patient").toLocked();
-
- /**
-   * Search parameter: <b>statusreason</b>
-   * <p>
-   * Description: <b>Search by status reason</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.statusReason</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="statusreason", path="Task.statusReason", description="Search by status reason", type="token" )
-  public static final String SP_STATUSREASON = "statusreason";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>statusreason</b>
-   * <p>
-   * Description: <b>Search by status reason</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.statusReason</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUSREASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUSREASON);
-
- /**
-   * Search parameter: <b>definition-ref</b>
-   * <p>
-   * Description: <b>Search by task definition as a Reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.definitionReference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="definition-ref", path="Task.definition.as(Reference)", description="Search by task definition as a Reference", type="reference", target={ActivityDefinition.class } )
-  public static final String SP_DEFINITION_REF = "definition-ref";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>definition-ref</b>
-   * <p>
-   * Description: <b>Search by task definition as a Reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.definitionReference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEFINITION_REF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEFINITION_REF);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:definition-ref</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION_REF = new ca.uhn.fhir.model.api.Include("Task:definition-ref").toLocked();
 
  /**
    * Search parameter: <b>organization</b>

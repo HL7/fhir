@@ -1,14 +1,6 @@
 ﻿
 === Sheet Bindings =====================================
 
- -- Row 1 -----------------------------------
-  Binding Name = EventPurposeOfUse
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
-  Definition = Indicates the why the event occurred
-  Description = extensible
-  Conformance = extensible
-
 === Sheet EHRSRLE-AuditEvent =====================================
 
  -- Row 1 -----------------------------------

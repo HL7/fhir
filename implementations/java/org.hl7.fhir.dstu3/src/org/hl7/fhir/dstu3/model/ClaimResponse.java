@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -4497,16 +4497,28 @@ public class ClaimResponse extends DomainResource {
     protected Enumeration<ClaimResponseStatus> status;
 
     /**
+     * Patient Resource.
+     */
+    @Child(name = "patient", type = {Patient.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
+    protected Reference patient;
+
+    /**
+     * The actual object that is the target of the reference (Patient Resource.)
+     */
+    protected Patient patientTarget;
+
+    /**
      * The date when the enclosed suite of services were performed or completed.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "created", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Creation date", formalDefinition="The date when the enclosed suite of services were performed or completed." )
     protected DateTimeType created;
 
     /**
      * The Insurer who produced this adjudicated response.
      */
-    @Child(name = "insurer", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "insurer", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Insurance issuing organization", formalDefinition="The Insurer who produced this adjudicated response." )
     protected Reference insurer;
 
@@ -4518,7 +4530,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * The practitioner who is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestProvider", type = {Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "requestProvider", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Responsible practitioner", formalDefinition="The practitioner who is responsible for the services rendered to the patient." )
     protected Reference requestProvider;
 
@@ -4530,7 +4542,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * The organization which is responsible for the services rendered to the patient.
      */
-    @Child(name = "requestOrganization", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "requestOrganization", type = {Organization.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the services rendered to the patient." )
     protected Reference requestOrganization;
 
@@ -4542,7 +4554,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * Original request resource referrence.
      */
-    @Child(name = "request", type = {Claim.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "request", type = {Claim.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Id of resource triggering adjudication", formalDefinition="Original request resource referrence." )
     protected Reference request;
 
@@ -4554,7 +4566,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * Processing outcome errror, partial or complete processing.
      */
-    @Child(name = "outcome", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "outcome", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/remittance-outcome")
     protected CodeableConcept outcome;
@@ -4562,14 +4574,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * A description of the status of the adjudication.
      */
-    @Child(name = "disposition", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "disposition", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Disposition Message", formalDefinition="A description of the status of the adjudication." )
     protected StringType disposition;
 
     /**
      * Party to be reimbursed: Subscriber, provider, other.
      */
-    @Child(name = "payeeType", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "payeeType", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Party to be paid any benefits payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/payeetype")
     protected CodeableConcept payeeType;
@@ -4577,56 +4589,56 @@ public class ClaimResponse extends DomainResource {
     /**
      * The first tier service adjudications for submitted services.
      */
-    @Child(name = "item", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "item", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Line items", formalDefinition="The first tier service adjudications for submitted services." )
     protected List<ItemComponent> item;
 
     /**
      * The first tier service adjudications for payor added services.
      */
-    @Child(name = "addItem", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "addItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Insurer added line items", formalDefinition="The first tier service adjudications for payor added services." )
     protected List<AddedItemComponent> addItem;
 
     /**
      * Mutually exclusive with Services Provided (Item).
      */
-    @Child(name = "error", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "error", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Processing errors", formalDefinition="Mutually exclusive with Services Provided (Item)." )
     protected List<ErrorComponent> error;
 
     /**
      * The total cost of the services reported.
      */
-    @Child(name = "totalCost", type = {Money.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "totalCost", type = {Money.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Total Cost of service from the Claim", formalDefinition="The total cost of the services reported." )
     protected Money totalCost;
 
     /**
      * The amount of deductible applied which was not allocated to any particular service line.
      */
-    @Child(name = "unallocDeductable", type = {Money.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "unallocDeductable", type = {Money.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Unallocated deductible", formalDefinition="The amount of deductible applied which was not allocated to any particular service line." )
     protected Money unallocDeductable;
 
     /**
      * Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible).
      */
-    @Child(name = "totalBenefit", type = {Money.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "totalBenefit", type = {Money.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Total benefit payable for the Claim", formalDefinition="Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible)." )
     protected Money totalBenefit;
 
     /**
      * Payment details for the claim if the claim has been paid.
      */
-    @Child(name = "payment", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "payment", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Payment details, if paid", formalDefinition="Payment details for the claim if the claim has been paid." )
     protected PaymentComponent payment;
 
     /**
      * Status of funds reservation (For provider, for Patient, None).
      */
-    @Child(name = "reserved", type = {Coding.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reserved", type = {Coding.class}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Funds reserved status", formalDefinition="Status of funds reservation (For provider, for Patient, None)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fundsreserve")
     protected Coding reserved;
@@ -4634,7 +4646,7 @@ public class ClaimResponse extends DomainResource {
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {CodeableConcept.class}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "form", type = {CodeableConcept.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/forms")
     protected CodeableConcept form;
@@ -4642,14 +4654,14 @@ public class ClaimResponse extends DomainResource {
     /**
      * Note text.
      */
-    @Child(name = "processNote", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "processNote", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NoteComponent> processNote;
 
     /**
      * Request for additional supporting or authorizing information, such as: documents, images or resources.
      */
-    @Child(name = "communicationRequest", type = {CommunicationRequest.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "communicationRequest", type = {CommunicationRequest.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Request for additional information", formalDefinition="Request for additional supporting or authorizing information, such as: documents, images or resources." )
     protected List<Reference> communicationRequest;
     /**
@@ -4661,11 +4673,11 @@ public class ClaimResponse extends DomainResource {
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "insurance", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "insurance", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<InsuranceComponent> insurance;
 
-    private static final long serialVersionUID = -435907650L;
+    private static final long serialVersionUID = -488591755L;
 
   /**
    * Constructor
@@ -4773,6 +4785,50 @@ public class ClaimResponse extends DomainResource {
           this.status = new Enumeration<ClaimResponseStatus>(new ClaimResponseStatusEnumFactory());
         this.status.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #patient} (Patient Resource.)
+     */
+    public Reference getPatient() { 
+      if (this.patient == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ClaimResponse.patient");
+        else if (Configuration.doAutoCreate())
+          this.patient = new Reference(); // cc
+      return this.patient;
+    }
+
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
+    }
+
+    /**
+     * @param value {@link #patient} (Patient Resource.)
+     */
+    public ClaimResponse setPatient(Reference value) { 
+      this.patient = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient Resource.)
+     */
+    public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ClaimResponse.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient(); // aa
+      return this.patientTarget;
+    }
+
+    /**
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient Resource.)
+     */
+    public ClaimResponse setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
@@ -5586,6 +5642,7 @@ public class ClaimResponse extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("patient", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("insurer", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, insurer));
         childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
@@ -5613,6 +5670,7 @@ public class ClaimResponse extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ClaimResponseStatus>
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
         case 1957615864: /*insurer*/ return this.insurer == null ? new Base[0] : new Base[] {this.insurer}; // Reference
         case 1601527200: /*requestProvider*/ return this.requestProvider == null ? new Base[0] : new Base[] {this.requestProvider}; // Reference
@@ -5647,6 +5705,9 @@ public class ClaimResponse extends DomainResource {
         case -892481550: // status
           value = new ClaimResponseStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ClaimResponseStatus>
+          return value;
+        case -791418107: // patient
+          this.patient = castToReference(value); // Reference
           return value;
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
@@ -5720,6 +5781,8 @@ public class ClaimResponse extends DomainResource {
         } else if (name.equals("status")) {
           value = new ClaimResponseStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ClaimResponseStatus>
+        } else if (name.equals("patient")) {
+          this.patient = castToReference(value); // Reference
         } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
         } else if (name.equals("insurer")) {
@@ -5770,6 +5833,7 @@ public class ClaimResponse extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -892481550:  return getStatusElement();
+        case -791418107:  return getPatient(); 
         case 1028554472:  return getCreatedElement();
         case 1957615864:  return getInsurer(); 
         case 1601527200:  return getRequestProvider(); 
@@ -5800,6 +5864,7 @@ public class ClaimResponse extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
         case 1028554472: /*created*/ return new String[] {"dateTime"};
         case 1957615864: /*insurer*/ return new String[] {"Reference"};
         case 1601527200: /*requestProvider*/ return new String[] {"Reference"};
@@ -5832,6 +5897,10 @@ public class ClaimResponse extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.status");
+        }
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
         }
         else if (name.equals("created")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.created");
@@ -5923,6 +5992,7 @@ public class ClaimResponse extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.created = created == null ? null : created.copy();
         dst.insurer = insurer == null ? null : insurer.copy();
         dst.requestProvider = requestProvider == null ? null : requestProvider.copy();
@@ -5981,8 +6051,8 @@ public class ClaimResponse extends DomainResource {
         if (!(other instanceof ClaimResponse))
           return false;
         ClaimResponse o = (ClaimResponse) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(created, o.created, true)
-           && compareDeep(insurer, o.insurer, true) && compareDeep(requestProvider, o.requestProvider, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(created, o.created, true) && compareDeep(insurer, o.insurer, true) && compareDeep(requestProvider, o.requestProvider, true)
            && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(request, o.request, true)
            && compareDeep(outcome, o.outcome, true) && compareDeep(disposition, o.disposition, true) && compareDeep(payeeType, o.payeeType, true)
            && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true) && compareDeep(error, o.error, true)
@@ -6004,10 +6074,10 @@ public class ClaimResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, created
-          , insurer, requestProvider, requestOrganization, request, outcome, disposition, payeeType
-          , item, addItem, error, totalCost, unallocDeductable, totalBenefit, payment, reserved
-          , form, processNote, communicationRequest, insurance);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, patient
+          , created, insurer, requestProvider, requestOrganization, request, outcome, disposition
+          , payeeType, item, addItem, error, totalCost, unallocDeductable, totalBenefit
+          , payment, reserved, form, processNote, communicationRequest, insurance);
       }
 
   @Override
@@ -6126,6 +6196,32 @@ public class ClaimResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The subject of care.</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="ClaimResponse.patient", description="The subject of care.", type="reference", target={Patient.class } )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The subject of care.</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClaimResponse:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ClaimResponse:patient").toLocked();
 
  /**
    * Search parameter: <b>payment-date</b>
