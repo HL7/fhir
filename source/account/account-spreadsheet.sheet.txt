@@ -164,6 +164,7 @@
   Type = =Coverage
   Short Name = The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
   Comments = Typically this may be some form of insurance, internal charges, or self-pay.\n\nLocal or jurisdicational business rules may determine which coverage covers which types of billable items charged to the account, and in which order.\nWhere the order is important, a local/jurisdicational extension may be defined to specify the order for the type of charge.
+  RIM Mapping = .coverage
 
  -- Row 12 -----------------------------------
   Element = Account.coverage.coverage
@@ -182,6 +183,7 @@
   Type = positiveInt
   Short Name = The priority of the coverage in the context of this account
   Comments = It is common in some jurisdictions for there to be multiple coverages allocated to an account, and a sequence is required to order the settling of the account (often with insurance claiming)
+  RIM Mapping = .coverage.sequenceNumber
 
  -- Row 14 -----------------------------------
   Element = Account.owner
@@ -207,6 +209,7 @@
   Type = =Guarantor
   Short Name = Responsible for the account
   Definition = Parties financially responsible for the account.
+  RIM Mapping = .holder.guarantorRole
 
  -- Row 17 -----------------------------------
   Element = Account.guarantor.party
@@ -214,6 +217,7 @@
   Type = Reference(Patient|RelatedPerson|Organization)
   Short Name = Responsible entity
   Definition = The entity who is responsible.
+  RIM Mapping = .holder.guarantorRole[guarantorPerson|guarantorOrganization]
 
  -- Row 18 -----------------------------------
   Element = Account.guarantor.onHold
@@ -221,6 +225,7 @@
   Type = boolean
   Short Name = Credit or other hold applied
   Definition = A guarantor may be placed on credit hold or otherwise have their role temporarily suspended.
+  RIM Mapping = .holder.guarantorRole.statusCode
 
  -- Row 19 -----------------------------------
   Element = Account.guarantor.period
@@ -228,6 +233,7 @@
   Type = Period
   Short Name = Guarrantee account during
   Definition = The timeframe during which the guarantor accepts responsibility for the account.
+  RIM Mapping = .holder.guarantorRole.effectiveTime
 
 === Sheet Search =====================================
 
