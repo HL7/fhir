@@ -27,12 +27,6 @@
     <start value="2016-01-01"/>
     <end value="2016-06-30"/>
   </active>
-  <currency>
-    <!-- ISO 4217 Currency Codes -->
-    <system value="urn:iso:std:iso:4217"/>
-    <code value="USD"/>
-    <display value="US Dollar"/>
-  </currency>
   <balance>
     <value value="-1200"/>
     <unit value="USD"/>

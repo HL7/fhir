@@ -136,8 +136,10 @@
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
-  Element = Account.currency
+  Element = !Account.currency
   Card. = 0..1
+  Is Modifier = y
+  Summary = y
   Type = Coding
   Binding = AccountCurrency
   Short Name = Base currency in which balance is tracked
@@ -145,6 +147,7 @@
   Comments = Tracked separately from balance because currency might be known when balance is not.  In some cases, balance might be expressed in a currency other than the base currency for the account
   RIM Mapping = .currencyCode
   To Do = Is this in the 80%?
+  Committee Notes = This has been commented out for now to consider the wider implications of multi-currency, especially since none of the other financial content handle it currently, and maybe extension on Money datatype would be more appropriate, or update to that type (constraint mny-1?).
 
  -- Row 10 -----------------------------------
   Element = Account.balance
