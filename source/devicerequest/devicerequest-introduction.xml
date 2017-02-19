@@ -23,6 +23,7 @@
 		<p>
 This resource deals with the allocation of a device to a patient and while it may contain instructions on how to use the device, the data about getting the device to the patient is addressed in other resources.  For example, Certain devices must be implanted via a surgical or other procedure and the implantation or explantation is represented in the [Procedure](procedure.html) or [ProcedureRequest](procedurerequest.html) resource.
 </p>
+		<p>The SupplyRequest resource is similar in that it deals with requesting a particular item for a specific patient. However, DeviceRequest is concerned with items where there is a patient focus, or instructions regarding their use, whereas SupplyRequest is concerned with inventory management.</p>
 	</div>
 	<!-- (optional):
 <div>
