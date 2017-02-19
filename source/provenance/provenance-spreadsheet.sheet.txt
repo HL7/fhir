@@ -24,7 +24,7 @@
  -- Row 4 -----------------------------------
   Binding Name = ProvenanceActivity
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState
+  Reference = valueset-provenance-activity-type
   Definition = The activity that took place.
   Conformance = extensible
 
