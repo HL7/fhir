@@ -1,24 +1,52 @@
-// patient match using parameters:
-
-GET /open/Patient/$match?family=chalmers&given=peter&birthdate=1974-12-25
-[some headers]
-
 // patient match using patient resource:
 
 POST /open/Patient/$match
 [some headers]
 
 {
-  "resourceType": "Patient",
-  "name": [
+  "resourceType": "Parameters",
+  "id": "example",
+  "parameter": [
     {
-      "family": [
-        "Chalmers"
-      ],
-      "given": [
-        "Peter"
-      ]
+      "name": "resource",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:1.2.36.146.595.217.0.1",
+            "value": "12345"
+          }
+        ],
+        "name": [
+          {
+            "family": [
+              "Chalmers"
+            ],
+            "given": [
+              "Peter"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25"
+      }
+    },
+    {
+      "name": "count",
+      "valueInteger": "3"
+    },
+    {
+      "name": "onlyCertainMatches",
+      "valueBoolean": "false"
     }
-  ],
-  "birthDate": "1974-12-25"
+  ]
 }

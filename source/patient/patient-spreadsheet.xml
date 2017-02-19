@@ -9,19 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-11T06:15:09Z</LastSaved>
+  <LastSaved>2017-02-19T11:41:27Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6072</WindowHeight>
-  <WindowWidth>17496</WindowWidth>
+  <WindowHeight>7332</WindowHeight>
+  <WindowWidth>8952</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>808</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5056,10 +5056,10 @@
  </Worksheet>
  <Worksheet ss:Name="Operations">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R16C10"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R17C10"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="53" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="131.4"/>
@@ -5129,34 +5129,34 @@
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Find patient matches using MPI based logic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String"> A Master Patient Index ([MPI](http://en.wikipedia.org/wiki/Enterprise_master_patient_index) ) is a service used to manage patient identification in a context where multiple patient databases exist. Healthcare applications and middleware use the MPI to match patients between the databases, and as new patient details are encountered. MPIs are highly specialized applications, often tailored extensively to the institution's particular mix of patients. MPIs can also be run on a regional and national basis.&#10;&#10;To ask an MPI to match a patient, clients use the &quot;mpi&quot; query, which takes either a candidate patient resource, or a set of normal search parameters defined for patient. The data provided is interpreted as an MPI input and  passed to an MPI algorithm of some kind that uses them to determine the most appropriate matches in the patient set. &#10;&#10;Note that different MPI matching algorithms have different required inputs. The generic $match operation does not specify any particular algorithm, nor a minimum set of information that must be provided when asking for an MPI match operation to be performed, but may implementations will have a set of minimum information, which may be declared in their definition of the $match operation</Data><NamedCell
+    <Cell ss:StyleID="s129"><Data ss:Type="String">A Master Patient Index ([MPI](http://en.wikipedia.org/wiki/Enterprise_master_patient_index) ) is a service used to manage patient identification in a context where multiple patient databases exist. Healthcare applications and middleware use the MPI to match patients between the databases, and as new patient details are encountered. MPIs are highly specialized applications, often tailored extensively to the institution\'s particular mix of patients. MPIs can also be run on a regional and national basis.\n\nTo ask an MPI to match a patient, clients use the \&quot;$match\&quot; operation, which accepts a patient resource which may be only partially complete. The data provided is interpreted as an MPI input and passed processed by an algorithm of some kind that uses the data to determine the most appropriate matches in the patient set. \n\nNote that different MPI matching algorithms have different required inputs. The generic $match operation does not specify any particular algorithm, nor a minimum set of information that must be provided when asking for an MPI match operation to be performed, but may implementations will have a set of minimum information, which may be declared in their definition of the $match operation by specifying a profile on the resource parameter, indicating which properties are required in the search.\n\nThe patient resource coming into the operation does not have to be complete, nor does it need to pass validation (i.e. Mandatory fields don\'t need to be populated), but it does have to be a valid instance. This is due to the resource being used for reference data to match from, and not being stored.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String"> The response from an &quot;mpi&quot; query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension &quot;[match-grade](extension-match-grade.html)&quot; that indicates the MPI's position on the match quality.</Data><NamedCell
+    <Cell ss:StyleID="s130"><Data ss:Type="String">The response from an &quot;mpi&quot; query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension &quot;[match-grade](extension-match-grade.html)&quot; that indicates the MPI's position on the match quality.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$match-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$match-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.patient</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">match.resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="Number">0</Data><NamedCell
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Patient</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">A whole set of patient details to match</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">A (Patient) resource (complete or fragment) that contains property values to match in the search</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Use this to provide an entire set of patient details for the MPI to match against (e.g. POST a patient record to Patient/$match). If a patient record is not provided, then one or more of the other parameters must be provided</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.family</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.family</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5176,7 +5176,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.given</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.given</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5196,7 +5196,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.gender</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.gender</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5216,7 +5216,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.birthdate</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.birthdate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5236,7 +5236,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.identifier</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5256,7 +5256,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.telecom</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.telecom</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5276,7 +5276,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.phone</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.phone</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5296,7 +5296,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.email</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.email</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5316,7 +5316,7 @@
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">match.postcode</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!match.postcode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5332,6 +5332,25 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">A postcode for the patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">A postcode to use for matching</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">match.onlyCertainMatches</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">0</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">boolean</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">The search algorithm should not return results if it is inconclusive</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">If there are multiple potential matches, then the match should not return the results with this flag set to true.&#10;&#10;When false, the server may return multiple results with each result graded accordingly.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -5388,7 +5407,7 @@
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">The set of possible matches found by the MPI</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A bundle contain a set of Patient records that represent possible matches</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -5853,6 +5872,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5872,14 +5892,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R16C10"
+  <AutoFilter x:Range="R1C1:R17C10"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -6857,7 +6877,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7441,7 +7460,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='link-type'!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="52" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s139" ss:Width="80.400000000000006"/>
@@ -7493,20 +7512,31 @@
     <Cell><Data ss:Type="String">Display:nl</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">replace</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">replaced-by</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Replace</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Replaced-by</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s142"/>
     <Cell><Data ss:Type="String">vervangen</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s143"><Data ss:Type="String">replaces</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Replaces</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s144"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s143"><Data ss:Type="String">refer</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Refer</Data></Cell>
@@ -7518,7 +7548,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s143"><Data ss:Type="String">seealso</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">See also</Data></Cell>
@@ -8067,7 +8097,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

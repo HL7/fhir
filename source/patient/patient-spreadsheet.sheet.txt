@@ -40,20 +40,26 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = replace
-  Display = Replace
+  Code = replaced-by
+  Display = Replaced-by
   Definition = The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.
   Display:nl = vervangen
 
  -- Row 2 -----------------------------------
   Id = 2
+  Code = replaces
+  Display = Replaces
+  Definition = The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information.
+
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = refer
   Display = Refer
   Definition = The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
   Display:nl = verwijzing
 
- -- Row 3 -----------------------------------
-  Id = 3
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = seealso
   Display = See also
   Definition = The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
@@ -815,7 +821,7 @@
  -- Row 1 -----------------------------------
   Name = match
   Use = Resource
-  Documentation = A Master Patient Index ([MPI](http://en.wikipedia.org/wiki/Enterprise_master_patient_index) ) is a service used to manage patient identification in a context where multiple patient databases exist. Healthcare applications and middleware use the MPI to match patients between the databases, and as new patient details are encountered. MPIs are highly specialized applications, often tailored extensively to the institution\'s particular mix of patients. MPIs can also be run on a regional and national basis.\n\nTo ask an MPI to match a patient, clients use the \"mpi\" query, which takes either a candidate patient resource, or a set of normal search parameters defined for patient. The data provided is interpreted as an MPI input and  passed to an MPI algorithm of some kind that uses them to determine the most appropriate matches in the patient set. \n\nNote that different MPI matching algorithms have different required inputs. The generic $match operation does not specify any particular algorithm, nor a minimum set of information that must be provided when asking for an MPI match operation to be performed, but may implementations will have a set of minimum information, which may be declared in their definition of the $match operation
+  Documentation = A Master Patient Index ([MPI](http://en.wikipedia.org/wiki/Enterprise_master_patient_index) ) is a service used to manage patient identification in a context where multiple patient databases exist. Healthcare applications and middleware use the MPI to match patients between the databases, and as new patient details are encountered. MPIs are highly specialized applications, often tailored extensively to the institution\\\'s particular mix of patients. MPIs can also be run on a regional and national basis.\\n\\nTo ask an MPI to match a patient, clients use the \\\"$match\\\" operation, which accepts a patient resource which may be only partially complete. The data provided is interpreted as an MPI input and passed processed by an algorithm of some kind that uses the data to determine the most appropriate matches in the patient set. \\n\\nNote that different MPI matching algorithms have different required inputs. The generic $match operation does not specify any particular algorithm, nor a minimum set of information that must be provided when asking for an MPI match operation to be performed, but may implementations will have a set of minimum information, which may be declared in their definition of the $match operation by specifying a profile on the resource parameter, indicating which properties are required in the search.\\n\\nThe patient resource coming into the operation does not have to be complete, nor does it need to pass validation (i.e. Mandatory fields don\\\'t need to be populated), but it does have to be a valid instance. This is due to the resource being used for reference data to match from, and not being stored.
   Type = operation
   Example.Request = $match-request.txt
   Example.Response = $match-response.txt
@@ -823,16 +829,16 @@
   Footer = The response from an \"mpi\" query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension \"[match-grade](extension-match-grade.html)\" that indicates the MPI\'s position on the match quality.
 
  -- Row 2 -----------------------------------
-  Name = match.patient
+  Name = match.resource
   Use = in
   Documentation = Use this to provide an entire set of patient details for the MPI to match against (e.g. POST a patient record to Patient/$match). If a patient record is not provided, then one or more of the other parameters must be provided
-  Type = Patient
-  Title = A whole set of patient details to match
-  Min = 0
+  Type = Resource
+  Title = A (Patient) resource (complete or fragment) that contains property values to match in the search
+  Min = 1
   Max = 1
 
  -- Row 3 -----------------------------------
-  Name = match.family
+  Name = !match.family
   Use = in
   Documentation = The family name for matching
   Type = string
@@ -842,7 +848,7 @@
   Max = 1
 
  -- Row 4 -----------------------------------
-  Name = match.given
+  Name = !match.given
   Use = in
   Documentation = The given name for matching
   Type = string
@@ -852,7 +858,7 @@
   Max = 1
 
  -- Row 5 -----------------------------------
-  Name = match.gender
+  Name = !match.gender
   Use = in
   Documentation = The gender for matching
   Type = string
@@ -862,7 +868,7 @@
   Max = 1
 
  -- Row 6 -----------------------------------
-  Name = match.birthdate
+  Name = !match.birthdate
   Use = in
   Documentation = The birth date of the patient for matching
   Type = string
@@ -872,7 +878,7 @@
   Max = 1
 
  -- Row 7 -----------------------------------
-  Name = match.identifier
+  Name = !match.identifier
   Use = in
   Documentation = An identifier to use for the matching
   Type = string
@@ -882,7 +888,7 @@
   Max = 1
 
  -- Row 8 -----------------------------------
-  Name = match.telecom
+  Name = !match.telecom
   Use = in
   Documentation = Some kind of telecom to use for the matching
   Type = string
@@ -892,7 +898,7 @@
   Max = 1
 
  -- Row 9 -----------------------------------
-  Name = match.phone
+  Name = !match.phone
   Use = in
   Documentation = A phone number to use for matching
   Type = string
@@ -902,7 +908,7 @@
   Max = 1
 
  -- Row 10 -----------------------------------
-  Name = match.email
+  Name = !match.email
   Use = in
   Documentation = An email address to use for matching
   Type = string
@@ -912,7 +918,7 @@
   Max = 1
 
  -- Row 11 -----------------------------------
-  Name = match.postcode
+  Name = !match.postcode
   Use = in
   Documentation = A postcode to use for matching
   Type = string
@@ -922,6 +928,15 @@
   Max = 1
 
  -- Row 12 -----------------------------------
+  Name = match.onlyCertainMatches
+  Use = in
+  Documentation = If there are multiple potential matches, then the match should not return the results with this flag set to true.\n\nWhen false, the server may return multiple results with each result graded accordingly.
+  Type = boolean
+  Title = The search algorithm should not return results if it is inconclusive
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
   Name = match.userid
   Use = in
   Documentation = This optional parameter is used to pass the user details from a trusted client to the MPI. This may be used by the MPI to restrict the possible matches that are returned, based on the user\'s rights. For example, a staff member covered by policies, etc., may well get a different result than a patient trying to find their own record. Note that this parameter is used where the user would not be expected to log in to the MPI directly; whether this is appropriate or not is a deployment choice.
@@ -930,7 +945,7 @@
   Min = 0
   Max = 1
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = match.count
   Use = in
   Documentation = The maximum number of records to return. If no value is provided, the server decides how many matches to return. Note that clients should be careful when using this, as it may prevent probable - and valid - matches from being returned
@@ -939,16 +954,16 @@
   Min = 0
   Max = 1
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = match.return
   Use = out
-  Documentation = A bundle contain a set of Patient records that represent possible matches
+  Documentation = A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)
   Type = Bundle
   Title = The set of possible matches found by the MPI
   Min = 1
   Max = 1
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = everything
   Use = Resource | Instance
   Documentation = This operation is used to return all the information related to the patient described in the resource on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the patient resource itself is returned, along with any other resources that the server has that are related to the patient, and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc. The principle intended use for this operation is to provide a patient with access to their entire record (e.g. \"Blue Button\").  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient, and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF](http://hl7.org/fhir/daf). Other applicable implementation guides may make additional rules about how much information that is returned
@@ -958,7 +973,7 @@
   Title = Fetch Patient Record
   Footer = The key differences between this operation and simply searching the patient compartment are:  \n\n* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) \n* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for\n\nIt is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = everything.start
   Use = in
   Documentation = The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope.
@@ -967,7 +982,7 @@
   Min = 0
   Max = 1
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = everything.end
   Use = in
   Documentation = The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope.
@@ -976,7 +991,7 @@
   Min = 0
   Max = 1
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = everything.return
   Use = out
   Documentation = The bundle type is \"searchset\"

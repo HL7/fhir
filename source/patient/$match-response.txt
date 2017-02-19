@@ -10,7 +10,7 @@ HTTP/1.1 200 OK
     "lastUpdated": "2016-03-18T03:28:49Z"
   },
   "type": "searchset",
-  "total": 1,
+  "total": 2,
   "entry": [{
     "fullUrl": "http://server/path/Patient/example",
     "resource": {
