@@ -20,7 +20,8 @@
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1219,11 +1220,6 @@
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
-  </Style>
-  <Style ss:ID="s218">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior ss:Color="#FFCC99" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s219">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -10660,7 +10656,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -15335,7 +15330,7 @@
     <Cell ss:StyleID="s216"><Data ss:Type="String">Adjudication</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The adjudication codes.</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s218"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/adjudication</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -15350,7 +15345,7 @@
     <Cell ss:StyleID="s216"><Data ss:Type="String">AdjudicationReason</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Adjudication reason codes.</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s218"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/adjudication-reason</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -15365,7 +15360,7 @@
     <Cell ss:StyleID="s216"><Data ss:Type="String">PaymentAdjustmentReason</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Payment Adjustment reason codes.</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s218"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/payment-adjustment-reason</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -15867,10 +15862,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -15887,8 +15883,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>42</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

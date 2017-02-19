@@ -90,21 +90,21 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/adjudication
   Definition = The adjudication codes.
-  Conformance = extensible
+  Conformance = example
 
  -- Row 14 -----------------------------------
   Binding Name = AdjudicationReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/adjudication-reason
   Definition = Adjudication reason codes.
-  Conformance = extensible
+  Conformance = example
 
  -- Row 15 -----------------------------------
   Binding Name = PaymentAdjustmentReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/payment-adjustment-reason
   Definition = Payment Adjustment reason codes.
-  Conformance = extensible
+  Conformance = example
 
  -- Row 16 -----------------------------------
   Binding Name = OralProsthoMaterial
