@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="dicom-audit-lifecycle"/>
+    <url value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
+<!--
+  <url value="http://nema.org/dicom/ParticipantObjectDataLifecyle"/>
+-->
+  
+  <version value="20100826"/>
+	<name value="DICOM Audit Message Record Lifecycle Events"/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<description value="Attached is vocabulary for the record lifecycle events, as per DICOM Audit Message, "/>
+    <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
+	<caseSensitive value="true"/>
+	<content value="complete"/>
+   <concept>
+    <code value="1"/>
+    <display value="Origination / Creation"/>
+   </concept>
+   <concept>
+    <code value="2"/>
+    <display value="Import / Copy"/>
+   </concept>
+   <concept>
+    <code value="3"/>
+    <display value="Amendment"/>
+   </concept>
+   <concept>
+    <code value="4"/>
+    <display value="Verification"/>
+   </concept>
+   <concept>
+    <code value="5"/>
+    <display value="Translation"/>
+   </concept>
+   <concept>
+    <code value="6"/>
+    <display value="Access / Use"/>
+   </concept>
+   <concept>
+    <code value="7"/>
+    <display value="De-identification"/>
+   </concept>
+   <concept>
+    <code value="8"/>
+    <display value="Aggregation / summarization / derivation"/>
+   </concept>
+   <concept>
+    <code value="9"/>
+    <display value="Report"/>
+   </concept>
+   <concept>
+    <code value="10"/>
+    <display value="Export"/>
+   </concept>
+   <concept>
+    <code value="11"/>
+    <display value="Disclosure"/>
+   </concept>
+   <concept>
+    <code value="12"/>
+    <display value="Receipt of disclosure"/>
+   </concept>
+   <concept>
+    <code value="13"/>
+    <display value="Archiving"/>
+   </concept>
+   <concept>
+    <code value="14"/>
+    <display value="Logical deletion"/>
+   </concept>
+   <concept>
+    <code value="15"/>
+    <display value="Permanent erasure / Physical destruction"/>
+   </concept>
+</CodeSystem>

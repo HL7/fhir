@@ -61,13 +61,10 @@
 
  -- Row 7 -----------------------------------
   Binding Name = AuditEventEntityLifecycle
-  Binding = code list
-  Reference = #object-lifecycle
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/object-lifecycle-events
   Definition = Identifier for the data life-cycle stage for the entity.
-  Description = DICOM Audit Event Entity Lifecycle
   Conformance = extensible
-  Uri = http://nema.org/dicom/dicm
-  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 8 -----------------------------------
   Binding Name = AuditEventType
@@ -117,20 +114,13 @@
   Definition = Describes the identifier.
 
  -- Row 15 -----------------------------------
-  Binding Name = !AuditEventObjectSensitivity
-  Binding = value set
-  Reference = valueset-audit-event-sensitivity
-  Definition = The sensitivity of an object. May also encompass confidentiality and rudimentary access control (e.g. HCS).
-  Conformance = example
-
- -- Row 16 -----------------------------------
   Binding Name = AuditPurposeOfUse
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
   Definition = The reason the activity took place.
   Conformance = extensible
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Binding Name = AuditAgentRole
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/security-role-type
@@ -398,98 +388,6 @@
   Code = 24
   Display = Query
   Definition = The contents of a query.  This is used to capture the contents of any kind of query.  For security surveillance purposes knowing the queries being made is very important.
-
-=== Sheet object-lifecycle =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = 1
-  Display = Origination, Creation
-  Definition = Origination, Creation
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = 2
-  Display = Import / Copy
-  Definition = Import / Copy
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = 3
-  Display = Amendment
-  Definition = Amendment
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = 4
-  Display = Verification
-  Definition = Verification
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = 5
-  Display = Translation
-  Definition = Translation
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = 6
-  Display = Access / Use
-  Definition = Access / Use
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = 7
-  Display = De-identification
-  Definition = De-identification
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = 8
-  Display = Aggregation, summarization, derivation
-  Definition = Aggregation, summarization, derivation
-
- -- Row 9 -----------------------------------
-  Id = 9
-  Code = 9
-  Display = Report
-  Definition = Report
-
- -- Row 10 -----------------------------------
-  Id = 10
-  Code = 10
-  Display = Export
-  Definition = Export
-
- -- Row 11 -----------------------------------
-  Id = 11
-  Code = 11
-  Display = Disclosure
-  Definition = Disclosure
-
- -- Row 12 -----------------------------------
-  Id = 12
-  Code = 12
-  Display = Receipt of disclosure
-  Definition = Receipt of disclosure
-
- -- Row 13 -----------------------------------
-  Id = 13
-  Code = 13
-  Display = Archiving
-  Definition = Archiving
-
- -- Row 14 -----------------------------------
-  Id = 14
-  Code = 14
-  Display = Logical deletion
-  Definition = Logical deletion
-
- -- Row 15 -----------------------------------
-  Id = 15
-  Code = 15
-  Display = Permanent erasure / Physical destruction
-  Definition = Permanent erasure / Physical destruction
 
 === Sheet Invariants =====================================
 

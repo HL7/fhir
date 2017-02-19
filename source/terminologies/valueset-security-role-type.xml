@@ -28,9 +28,13 @@
 
   <description
         value="This example FHIR value set is comprised of example Actor Type codes, which can be used to value FHIR agents, actors, and other role
-        elements such as those specified in financial transactions. The FHIR Actor value set is based on ASTM Standard, E1762-95 [2013]; selected codes and 
-        derived actor roles from HL7 RoleClass OID 2.16.840.1.113883.5.110; HL7 Role Code 2.16.840.1.113883.5.111, including AgentRoleType; 
-        HL7 ParticipationType OID: 2.16.840.1.113883.5.90; and HL7 ParticipationFunction codes OID: 2.16.840.1.113883.5.88. 
+        elements such as those specified in financial transactions. The FHIR Actor value set is based on 
+		DICOM Audit Message, C402;
+		ASTM Standard, E1762-95 [2013]; selected codes and 
+        derived actor roles from HL7 RoleClass OID 2.16.840.1.113883.5.110; 
+		HL7 Role Code 2.16.840.1.113883.5.111, including AgentRoleType; 
+        HL7 ParticipationType OID: 2.16.840.1.113883.5.90; and 
+		HL7 ParticipationFunction codes OID: 2.16.840.1.113883.5.88. 
 
         This value set includes, by reference, role codes from external code systems: NUCC Health Care Provider Taxonomy OID: 2.16.840.1.113883.6.101; 
         North American Industry Classification System [NAICS]OID: 2.16.840.1.113883.6.85; IndustryClassificationSystem 2.16.840.1.113883.1.11.16039; 
@@ -56,7 +60,8 @@
   <copyright
         value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013) HL7 RoleClass OID 2.16.840.1.113883.5.110, 
         HL7 Role Code 2.16.840.1.113883.5.111, HL7 ParticipationType OID: 2.16.840.1.113883.5.90, HL7 ParticipationFunction codes at OID: 2.16.840.1.113883.5.88, 
-        and HL7 Security and Privacy Domain Analysis Model roles classes."/>
+        and HL7 Security and Privacy Domain Analysis Model roles classes.
+		These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
 
   <extensible value="true"/>
 

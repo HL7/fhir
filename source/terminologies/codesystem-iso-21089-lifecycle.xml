@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="iso-21089-lifecycle"/>
+    <url value="http://hl7.org/fhir/iso-21089-lifecycle"/>
+<!--
+	<url value="urn:iso:std:21089:2017:lifecycle"/>
+-->
+	<name value="ISO 21089-2017 Health Record Lifecycle Events"/>
+	<status value="active"/>
+	<experimental value="false"/>
+	<description value="Attached is vocabulary for the 27 record lifecycle events, as per ISO TS 21089-2017, Health Informatics - Trusted End-to-End Information Flows, Section 3, Terms and Definitions (2017, at ISO Central Secretariat, passed ballot and ready for publication).  This will also be included in the FHIR EHR Record Lifecycle Event Implementation Guide, balloted and (to be) published with FHIR STU-3."/>
+	<copyright value="These codes are excerpted from ISO Standard, TS 21089-2017 - Health Informatics - Trusted End-to-End Information Flows, Copyright by ISO International. Copies of this standard are available through the ISO Web Site at www.iso.org."/>
+	<caseSensitive value="true"/>
+	<content value="complete"/>
+	<concept>
+		<code value="2"/>
+		<display value="Amend (Update) - Lifeycle Event"/>
+		<definition value="occurs when an agent makes any change to record entry content currently residing in storage considered permanent (persistent)"/>
+	</concept>
+	<concept>
+		<code value="14"/>
+		<display value="Archive - Lifeycle Event"/>
+		<definition value="occurs when an agent causes the system to create and move archive artifacts containing record entry content, typically to long-term offline storage"/>
+	</concept>
+	<concept>
+		<code value="4"/>
+		<display value="Attest - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to capture the agentâ€™s digital signature (or equivalent indication) during formal validation of record entry content"/>
+	</concept>
+	<concept>
+		<code value="27"/>
+		<display value="Decrypt - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to decode record entry content from a cipher"/>
+	</concept>
+	<concept>
+		<code value="10"/>
+		<display value="De-Identify (Anononymize) - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to scrub record entry content to reduce the association between a set of identifying data and the data subject in a way that may or may not be reversible"/>
+	</concept>
+	<concept>
+		<code value="17"/>
+		<display value="Deprecate - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to tag record entry(ies) as obsolete, erroneous or untrustworthy, to warn against its future use"/>
+	</concept>
+	<concept>
+		<code value="16"/>
+		<display value="Destroy/Delete - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to permanently erase record entry content from the system"/>
+	</concept>
+	<concept>
+		<code value="7"/>
+		<display value="Disclose - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to release, transfer, provision access to, or otherwise divulge record entry content"/>
+	</concept>
+	<concept>
+		<code value="26"/>
+		<display value="Encrypt - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to encode record entry content in a cipher"/>
+	</concept>
+	<concept>
+		<code value="13"/>
+		<display value="Extract - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to selectively pull out a subset of record entry content, based on explicit criteria"/>
+	</concept>
+	<concept>
+		<code value="21"/>
+		<display value="Link - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to connect related record entries"/>
+	</concept>
+	<concept>
+		<code value="19"/>
+		<display value="Merge - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to combine or join content from two or more record entries, resulting in a single logical record entry"/>
+	</concept>
+	<concept>
+		<code value="1"/>
+		<display value="Originate/Retain - Record Lifecyle Event"/>
+		<definition value="occurs when an agent causes the system to:  a) initiate capture of potential record content, and b) incorporate that content into the storage considered a permanent part of the health record"/>
+	</concept>
+	<concept>
+		<code value="11"/>
+		<display value="Pseudonymize - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to remove record entry content to reduce the association between a set of identifying data and the data subject in a way that may be reversible"/>
+	</concept>
+	<concept>
+		<code value="18"/>
+		<display value="Re-activate - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to recreate or restore full status to record entries previously deleted or deprecated"/>
+	</concept>
+	<concept>
+		<code value="9"/>
+		<display value="Receive/Retain - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to:  a) initiate capture of data content from elseware, and b) incorporate that content into the storage considered a permanent part of the health record"/>
+	</concept>
+	<concept>
+		<code value="6"/>
+		<display value="Report (Output) - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to produce and deliver record entry content in a particular form and manner"/>
+	</concept>
+	<concept>
+		<code value="12"/>
+		<display value="Re-identify - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to restore information to data that allows identification of information source and/or information subject"/>
+	</concept>
+	<concept>
+		<code value="24"/>
+		<display value="Remove Legal Hold - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to remove a tag or other cues for special access management had required to fulfill organizational policy under the legal doctrine of â€œduty to preserveâ€"/>
+	</concept>
+	<concept>
+		<code value="15"/>
+		<display value="Restore - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to recreate record entries and their content from a previous created archive artifact"/>
+	</concept>
+	<concept>
+		<code value="3"/>
+		<display value="Transform/Translate - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to change the form, language or code system used to represent record entry content"/>
+	</concept>
+	<concept>
+		<code value="8"/>
+		<display value="Transmit - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to send record entry content from one (EHR/PHR/other) system to another"/>
+	</concept>
+	<concept>
+		<code value="22"/>
+		<display value="Unlink - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to disconnect two or more record entries previously connected, rendering them separate (disconnected) again"/>
+	</concept>
+	<concept>
+		<code value="20"/>
+		<display value="Unmerge - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to reverse a previous record entry merge operation, rendering them separate again"/>
+	</concept>
+	<concept>
+		<code value="25"/>
+		<display value="Verify - Lifecycle Event"/>
+		<definition value="occurs when an agent causes the system to confirm compliance of data or data objects with regulations, requirements, specifications, or other imposed conditions based on organizational policy"/>
+	</concept>
+</CodeSystem>
