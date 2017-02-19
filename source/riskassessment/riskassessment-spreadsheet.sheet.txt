@@ -305,6 +305,16 @@
   Path = RiskAssessment.subject
   Target Types = Patient
 
+ -- Row 9 -----------------------------------
+  Name = probability
+  Type = number
+  Path = RiskAssessment.prediction.probability[x]
+
+ -- Row 10 -----------------------------------
+  Name = qualitativeRisk
+  Type = token
+  Path = RiskAssessment.prediction.qualitativeRisk
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
