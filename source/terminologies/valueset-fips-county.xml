@@ -12,6 +12,7 @@
     </telecom>
   </contact>
   <description value="This value set defines FIPS codes for US counties and county equivalent entities."/>
+  <copyright value="[Federal Information Processing Standards (FIPS)](https://www.nist.gov/information-technology-laboratory/fips-general-information) are publicly announced standards developed by the United States federal government for use in computer systems by non-military government agencies and government contractors."/>
   <compose>
     <include>
       <system value="https://www.census.gov/geo/reference/"/>

@@ -16,6 +16,56 @@
   Definition = A coded concept indicating why the device was ordered.
   Conformance = example
 
+ -- Row 3 -----------------------------------
+  Binding Name = Device Use Statement Status
+  Binding = code list
+  Reference = #device-statement-status
+  Definition = A coded concept indicating the current status of a the Device Usage
+  Conformance = required
+
+=== Sheet device-statement-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The device is still being used.
+  v3 = ActStatus.active
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = completed
+  Display = Completed
+  Definition = The device is no longer being used.
+  v3 = ActStatus.completed
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The statement was recorded incorrectly.
+  v3 = ActStatus.nullified
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = intended
+  Display = Intended
+  Definition = The device may be used at some time in the future.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = stopped
+  Display = Stopped
+  Definition = Actions implied by the statement have been permanently halted, before all of them occurred.
+  v3 = ActStatus.aborted
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = on-hold
+  Display = On Hold
+  Definition = Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called \"suspended\".
+  v3 = ActStatus.suspended
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -38,15 +88,29 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = DeviceUseStatement.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = y
+  Type = code
+  Binding = Device Use Statement Status
+  Short Name = active | completed | entered-in-error +
+  Definition = A code representing the patient or other source\'s judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
+  Comments = DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+  RIM Mapping = .statusCode
+  QUICK mapping = …status
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = DeviceUseStatement.subject
   Card. = 1..1
-  Type = Reference(Patient)
+  Type = Reference(Patient,Group)
   Short Name = Patient using device
   Definition = The patient who used the device.
   QUICK mapping = ClinicalStatement.subject
   w5 = who.focus
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = DeviceUseStatement.whenUsed
   Card. = 0..1
   Type = Period
@@ -55,7 +119,7 @@
   QUICK mapping = Performance.performanceTime
   w5 = when.done
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DeviceUseStatement.timing[x]
   Card. = 0..1
   Type = Timing|Period|dateTime
@@ -64,7 +128,7 @@
   QUICK mapping = DeviceUse.applicationSchedule
   w5 = when.done
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DeviceUseStatement.recordedOn
   Card. = 0..1
   Type = dateTime
@@ -73,7 +137,7 @@
   QUICK mapping = ClinicalStatement.statementDateTime
   w5 = when.recorded
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = DeviceUseStatement.device
   Card. = 1..1
   Type = Reference(Device)
@@ -82,7 +146,7 @@
   QUICK mapping = DeviceUse.device
   w5 = who.actor
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DeviceUseStatement.indication
   Card. = 0..*
   Type = CodeableConcept
@@ -91,7 +155,7 @@
   QUICK mapping = Action.indication.reason
   w5 = why
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DeviceUseStatement.bodySite
   Card. = 0..1
   Type = CodeableConcept
@@ -101,8 +165,8 @@
   Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-site-instance]]]
   RIM Mapping = targetSiteCode
 
- -- Row 10 -----------------------------------
-  Element = DeviceUseStatement.notes
+ -- Row 11 -----------------------------------
+  Element = DeviceUseStatement.note
   Card. = 0..*
   Type = string
   Short Name = Addition details (comments, instructions)

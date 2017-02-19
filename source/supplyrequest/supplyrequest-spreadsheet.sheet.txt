@@ -16,7 +16,7 @@
   Conformance = required
 
  -- Row 3 -----------------------------------
-  Binding Name = SupplyRequestWhen
+  Binding Name = !SupplyRequestWhen
   Binding = value set
   Reference = valueset-supplyrequest-when
   Definition = When the request should be fulfilled
@@ -36,37 +36,63 @@
   Definition = The item that was requested
   Conformance = example
 
+ -- Row 6 -----------------------------------
+  Binding Name = RequestPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
+  Definition = Identifies the level of importance to be assigned to actioning the request
+  Conformance = required
+
 === Sheet supplyrequest-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = requested
-  Display = Requested
-  Definition = Supply has been requested, but not dispensed.
+  Code = draft
+  Display = Draft
+  Definition = The request has been created but is not yet complete or ready for action
+  v3 = =ActStatus.new
 
  -- Row 2 -----------------------------------
-  Id = 3
-  Code = completed
-  Display = Received
-  Definition = Supply has been received by the requestor.
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The request is ready to be acted upon
+  v3 = =ActStatus.active
 
  -- Row 3 -----------------------------------
-  Id = 4
-  Code = failed
-  Display = Failed
-  Definition = The supply will not be completed because the supplier was unable or unwilling to supply the item.
+  Id = 3
+  Code = suspended
+  Display = Suspended
+  Definition = The authorization/request to act has been temporarily withdrawn but is expected to resume in the future
+  v3 = =ActStatus.suspended
 
  -- Row 4 -----------------------------------
-  Id = 5
+  Id = 4
   Code = cancelled
   Display = Cancelled
-  Definition = The orderer of the supply cancelled the request.
+  Definition = The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.
+  v3 = =ActStatus.aborted
 
  -- Row 5 -----------------------------------
+  Id = 5
+  Code = completed
+  Display = Completed
+  Definition = Activity against the request has been sufficiently completed to the satisfaction of the requester
+  v3 = =ActStatus.completed
+
+ -- Row 6 -----------------------------------
   Id = 6
   Code = entered-in-error
   Display = Entered in Error
-  Definition = This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
+  Definition = This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
+  v3 = =ActStatus.nullified
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
+  v3 = =NullFlavor.unknown
 
 === Sheet supplyrequest-reason =====================================
 
@@ -97,73 +123,71 @@
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
-  Element = SupplyRequest.patient
-  Card. = 0..1
-  Type = Reference(Patient)
-  Short Name = Patient for whom the item is supplied
-  Definition = A link to a resource representing the person whom the ordered item is for
-  Workflow Mapping = Request.subject.reference(Patient)
-  RIM Mapping = .participation[typeCode=SBJ].role
-
- -- Row 3 -----------------------------------
-  Element = SupplyRequest.source
-  Card. = 0..1
-  Type = Reference(Practitioner|Organization|Patient)
-  Short Name = Who initiated this order
-  Definition = The Practitioner , Organization or Patient who initiated this order for the supply
-
- -- Row 4 -----------------------------------
-  Element = SupplyRequest.date
-  Card. = 0..1
-  Type = dateTime
-  Short Name = When the request was made
-  Definition = When the request was made
-  Workflow Mapping = Request.authoredOn
-
- -- Row 5 -----------------------------------
   Element = SupplyRequest.identifier
   Card. = 0..1
+  Summary = Y
   Type = Identifier
   Short Name = Unique identifier
   Definition = Unique identifier for this supply request
-  Comments = This is assigned by the orderer, and used to refer to this order in other external standards
+  Comments = This is assigned by the requester, and used to refer to this order in other external standards
   Workflow Mapping = Request.identifier
   RIM Mapping = .id
+  w5 = id
 
- -- Row 6 -----------------------------------
+ -- Row 3 -----------------------------------
   Element = SupplyRequest.status
   Card. = 0..1
   Is Modifier = Y
+  Summary = Y
   Type = code
   Binding = SupplyRequestStatus
-  Short Name = requested | completed | failed | cancelled | entered-in-error
+  Short Name = draft | active | suspended +
   Definition = Status of the supply request
   Workflow Mapping = Request.status
   RIM Mapping = .statusCode, also existence of fulfillment events
+  w5 = status
 
- -- Row 7 -----------------------------------
-  Element = SupplyRequest.kind
+ -- Row 4 -----------------------------------
+  Element = SupplyRequest.category
   Card. = 0..1
+  Aliases = kind
   Type = CodeableConcept
   Binding = SupplyRequestKind
   Short Name = The kind of supply (central, non-stock, etc.)
   Definition = Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process
   RIM Mapping = .code
   Committee Notes = [3417]
+  w5 = class
 
- -- Row 8 -----------------------------------
+ -- Row 5 -----------------------------------
+  Element = SupplyRequest.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = RequestPriority
+  Short Name = routine | urgent | asap | stat
+  Definition = Indicates how quickly this SupplyRequest should be addressed with respect to other requests
+  Workflow Mapping = Request.priority
+  v2 Mapping = TQ1.9
+  RIM Mapping = .priorityCode
+  Missing Meaning = If missing, this task should be performed with normal priority
+  w5 = grade
+
+ -- Row 6 -----------------------------------
   Element = SupplyRequest.orderedItem
   Card. = 0..1
   Short Name = The item being requested
+  Workflow Mapping = Request.code
+  w5 = what
 
- -- Row 9 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = SupplyRequest.orderedItem.quantity
   Card. = 1..1
   Type = Quantity
   Short Name = The requested amount of the item indicated
   Definition = The amount that is being ordered of the indicated item
 
- -- Row 10 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = SupplyRequest.orderedItem.item[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Medication|Substance|Device)
@@ -171,49 +195,84 @@
   Short Name = Medication, Substance, or Device requested to be supplied
   Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
-  Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role
 
+ -- Row 9 -----------------------------------
+  Element = SupplyRequest.requester
+  Card. = 0..1
+  Aliases = author,source
+  Summary = Y
+  Short Name = Who/what is requesting service
+  Definition = The individual who initiated the request and has responsibility for its activation
+  Workflow Mapping = Request.requester
+  v2 Mapping = ORC.12
+  RIM Mapping = .participation[typeCode=AUT].role
+
+ -- Row 10 -----------------------------------
+  Element = SupplyRequest.requester.agent
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
+  Short Name = Individual making the request
+  Definition = The device, practitioner, etc. who initiated the request
+  Workflow Mapping = Request.requester.agent
+  v2 Mapping = ORC.12
+  RIM Mapping = .player
+  w5 = who.author
+
  -- Row 11 -----------------------------------
+  Element = SupplyRequest.requester.onBehalfOf
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization agent is acting for
+  Definition = The organization the device or practitioner was acting on behalf of
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  Workflow Mapping = Request.requester.onBehalfOf
+  v2 Mapping = N/A
+  RIM Mapping = .scoper
+
+ -- Row 12 -----------------------------------
   Element = SupplyRequest.supplier
   Card. = 0..*
+  Aliases = performer
   Type = Reference(Organization)
   Short Name = Who is intended to fulfill the request
   Definition = Who is intended to fulfill the request
   Workflow Mapping = Request.performer
+  w5 = who.actor
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = SupplyRequest.reason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
   Binding = SupplyRequestReason
   Short Name = Why the supply item was requested
   Definition = Why the supply item was requested
-  Workflow Mapping = Request.reasonCode
-
- -- Row 13 -----------------------------------
-  Element = SupplyRequest.when
-  Card. = 0..1
-  UML = 400;30
-  Short Name = When the request should be fulfilled
-  Definition = When the request should be fulfilled
+  Workflow Mapping = Request.reasonCode, Request.reasonReference
+  w5 = why
 
  -- Row 14 -----------------------------------
-  Element = SupplyRequest.when.code
+  Element = SupplyRequest.occurrence[x]
   Card. = 0..1
-  Type = CodeableConcept
-  Binding = SupplyRequestWhen
-  Short Name = Fulfilment code
-  Definition = Code indicating when the request should be fulfilled.
-  Comments = Code may simply be a priority code
+  Aliases = when, timing
+  UML = 400;30
+  Type = dateTime|Period|Timing
+  Short Name = When the request should be fulfilled
+  Definition = When the request should be fulfilled
+  Workflow Mapping = Request.occurrence.occurrenceTiming
+  w5 = when.planned
 
  -- Row 15 -----------------------------------
-  Element = SupplyRequest.when.schedule
+  Element = SupplyRequest.authoredOn
   Card. = 0..1
-  Type = Timing
-  Short Name = Formal fulfillment schedule
-  Definition = Formal fulfillment schedule
-  Workflow Mapping = Request.occurrence.occurrenceTiming
+  Aliases = date, createdOn, signedOn
+  Summary = Y
+  Type = dateTime
+  Short Name = When the request was made
+  Definition = When the request was made
+  Workflow Mapping = Request.authoredOn
+  w5 = when.recorded
 
  -- Row 16 -----------------------------------
   Element = SupplyRequest.from
@@ -232,9 +291,9 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = kind
+  Name = category
   Type = token
-  Path = SupplyRequest.kind
+  Path = SupplyRequest.category
 
  -- Row 2 -----------------------------------
   Name = identifier
@@ -247,21 +306,16 @@
   Path = SupplyRequest.status
 
  -- Row 4 -----------------------------------
-  Name = patient
+  Name = requester
   Type = reference
-  Path = SupplyRequest.patient
+  Path = SupplyRequest.requester.agent
 
  -- Row 5 -----------------------------------
-  Name = source
-  Type = reference
-  Path = SupplyRequest.source
-
- -- Row 6 -----------------------------------
   Name = date
   Type = date
-  Path = SupplyRequest.date
+  Path = SupplyRequest.authoredOn
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = supplier
   Type = reference
   Path = SupplyRequest.supplier
@@ -283,7 +337,7 @@
   Filename = supplyrequest-example.xml
 
  -- Row 2 -----------------------------------
-  Name = Simple Order
+  Name = !Simple Order
   Identity = simpleorder
   Description = Simple order for resupply
   Filename = supplyrequest-example-simpleorder.xml

@@ -11,7 +11,7 @@
   <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2017-01-28T17:00:21Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -310,7 +310,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="100" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="101" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="26.0625">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
@@ -1266,7 +1266,7 @@
     <Cell ss:StyleID="s72"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceRequest.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s71"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -1282,6 +1282,37 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceUseStatement.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">intended</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -2722,13 +2753,13 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -3206,22 +3237,22 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SupplyRequest.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s70"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">requested</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">suspended</Data></Cell>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">failed</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -3404,9 +3435,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>48</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3414,6 +3445,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3421,7 +3453,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>52</ActiveRow>
+     <ActiveRow>33</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

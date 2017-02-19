@@ -95,7 +95,7 @@ profile:</p>
 					</td>
 					<td>/min</td>
 					<td>
-						<a href="observation-example-respiratory-rate.html">Vital Signs Respiratory Rate Example</a>
+						<a href="observation-example-respiratory-rate.html">Respiratory Rate Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -107,7 +107,7 @@ profile:</p>
 						<em>Heart rate</em> - To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be used as an additional observation.</td>
 					<td>/min</td>
 					<td>
-						<a href="observation-example-heart-rate.html">Vital Signs Heart Rate Example</a>
+						<a href="observation-example-heart-rate.html">Heart Rate Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -119,7 +119,7 @@ profile:</p>
 						<em>Oxygen saturation in Arterial blood by Pulse oximetry</em> - This code replaces the deprecated code 2710-2 -<em> Deprecated Oxygen saturation in Capillary blood by Oximetry</em> which had been listed in C-CDA.</td>
 					<td>%</td>
 					<td>
-						<a href="observation-example-satO2.html">Vital Signs Oxygen Saturation Example</a>
+						<a href="observation-example-satO2.html">Oxygen Saturation Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -131,7 +131,7 @@ profile:</p>
 						<em>Body temperature</em> - o supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations</td>
 					<td>Cel, [degF]</td>
 					<td>
-						<a href="observation-example-body-temperature.html">Vital Signs Body Temperature Example</a>
+						<a href="observation-example-body-temperature.html">Body Temperature Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -144,7 +144,7 @@ profile:</p>
 					</td>
 					<td>cm, [in_i]</td>
 					<td>
-						<a href="observation-example-body-height.html">Vital Signs Body height Example</a>
+						<a href="observation-example-body-height.html">Body height Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -156,7 +156,7 @@ profile:</p>
 						<em>Body height --lying</em> - Like height, but lying down, typically this is used for infants</td>
 					<td>cm, [in_i]</td>
 					<td>
-						<a href="observation-example-body-length.html">Vital Signs Body Length Example</a>
+						<a href="observation-example-body-length.html">Body Length Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -169,7 +169,7 @@ profile:</p>
 					</td>
 					<td>cm, [in_i]</td>
 					<td>
-						<a href="observation-example-head-circumference.html">Vital Signs Head Cirmcumference Example</a>
+						<a href="observation-example-head-circumference.html">Head Cirmcumference Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -181,7 +181,7 @@ profile:</p>
 						<em>Body weight</em> - To supplement this vital sign observation, 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY be used as additional observations.</td>
 					<td>g, kg,[lb_av]</td>
 					<td>
-						<a href="observation-example.html">Vital Signs Body Weight Example</a>
+						<a href="observation-example.html">Body Weight Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -194,19 +194,19 @@ profile:</p>
 					</td>
 					<td>kg/m2</td>
 					<td>
-						<a href="observation-example-bmi.html">Vital  Body Mass Example</a>
+						<a href="observation-example-bmi.html">Body Mass Example</a>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Blood pressure panel systolic and diastolic</a>
+						<a href="bp.html">Blood pressure systolic and diastolic</a>
 					</td>
 					<td>85354-9</td>
 					<td>
 						<em>Blood pressure panel with all children optional</em> - This is a component observation.  It has no value in Observation.valueQuantity and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional observations.</td>
 					<td>-</td>
 					<td>
-						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html">Vital Signs Blood Pressure Example with missing Diastolic measurement</a>
+						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html"> Blood Pressure Example with missing Diastolic measurement</a>
 					</td>
 				</tr>
 				<tr>
@@ -218,7 +218,7 @@ profile:</p>
 						<em>Systolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
 					<td>mm[Hg]</td>
 					<td>
-						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>
+						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -229,7 +229,7 @@ profile:</p>
 				<td><em>Diastolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
 					<td>mm[Hg]</td>
 					<td>
-						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>
+						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
 					</td>
 				</tr>
 <!--				<tr>
@@ -240,7 +240,7 @@ profile:</p>
 					<td>mm[Hg]</td>
 					<td>The mean blood pressure is most commonly a direct average taken off of an instrument.</td>
 					<td>
-						<a href="observation-example-mbp.html">Vital Signs Mean Blood Pressure Example</a>
+						<a href="observation-example-mbp.html">Mean Blood Pressure Example</a>
 					</td>
 				</tr>
 -->			</tbody>

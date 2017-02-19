@@ -15,7 +15,7 @@
 	</contact>
 	<!--  Value Set: HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC
 		Code System(s)  LOINC 2.16.840.1.113883.6.1  Note the base resource does not allow for display terms -Gforge ticket Item and expansion doesn;t allow for time less than a seconde for instantiation so assume is to be machine generated.  -->
-	<description value="This value set indicates the allowed vital sign result types.   The concept Vitals Signs Panel (8716-3) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure systolic and diastolic (55284-4) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4)."/>
+	<description value="This value set indicates the allowed vital sign result types.   The concept Vitals signs panel (85353-1) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure panel (85354-9) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4)."/>
 	<copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
 	<compose>
 		<include>
@@ -61,12 +61,12 @@
 			</concept>
 	-->
 			<concept>
-				<!-- LOINC being replaced -->
+				<!-- LOINC being replaced by one below -->
 				<code value="55284-4"/>
 			</concept>
 			<!--		new LOINC TBD	
 			<concept>
-				<code value="???"/>
+				<code value="85354-9"/>
 			</concept>
 			
 -->
