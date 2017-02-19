@@ -12,6 +12,11 @@
   </identifier>
   <status value="active"/>
   <type>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="PBILLACCT"/>
+      <display value="patient billing account"/>
+    </coding>
     <text value="patient"/>
   </type>
   <name value="Inpatient: Peter James Chalmers"/>

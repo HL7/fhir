@@ -10,8 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = AccountType
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-account-type
   Definition = The usage type of this account, permits categorization of accounts.
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = AccountCurrency
