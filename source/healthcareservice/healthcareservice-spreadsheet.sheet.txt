@@ -502,6 +502,7 @@
   Short Name = Technical endpoints providing access to services operated for the location
   Definition = Technical endpoints providing access to services operated for the specific healthcare services defined at this resource
   Requirements = Organizations may have different systems covering different services at the different locations and need to be able to define the technical connection details for how to connect to them, and for what purpose
+  RIM Mapping = n/a
 
 === Sheet Search =====================================
 

@@ -274,6 +274,7 @@
   Type = Reference(Condition|Procedure)
   Short Name = Reason the appointment is to takes place (resource)
   Definition = Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
+  RIM Mapping = n/a
 
  -- Row 10 -----------------------------------
   Element = Appointment.priority
@@ -303,6 +304,7 @@
   Type = Reference(Any)
   Short Name = Additional information to support the appointment
   Definition = Additional information to support the appointment provided when making the appointment
+  RIM Mapping = n/a
   w5 = context
 
  -- Row 13 -----------------------------------
