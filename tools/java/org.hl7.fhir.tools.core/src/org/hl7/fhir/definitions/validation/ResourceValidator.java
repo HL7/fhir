@@ -179,7 +179,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  rd.getName(), !Utilities.noString(rd.getRoot().getW5()), "A resource must have a W5 category"); 
     
-    if (isWorkflowPattern(rd, "Event") || isWorkflowPattern(rd, "Request")) {
+    if ((isWorkflowPattern(rd, "Event") || isWorkflowPattern(rd, "Request")) && hasPatient(rd)) {
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "An 'event' or 'request' resource must have a search parameter 'encounter'");
     }
     if (suppressedwarning(errors, IssueType.REQUIRED, rd.getName(), hasW5Mappings(rd) || rd.getName().equals("Binary") || rd.getName().equals("OperationOutcome"), "A resource must have w5 mappings")) {
@@ -334,6 +334,20 @@ public class ResourceValidator extends BaseValidator {
     if (rule(errors, IssueType.STRUCTURE, rd.getName(), warnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private boolean hasPatient(ResourceDefn rd) {
+    for (ElementDefn child : rd.getRoot().getElements()) {
+      if (child.getName().equals("patient"))
+        return true;
+      if (child.getName().equals("subject")) {
+        for (TypeRef tr : child.getTypes()) {
+          if (tr.getName().equals("Reference") && tr.getParams().contains("Patient"))
+            return true;
+        }
+      }
+    }
+    return false;
+  }
 
   private boolean isWorkflowPattern(ResourceDefn rd, String code) {
     ElementDefn ed = rd.getRoot();
