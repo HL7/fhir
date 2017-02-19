@@ -509,7 +509,7 @@
   Element = ElementDefinition.min
   Card. = 0..1
   Inv. = 2
-  Type = integer
+  Type = unsignedInt
   Short Name = Minimum Cardinality
   Definition = The minimum number of times this element SHALL appear in the instance
   RIM Mapping = N/A (MIF territory)
