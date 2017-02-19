@@ -111,6 +111,14 @@
   w5 = who.focus
 
  -- Row 5 -----------------------------------
+  Element = DeviceUseStatement.source
+  Card. = 0..1
+  Type = Reference(Patient | Practitioner | RelatedPerson)
+  Short Name = Who made the statement
+  Definition = Who reported the device was being used by the patient
+  w5 = who.actor
+
+ -- Row 6 -----------------------------------
   Element = DeviceUseStatement.whenUsed
   Card. = 0..1
   Type = Period
@@ -119,7 +127,7 @@
   QUICK mapping = Performance.performanceTime
   w5 = when.done
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DeviceUseStatement.timing[x]
   Card. = 0..1
   Type = Timing|Period|dateTime
@@ -128,7 +136,7 @@
   QUICK mapping = DeviceUse.applicationSchedule
   w5 = when.done
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = DeviceUseStatement.recordedOn
   Card. = 0..1
   Type = dateTime
@@ -137,7 +145,7 @@
   QUICK mapping = ClinicalStatement.statementDateTime
   w5 = when.recorded
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DeviceUseStatement.device
   Card. = 1..1
   Type = Reference(Device)
@@ -146,7 +154,7 @@
   QUICK mapping = DeviceUse.device
   w5 = who.actor
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DeviceUseStatement.indication
   Card. = 0..*
   Type = CodeableConcept
@@ -155,7 +163,7 @@
   QUICK mapping = Action.indication.reason
   w5 = why
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DeviceUseStatement.bodySite
   Card. = 0..1
   Type = CodeableConcept
@@ -165,7 +173,7 @@
   Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-site-instance]]]
   RIM Mapping = targetSiteCode
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DeviceUseStatement.note
   Card. = 0..*
   Type = string
