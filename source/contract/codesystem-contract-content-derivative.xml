@@ -7,9 +7,13 @@
   </meta>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source at a specific stage in its lifecycle, which is sufficient to manage that source information, for example, in a repository, registry, processes and workflows, for making access control decisions, and providing query responses.</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">This is an example set of Content Derivative type
+      codes, which represent the minimal content derived from the basal information source at a
+      specific stage in its lifecycle, which is sufficient to manage that source information, for
+      example, in a repository, registry, processes and workflows, for making access control
+      decisions, and providing query responses.</div>
   </text>
-  <url value="http://hl7.org/fhir/contract-signer-type"/>
+  <url value="http://hl7.org/fhir/contract-content-derivative"/>
   <version value="1.9.0"/>
   <name value="ContractContentDerivative"/>
   <status value="draft"/>
@@ -23,27 +27,36 @@
     </telecom>
   </contact>
   <date value="2017-02-19"/>
-  <description value="This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source at a specific stage in its lifecycle, which is sufficient to manage that source information, for example, in a repository, registry, processes and workflows, for making access control decisions, and providing query responses."/>
+  <description
+    value="This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source at a specific stage in its lifecycle, which is sufficient to manage that source information, for example, in a repository, registry, processes and workflows, for making access control decisions, and providing query responses."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="registration"/>
     <display value="Content Registration"/>
-    <definition value="Content derivative that conveys sufficient information needed to register the source basal content from which it is derived.  This derivative content may be used to register the basal content as it changes status in its lifecycle.  For example, content registration may occur when the basal content is created, updated, inactive, or deleted."/>
+    <definition
+      value="Content derivative that conveys sufficient information needed to register the source basal content from which it is derived.  This derivative content may be used to register the basal content as it changes status in its lifecycle.  For example, content registration may occur when the basal content is created, updated, inactive, or deleted."
+    />
   </concept>
   <concept>
     <code value="retrieval"/>
     <display value="Content Retrieval"/>
-    <definition value="A content derivative that conveys sufficient information to locate and retrieve the content."/>
+    <definition
+      value="A content derivative that conveys sufficient information to locate and retrieve the content."
+    />
   </concept>
   <concept>
     <code value="statement"/>
     <display value="Content Statement"/>
-    <definition value="Content derivative that has less than full fidelity to the basal information source from which it was 'transcribed'. It provides recipients with the full content representation they may require for compliance purposes, and typically include a reference to or an attached unstructured representation for recipients needing an exact copy of the legal agreement."/>
+    <definition
+      value="Content derivative that has less than full fidelity to the basal information source from which it was 'transcribed'. It provides recipients with the full content representation they may require for compliance purposes, and typically include a reference to or an attached unstructured representation for recipients needing an exact copy of the legal agreement."
+    />
   </concept>
   <concept>
     <code value="shareable"/>
     <display value="Shareable Content"/>
-    <definition value="A Content Derivative that conveys sufficient information to determine the authorized entities with which the content may be shared."/>
+    <definition
+      value="A Content Derivative that conveys sufficient information to determine the authorized entities with which the content may be shared."
+    />
   </concept>
 </CodeSystem>
