@@ -20,6 +20,11 @@
     <include>
     <!--   ISO region codes   -->
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <filter>
+        <property value="class"/>
+        <op value="="/>
+        <value value="region"/>
+      </filter>
     </include>
     <include>
       <!--   US states   -->
