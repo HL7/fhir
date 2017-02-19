@@ -320,6 +320,11 @@
   Type = reference
   Path = SupplyRequest.supplier
 
+ -- Row 7 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = SupplyRequest.reasonReference
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
