@@ -8,17 +8,17 @@
   <Author>Grahame</Author>
   <LastAuthor>Andrew Stechishin</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-19T20:30:11Z</LastSaved>
+  <LastSaved>2017-02-20T03:15:54Z</LastSaved>
   <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13500</WindowHeight>
-  <WindowWidth>45840</WindowWidth>
+  <WindowHeight>14180</WindowHeight>
+  <WindowWidth>46700</WindowWidth>
   <WindowTopX>800</WindowTopX>
-  <WindowTopY>1220</WindowTopY>
+  <WindowTopY>1240</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -314,9 +314,7 @@
   <Style ss:ID="s97">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
-   </Borders>
+   <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
@@ -324,17 +322,27 @@
   <Style ss:ID="s98">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
-   <Borders/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s99">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s100">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s101">
    <Alignment ss:Vertical="Top" ss:ShrinkToFit="1" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -346,7 +354,7 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s102">
+  <Style ss:ID="s103">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -358,7 +366,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s104">
+  <Style ss:ID="s105">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -371,19 +379,11 @@
     ss:Bold="1"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s106">
+  <Style ss:ID="s107">
    <Font ss:FontName="Verdana" x:Family="Swiss" ss:Color="#000000" ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s107">
+  <Style ss:ID="s108">
    <Font ss:FontName="Verdana" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s109">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
-    ss:Bold="1"/>
-   <Interior/>
   </Style>
   <Style ss:ID="s110">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -391,7 +391,7 @@
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s112">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
@@ -976,9 +976,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R135C24" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R136C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="135" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="136" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="65"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="227"/>
@@ -1556,7 +1556,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.decisionType</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Contract.decisionType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1588,7 +1588,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.contentDerivative</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Contract.contentDerivative</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1620,26 +1620,26 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Contract.securityLabel</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Contract.securityLabel</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Coding</Data><NamedCell
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Y</Data><NamedCell
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">SecurityLabels</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Security Labels that define affected resources</Data><NamedCell
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Security Labels that define affected resources</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1653,7 +1653,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="225">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Contract.agent</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Contract.agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1718,7 +1718,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Contract.agent.role</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Contract.agent.role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1878,7 +1878,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Contract.valuedItem</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.valuedItem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1917,7 +1917,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">CodeableConcept|Reference(Any)</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">CodeableConcept|Reference(Any)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1934,7 +1934,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">COCT_RM440000UV09 ValuedItem code</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">COCT_RM440000UV09 ValuedItem code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1943,7 +1943,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Contract.valuedItem.identifier</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.valuedItem.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1975,7 +1975,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Contract.valuedItem.effectiveTime</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.valuedItem.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1998,7 +1998,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">       <Font html:Color="#000000"
+    <Cell ss:StyleID="s108"><Data ss:Type="String">       <Font html:Color="#000000"
        xmlns="http://www.w3.org/TR/REC-html40">COCT_RM440000UV09 ValuedItem </Font><Font
        xmlns="http://www.w3.org/TR/REC-html40">       </Font><B
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000">effectiveTime</Font><Font>       </Font></B><Font
@@ -2011,7 +2011,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Contract.valuedItem.quantity</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Contract.valuedItem.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2501,6 +2501,39 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Contract.term.securityLabel</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">SecurityLabels</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Security Labels that define affected terms</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A set of security labels that define which terms are controlled by this condition.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="225">
     <Cell ss:StyleID="s96"><Data ss:Type="String">Contract.term.agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2599,7 +2632,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.text</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2630,7 +2663,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.valuedItem</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2663,13 +2696,13 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem.entity[x]</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Contract.term.valuedItem.entity[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">CodeableConcept|Reference(Any)</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">CodeableConcept|Reference(Any)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2695,7 +2728,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.valuedItem.identifier</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2727,7 +2760,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.valuedItem.effectiveTime</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2759,7 +2792,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.valuedItem.quantity</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2791,7 +2824,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.valuedItem.unitPrice</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem.unitPrice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2823,7 +2856,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Contract.term.valuedItem.factor</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Contract.term.valuedItem.factor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2918,18 +2951,18 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Contract.term.group</Data><Comment
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Contract.term.group</Data><Comment
       ss:Author="Kathleen Connor"><Data>        <B
         xmlns="http://www.w3.org/TR/REC-html40">         <Font html:Face="Tahoma"
          x:Family="Swiss" html:Size="8" html:Color="#000000">Kathleen Connor:</Font>        </B>        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
         xmlns="http://www.w3.org/TR/REC-html40"> should this be on top of term group elements?</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String" x:Ticked="1">@Contract.term</Data><NamedCell
+    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String" x:Ticked="1">@Contract.term</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5057,7 +5090,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>32</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5074,14 +5107,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>44</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R135C24"
+  <AutoFilter x:Range="R1C1:R136C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -7601,7 +7634,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">Committee Notes</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Vocab</Data></Cell>
-    <Cell ss:Index="20" ss:StyleID="s110"><Data ss:Type="String">Example</Data></Cell>
+    <Cell ss:Index="20" ss:StyleID="s97"><Data ss:Type="String">Example</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s132"><Data ss:Type="String">!consentdirective</Data></Cell>
