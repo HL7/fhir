@@ -552,7 +552,7 @@ public class CDAGenerator {
     ed.setPath(dtn+"."+n);
     seePath(ed);
     ed.setDefinition(getDefinition(prop));
-    ed.setComments(getDesignComments(prop));
+    ed.setComment(getDesignComments(prop));
     ed.setLabel(XMLUtil.getNamedChildAttribute(prop, "mif:businessName", "name"));
     ed.setMin(Integer.parseInt(prop.getAttribute("minimumMultiplicity")));
     ed.setMax(prop.getAttribute("maximumMultiplicity"));

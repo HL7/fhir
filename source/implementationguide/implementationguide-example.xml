@@ -8,6 +8,7 @@
   <name value="Data Access Framework (DAF)"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <date value="2015-01-01"/>
   <publisher value="ONC / HL7 Joint project"/>
   <contact>
     <name value="ONC"/>
@@ -23,7 +24,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2015-01-01"/>
   <description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
   <jurisdiction>
     <coding>

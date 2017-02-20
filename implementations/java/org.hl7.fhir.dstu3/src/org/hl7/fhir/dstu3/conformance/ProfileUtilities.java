@@ -683,8 +683,8 @@ public class ProfileUtilities extends TranslatingUtilities {
       res.setDefinition(usage.getDefinition());
     if (usage.hasShort())
       res.setShort(usage.getShort());
-    if (usage.hasComments())
-      res.setComments(usage.getComments());
+    if (usage.hasComment())
+      res.setComment(usage.getComment());
     if (usage.hasRequirements())
       res.setRequirements(usage.getRequirements());
     for (StringType c : usage.getAlias())
@@ -723,7 +723,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (isExtension) {
       base.setDefinition("An Extension");
       base.setShort("Extension");
-      base.setCommentsElement(null);
+      base.setCommentElement(null);
       base.setRequirementsElement(null);
       base.getAlias().clear();
       base.getMapping().clear();
@@ -1006,8 +1006,8 @@ public class ProfileUtilities extends TranslatingUtilities {
       ElementDefinition e = profile.getSnapshot().getElement().get(0);
       base.setDefinition(e.getDefinition());
       base.setShort(e.getShort());
-      if (e.hasCommentsElement())
-        base.setCommentsElement(e.getCommentsElement());
+      if (e.hasCommentElement())
+        base.setCommentElement(e.getCommentElement());
       if (e.hasRequirementsElement())
         base.setRequirementsElement(e.getRequirementsElement());
       base.getAlias().clear();
@@ -1043,15 +1043,15 @@ public class ProfileUtilities extends TranslatingUtilities {
           derived.getDefinitionElement().setUserData(DERIVATION_EQUALS, true);
       }
 
-      if (derived.hasCommentsElement()) {
-        if (derived.getComments().startsWith("..."))
-          base.setComments(base.getComments()+"\r\n"+derived.getComments().substring(3));
-        else if (derived.hasCommentsElement()!= base.hasCommentsElement() || !Base.compareDeep(derived.getCommentsElement(), base.getCommentsElement(), false))
-          base.setCommentsElement(derived.getCommentsElement().copy());
+      if (derived.hasCommentElement()) {
+        if (derived.getComment().startsWith("..."))
+          base.setComment(base.getComment()+"\r\n"+derived.getComment().substring(3));
+        else if (derived.hasCommentElement()!= base.hasCommentElement() || !Base.compareDeep(derived.getCommentElement(), base.getCommentElement(), false))
+          base.setCommentElement(derived.getCommentElement().copy());
         else if (trimDifferential)
-          base.setCommentsElement(derived.getCommentsElement().copy());
-        else if (derived.hasCommentsElement())
-          derived.getCommentsElement().setUserData(DERIVATION_EQUALS, true);
+          base.setCommentElement(derived.getCommentElement().copy());
+        else if (derived.hasCommentElement())
+          derived.getCommentElement().setUserData(DERIVATION_EQUALS, true);
       }
 
       if (derived.hasLabelElement()) {
@@ -2302,12 +2302,12 @@ public class ProfileUtilities extends TranslatingUtilities {
               }
             }
           }
-          if (definition.getComments()!=null) {
+          if (definition.getComment()!=null) {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
             c.getPieces().add(gen.new Piece(null, "Comments: ", null).addStyle("font-weight:bold"));
             c.addPiece(gen.new Piece("br"));
-            c.addMarkdown(definition.getComments());
-//            c.getPieces().add(checkForNoChange(definition.getCommentsElement(), gen.new Piece(null, definition.getComments(), null)));
+            c.addMarkdown(definition.getComment());
+//            c.getPieces().add(checkForNoChange(definition.getCommentElement(), gen.new Piece(null, definition.getComment(), null)));
           }
         }
       }

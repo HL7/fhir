@@ -158,15 +158,15 @@
   Element = ValueSet.experimental
 
  -- Row 9 -----------------------------------
-  Element = ValueSet.publisher
-
- -- Row 10 -----------------------------------
-  Element = ValueSet.contact
-
- -- Row 11 -----------------------------------
   Element = ValueSet.date
   Definition = & (e.g. the \'content logical definition\')
   RIM Mapping = N/A
+
+ -- Row 10 -----------------------------------
+  Element = ValueSet.publisher
+
+ -- Row 11 -----------------------------------
+  Element = ValueSet.contact
 
  -- Row 12 -----------------------------------
   Element = ValueSet.description

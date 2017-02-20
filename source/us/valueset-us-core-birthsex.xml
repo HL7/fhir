@@ -5,6 +5,7 @@
 	<version value="1.9.0"/>
 	<name value="US Core Birth Sex Value Set"/>
 	<status value="active"/>
+	<date value="2016-08-10"/>
 	<publisher value="US Realm Steering Committee"/>
 	<contact>
 		<telecom>
@@ -12,7 +13,6 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<date value="2016-08-10"/>
 	<description value="Codes for assigning sex at birth as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc)"/>
 	<compose>
 		<include>

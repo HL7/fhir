@@ -61,7 +61,7 @@ extension</a>:
  <tr><td>Context</td><td>This extension is used in the patient resource</td></tr>
  <tr><td>Short Defn</td><td>Agreed agreement/policy</td></tr>
  <tr><td>Definition</td><td>A URI that identifies a participation agreement/policy to which the patient has agreed</td></tr>
- <tr><td>Comments</td><td>URI is a literal reference to agreement text (html)</td></tr>
+ <tr><td>Comment</td><td>URI is a literal reference to agreement text (html)</td></tr>
  <tr><td>Cardinality</td><td>1..* (patient cannot participate without at least one agreement)</td></tr>
  <tr><td>Type</td><td>uri</td></tr>
  <tr><td>XPaths</td><td>no Invariants</td></tr>
@@ -92,7 +92,7 @@ From this table, we can build a formal extension definition. In this case, it lo
       &lt;short value="Agreed agreement/policy" /&gt;
       &lt;definition value="A URI that identifies a participation agreement/policy 
         to which the patient has agreed" /&gt;
-      &lt;comments value="URI is a literal reference to agreement text (html). 
+      &lt;comment value="URI is a literal reference to agreement text (html). 
         Systems SHALL conform to the policies as indicated. 
         For further information, see the partnership agreement..." /&gt;
       &lt;mustSupport value="true" /&gt;
@@ -245,7 +245,7 @@ extension</a>:
  <tr><td>Context</td><td>This extension can be used anywhere a HumanName.part appears</td></tr>
  <tr><td>Short Defn</td><td>(one of the codes) LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN</td></tr>
  <tr><td>Definition</td><td>A set of codes each of which specifies a certain subcategory of the name part in addition to the main name part type</td></tr>
- <tr><td>Comments</td><td>Used to indicate additional information about the name part and how it should be used</td></tr>
+ <tr><td>Comment</td><td>Used to indicate additional information about the name part and how it should be used</td></tr>
  <tr><td>Cardinality</td><td>0..* (this is always optional, but more than one can be used if required)</td></tr>
  <tr><td>Type</td><td>code</td></tr>
  <tr><td>XPaths</td><td>N/A</td></tr>
@@ -302,7 +302,7 @@ and their associated bindings. In this case, the definition looks like this:
       &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
       &lt;definition value="A set of codes each of which specifies a certain subcategory
           of the name part in addition to the main name part type" /&gt;
-      &lt;comments value="Used to indicate additional information about the
+      &lt;comment value="Used to indicate additional information about the
              name part and how it should be used" /&gt;
       &lt;mustSupport value="false" /&gt;
       &lt;isModifier value="false" /&gt;

@@ -9,6 +9,7 @@
   <name value="ObjectLifecycleEvents"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <date value="2017-02-19T18:00:00+01:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -20,7 +21,6 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <date value="2017-02-19T18:00:00+01:00"/>
   <description
         value="This example FHIR value set is comprised of lifecycle event codes. The FHIR Actor value set is based on 
 		DICOM Audit Message, ParticipantObjectDataLifeCycle;

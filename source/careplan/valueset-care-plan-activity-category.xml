@@ -15,6 +15,7 @@
   <name value="CarePlanActivityCategory"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <date value="2015-08-30T17:04:04-06:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -26,7 +27,6 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <date value="2015-08-30T17:04:04-06:00"/>
   <description value="High-level categorization of the type of activity in a care plan."/>
   <compose>
     <include>

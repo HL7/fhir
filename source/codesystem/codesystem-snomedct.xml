@@ -40,6 +40,10 @@ support a particular edition/version
   <status value="active"/>
   <experimental value="false"/>
   
+  <!--  
+  <date value=[date for this edition+version]"/> 
+  -->
+
   <!-- publisher may change for specific editions / version (national policy decision) -->
   <publisher value="IHTSDO"/>
   <contact>
@@ -49,9 +53,6 @@ support a particular edition/version
     </telecom>
   </contact>
   
-  <!--  
-  <date value=[date for this edition+version]"/> 
-  -->
   <description value="SNOMED CT is the most comprehensive and precise clinical health terminology product in the world, owned and distributed around the world by The International Health Terminology Standards Development Organisation (IHTSDO)."/>
   <copyright value="© 2002-2016 International Health Terminology Standards Development Organisation (IHTSDO). All rights reserved. SNOMED CT®, was originally created by The College of American Pathologists. &quot;SNOMED&quot; and &quot;SNOMED CT&quot; are registered trademarks of the IHTSDO http://www.ihtsdo.org/snomed-ct/get-snomed-ct"/>
   <caseSensitive  value="false"/>

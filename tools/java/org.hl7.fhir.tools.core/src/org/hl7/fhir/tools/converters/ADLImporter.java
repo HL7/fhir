@@ -186,7 +186,7 @@ public class ADLImporter {
 	  ed.setMin(Integer.parseInt(item.cardinality.min));
 	  ed.setShort(texts.get(item.atCode).text);
 	  ed.setDefinition(texts.get(item.atCode).description);
-	  ed.setComments(texts.get(item.atCode).comment);
+	  ed.setComment(texts.get(item.atCode).comment);
 	  Element te = findTypeElement(item.typeName);
 	  if (te.hasAttribute("profile"))
 	    ed.addType().setCode(te.getAttribute("fhir")).setProfile(te.getAttribute("profile"));

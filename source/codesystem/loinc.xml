@@ -43,6 +43,10 @@ they support
   <status value="active"/>
   <experimental value="false"/>
   
+  <!--  
+  <date value=[date for this version]"/> 
+  -->
+
   <publisher value="Regenstrief"/>
   <contact>
     <telecom>
@@ -50,9 +54,6 @@ they support
     </telecom>
   </contact>
   
-  <!--  
-  <date value=[date for this version]"/> 
-  -->
   <description value="LOINC is a universal code system for tests, measurements, and observations"/>
   <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <caseSensitive  value="false"/>

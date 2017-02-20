@@ -470,7 +470,7 @@
   LOINC Code = TERM DEFINITION/DESCRIPTION(S)
 
  -- Row 16 -----------------------------------
-  Element = ElementDefinition.comments
+  Element = ElementDefinition.comment
   Card. = 0..1
   Type = markdown
   Short Name = Comments about the use of this element

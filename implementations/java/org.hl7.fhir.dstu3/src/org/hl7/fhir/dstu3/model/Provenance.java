@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -959,7 +959,7 @@ public class Provenance extends DomainResource {
      */
     @Child(name = "activity", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Activity that occurred", formalDefinition="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/provenance-activity-type")
     protected Coding activity;
 
     /**

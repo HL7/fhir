@@ -18,6 +18,7 @@
     <name value="ContractStatus"/>
     <status value="draft"/>
     <experimental value="true"/>
+    <date value="2017-02-13"/>
     <publisher value="HL7 International"/>
     <contact>
         <name value="FHIR project team"/>
@@ -26,7 +27,6 @@
             <value value="http://hl7.org/fhir"/>
         </telecom>
     </contact>
-    <date value="2017-02-13"/>
     <description
         value="This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR at http://hl7-fhir.github.io/sc.html."/>
     <caseSensitive value="true"/>

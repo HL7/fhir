@@ -536,7 +536,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     tableRow(b, translate("sd.dict", "Must Support"), "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
     tableRowNE(b, translate("sd.dict", "Requirements"),  null, processMarkdown(profile.getName(), d.getRequirementsElement()));
     tableRowHint(b, translate("sd.dict", "Alternate Names"), translate("sd.dict", "Other names by which this resource/element may be known"), null, describeAliases(d.getAlias()));
-    tableRowNE(b, translate("sd.dict", "Comments"),  null, processMarkdown(profile.getName(), d.getCommentsElement()));
+    tableRowNE(b, translate("sd.dict", "Comments"),  null, processMarkdown(profile.getName(), d.getCommentElement()));
     tableRow(b, translate("sd.dict", "Max Length"), null, !d.hasMaxLengthElement() ? null : toStr(d.getMaxLength()));
     tableRowNE(b, translate("sd.dict", "Default Value"), null, encodeValue(d.getDefaultValue()));
     tableRowNE(b, translate("sd.dict", "Meaning if Missing"), null, d.getMeaningWhenMissing());
@@ -890,8 +890,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       for (StructureDefinitionMappingComponent map : sd.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+translate("sd.maps", "Mappings for %s (%s)", Utilities.escapeXml(gt(map.getNameElement())), map.getUri())+"</h3>");
-        if (map.hasComments())
-          s.append("<p>"+Utilities.escapeXml(gt(map.getCommentsElement()))+"</p>");
+        if (map.hasComment())
+          s.append("<p>"+Utilities.escapeXml(gt(map.getCommentElement()))+"</p>");
 //        else if (specmaps != null && preambles.has(map.getUri()))   
 //          s.append(preambles.get(map.getUri()).getAsString());
 

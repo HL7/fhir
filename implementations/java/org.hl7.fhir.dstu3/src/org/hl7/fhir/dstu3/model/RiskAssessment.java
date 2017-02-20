@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -249,33 +249,40 @@ public class RiskAssessment extends DomainResource {
         /**
          * How likely is the outcome (in the specified timeframe).
          */
-        @Child(name = "probability", type = {DecimalType.class, Range.class, CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "probability", type = {DecimalType.class, Range.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Likelihood of specified outcome", formalDefinition="How likely is the outcome (in the specified timeframe)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/risk-probability")
         protected Type probability;
+
+        /**
+         * How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).
+         */
+        @Child(name = "qualitativeRisk", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Likelihood of specified outcome as a qualitative value", formalDefinition="How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/risk-probability")
+        protected CodeableConcept qualitativeRisk;
 
         /**
          * Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
          */
-        @Child(name = "relativeRisk", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "relativeRisk", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Relative likelihood", formalDefinition="Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.)." )
         protected DecimalType relativeRisk;
 
         /**
          * Indicates the period of time or age range of the subject to which the specified probability applies.
          */
-        @Child(name = "when", type = {Period.class, Range.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "when", type = {Period.class, Range.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Timeframe or age range", formalDefinition="Indicates the period of time or age range of the subject to which the specified probability applies." )
         protected Type when;
 
         /**
          * Additional information explaining the basis for the prediction.
          */
-        @Child(name = "rationale", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "rationale", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Explanation of prediction", formalDefinition="Additional information explaining the basis for the prediction." )
         protected StringType rationale;
 
-        private static final long serialVersionUID = 647967428L;
+        private static final long serialVersionUID = 1283401747L;
 
     /**
      * Constructor
@@ -349,19 +356,6 @@ public class RiskAssessment extends DomainResource {
           return this.probability instanceof Range;
         }
 
-        /**
-         * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
-         */
-        public CodeableConcept getProbabilityCodeableConcept() throws FHIRException { 
-          if (!(this.probability instanceof CodeableConcept))
-            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.probability.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.probability;
-        }
-
-        public boolean hasProbabilityCodeableConcept() { 
-          return this.probability instanceof CodeableConcept;
-        }
-
         public boolean hasProbability() { 
           return this.probability != null && !this.probability.isEmpty();
         }
@@ -371,6 +365,30 @@ public class RiskAssessment extends DomainResource {
          */
         public RiskAssessmentPredictionComponent setProbability(Type value) { 
           this.probability = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #qualitativeRisk} (How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).)
+         */
+        public CodeableConcept getQualitativeRisk() { 
+          if (this.qualitativeRisk == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create RiskAssessmentPredictionComponent.qualitativeRisk");
+            else if (Configuration.doAutoCreate())
+              this.qualitativeRisk = new CodeableConcept(); // cc
+          return this.qualitativeRisk;
+        }
+
+        public boolean hasQualitativeRisk() { 
+          return this.qualitativeRisk != null && !this.qualitativeRisk.isEmpty();
+        }
+
+        /**
+         * @param value {@link #qualitativeRisk} (How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).)
+         */
+        public RiskAssessmentPredictionComponent setQualitativeRisk(CodeableConcept value) { 
+          this.qualitativeRisk = value;
           return this;
         }
 
@@ -538,7 +556,8 @@ public class RiskAssessment extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, java.lang.Integer.MAX_VALUE, outcome));
-          childrenList.add(new Property("probability[x]", "decimal|Range|CodeableConcept", "How likely is the outcome (in the specified timeframe).", 0, java.lang.Integer.MAX_VALUE, probability));
+          childrenList.add(new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, java.lang.Integer.MAX_VALUE, probability));
+          childrenList.add(new Property("qualitativeRisk", "CodeableConcept", "How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).", 0, java.lang.Integer.MAX_VALUE, qualitativeRisk));
           childrenList.add(new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, java.lang.Integer.MAX_VALUE, relativeRisk));
           childrenList.add(new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, java.lang.Integer.MAX_VALUE, when));
           childrenList.add(new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, java.lang.Integer.MAX_VALUE, rationale));
@@ -549,6 +568,7 @@ public class RiskAssessment extends DomainResource {
         switch (hash) {
         case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
         case -1290561483: /*probability*/ return this.probability == null ? new Base[0] : new Base[] {this.probability}; // Type
+        case 123308730: /*qualitativeRisk*/ return this.qualitativeRisk == null ? new Base[0] : new Base[] {this.qualitativeRisk}; // CodeableConcept
         case -70741061: /*relativeRisk*/ return this.relativeRisk == null ? new Base[0] : new Base[] {this.relativeRisk}; // DecimalType
         case 3648314: /*when*/ return this.when == null ? new Base[0] : new Base[] {this.when}; // Type
         case 345689335: /*rationale*/ return this.rationale == null ? new Base[0] : new Base[] {this.rationale}; // StringType
@@ -565,6 +585,9 @@ public class RiskAssessment extends DomainResource {
           return value;
         case -1290561483: // probability
           this.probability = castToType(value); // Type
+          return value;
+        case 123308730: // qualitativeRisk
+          this.qualitativeRisk = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -70741061: // relativeRisk
           this.relativeRisk = castToDecimal(value); // DecimalType
@@ -586,6 +609,8 @@ public class RiskAssessment extends DomainResource {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("probability[x]")) {
           this.probability = castToType(value); // Type
+        } else if (name.equals("qualitativeRisk")) {
+          this.qualitativeRisk = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("relativeRisk")) {
           this.relativeRisk = castToDecimal(value); // DecimalType
         } else if (name.equals("when[x]")) {
@@ -603,6 +628,7 @@ public class RiskAssessment extends DomainResource {
         case -1106507950:  return getOutcome(); 
         case 1430185003:  return getProbability(); 
         case -1290561483:  return getProbability(); 
+        case 123308730:  return getQualitativeRisk(); 
         case -70741061:  return getRelativeRiskElement();
         case 1312831238:  return getWhen(); 
         case 3648314:  return getWhen(); 
@@ -616,7 +642,8 @@ public class RiskAssessment extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
-        case -1290561483: /*probability*/ return new String[] {"decimal", "Range", "CodeableConcept"};
+        case -1290561483: /*probability*/ return new String[] {"decimal", "Range"};
+        case 123308730: /*qualitativeRisk*/ return new String[] {"CodeableConcept"};
         case -70741061: /*relativeRisk*/ return new String[] {"decimal"};
         case 3648314: /*when*/ return new String[] {"Period", "Range"};
         case 345689335: /*rationale*/ return new String[] {"string"};
@@ -639,9 +666,9 @@ public class RiskAssessment extends DomainResource {
           this.probability = new Range();
           return this.probability;
         }
-        else if (name.equals("probabilityCodeableConcept")) {
-          this.probability = new CodeableConcept();
-          return this.probability;
+        else if (name.equals("qualitativeRisk")) {
+          this.qualitativeRisk = new CodeableConcept();
+          return this.qualitativeRisk;
         }
         else if (name.equals("relativeRisk")) {
           throw new FHIRException("Cannot call addChild on a primitive type RiskAssessment.relativeRisk");
@@ -666,6 +693,7 @@ public class RiskAssessment extends DomainResource {
         copyValues(dst);
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.probability = probability == null ? null : probability.copy();
+        dst.qualitativeRisk = qualitativeRisk == null ? null : qualitativeRisk.copy();
         dst.relativeRisk = relativeRisk == null ? null : relativeRisk.copy();
         dst.when = when == null ? null : when.copy();
         dst.rationale = rationale == null ? null : rationale.copy();
@@ -679,8 +707,9 @@ public class RiskAssessment extends DomainResource {
         if (!(other instanceof RiskAssessmentPredictionComponent))
           return false;
         RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other;
-        return compareDeep(outcome, o.outcome, true) && compareDeep(probability, o.probability, true) && compareDeep(relativeRisk, o.relativeRisk, true)
-           && compareDeep(when, o.when, true) && compareDeep(rationale, o.rationale, true);
+        return compareDeep(outcome, o.outcome, true) && compareDeep(probability, o.probability, true) && compareDeep(qualitativeRisk, o.qualitativeRisk, true)
+           && compareDeep(relativeRisk, o.relativeRisk, true) && compareDeep(when, o.when, true) && compareDeep(rationale, o.rationale, true)
+          ;
       }
 
       @Override
@@ -695,8 +724,8 @@ public class RiskAssessment extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(outcome, probability, relativeRisk
-          , when, rationale);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(outcome, probability, qualitativeRisk
+          , relativeRisk, when, rationale);
       }
 
   public String fhirType() {
@@ -2009,6 +2038,46 @@ public class RiskAssessment extends DomainResource {
    * the path value of "<b>RiskAssessment:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("RiskAssessment:patient").toLocked();
+
+ /**
+   * Search parameter: <b>probability</b>
+   * <p>
+   * Description: <b>Likelihood of specified outcome</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>RiskAssessment.prediction.probability[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="probability", path="RiskAssessment.prediction.probability", description="Likelihood of specified outcome", type="number" )
+  public static final String SP_PROBABILITY = "probability";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>probability</b>
+   * <p>
+   * Description: <b>Likelihood of specified outcome</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>RiskAssessment.prediction.probability[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam PROBABILITY = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_PROBABILITY);
+
+ /**
+   * Search parameter: <b>risk</b>
+   * <p>
+   * Description: <b>Likelihood of specified outcome as a qualitative value</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RiskAssessment.prediction.qualitativeRisk</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="risk", path="RiskAssessment.prediction.qualitativeRisk", description="Likelihood of specified outcome as a qualitative value", type="token" )
+  public static final String SP_RISK = "risk";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>risk</b>
+   * <p>
+   * Description: <b>Likelihood of specified outcome as a qualitative value</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RiskAssessment.prediction.qualitativeRisk</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RISK = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RISK);
 
  /**
    * Search parameter: <b>encounter</b>

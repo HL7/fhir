@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3756,9 +3756,9 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    @Child(name = "comments", type = {MarkdownType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "comment", type = {MarkdownType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Comments about the use of this element", formalDefinition="Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc." )
-    protected MarkdownType comments;
+    protected MarkdownType comment;
 
     /**
      * This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
@@ -3777,9 +3777,9 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * The minimum number of times this element SHALL appear in the instance.
      */
-    @Child(name = "min", type = {IntegerType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "min", type = {UnsignedIntType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Minimum Cardinality", formalDefinition="The minimum number of times this element SHALL appear in the instance." )
-    protected IntegerType min;
+    protected UnsignedIntType min;
 
     /**
      * The maximum number of times this element is permitted to appear in the instance.
@@ -3921,7 +3921,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = -1086797131L;
+    private static final long serialVersionUID = -278262340L;
 
   /**
    * Constructor
@@ -4318,50 +4318,50 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #comments} (Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+     * @return {@link #comment} (Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public MarkdownType getCommentsElement() { 
-      if (this.comments == null)
+    public MarkdownType getCommentElement() { 
+      if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ElementDefinition.comments");
+          throw new Error("Attempt to auto-create ElementDefinition.comment");
         else if (Configuration.doAutoCreate())
-          this.comments = new MarkdownType(); // bb
-      return this.comments;
+          this.comment = new MarkdownType(); // bb
+      return this.comment;
     }
 
-    public boolean hasCommentsElement() { 
-      return this.comments != null && !this.comments.isEmpty();
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
-    public boolean hasComments() { 
-      return this.comments != null && !this.comments.isEmpty();
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
-     * @param value {@link #comments} (Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+     * @param value {@link #comment} (Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public ElementDefinition setCommentsElement(MarkdownType value) { 
-      this.comments = value;
+    public ElementDefinition setCommentElement(MarkdownType value) { 
+      this.comment = value;
       return this;
     }
 
     /**
      * @return Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    public String getComments() { 
-      return this.comments == null ? null : this.comments.getValue();
+    public String getComment() { 
+      return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.
      */
-    public ElementDefinition setComments(String value) { 
+    public ElementDefinition setComment(String value) { 
       if (value == null)
-        this.comments = null;
+        this.comment = null;
       else {
-        if (this.comments == null)
-          this.comments = new MarkdownType();
-        this.comments.setValue(value);
+        if (this.comment == null)
+          this.comment = new MarkdownType();
+        this.comment.setValue(value);
       }
       return this;
     }
@@ -4479,12 +4479,12 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * @return {@link #min} (The minimum number of times this element SHALL appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
      */
-    public IntegerType getMinElement() { 
+    public UnsignedIntType getMinElement() { 
       if (this.min == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ElementDefinition.min");
         else if (Configuration.doAutoCreate())
-          this.min = new IntegerType(); // bb
+          this.min = new UnsignedIntType(); // bb
       return this.min;
     }
 
@@ -4499,7 +4499,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * @param value {@link #min} (The minimum number of times this element SHALL appear in the instance.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
      */
-    public ElementDefinition setMinElement(IntegerType value) { 
+    public ElementDefinition setMinElement(UnsignedIntType value) { 
       this.min = value;
       return this;
     }
@@ -4516,7 +4516,7 @@ public class ElementDefinition extends Type implements ICompositeType {
      */
     public ElementDefinition setMin(int value) { 
         if (this.min == null)
-          this.min = new IntegerType();
+          this.min = new UnsignedIntType();
         this.min.setValue(value);
       return this;
     }
@@ -5557,10 +5557,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
         childrenList.add(new Property("short", "string", "A concise description of what this element means (e.g. for use in autogenerated summaries).", 0, java.lang.Integer.MAX_VALUE, short_));
         childrenList.add(new Property("definition", "markdown", "Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("comments", "markdown", "Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comments));
+        childrenList.add(new Property("comment", "markdown", "Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("requirements", "markdown", "This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("alias", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, alias));
-        childrenList.add(new Property("min", "integer", "The minimum number of times this element SHALL appear in the instance.", 0, java.lang.Integer.MAX_VALUE, min));
+        childrenList.add(new Property("min", "unsignedInt", "The minimum number of times this element SHALL appear in the instance.", 0, java.lang.Integer.MAX_VALUE, min));
         childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
         childrenList.add(new Property("base", "", "Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is provided when the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("contentReference", "uri", "Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.", 0, java.lang.Integer.MAX_VALUE, contentReference));
@@ -5594,10 +5594,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -2119287345: /*slicing*/ return this.slicing == null ? new Base[0] : new Base[] {this.slicing}; // ElementDefinitionSlicingComponent
         case 109413500: /*short*/ return this.short_ == null ? new Base[0] : new Base[] {this.short_}; // StringType
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // MarkdownType
-        case -602415628: /*comments*/ return this.comments == null ? new Base[0] : new Base[] {this.comments}; // MarkdownType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // MarkdownType
         case -1619874672: /*requirements*/ return this.requirements == null ? new Base[0] : new Base[] {this.requirements}; // MarkdownType
         case 92902992: /*alias*/ return this.alias == null ? new Base[0] : this.alias.toArray(new Base[this.alias.size()]); // StringType
-        case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
+        case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // UnsignedIntType
         case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
         case 3016401: /*base*/ return this.base == null ? new Base[0] : new Base[] {this.base}; // ElementDefinitionBaseComponent
         case 1193747154: /*contentReference*/ return this.contentReference == null ? new Base[0] : new Base[] {this.contentReference}; // UriType
@@ -5651,8 +5651,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -1014418093: // definition
           this.definition = castToMarkdown(value); // MarkdownType
           return value;
-        case -602415628: // comments
-          this.comments = castToMarkdown(value); // MarkdownType
+        case 950398559: // comment
+          this.comment = castToMarkdown(value); // MarkdownType
           return value;
         case -1619874672: // requirements
           this.requirements = castToMarkdown(value); // MarkdownType
@@ -5661,7 +5661,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.getAlias().add(castToString(value)); // StringType
           return value;
         case 108114: // min
-          this.min = castToInteger(value); // IntegerType
+          this.min = castToUnsignedInt(value); // UnsignedIntType
           return value;
         case 107876: // max
           this.max = castToString(value); // StringType
@@ -5747,14 +5747,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.short_ = castToString(value); // StringType
         } else if (name.equals("definition")) {
           this.definition = castToMarkdown(value); // MarkdownType
-        } else if (name.equals("comments")) {
-          this.comments = castToMarkdown(value); // MarkdownType
+        } else if (name.equals("comment")) {
+          this.comment = castToMarkdown(value); // MarkdownType
         } else if (name.equals("requirements")) {
           this.requirements = castToMarkdown(value); // MarkdownType
         } else if (name.equals("alias")) {
           this.getAlias().add(castToString(value));
         } else if (name.equals("min")) {
-          this.min = castToInteger(value); // IntegerType
+          this.min = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("max")) {
           this.max = castToString(value); // StringType
         } else if (name.equals("base")) {
@@ -5811,7 +5811,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -2119287345:  return getSlicing(); 
         case 109413500:  return getShortElement();
         case -1014418093:  return getDefinitionElement();
-        case -602415628:  return getCommentsElement();
+        case 950398559:  return getCommentElement();
         case -1619874672:  return getRequirementsElement();
         case 92902992:  return addAliasElement();
         case 108114:  return getMinElement();
@@ -5856,10 +5856,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -2119287345: /*slicing*/ return new String[] {};
         case 109413500: /*short*/ return new String[] {"string"};
         case -1014418093: /*definition*/ return new String[] {"markdown"};
-        case -602415628: /*comments*/ return new String[] {"markdown"};
+        case 950398559: /*comment*/ return new String[] {"markdown"};
         case -1619874672: /*requirements*/ return new String[] {"markdown"};
         case 92902992: /*alias*/ return new String[] {"string"};
-        case 108114: /*min*/ return new String[] {"integer"};
+        case 108114: /*min*/ return new String[] {"unsignedInt"};
         case 107876: /*max*/ return new String[] {"string"};
         case 3016401: /*base*/ return new String[] {};
         case 1193747154: /*contentReference*/ return new String[] {"uri"};
@@ -5912,8 +5912,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("definition")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.definition");
         }
-        else if (name.equals("comments")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.comments");
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.comment");
         }
         else if (name.equals("requirements")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.requirements");
@@ -6467,7 +6467,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         dst.slicing = slicing == null ? null : slicing.copy();
         dst.short_ = short_ == null ? null : short_.copy();
         dst.definition = definition == null ? null : definition.copy();
-        dst.comments = comments == null ? null : comments.copy();
+        dst.comment = comment == null ? null : comment.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         if (alias != null) {
           dst.alias = new ArrayList<StringType>();
@@ -6531,7 +6531,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinition o = (ElementDefinition) other;
         return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(sliceName, o.sliceName, true)
            && compareDeep(label, o.label, true) && compareDeep(code, o.code, true) && compareDeep(slicing, o.slicing, true)
-           && compareDeep(short_, o.short_, true) && compareDeep(definition, o.definition, true) && compareDeep(comments, o.comments, true)
+           && compareDeep(short_, o.short_, true) && compareDeep(definition, o.definition, true) && compareDeep(comment, o.comment, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(alias, o.alias, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(base, o.base, true) && compareDeep(contentReference, o.contentReference, true)
            && compareDeep(type, o.type, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(meaningWhenMissing, o.meaningWhenMissing, true)
@@ -6552,7 +6552,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinition o = (ElementDefinition) other;
         return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(sliceName, o.sliceName, true)
            && compareValues(label, o.label, true) && compareValues(short_, o.short_, true) && compareValues(definition, o.definition, true)
-           && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(alias, o.alias, true)
+           && compareValues(comment, o.comment, true) && compareValues(requirements, o.requirements, true) && compareValues(alias, o.alias, true)
            && compareValues(min, o.min, true) && compareValues(max, o.max, true) && compareValues(contentReference, o.contentReference, true)
            && compareValues(meaningWhenMissing, o.meaningWhenMissing, true) && compareValues(orderMeaning, o.orderMeaning, true)
            && compareValues(maxLength, o.maxLength, true) && compareValues(condition, o.condition, true) && compareValues(mustSupport, o.mustSupport, true)
@@ -6561,7 +6561,7 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, representation, sliceName
-          , label, code, slicing, short_, definition, comments, requirements, alias, min
+          , label, code, slicing, short_, definition, comment, requirements, alias, min
           , max, base, contentReference, type, defaultValue, meaningWhenMissing, orderMeaning
           , fixed, pattern, example, minValue, maxValue, maxLength, condition, constraint
           , mustSupport, isModifier, isSummary, binding, mapping);

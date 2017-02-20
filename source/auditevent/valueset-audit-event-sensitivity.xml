@@ -5,8 +5,8 @@
   <version value="20100826"/>
   <name value="Audit Event Object Sensitivity"/>
   <status value="draft"/>
-  <publisher value="HL7"/>
   <date value="2013-06-13"/>
+  <publisher value="HL7"/>
   <description value="The sensitivity of an object in a secuity event resource. May also encompass confidentiality and rudimentary access control"/>
   <compose>
     <include>

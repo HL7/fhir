@@ -88,13 +88,13 @@
   Element = ConceptMap.experimental
 
  -- Row 9 -----------------------------------
-  Element = ConceptMap.publisher
+  Element = ConceptMap.date
 
  -- Row 10 -----------------------------------
-  Element = ConceptMap.contact
+  Element = ConceptMap.publisher
 
  -- Row 11 -----------------------------------
-  Element = ConceptMap.date
+  Element = ConceptMap.contact
 
  -- Row 12 -----------------------------------
   Element = ConceptMap.description

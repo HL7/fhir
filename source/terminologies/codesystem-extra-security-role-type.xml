@@ -12,6 +12,7 @@
   <name value="SecurityRoleType"/>
   <status value="draft"/>
   <experimental value="true"/>
+  <date value="2017-02-13"/>
   <publisher value="HL7 International"/>
   <contact>
     <name value="FHIR project team"/>
@@ -20,7 +21,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2017-02-13"/>
   <description value="This CodeSystem contains Additional FHIR-defined Security Role types not defined elsewhere"/>
   <caseSensitive value="true"/>
   <content value="complete"/>

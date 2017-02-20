@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1856,7 +1856,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "lifecycle", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Life-cycle stage for the entity", formalDefinition="Identifier for the data life-cycle stage for the entity." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/object-lifecycle")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/object-lifecycle-events")
         protected Coding lifecycle;
 
         /**

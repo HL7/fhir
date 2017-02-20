@@ -5,8 +5,8 @@
   <url value="http://hl7.org/fhir/ValueSet/cpt-all"/>
   <name value="All CPT codes"/>
   <status value="active"/>
-  <publisher value="Health Level Seven International (Vocabulary)"/>
   <date value="2015-03-12"/>
+  <publisher value="Health Level Seven International (Vocabulary)"/>
   <description value="A value set that includes all CPT codes"/>
   <copyright value="CPT Copyright © 2014 American Medical Association. All rights reserved."/>
   <compose>

@@ -27,6 +27,7 @@
 	<name value="RequestPriority"/>
 	<status value="draft"/>
 	<experimental value="false"/>
+	<date value="2016-07-17T18:04:27+00:00"/>
 	<publisher value="HL7 (FHIR Project)"/>
 	<contact>
 		<telecom>
@@ -38,7 +39,6 @@
 			<value value="fhir@lists.hl7.org"/>
 		</telecom>
 	</contact>
-	<date value="2016-07-17T18:04:27+00:00"/>
 	<description value="The clinical priority of a diagnostic order."/>
 	<compose>
 		<include>

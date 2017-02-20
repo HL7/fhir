@@ -75,14 +75,14 @@
   Element = CompartmentDefinition.experimental
 
  -- Row 7 -----------------------------------
-  Element = CompartmentDefinition.publisher
+  Element = CompartmentDefinition.date
 
  -- Row 8 -----------------------------------
-  Element = CompartmentDefinition.contact
-  UML = 350;60
+  Element = CompartmentDefinition.publisher
 
  -- Row 9 -----------------------------------
-  Element = CompartmentDefinition.date
+  Element = CompartmentDefinition.contact
+  UML = 350;60
 
  -- Row 10 -----------------------------------
   Element = CompartmentDefinition.description

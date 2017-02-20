@@ -184,7 +184,7 @@ public class LoincToDEConvertor {
 				// SOURCE	
 				// DATE_LAST_CHANGED - should be in ?	
 				// CHNG_TYPE	
-				dee.setComments(col(row , "COMMENTS"));
+				dee.setComment(col(row , "COMMENTS"));
 				if (hasCol(row, "CONSUMER_NAME"))
 					dee.addAlias(col(row, "CONSUMER_NAME"));	
 				// MOLAR_MASS	

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2275,12 +2275,6 @@ public class Enumerations {
          */
         CARETEAM, 
         /**
-         * A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...
-The catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. 
-The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
-         */
-        CATALOG, 
-        /**
          * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
          */
         CHARGEITEM, 
@@ -2851,8 +2845,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
           return CARETEAM;
-        if ("Catalog".equals(codeString))
-          return CATALOG;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -3139,7 +3131,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOG: return "Catalog";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -3320,7 +3311,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
-            case CATALOG: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -3501,7 +3491,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
-            case CATALOG: return "A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
@@ -3682,7 +3671,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOG: return "Catalog";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -3936,8 +3924,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRAllTypes.CAREPLAN;
         if ("CareTeam".equals(codeString))
           return FHIRAllTypes.CARETEAM;
-        if ("Catalog".equals(codeString))
-          return FHIRAllTypes.CATALOG;
         if ("ChargeItem".equals(codeString))
           return FHIRAllTypes.CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -4298,8 +4284,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CAREPLAN);
         if ("CareTeam".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CARETEAM);
-        if ("Catalog".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CATALOG);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CHARGEITEM);
         if ("Claim".equals(codeString))
@@ -4653,8 +4637,6 @@ The catalog does not replicate the content of the item, since that is expected t
         return "CarePlan";
       if (code == FHIRAllTypes.CARETEAM)
         return "CareTeam";
-      if (code == FHIRAllTypes.CATALOG)
-        return "Catalog";
       if (code == FHIRAllTypes.CHARGEITEM)
         return "ChargeItem";
       if (code == FHIRAllTypes.CLAIM)
@@ -5149,12 +5131,6 @@ The catalog does not replicate the content of the item, since that is expected t
          * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
          */
         CARETEAM, 
-        /**
-         * A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...
-The catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. 
-The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
-         */
-        CATALOG, 
         /**
          * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
          */
@@ -5718,8 +5694,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
           return CARETEAM;
-        if ("Catalog".equals(codeString))
-          return CATALOG;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -6002,7 +5976,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOG: return "Catalog";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -6181,7 +6154,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
-            case CATALOG: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -6360,7 +6332,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
-            case CATALOG: return "A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
@@ -6539,7 +6510,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOG: return "Catalog";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -6791,8 +6761,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRDefinedType.CAREPLAN;
         if ("CareTeam".equals(codeString))
           return FHIRDefinedType.CARETEAM;
-        if ("Catalog".equals(codeString))
-          return FHIRDefinedType.CATALOG;
         if ("ChargeItem".equals(codeString))
           return FHIRDefinedType.CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -7149,8 +7117,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CAREPLAN);
         if ("CareTeam".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CARETEAM);
-        if ("Catalog".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CATALOG);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CHARGEITEM);
         if ("Claim".equals(codeString))
@@ -7500,8 +7466,6 @@ The catalog does not replicate the content of the item, since that is expected t
         return "CarePlan";
       if (code == FHIRDefinedType.CARETEAM)
         return "CareTeam";
-      if (code == FHIRDefinedType.CATALOG)
-        return "Catalog";
       if (code == FHIRDefinedType.CHARGEITEM)
         return "ChargeItem";
       if (code == FHIRDefinedType.CLAIM)
@@ -8341,12 +8305,6 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         CARETEAM, 
         /**
-         * A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...
-The catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. 
-The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
-         */
-        CATALOG, 
-        /**
          * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
          */
         CHARGEITEM, 
@@ -8801,8 +8759,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
           return CARETEAM;
-        if ("Catalog".equals(codeString))
-          return CATALOG;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -9031,7 +8987,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOG: return "Catalog";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -9156,7 +9111,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
-            case CATALOG: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -9281,7 +9235,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
-            case CATALOG: return "A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
@@ -9406,7 +9359,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOG: return "Catalog";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -9550,8 +9502,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return ResourceType.CAREPLAN;
         if ("CareTeam".equals(codeString))
           return ResourceType.CARETEAM;
-        if ("Catalog".equals(codeString))
-          return ResourceType.CATALOG;
         if ("ChargeItem".equals(codeString))
           return ResourceType.CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -9800,8 +9750,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<ResourceType>(this, ResourceType.CAREPLAN);
         if ("CareTeam".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CARETEAM);
-        if ("Catalog".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.CATALOG);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CHARGEITEM);
         if ("Claim".equals(codeString))
@@ -10043,8 +9991,6 @@ The catalog does not replicate the content of the item, since that is expected t
         return "CarePlan";
       if (code == ResourceType.CARETEAM)
         return "CareTeam";
-      if (code == ResourceType.CATALOG)
-        return "Catalog";
       if (code == ResourceType.CHARGEITEM)
         return "ChargeItem";
       if (code == ResourceType.CLAIM)

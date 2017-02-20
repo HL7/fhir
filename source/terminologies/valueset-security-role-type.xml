@@ -13,6 +13,7 @@
   <status value="draft"/>
   <experimental value="false"/>
 
+  <date value="2017-01-30T18:00:00+01:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -24,7 +25,6 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <date value="2017-01-30T18:00:00+01:00"/>
 
   <description
         value="This example FHIR value set is comprised of example Actor Type codes, which can be used to value FHIR agents, actors, and other role

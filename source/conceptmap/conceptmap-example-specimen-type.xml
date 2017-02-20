@@ -8,6 +8,7 @@
     <name value="Specimen mapping from v2 table 0487 to SNOMED CT"/>
     <status value="draft"/>
     <experimental value="false"/>
+    <date value="2013-07-25"/>
     <publisher value="FHIR project team (original source: LabMCoP)"/>
     <contact>
         <telecom>
@@ -21,7 +22,6 @@
             <value value="http://www.phconnect.org/group/laboratorymessagingcommunityofpractice/forum/attachment/download?id=3649725%3AUploadedFile%3A145786"/>
         </telecom>
     </contact>
-    <date value="2013-07-25"/>
     <sourceReference>
         <reference value="http://hl7.org/fhir/ValueSet/v2-0487"/>
     </sourceReference>

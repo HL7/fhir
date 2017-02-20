@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -53,7 +53,11 @@ public class Patient extends DomainResource {
         /**
          * The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.
          */
-        REPLACE, 
+        REPLACEDBY, 
+        /**
+         * The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information.
+         */
+        REPLACES, 
         /**
          * The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
          */
@@ -69,8 +73,10 @@ public class Patient extends DomainResource {
         public static LinkType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("replace".equals(codeString))
-          return REPLACE;
+        if ("replaced-by".equals(codeString))
+          return REPLACEDBY;
+        if ("replaces".equals(codeString))
+          return REPLACES;
         if ("refer".equals(codeString))
           return REFER;
         if ("seealso".equals(codeString))
@@ -82,7 +88,8 @@ public class Patient extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case REPLACE: return "replace";
+            case REPLACEDBY: return "replaced-by";
+            case REPLACES: return "replaces";
             case REFER: return "refer";
             case SEEALSO: return "seealso";
             default: return "?";
@@ -90,7 +97,8 @@ public class Patient extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case REPLACE: return "http://hl7.org/fhir/link-type";
+            case REPLACEDBY: return "http://hl7.org/fhir/link-type";
+            case REPLACES: return "http://hl7.org/fhir/link-type";
             case REFER: return "http://hl7.org/fhir/link-type";
             case SEEALSO: return "http://hl7.org/fhir/link-type";
             default: return "?";
@@ -98,7 +106,8 @@ public class Patient extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case REPLACE: return "The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.";
+            case REPLACEDBY: return "The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.";
+            case REPLACES: return "The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information.";
             case REFER: return "The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.";
             case SEEALSO: return "The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.";
             default: return "?";
@@ -106,7 +115,8 @@ public class Patient extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case REPLACE: return "Replace";
+            case REPLACEDBY: return "Replaced-by";
+            case REPLACES: return "Replaces";
             case REFER: return "Refer";
             case SEEALSO: return "See also";
             default: return "?";
@@ -119,8 +129,10 @@ public class Patient extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("replace".equals(codeString))
-          return LinkType.REPLACE;
+        if ("replaced-by".equals(codeString))
+          return LinkType.REPLACEDBY;
+        if ("replaces".equals(codeString))
+          return LinkType.REPLACES;
         if ("refer".equals(codeString))
           return LinkType.REFER;
         if ("seealso".equals(codeString))
@@ -135,8 +147,10 @@ public class Patient extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("replace".equals(codeString))
-          return new Enumeration<LinkType>(this, LinkType.REPLACE);
+        if ("replaced-by".equals(codeString))
+          return new Enumeration<LinkType>(this, LinkType.REPLACEDBY);
+        if ("replaces".equals(codeString))
+          return new Enumeration<LinkType>(this, LinkType.REPLACES);
         if ("refer".equals(codeString))
           return new Enumeration<LinkType>(this, LinkType.REFER);
         if ("seealso".equals(codeString))
@@ -144,8 +158,10 @@ public class Patient extends DomainResource {
         throw new FHIRException("Unknown LinkType code '"+codeString+"'");
         }
     public String toCode(LinkType code) {
-      if (code == LinkType.REPLACE)
-        return "replace";
+      if (code == LinkType.REPLACEDBY)
+        return "replaced-by";
+      if (code == LinkType.REPLACES)
+        return "replaces";
       if (code == LinkType.REFER)
         return "refer";
       if (code == LinkType.SEEALSO)
@@ -1168,7 +1184,7 @@ public class Patient extends DomainResource {
          * The type of link between this patient resource and another patient resource.
          */
         @Child(name = "type", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
-        @Description(shortDefinition="replace | refer | seealso - type of link", formalDefinition="The type of link between this patient resource and another patient resource." )
+        @Description(shortDefinition="replaced-by | replaces | refer | seealso - type of link", formalDefinition="The type of link between this patient resource and another patient resource." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/link-type")
         protected Enumeration<LinkType> type;
 

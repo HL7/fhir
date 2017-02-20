@@ -250,7 +250,7 @@ public class ProfileGenerator {
     ec.setPath(type.getCode());
     ec.setShort("Primitive Type " +type.getCode());
     ec.setDefinition(type.getDefinition());
-    ec.setComments(type.getComment());
+    ec.setComment(type.getComment());
     ec.setMin(0);
     ec.setMax("*");
     ec = new ElementDefinition();
@@ -287,7 +287,7 @@ public class ProfileGenerator {
     ec1.setPath(type.getCode());
     ec1.setShort("Primitive Type " +type.getCode());
     ec1.setDefinition(type.getDefinition());
-    ec1.setComments(type.getComment());
+    ec1.setComment(type.getComment());
     ec1.setMin(0);
     ec1.setMax("*");
     addElementConstraints("Element", ec1);
@@ -514,7 +514,7 @@ public class ProfileGenerator {
 
     ec1.setShort("Primitive Type " +type.getCode());
     ec1.setDefinition(type.getDefinition());
-    ec1.setComments(type.getComment());
+    ec1.setComment(type.getComment());
     ec1.setMin(0);
     ec1.setMax("*");
 
@@ -548,7 +548,7 @@ public class ProfileGenerator {
 
     ecA.setShort("Primitive Type " +type.getCode());
     ecA.setDefinition(type.getDefinition());
-    ecA.setComments(type.getComment());
+    ecA.setComment(type.getComment());
     ecA.setMin(0);
     ecA.setMax("*");
     ecA.makeBase(type.getCode(), 0, "*");
@@ -1362,7 +1362,7 @@ public class ProfileGenerator {
 
   private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p, String inheritedType) throws Exception {
     if (!Utilities.noString(e.getComments()))
-      ce.setComments(preProcessMarkdown(e.getComments(), "Element Comments"));
+      ce.setComment(preProcessMarkdown(e.getComments(), "Element Comments"));
     if (!Utilities.noString(e.getShortDefn()))
       ce.setShort(e.getShortDefn());
     if (!Utilities.noString(e.getDefinition())) {
@@ -1592,7 +1592,7 @@ public class ProfileGenerator {
     ce.setPath(path+"."+src.getName());
     ce.setShort(src.getShortDefn());
     ce.setDefinition(preProcessMarkdown(src.getDefinition(), "ELement Definition"));
-    ce.setComments(preProcessMarkdown(src.getComments(), "Element Comments"));
+    ce.setComment(preProcessMarkdown(src.getComments(), "Element Comments"));
     ce.setRequirements(preProcessMarkdown(src.getRequirements(), "Element Reqiurements"));
     for (String a : src.getAliases())
       ce.addAlias(a);
@@ -1633,7 +1633,7 @@ public class ProfileGenerator {
 
     dst.setShort(src.getShortDefn());
     dst.setDefinition(preProcessMarkdown(src.getDefinition(), "Element Definition"));
-    dst.setComments(preProcessMarkdown(src.getComments(), "Element Comments"));
+    dst.setComment(preProcessMarkdown(src.getComments(), "Element Comments"));
     if (src.getMaxCardinality() != null) {
       if (src.getMaxCardinality() == Integer.MAX_VALUE)
         dst.setMax("*");

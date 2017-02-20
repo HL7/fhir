@@ -197,7 +197,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
     tableRowNE("Requirements",  null, page.processMarkdown(profile.getName(), d.getRequirements(), prefix));
     tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, describeAliases(d.getAlias()));
-    tableRowNE("Comments",  null, page.processMarkdown(profile.getName(), d.getComments(), prefix));
+    tableRowNE("Comments",  null, page.processMarkdown(profile.getName(), d.getComment(), prefix));
     tableRow("Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
     tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());

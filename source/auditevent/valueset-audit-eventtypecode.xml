@@ -5,8 +5,8 @@
   <version value="20100826"/>
   <name value="DICOM Audit Event Type Code"/>
   <status value="active"/>
-  <publisher value="NEMA/DICOM"/>
   <date value="2010-08-26"/>
+  <publisher value="NEMA/DICOM"/>
   <description value="DICOM defined codes for ATNA Aidit Event ID"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <codeSystem>

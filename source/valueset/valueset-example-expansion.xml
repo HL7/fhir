@@ -70,6 +70,7 @@
   <experimental value="true"/>
 <!--   Expansions that are not intended for persistence often do not have 
    all the metadata. But this one, intended for persistence, does   -->
+  <date value="2015-06-22"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -77,7 +78,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2015-06-22"/>
   <description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
 <!--   it's optional whether to include the content logical definition, but 

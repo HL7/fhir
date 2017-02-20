@@ -17,6 +17,7 @@
 	<name value="W3cProvenanceActivityType"/>
 	<status value="draft"/>
 	<experimental value="true"/>
+	<date value="2017-02-19"/>
 	<publisher value="HL7 International"/>
 	<contact>
 		<name value="FHIR project team"/>
@@ -25,7 +26,6 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<date value="2017-02-19"/>
 	<description value="This value set includes W3C PROV Data Model Activity concepts, which are treated as codes in this valueset.  Some adaptations were made to make these concepts suitable values for the Provenance.activity element. Coded concepts are from PROV-DM and the display names are their counterparts in PROV-N (human readable notation syntax specification).[code system OID: http://www.w3.org/TR/2013/REC-prov-dm-20130430/ and http://www.w3.org/TR/2013/REC-prov-n-20130430/]"/>
 	<caseSensitive value="true"/>
 	<content value="complete"/>

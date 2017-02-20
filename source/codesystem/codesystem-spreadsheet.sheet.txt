@@ -173,13 +173,13 @@
   Element = CodeSystem.experimental
 
  -- Row 9 -----------------------------------
-  Element = CodeSystem.publisher
+  Element = CodeSystem.date
 
  -- Row 10 -----------------------------------
-  Element = CodeSystem.contact
+  Element = CodeSystem.publisher
 
  -- Row 11 -----------------------------------
-  Element = CodeSystem.date
+  Element = CodeSystem.contact
 
  -- Row 12 -----------------------------------
   Element = CodeSystem.description

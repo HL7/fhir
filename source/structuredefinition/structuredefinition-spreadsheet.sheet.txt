@@ -296,15 +296,15 @@
   11179 Mapping = Registration status
 
  -- Row 9 -----------------------------------
+  Element = StructureDefinition.date
+
+ -- Row 10 -----------------------------------
   Element = StructureDefinition.publisher
   11179 Mapping = Registration Authority
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = StructureDefinition.contact
   UML = 400;0
-
- -- Row 11 -----------------------------------
-  Element = StructureDefinition.date
 
  -- Row 12 -----------------------------------
   Element = StructureDefinition.description
@@ -374,7 +374,7 @@
   Definition = A name for the specification that is being mapped to
 
  -- Row 23 -----------------------------------
-  Element = StructureDefinition.mapping.comments
+  Element = StructureDefinition.mapping.comment
   Card. = 0..1
   Type = string
   Short Name = Versions, Issues, Scope limitations etc.

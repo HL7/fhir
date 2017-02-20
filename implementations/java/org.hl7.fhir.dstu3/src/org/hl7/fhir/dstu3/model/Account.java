@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -709,6 +709,7 @@ A coverage may only be resposible for specific types of charges, and the sequenc
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="E.g. patient, expense, depreciation", formalDefinition="Categorizes the account for reporting and searching purposes." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/account-type")
     protected CodeableConcept type;
 
     /**
@@ -746,30 +747,23 @@ This period may be different to the coveragePeriod which is the duration of time
     protected Period active;
 
     /**
-     * Identifies the currency to which transactions must be converted when crediting or debiting the account.
-     */
-    @Child(name = "currency", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Base currency in which balance is tracked", formalDefinition="Identifies the currency to which transactions must be converted when crediting or debiting the account." )
-    protected Coding currency;
-
-    /**
      * Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.
      */
-    @Child(name = "balance", type = {Money.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "balance", type = {Money.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="How much is in account?", formalDefinition="Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative." )
     protected Money balance;
 
     /**
      * The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account.
      */
-    @Child(name = "coverage", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "coverage", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account", formalDefinition="The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account." )
     protected List<CoverageComponent> coverage;
 
     /**
      * Indicates the organization, department, etc. with responsibility for the account.
      */
-    @Child(name = "owner", type = {Organization.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "owner", type = {Organization.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who is responsible?", formalDefinition="Indicates the organization, department, etc. with responsibility for the account." )
     protected Reference owner;
 
@@ -781,18 +775,18 @@ This period may be different to the coveragePeriod which is the duration of time
     /**
      * Provides additional information about what the account tracks and how it is used.
      */
-    @Child(name = "description", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Explanation of purpose/use", formalDefinition="Provides additional information about what the account tracks and how it is used." )
     protected StringType description;
 
     /**
      * Parties financially responsible for the account.
      */
-    @Child(name = "guarantor", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "guarantor", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Responsible for the account", formalDefinition="Parties financially responsible for the account." )
     protected List<GuarantorComponent> guarantor;
 
-    private static final long serialVersionUID = -759328671L;
+    private static final long serialVersionUID = 1653702558L;
 
   /**
    * Constructor
@@ -1066,30 +1060,6 @@ This period may be different to the coveragePeriod which is the duration of time
     }
 
     /**
-     * @return {@link #currency} (Identifies the currency to which transactions must be converted when crediting or debiting the account.)
-     */
-    public Coding getCurrency() { 
-      if (this.currency == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Account.currency");
-        else if (Configuration.doAutoCreate())
-          this.currency = new Coding(); // cc
-      return this.currency;
-    }
-
-    public boolean hasCurrency() { 
-      return this.currency != null && !this.currency.isEmpty();
-    }
-
-    /**
-     * @param value {@link #currency} (Identifies the currency to which transactions must be converted when crediting or debiting the account.)
-     */
-    public Account setCurrency(Coding value) { 
-      this.currency = value;
-      return this;
-    }
-
-    /**
      * @return {@link #balance} (Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.)
      */
     public Money getBalance() { 
@@ -1321,7 +1291,6 @@ This period may be different to the coveragePeriod which is the duration of time
         childrenList.add(new Property("subject", "Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)", "Identifies the patient, device, practitioner, location or other object the account is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("period", "Period", "Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("active", "Period", "Indicates the period of time over which the account is allowed to have transactions posted to it.\nThis period may be different to the coveragePeriod which is the duration of time that services may occur.", 0, java.lang.Integer.MAX_VALUE, active));
-        childrenList.add(new Property("currency", "Coding", "Identifies the currency to which transactions must be converted when crediting or debiting the account.", 0, java.lang.Integer.MAX_VALUE, currency));
         childrenList.add(new Property("balance", "Money", "Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.", 0, java.lang.Integer.MAX_VALUE, balance));
         childrenList.add(new Property("coverage", "", "The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("owner", "Reference(Organization)", "Indicates the organization, department, etc. with responsibility for the account.", 0, java.lang.Integer.MAX_VALUE, owner));
@@ -1339,7 +1308,6 @@ This period may be different to the coveragePeriod which is the duration of time
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // Period
-        case 575402001: /*currency*/ return this.currency == null ? new Base[0] : new Base[] {this.currency}; // Coding
         case -339185956: /*balance*/ return this.balance == null ? new Base[0] : new Base[] {this.balance}; // Money
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : this.coverage.toArray(new Base[this.coverage.size()]); // CoverageComponent
         case 106164915: /*owner*/ return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
@@ -1374,9 +1342,6 @@ This period may be different to the coveragePeriod which is the duration of time
           return value;
         case -1422950650: // active
           this.active = castToPeriod(value); // Period
-          return value;
-        case 575402001: // currency
-          this.currency = castToCoding(value); // Coding
           return value;
         case -339185956: // balance
           this.balance = castToMoney(value); // Money
@@ -1415,8 +1380,6 @@ This period may be different to the coveragePeriod which is the duration of time
           this.period = castToPeriod(value); // Period
         } else if (name.equals("active")) {
           this.active = castToPeriod(value); // Period
-        } else if (name.equals("currency")) {
-          this.currency = castToCoding(value); // Coding
         } else if (name.equals("balance")) {
           this.balance = castToMoney(value); // Money
         } else if (name.equals("coverage")) {
@@ -1442,7 +1405,6 @@ This period may be different to the coveragePeriod which is the duration of time
         case -1867885268:  return getSubject(); 
         case -991726143:  return getPeriod(); 
         case -1422950650:  return getActive(); 
-        case 575402001:  return getCurrency(); 
         case -339185956:  return getBalance(); 
         case -351767064:  return addCoverage(); 
         case 106164915:  return getOwner(); 
@@ -1463,7 +1425,6 @@ This period may be different to the coveragePeriod which is the duration of time
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case -991726143: /*period*/ return new String[] {"Period"};
         case -1422950650: /*active*/ return new String[] {"Period"};
-        case 575402001: /*currency*/ return new String[] {"Coding"};
         case -339185956: /*balance*/ return new String[] {"Money"};
         case -351767064: /*coverage*/ return new String[] {};
         case 106164915: /*owner*/ return new String[] {"Reference"};
@@ -1500,10 +1461,6 @@ This period may be different to the coveragePeriod which is the duration of time
         else if (name.equals("active")) {
           this.active = new Period();
           return this.active;
-        }
-        else if (name.equals("currency")) {
-          this.currency = new Coding();
-          return this.currency;
         }
         else if (name.equals("balance")) {
           this.balance = new Money();
@@ -1545,7 +1502,6 @@ This period may be different to the coveragePeriod which is the duration of time
         dst.subject = subject == null ? null : subject.copy();
         dst.period = period == null ? null : period.copy();
         dst.active = active == null ? null : active.copy();
-        dst.currency = currency == null ? null : currency.copy();
         dst.balance = balance == null ? null : balance.copy();
         if (coverage != null) {
           dst.coverage = new ArrayList<CoverageComponent>();
@@ -1575,9 +1531,9 @@ This period may be different to the coveragePeriod which is the duration of time
         Account o = (Account) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(name, o.name, true) && compareDeep(subject, o.subject, true) && compareDeep(period, o.period, true)
-           && compareDeep(active, o.active, true) && compareDeep(currency, o.currency, true) && compareDeep(balance, o.balance, true)
-           && compareDeep(coverage, o.coverage, true) && compareDeep(owner, o.owner, true) && compareDeep(description, o.description, true)
-           && compareDeep(guarantor, o.guarantor, true);
+           && compareDeep(active, o.active, true) && compareDeep(balance, o.balance, true) && compareDeep(coverage, o.coverage, true)
+           && compareDeep(owner, o.owner, true) && compareDeep(description, o.description, true) && compareDeep(guarantor, o.guarantor, true)
+          ;
       }
 
       @Override
@@ -1593,8 +1549,8 @@ This period may be different to the coveragePeriod which is the duration of time
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, type
-          , name, subject, period, active, currency, balance, coverage, owner, description
-          , guarantor);
+          , name, subject, period, active, balance, coverage, owner, description, guarantor
+          );
       }
 
   @Override

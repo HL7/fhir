@@ -12,6 +12,7 @@
   <name value="OMB Race Categories"/>
   <status value="active"/>
   <experimental value="true"/>
+  <date value="2016-05-25T16:59:08+10:00"/>
   <publisher value="DAF Project"/>
   <contact>
     <telecom>
@@ -25,7 +26,6 @@
       <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
     </telecom>
   </contact>
-  <date value="2016-05-25T16:59:08+10:00"/>
   <description value="The codes for the concepts 'Unknown' and  'Asked but no answer' and the the codes for the five race categories - 'American Indian' or 'Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', and 'White' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards) ."/>
   <compose>
     <include>

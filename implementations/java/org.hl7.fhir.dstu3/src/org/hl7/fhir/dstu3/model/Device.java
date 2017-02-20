@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -204,7 +204,7 @@ public class Device extends DomainResource {
       }
     }
 
-    public enum DeviceStatus {
+    public enum FHIRDeviceStatus {
         /**
          * The Device is available for use.  Note: This means for *implanted devices*  the device is implanted in the patient.
          */
@@ -225,7 +225,7 @@ public class Device extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static DeviceStatus fromCode(String codeString) throws FHIRException {
+        public static FHIRDeviceStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
@@ -239,7 +239,7 @@ public class Device extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown DeviceStatus code '"+codeString+"'");
+          throw new FHIRException("Unknown FHIRDeviceStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -279,51 +279,51 @@ public class Device extends DomainResource {
         }
     }
 
-  public static class DeviceStatusEnumFactory implements EnumFactory<DeviceStatus> {
-    public DeviceStatus fromCode(String codeString) throws IllegalArgumentException {
+  public static class FHIRDeviceStatusEnumFactory implements EnumFactory<FHIRDeviceStatus> {
+    public FHIRDeviceStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("active".equals(codeString))
-          return DeviceStatus.ACTIVE;
+          return FHIRDeviceStatus.ACTIVE;
         if ("inactive".equals(codeString))
-          return DeviceStatus.INACTIVE;
+          return FHIRDeviceStatus.INACTIVE;
         if ("entered-in-error".equals(codeString))
-          return DeviceStatus.ENTEREDINERROR;
+          return FHIRDeviceStatus.ENTEREDINERROR;
         if ("unknown".equals(codeString))
-          return DeviceStatus.UNKNOWN;
-        throw new IllegalArgumentException("Unknown DeviceStatus code '"+codeString+"'");
+          return FHIRDeviceStatus.UNKNOWN;
+        throw new IllegalArgumentException("Unknown FHIRDeviceStatus code '"+codeString+"'");
         }
-        public Enumeration<DeviceStatus> fromType(Base code) throws FHIRException {
+        public Enumeration<FHIRDeviceStatus> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<DeviceStatus>(this);
+            return new Enumeration<FHIRDeviceStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("active".equals(codeString))
-          return new Enumeration<DeviceStatus>(this, DeviceStatus.ACTIVE);
+          return new Enumeration<FHIRDeviceStatus>(this, FHIRDeviceStatus.ACTIVE);
         if ("inactive".equals(codeString))
-          return new Enumeration<DeviceStatus>(this, DeviceStatus.INACTIVE);
+          return new Enumeration<FHIRDeviceStatus>(this, FHIRDeviceStatus.INACTIVE);
         if ("entered-in-error".equals(codeString))
-          return new Enumeration<DeviceStatus>(this, DeviceStatus.ENTEREDINERROR);
+          return new Enumeration<FHIRDeviceStatus>(this, FHIRDeviceStatus.ENTEREDINERROR);
         if ("unknown".equals(codeString))
-          return new Enumeration<DeviceStatus>(this, DeviceStatus.UNKNOWN);
-        throw new FHIRException("Unknown DeviceStatus code '"+codeString+"'");
+          return new Enumeration<FHIRDeviceStatus>(this, FHIRDeviceStatus.UNKNOWN);
+        throw new FHIRException("Unknown FHIRDeviceStatus code '"+codeString+"'");
         }
-    public String toCode(DeviceStatus code) {
-      if (code == DeviceStatus.ACTIVE)
+    public String toCode(FHIRDeviceStatus code) {
+      if (code == FHIRDeviceStatus.ACTIVE)
         return "active";
-      if (code == DeviceStatus.INACTIVE)
+      if (code == FHIRDeviceStatus.INACTIVE)
         return "inactive";
-      if (code == DeviceStatus.ENTEREDINERROR)
+      if (code == FHIRDeviceStatus.ENTEREDINERROR)
         return "entered-in-error";
-      if (code == DeviceStatus.UNKNOWN)
+      if (code == FHIRDeviceStatus.UNKNOWN)
         return "unknown";
       return "?";
       }
-    public String toSystem(DeviceStatus code) {
+    public String toSystem(FHIRDeviceStatus code) {
       return code.getSystem();
       }
     }
@@ -978,7 +978,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive | entered-in-error | unknown", formalDefinition="Status of the Device availability." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-status")
-    protected Enumeration<DeviceStatus> status;
+    protected Enumeration<FHIRDeviceStatus> status;
 
     /**
      * Code or identifier to identify a kind of device.
@@ -1095,7 +1095,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-safety")
     protected List<CodeableConcept> safety;
 
-    private static final long serialVersionUID = 2064742171L;
+    private static final long serialVersionUID = -1056263930L;
 
   /**
    * Constructor
@@ -1184,12 +1184,12 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     /**
      * @return {@link #status} (Status of the Device availability.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DeviceStatus> getStatusElement() { 
+    public Enumeration<FHIRDeviceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Device.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DeviceStatus>(new DeviceStatusEnumFactory()); // bb
+          this.status = new Enumeration<FHIRDeviceStatus>(new FHIRDeviceStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1204,7 +1204,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     /**
      * @param value {@link #status} (Status of the Device availability.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Device setStatusElement(Enumeration<DeviceStatus> value) { 
+    public Device setStatusElement(Enumeration<FHIRDeviceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1212,19 +1212,19 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     /**
      * @return Status of the Device availability.
      */
-    public DeviceStatus getStatus() { 
+    public FHIRDeviceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Status of the Device availability.
      */
-    public Device setStatus(DeviceStatus value) { 
+    public Device setStatus(FHIRDeviceStatus value) { 
       if (value == null)
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<DeviceStatus>(new DeviceStatusEnumFactory());
+          this.status = new Enumeration<FHIRDeviceStatus>(new FHIRDeviceStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -1914,7 +1914,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 115642: /*udi*/ return this.udi == null ? new Base[0] : new Base[] {this.udi}; // DeviceUdiComponent
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FHIRDeviceStatus>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 462547450: /*lotNumber*/ return this.lotNumber == null ? new Base[0] : new Base[] {this.lotNumber}; // StringType
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // StringType
@@ -1944,8 +1944,8 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
           this.udi = (DeviceUdiComponent) value; // DeviceUdiComponent
           return value;
         case -892481550: // status
-          value = new DeviceStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<DeviceStatus>
+          value = new FHIRDeviceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FHIRDeviceStatus>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -2001,8 +2001,8 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         } else if (name.equals("udi")) {
           this.udi = (DeviceUdiComponent) value; // DeviceUdiComponent
         } else if (name.equals("status")) {
-          value = new DeviceStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<DeviceStatus>
+          value = new FHIRDeviceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FHIRDeviceStatus>
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("lotNumber")) {

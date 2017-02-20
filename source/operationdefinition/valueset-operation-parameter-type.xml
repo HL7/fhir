@@ -8,8 +8,8 @@
   <name value="Parameter Types used in Operation Definitions"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="HL7, Inc. FHIR project"/>
   <date value="2014-07-22"/>
+  <publisher value="HL7, Inc. FHIR project"/>
   <description value="Parameter Types used in Operation Definitions"/>
   <extensible value="false"/>
   <compose>

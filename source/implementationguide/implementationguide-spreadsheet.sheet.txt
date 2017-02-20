@@ -115,13 +115,13 @@
   Element = ImplementationGuide.experimental
 
  -- Row 7 -----------------------------------
-  Element = ImplementationGuide.publisher
+  Element = ImplementationGuide.date
 
  -- Row 8 -----------------------------------
-  Element = ImplementationGuide.contact
+  Element = ImplementationGuide.publisher
 
  -- Row 9 -----------------------------------
-  Element = ImplementationGuide.date
+  Element = ImplementationGuide.contact
 
  -- Row 10 -----------------------------------
   Element = ImplementationGuide.description

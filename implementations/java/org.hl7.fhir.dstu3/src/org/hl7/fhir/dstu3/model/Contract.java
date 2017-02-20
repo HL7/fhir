@@ -29,12 +29,13 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -218,7 +219,7 @@ public class Contract extends DomainResource {
             case APPENDED: return "Appended";
             case CANCELLED: return "Cancelled";
             case DISPUTED: return "Disputed";
-            case ENTEREDINERROR: return "entered-in-error";
+            case ENTEREDINERROR: return "Entered in Error";
             case EXECUTABLE: return "Executable";
             case EXECUTED: return "Executed";
             case NEGOTIABLE: return "Negotiable";
@@ -3870,62 +3871,86 @@ public class Contract extends DomainResource {
     protected List<CodeableConcept> actionReason;
 
     /**
+     * The type of decision made by a grantor with respect to an offer made by a grantee.
+     */
+    @Child(name = "decisionType", type = {CodeableConcept.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Decision by Grantor", formalDefinition="The type of decision made by a grantor with respect to an offer made by a grantee." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActConsentDirective")
+    protected CodeableConcept decisionType;
+
+    /**
+     * The minimal content derived from the basal information source at a specific stage in its lifecycle.
+     */
+    @Child(name = "contentDerivative", type = {CodeableConcept.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Content derived from the basal information", formalDefinition="The minimal content derived from the basal information source at a specific stage in its lifecycle." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-content-derivative")
+    protected CodeableConcept contentDerivative;
+
+    /**
+     * A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.
+     */
+    @Child(name = "securityLabel", type = {Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Security Labels that define affected resources", formalDefinition="A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-labels")
+    protected List<Coding> securityLabel;
+
+    /**
      * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
      */
-    @Child(name = "agent", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "agent", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Entity being ascribed responsibility", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
     protected List<AgentComponent> agent;
 
     /**
      * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
      */
-    @Child(name = "signer", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "signer", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Signatory", formalDefinition="Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness." )
     protected List<SignatoryComponent> signer;
 
     /**
      * Contract Valued Item List.
      */
-    @Child(name = "valuedItem", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "valuedItem", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Valued Item List", formalDefinition="Contract Valued Item List." )
     protected List<ValuedItemComponent> valuedItem;
 
     /**
      * One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
      */
-    @Child(name = "term", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "term", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Term List", formalDefinition="One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups." )
     protected List<TermComponent> term;
 
     /**
      * Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.
      */
-    @Child(name = "binding", type = {Attachment.class, Composition.class, DocumentReference.class, QuestionnaireResponse.class}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "binding", type = {Attachment.class, Composition.class, DocumentReference.class, QuestionnaireResponse.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Binding Contract", formalDefinition="Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract." )
     protected Type binding;
 
     /**
      * The "patient friendly language" versionof the Contract in whole or in parts. "Patient friendly language" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
      */
-    @Child(name = "friendly", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "friendly", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Friendly Language", formalDefinition="The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement." )
     protected List<FriendlyLanguageComponent> friendly;
 
     /**
      * List of Legal expressions or representations of this Contract.
      */
-    @Child(name = "legal", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "legal", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Legal Language", formalDefinition="List of Legal expressions or representations of this Contract." )
     protected List<LegalLanguageComponent> legal;
 
     /**
      * List of Computable Policy Rule Language Representations of this Contract.
      */
-    @Child(name = "rule", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "rule", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Computable Contract Language", formalDefinition="List of Computable Policy Rule Language Representations of this Contract." )
     protected List<ComputableLanguageComponent> rule;
 
-    private static final long serialVersionUID = 90292068L;
+    private static final long serialVersionUID = -254555038L;
 
   /**
    * Constructor
@@ -4540,6 +4565,107 @@ public class Contract extends DomainResource {
     }
 
     /**
+     * @return {@link #decisionType} (The type of decision made by a grantor with respect to an offer made by a grantee.)
+     */
+    public CodeableConcept getDecisionType() { 
+      if (this.decisionType == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contract.decisionType");
+        else if (Configuration.doAutoCreate())
+          this.decisionType = new CodeableConcept(); // cc
+      return this.decisionType;
+    }
+
+    public boolean hasDecisionType() { 
+      return this.decisionType != null && !this.decisionType.isEmpty();
+    }
+
+    /**
+     * @param value {@link #decisionType} (The type of decision made by a grantor with respect to an offer made by a grantee.)
+     */
+    public Contract setDecisionType(CodeableConcept value) { 
+      this.decisionType = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #contentDerivative} (The minimal content derived from the basal information source at a specific stage in its lifecycle.)
+     */
+    public CodeableConcept getContentDerivative() { 
+      if (this.contentDerivative == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Contract.contentDerivative");
+        else if (Configuration.doAutoCreate())
+          this.contentDerivative = new CodeableConcept(); // cc
+      return this.contentDerivative;
+    }
+
+    public boolean hasContentDerivative() { 
+      return this.contentDerivative != null && !this.contentDerivative.isEmpty();
+    }
+
+    /**
+     * @param value {@link #contentDerivative} (The minimal content derived from the basal information source at a specific stage in its lifecycle.)
+     */
+    public Contract setContentDerivative(CodeableConcept value) { 
+      this.contentDerivative = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #securityLabel} (A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.)
+     */
+    public List<Coding> getSecurityLabel() { 
+      if (this.securityLabel == null)
+        this.securityLabel = new ArrayList<Coding>();
+      return this.securityLabel;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Contract setSecurityLabel(List<Coding> theSecurityLabel) { 
+      this.securityLabel = theSecurityLabel;
+      return this;
+    }
+
+    public boolean hasSecurityLabel() { 
+      if (this.securityLabel == null)
+        return false;
+      for (Coding item : this.securityLabel)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Coding addSecurityLabel() { //3
+      Coding t = new Coding();
+      if (this.securityLabel == null)
+        this.securityLabel = new ArrayList<Coding>();
+      this.securityLabel.add(t);
+      return t;
+    }
+
+    public Contract addSecurityLabel(Coding t) { //3
+      if (t == null)
+        return this;
+      if (this.securityLabel == null)
+        this.securityLabel = new ArrayList<Coding>();
+      this.securityLabel.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #securityLabel}, creating it if it does not already exist
+     */
+    public Coding getSecurityLabelFirstRep() { 
+      if (getSecurityLabel().isEmpty()) {
+        addSecurityLabel();
+      }
+      return getSecurityLabel().get(0);
+    }
+
+    /**
      * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
      */
     public List<AgentComponent> getAgent() { 
@@ -4969,6 +5095,9 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("subType", "CodeableConcept", "More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.", 0, java.lang.Integer.MAX_VALUE, subType));
         childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract.", 0, java.lang.Integer.MAX_VALUE, action));
         childrenList.add(new Property("actionReason", "CodeableConcept", "Reason for action stipulated by this Contract.", 0, java.lang.Integer.MAX_VALUE, actionReason));
+        childrenList.add(new Property("decisionType", "CodeableConcept", "The type of decision made by a grantor with respect to an offer made by a grantee.", 0, java.lang.Integer.MAX_VALUE, decisionType));
+        childrenList.add(new Property("contentDerivative", "CodeableConcept", "The minimal content derived from the basal information source at a specific stage in its lifecycle.", 0, java.lang.Integer.MAX_VALUE, contentDerivative));
+        childrenList.add(new Property("securityLabel", "Coding", "A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
         childrenList.add(new Property("agent", "", "An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("signer", "", "Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.", 0, java.lang.Integer.MAX_VALUE, signer));
         childrenList.add(new Property("valuedItem", "", "Contract Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
@@ -4994,6 +5123,9 @@ public class Contract extends DomainResource {
         case -1868521062: /*subType*/ return this.subType == null ? new Base[0] : this.subType.toArray(new Base[this.subType.size()]); // CodeableConcept
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
         case 1465121818: /*actionReason*/ return this.actionReason == null ? new Base[0] : this.actionReason.toArray(new Base[this.actionReason.size()]); // CodeableConcept
+        case 676128054: /*decisionType*/ return this.decisionType == null ? new Base[0] : new Base[] {this.decisionType}; // CodeableConcept
+        case -92412192: /*contentDerivative*/ return this.contentDerivative == null ? new Base[0] : new Base[] {this.contentDerivative}; // CodeableConcept
+        case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
         case 92750597: /*agent*/ return this.agent == null ? new Base[0] : this.agent.toArray(new Base[this.agent.size()]); // AgentComponent
         case -902467798: /*signer*/ return this.signer == null ? new Base[0] : this.signer.toArray(new Base[this.signer.size()]); // SignatoryComponent
         case 2046675654: /*valuedItem*/ return this.valuedItem == null ? new Base[0] : this.valuedItem.toArray(new Base[this.valuedItem.size()]); // ValuedItemComponent
@@ -5046,6 +5178,15 @@ public class Contract extends DomainResource {
           return value;
         case 1465121818: // actionReason
           this.getActionReason().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case 676128054: // decisionType
+          this.decisionType = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -92412192: // contentDerivative
+          this.contentDerivative = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -722296940: // securityLabel
+          this.getSecurityLabel().add(castToCoding(value)); // Coding
           return value;
         case 92750597: // agent
           this.getAgent().add((AgentComponent) value); // AgentComponent
@@ -5103,6 +5244,12 @@ public class Contract extends DomainResource {
           this.getAction().add(castToCodeableConcept(value));
         } else if (name.equals("actionReason")) {
           this.getActionReason().add(castToCodeableConcept(value));
+        } else if (name.equals("decisionType")) {
+          this.decisionType = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("contentDerivative")) {
+          this.contentDerivative = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("securityLabel")) {
+          this.getSecurityLabel().add(castToCoding(value));
         } else if (name.equals("agent")) {
           this.getAgent().add((AgentComponent) value);
         } else if (name.equals("signer")) {
@@ -5139,6 +5286,9 @@ public class Contract extends DomainResource {
         case -1868521062:  return addSubType(); 
         case -1422950858:  return addAction(); 
         case 1465121818:  return addActionReason(); 
+        case 676128054:  return getDecisionType(); 
+        case -92412192:  return getContentDerivative(); 
+        case -722296940:  return addSecurityLabel(); 
         case 92750597:  return addAgent(); 
         case -902467798:  return addSigner(); 
         case 2046675654:  return addValuedItem(); 
@@ -5168,6 +5318,9 @@ public class Contract extends DomainResource {
         case -1868521062: /*subType*/ return new String[] {"CodeableConcept"};
         case -1422950858: /*action*/ return new String[] {"CodeableConcept"};
         case 1465121818: /*actionReason*/ return new String[] {"CodeableConcept"};
+        case 676128054: /*decisionType*/ return new String[] {"CodeableConcept"};
+        case -92412192: /*contentDerivative*/ return new String[] {"CodeableConcept"};
+        case -722296940: /*securityLabel*/ return new String[] {"Coding"};
         case 92750597: /*agent*/ return new String[] {};
         case -902467798: /*signer*/ return new String[] {};
         case 2046675654: /*valuedItem*/ return new String[] {};
@@ -5221,6 +5374,17 @@ public class Contract extends DomainResource {
         }
         else if (name.equals("actionReason")) {
           return addActionReason();
+        }
+        else if (name.equals("decisionType")) {
+          this.decisionType = new CodeableConcept();
+          return this.decisionType;
+        }
+        else if (name.equals("contentDerivative")) {
+          this.contentDerivative = new CodeableConcept();
+          return this.contentDerivative;
+        }
+        else if (name.equals("securityLabel")) {
+          return addSecurityLabel();
         }
         else if (name.equals("agent")) {
           return addAgent();
@@ -5303,6 +5467,13 @@ public class Contract extends DomainResource {
           for (CodeableConcept i : actionReason)
             dst.actionReason.add(i.copy());
         };
+        dst.decisionType = decisionType == null ? null : decisionType.copy();
+        dst.contentDerivative = contentDerivative == null ? null : contentDerivative.copy();
+        if (securityLabel != null) {
+          dst.securityLabel = new ArrayList<Coding>();
+          for (Coding i : securityLabel)
+            dst.securityLabel.add(i.copy());
+        };
         if (agent != null) {
           dst.agent = new ArrayList<AgentComponent>();
           for (AgentComponent i : agent)
@@ -5357,9 +5528,11 @@ public class Contract extends DomainResource {
            && compareDeep(applies, o.applies, true) && compareDeep(subject, o.subject, true) && compareDeep(topic, o.topic, true)
            && compareDeep(authority, o.authority, true) && compareDeep(domain, o.domain, true) && compareDeep(type, o.type, true)
            && compareDeep(subType, o.subType, true) && compareDeep(action, o.action, true) && compareDeep(actionReason, o.actionReason, true)
-           && compareDeep(agent, o.agent, true) && compareDeep(signer, o.signer, true) && compareDeep(valuedItem, o.valuedItem, true)
-           && compareDeep(term, o.term, true) && compareDeep(binding, o.binding, true) && compareDeep(friendly, o.friendly, true)
-           && compareDeep(legal, o.legal, true) && compareDeep(rule, o.rule, true);
+           && compareDeep(decisionType, o.decisionType, true) && compareDeep(contentDerivative, o.contentDerivative, true)
+           && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(agent, o.agent, true) && compareDeep(signer, o.signer, true)
+           && compareDeep(valuedItem, o.valuedItem, true) && compareDeep(term, o.term, true) && compareDeep(binding, o.binding, true)
+           && compareDeep(friendly, o.friendly, true) && compareDeep(legal, o.legal, true) && compareDeep(rule, o.rule, true)
+          ;
       }
 
       @Override
@@ -5375,7 +5548,8 @@ public class Contract extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, issued
           , applies, subject, topic, authority, domain, type, subType, action, actionReason
-          , agent, signer, valuedItem, term, binding, friendly, legal, rule);
+          , decisionType, contentDerivative, securityLabel, agent, signer, valuedItem, term
+          , binding, friendly, legal, rule);
       }
 
   @Override

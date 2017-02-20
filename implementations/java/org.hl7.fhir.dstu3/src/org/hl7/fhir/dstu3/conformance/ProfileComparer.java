@@ -356,7 +356,7 @@ public class ProfileComparer {
     subset.setLabel(mergeText(subset, outcome, path, "label", left.current().getLabel(), right.current().getLabel()));
     subset.setShort(mergeText(subset, outcome, path, "short", left.current().getShort(), right.current().getShort()));
     subset.setDefinition(mergeText(subset, outcome, path, "definition", left.current().getDefinition(), right.current().getDefinition()));
-    subset.setComments(mergeText(subset, outcome, path, "comments", left.current().getComments(), right.current().getComments()));
+    subset.setComment(mergeText(subset, outcome, path, "comments", left.current().getComment(), right.current().getComment()));
     subset.setRequirements(mergeText(subset, outcome, path, "requirements", left.current().getRequirements(), right.current().getRequirements()));
     subset.getCode().addAll(mergeCodings(left.current().getCode(), right.current().getCode()));
     subset.getAlias().addAll(mergeStrings(left.current().getAlias(), right.current().getAlias()));

@@ -86,14 +86,14 @@
   Element = ExpansionProfile.experimental
 
  -- Row 8 -----------------------------------
-  Element = ExpansionProfile.publisher
+  Element = ExpansionProfile.date
 
  -- Row 9 -----------------------------------
-  Element = ExpansionProfile.contact
-  UML = up
+  Element = ExpansionProfile.publisher
 
  -- Row 10 -----------------------------------
-  Element = ExpansionProfile.date
+  Element = ExpansionProfile.contact
+  UML = up
 
  -- Row 11 -----------------------------------
   Element = ExpansionProfile.description

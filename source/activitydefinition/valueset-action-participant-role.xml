@@ -25,6 +25,7 @@
   <name value="ActionParticipantRole"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <date value="2017-02-15T16:33:00.000-07:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,7 +37,6 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <date value="2017-02-15T16:33:00.000-07:00"/>
   <description value="Either a practitioner role or a relationship type."/>
   <compose>
     <include>

@@ -142,7 +142,7 @@ public class CSVWriter  extends TextStreamWriter  {
     line.addString(itemList(ed.getType()));
     line.addString(ed.getShort());
     line.addString(ed.getDefinition());
-    line.addString(ed.getComments());
+    line.addString(ed.getComment());
     line.addString(ed.getRequirements());
     line.addString(ed.getDefaultValue()!=null ? renderType(ed.getDefaultValue()) : "");
     line.addString(ed.getMeaningWhenMissing());

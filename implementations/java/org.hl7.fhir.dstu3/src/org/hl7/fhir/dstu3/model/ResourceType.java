@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 public enum ResourceType {
     Account,
@@ -19,7 +19,6 @@ public enum ResourceType {
     CapabilityStatement,
     CarePlan,
     CareTeam,
-    Catalog,
     ChargeItem,
     Claim,
     ClaimResponse,
@@ -155,8 +154,6 @@ public enum ResourceType {
       return "careplan";
     case CareTeam:
       return "careteam";
-    case Catalog:
-      return "catalog";
     case ChargeItem:
       return "chargeitem";
     case Claim:
@@ -397,8 +394,6 @@ public enum ResourceType {
       return CarePlan;
     if ("CareTeam".equals(code))
       return CareTeam;
-    if ("Catalog".equals(code))
-      return Catalog;
     if ("ChargeItem".equals(code))
       return ChargeItem;
     if ("Claim".equals(code))

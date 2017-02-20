@@ -29,11 +29,12 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -1080,6 +1081,288 @@ public class Encounter extends DomainResource {
   }
 
     @Block()
+    public static class DiagnosisComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
+         */
+        @Child(name = "condition", type = {Condition.class, Procedure.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Reason the encounter takes place (resource)", formalDefinition="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure." )
+        protected Reference condition;
+
+        /**
+         * The actual object that is the target of the reference (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+         */
+        protected Resource conditionTarget;
+
+        /**
+         * Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)", formalDefinition="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/diagnosis-role")
+        protected CodeableConcept role;
+
+        /**
+         * Ranking of the diagnosis (for each role type).
+         */
+        @Child(name = "rank", type = {PositiveIntType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Ranking of the diagnosis (for each role type)", formalDefinition="Ranking of the diagnosis (for each role type)." )
+        protected PositiveIntType rank;
+
+        private static final long serialVersionUID = 1005913665L;
+
+    /**
+     * Constructor
+     */
+      public DiagnosisComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public DiagnosisComponent(Reference condition) {
+        super();
+        this.condition = condition;
+      }
+
+        /**
+         * @return {@link #condition} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+         */
+        public Reference getCondition() { 
+          if (this.condition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosisComponent.condition");
+            else if (Configuration.doAutoCreate())
+              this.condition = new Reference(); // cc
+          return this.condition;
+        }
+
+        public boolean hasCondition() { 
+          return this.condition != null && !this.condition.isEmpty();
+        }
+
+        /**
+         * @param value {@link #condition} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+         */
+        public DiagnosisComponent setCondition(Reference value) { 
+          this.condition = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #condition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+         */
+        public Resource getConditionTarget() { 
+          return this.conditionTarget;
+        }
+
+        /**
+         * @param value {@link #condition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+         */
+        public DiagnosisComponent setConditionTarget(Resource value) { 
+          this.conditionTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #role} (Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosisComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).)
+         */
+        public DiagnosisComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #rank} (Ranking of the diagnosis (for each role type).). This is the underlying object with id, value and extensions. The accessor "getRank" gives direct access to the value
+         */
+        public PositiveIntType getRankElement() { 
+          if (this.rank == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosisComponent.rank");
+            else if (Configuration.doAutoCreate())
+              this.rank = new PositiveIntType(); // bb
+          return this.rank;
+        }
+
+        public boolean hasRankElement() { 
+          return this.rank != null && !this.rank.isEmpty();
+        }
+
+        public boolean hasRank() { 
+          return this.rank != null && !this.rank.isEmpty();
+        }
+
+        /**
+         * @param value {@link #rank} (Ranking of the diagnosis (for each role type).). This is the underlying object with id, value and extensions. The accessor "getRank" gives direct access to the value
+         */
+        public DiagnosisComponent setRankElement(PositiveIntType value) { 
+          this.rank = value;
+          return this;
+        }
+
+        /**
+         * @return Ranking of the diagnosis (for each role type).
+         */
+        public int getRank() { 
+          return this.rank == null || this.rank.isEmpty() ? 0 : this.rank.getValue();
+        }
+
+        /**
+         * @param value Ranking of the diagnosis (for each role type).
+         */
+        public DiagnosisComponent setRank(int value) { 
+            if (this.rank == null)
+              this.rank = new PositiveIntType();
+            this.rank.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("condition", "Reference(Condition|Procedure)", "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.", 0, java.lang.Integer.MAX_VALUE, condition));
+          childrenList.add(new Property("role", "CodeableConcept", "Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("rank", "positiveInt", "Ranking of the diagnosis (for each role type).", 0, java.lang.Integer.MAX_VALUE, rank));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // Reference
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case 3492908: /*rank*/ return this.rank == null ? new Base[0] : new Base[] {this.rank}; // PositiveIntType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case -861311717: // condition
+          this.condition = castToReference(value); // Reference
+          return value;
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 3492908: // rank
+          this.rank = castToPositiveInt(value); // PositiveIntType
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("condition")) {
+          this.condition = castToReference(value); // Reference
+        } else if (name.equals("role")) {
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("rank")) {
+          this.rank = castToPositiveInt(value); // PositiveIntType
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -861311717:  return getCondition(); 
+        case 3506294:  return getRole(); 
+        case 3492908:  return getRankElement();
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -861311717: /*condition*/ return new String[] {"Reference"};
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case 3492908: /*rank*/ return new String[] {"positiveInt"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("condition")) {
+          this.condition = new Reference();
+          return this.condition;
+        }
+        else if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("rank")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Encounter.rank");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public DiagnosisComponent copy() {
+        DiagnosisComponent dst = new DiagnosisComponent();
+        copyValues(dst);
+        dst.condition = condition == null ? null : condition.copy();
+        dst.role = role == null ? null : role.copy();
+        dst.rank = rank == null ? null : rank.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosisComponent))
+          return false;
+        DiagnosisComponent o = (DiagnosisComponent) other;
+        return compareDeep(condition, o.condition, true) && compareDeep(role, o.role, true) && compareDeep(rank, o.rank, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosisComponent))
+          return false;
+        DiagnosisComponent o = (DiagnosisComponent) other;
+        return compareValues(rank, o.rank, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(condition, role, rank);
+      }
+
+  public String fhirType() {
+    return "Encounter.diagnosis";
+
+  }
+
+  }
+
+    @Block()
     public static class EncounterHospitalizationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Pre-admission identifier.
@@ -1109,21 +1392,9 @@ public class Encounter extends DomainResource {
         protected CodeableConcept admitSource;
 
         /**
-         * The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.
-         */
-        @Child(name = "admittingDiagnosis", type = {Condition.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="The admitting diagnosis as reported by admitting practitioner", formalDefinition="The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter." )
-        protected List<Reference> admittingDiagnosis;
-        /**
-         * The actual objects that are the target of the reference (The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.)
-         */
-        protected List<Condition> admittingDiagnosisTarget;
-
-
-        /**
          * Whether this hospitalization is a readmission and why if known.
          */
-        @Child(name = "reAdmission", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "reAdmission", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission", formalDefinition="Whether this hospitalization is a readmission and why if known." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0092")
         protected CodeableConcept reAdmission;
@@ -1131,7 +1402,7 @@ public class Encounter extends DomainResource {
         /**
          * Diet preferences reported by the patient.
          */
-        @Child(name = "dietPreference", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "dietPreference", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Diet preferences reported by the patient", formalDefinition="Diet preferences reported by the patient." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-diet")
         protected List<CodeableConcept> dietPreference;
@@ -1139,7 +1410,7 @@ public class Encounter extends DomainResource {
         /**
          * Special courtesies (VIP, board member).
          */
-        @Child(name = "specialCourtesy", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "specialCourtesy", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Special courtesies (VIP, board member)", formalDefinition="Special courtesies (VIP, board member)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-special-courtesy")
         protected List<CodeableConcept> specialCourtesy;
@@ -1147,7 +1418,7 @@ public class Encounter extends DomainResource {
         /**
          * Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.
          */
-        @Child(name = "specialArrangement", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "specialArrangement", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Wheelchair, translator, stretcher, etc.", formalDefinition="Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-special-arrangements")
         protected List<CodeableConcept> specialArrangement;
@@ -1155,7 +1426,7 @@ public class Encounter extends DomainResource {
         /**
          * Location to which the patient is discharged.
          */
-        @Child(name = "destination", type = {Location.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "destination", type = {Location.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Location to which the patient is discharged", formalDefinition="Location to which the patient is discharged." )
         protected Reference destination;
 
@@ -1167,24 +1438,12 @@ public class Encounter extends DomainResource {
         /**
          * Category or kind of location after discharge.
          */
-        @Child(name = "dischargeDisposition", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "dischargeDisposition", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Category or kind of location after discharge", formalDefinition="Category or kind of location after discharge." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-discharge-disposition")
         protected CodeableConcept dischargeDisposition;
 
-        /**
-         * The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.
-         */
-        @Child(name = "dischargeDiagnosis", type = {Condition.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete", formalDefinition="The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete." )
-        protected List<Reference> dischargeDiagnosis;
-        /**
-         * The actual objects that are the target of the reference (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
-         */
-        protected List<Condition> dischargeDiagnosisTarget;
-
-
-        private static final long serialVersionUID = 164618034L;
+        private static final long serialVersionUID = -1165804076L;
 
     /**
      * Constructor
@@ -1283,81 +1542,6 @@ public class Encounter extends DomainResource {
         public EncounterHospitalizationComponent setAdmitSource(CodeableConcept value) { 
           this.admitSource = value;
           return this;
-        }
-
-        /**
-         * @return {@link #admittingDiagnosis} (The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.)
-         */
-        public List<Reference> getAdmittingDiagnosis() { 
-          if (this.admittingDiagnosis == null)
-            this.admittingDiagnosis = new ArrayList<Reference>();
-          return this.admittingDiagnosis;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public EncounterHospitalizationComponent setAdmittingDiagnosis(List<Reference> theAdmittingDiagnosis) { 
-          this.admittingDiagnosis = theAdmittingDiagnosis;
-          return this;
-        }
-
-        public boolean hasAdmittingDiagnosis() { 
-          if (this.admittingDiagnosis == null)
-            return false;
-          for (Reference item : this.admittingDiagnosis)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Reference addAdmittingDiagnosis() { //3
-          Reference t = new Reference();
-          if (this.admittingDiagnosis == null)
-            this.admittingDiagnosis = new ArrayList<Reference>();
-          this.admittingDiagnosis.add(t);
-          return t;
-        }
-
-        public EncounterHospitalizationComponent addAdmittingDiagnosis(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.admittingDiagnosis == null)
-            this.admittingDiagnosis = new ArrayList<Reference>();
-          this.admittingDiagnosis.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #admittingDiagnosis}, creating it if it does not already exist
-         */
-        public Reference getAdmittingDiagnosisFirstRep() { 
-          if (getAdmittingDiagnosis().isEmpty()) {
-            addAdmittingDiagnosis();
-          }
-          return getAdmittingDiagnosis().get(0);
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public List<Condition> getAdmittingDiagnosisTarget() { 
-          if (this.admittingDiagnosisTarget == null)
-            this.admittingDiagnosisTarget = new ArrayList<Condition>();
-          return this.admittingDiagnosisTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public Condition addAdmittingDiagnosisTarget() { 
-          Condition r = new Condition();
-          if (this.admittingDiagnosisTarget == null)
-            this.admittingDiagnosisTarget = new ArrayList<Condition>();
-          this.admittingDiagnosisTarget.add(r);
-          return r;
         }
 
         /**
@@ -1611,94 +1795,17 @@ public class Encounter extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
-         */
-        public List<Reference> getDischargeDiagnosis() { 
-          if (this.dischargeDiagnosis == null)
-            this.dischargeDiagnosis = new ArrayList<Reference>();
-          return this.dischargeDiagnosis;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public EncounterHospitalizationComponent setDischargeDiagnosis(List<Reference> theDischargeDiagnosis) { 
-          this.dischargeDiagnosis = theDischargeDiagnosis;
-          return this;
-        }
-
-        public boolean hasDischargeDiagnosis() { 
-          if (this.dischargeDiagnosis == null)
-            return false;
-          for (Reference item : this.dischargeDiagnosis)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Reference addDischargeDiagnosis() { //3
-          Reference t = new Reference();
-          if (this.dischargeDiagnosis == null)
-            this.dischargeDiagnosis = new ArrayList<Reference>();
-          this.dischargeDiagnosis.add(t);
-          return t;
-        }
-
-        public EncounterHospitalizationComponent addDischargeDiagnosis(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.dischargeDiagnosis == null)
-            this.dischargeDiagnosis = new ArrayList<Reference>();
-          this.dischargeDiagnosis.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #dischargeDiagnosis}, creating it if it does not already exist
-         */
-        public Reference getDischargeDiagnosisFirstRep() { 
-          if (getDischargeDiagnosis().isEmpty()) {
-            addDischargeDiagnosis();
-          }
-          return getDischargeDiagnosis().get(0);
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public List<Condition> getDischargeDiagnosisTarget() { 
-          if (this.dischargeDiagnosisTarget == null)
-            this.dischargeDiagnosisTarget = new ArrayList<Condition>();
-          return this.dischargeDiagnosisTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public Condition addDischargeDiagnosisTarget() { 
-          Condition r = new Condition();
-          if (this.dischargeDiagnosisTarget == null)
-            this.dischargeDiagnosisTarget = new ArrayList<Condition>();
-          this.dischargeDiagnosisTarget.add(r);
-          return r;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("preAdmissionIdentifier", "Identifier", "Pre-admission identifier.", 0, java.lang.Integer.MAX_VALUE, preAdmissionIdentifier));
           childrenList.add(new Property("origin", "Reference(Location)", "The location from which the patient came before admission.", 0, java.lang.Integer.MAX_VALUE, origin));
           childrenList.add(new Property("admitSource", "CodeableConcept", "From where patient was admitted (physician referral, transfer).", 0, java.lang.Integer.MAX_VALUE, admitSource));
-          childrenList.add(new Property("admittingDiagnosis", "Reference(Condition)", "The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.", 0, java.lang.Integer.MAX_VALUE, admittingDiagnosis));
           childrenList.add(new Property("reAdmission", "CodeableConcept", "Whether this hospitalization is a readmission and why if known.", 0, java.lang.Integer.MAX_VALUE, reAdmission));
           childrenList.add(new Property("dietPreference", "CodeableConcept", "Diet preferences reported by the patient.", 0, java.lang.Integer.MAX_VALUE, dietPreference));
           childrenList.add(new Property("specialCourtesy", "CodeableConcept", "Special courtesies (VIP, board member).", 0, java.lang.Integer.MAX_VALUE, specialCourtesy));
           childrenList.add(new Property("specialArrangement", "CodeableConcept", "Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.", 0, java.lang.Integer.MAX_VALUE, specialArrangement));
           childrenList.add(new Property("destination", "Reference(Location)", "Location to which the patient is discharged.", 0, java.lang.Integer.MAX_VALUE, destination));
           childrenList.add(new Property("dischargeDisposition", "CodeableConcept", "Category or kind of location after discharge.", 0, java.lang.Integer.MAX_VALUE, dischargeDisposition));
-          childrenList.add(new Property("dischargeDiagnosis", "Reference(Condition)", "The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.", 0, java.lang.Integer.MAX_VALUE, dischargeDiagnosis));
         }
 
       @Override
@@ -1707,14 +1814,12 @@ public class Encounter extends DomainResource {
         case -965394961: /*preAdmissionIdentifier*/ return this.preAdmissionIdentifier == null ? new Base[0] : new Base[] {this.preAdmissionIdentifier}; // Identifier
         case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : new Base[] {this.origin}; // Reference
         case 538887120: /*admitSource*/ return this.admitSource == null ? new Base[0] : new Base[] {this.admitSource}; // CodeableConcept
-        case 2048045678: /*admittingDiagnosis*/ return this.admittingDiagnosis == null ? new Base[0] : this.admittingDiagnosis.toArray(new Base[this.admittingDiagnosis.size()]); // Reference
         case 669348630: /*reAdmission*/ return this.reAdmission == null ? new Base[0] : new Base[] {this.reAdmission}; // CodeableConcept
         case -1360641041: /*dietPreference*/ return this.dietPreference == null ? new Base[0] : this.dietPreference.toArray(new Base[this.dietPreference.size()]); // CodeableConcept
         case 1583588345: /*specialCourtesy*/ return this.specialCourtesy == null ? new Base[0] : this.specialCourtesy.toArray(new Base[this.specialCourtesy.size()]); // CodeableConcept
         case 47410321: /*specialArrangement*/ return this.specialArrangement == null ? new Base[0] : this.specialArrangement.toArray(new Base[this.specialArrangement.size()]); // CodeableConcept
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
         case 528065941: /*dischargeDisposition*/ return this.dischargeDisposition == null ? new Base[0] : new Base[] {this.dischargeDisposition}; // CodeableConcept
-        case -1985183665: /*dischargeDiagnosis*/ return this.dischargeDiagnosis == null ? new Base[0] : this.dischargeDiagnosis.toArray(new Base[this.dischargeDiagnosis.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1731,9 +1836,6 @@ public class Encounter extends DomainResource {
           return value;
         case 538887120: // admitSource
           this.admitSource = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 2048045678: // admittingDiagnosis
-          this.getAdmittingDiagnosis().add(castToReference(value)); // Reference
           return value;
         case 669348630: // reAdmission
           this.reAdmission = castToCodeableConcept(value); // CodeableConcept
@@ -1753,9 +1855,6 @@ public class Encounter extends DomainResource {
         case 528065941: // dischargeDisposition
           this.dischargeDisposition = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -1985183665: // dischargeDiagnosis
-          this.getDischargeDiagnosis().add(castToReference(value)); // Reference
-          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1769,8 +1868,6 @@ public class Encounter extends DomainResource {
           this.origin = castToReference(value); // Reference
         } else if (name.equals("admitSource")) {
           this.admitSource = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("admittingDiagnosis")) {
-          this.getAdmittingDiagnosis().add(castToReference(value));
         } else if (name.equals("reAdmission")) {
           this.reAdmission = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("dietPreference")) {
@@ -1783,8 +1880,6 @@ public class Encounter extends DomainResource {
           this.destination = castToReference(value); // Reference
         } else if (name.equals("dischargeDisposition")) {
           this.dischargeDisposition = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("dischargeDiagnosis")) {
-          this.getDischargeDiagnosis().add(castToReference(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1796,14 +1891,12 @@ public class Encounter extends DomainResource {
         case -965394961:  return getPreAdmissionIdentifier(); 
         case -1008619738:  return getOrigin(); 
         case 538887120:  return getAdmitSource(); 
-        case 2048045678:  return addAdmittingDiagnosis(); 
         case 669348630:  return getReAdmission(); 
         case -1360641041:  return addDietPreference(); 
         case 1583588345:  return addSpecialCourtesy(); 
         case 47410321:  return addSpecialArrangement(); 
         case -1429847026:  return getDestination(); 
         case 528065941:  return getDischargeDisposition(); 
-        case -1985183665:  return addDischargeDiagnosis(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1815,14 +1908,12 @@ public class Encounter extends DomainResource {
         case -965394961: /*preAdmissionIdentifier*/ return new String[] {"Identifier"};
         case -1008619738: /*origin*/ return new String[] {"Reference"};
         case 538887120: /*admitSource*/ return new String[] {"CodeableConcept"};
-        case 2048045678: /*admittingDiagnosis*/ return new String[] {"Reference"};
         case 669348630: /*reAdmission*/ return new String[] {"CodeableConcept"};
         case -1360641041: /*dietPreference*/ return new String[] {"CodeableConcept"};
         case 1583588345: /*specialCourtesy*/ return new String[] {"CodeableConcept"};
         case 47410321: /*specialArrangement*/ return new String[] {"CodeableConcept"};
         case -1429847026: /*destination*/ return new String[] {"Reference"};
         case 528065941: /*dischargeDisposition*/ return new String[] {"CodeableConcept"};
-        case -1985183665: /*dischargeDiagnosis*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1841,9 +1932,6 @@ public class Encounter extends DomainResource {
         else if (name.equals("admitSource")) {
           this.admitSource = new CodeableConcept();
           return this.admitSource;
-        }
-        else if (name.equals("admittingDiagnosis")) {
-          return addAdmittingDiagnosis();
         }
         else if (name.equals("reAdmission")) {
           this.reAdmission = new CodeableConcept();
@@ -1866,9 +1954,6 @@ public class Encounter extends DomainResource {
           this.dischargeDisposition = new CodeableConcept();
           return this.dischargeDisposition;
         }
-        else if (name.equals("dischargeDiagnosis")) {
-          return addDischargeDiagnosis();
-        }
         else
           return super.addChild(name);
       }
@@ -1879,11 +1964,6 @@ public class Encounter extends DomainResource {
         dst.preAdmissionIdentifier = preAdmissionIdentifier == null ? null : preAdmissionIdentifier.copy();
         dst.origin = origin == null ? null : origin.copy();
         dst.admitSource = admitSource == null ? null : admitSource.copy();
-        if (admittingDiagnosis != null) {
-          dst.admittingDiagnosis = new ArrayList<Reference>();
-          for (Reference i : admittingDiagnosis)
-            dst.admittingDiagnosis.add(i.copy());
-        };
         dst.reAdmission = reAdmission == null ? null : reAdmission.copy();
         if (dietPreference != null) {
           dst.dietPreference = new ArrayList<CodeableConcept>();
@@ -1902,11 +1982,6 @@ public class Encounter extends DomainResource {
         };
         dst.destination = destination == null ? null : destination.copy();
         dst.dischargeDisposition = dischargeDisposition == null ? null : dischargeDisposition.copy();
-        if (dischargeDiagnosis != null) {
-          dst.dischargeDiagnosis = new ArrayList<Reference>();
-          for (Reference i : dischargeDiagnosis)
-            dst.dischargeDiagnosis.add(i.copy());
-        };
         return dst;
       }
 
@@ -1918,11 +1993,10 @@ public class Encounter extends DomainResource {
           return false;
         EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other;
         return compareDeep(preAdmissionIdentifier, o.preAdmissionIdentifier, true) && compareDeep(origin, o.origin, true)
-           && compareDeep(admitSource, o.admitSource, true) && compareDeep(admittingDiagnosis, o.admittingDiagnosis, true)
-           && compareDeep(reAdmission, o.reAdmission, true) && compareDeep(dietPreference, o.dietPreference, true)
-           && compareDeep(specialCourtesy, o.specialCourtesy, true) && compareDeep(specialArrangement, o.specialArrangement, true)
-           && compareDeep(destination, o.destination, true) && compareDeep(dischargeDisposition, o.dischargeDisposition, true)
-           && compareDeep(dischargeDiagnosis, o.dischargeDiagnosis, true);
+           && compareDeep(admitSource, o.admitSource, true) && compareDeep(reAdmission, o.reAdmission, true)
+           && compareDeep(dietPreference, o.dietPreference, true) && compareDeep(specialCourtesy, o.specialCourtesy, true)
+           && compareDeep(specialArrangement, o.specialArrangement, true) && compareDeep(destination, o.destination, true)
+           && compareDeep(dischargeDisposition, o.dischargeDisposition, true);
       }
 
       @Override
@@ -1937,8 +2011,8 @@ public class Encounter extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(preAdmissionIdentifier, origin
-          , admitSource, admittingDiagnosis, reAdmission, dietPreference, specialCourtesy, specialArrangement
-          , destination, dischargeDisposition, dischargeDiagnosis);
+          , admitSource, reAdmission, dietPreference, specialCourtesy, specialArrangement, destination
+          , dischargeDisposition);
       }
 
   public String fhirType() {
@@ -2375,16 +2449,11 @@ This would be used for a case where an admission starts of as an emergency encou
     protected List<CodeableConcept> reason;
 
     /**
-     * Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.
+     * The list of diagnosis relevant to this encounter.
      */
-    @Child(name = "indication", type = {Condition.class, Procedure.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Reason the encounter takes place (resource)", formalDefinition="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure." )
-    protected List<Reference> indication;
-    /**
-     * The actual objects that are the target of the reference (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
-     */
-    protected List<Resource> indicationTarget;
-
+    @Child(name = "diagnosis", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="The list of diagnosis relevant to this encounter", formalDefinition="The list of diagnosis relevant to this encounter." )
+    protected List<DiagnosisComponent> diagnosis;
 
     /**
      * The set of accounts that may be used for billing for this Encounter.
@@ -2436,7 +2505,7 @@ This would be used for a case where an admission starts of as an emergency encou
      */
     protected Encounter partOfTarget;
 
-    private static final long serialVersionUID = 1447777221L;
+    private static final long serialVersionUID = 2124102382L;
 
   /**
    * Constructor
@@ -3148,66 +3217,56 @@ This would be used for a case where an admission starts of as an emergency encou
     }
 
     /**
-     * @return {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
+     * @return {@link #diagnosis} (The list of diagnosis relevant to this encounter.)
      */
-    public List<Reference> getIndication() { 
-      if (this.indication == null)
-        this.indication = new ArrayList<Reference>();
-      return this.indication;
+    public List<DiagnosisComponent> getDiagnosis() { 
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<DiagnosisComponent>();
+      return this.diagnosis;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Encounter setIndication(List<Reference> theIndication) { 
-      this.indication = theIndication;
+    public Encounter setDiagnosis(List<DiagnosisComponent> theDiagnosis) { 
+      this.diagnosis = theDiagnosis;
       return this;
     }
 
-    public boolean hasIndication() { 
-      if (this.indication == null)
+    public boolean hasDiagnosis() { 
+      if (this.diagnosis == null)
         return false;
-      for (Reference item : this.indication)
+      for (DiagnosisComponent item : this.diagnosis)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addIndication() { //3
-      Reference t = new Reference();
-      if (this.indication == null)
-        this.indication = new ArrayList<Reference>();
-      this.indication.add(t);
+    public DiagnosisComponent addDiagnosis() { //3
+      DiagnosisComponent t = new DiagnosisComponent();
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<DiagnosisComponent>();
+      this.diagnosis.add(t);
       return t;
     }
 
-    public Encounter addIndication(Reference t) { //3
+    public Encounter addDiagnosis(DiagnosisComponent t) { //3
       if (t == null)
         return this;
-      if (this.indication == null)
-        this.indication = new ArrayList<Reference>();
-      this.indication.add(t);
+      if (this.diagnosis == null)
+        this.diagnosis = new ArrayList<DiagnosisComponent>();
+      this.diagnosis.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #indication}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #diagnosis}, creating it if it does not already exist
      */
-    public Reference getIndicationFirstRep() { 
-      if (getIndication().isEmpty()) {
-        addIndication();
+    public DiagnosisComponent getDiagnosisFirstRep() { 
+      if (getDiagnosis().isEmpty()) {
+        addDiagnosis();
       }
-      return getIndication().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getIndicationTarget() { 
-      if (this.indicationTarget == null)
-        this.indicationTarget = new ArrayList<Resource>();
-      return this.indicationTarget;
+      return getDiagnosis().get(0);
     }
 
     /**
@@ -3467,7 +3526,7 @@ This would be used for a case where an admission starts of as an emergency encou
         childrenList.add(new Property("period", "Period", "The start and end time of the encounter.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("length", "Duration", "Quantity of time the encounter lasted. This excludes the time during leaves of absence.", 0, java.lang.Integer.MAX_VALUE, length));
         childrenList.add(new Property("reason", "CodeableConcept", "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("indication", "Reference(Condition|Procedure)", "Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.", 0, java.lang.Integer.MAX_VALUE, indication));
+        childrenList.add(new Property("diagnosis", "", "The list of diagnosis relevant to this encounter.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
         childrenList.add(new Property("account", "Reference(Account)", "The set of accounts that may be used for billing for this Encounter.", 0, java.lang.Integer.MAX_VALUE, account));
         childrenList.add(new Property("hospitalization", "", "Details about the admission to a healthcare service.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("location", "", "List of locations where  the patient has been during this encounter.", 0, java.lang.Integer.MAX_VALUE, location));
@@ -3493,7 +3552,7 @@ This would be used for a case where an admission starts of as an emergency encou
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case -1106363674: /*length*/ return this.length == null ? new Base[0] : new Base[] {this.length}; // Duration
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
-        case -597168804: /*indication*/ return this.indication == null ? new Base[0] : this.indication.toArray(new Base[this.indication.size()]); // Reference
+        case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
         case -1177318867: /*account*/ return this.account == null ? new Base[0] : this.account.toArray(new Base[this.account.size()]); // Reference
         case 1057894634: /*hospitalization*/ return this.hospitalization == null ? new Base[0] : new Base[] {this.hospitalization}; // EncounterHospitalizationComponent
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // EncounterLocationComponent
@@ -3553,8 +3612,8 @@ This would be used for a case where an admission starts of as an emergency encou
         case -934964668: // reason
           this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case -597168804: // indication
-          this.getIndication().add(castToReference(value)); // Reference
+        case 1196993265: // diagnosis
+          this.getDiagnosis().add((DiagnosisComponent) value); // DiagnosisComponent
           return value;
         case -1177318867: // account
           this.getAccount().add(castToReference(value)); // Reference
@@ -3609,8 +3668,8 @@ This would be used for a case where an admission starts of as an emergency encou
           this.length = castToDuration(value); // Duration
         } else if (name.equals("reason")) {
           this.getReason().add(castToCodeableConcept(value));
-        } else if (name.equals("indication")) {
-          this.getIndication().add(castToReference(value));
+        } else if (name.equals("diagnosis")) {
+          this.getDiagnosis().add((DiagnosisComponent) value);
         } else if (name.equals("account")) {
           this.getAccount().add(castToReference(value));
         } else if (name.equals("hospitalization")) {
@@ -3644,7 +3703,7 @@ This would be used for a case where an admission starts of as an emergency encou
         case -991726143:  return getPeriod(); 
         case -1106363674:  return getLength(); 
         case -934964668:  return addReason(); 
-        case -597168804:  return addIndication(); 
+        case 1196993265:  return addDiagnosis(); 
         case -1177318867:  return addAccount(); 
         case 1057894634:  return getHospitalization(); 
         case 1901043637:  return addLocation(); 
@@ -3673,7 +3732,7 @@ This would be used for a case where an admission starts of as an emergency encou
         case -991726143: /*period*/ return new String[] {"Period"};
         case -1106363674: /*length*/ return new String[] {"Duration"};
         case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
-        case -597168804: /*indication*/ return new String[] {"Reference"};
+        case 1196993265: /*diagnosis*/ return new String[] {};
         case -1177318867: /*account*/ return new String[] {"Reference"};
         case 1057894634: /*hospitalization*/ return new String[] {};
         case 1901043637: /*location*/ return new String[] {};
@@ -3737,8 +3796,8 @@ This would be used for a case where an admission starts of as an emergency encou
         else if (name.equals("reason")) {
           return addReason();
         }
-        else if (name.equals("indication")) {
-          return addIndication();
+        else if (name.equals("diagnosis")) {
+          return addDiagnosis();
         }
         else if (name.equals("account")) {
           return addAccount();
@@ -3817,10 +3876,10 @@ This would be used for a case where an admission starts of as an emergency encou
           for (CodeableConcept i : reason)
             dst.reason.add(i.copy());
         };
-        if (indication != null) {
-          dst.indication = new ArrayList<Reference>();
-          for (Reference i : indication)
-            dst.indication.add(i.copy());
+        if (diagnosis != null) {
+          dst.diagnosis = new ArrayList<DiagnosisComponent>();
+          for (DiagnosisComponent i : diagnosis)
+            dst.diagnosis.add(i.copy());
         };
         if (account != null) {
           dst.account = new ArrayList<Reference>();
@@ -3854,7 +3913,7 @@ This would be used for a case where an admission starts of as an emergency encou
            && compareDeep(priority, o.priority, true) && compareDeep(subject, o.subject, true) && compareDeep(episodeOfCare, o.episodeOfCare, true)
            && compareDeep(incomingReferral, o.incomingReferral, true) && compareDeep(participant, o.participant, true)
            && compareDeep(appointment, o.appointment, true) && compareDeep(period, o.period, true) && compareDeep(length, o.length, true)
-           && compareDeep(reason, o.reason, true) && compareDeep(indication, o.indication, true) && compareDeep(account, o.account, true)
+           && compareDeep(reason, o.reason, true) && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(account, o.account, true)
            && compareDeep(hospitalization, o.hospitalization, true) && compareDeep(location, o.location, true)
            && compareDeep(serviceProvider, o.serviceProvider, true) && compareDeep(partOf, o.partOf, true)
           ;
@@ -3873,7 +3932,7 @@ This would be used for a case where an admission starts of as an emergency encou
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, statusHistory
           , class_, classHistory, type, priority, subject, episodeOfCare, incomingReferral
-          , participant, appointment, period, length, reason, indication, account, hospitalization
+          , participant, appointment, period, length, reason, diagnosis, account, hospitalization
           , location, serviceProvider, partOf);
       }
 
@@ -4087,6 +4146,32 @@ This would be used for a case where an admission starts of as an emergency encou
   public static final ca.uhn.fhir.rest.gclient.NumberClientParam LENGTH = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_LENGTH);
 
  /**
+   * Search parameter: <b>diagnosis</b>
+   * <p>
+   * Description: <b>Reason the encounter takes place (resource)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.diagnosis.condition</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="diagnosis", path="Encounter.diagnosis.condition", description="Reason the encounter takes place (resource)", type="reference", target={Condition.class, Procedure.class } )
+  public static final String SP_DIAGNOSIS = "diagnosis";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>diagnosis</b>
+   * <p>
+   * Description: <b>Reason the encounter takes place (resource)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.diagnosis.condition</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DIAGNOSIS = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DIAGNOSIS);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:diagnosis</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DIAGNOSIS = new ca.uhn.fhir.model.api.Include("Encounter:diagnosis").toLocked();
+
+ /**
    * Search parameter: <b>appointment</b>
    * <p>
    * Description: <b>The appointment that scheduled this encounter</b><br>
@@ -4139,32 +4224,6 @@ This would be used for a case where an admission starts of as an emergency encou
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PART_OF = new ca.uhn.fhir.model.api.Include("Encounter:part-of").toLocked();
 
  /**
-   * Search parameter: <b>procedure</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="procedure", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference", target={Procedure.class } )
-  public static final String SP_PROCEDURE = "procedure";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>procedure</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROCEDURE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROCEDURE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:procedure</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROCEDURE = new ca.uhn.fhir.model.api.Include("Encounter:procedure").toLocked();
-
- /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>Specific type of encounter</b><br>
@@ -4209,32 +4268,6 @@ This would be used for a case where an admission starts of as an emergency encou
    * the path value of "<b>Encounter:participant</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("Encounter:participant").toLocked();
-
- /**
-   * Search parameter: <b>condition</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="condition", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference", target={Condition.class } )
-  public static final String SP_CONDITION = "condition";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>condition</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONDITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONDITION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:condition</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("Encounter:condition").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
@@ -4333,32 +4366,6 @@ This would be used for a case where an admission starts of as an emergency encou
    * the path value of "<b>Encounter:service-provider</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SERVICE_PROVIDER = new ca.uhn.fhir.model.api.Include("Encounter:service-provider").toLocked();
-
- /**
-   * Search parameter: <b>indication</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="indication", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference", target={Condition.class, Procedure.class } )
-  public static final String SP_INDICATION = "indication";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>indication</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INDICATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:indication</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INDICATION = new ca.uhn.fhir.model.api.Include("Encounter:indication").toLocked();
 
  /**
    * Search parameter: <b>special-arrangement</b>

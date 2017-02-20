@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
  */
 @ResourceDef(name="StructureDefinition", profile="http://hl7.org/fhir/Profile/StructureDefinition")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "purpose", "copyright", "keyword", "fhirVersion", "mapping", "kind", "abstract", "contextType", "context", "contextInvariant", "type", "baseDefinition", "derivation", "snapshot", "differential"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "keyword", "fhirVersion", "mapping", "kind", "abstract", "contextType", "context", "contextInvariant", "type", "baseDefinition", "derivation", "snapshot", "differential"})
 public class StructureDefinition extends MetadataResource {
 
     public enum StructureDefinitionKind {
@@ -400,11 +400,11 @@ public class StructureDefinition extends MetadataResource {
         /**
          * Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        @Child(name = "comments", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "comment", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Versions, Issues, Scope limitations etc.", formalDefinition="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage." )
-        protected StringType comments;
+        protected StringType comment;
 
-        private static final long serialVersionUID = 299630820L;
+        private static final long serialVersionUID = 9610265L;
 
     /**
      * Constructor
@@ -565,50 +565,50 @@ public class StructureDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+         * @return {@link #comment} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StringType getCommentsElement() { 
-          if (this.comments == null)
+        public StringType getCommentElement() { 
+          if (this.comment == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StructureDefinitionMappingComponent.comments");
+              throw new Error("Attempt to auto-create StructureDefinitionMappingComponent.comment");
             else if (Configuration.doAutoCreate())
-              this.comments = new StringType(); // bb
-          return this.comments;
+              this.comment = new StringType(); // bb
+          return this.comment;
         }
 
-        public boolean hasCommentsElement() { 
-          return this.comments != null && !this.comments.isEmpty();
+        public boolean hasCommentElement() { 
+          return this.comment != null && !this.comment.isEmpty();
         }
 
-        public boolean hasComments() { 
-          return this.comments != null && !this.comments.isEmpty();
+        public boolean hasComment() { 
+          return this.comment != null && !this.comment.isEmpty();
         }
 
         /**
-         * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+         * @param value {@link #comment} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StructureDefinitionMappingComponent setCommentsElement(StringType value) { 
-          this.comments = value;
+        public StructureDefinitionMappingComponent setCommentElement(StringType value) { 
+          this.comment = value;
           return this;
         }
 
         /**
          * @return Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public String getComments() { 
-          return this.comments == null ? null : this.comments.getValue();
+        public String getComment() { 
+          return this.comment == null ? null : this.comment.getValue();
         }
 
         /**
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public StructureDefinitionMappingComponent setComments(String value) { 
+        public StructureDefinitionMappingComponent setComment(String value) { 
           if (Utilities.noString(value))
-            this.comments = null;
+            this.comment = null;
           else {
-            if (this.comments == null)
-              this.comments = new StringType();
-            this.comments.setValue(value);
+            if (this.comment == null)
+              this.comment = new StringType();
+            this.comment.setValue(value);
           }
           return this;
         }
@@ -618,7 +618,7 @@ public class StructureDefinition extends MetadataResource {
           childrenList.add(new Property("identity", "id", "An Internal id that is used to identify this mapping set when specific mappings are made.", 0, java.lang.Integer.MAX_VALUE, identity));
           childrenList.add(new Property("uri", "uri", "An absolute URI that identifies the specification that this mapping is expressed to.", 0, java.lang.Integer.MAX_VALUE, uri));
           childrenList.add(new Property("name", "string", "A name for the specification that is being mapped to.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("comments", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comments));
+          childrenList.add(new Property("comment", "string", "Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.", 0, java.lang.Integer.MAX_VALUE, comment));
         }
 
       @Override
@@ -627,7 +627,7 @@ public class StructureDefinition extends MetadataResource {
         case -135761730: /*identity*/ return this.identity == null ? new Base[0] : new Base[] {this.identity}; // IdType
         case 116076: /*uri*/ return this.uri == null ? new Base[0] : new Base[] {this.uri}; // UriType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -602415628: /*comments*/ return this.comments == null ? new Base[0] : new Base[] {this.comments}; // StringType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -645,8 +645,8 @@ public class StructureDefinition extends MetadataResource {
         case 3373707: // name
           this.name = castToString(value); // StringType
           return value;
-        case -602415628: // comments
-          this.comments = castToString(value); // StringType
+        case 950398559: // comment
+          this.comment = castToString(value); // StringType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -661,8 +661,8 @@ public class StructureDefinition extends MetadataResource {
           this.uri = castToUri(value); // UriType
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        } else if (name.equals("comments")) {
-          this.comments = castToString(value); // StringType
+        } else if (name.equals("comment")) {
+          this.comment = castToString(value); // StringType
         } else
           return super.setProperty(name, value);
         return value;
@@ -674,7 +674,7 @@ public class StructureDefinition extends MetadataResource {
         case -135761730:  return getIdentityElement();
         case 116076:  return getUriElement();
         case 3373707:  return getNameElement();
-        case -602415628:  return getCommentsElement();
+        case 950398559:  return getCommentElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -686,7 +686,7 @@ public class StructureDefinition extends MetadataResource {
         case -135761730: /*identity*/ return new String[] {"id"};
         case 116076: /*uri*/ return new String[] {"uri"};
         case 3373707: /*name*/ return new String[] {"string"};
-        case -602415628: /*comments*/ return new String[] {"string"};
+        case 950398559: /*comment*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -703,8 +703,8 @@ public class StructureDefinition extends MetadataResource {
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.name");
         }
-        else if (name.equals("comments")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.comments");
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.comment");
         }
         else
           return super.addChild(name);
@@ -716,7 +716,7 @@ public class StructureDefinition extends MetadataResource {
         dst.identity = identity == null ? null : identity.copy();
         dst.uri = uri == null ? null : uri.copy();
         dst.name = name == null ? null : name.copy();
-        dst.comments = comments == null ? null : comments.copy();
+        dst.comment = comment == null ? null : comment.copy();
         return dst;
       }
 
@@ -728,7 +728,7 @@ public class StructureDefinition extends MetadataResource {
           return false;
         StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other;
         return compareDeep(identity, o.identity, true) && compareDeep(uri, o.uri, true) && compareDeep(name, o.name, true)
-           && compareDeep(comments, o.comments, true);
+           && compareDeep(comment, o.comment, true);
       }
 
       @Override
@@ -739,11 +739,11 @@ public class StructureDefinition extends MetadataResource {
           return false;
         StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other;
         return compareValues(identity, o.identity, true) && compareValues(uri, o.uri, true) && compareValues(name, o.name, true)
-           && compareValues(comments, o.comments, true);
+           && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comments
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comment
           );
       }
 
@@ -1573,6 +1573,55 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
+     * @return {@link #date} (The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create StructureDefinition.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public StructureDefinition setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
+     */
+    public StructureDefinition setDate(Date value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #publisher} (The name of the individual or organization that published the structure definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
@@ -1672,55 +1721,6 @@ public class StructureDefinition extends MetadataResource {
         addContact();
       }
       return getContact().get(0);
-    }
-
-    /**
-     * @return {@link #date} (The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StructureDefinition.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
-    }
-
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    /**
-     * @param value {@link #date} (The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public StructureDefinition setDateElement(DateTimeType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
-     */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
-     */
-    public StructureDefinition setDate(Date value) { 
-      if (value == null)
-        this.date = null;
-      else {
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -2592,9 +2592,9 @@ public class StructureDefinition extends MetadataResource {
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the structure definition.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The status of this structure definition. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the structure definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the structure definition from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the structure definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
@@ -2625,9 +2625,9 @@ public class StructureDefinition extends MetadataResource {
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
-        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // UsageContext
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
@@ -2676,14 +2676,14 @@ public class StructureDefinition extends MetadataResource {
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
           return value;
+        case 3076014: // date
+          this.date = castToDateTime(value); // DateTimeType
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
           return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          return value;
-        case 3076014: // date
-          this.date = castToDateTime(value); // DateTimeType
           return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
@@ -2764,12 +2764,12 @@ public class StructureDefinition extends MetadataResource {
           this.status = (Enumeration) value; // Enumeration<PublicationStatus>
         } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
+        } else if (name.equals("date")) {
+          this.date = castToDateTime(value); // DateTimeType
         } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
         } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        } else if (name.equals("date")) {
-          this.date = castToDateTime(value); // DateTimeType
         } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("useContext")) {
@@ -2824,9 +2824,9 @@ public class StructureDefinition extends MetadataResource {
         case 110371416:  return getTitleElement();
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
         case 1447404028:  return getPublisherElement();
         case 951526432:  return addContact(); 
-        case 3076014:  return getDateElement();
         case -1724546052:  return getDescriptionElement();
         case -669707736:  return addUseContext(); 
         case -507075711:  return addJurisdiction(); 
@@ -2860,9 +2860,9 @@ public class StructureDefinition extends MetadataResource {
         case 110371416: /*title*/ return new String[] {"string"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
         case 1447404028: /*publisher*/ return new String[] {"string"};
         case 951526432: /*contact*/ return new String[] {"ContactDetail"};
-        case 3076014: /*date*/ return new String[] {"dateTime"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case -669707736: /*useContext*/ return new String[] {"UsageContext"};
         case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
@@ -2909,14 +2909,14 @@ public class StructureDefinition extends MetadataResource {
         else if (name.equals("experimental")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.experimental");
         }
+        else if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.date");
+        }
         else if (name.equals("publisher")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.publisher");
         }
         else if (name.equals("contact")) {
           return addContact();
-        }
-        else if (name.equals("date")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.date");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.description");
@@ -2997,13 +2997,13 @@ public class StructureDefinition extends MetadataResource {
         dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
+        dst.date = date == null ? null : date.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ContactDetail>();
           for (ContactDetail i : contact)
             dst.contact.add(i.copy());
         };
-        dst.date = date == null ? null : date.copy();
         dst.description = description == null ? null : description.copy();
         if (useContext != null) {
           dst.useContext = new ArrayList<UsageContext>();

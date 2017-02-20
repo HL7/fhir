@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
  */
 @ResourceDef(name="ConceptMap", profile="http://hl7.org/fhir/Profile/ConceptMap")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "publisher", "contact", "date", "description", "useContext", "jurisdiction", "purpose", "copyright", "source[x]", "target[x]", "group"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "source[x]", "target[x]", "group"})
 public class ConceptMap extends MetadataResource {
 
     public enum ConceptMapGroupUnmappedMode {
@@ -2634,6 +2634,55 @@ public class ConceptMap extends MetadataResource {
     }
 
     /**
+     * @return {@link #date} (The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ConceptMap.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public ConceptMap setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
+     */
+    public ConceptMap setDate(Date value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #publisher} (The name of the individual or organization that published the concept map.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
@@ -2733,55 +2782,6 @@ public class ConceptMap extends MetadataResource {
         addContact();
       }
       return getContact().get(0);
-    }
-
-    /**
-     * @return {@link #date} (The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ConceptMap.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
-    }
-
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    /**
-     * @param value {@link #date} (The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public ConceptMap setDateElement(DateTimeType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
-     */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
-     */
-    public ConceptMap setDate(Date value) { 
-      if (value == null)
-        this.date = null;
-      else {
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -3189,9 +3189,9 @@ public class ConceptMap extends MetadataResource {
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the concept map.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The status of this concept map. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the concept map.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the concept map from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the concept map is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
@@ -3212,9 +3212,9 @@ public class ConceptMap extends MetadataResource {
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
-        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // UsageContext
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
@@ -3253,14 +3253,14 @@ public class ConceptMap extends MetadataResource {
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
           return value;
+        case 3076014: // date
+          this.date = castToDateTime(value); // DateTimeType
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
           return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          return value;
-        case 3076014: // date
-          this.date = castToDateTime(value); // DateTimeType
           return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
@@ -3308,12 +3308,12 @@ public class ConceptMap extends MetadataResource {
           this.status = (Enumeration) value; // Enumeration<PublicationStatus>
         } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
+        } else if (name.equals("date")) {
+          this.date = castToDateTime(value); // DateTimeType
         } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
         } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        } else if (name.equals("date")) {
-          this.date = castToDateTime(value); // DateTimeType
         } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("useContext")) {
@@ -3345,9 +3345,9 @@ public class ConceptMap extends MetadataResource {
         case 110371416:  return getTitleElement();
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
+        case 3076014:  return getDateElement();
         case 1447404028:  return getPublisherElement();
         case 951526432:  return addContact(); 
-        case 3076014:  return getDateElement();
         case -1724546052:  return getDescriptionElement();
         case -669707736:  return addUseContext(); 
         case -507075711:  return addJurisdiction(); 
@@ -3373,9 +3373,9 @@ public class ConceptMap extends MetadataResource {
         case 110371416: /*title*/ return new String[] {"string"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
         case 1447404028: /*publisher*/ return new String[] {"string"};
         case 951526432: /*contact*/ return new String[] {"ContactDetail"};
-        case 3076014: /*date*/ return new String[] {"dateTime"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case -669707736: /*useContext*/ return new String[] {"UsageContext"};
         case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
@@ -3413,14 +3413,14 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("experimental")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.experimental");
         }
+        else if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.date");
+        }
         else if (name.equals("publisher")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.publisher");
         }
         else if (name.equals("contact")) {
           return addContact();
-        }
-        else if (name.equals("date")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.date");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.description");
@@ -3475,13 +3475,13 @@ public class ConceptMap extends MetadataResource {
         dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
+        dst.date = date == null ? null : date.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ContactDetail>();
           for (ContactDetail i : contact)
             dst.contact.add(i.copy());
         };
-        dst.date = date == null ? null : date.copy();
         dst.description = description == null ? null : description.copy();
         if (useContext != null) {
           dst.useContext = new ArrayList<UsageContext>();

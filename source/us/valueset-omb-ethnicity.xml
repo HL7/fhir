@@ -4,8 +4,8 @@
 	<url value="http://hl7.org/fhir/omb-ethnicity"/>
 	<name value="OMB Ethnicity Categories"/>
 	<status value="draft"/>
-	<publisher value="USRealm Task Force"/>
 	<date value="2016-08-30"/>
+	<publisher value="USRealm Task Force"/>
 	<description value="The codes for the ethnicity categories - 'Hispanic or Latino' and 'Non Hispanic or Latino' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards)."/>
 	<compose>
 		<include>

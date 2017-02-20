@@ -8,8 +8,8 @@
   <version value="20100826"/>
   <name value="Audit Event Source Type"/>
   <status value="active"/>
-  <publisher value="NEMA/DICOM"/>
   <date value="2010-08-26"/>
+  <publisher value="NEMA/DICOM"/>
   <description value="The type of process where the audit event originated from."/>
   <compose>
     <include>

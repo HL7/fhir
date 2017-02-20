@@ -1188,7 +1188,7 @@ public class VersionConvertor_14_20 {
     if (src.hasDefinition())
       tgt.setDefinition(src.getDefinition());
     if (src.hasComments())
-      tgt.setComments(src.getComments());
+      tgt.setComment(src.getComments());
     if (src.hasRequirements())
       tgt.setRequirements(src.getRequirements());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getAlias())
@@ -1249,8 +1249,8 @@ public class VersionConvertor_14_20 {
       tgt.setShort(src.getShort());
     if (src.hasDefinition())
       tgt.setDefinition(src.getDefinition());
-    if (src.hasComments())
-      tgt.setComments(src.getComments());
+    if (src.hasComment())
+      tgt.setComments(src.getComment());
     if (src.hasRequirements())
       tgt.setRequirements(src.getRequirements());
     for (org.hl7.fhir.dstu3.model.StringType t : src.getAlias())
@@ -5643,7 +5643,7 @@ public class VersionConvertor_14_20 {
     if (src.hasName())
       tgt.setName(src.getName());
     if (src.hasComments())
-      tgt.setComments(src.getComments());
+      tgt.setComment(src.getComments());
     return tgt;
   }
 
@@ -5657,8 +5657,8 @@ public class VersionConvertor_14_20 {
       tgt.setUri(src.getUri());
     if (src.hasName())
       tgt.setName(src.getName());
-    if (src.hasComments())
-      tgt.setComments(src.getComments());
+    if (src.hasComment())
+      tgt.setComments(src.getComment());
     return tgt;
   }
 

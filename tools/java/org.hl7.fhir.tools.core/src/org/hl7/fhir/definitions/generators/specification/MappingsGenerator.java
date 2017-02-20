@@ -84,8 +84,8 @@ public class MappingsGenerator {
       for (StructureDefinitionMappingComponent map : profile.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
-        if (map.hasComments())
-          s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
+        if (map.hasComment())
+          s.append("<p>"+Utilities.escapeXml(map.getComment())+"</p>");
         else if (definitions.getMapTypes().containsKey(map.getUri())) {   
           XhtmlNode pre = definitions.getMapTypes().get(map.getUri()).getPreamble();
           if (pre != null)
@@ -119,8 +119,8 @@ public class MappingsGenerator {
       for (StructureDefinitionMappingComponent map : ed.getMapping()) {
 
         s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+map.getName()+" ("+map.getUri()+")</h3>");
-        if (map.hasComments())
-          s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
+        if (map.hasComment())
+          s.append("<p>"+Utilities.escapeXml(map.getComment())+"</p>");
         else if (definitions.getMapTypes().containsKey(map.getUri())) {  
           XhtmlNode pre = definitions.getMapTypes().get(map.getUri()).getPreamble();
           if (pre != null)

@@ -15,6 +15,7 @@
     <name value="SNOMED CT to ICD-10-CM mappings for fracture of ulna"/>
     <status value="draft"/>
     <experimental value="true"/>
+    <date value="2012-06-13"/>
     <publisher value="HL7, Inc"/>
     <contact>
         <name value="FHIR project team (example)"/>
@@ -23,7 +24,6 @@
             <value value="http://hl7.org/fhir"/>
         </telecom>
     </contact>
-    <date value="2012-06-13"/>
     <description value="Example rule-based mappings between SNOMED CT to ICD-10-CM for fracture of ulna"/>
     <jurisdiction>
         <coding>

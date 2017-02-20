@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -190,8 +190,6 @@ public class ResourceFactory extends Factory {
             return new Flag();
         if ("CodeSystem".equals(name))
             return new CodeSystem();
-        if ("Catalog".equals(name))
-            return new Catalog();
         if ("AppointmentResponse".equals(name))
             return new AppointmentResponse();
         if ("StructureMap".equals(name))
@@ -403,7 +401,6 @@ public class ResourceFactory extends Factory {
         case -871422185: return new CapabilityStatement();
         case 57208314: return new CarePlan();
         case 57320750: return new CareTeam();
-        case -2074609671: return new Catalog();
         case -883723257: return new ChargeItem();
         case 65189916: return new Claim();
         case 1488475261: return new ClaimResponse();

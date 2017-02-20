@@ -3018,7 +3018,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (ElementDefinition ed : p.getSnapshot().getElement()) {
       ed.setShortElement(null);
       ed.setDefinitionElement(null);
-      ed.setCommentsElement(null);
+      ed.setCommentElement(null);
       ed.setRequirementsElement(null);
       ed.getAlias().clear();
       ed.setMeaningWhenMissingElement(null);

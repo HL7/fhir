@@ -12,6 +12,7 @@
   <status value="draft"/>
   <experimental value="false"/>
 
+  <date value="2017-01-30T18:00:00+01:00"/>
   <publisher value="HL7 Security Work Group"/>
   <contact>
     <telecom>
@@ -23,7 +24,6 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <date value="2017-01-30T18:00:00+01:00"/>
   <description value="This value set contains representative Activity Type codes, which includes codes from the HL7 DocumentCompletion, ActStatus, and DataOperations code system, W3C PROV-DM and PROV-N concepts and display names, several HL7 Lifecycle Event codes for which there are agreed upon definitions, and non-duplicated codes from the HL7 Security and Privacy Ontology Operations codes."/>
   <copyright value="This is a value set of representative Activity Type codes."/>
   <extensible value="true"/>

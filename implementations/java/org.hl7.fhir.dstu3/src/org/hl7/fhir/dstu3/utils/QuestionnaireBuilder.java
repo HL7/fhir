@@ -258,10 +258,10 @@ public class QuestionnaireBuilder {
       List<ElementDefinition> parents, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
 	  group.setLinkId(element.getPath()); // todo: this will be wrong when we start slicing
 	  group.setText(element.getShort()); // todo - may need to prepend the name tail... 
-	  if (element.getComments() != null) {
+	  if (element.getComment() != null) {
 	  	Questionnaire.QuestionnaireItemComponent display = new Questionnaire.QuestionnaireItemComponent();
 	  	display.setType(QuestionnaireItemType.DISPLAY);
-	  	display.setText(element.getComments());
+	  	display.setText(element.getComment());
 	  	group.addItem(display);
 	  }
 	  group.setType(QuestionnaireItemType.GROUP);
@@ -365,8 +365,8 @@ public class QuestionnaireBuilder {
         ag.setText(group.getText());
       }
 
-      if (!Utilities.noString(element.getComments())) 
-        ToolingExtensions.addFlyOver(group, element.getDefinition()+" "+element.getComments());
+      if (!Utilities.noString(element.getComment())) 
+        ToolingExtensions.addFlyOver(group, element.getDefinition()+" "+element.getComment());
       else
         ToolingExtensions.addFlyOver(group, element.getDefinition());
 

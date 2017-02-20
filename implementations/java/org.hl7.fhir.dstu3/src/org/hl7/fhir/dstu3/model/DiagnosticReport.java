@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 18, 2017 17:12-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2414,30 +2414,30 @@ public class DiagnosticReport extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SPECIMEN = new ca.uhn.fhir.model.api.Include("DiagnosticReport:specimen").toLocked();
 
  /**
-   * Search parameter: <b>contenxt</b>
+   * Search parameter: <b>context</b>
    * <p>
    * Description: <b>Healthcare event (Episode of Care or Encounter) related to the report</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>DiagnosticReport.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="contenxt", path="DiagnosticReport.context", description="Healthcare event (Episode of Care or Encounter) related to the report", type="reference", target={Encounter.class, EpisodeOfCare.class } )
-  public static final String SP_CONTENXT = "contenxt";
+  @SearchParamDefinition(name="context", path="DiagnosticReport.context", description="Healthcare event (Episode of Care or Encounter) related to the report", type="reference", target={Encounter.class, EpisodeOfCare.class } )
+  public static final String SP_CONTEXT = "context";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>contenxt</b>
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
    * <p>
    * Description: <b>Healthcare event (Episode of Care or Encounter) related to the report</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>DiagnosticReport.context</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTENXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTENXT);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DiagnosticReport:contenxt</b>".
+   * the path value of "<b>DiagnosticReport:context</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTENXT = new ca.uhn.fhir.model.api.Include("DiagnosticReport:contenxt").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("DiagnosticReport:context").toLocked();
 
  /**
    * Search parameter: <b>issued</b>

@@ -774,7 +774,7 @@ public class IgSpreadsheetParser {
     if (!Utilities.noString(sheet.getColumn(row, "Max Length")))
       e.setMaxLength(Integer.parseInt(sheet.getColumn(row, "Max Length")));
     e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
-    e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
+    e.setComment(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     for (String n : mappings.keySet()) {
       MappingSpace m = mappings.get(n);
       String sm = sheet.getColumn(row, mappings.get(n).getColumnName());
@@ -1194,7 +1194,7 @@ public class IgSpreadsheetParser {
       exe.addCondition(s);
     exe.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
     exe.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
-    exe.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
+    exe.setComment(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
     doAliases(sheet, row, exe);
     for (String n : mappings.keySet()) {
       MappingSpace m = mappings.get(n);
