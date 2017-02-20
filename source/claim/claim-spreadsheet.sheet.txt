@@ -260,10 +260,10 @@
   Conformance = example
 
  -- Row 38 -----------------------------------
-  Binding Name = PayeeResourceType
+  Binding Name = ClaimPayeeResourceType
   Binding = code list
   Reference = #ex-payee-resource-type
-  Definition = The type of payee Resource
+  Definition = The type of Claim payee Resource
   Conformance = example
 
  -- Row 39 -----------------------------------
@@ -602,7 +602,7 @@
   Element = Claim.payee.resourceType
   Card. = 0..1
   Type = Coding
-  Binding = PayeeResourceType
+  Binding = ClaimPayeeResourceType
   Short Name = organization | patient | practitioner | relatedperson
 
  -- Row 30 -----------------------------------

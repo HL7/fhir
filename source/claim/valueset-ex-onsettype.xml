@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes example Onset Type (Reason) codes."/>
+  <description value="This value set includes example Onset Type codes which are used to identify the event for which the onset, starting date, is required."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>

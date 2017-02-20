@@ -5,7 +5,7 @@
   <name value="Example Onset Reason Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set includes sample Onset reason codes."/>
+  <description value="This value set includes sample Onset reason which are used to identify the event for which the onset, starting date, is required."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
   <content value="complete"/>

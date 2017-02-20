@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <name value="Conditions Codes"/>
+  <name value="FM Condition Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>
