@@ -183,26 +183,26 @@
          </table>
       </div>
   </text>
-  
+
     <identifier>
     <use value="official"/>
     <value value="Exclusive_Breastfeeding_CQM_Logic"/>
     </identifier>
     <version value="1.0.0"/>
     <title value="Exclusive Breastfeeding CQM Logic"/>
-  <type>
-    <coding>
-      <code value="logic-library"/>
-    </coding>
-  </type>
     <status value="active"/>
     <experimental value="true"/>
+    <type>
+      <coding>
+        <code value="logic-library"/>
+      </coding>
+    </type>
     <date value="2016-03-08"/>
     <description value="Quality measure logic for measuring outcomes for exclusive breastmilk feeding of newborns"/>
     <topic>
     <text value="Exclusive Breastfeeding"/>
     </topic>
-  
+
   <relatedArtifact>
     <type value="depends-on"/>
     <resource>
@@ -229,5 +229,5 @@
     <contentType value="text/cql"/>
     <url value="http://cqlrepository.org/CMS9v4_CQM.cql"/>
   </content>
-  
+
 </Library>

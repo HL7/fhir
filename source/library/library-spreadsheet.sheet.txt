@@ -71,6 +71,12 @@
   Element = Library.title
 
  -- Row 7 -----------------------------------
+  Element = Library.status
+
+ -- Row 8 -----------------------------------
+  Element = Library.experimental
+
+ -- Row 9 -----------------------------------
   Element = Library.type
   Card. = 1..1
   Is Modifier = Y
@@ -80,12 +86,6 @@
   Short Name = logic-library | model-definition | asset-collection | module-definition
   Definition = Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition
   w5 = what
-
- -- Row 8 -----------------------------------
-  Element = Library.status
-
- -- Row 9 -----------------------------------
-  Element = Library.experimental
 
  -- Row 10 -----------------------------------
   Element = Library.date

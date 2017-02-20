@@ -185,7 +185,7 @@
 
  -- Row 3 -----------------------------------
   Name = request
-  Type = string
+  Type = token
   Description = The identifier of the request associated with the response
   Path = GuidanceResponse.requestId
 

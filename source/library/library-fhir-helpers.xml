@@ -164,13 +164,13 @@
     </identifier>
     <version value="1.8"/>
     <title value="FHIR Helpers"/>
-  <type>
-    <coding>
-      <code value="logic-library"/>
-    </coding>
-  </type>
     <status value="active"/>
     <experimental value="true"/>
+    <type>
+      <coding>
+        <code value="logic-library"/>
+      </coding>
+    </type>
     <date value="2016-11-14"/>
     <description value="FHIR Helpers"/>
     <topic>

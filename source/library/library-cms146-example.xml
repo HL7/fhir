@@ -505,12 +505,12 @@
   </identifier>
   <version value="2.0.0"/>
   <title value="Appropriate Testing for Children with Pharyngitis"/>
+  <status value="draft"/>
   <type>
     <coding>
       <code value="logic-library"/>
     </coding>
   </type>
-  <status value="draft"/>
   <date value="2015-07-22"/>
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
   <relatedArtifact>
@@ -632,7 +632,5 @@
     <contentType value="text/cql"/>
     <url value="http://cqlrepository.org/CMS146.cql"/>
   </content>
-  
+
 </Library>
-
-

@@ -124,13 +124,11 @@
   Element = ActivityDefinition.identifier
   Card. = 0..*
   Workflow Mapping = Definition.identifier
-  To Do = Add constraint to require identifier for non-experimental active assets
 
  -- Row 4 -----------------------------------
   Element = ActivityDefinition.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets
   Workflow Mapping = Definition.version
-  To Do = Add constraint to require version for non-experimental active assets
 
  -- Row 5 -----------------------------------
   Element = ActivityDefinition.name
@@ -154,7 +152,6 @@
  -- Row 10 -----------------------------------
   Element = ActivityDefinition.publisher
   Workflow Mapping = Definition.publisher (as string instead of CodeableConcept)
-  To Do = Add constraint to require publisher on non-experimental active assets
 
  -- Row 11 -----------------------------------
   Element = ActivityDefinition.description
