@@ -2,7 +2,7 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/contracttermsubtypecodes"/>
-  <name value="Contract Term Type Codes"/>
+  <name value="Contract Term Subtype Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Contract Term SubType codes."/>
@@ -10,18 +10,19 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="oralhealth-basic"/>
-	<display value="OralHealth-Basic"/>
-	<definition value="Oral Health: examinations, diagnositics, cleaning and basic restorative services."/>
+    <code value="condition"/>
+    <display value="Condition"/>
+    <definition
+      value="Terms that go to the very root of a contract."/>
   </concept>
   <concept>
-    <code value="oralhealth-major"/>
-	<display value="OralHealth-Major"/>
-	<definition value="Oral Health: major treatment and restorative services."/>
+    <code value="warranty"/>
+    <display value="Warranty"/>
+    <definition value="Less imperative than a condition, so the contract will survive a breach"/>
   </concept>
   <concept>
-    <code value="oralhealth-orthodontic"/>
-	<display value="OralHealth-Orthodontic"/>
-	<definition value="Oral Health: orthodontic services, eg. braces."/>
+    <code value="innominate"/>
+    <display value="Innominate"/>
+    <definition value="Breach of which may or may not go to the root of the contract depending upon the nature of the breach"/>
   </concept>
 </CodeSystem>

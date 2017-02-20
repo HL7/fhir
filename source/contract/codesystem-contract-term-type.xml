@@ -10,13 +10,13 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="oralhealth"/>
-    <display value="OralHealth"/>
-	<definition value="Oral Health insurance terms and conditions."/> 
-	</concept>
+    <code value="statutory"/>
+    <display value="Statutory"/>
+    <definition value="Based on specialized statutes that deal with particular subjects."/>
+  </concept>
   <concept>
-    <code value="vision"/>
-	<display value="Vision"/>
-	<definition value="Vision insuracne terms and conditions."/>
+    <code value="subject-to"/>
+    <display value="Subject To"/>
+    <definition value="Execution of the term in the contract is conditional on the execution of other actions."/>
   </concept>
 </CodeSystem>
