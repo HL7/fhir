@@ -25,6 +25,10 @@ Notes:
    If the mode is "receiver", then this is reversed</li>
    <li>If a request or response is not specified for an event, then no rules are made for it</li>
    <li>Events that are not listed are not supported</li>
+   <li>The <a href="messagedefinition.html">MessageDefinition</a> resource is newly proposed and is still considered 'draft'.  
+     The <code>supportedMessage</code> element can be used in place of the <code>event</code> and the work group believes it may meet
+     implementer needs better, however because the new mechanism has not yet been reviewed by ballot, the older 'event' mechanism has
+     been retained.  Implementers may use one or the other to define their capabilities.  Feedback is welcome.</li>
   </ul>  
  </li>
  <li>Document CapabilityStatement rules:

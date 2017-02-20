@@ -239,8 +239,8 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>7932</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>8712</WindowHeight>
+  <WindowWidth>14208</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
@@ -809,7 +809,7 @@
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
     <Cell><Data ss:Type="String">One of the message events defined as part of FHIR.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell><Data ss:Type="String">preferred</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">#message-events</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
@@ -1058,11 +1058,11 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>22</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>34</ActiveRow>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -272,17 +272,24 @@ may choose to retain all or some the resources and make them available on a REST
 is not required to do so.
 </p>
 <p>
-When processing messages, a server may return a status code of 200 OK, or a process/error code (300+).
-If the server returns 200 OK, it SHALL return a bundle that is the message response.
-For any other response code, the message has not been successfully processed. The server MAY return an
-<a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD
-do so if the response code is 400 or greater.
-The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered
-message, and a 5xx response to indicate an unexpected error occurred on the part of the server, with
-the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result
-in a duplicate message response. Repeated failures indicate either a fatal problem with the submission
-or a problem with the receiving application.
+When processing messages, a server may return one of several status codes:
 </p>
+<ul>
+  <li><b>200 OK</b>: Indicates that the message has been fully processed.  If an application-level response is expected for the
+    submitted message, that response SHALL be returned as the body of the 200 response.</li>
+  <li><b>202 Accepted</b>: Indicates that the receiving system has accepted custody of the message</li>
+  <li><b>204 No Content</b>: Indicates that the message has been fully processed and would normally have had an application-level response,
+    but because of instructions from the sender (e.g. the 
+    <a href="extension-messageheader-response-request.html">messageheader-response-request</a> extension), no response is being provided</li>
+  <li><b>300+</b>: Indicates that the message was not successfully processed.  The server MAY return an
+    <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD
+    do so if the response code is 400 or greater.<br/>
+    The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered
+    message, and a 5xx response to indicate an unexpected error occurred on the part of the server, with
+    the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result
+    in a duplicate message response. Repeated failures indicate either a fatal problem with the submission
+    or a problem with the receiving application.</li>
+</ul>
 <p>
 The following rules apply when using $process-message:
 </p>

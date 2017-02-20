@@ -295,6 +295,8 @@ signatures.html
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/>
       <page type="resource" resource="Task"/>
+      <page type="resource" resource="ActivityDefinition"/>
+      <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="Appointment"/>
       <page type="resource" resource="AppointmentResponse"/>
       <page type="resource" resource="Schedule"/>
@@ -323,8 +325,6 @@ signatures.html
     </page>
 
     <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
-      <page type="resource" resource="ActivityDefinition"/>
-      <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="ServiceDefinition"/>
       <page type="resource" resource="GuidanceResponse"/>
