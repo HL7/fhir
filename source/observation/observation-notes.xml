@@ -138,7 +138,7 @@ The <em>lastn</em> query operation meets the common need for searching for the m
 </ul>
 
 See the <a href="observation-operations.html#10.1.20.2">Last N Observations Query</a> section in the Observation resource operations page for more information and examples
-
+<p></p>
 <a name="stats"> </a>
 <h3>Retrieving Statistics for Laboratory Observations</h3>
 <p>
@@ -148,4 +148,5 @@ The <em>stats</em> operation  performs a set of statistical calculations on a se
 <li>Determine 20th or 80th percentile on a set of measurements over a time period</li>
 </ul>
 See the <a href="observation-operations.html#10.1.20.1">Observation Statistics</a> section in the Observation resource operations page for more information and examples
+<p></p>
 </div>
