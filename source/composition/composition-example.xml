@@ -55,10 +55,16 @@
 	</custodian>
   <relatesTo>
     <code value="replaces"/>
-    <targetIdentifier>
-      <system value="urn:oid:2.16.840.1.113883.19.4"/>
-      <value value="c266"/>
-    </targetIdentifier>
+    <!-- 
+      you can identify a composition or a document.
+      A document is a frozen version of a composition
+      that is wrapped in a bundle
+      - can refer to the composition or document by identifier
+      - or by reference. to refer to a document by reference, Bundle/xxxx
+    -->
+    <targetReference>
+      <reference value="Composition/old-example"/>
+    </targetReference>
   </relatesTo>
 	<event>
 		<code>

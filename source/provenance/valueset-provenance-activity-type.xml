@@ -29,26 +29,20 @@
   <extensible value="true"/>
 
   <compose>
-  
-      <include>
+    <include>
       <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
     </include>
-  
-  
-        <include>
+    <include>
       <system value="http://hl7.org/fhir/v3/ActStatus"/>
 	  </include>
-<!--
 	  <include>
-	  <system value=" http://hl7.org/fhir/v3/DataOperation"/>
+	    <system value="http://hl7.org/fhir/v3/DataOperation"/>
 	  </include>
-	  -->
-<!-- 
- <include>
-  <system value="http://hl7.org/fhir/ValueSet/v3-ObligationPolicy"/>
-  </include>
-  -->
-<!--
+	  <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ObligationPolicy"/>
+    </include>
+
+  <!--
   <include>
   <system value="http://hl7.org/fhir/w3c-provenance-activity-types"/>
   </include>
