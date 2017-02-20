@@ -18,7 +18,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>4380</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6433,35 +6433,35 @@
     <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">lastn</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Last N Observations Query</Data></Cell>
+    <Cell ss:StyleID="s177"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#10;&#10;The response from an lastn query is a set of observations: &#10;&#10;* filtered by additional parameters&#10;* 'GROUP BY' `Observation.code`&#10;* sorted from most recent to the oldest&#10;* limited to the number of requested responses per group specified by the optional max query parameter&#10;* If no maximum number is given then only the most recent Observation in each group is returned. &#10;&#10;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the the total mathches so you may need to page through several observation &quot;A&quot; before getting to Obwervation &quot;B&quot;.&#10;* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+    <Cell ss:StyleID="s155"><Data ss:Type="String">lastn.max</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">positiveInt</Data></Cell>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">`max` is  an optional input parameter to the *lastn* query operation.  It is used to specify the maximum number of Observations to return from each group. For example for the query &quot;Fetch the last 3 results for all vitals for a patient&quot; `max` = 3.</Data></Cell>
     <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">lastn.return</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s177"/>
-    <Cell ss:StyleID="s172"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">The set of most recent N Observations that match the *lastn* query search criteria.</Data></Cell>
     <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s172"/>
    </Row>
@@ -6918,12 +6918,13 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6931,14 +6932,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8452,7 +8455,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

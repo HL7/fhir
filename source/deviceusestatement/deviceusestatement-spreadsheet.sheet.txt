@@ -111,14 +111,6 @@
   w5 = who.focus
 
  -- Row 5 -----------------------------------
-  Element = DeviceUseStatement.source
-  Card. = 0..1
-  Type = Reference(Patient | Practitioner | RelatedPerson)
-  Short Name = Who made the statement
-  Definition = Who reported the device was being used by the patient
-  w5 = who.actor
-
- -- Row 6 -----------------------------------
   Element = DeviceUseStatement.whenUsed
   Card. = 0..1
   Type = Period
@@ -127,7 +119,7 @@
   QUICK mapping = Performance.performanceTime
   w5 = when.done
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DeviceUseStatement.timing[x]
   Card. = 0..1
   Type = Timing|Period|dateTime
@@ -136,7 +128,7 @@
   QUICK mapping = DeviceUse.applicationSchedule
   w5 = when.done
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DeviceUseStatement.recordedOn
   Card. = 0..1
   Type = dateTime
@@ -144,6 +136,14 @@
   Definition = The time at which the statement was made/recorded.
   QUICK mapping = ClinicalStatement.statementDateTime
   w5 = when.recorded
+
+ -- Row 8 -----------------------------------
+  Element = DeviceUseStatement.source
+  Card. = 0..1
+  Type = Reference(Patient | Practitioner | RelatedPerson)
+  Short Name = Who made the statement
+  Definition = Who reported the device was being used by the patient
+  w5 = who.actor
 
  -- Row 9 -----------------------------------
   Element = DeviceUseStatement.device
@@ -176,7 +176,7 @@
  -- Row 12 -----------------------------------
   Element = DeviceUseStatement.note
   Card. = 0..*
-  Type = string
+  Type = Annotation
   Short Name = Addition details (comments, instructions)
   Definition = Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
   QUICK mapping = ClinicalStatement.additionalText

@@ -1568,3 +1568,27 @@
   Type = Observation
   Min = 0
   Max = *
+
+ -- Row 12 -----------------------------------
+  Name = lastn
+  Use = Resource
+  Documentation = The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.\n\nThe response from an lastn query is a set of observations: \n\n* filtered by additional parameters\n* \'GROUP BY\' `Observation.code`\n* sorted from most recent to the oldest\n* limited to the number of requested responses per group specified by the optional max query parameter\n* If no maximum number is given then only the most recent Observation in each group is returned. \n\nThe set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.
+  Type = operation
+  Title = Last N Observations Query
+  Footer = The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:\n\n* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn\'t restrict the the total mathches so you may need to page through several observation \"A\" before getting to Obwervation \"B\".\n* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging)
+
+ -- Row 13 -----------------------------------
+  Name = lastn.max
+  Use = in
+  Type = positiveInt
+  Title = `max` is  an optional input parameter to the *lastn* query operation.  It is used to specify the maximum number of Observations to return from each group. For example for the query \"Fetch the last 3 results for all vitals for a patient\" `max` = 3.
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = lastn.return
+  Use = out
+  Type = Bundle
+  Title = The set of most recent N Observations that match the *lastn* query search criteria.
+  Min = 1
+  Max = 1
