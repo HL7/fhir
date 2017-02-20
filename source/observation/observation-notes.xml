@@ -125,50 +125,27 @@ If the value was "NaN"  (i.e. an error)  the Observation.valueCodeableConcept wo
 	<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "canceled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.
 </p>
 
+<a name="observation-operations"/>
+<h2>Operations defined for Observation</h2>
 <a name="lastn"> </a>
-<h2>Searching for the Last N Observations</h2>
+<h3>Searching for the Last N Observations</h3>
 <p>
-This section describes the <em>lastn</em> query operation to meet the common need for searching for the most recent or "last known" Observations for a subject.  For example retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs.  In addition to this section, A <a href="patient-mpi-search.html">formal definition</a> for this operation and an example is published.
-
-</p>
-<p>
-To ask a server to return the last n=number of observations, clients use the <em>lastn</em> <a href="search.html#query">query</a>,
-which uses the normal search parameters defined for observation. However, rather than their normal use, they are interpreted as inputs - e.g. instead of requiring
-that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.
-</p>
-<pre>
-  GET [base]/Observation$lastn&amp;parameters...
-</pre>
-<p>
-The response from an <em>lastn</em> query is a set of observations, grouped by code, filtered by additional parameters, sorted from most recent to the oldest and limited to the number of requested responses per group ( e.g. 1 or 5 ) which is specified by the optional <em>max</em> query input parameter. If no maximum number is given then only the most recent Observation in each group is returned. The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions.  If there are no matches, the lastn SHALL return an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with
-further advice.
-</p>
-
-<p>
-One optional parameter to the <em>lastn</em> match operation is <em>max</em>, which is used to specify the number of Observations to return from each group. This SHALL be supported by the server to restrict the number possible matches that are returned.
-</p>
-<p>Examples:</p>
+The <em>lastn</em> query operation meets the common need for searching for the most recent or "last known" Observations for a subject.  Examples where this query could be used:</p>
 <ul>
-<li>Fetch the last 5 temperatures for a patient</li>
-</ul>
-<p><code>GET [base]/Observation$lastn?max=5&amp;patient=[id]&amp;code=8310-5&amp;parameters...</code></p>
-<ul>
+<li>Fetch the last 5 temperatures for a patient to view trends</li>
 <li>Get the most recent lab results for patient</li>
-</ul>
-<p><code>GET [base]/Observation$lastn?patient=[id]&amp;category=laboratory&amp;parameters...</code></p>
-<ul>
 <li>Fetch the last 3 results for all vitals for a patient</li>
 </ul>
-<p><code>GET [base]/Observation$lastn?max=3&amp;patient=[id]&amp;category=vital-signs&amp;parameters...</code>
-</p>
 
-<blockquote class="dstu-note">
-<p>
-<b>STU3 Note:</b>  This is the first draft of this approach,
-</p>
-<p>
-Feedback is sought <a href="https://chat.fhir.org/#narrow/stream/implementers/search/lastn">here</a>.
-</p>
-</blockquote>
+See the <a href="observation-operations.html#10.1.20.2">Last N Observations Query</a> section in the Observation resource operations page for more information and examples
 
+<a name="stats"> </a>
+<h3>Retrieving Statistics for Laboratory Observations</h3>
+<p>
+The <em>stats</em> operation  performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server. This operation is focused on Observation resources with valueQuantity elements that have UCUM unit codes.  Examples where this operation could be used:</p>
+<ul>
+<li>Get the average, min, max and count of a series of BP measurements for a patient</li>
+<li>Determine 20th or 80th percentile on a set of measurements over a time period</li>
+</ul>
+See the <a href="observation-operations.html#10.1.20.1">Observation Statistics</a> section in the Observation resource operations page for more information and examples
 </div>
