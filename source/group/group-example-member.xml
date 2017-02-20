@@ -19,8 +19,8 @@ be referred to from one or more Observations
       </ul>
     </div>
   </text>
-  <actual value="true"/>
   <type value="person"/>
+  <actual value="true"/>
   <member>
     <entity>
       <reference value="Patient/pat1"/>

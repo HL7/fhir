@@ -9,8 +9,8 @@
       <p>Owner: John Smith</p>
     </div>
   </text>
-  <actual value="true"/>
   <type value="animal"/>
+  <actual value="true"/>
   <code>
     <text value="Horse"/>
   </code>
