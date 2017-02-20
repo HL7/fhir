@@ -1,0 +1,2 @@
+// Fetch the last 3 results for all vitals for a patient
+GET [base]/Observation$lastn?max=3&patient=Patient/123&category=vital-signs
