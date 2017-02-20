@@ -50,12 +50,12 @@
     </div>
   </text>
   <status value="final"/>
-  <occurrenceDateTime value="2006-01-13T23:01:00Z"/>
   <method>
     <coding>
       <code value="BRCAPRO"/>
     </coding>
   </method>
+  <occurrenceDateTime value="2006-01-13T23:01:00Z"/>
   <basis>
     <reference value="List/prognosis"/>
   </basis>

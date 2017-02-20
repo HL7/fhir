@@ -15,7 +15,7 @@
       </ul>
     </div>
   </text>
-  <!-- test 1 -->
+  <status value="final"/>
   <category>
     <coding>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
@@ -23,6 +23,11 @@
       <display value="Duplicate Therapy Alert"/>
     </coding>
   </category>
+  <date value="2013-05-08"/>
+  <author>
+    <reference value="Device/dsp"/>
+  </author>
+  <!-- test 1 -->
   <implicated>
     <reference value="ProcedureRequest/di"/>
     <display value="Chest CT - ordered May 8, 2013 by Dr. Adam Careful"/>
@@ -33,8 +38,4 @@
     <display value="Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM"/>
   </implicated>
   <detail value="Similar test was performed within the past 14 days"/>
-  <date value="2013-05-08"/>
-  <author>
-    <reference value="Device/dsp"/>
-  </author>
 </DetectedIssue>

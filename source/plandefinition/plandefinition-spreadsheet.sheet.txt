@@ -396,14 +396,12 @@
   Element = PlanDefinition.identifier
   Card. = 0..*
   Workflow Mapping = Definition.identifier
-  To Do = Add constraint to require an identifier for non-experimental active artifacts
   w5 = id
 
  -- Row 4 -----------------------------------
   Element = PlanDefinition.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
   Workflow Mapping = Definition.version
-  To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = PlanDefinition.name
@@ -434,41 +432,45 @@
   Workflow Mapping = Definition.date
 
  -- Row 11 -----------------------------------
+  Element = PlanDefinition.publisher
+  Workflow Mapping = Definition.publisher (as string instead of Reference)
+
+ -- Row 12 -----------------------------------
   Element = PlanDefinition.description
   Workflow Mapping = Definition.description
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = PlanDefinition.purpose
   Workflow Mapping = Definition.purpose
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = PlanDefinition.usage
   Card. = 0..1
   Type = string
   Short Name = Describes the clinical usage of the asset
   Definition = A detailed description of how the asset is used from a clinical perspective
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = PlanDefinition.approvalDate
   Workflow Mapping = Definition.approvalDate
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = PlanDefinition.lastReviewDate
   Workflow Mapping = Definition.lastReviewDate
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = PlanDefinition.effectivePeriod
   Workflow Mapping = Definition.effectivePeriod
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = PlanDefinition.useContext
   Workflow Mapping = Definition.useContext
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = PlanDefinition.jurisdiction
   Workflow Mapping = Definition.jurisdiction
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = PlanDefinition.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -478,18 +480,13 @@
   Requirements = Repositories must be able to determine how to categorize the asset so that it can be found by topical searches
   Workflow Mapping = Definition.subjectCodableConcept
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = PlanDefinition.contributor
   Card. = 0..*
   Type = Contributor
   Short Name = A content contributor
   Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the asset
-
- -- Row 21 -----------------------------------
-  Element = PlanDefinition.publisher
-  Workflow Mapping = Definition.publisher (as string instead of Reference)
-  To Do = Add constraint to require a publisher for non-experimental active artifacts
 
  -- Row 22 -----------------------------------
   Element = PlanDefinition.contact
@@ -518,7 +515,7 @@
  -- Row 26 -----------------------------------
   Element = PlanDefinition.goalDefinition
   Card. = 0..*
-  Short Name = Goals of the plan
+  Short Name = What the plan is trying to accomplish
   Definition = Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc
   Requirements = Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders
   Committee Notes = Goal resource is not appropriate because it represents an instance of a goal with respect to a particular patient or group, and is very much concerned with tracking the state of the goal, rather than its definition. The Goal resource can point to a goalDefinition with an extension by virtue of the fact that it is a Request resource
@@ -739,7 +736,7 @@
   Element = PlanDefinition.actionDefinition.relatedAction.actionId
   Card. = 1..1
   Type = id
-  Short Name = Id of the related action
+  Short Name = What action is this related to
   Definition = The element id of the related action
 
  -- Row 56 -----------------------------------

@@ -40,6 +40,12 @@
   Display = Failure
   Definition = The request was not processed successfully
 
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The response was entered in error
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -83,7 +89,7 @@
   Summary = Y
   Type = code
   Binding = GuidanceResponseStatus
-  Short Name = success | data-requested | data-required | in-progress | failure
+  Short Name = success | data-requested | data-required | in-progress | failure | entered-in-error
   Definition = The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information
   w5 = status
 
@@ -176,6 +182,18 @@
   Type = reference
   Description = The subject that the guidance response is about
   Path = GuidanceResponse.subject
+
+ -- Row 3 -----------------------------------
+  Name = request
+  Type = string
+  Description = The identifier of the request associated with the response
+  Path = GuidanceResponse.requestId
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The identifier of the guidance response
+  Path = GuidanceResponse.identifier
 
 === Sheet Profiles =====================================
 

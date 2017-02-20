@@ -89,76 +89,6 @@
   w5 = status
 
  -- Row 6 -----------------------------------
-  Element = RiskAssessment.code
-  Card. = 0..1
-  Summary = y
-  Type = CodeableConcept
-  Short Name = Type of assessment
-  Definition = The type of the risk assessment performed
-  w5 = what
-
- -- Row 7 -----------------------------------
-  Element = RiskAssessment.subject
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Patient|Group)
-  Short Name = Who/what does assessment apply to?
-  Definition = The patient or group the risk assessment applies to
-  RIM Mapping = .participation[typeCode=SBJ].role
-  OpenEHR mapping = Subject of Care
-  To Do = Should this cover anything else?  Device?  Location?
-  w5 = who.focus
-
- -- Row 8 -----------------------------------
-  Element = RiskAssessment.context
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Encounter | EpisodeOfCare)
-  Short Name = Where was assessment performed?
-  Definition = The encounter where the assessment was performed
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
-  w5 = context
-
- -- Row 9 -----------------------------------
-  Element = RiskAssessment.occurrence[x]
-  Card. = 0..1
-  Summary = y
-  Type = dateTime | Period
-  Short Name = When was assessment made?
-  Definition = The date (and possibly time) the risk assessment was performed
-  Requirements = The assessment results lose validity the more time elapses from when they are first made
-  RIM Mapping = .effectiveTime
-  w5 = when.done
-
- -- Row 10 -----------------------------------
-  Element = RiskAssessment.condition
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Condition)
-  Short Name = Condition assessed
-  Definition = For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
-  RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
-
- -- Row 11 -----------------------------------
-  Element = RiskAssessment.performer
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Practitioner | Device)
-  Short Name = Who did assessment?
-  Definition = The provider or software application that performed the assessment
-  RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
-  OpenEHR mapping = Information Provider
-  w5 = who.actor
-
- -- Row 12 -----------------------------------
-  Element = RiskAssessment.reason[x]
-  Card. = 0..1
-  Type = CodeableConcept | Reference(Any)
-  Short Name = Why the assessment was necessary?
-  Definition = The reason the risk assessment was performed
-  w5 = why
-
- -- Row 13 -----------------------------------
   Element = RiskAssessment.method
   Card. = 0..1
   Summary = y
@@ -170,6 +100,76 @@
   RIM Mapping = .methodCode
   To Do = Is this in the 80%?
   w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = RiskAssessment.code
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Short Name = Type of assessment
+  Definition = The type of the risk assessment performed
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = RiskAssessment.subject
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Patient|Group)
+  Short Name = Who/what does assessment apply to?
+  Definition = The patient or group the risk assessment applies to
+  RIM Mapping = .participation[typeCode=SBJ].role
+  OpenEHR mapping = Subject of Care
+  To Do = Should this cover anything else?  Device?  Location?
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = RiskAssessment.context
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Encounter | EpisodeOfCare)
+  Short Name = Where was assessment performed?
+  Definition = The encounter where the assessment was performed
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 10 -----------------------------------
+  Element = RiskAssessment.occurrence[x]
+  Card. = 0..1
+  Summary = y
+  Type = dateTime | Period
+  Short Name = When was assessment made?
+  Definition = The date (and possibly time) the risk assessment was performed
+  Requirements = The assessment results lose validity the more time elapses from when they are first made
+  RIM Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 11 -----------------------------------
+  Element = RiskAssessment.condition
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Condition)
+  Short Name = Condition assessed
+  Definition = For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
+  RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
+
+ -- Row 12 -----------------------------------
+  Element = RiskAssessment.performer
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner | Device)
+  Short Name = Who did assessment?
+  Definition = The provider or software application that performed the assessment
+  RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
+  OpenEHR mapping = Information Provider
+  w5 = who.actor
+
+ -- Row 13 -----------------------------------
+  Element = RiskAssessment.reason[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Any)
+  Short Name = Why the assessment was necessary?
+  Definition = The reason the risk assessment was performed
+  w5 = why
 
  -- Row 14 -----------------------------------
   Element = RiskAssessment.basis

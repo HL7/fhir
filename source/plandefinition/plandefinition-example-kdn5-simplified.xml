@@ -159,6 +159,7 @@
   </type>
   <status value="draft" />
   <experimental value="true" />
+  <publisher value="National Comprehensive Cancer Network, Inc." />
   <approvalDate value="2016-07-27" />
   <lastReviewDate value="2016-07-27" />
   <!-- Indications -->
@@ -238,7 +239,6 @@
     <type value="author" />
     <name value="Lee Surprenant" />
   </contributor>
-  <publisher value="National Comprehensive Cancer Network, Inc." />
   <copyright value="All rights reserved." />
   <!-- list of references for the order template -->
   <relatedArtifact>

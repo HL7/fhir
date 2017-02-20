@@ -82,6 +82,7 @@
   Type = Reference(Measure)
   Short Name = Measure that was evaluated
   Definition = A reference to the Measure that was evaluated to produce this report
+  w5 = what
 
  -- Row 3 -----------------------------------
   Element = MeasureReport.type
@@ -91,6 +92,7 @@
   Binding = MeasureReportType
   Short Name = individual | patient-list | summary
   Definition = The type of measure report. This may be an individual report, which provides a single patient\'s score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure
+  w5 = class
 
  -- Row 4 -----------------------------------
   Element = MeasureReport.patient
@@ -99,6 +101,7 @@
   Type = Reference(Patient)
   Short Name = Optional Patient
   Definition = Optional Patient if the report was requested for a single patient.
+  w5 = who.focus
 
  -- Row 5 -----------------------------------
   Element = MeasureReport.period
@@ -116,6 +119,7 @@
   Binding = MeasureReportStatus
   Short Name = complete | pending | error
   Definition = The report status. No data will be available until the report status is complete
+  w5 = status
 
  -- Row 7 -----------------------------------
   Element = MeasureReport.date
@@ -124,6 +128,7 @@
   Type = dateTime
   Short Name = Date the report was generated
   Definition = The date this measure report was generated
+  w5 = when.recorded
 
  -- Row 8 -----------------------------------
   Element = MeasureReport.reportingOrganization
@@ -132,6 +137,7 @@
   Type = Reference(Organization)
   Short Name = Reporting Organization
   Definition = Reporting Organization
+  w5 = who.source
 
  -- Row 9 -----------------------------------
   Element = MeasureReport.group
@@ -277,7 +283,7 @@
   Card. = 0..1
   Summary = N
   Type = decimal
-  Short Name = The measure score
+  Short Name = Score for this stratum
   Definition = The measure score for this stratum
 
  -- Row 27 -----------------------------------
@@ -285,7 +291,7 @@
   Card. = 0..1
   Summary = N
   Type = Reference(Bundle)
-  Short Name = Evaluated Resources
+  Short Name = What data was evaluated to produce the measure score
   Definition = A reference to a Bundle containing the Resources that were used in the evaluation of this report.
 
 === Sheet Search =====================================

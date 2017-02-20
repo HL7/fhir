@@ -88,7 +88,7 @@
   Element = RequestGroup.subject
   Card. = 0..1
   Type = Reference(Patient | Group)
-  Short Name = Subject of the request group
+  Short Name = Who the request group is about
   Definition = The subject for which the request group was created
   w5 = who.focus
 
@@ -138,55 +138,48 @@
   Definition = The actions, if any, produced by the evaluation of the artifact
 
  -- Row 10 -----------------------------------
-  Element = RequestGroup.action.actionIdentifier
-  Card. = 0..1
-  Type = Identifier
-  Short Name = Unique identifier
-  Definition = A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique
-
- -- Row 11 -----------------------------------
   Element = RequestGroup.action.label
   Card. = 0..1
   Type = string
   Short Name = User-visible label for the action (e.g. 1. or A.)
   Definition = A user-visible label for the action
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = RequestGroup.action.title
   Card. = 0..1
   Type = string
   Short Name = User-visible title
   Definition = The title of the action displayed to a user
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = RequestGroup.action.description
   Card. = 0..1
   Type = string
   Short Name = Short description of the action
   Definition = A short description of the action used to provide a summary to display to the user
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = RequestGroup.action.textEquivalent
   Card. = 0..1
   Type = string
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = RequestGroup.action.code
   Card. = 0..*
   Type = CodeableConcept
   Short Name = Code representing the meaning of the action or sub-actions
   Definition = A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = RequestGroup.action.documentation
   Card. = 0..*
   Type = RelatedArtifact
   Short Name = Supporting documentation for the intended performer of the action
   Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = RequestGroup.action.condition
   Card. = 0..*
   UML = 650;0
@@ -194,7 +187,7 @@
   Short Name = Whether or not the action is applicable
   Definition = An expression that describes applicability criteria, or start/stop conditions for the action
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = RequestGroup.action.condition.kind
   Card. = 1..1
   Type = code
@@ -203,21 +196,21 @@
   Definition = The kind of condition
   Comments = Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe when enter/exit criteria for an action
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = RequestGroup.action.condition.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the condition
   Definition = A brief, natural language description of the condition that effectively communicates the intended semantics
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = RequestGroup.action.condition.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = RequestGroup.action.condition.expression
   Card. = 0..1
   Type = string
@@ -225,21 +218,21 @@
   Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = RequestGroup.action.relatedAction
   Card. = 0..*
   UML = down
   Short Name = Relationship to another action
   Definition = A relationship to another action such as \"before\" or \"30-60 minutes after start of\"
 
- -- Row 23 -----------------------------------
-  Element = RequestGroup.action.relatedAction.actionIdentifier
+ -- Row 22 -----------------------------------
+  Element = RequestGroup.action.relatedAction.actionId
   Card. = 1..1
-  Type = Identifier
-  Short Name = Identifier of the related action
-  Definition = The unique identifier of the related action
+  Type = id
+  Short Name = What action this is related to
+  Definition = The element id of the action this is related to
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = RequestGroup.action.relatedAction.relationship
   Card. = 1..1
   Type = code
@@ -247,29 +240,29 @@
   Short Name = before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
   Definition = The relationship of this action to the related action
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = RequestGroup.action.relatedAction.offset[x]
   Card. = 0..1
   Type = Duration|Range
   Short Name = Time offset for the relationship
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
- -- Row 26 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = RequestGroup.action.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
 
- -- Row 27 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = RequestGroup.action.participant
   Card. = 0..*
   Type = Reference(Patient|Person|Practitioner | RelatedPerson)
-  Short Name = Participant
-  Definition = The participant in the action
+  Short Name = Who should perform the action
+  Definition = The participant that should perform or be responsible for this action
   w5 = who.actor
 
- -- Row 28 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = RequestGroup.action.type
   Card. = 0..1
   Type = Coding
@@ -277,7 +270,7 @@
   Short Name = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 29 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = RequestGroup.action.groupingBehavior
   Card. = 0..1
   Type = code
@@ -285,7 +278,7 @@
   Short Name = visual-group | logical-group | sentence-group
   Definition = Defines the grouping behavior for the action and its children
 
- -- Row 30 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = RequestGroup.action.selectionBehavior
   Card. = 0..1
   Type = code
@@ -293,7 +286,7 @@
   Short Name = any | all | all-or-none | exactly-one | at-most-one | one-or-more
   Definition = Defines the selection behavior for the action and its children
 
- -- Row 31 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = RequestGroup.action.requiredBehavior
   Card. = 0..1
   Type = code
@@ -301,7 +294,7 @@
   Short Name = must | could | must-unless-documented
   Definition = Defines the requiredness behavior for the action
 
- -- Row 32 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = RequestGroup.action.precheckBehavior
   Card. = 0..1
   Type = code
@@ -309,7 +302,7 @@
   Short Name = yes | no
   Definition = Defines whether the action should usually be preselected
 
- -- Row 33 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = RequestGroup.action.cardinalityBehavior
   Card. = 0..1
   Type = code
@@ -317,7 +310,7 @@
   Short Name = single | multiple
   Definition = Defines whether the action can be selected multiple times
 
- -- Row 34 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = RequestGroup.action.resource
   Card. = 0..1
   Inv. = 1
@@ -326,7 +319,7 @@
   Definition = The resource that is the target of the action (e.g. CommunicationRequest)
   Comments = The target resource SHALL be a [[[Request]]] resource with a Request.intent set to \"option\".
 
- -- Row 35 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = RequestGroup.action.action
   Card. = 0..*
   Inv. = 1
@@ -373,6 +366,12 @@
   Description = The encounter the request group applies to
   Path = RequestGroup.context
   Target Types = Encounter
+
+ -- Row 7 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = External identifiers for the request group
+  Path = RequestGroup.identifier
 
 === Sheet Profiles =====================================
 

@@ -1580,7 +1580,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">When {{title}} approved by publisher</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">When the {{title}} was approved by publisher</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1612,9 +1612,9 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Last review date for the {{title}}</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">When the {{title}} was last reviewed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s87"><Data ss:Type="String">If specified, this is usually after the approval date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1645,7 +1645,7 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">The effective date range for the {{title}}</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">When the {{title}} is effective</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">The period during which the {{title}} content was or is planned to be effective</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4526,9 +4526,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4536,7 +4536,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4544,8 +4543,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

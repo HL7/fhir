@@ -170,7 +170,7 @@
   Element = MetadataResource.approvalDate
   Card. = 0..1
   Type = date
-  Short Name = When {{title}} approved by publisher
+  Short Name = When the {{title}} was approved by publisher
   Definition = The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage
   Comments = The date may be more recent than the approval date because of minor changes / editorial corrections
   Object Impl = no-gen-base
@@ -179,8 +179,8 @@
   Element = MetadataResource.lastReviewDate
   Card. = 0..1
   Type = date
-  Short Name = Last review date for the {{title}}
-  Definition = The date on which the asset content was last reviewed. Review happens periodically after that, but doesn\'t change the original approval date.
+  Short Name = When the {{title}} was last reviewed
+  Definition = The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn\'t change the original approval date.
   Comments = If specified, this is usually after the approval date
   Object Impl = no-gen-base
 
@@ -189,7 +189,7 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Name = The effective date range for the {{title}}
+  Short Name = When the {{title}} is effective
   Definition = The period during which the {{title}} content was or is planned to be effective
   Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
   Object Impl = no-gen-base

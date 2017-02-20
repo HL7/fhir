@@ -214,12 +214,10 @@
  -- Row 3 -----------------------------------
   Element = Measure.identifier
   Card. = 0..*
-  To Do = Add constraint to require identifier for non-experimental active artifacts
 
  -- Row 4 -----------------------------------
   Element = Measure.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
-  To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
   Element = Measure.name
@@ -237,34 +235,37 @@
   Element = Measure.date
 
  -- Row 10 -----------------------------------
-  Element = Measure.description
+  Element = Measure.publisher
 
  -- Row 11 -----------------------------------
-  Element = Measure.purpose
+  Element = Measure.description
 
  -- Row 12 -----------------------------------
+  Element = Measure.purpose
+
+ -- Row 13 -----------------------------------
   Element = Measure.usage
   Card. = 0..1
   Type = string
   Short Name = Describes the clinical usage of the measure
   Definition = A detailed description of how the measure is used from a clinical perspective
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Measure.approvalDate
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Measure.lastReviewDate
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Measure.effectivePeriod
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Measure.useContext
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Measure.jurisdiction
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Measure.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -273,17 +274,13 @@
   Definition = Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the measure so that it can be found by topical searches
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Measure.contributor
   Card. = 0..*
   Type = Contributor
   Short Name = A content contributor
   Definition = A contributor to the content of the measure, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the measure
-
- -- Row 20 -----------------------------------
-  Element = Measure.publisher
-  To Do = Add constraint to require a publisher for non-experimental active artifacts
 
  -- Row 21 -----------------------------------
   Element = Measure.contact
@@ -295,7 +292,7 @@
   Element = Measure.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
-  Short Name = Related artifacts for the measure
+  Short Name = Additional documentation, citations, etc
   Definition = Related artifacts such as additional documentation, justification, or bibliographic references
   Requirements = Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
@@ -312,7 +309,7 @@
   Card. = 0..1
   Summary = Y
   Type = markdown
-  Short Name = Disclaimer for the measure
+  Short Name = Disclaimer for use of the measure or its referenced content
   Definition = Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure
   Requirements = Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property
 
@@ -374,7 +371,7 @@
   Card. = 0..1
   Summary = Y
   Type = markdown
-  Short Name = Clinical recommendation
+  Short Name = Summary of clinical guidelines
   Definition = Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure
 
  -- Row 33 -----------------------------------
@@ -400,7 +397,7 @@
   Card. = 0..1
   Summary = Y
   Type = markdown
-  Short Name = The guidance for the measure
+  Short Name = Additional guidance for implementers
   Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
   Requirements = Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the logic of the measure
 
@@ -502,7 +499,7 @@
   Element = Measure.group.stratifier.criteria
   Card. = 0..1
   Type = string
-  Short Name = Stratifier criteria
+  Short Name = How the measure should be stratified
   Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
 
  -- Row 50 -----------------------------------
@@ -516,7 +513,7 @@
   Element = Measure.supplementalData
   Card. = 0..*
   UML = right
-  Short Name = Supplemental data
+  Short Name = What other data should be reported with the measure
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
   Comments = Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information
 
@@ -539,7 +536,7 @@
   Element = Measure.supplementalData.criteria
   Card. = 0..1
   Type = string
-  Short Name = Supplemental data criteria
+  Short Name = Expression describing additional data to be reporrted
   Definition = The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element
 
  -- Row 55 -----------------------------------

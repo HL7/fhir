@@ -411,7 +411,7 @@
             <tr>
                <td style="padding-left: 25px; padding-right: 25px;">
                   <b>
-                     <span>author</span>: 
+                     <span>author</span>:
                   </b>
                </td>
             </tr>
@@ -758,6 +758,7 @@
   <title value="Low Suicide Risk Order Set"/>
   <status value="draft"/>
   <date value="2015-08-15"/>
+  <publisher value="Motive Medical Intelligence"/>
   <description value="Orders to be applied to a patient characterized as low suicide risk."/>
   <purpose value="This order set helps ensure consistent application of appropriate orders for the care of low suicide risk patients."/>
   <usage value="This order set should be applied after assessing a patient for suicide risk, when the findings of that assessment indicate the patient has low suicide risk."/>
@@ -883,7 +884,6 @@
       </telecom>
     </contact>
   </contributor>
-  <publisher value="Motive Medical Intelligence"/>
   <contact>
     <telecom>
       <system value="phone"/>
