@@ -47,11 +47,19 @@
 		</coding>
 	</category>
 	<code>
+<!-- replaced by 85354-9
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="55284-4"/>
 			<display value="Blood pressure systolic &amp; diastolic"/>
 		</coding>
+-->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="85354-9"/>
+			<display value="Bood pressure panel with all children optional"/>
+		</coding>
+		<text value="Blood pressure systolic &amp; diastolic"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>
@@ -109,7 +117,7 @@
 			</coding>
 			<!-- that shows the concept. The next two names only have a LOINC code -->
 		</code>
-		<!-- no value due to some error 
+		<!-- no value due to some error
     <valueQuantity>
       <value value="107"/>
       <unit value="mm[Hg]"/>
@@ -131,7 +139,7 @@
 				<display value="Diastolic blood pressure"/>
 			</coding>
 		</code>
-		<!-- no value due to some error 
+		<!-- no value due to some error
     <valueQuantity>
       <value value="60"/>
       <unit value="mm[Hg]"/>

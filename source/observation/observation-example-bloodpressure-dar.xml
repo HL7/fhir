@@ -17,11 +17,19 @@
 		</coding>
 	</category>
 	<code>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="55284-4"/>
-			<display value="Blood pressure systolic &amp; diastolic"/>
-		</coding>
+		<!-- replaced by 85354-9
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="55284-4"/>
+					<display value="Blood pressure systolic &amp; diastolic"/>
+				</coding>
+		-->
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="85354-9"/>
+					<display value="Bood pressure panel with all children optional"/>
+				</coding>
+				<text value="Blood pressure systolic &amp; diastolic"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>
@@ -51,13 +59,13 @@
 		</coding>
 	</bodySite>
 	<component>
-		<!--  
+		<!--
            Observations are often coded in multiple code systems.
            - LOINC provides a very specific code (though not more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC
            - the source system provides its own code, which may be less or more granular than LOINC
 
-this is shown here to demonstrate  the concept of translations within the codeableConcept datatype. The diastolic code below only has a LOINC code 
+this is shown here to demonstrate  the concept of translations within the codeableConcept datatype. The diastolic code below only has a LOINC code
            -->
 		<code>
 			<!--   LOINC -code   -->

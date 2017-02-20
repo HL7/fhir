@@ -20,14 +20,15 @@
 	<compose>
 		<include>
 			<system value="http://loinc.org"/>
-			<!--  newly assigned code - will replace 8716-3, but not in the code system yet, so will keep 8716-3 and comment out this one for the moment
+
 			<concept>
 				<code value="85353-1"/>
-			</concept> 
--->
+			</concept>
+<!-- replaced by 85353-1 above
 			<concept>
 				<code value="8716-3"/>
 			</concept>
+-->
 			<concept>
 				<code value="9279-1"/>
 			</concept>
@@ -60,16 +61,15 @@
 				<code value="3140-1"/>
 			</concept>
 	-->
+	<!-- LOINC being replaced by one below
 			<concept>
-				<!-- LOINC being replaced by one below -->
+
 				<code value="55284-4"/>
 			</concept>
-			<!--		new LOINC TBD	
+-->
 			<concept>
 				<code value="85354-9"/>
 			</concept>
-			
--->
 			<concept>
 				<code value="8480-6"/>
 			</concept>
