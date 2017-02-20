@@ -1,0 +1,77 @@
+// A Server returns from an imaginary Last N algorithm the last 3 of 9 different vital signs observations on a patient.  e.g. body temperature, body weight, body height... (truncated for readability)
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType": "Bundle",
+  "id": "26419249-18b3-45de-b10e-dca0b2e72b",
+  "meta": {
+    "lastUpdated": "2017-02-18T03:28:49Z"
+  },
+  "type": "searchset",
+  "total": 27,
+  // the patient temperature was being taken several times a day
+  "entry": [{
+    "fullUrl": "http://server/path/Observation/20170219-06temp",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20170219temp",
+      .. snip ...
+  ,{
+   "fullUrl": "http://server/path/Observation/20170219-05temp",
+       "resource": {
+         "resourceType": "Observation",
+         "id": "20170218temp",
+      .. snip ...
+    }
+      ,{
+       "fullUrl": "http://server/path/Observation/20170219-04temp",
+           "resource": {
+             "resourceType": "Observation",
+             "id": "20170217temp",
+          .. snip ...
+    },
+    // the patient was being weighed daily
+    {
+    "fullUrl": "http://server/path/Observation/20170219weight",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20170219weight",
+      .. snip ...
+  ,{
+   "fullUrl": "http://server/path/Observation/20170218weight",
+       "resource": {
+         "resourceType": "Observation",
+         "id": "20170218weight",
+      .. snip ...
+    }
+      ,{
+       "fullUrl": "http://server/path/Observation/20170217weight",
+           "resource": {
+             "resourceType": "Observation",
+             "id": "20170217weight",
+          .. snip ...
+    },
+    // height was recorded occasionally over the years
+        {
+        "fullUrl": "http://server/path/Observation/20170101height",
+        "resource": {
+          "resourceType": "Observation",
+          "id": "20170219height",
+          .. snip ...
+      ,{
+       "fullUrl": "http://server/path/Observation/20160101height",
+           "resource": {
+             "resourceType": "Observation",
+             "id": "20160101height",
+          .. snip ...
+        }
+          ,{
+           "fullUrl": "http://server/path/Observation/20131001height",
+               "resource": {
+                 "resourceType": "Observation",
+                 "id": "20131001height",
+              .. snip ...
+    }
+  ]
+}

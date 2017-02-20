@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-16T21:01:20Z</LastSaved>
+  <LastSaved>2017-02-20T01:30:20Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
@@ -19,6 +19,7 @@
   <WindowTopY>4380</WindowTopY>
   <TabRatio>663</TabRatio>
   <ActiveSheet>4</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -876,15 +877,6 @@
   <Style ss:ID="s168">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s169">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
@@ -6316,9 +6308,10 @@
     <Cell ss:StyleID="s166"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Observation Statistics</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s168"><Data ss:Type="String">The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.&#13;&#13;The set of Observations is defined by 4 parameters: &#13;&#13;- the subject of the observations for which the statistics are being generated (`subject`)&#13;- which observations to generate statistics for (`code` and 'system', or 'coding')&#13;- the time period over which to generate statistics ('duration' or 'period')&#13;- the set of statistical analyses to return (`statistic`). &#13;&#13;Possible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):&#13;&#13;[[[valueset:observation-statistics]]]&#13;&#13;&#13;&#13;If successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.&#13;&#13;&#13;&#13;The client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server's discretion if count &gt; limit. This functionality is included with the intent of supporting graphical presentation</Data><NamedCell
+    <Cell ss:StyleID="s168"><Data ss:Type="String">The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.&#10;&#10;The set of Observations is defined by 4 parameters:&#10;&#10;*  the subject of the observations for which the statistics are being generated (`subject`)&#10;* which observations to generate statistics for (`code` and `system`, or `coding`)&#10;* the time period over which to generate statistics `'duration` or `period`)&#10;* the set of statistical analyses to return (`statistic`)&#10;&#10;Possible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):&#10;&#10;[[[valueset:observation-statistics]]]&#10;&#10;If successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.&#10;&#10;The client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server's discretion if count &gt; limit. This functionality is included with the intent of supporting graphical presentation&#10;&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$stats-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$stats-response.txt</Data></Cell>
    </Row>
@@ -6331,7 +6324,6 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s171"><Data ss:Type="String">The subject of the relevant Observations, which has the value of the Observation.subject.reference. E.g. 'Patient/123'. Reference can be to an absolute URL, but servers only perform stats on their own observations</Data></Cell>
-    <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s155"><Data ss:Type="String">stats.code</Data></Cell>
@@ -6389,7 +6381,7 @@
     <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
-    <Cell ss:StyleID="s155"><Data ss:Type="String">stats.params</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">stats.statistic</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s170"><Data ss:Type="String">*</Data></Cell>
@@ -6440,8 +6432,10 @@
     <Cell ss:StyleID="s156"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Last N Observations Query</Data></Cell>
-    <Cell ss:StyleID="s177"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#10;&#10;The response from an lastn query is a set of observations: &#10;&#10;* filtered by additional parameters&#10;* 'GROUP BY' `Observation.code`&#10;* sorted from most recent to the oldest&#10;* limited to the number of requested responses per group specified by the optional max query parameter&#10;* If no maximum number is given then only the most recent Observation in each group is returned. &#10;&#10;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the the total mathches so you may need to page through several observation &quot;A&quot; before getting to Obwervation &quot;B&quot;.&#10;* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) </Data></Cell>
+    <Cell ss:StyleID="s177"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#10;&#10;The response from an lastn query is a set of observations: &#10;&#10;*  filtered by additional parameters&#10;* 'GROUP BY' `Observation.code`&#10;* sorted from most recent to the oldest&#10;* limited to the number of requested responses per group specified by the optional max query parameter&#10;* If no maximum number is given then only the most recent Observation in each group is returned. &#10;&#10;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the the total mathches so you may need to page through several observation &quot;A&quot; before getting to Obwervation &quot;B&quot;.&#10;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#10;* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging).&#10;&#10;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data></Cell>
+    <Cell><Data ss:Type="String">$lastn-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$lastn-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s155"><Data ss:Type="String">lastn.max</Data></Cell>
@@ -6450,8 +6444,8 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">positiveInt</Data></Cell>
     <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">`max` is  an optional input parameter to the *lastn* query operation.  It is used to specify the maximum number of Observations to return from each group. For example for the query &quot;Fetch the last 3 results for all vitals for a patient&quot; `max` = 3.</Data></Cell>
-    <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
@@ -6461,8 +6455,8 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">The set of most recent N Observations that match the *lastn* query search criteria.</Data></Cell>
-    <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
@@ -6922,9 +6916,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6940,8 +6934,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>20</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8474,8 +8467,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10620,34 +10613,42 @@
     <Cell ss:StyleID="s192"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s191"/>
-    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s191"><Data ss:Type="String">skew</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">19</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Skew</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Skewness is a measure of the asymmetry of the probability distribution of a real-valued random variable about its mean. The skewness value can be positive or negative, or even undefined.  Source: [Wikipedia](https://en.wikipedia.org/wiki/Skewness)</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s191"/>
-    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s191"><Data ss:Type="String">kurtosis</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">20</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Kurtosis</Data></Cell>
+    <Cell ss:StyleID="s199"><ss:Data ss:Type="String"
+      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">Kurtosis </Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#252525"> is a measure of the &quot;tailedness&quot; of the&#160;</Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#0B0080">probability distribution</Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#252525">&#160;of a&#160;</Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#0B0080">real</Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#252525">-valued&#160;</Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#0B0080">random variable</Font><Font
+       html:Face="Arial" x:Family="Swiss" html:Color="#252525">.   Source: [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)</Font></ss:Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s191"/>
-    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s191"><Data ss:Type="String">regression</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">21</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Regression</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Linear regression is an approach for modeling two-dimensional sample points with one independent variable and one dependent variable (conventionally, the x and y coordinates in a Cartesian coordinate system) and finds a linear function (a non-vertical straight line) that, as accurately as possible, predicts the dependent variable values as a function of the independent variables. Source: [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression)  This Statistic code will return both a gradient and an intercept value.</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"/>
@@ -10981,12 +10982,15 @@
    <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
-    <VerticalResolution>0</VerticalResolution>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
    </Print>
+   <TopRowVisible>9</TopRowVisible>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>25</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

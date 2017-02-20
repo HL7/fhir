@@ -284,6 +284,24 @@
   Display = 4th Quintile
   Definition = The fourth of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
 
+ -- Row 19 -----------------------------------
+  Id = 19
+  Code = skew
+  Display = Skew
+  Definition = Skewness is a measure of the asymmetry of the probability distribution of a real-valued random variable about its mean. The skewness value can be positive or negative, or even undefined.  Source: [Wikipedia](https://en.wikipedia.org/wiki/Skewness)
+
+ -- Row 20 -----------------------------------
+  Id = 20
+  Code = kurtosis
+  Display = Kurtosis
+  Definition = Kurtosis  is a measure of the \"tailedness\" of the probability distribution of a real-valued random variable.   Source: [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)
+
+ -- Row 21 -----------------------------------
+  Id = 21
+  Code = regression
+  Display = Regression
+  Definition = Linear regression is an approach for modeling two-dimensional sample points with one independent variable and one dependent variable (conventionally, the x and y coordinates in a Cartesian coordinate system) and finds a linear function (a non-vertical straight line) that, as accurately as possible, predicts the dependent variable values as a function of the independent variables. Source: [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression)  This Statistic code will return both a gradient and an intercept value.
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -1483,11 +1501,12 @@
  -- Row 1 -----------------------------------
   Name = stats
   Use = Resource
-  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.\r\rThe set of Observations is defined by 4 parameters: \r\r- the subject of the observations for which the statistics are being generated (`subject`)\r- which observations to generate statistics for (`code` and \'system\', or \'coding\')\r- the time period over which to generate statistics (\'duration\' or \'period\')\r- the set of statistical analyses to return (`statistic`). \r\rPossible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):\r\r[[[valueset:observation-statistics]]]\r\r\r\rIf successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.\r\r\r\rThe client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server\'s discretion if count > limit. This functionality is included with the intent of supporting graphical presentation
+  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.\n\nThe set of Observations is defined by 4 parameters:\n\n*  the subject of the observations for which the statistics are being generated (`subject`)\n* which observations to generate statistics for (`code` and `system`, or `coding`)\n* the time period over which to generate statistics `\'duration` or `period`)\n* the set of statistical analyses to return (`statistic`)\n\nPossible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):\n\n[[[valueset:observation-statistics]]]\n\nIf successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.\n\nThe client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server\'s discretion if count > limit. This functionality is included with the intent of supporting graphical presentation
   Type = operation
   Example.Request = $stats-request.txt
   Example.Response = $stats-response.txt
   Title = Observation Statistics
+  Footer = This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
 
  -- Row 2 -----------------------------------
   Name = stats.subject
@@ -1538,7 +1557,7 @@
   Max = 1
 
  -- Row 8 -----------------------------------
-  Name = stats.params
+  Name = stats.statistic
   Use = in
   Documentation = average|max|min|count  The statistical operations to be performed on the relevant operations. Multiple statistics operations can be specified. These codes are defined [here](valueset-observation-statistics.html)
   Type = code
@@ -1572,23 +1591,25 @@
  -- Row 12 -----------------------------------
   Name = lastn
   Use = Resource
-  Documentation = The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.\n\nThe response from an lastn query is a set of observations: \n\n* filtered by additional parameters\n* \'GROUP BY\' `Observation.code`\n* sorted from most recent to the oldest\n* limited to the number of requested responses per group specified by the optional max query parameter\n* If no maximum number is given then only the most recent Observation in each group is returned. \n\nThe set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.
+  Documentation = The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.\n\nThe response from an lastn query is a set of observations: \n\n*  filtered by additional parameters\n* \'GROUP BY\' `Observation.code`\n* sorted from most recent to the oldest\n* limited to the number of requested responses per group specified by the optional max query parameter\n* If no maximum number is given then only the most recent Observation in each group is returned. \n\nThe set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.
   Type = operation
+  Example.Request = $lastn-request.txt
+  Example.Response = $lastn-response.txt
   Title = Last N Observations Query
-  Footer = The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:\n\n* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn\'t restrict the the total mathches so you may need to page through several observation \"A\" before getting to Obwervation \"B\".\n* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging)
+  Footer = The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:\n\n* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn\'t restrict the the total mathches so you may need to page through several observation \"A\" before getting to Obwervation \"B\".\n* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.\n* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging).\n\nThis operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
 
  -- Row 13 -----------------------------------
   Name = lastn.max
   Use = in
+  Documentation = `max` is  an optional input parameter to the *lastn* query operation.  It is used to specify the maximum number of Observations to return from each group. For example for the query \"Fetch the last 3 results for all vitals for a patient\" `max` = 3.
   Type = positiveInt
-  Title = `max` is  an optional input parameter to the *lastn* query operation.  It is used to specify the maximum number of Observations to return from each group. For example for the query \"Fetch the last 3 results for all vitals for a patient\" `max` = 3.
   Min = 0
   Max = 1
 
  -- Row 14 -----------------------------------
   Name = lastn.return
   Use = out
+  Documentation = The set of most recent N Observations that match the *lastn* query search criteria.
   Type = Bundle
-  Title = The set of most recent N Observations that match the *lastn* query search criteria.
   Min = 1
   Max = 1
