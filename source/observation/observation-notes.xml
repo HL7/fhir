@@ -151,15 +151,15 @@ One optional parameter to the <em>lastn</em> match operation is <em>max</em>, wh
 <ul>
 <li>Fetch the last 5 temperatures for a patient</li>
 </ul>
-<p><code>GET [base]/Observation$lastn&amp;max=5&amp;patient=[id]&amp;code=8310-5&amp;parameters...</code></p>
+<p><code>GET [base]/Observation$lastn?max=5&amp;patient=[id]&amp;code=8310-5&amp;parameters...</code></p>
 <ul>
 <li>Get the most recent lab results for patient</li>
 </ul>
-<p><code>GET [base]/Observation$lastn&amp;patient=[id]&amp;category=laboratory&amp;parameters...</code></p>
+<p><code>GET [base]/Observation$lastn?patient=[id]&amp;category=laboratory&amp;parameters...</code></p>
 <ul>
 <li>Fetch the last 3 results for all vitals for a patient</li>
 </ul>
-<p><code>GET [base]/Observation$lastn&amp;max=3&amp;patient=[id]&amp;category=vital-signs&amp;parameters...</code>
+<p><code>GET [base]/Observation$lastn?max=3&amp;patient=[id]&amp;category=vital-signs&amp;parameters...</code>
 </p>
 
 <blockquote class="dstu-note">
