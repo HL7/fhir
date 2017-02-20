@@ -81,10 +81,10 @@
   <subject>
     <reference value="#patsub"/>
   </subject>
+  <authored value="2013-02-19T14:15:00-05:00"/>
   <author>
     <reference value="#questauth"/>
   </author>
-  <authored value="2013-02-19T14:15:00-05:00"/>
   <item>
     <!--   COMORBIDITY   -->
     <!--   First main section of the form, questions about comorbidity   -->

@@ -70,7 +70,7 @@
           <target>
             <code value="HMARKT"/>
             <equivalence value="narrower"/>
-            <comments value="Not clear how much difference there is between &#39;marketing&#39; and &#39;healthcare marketing&#39;"/>
+            <comment value="Not clear how much difference there is between &#39;marketing&#39; and &#39;healthcare marketing&#39;"/>
           </target>
         </element>
         <element>
@@ -116,7 +116,7 @@
           <target>
             <code value="HRESCH"/>
             <equivalence value="narrower"/>
-            <comments value="Not clear how much difference there is between &#39;research&#39; and &#39;healthcare research&#39;"/>
+            <comment value="Not clear how much difference there is between &#39;research&#39; and &#39;healthcare research&#39;"/>
           </target>
         </element>
         <element>

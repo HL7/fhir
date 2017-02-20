@@ -997,9 +997,9 @@ public class ConceptMap extends MetadataResource {
         /**
          * A description of status/issues in mapping that conveys additional information not represented in  the structured data.
          */
-        @Child(name = "comments", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "comment", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of status/issues in mapping", formalDefinition="A description of status/issues in mapping that conveys additional information not represented in  the structured data." )
-        protected StringType comments;
+        protected StringType comment;
 
         /**
          * A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.
@@ -1179,50 +1179,50 @@ public class ConceptMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #comments} (A description of status/issues in mapping that conveys additional information not represented in  the structured data.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+         * @return {@link #comment} (A description of status/issues in mapping that conveys additional information not represented in  the structured data.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public StringType getCommentsElement() { 
-          if (this.comments == null)
+        public StringType getCommentElement() { 
+          if (this.comment == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TargetElementComponent.comments");
+              throw new Error("Attempt to auto-create TargetElementComponent.comment");
             else if (Configuration.doAutoCreate())
-              this.comments = new StringType(); // bb
-          return this.comments;
+              this.comment = new StringType(); // bb
+          return this.comment;
         }
 
-        public boolean hasCommentsElement() { 
-          return this.comments != null && !this.comments.isEmpty();
+        public boolean hasCommentElement() { 
+          return this.comment != null && !this.comment.isEmpty();
         }
 
-        public boolean hasComments() { 
-          return this.comments != null && !this.comments.isEmpty();
+        public boolean hasComment() { 
+          return this.comment != null && !this.comment.isEmpty();
         }
 
         /**
-         * @param value {@link #comments} (A description of status/issues in mapping that conveys additional information not represented in  the structured data.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
+         * @param value {@link #comment} (A description of status/issues in mapping that conveys additional information not represented in  the structured data.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public TargetElementComponent setCommentsElement(StringType value) { 
-          this.comments = value;
+        public TargetElementComponent setCommentElement(StringType value) { 
+          this.comment = value;
           return this;
         }
 
         /**
          * @return A description of status/issues in mapping that conveys additional information not represented in  the structured data.
          */
-        public String getComments() { 
-          return this.comments == null ? null : this.comments.getValue();
+        public String getComment() { 
+          return this.comment == null ? null : this.comment.getValue();
         }
 
         /**
          * @param value A description of status/issues in mapping that conveys additional information not represented in  the structured data.
          */
-        public TargetElementComponent setComments(String value) { 
+        public TargetElementComponent setComment(String value) { 
           if (Utilities.noString(value))
-            this.comments = null;
+            this.comment = null;
           else {
-            if (this.comments == null)
-              this.comments = new StringType();
-            this.comments.setValue(value);
+            if (this.comment == null)
+              this.comment = new StringType();
+            this.comment.setValue(value);
           }
           return this;
         }
@@ -1387,7 +1387,7 @@ public class ConceptMap extends MetadataResource {
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item that the map refers to.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("display", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, java.lang.Integer.MAX_VALUE, display));
           childrenList.add(new Property("equivalence", "code", "The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).", 0, java.lang.Integer.MAX_VALUE, equivalence));
-          childrenList.add(new Property("comments", "string", "A description of status/issues in mapping that conveys additional information not represented in  the structured data.", 0, java.lang.Integer.MAX_VALUE, comments));
+          childrenList.add(new Property("comment", "string", "A description of status/issues in mapping that conveys additional information not represented in  the structured data.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("dependsOn", "", "A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.", 0, java.lang.Integer.MAX_VALUE, dependsOn));
           childrenList.add(new Property("dependsOndisplay", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, java.lang.Integer.MAX_VALUE, dependsOndisplay));
           childrenList.add(new Property("product", "@ConceptMap.group.element.target.dependsOn", "A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, product));
@@ -1399,7 +1399,7 @@ public class ConceptMap extends MetadataResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
         case -15828692: /*equivalence*/ return this.equivalence == null ? new Base[0] : new Base[] {this.equivalence}; // Enumeration<ConceptMapEquivalence>
-        case -602415628: /*comments*/ return this.comments == null ? new Base[0] : new Base[] {this.comments}; // StringType
+        case -602415628: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         case -1109214266: /*dependsOn*/ return this.dependsOn == null ? new Base[0] : this.dependsOn.toArray(new Base[this.dependsOn.size()]); // OtherElementComponent
         case 2004005436: /*dependsOndisplay*/ return this.dependsOndisplay == null ? new Base[0] : new Base[] {this.dependsOndisplay}; // StringType
         case -309474065: /*product*/ return this.product == null ? new Base[0] : this.product.toArray(new Base[this.product.size()]); // OtherElementComponent
@@ -1421,8 +1421,8 @@ public class ConceptMap extends MetadataResource {
           value = new ConceptMapEquivalenceEnumFactory().fromType(castToCode(value));
           this.equivalence = (Enumeration) value; // Enumeration<ConceptMapEquivalence>
           return value;
-        case -602415628: // comments
-          this.comments = castToString(value); // StringType
+        case -602415628: // comment
+          this.comment = castToString(value); // StringType
           return value;
         case -1109214266: // dependsOn
           this.getDependsOn().add((OtherElementComponent) value); // OtherElementComponent
@@ -1447,8 +1447,8 @@ public class ConceptMap extends MetadataResource {
         } else if (name.equals("equivalence")) {
           value = new ConceptMapEquivalenceEnumFactory().fromType(castToCode(value));
           this.equivalence = (Enumeration) value; // Enumeration<ConceptMapEquivalence>
-        } else if (name.equals("comments")) {
-          this.comments = castToString(value); // StringType
+        } else if (name.equals("comment")) {
+          this.comment = castToString(value); // StringType
         } else if (name.equals("dependsOn")) {
           this.getDependsOn().add((OtherElementComponent) value);
         } else if (name.equals("dependsOndisplay")) {
@@ -1466,7 +1466,7 @@ public class ConceptMap extends MetadataResource {
         case 3059181:  return getCodeElement();
         case 1671764162:  return getDisplayElement();
         case -15828692:  return getEquivalenceElement();
-        case -602415628:  return getCommentsElement();
+        case -602415628:  return getCommentElement();
         case -1109214266:  return addDependsOn(); 
         case 2004005436:  return getDependsOndisplayElement();
         case -309474065:  return addProduct(); 
@@ -1481,7 +1481,7 @@ public class ConceptMap extends MetadataResource {
         case 3059181: /*code*/ return new String[] {"code"};
         case 1671764162: /*display*/ return new String[] {"string"};
         case -15828692: /*equivalence*/ return new String[] {"code"};
-        case -602415628: /*comments*/ return new String[] {"string"};
+        case -602415628: /*comment*/ return new String[] {"string"};
         case -1109214266: /*dependsOn*/ return new String[] {};
         case 2004005436: /*dependsOndisplay*/ return new String[] {"string"};
         case -309474065: /*product*/ return new String[] {"@ConceptMap.group.element.target.dependsOn"};
@@ -1501,8 +1501,8 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("equivalence")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.equivalence");
         }
-        else if (name.equals("comments")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.comments");
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.comment");
         }
         else if (name.equals("dependsOn")) {
           return addDependsOn();
@@ -1523,7 +1523,7 @@ public class ConceptMap extends MetadataResource {
         dst.code = code == null ? null : code.copy();
         dst.display = display == null ? null : display.copy();
         dst.equivalence = equivalence == null ? null : equivalence.copy();
-        dst.comments = comments == null ? null : comments.copy();
+        dst.comment = comment == null ? null : comment.copy();
         if (dependsOn != null) {
           dst.dependsOn = new ArrayList<OtherElementComponent>();
           for (OtherElementComponent i : dependsOn)
@@ -1546,7 +1546,7 @@ public class ConceptMap extends MetadataResource {
           return false;
         TargetElementComponent o = (TargetElementComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(equivalence, o.equivalence, true)
-           && compareDeep(comments, o.comments, true) && compareDeep(dependsOn, o.dependsOn, true) && compareDeep(dependsOndisplay, o.dependsOndisplay, true)
+           && compareDeep(comment, o.comment, true) && compareDeep(dependsOn, o.dependsOn, true) && compareDeep(dependsOndisplay, o.dependsOndisplay, true)
            && compareDeep(product, o.product, true);
       }
 
@@ -1558,13 +1558,13 @@ public class ConceptMap extends MetadataResource {
           return false;
         TargetElementComponent o = (TargetElementComponent) other;
         return compareValues(code, o.code, true) && compareValues(display, o.display, true) && compareValues(equivalence, o.equivalence, true)
-           && compareValues(comments, o.comments, true) && compareValues(dependsOndisplay, o.dependsOndisplay, true)
+           && compareValues(comment, o.comment, true) && compareValues(dependsOndisplay, o.dependsOndisplay, true)
           ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, equivalence
-          , comments, dependsOn, dependsOndisplay, product);
+          , comment, dependsOn, dependsOndisplay, product);
       }
 
   public String fhirType() {

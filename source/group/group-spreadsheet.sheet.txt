@@ -78,7 +78,6 @@
   Short Name = Group of multiple entities
   Definition = Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn\'t an Organization.
   RIM Mapping = Entity[determinerCode=\"GRP\" or determinerCode=\"GRP_KIND\"]
-  To Do = We need determiner codes that indicate we\'re talking about a group even when we haven\'t specified a specific quantity
   w5 = administrative.group
 
  -- Row 2 -----------------------------------
@@ -93,6 +92,18 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Group.active
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Name = Whether this group\'s record is in active use
+  Definition = Indicates whether the record for the group is available for use or is merely being retained for historical purposes
+  Requirements = Need to be able to mark a group record as not to be used because it was created in error or is otherwise no longer available (e.g. a herd that no longer exists)
+  RIM Mapping = ./statusCode
+  Default Value = True
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = Group.type
   Card. = 1..1
   Summary = y
@@ -106,7 +117,7 @@
   Committee Notes = Do we need \"mixed\" groups?
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Group.actual
   Card. = 1..1
   Summary = y
@@ -117,18 +128,6 @@
   Requirements = There are use-cases for groups that define specific collections of individuals, and other groups that define \"types\" of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this flag.
   RIM Mapping = true: ./determinerCode=\"GRP\"  false: ./determinerCode=\"GRP_KIND\"
   w5 = class
-
- -- Row 5 -----------------------------------
-  Element = Group.active
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Name = Whether this group\'s record is in active use
-  Definition = Indicates whether the record for the group is available for use or is merely being retained for historical purposes
-  Requirements = Need to be able to mark a group record as not to be used because it was created in error or is otherwise no longer available (e.g. a herd that no longer exists)
-  RIM Mapping = ./statusCode
-  Default Value = True
-  w5 = status
 
  -- Row 6 -----------------------------------
   Element = Group.code

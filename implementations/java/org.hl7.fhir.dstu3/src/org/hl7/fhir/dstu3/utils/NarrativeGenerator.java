@@ -2028,7 +2028,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     for (ConceptMapGroupComponent grp : cm.getGroup()) {
       String src = grp.getSource();
-      boolean comments = false;
+      boolean comment = false;
       boolean ok = true;
     Map<String, HashSet<String>> sources = new HashMap<String, HashSet<String>>();
     Map<String, HashSet<String>> targets = new HashMap<String, HashSet<String>>();
@@ -2041,7 +2041,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       for (SourceElementComponent ccl : grp.getElement()) {
         ok = ok && ccl.getTarget().size() == 1 && ccl.getTarget().get(0).getDependsOn().isEmpty() && ccl.getTarget().get(0).getProduct().isEmpty();
       	for (TargetElementComponent ccm : ccl.getTarget()) {
-      		comments = comments || !Utilities.noString(ccm.getComments());
+      		comment = comment || !Utilities.noString(ccm.getComment());
       		for (OtherElementComponent d : ccm.getDependsOn()) {
             if (!sources.containsKey(d.getProperty()))
               sources.put(d.getProperty(), new HashSet<String>());
@@ -2064,8 +2064,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         tr.td().b().tx("Source Code");
         tr.td().b().tx("Equivalence");
         tr.td().b().tx("Destination Code");
-        if (comments)
-          tr.td().b().tx("Comments");
+        if (comment)
+          tr.td().b().tx("Comment");
         for (SourceElementComponent ccl : grp.getElement()) {
           tr = tbl.tr();
           XhtmlNode td = tr.td();
@@ -2080,8 +2080,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
           display = getDisplayForConcept(grp.getTarget(), ccm.getCode());
           if (display != null)
             td.tx(" ("+display+")");
-          if (comments)
-            tr.td().addText(ccm.getComments());
+          if (comment)
+            tr.td().addText(ccm.getComment());
         }
       } else {
         XhtmlNode tbl = x.table( "grid");
@@ -2090,8 +2090,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         tr.td().colspan(Integer.toString(sources.size())).b().tx("Source Concept");
         tr.td().b().tx("Equivalence");
         tr.td().colspan(Integer.toString(targets.size())).b().tx("Destination Concept");
-        if (comments)
-          tr.td().b().tx("Comments");
+        if (comment)
+          tr.td().b().tx("Comment");
         tr = tbl.tr();
         if (sources.get("code").size() == 1)
           tr.td().b().tx("Code "+sources.get("code").toString()+"");
@@ -2118,7 +2118,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
               tr.td().b().addText(getDescForConcept(s));
           }
         }
-        if (comments)
+        if (comment)
           tr.td();
 
         for (SourceElementComponent ccl : grp.getElement()) {
@@ -2164,8 +2164,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
                 td.tx(" ("+display+")");
             }
           }
-          if (comments)
-            tr.td().addText(ccm.getComments());
+          if (comment)
+            tr.td().addText(ccm.getComment());
         }
       }
     }
@@ -2959,8 +2959,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         span.addText(getCharForEquivalence(mapping.comp));
         XhtmlNode a = td.ah(prefix+mymaps.get(m)+"#"+mapping.comp.getCode());
         a.addText(mapping.comp.getCode());
-        if (!Utilities.noString(mapping.comp.getComments()))
-          td.i().tx("("+mapping.comp.getComments()+")");
+        if (!Utilities.noString(mapping.comp.getComment()))
+          td.i().tx("("+mapping.comp.getComment()+")");
       }
     }
     for (Extension ext : c.getExtension()) {
@@ -3048,8 +3048,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
         span.addText(getCharForEquivalence(mapping.comp));
       	a = td.ah(prefix+maps.get(m)+"#"+makeAnchor(mapping.group.getTarget(), mapping.comp.getCode()));
         a.addText(mapping.comp.getCode());
-        if (!Utilities.noString(mapping.comp.getComments()))
-          td.i().tx("("+mapping.comp.getComments()+")");
+        if (!Utilities.noString(mapping.comp.getComment()))
+          td.i().tx("("+mapping.comp.getComment()+")");
       }
     }
     for (CodeType e : ToolingExtensions.getSubsumes(c)) {

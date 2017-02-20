@@ -7,10 +7,10 @@
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
+  <authored value="2013-06-18T00:00:00+01:00"/>
   <author>
     <reference value="Practitioner/f201"/>
   </author>
-  <authored value="2013-06-18T00:00:00+01:00"/>
   <source>
     <reference value="Practitioner/f201"/>
   </source>

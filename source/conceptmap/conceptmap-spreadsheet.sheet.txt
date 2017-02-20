@@ -34,8 +34,8 @@
   Id = 1
   Context = ConceptMap.group.element.target
   English = If the map is narrower or inexact, there SHALL be some comments
-  XPath = exists(f:comments) or not(exists(f:equivalence)) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
-  Expression = comments.exists() or equivalence.empty() or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
+  XPath = exists(f:comment) or not(exists(f:equivalence)) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
+  Expression = comment.exists() or equivalence.empty() or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -232,7 +232,7 @@
   Default Value = equivalent
 
  -- Row 31 -----------------------------------
-  Element = ConceptMap.group.element.target.comments
+  Element = ConceptMap.group.element.target.comment
   Card. = 0..1
   Inv. = 1
   Type = string

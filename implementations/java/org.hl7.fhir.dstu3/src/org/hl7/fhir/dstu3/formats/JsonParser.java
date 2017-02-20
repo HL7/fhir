@@ -5927,10 +5927,10 @@ public class JsonParser extends JsonParserBase {
       res.setEquivalenceElement(parseEnumeration(json.get("equivalence").getAsString(), Enumerations.ConceptMapEquivalence.NULL, new Enumerations.ConceptMapEquivalenceEnumFactory()));
     if (json.has("_equivalence"))
       parseElementProperties(json.getAsJsonObject("_equivalence"), res.getEquivalenceElement());
-    if (json.has("comments"))
-      res.setCommentsElement(parseString(json.get("comments").getAsString()));
-    if (json.has("_comments"))
-      parseElementProperties(json.getAsJsonObject("_comments"), res.getCommentsElement());
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
     if (json.has("dependsOn")) {
       JsonArray array = json.getAsJsonArray("dependsOn");
       for (int i = 0; i < array.size(); i++) {
@@ -26728,9 +26728,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("equivalence", element.getEquivalenceElement(), new Enumerations.ConceptMapEquivalenceEnumFactory(), false);
         composeEnumerationExtras("equivalence", element.getEquivalenceElement(), new Enumerations.ConceptMapEquivalenceEnumFactory(), false);
       }
-      if (element.hasCommentsElement()) {
-        composeStringCore("comments", element.getCommentsElement(), false);
-        composeStringExtras("comments", element.getCommentsElement(), false);
+      if (element.hasCommentElement()) {
+        composeStringCore("comment", element.getCommentElement(), false);
+        composeStringExtras("comment", element.getCommentElement(), false);
       }
       if (element.hasDependsOn()) {
         openArray("dependsOn");

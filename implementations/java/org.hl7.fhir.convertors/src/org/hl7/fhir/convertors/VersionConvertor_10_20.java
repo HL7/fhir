@@ -3848,7 +3848,7 @@ public class VersionConvertor_10_20 {
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
     tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
-    tgt.setComments(src.getComments());
+    tgt.setComment(src.getComments());
     for (org.hl7.fhir.dstu2.model.ConceptMap.OtherElementComponent t : src.getDependsOn())
       tgt.addDependsOn(convertOtherElementComponent(t));
     for (org.hl7.fhir.dstu2.model.ConceptMap.OtherElementComponent t : src.getProduct())
@@ -3864,7 +3864,7 @@ public class VersionConvertor_10_20 {
     tgt.setCodeSystem(g.getTarget());
     tgt.setCode(src.getCode());
     tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
-    tgt.setComments(src.getComments());
+    tgt.setComments(src.getComment());
     for (org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent t : src.getDependsOn())
       tgt.addDependsOn(convertOtherElementComponent(t));
     for (org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent t : src.getProduct())

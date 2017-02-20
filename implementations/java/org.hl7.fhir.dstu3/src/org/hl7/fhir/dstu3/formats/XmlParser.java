@@ -5386,8 +5386,8 @@ public class XmlParser extends XmlParserBase {
         res.setDisplayElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("equivalence")) {
         res.setEquivalenceElement(parseEnumeration(xpp, Enumerations.ConceptMapEquivalence.NULL, new Enumerations.ConceptMapEquivalenceEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comments")) {
-        res.setCommentsElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comment")) {
+        res.setCommentElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dependsOn")) {
         res.getDependsOn().add(parseConceptMapOtherElementComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dependsOndisplay")) {
@@ -24018,8 +24018,8 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasEquivalenceElement())
         composeEnumeration("equivalence", element.getEquivalenceElement(), new Enumerations.ConceptMapEquivalenceEnumFactory());
-      if (element.hasCommentsElement()) {
-        composeString("comments", element.getCommentsElement());
+      if (element.hasCommentElement()) {
+        composeString("comment", element.getCommentElement());
       }
       if (element.hasDependsOn()) { 
         for (ConceptMap.OtherElementComponent e : element.getDependsOn()) 

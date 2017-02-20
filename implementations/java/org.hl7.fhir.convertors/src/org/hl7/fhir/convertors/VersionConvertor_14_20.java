@@ -3085,7 +3085,7 @@ public class VersionConvertor_14_20 {
       tgt.setCode(src.getCode());
     tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
     if (src.hasComments())
-      tgt.setComments(src.getComments());
+      tgt.setComment(src.getComments());
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.OtherElementComponent t : src.getDependsOn())
       tgt.addDependsOn(convertOtherElementComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ConceptMap.OtherElementComponent t : src.getProduct())
@@ -3103,8 +3103,8 @@ public class VersionConvertor_14_20 {
     if (src.hasCode())
       tgt.setCode(src.getCode());
     tgt.setEquivalence(convertConceptMapEquivalence(src.getEquivalence()));
-    if (src.hasComments())
-      tgt.setComments(src.getComments());
+    if (src.hasComment())
+      tgt.setComments(src.getComment());
     for (org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent t : src.getDependsOn())
       tgt.addDependsOn(convertOtherElementComponent(t));
     for (org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent t : src.getProduct())

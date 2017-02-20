@@ -30,6 +30,13 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Linkage
+  English = Must have at least two items
+  XPath = count(f:item)>1
+  Expression = item.count()>1
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -41,6 +48,17 @@
   w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
+  Element = Linkage.active
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether this linkage assertion is active or not
+  Definition = Indicates whether the asserted set of linkages are considered to be \"in effect\"
+  Requirements = Need to be able to mark a linkage record as not to be used because it was created in error.
+  Comments = If false, any asserted linkages should not be considered current/relevant/applicable
+  Default Value = true
+  w5 = status
+
+ -- Row 3 -----------------------------------
   Element = Linkage.author
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
@@ -49,14 +67,14 @@
   Requirements = \"Primary\" for the same set of linked resources may be different from different user\'s/organization\'s perspectives
   w5 = who.author
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Linkage.item
   Card. = 1..*
+  Inv. = 1
   Short Name = Item to be linked
   Definition = Identifies one of the records that is considered to refer to the same real-world occurrence as well as how the items hould be evaluated within the collection of linked items.
-  To Do = Make this 2..*
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Linkage.item.type
   Card. = 1..1
   Type = code
@@ -64,7 +82,7 @@
   Short Name = source | alternate | historical
   Definition = Distinguishes which item is \"source of truth\" (if any) and which items are no longer considered to be current representations
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Linkage.item.resource
   Card. = 1..1
   Type = Reference

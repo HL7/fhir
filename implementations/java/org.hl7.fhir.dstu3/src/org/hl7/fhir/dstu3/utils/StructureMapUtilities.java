@@ -683,7 +683,7 @@ public class StructureMapUtilities {
 				  tgt.setCode(lexer.processConstant(tgt.getCode()));
 			}
 			if (lexer.hasComment())
-				tgt.setComments(lexer.take().substring(2).trim());
+				tgt.setComment(lexer.take().substring(2).trim());
 		}
 		lexer.token("}");
 	}

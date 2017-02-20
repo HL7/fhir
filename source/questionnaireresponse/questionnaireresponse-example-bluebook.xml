@@ -16,10 +16,10 @@
   <subject>
     <reference value="http://hl7.org/fhir/Patient/1"/>
   </subject>
+  <authored value="2013-02-19T14:15:00+10:00"/>
   <author>
     <reference value="http://hl7.org/fhir/Practitioner/example"/>
   </author>
-  <authored value="2013-02-19T14:15:00+10:00"/>
     <!-- Many groups left out of this example -->
   <item>
     <linkId value="birthDetails"/>

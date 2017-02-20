@@ -54,14 +54,14 @@
             <target>
                 <code value="S52.209A"/>
                 <equivalence value="narrower"/>
-                <comments value="The target mapping to ICD-10-CM is narrower, since additional patient data on the encounter (initial vs. subsequent) and fracture type is required for a valid ICD-10-CM mapping."/>
+                <comment value="The target mapping to ICD-10-CM is narrower, since additional patient data on the encounter (initial vs. subsequent) and fracture type is required for a valid ICD-10-CM mapping."/>
             </target>
         </element>
         <element>
             <target>
                 <code value="S52.209D"/>
                 <equivalence value="narrower"/>
-                <comments value="The target mapping to ICD-10-CM is narrower, since additional patient data on the encounter (initial vs. subsequent), fracture type and healing (for subsequent encounter) is required for a valid ICD-10-CM mapping."/>
+                <comment value="The target mapping to ICD-10-CM is narrower, since additional patient data on the encounter (initial vs. subsequent), fracture type and healing (for subsequent encounter) is required for a valid ICD-10-CM mapping."/>
             </target>
         </element>
     </group>

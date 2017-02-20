@@ -3923,8 +3923,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ConceptMap", "display", element.getDisplayElement(), -1);
     if (element.hasEquivalenceElement())
       composeEnum(t, "ConceptMap", "equivalence", element.getEquivalenceElement(), -1);
-    if (element.hasCommentsElement())
-      composeString(t, "ConceptMap", "comments", element.getCommentsElement(), -1);
+    if (element.hasCommentElement())
+      composeString(t, "ConceptMap", "comment", element.getCommentElement(), -1);
     for (int i = 0; i < element.getDependsOn().size(); i++)
       composeConceptMapOtherElementComponent(t, "ConceptMap", "dependsOn", element.getDependsOn().get(i), i);
     if (element.hasDependsOndisplayElement())

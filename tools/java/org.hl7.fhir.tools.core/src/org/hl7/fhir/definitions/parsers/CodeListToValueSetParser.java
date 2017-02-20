@@ -228,7 +228,7 @@ public class CodeListToValueSetParser {
       SourceElementComponent src = getSource(grp, code);
       TargetElementComponent tgt = src.addTarget();
       tgt.setCode(cd.trim());
-      tgt.setComments(comm);
+      tgt.setComment(comm);
 
       if (rel.equals("="))
         tgt.setEquivalence(ConceptMapEquivalence.EQUAL);
@@ -238,8 +238,8 @@ public class CodeListToValueSetParser {
         tgt.setEquivalence(ConceptMapEquivalence.WIDER);
       else if (rel.equals("<")) {
         tgt.setEquivalence(ConceptMapEquivalence.NARROWER);
-        if (!tgt.hasComments())
-          throw new Exception("Missing comments for narrower match on "+cm.getName()+"/"+code);
+        if (!tgt.hasComment())
+          throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
         throw new Exception("Unable to understand relationship character "+rel);
     }    
@@ -324,7 +324,7 @@ public class CodeListToValueSetParser {
       SourceElementComponent src = getSource(grp, code);
       TargetElementComponent tgt = src.addTarget();
       tgt.setCode(cd.trim());
-      tgt.setComments(comm);
+      tgt.setComment(comm);
 
       if (rel == null || rel.equals("="))
         tgt.setEquivalence(ConceptMapEquivalence.EQUAL);
@@ -334,8 +334,8 @@ public class CodeListToValueSetParser {
         tgt.setEquivalence(ConceptMapEquivalence.WIDER);
       else if (rel.equals(">")) {
         tgt.setEquivalence(ConceptMapEquivalence.NARROWER);
-        if (!tgt.hasComments())
-          throw new Exception("Missing comments for narrower match on "+cm.getName()+"/"+code);
+        if (!tgt.hasComment())
+          throw new Exception("Missing comment for narrower match on "+cm.getName()+"/"+code);
       } else
         throw new Exception("Unable to understand relationship character "+rel);
     }    

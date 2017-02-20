@@ -343,15 +343,15 @@
   Element = StructureMap.experimental
 
  -- Row 9 -----------------------------------
-  Element = StructureMap.publisher
+  Element = StructureMap.date
 
  -- Row 10 -----------------------------------
+  Element = StructureMap.publisher
+
+ -- Row 11 -----------------------------------
   Element = StructureMap.contact
   UML = left
   Committee Notes = 400;0
-
- -- Row 11 -----------------------------------
-  Element = StructureMap.date
 
  -- Row 12 -----------------------------------
   Element = StructureMap.description

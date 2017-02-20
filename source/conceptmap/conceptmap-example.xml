@@ -78,7 +78,7 @@
                 <code value="BAD"/>
                 <display value="bad address"/>
                 <equivalence value="disjoint"/>
-                <comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>
+                <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
             </target>
         </element>
         <!-- for all other codes, we map to 'temp'. This is a silly thing to do in reality, but it serves the purpose here -->
