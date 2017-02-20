@@ -6245,7 +6245,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="56" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="57" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="14.4375">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="131.25"/>
@@ -6403,6 +6403,17 @@
     <Cell ss:StyleID="s172"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
+    <Cell ss:StyleID="s155"><Data ss:Type="String">stats.limit</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">positiveInt</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s171"><Data ss:Type="String">If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the the include paramter is absent or equal to &quot;false&quot; the limit parameter SHALL be ignored by the server</Data></Cell>
+    <Cell ss:StyleID="s172"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.0625">
     <Cell ss:StyleID="s174"><Data ss:Type="String">stats.return</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s175"><Data ss:Type="Number">1</Data></Cell>
@@ -6433,7 +6444,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Last N Observations Query</Data></Cell>
     <Cell ss:StyleID="s177"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#10;&#10;The response from an lastn query is a set of observations: &#10;&#10;*  filtered by additional parameters&#10;* 'GROUP BY' `Observation.code`&#10;* sorted from most recent to the oldest&#10;* limited to the number of requested responses per group specified by the optional max query parameter&#10;* If no maximum number is given then only the most recent Observation in each group is returned. &#10;&#10;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the the total mathches so you may need to page through several observation &quot;A&quot; before getting to Obwervation &quot;B&quot;.&#10;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#10;* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging).&#10;&#10;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the the total mathches so you may need to page through several &quot;A&quot; Observations  before getting to Observation &quot;B&quot;.&#10;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#10;* Unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging).&#10;&#10;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-response.txt</Data></Cell>
    </Row>
@@ -6916,7 +6927,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6934,7 +6945,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
