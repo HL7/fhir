@@ -937,7 +937,7 @@
   Max = 1
 
  -- Row 13 -----------------------------------
-  Name = match.userid
+  Name = !match.userid (use SMART auth headers!)
   Use = in
   Documentation = This optional parameter is used to pass the user details from a trusted client to the MPI. This may be used by the MPI to restrict the possible matches that are returned, based on the user\'s rights. For example, a staff member covered by policies, etc., may well get a different result than a patient trying to find their own record. Note that this parameter is used where the user would not be expected to log in to the MPI directly; whether this is appropriate or not is a deployment choice.
   Type = string
@@ -957,7 +957,7 @@
  -- Row 15 -----------------------------------
   Name = match.return
   Use = out
-  Documentation = A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)
+  Documentation = A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)\n\nIf the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)
   Type = Bundle
   Title = The set of possible matches found by the MPI
   Min = 1
