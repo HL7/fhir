@@ -8,6 +8,7 @@
 	<experimental value="true"/>
 	<description value="This value set includes coded concepts not well covered in any of the included valuesets."/>
 	<caseSensitive value="true"/>
+	<content value="complete"/>
 
 	<concept> 
 		<code value="aggregate"/>

@@ -298,7 +298,6 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
         case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
         }
-
       }
 
       @Override
