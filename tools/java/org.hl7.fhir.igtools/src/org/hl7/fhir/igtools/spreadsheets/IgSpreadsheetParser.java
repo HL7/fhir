@@ -1215,7 +1215,27 @@ public class IgSpreadsheetParser {
     // things that go on Extension.value
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
       ElementDefinition exv = new ElementDefinition();
-      exv.setPath(exe.getPath()+".value[x]");
+      TypeParser tp = new TypeParser();
+      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, metadata("extension.uri"), context, false);
+      exv.getType().addAll(tp.convert(context, exv.getPath(), types, false, exv));
+      if (exv.getType().size()>1) {
+        exv.setPath(exe.getPath()+".valueReference");
+        for (TypeRefComponent t : exv.getType()) {
+          if (!t.getCode().equals("Reference")) {
+            exv.setPath(exe.getPath()+".value[x]");
+            break;
+          }
+        }
+      } else {
+        TypeRefComponent type = exv.getType().get(0);
+/*        if (type.getCode().equals("*") || type.get.getParams().size()>1)
+          exv.setName("value[x]");
+        else {*/
+          String name = type.getCode();
+          exv.setPath(exe.getPath()+".value" + name.substring(0,1).toUpperCase() + name.substring(1));
+//        }
+      }
+      
       sd.getDifferential().getElement().add(exv);
       String bindingName = sheet.getColumn(row, "Binding");
       if (!Utilities.noString(bindingName)) {
@@ -1228,9 +1248,6 @@ public class IgSpreadsheetParser {
       s = sheet.getColumn(row, "Max Length");
       if (!Utilities.noString(s))
         exv.setMaxLength(Integer.parseInt(s));
-      TypeParser tp = new TypeParser();
-      List<TypeRef> types = tp.parse(sheet.getColumn(row, "Type"), true, metadata("extension.uri"), context, false);
-      exv.getType().addAll(tp.convert(context, exv.getPath(), types, false, exv));
       if (!Utilities.noString(sheet.getColumn(row, "Example"))) 
         exv.addExample().setLabel("General").setValue(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
