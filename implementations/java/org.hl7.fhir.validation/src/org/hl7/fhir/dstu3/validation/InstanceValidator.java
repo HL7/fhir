@@ -228,8 +228,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String effectiveProfile = profile;
       String version = null;
       if (profile.contains("|")) {
-        effectiveProfile = profile.substring(0, profile.indexOf('|') - 1);
-        version = profile.substring(profile.indexOf('|'));
+        effectiveProfile = profile.substring(0, profile.indexOf('|'));
+        version = profile.substring(profile.indexOf('|')+1);
       }
       StructureDefinition sd = context.fetchResource(StructureDefinition.class, effectiveProfile);
       if (warningOrError(error, errors, IssueType.INVALID, element.line(), element.col(), path, sd != null, "StructureDefinition reference \"{0}\" could not be resolved", profile)) {
