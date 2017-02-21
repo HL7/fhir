@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13410</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8955</WindowHeight>
+  <WindowWidth>19290</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -1628,7 +1628,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">not-present | examplar | fragment | complete</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">not-present | example | fragment | complete</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">How much of the content of the code system - the concepts and codes it defines - are represented in this resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4514,7 +4514,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4531,9 +4531,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>22</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R10</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4981,7 +4980,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5046,7 +5045,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">A language in which a designation is provided</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">content</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">content-mode</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">CodeSystem.content</Data></Cell>
@@ -5178,7 +5177,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7209,7 +7208,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7875,9 +7874,9 @@
     <Cell><Data ss:Type="String">None of the concepts defined by the code system are included in the code system resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">examplar</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Examplar</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Example</Data></Cell>
     <Cell><Data ss:Type="String">A few representative concepts are included in the code system resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7903,7 +7902,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1</RangeSelection>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

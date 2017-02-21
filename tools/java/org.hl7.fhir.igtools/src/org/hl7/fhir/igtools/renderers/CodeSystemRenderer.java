@@ -73,14 +73,14 @@ public class CodeSystemRenderer extends BaseRenderer {
     switch (content) {
     case COMPLETE: return translate("cs.summary", "All the concepts defined by the code system are included in the code system resource");
     case NOTPRESENT: return translate("cs.summary", "None of the concepts defined by the code system are included in the code system resource");
-    case EXAMPLAR: return translate("cs.summary", "A few representative concepts are included in the code system resource");
+    case EXAMPLE: return translate("cs.summary", "A few representative concepts are included in the code system resource");
     case FRAGMENT: return translate("cs.summary", "A subset of the code system concepts are included in the code system resource");
     }
     return "?? illegal status";
   }
 
   public String content() throws EOperationOutcome, FHIRException, IOException, org.hl7.fhir.exceptions.FHIRException  {
-//    if (cs.hasText() && cs.getText().hasDiv()) 
+//    if (cs.hasText() && cs.getText().hasDiv())
 //      return new XhtmlComposer().compose(cs.getText().getDiv());
 //    else {
       CodeSystem csc = cs.copy();
@@ -100,13 +100,13 @@ public class CodeSystemRenderer extends BaseRenderer {
         vsurls.add(sd.getUrl());
     }
     Collections.sort(vsurls);
-    
+
     Set<String> processed = new HashSet<String>();
     for (String url : vsurls) {
       ValueSet vc = context.fetchResource(ValueSet.class, url);
-      for (ConceptSetComponent ed : vc.getCompose().getInclude()) 
+      for (ConceptSetComponent ed : vc.getCompose().getInclude())
         first = addLink(b, first, vc, ed, processed);
-      for (ConceptSetComponent ed : vc.getCompose().getExclude()) 
+      for (ConceptSetComponent ed : vc.getCompose().getExclude())
         first = addLink(b, first, vc, ed, processed);
     }
     if (first)

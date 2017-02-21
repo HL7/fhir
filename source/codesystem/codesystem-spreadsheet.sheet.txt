@@ -84,8 +84,8 @@
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = examplar
-  Display = Examplar
+  Code = example
+  Display = Example
   Definition = A few representative concepts are included in the code system resource
 
  -- Row 3 -----------------------------------
@@ -251,7 +251,7 @@
   Summary = y
   Type = code
   Binding = CodeSystemContentMode
-  Short Name = not-present | examplar | fragment | complete
+  Short Name = not-present | example | fragment | complete
   Definition = How much of the content of the code system - the concepts and codes it defines - are represented in this resource
 
  -- Row 23 -----------------------------------
@@ -463,7 +463,7 @@
   Path = CodeSystem.concept.designation.language
 
  -- Row 4 -----------------------------------
-  Name = content
+  Name = content-mode
   Type = token
   Path = CodeSystem.content
 

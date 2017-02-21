@@ -2416,7 +2416,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode p = x.para();
     if (cs.getContent() == CodeSystemContentMode.COMPLETE)
       p.tx("This code system "+cs.getUrl()+" defines the following codes:");
-    else if (cs.getContent() == CodeSystemContentMode.EXAMPLAR)
+    else if (cs.getContent() == CodeSystemContentMode.EXAMPLE)
         p.tx("This code system "+cs.getUrl()+" defines many codes, of which the following are some examples:");
     else if (cs.getContent() == CodeSystemContentMode.FRAGMENT )
       p.tx("This code system "+cs.getUrl()+" defines many codes, of which the following are a subset:");
@@ -3312,7 +3312,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private String describe(FilterOperator op) {
-    switch (op) { 
+    switch (op) {
     case EQUAL: return " = ";
     case ISA: return " is-a ";
     case ISNOTA: return " is-not-a ";

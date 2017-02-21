@@ -7,7 +7,7 @@
 	<experimental value="true"/>
 	<description value="This value set defines an example set of codes that can be used to classify groupings of service-types/specialties."/>
 	<caseSensitive value="true"/>
-	<content value="examplar"/>
+	<content value="example"/>
 	<concept>
 		<code value="1"/>
 		<display value="Adoption/Permanent Care Info/Support"/>

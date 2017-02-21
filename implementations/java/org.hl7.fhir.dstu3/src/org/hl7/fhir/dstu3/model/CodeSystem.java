@@ -182,7 +182,7 @@ public class CodeSystem extends MetadataResource {
         /**
          * A few representative concepts are included in the code system resource
          */
-        EXAMPLAR, 
+        EXAMPLE, 
         /**
          * A subset of the code system concepts are included in the code system resource
          */
@@ -200,8 +200,8 @@ public class CodeSystem extends MetadataResource {
                 return null;
         if ("not-present".equals(codeString))
           return NOTPRESENT;
-        if ("examplar".equals(codeString))
-          return EXAMPLAR;
+        if ("example".equals(codeString))
+          return EXAMPLE;
         if ("fragment".equals(codeString))
           return FRAGMENT;
         if ("complete".equals(codeString))
@@ -214,7 +214,7 @@ public class CodeSystem extends MetadataResource {
         public String toCode() {
           switch (this) {
             case NOTPRESENT: return "not-present";
-            case EXAMPLAR: return "examplar";
+            case EXAMPLE: return "example";
             case FRAGMENT: return "fragment";
             case COMPLETE: return "complete";
             default: return "?";
@@ -223,7 +223,7 @@ public class CodeSystem extends MetadataResource {
         public String getSystem() {
           switch (this) {
             case NOTPRESENT: return "http://hl7.org/fhir/codesystem-content-mode";
-            case EXAMPLAR: return "http://hl7.org/fhir/codesystem-content-mode";
+            case EXAMPLE: return "http://hl7.org/fhir/codesystem-content-mode";
             case FRAGMENT: return "http://hl7.org/fhir/codesystem-content-mode";
             case COMPLETE: return "http://hl7.org/fhir/codesystem-content-mode";
             default: return "?";
@@ -232,7 +232,7 @@ public class CodeSystem extends MetadataResource {
         public String getDefinition() {
           switch (this) {
             case NOTPRESENT: return "None of the concepts defined by the code system are included in the code system resource";
-            case EXAMPLAR: return "A few representative concepts are included in the code system resource";
+            case EXAMPLE: return "A few representative concepts are included in the code system resource";
             case FRAGMENT: return "A subset of the code system concepts are included in the code system resource";
             case COMPLETE: return "All the concepts defined by the code system are included in the code system resource";
             default: return "?";
@@ -241,7 +241,7 @@ public class CodeSystem extends MetadataResource {
         public String getDisplay() {
           switch (this) {
             case NOTPRESENT: return "Not Present";
-            case EXAMPLAR: return "Examplar";
+            case EXAMPLE: return "Example";
             case FRAGMENT: return "Fragment";
             case COMPLETE: return "Complete";
             default: return "?";
@@ -256,8 +256,8 @@ public class CodeSystem extends MetadataResource {
                 return null;
         if ("not-present".equals(codeString))
           return CodeSystemContentMode.NOTPRESENT;
-        if ("examplar".equals(codeString))
-          return CodeSystemContentMode.EXAMPLAR;
+        if ("example".equals(codeString))
+          return CodeSystemContentMode.EXAMPLE;
         if ("fragment".equals(codeString))
           return CodeSystemContentMode.FRAGMENT;
         if ("complete".equals(codeString))
@@ -274,8 +274,8 @@ public class CodeSystem extends MetadataResource {
             return null;
         if ("not-present".equals(codeString))
           return new Enumeration<CodeSystemContentMode>(this, CodeSystemContentMode.NOTPRESENT);
-        if ("examplar".equals(codeString))
-          return new Enumeration<CodeSystemContentMode>(this, CodeSystemContentMode.EXAMPLAR);
+        if ("example".equals(codeString))
+          return new Enumeration<CodeSystemContentMode>(this, CodeSystemContentMode.EXAMPLE);
         if ("fragment".equals(codeString))
           return new Enumeration<CodeSystemContentMode>(this, CodeSystemContentMode.FRAGMENT);
         if ("complete".equals(codeString))
@@ -285,8 +285,8 @@ public class CodeSystem extends MetadataResource {
     public String toCode(CodeSystemContentMode code) {
       if (code == CodeSystemContentMode.NOTPRESENT)
         return "not-present";
-      if (code == CodeSystemContentMode.EXAMPLAR)
-        return "examplar";
+      if (code == CodeSystemContentMode.EXAMPLE)
+        return "example";
       if (code == CodeSystemContentMode.FRAGMENT)
         return "fragment";
       if (code == CodeSystemContentMode.COMPLETE)
@@ -2635,7 +2635,7 @@ public class CodeSystem extends MetadataResource {
      * How much of the content of the code system - the concepts and codes it defines - are represented in this resource.
      */
     @Child(name = "content", type = {CodeType.class}, order=8, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="not-present | examplar | fragment | complete", formalDefinition="How much of the content of the code system - the concepts and codes it defines - are represented in this resource." )
+    @Description(shortDefinition="not-present | example | fragment | complete", formalDefinition="How much of the content of the code system - the concepts and codes it defines - are represented in this resource." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/codesystem-content-mode")
     protected Enumeration<CodeSystemContentMode> content;
 
@@ -4523,17 +4523,17 @@ public class CodeSystem extends MetadataResource {
  /**
    * Search parameter: <b>content</b>
    * <p>
-   * Description: <b>not-present | examplar | fragment | complete</b><br>
+   * Description: <b>not-present | example | fragment | complete</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CodeSystem.content</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="content", path="CodeSystem.content", description="not-present | examplar | fragment | complete", type="token" )
+  @SearchParamDefinition(name="content", path="CodeSystem.content", description="not-present | example | fragment | complete", type="token" )
   public static final String SP_CONTENT = "content";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>content</b>
    * <p>
-   * Description: <b>not-present | examplar | fragment | complete</b><br>
+   * Description: <b>not-present | example | fragment | complete</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CodeSystem.content</b><br>
    * </p>
