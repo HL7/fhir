@@ -1,9 +1,9 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<id value="extra-activity-codes"/>
+	<id value="extra-activity-type"/>
 
-	<url value="http://hl7.org/fhir/extra-activity-codes"/>
+	<url value="http://hl7.org/fhir/extra-activity-type"/>
 	<version value="1.1.0"/>
-	<name value="ExtraActivityCodes"/>
+	<name value="ExtraActivityType"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<description value="This value set includes coded concepts not well covered in any of the included valuesets."/>

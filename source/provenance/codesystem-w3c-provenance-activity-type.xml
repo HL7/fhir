@@ -58,13 +58,15 @@
 	<concept>
 		<code value="Invalidation"/>
 		<display value="wasInvalidatedBy"/>
-		<definition value="The start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation. Any generation or usage of an entity precedes its invalidation. Given that an invalidation is the start of destruction, cessation, or expiry, it is instantaneous.
+		<definition value="The start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation. Any generation or usage of an entity precedes its invalidation. Given that an invalidation is the start of destruction, cessation, or expiry, it is instantaneous."/>
+		<!--
   Entities have a duration. Generation marks the beginning of an entity, whereas invalidation marks its end. An entity's lifetime can end for different reasons:
 	• an entity was destroyed: e.g. a painting was destroyed by fire; a Web page is taken out of a site; 
 	• an entity was consumed: e.g. Bob ate all his soup, Alice ran out of gas when driving to work; 
 	• an entity expires: e.g. a 'buy one beer, get one free' offer is valid during happy hour (7-8pm); 
 	• an entity is time limited: e.g. the BBC news site on April 3rd, 2012; 
 	• an entity attribute is changing: e.g. the traffic light changed from green to red."/>    
+	-->
 	</concept>
 	<concept>
 		<code value="Derivation"/>
@@ -82,7 +84,7 @@
 		<definition value="The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author. A quotation relation is a kind of derivation relation, for which an entity was derived from a preceding entity by copying, or 'quoting', some or all of it."/> 
 	</concept>
 	<concept>
-		<code value="Primary Source"/>
+		<code value="Primary-Source"/>
 		<display value="wasPrimarySourceOf"/>
 		<definition value="Refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. It is also important to note that a given entity might be a primary source for one entity but not another. It is the reason why Primary Source is defined as a relation as opposed to a subtype of Entity."/>    
 	</concept>

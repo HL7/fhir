@@ -27,9 +27,7 @@
           <system value="urn:ietf:rfc:3986"/>
           <value value="urn:oid:129.6.58.92.88336"/>
         </masterIdentifier>
-        <subject>
-          <reference value="Patient/a2"/>
-        </subject>
+        <status value="current"/>
         <type>
           <coding>
             <system value="http://ihe.net/connectathon/classCodes"/>
@@ -44,15 +42,17 @@
             <display value="Inpatient Admission history and physical note"/>
           </coding>
         </class>
+        <subject>
+          <reference value="Patient/a2"/>
+        </subject>
+        <created value="2005-12-24"/>
+        <indexed value="2013-07-01T23:11:33+10:00"/>
         <author>
           <reference value="Practitioner/a3"/>
         </author>
         <author>
           <reference value="Practitioner/a4"/>
         </author>
-        <created value="2005-12-24"/>
-        <indexed value="2013-07-01T23:11:33+10:00"/>
-        <status value="current"/>
         <description value="Physical"/>
         <securityLabel>
           <coding>

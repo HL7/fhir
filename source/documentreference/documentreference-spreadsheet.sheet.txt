@@ -125,120 +125,6 @@
   w5 = id
 
  -- Row 4 -----------------------------------
-  Element = DocumentReference.subject
-  Card. = 0..1
-  Type = Reference(Patient|Practitioner|Group|Device)
-  Short Name = Who/what is the subject of the document
-  Definition = Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
-  v2 Mapping = PID-3 (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)
-  RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
-  XDS Mapping = DocumentEntry.patientId
-  w5 = who.focus
-
- -- Row 5 -----------------------------------
-  Element = DocumentReference.type
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = DocumentC80Type
-  Short Name = Kind of document (LOINC if possible)
-  Definition = Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
-  Comments = Key metadata element describing the document, used in searching/filtering.
-  v2 Mapping = TXA-2
-  RIM Mapping = ./code
-  XDS Mapping = DocumentEntry.type
-  w5 = class
-
- -- Row 6 -----------------------------------
-  Element = DocumentReference.class
-  Card. = 0..1
-  Aliases = kind
-  Type = CodeableConcept
-  Binding = DocumentC80Class
-  Short Name = Categorization of document
-  Definition = A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type
-  Requirements = Helps humans to assess whether the document is of interest when viewing a list of documents.
-  Comments = This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD))
-  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
-  XDS Mapping = DocumentEntry.class
-  w5 = class
-
- -- Row 7 -----------------------------------
-  Element = !DocumentReference.format
-  Card. = 0..*
-  Type = Coding
-  Binding = DocumentFormat
-  Short Name = Format/content rules for the document
-  Definition = An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType
-  Comments = Note that while IHE mostly issues URNs for format types, not all documents can be identified as URIs
-  RIM Mapping = n/a
-  XDS Mapping = DocumentEntry.formatCode
-
- -- Row 8 -----------------------------------
-  Element = DocumentReference.author
-  Card. = 0..*
-  Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
-  Short Name = Who and/or what authored the document
-  Definition = Identifies who is responsible for adding the information to the document
-  Comments = Not necessarily who did the actual data entry (i.e. typist) it in or who was the source (informant)
-  v2 Mapping = TXA-9 (No standard way to indicate a Device in HL7 v2 MDM message)
-  RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
-  XDS Mapping = DocumentEntry.author
-  w5 = who.author
-
- -- Row 9 -----------------------------------
-  Element = DocumentReference.custodian
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Organization which maintains the document
-  Definition = Identifies the organization or group who is responsible for ongoing maintenance of and access to the document
-  Comments = Identifies the logical organization to go to find the current version, where to report issues, etc. This is different from the physical location of the document, which is the technical location of the document, which host may be delegated to the management of some other organization
-  RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
-
- -- Row 10 -----------------------------------
-  Element = !DocumentReference.policyManager
-  Card. = 0..1
-  Type = uri
-  Short Name = Manages access policies for the document
-  Definition = A reference to a domain or server that manages policies under which the document is accessed and/or made available
-  RIM Mapping = N/A - New participation type required
-  To Do = Harmonization proposal to define participation type.  (And evaluate whether this is in the 80%)
-
- -- Row 11 -----------------------------------
-  Element = DocumentReference.authenticator
-  Card. = 0..1
-  Type = Reference(Practitioner|Organization)
-  Short Name = Who/what authenticated the document
-  Definition = Which person or organization authenticates that this document is valid
-  Comments = Represents a participant within the author institution who has legally authenticated or attested the document. Legal authentication implies that a document has been signed manually or electronically by the legal Authenticator.
-  v2 Mapping = TXA-10
-  RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
-  XDS Mapping = DocumentEntry.legalAuthenticator
-  w5 = who.witness
-
- -- Row 12 -----------------------------------
-  Element = DocumentReference.created
-  Card. = 0..1
-  Type = dateTime
-  Short Name = Document creation time
-  Definition = When the document was created
-  Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based
-  v2 Mapping = TXA-6
-  RIM Mapping = .effectiveTime[type=\"TS\"]
-  XDS Mapping = DocumentEntry.submissionTime
-  w5 = when.done
-
- -- Row 13 -----------------------------------
-  Element = DocumentReference.indexed
-  Card. = 1..1
-  Type = instant
-  Short Name = When this document reference created
-  Definition = When the document reference was created
-  Comments = Referencing/indexing time is used for tracking, organizing versions and searching.
-  RIM Mapping = .availabilityTime[type=\"TS\"]
-  XDS Mapping = DocumentEntry.submissionTime
-  w5 = when.recorded
-
- -- Row 14 -----------------------------------
   Element = DocumentReference.status
   Card. = 1..1
   Is Modifier = Y
@@ -252,7 +138,7 @@
   XDS Mapping = DocumentEntry status
   w5 = status
 
- -- Row 15 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = DocumentReference.docStatus
   Card. = 0..1
   Type = code
@@ -263,6 +149,120 @@
   v2 Mapping = TXA-17
   RIM Mapping = .statusCode
   w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = DocumentReference.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = DocumentC80Type
+  Short Name = Kind of document (LOINC if possible)
+  Definition = Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
+  Comments = Key metadata element describing the document, used in searching/filtering.
+  v2 Mapping = TXA-2
+  RIM Mapping = ./code
+  XDS Mapping = DocumentEntry.type
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = DocumentReference.class
+  Card. = 0..1
+  Aliases = kind
+  Type = CodeableConcept
+  Binding = DocumentC80Class
+  Short Name = Categorization of document
+  Definition = A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type
+  Requirements = Helps humans to assess whether the document is of interest when viewing a list of documents.
+  Comments = This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD))
+  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
+  XDS Mapping = DocumentEntry.class
+  w5 = class
+
+ -- Row 8 -----------------------------------
+  Element = DocumentReference.subject
+  Card. = 0..1
+  Type = Reference(Patient|Practitioner|Group|Device)
+  Short Name = Who/what is the subject of the document
+  Definition = Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
+  v2 Mapping = PID-3 (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)
+  RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
+  XDS Mapping = DocumentEntry.patientId
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = DocumentReference.created
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Document creation time
+  Definition = When the document was created
+  Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based
+  v2 Mapping = TXA-6
+  RIM Mapping = .effectiveTime[type=\"TS\"]
+  XDS Mapping = DocumentEntry.submissionTime
+  w5 = when.done
+
+ -- Row 10 -----------------------------------
+  Element = DocumentReference.indexed
+  Card. = 1..1
+  Type = instant
+  Short Name = When this document reference created
+  Definition = When the document reference was created
+  Comments = Referencing/indexing time is used for tracking, organizing versions and searching.
+  RIM Mapping = .availabilityTime[type=\"TS\"]
+  XDS Mapping = DocumentEntry.submissionTime
+  w5 = when.recorded
+
+ -- Row 11 -----------------------------------
+  Element = !DocumentReference.format
+  Card. = 0..*
+  Type = Coding
+  Binding = DocumentFormat
+  Short Name = Format/content rules for the document
+  Definition = An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType
+  Comments = Note that while IHE mostly issues URNs for format types, not all documents can be identified as URIs
+  RIM Mapping = n/a
+  XDS Mapping = DocumentEntry.formatCode
+
+ -- Row 12 -----------------------------------
+  Element = DocumentReference.author
+  Card. = 0..*
+  Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
+  Short Name = Who and/or what authored the document
+  Definition = Identifies who is responsible for adding the information to the document
+  Comments = Not necessarily who did the actual data entry (i.e. typist) it in or who was the source (informant)
+  v2 Mapping = TXA-9 (No standard way to indicate a Device in HL7 v2 MDM message)
+  RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
+  XDS Mapping = DocumentEntry.author
+  w5 = who.author
+
+ -- Row 13 -----------------------------------
+  Element = DocumentReference.authenticator
+  Card. = 0..1
+  Type = Reference(Practitioner|Organization)
+  Short Name = Who/what authenticated the document
+  Definition = Which person or organization authenticates that this document is valid
+  Comments = Represents a participant within the author institution who has legally authenticated or attested the document. Legal authentication implies that a document has been signed manually or electronically by the legal Authenticator.
+  v2 Mapping = TXA-10
+  RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
+  XDS Mapping = DocumentEntry.legalAuthenticator
+  w5 = who.witness
+
+ -- Row 14 -----------------------------------
+  Element = DocumentReference.custodian
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Organization which maintains the document
+  Definition = Identifies the organization or group who is responsible for ongoing maintenance of and access to the document
+  Comments = Identifies the logical organization to go to find the current version, where to report issues, etc. This is different from the physical location of the document, which is the technical location of the document, which host may be delegated to the management of some other organization
+  RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
+
+ -- Row 15 -----------------------------------
+  Element = !DocumentReference.policyManager
+  Card. = 0..1
+  Type = uri
+  Short Name = Manages access policies for the document
+  Definition = A reference to a domain or server that manages policies under which the document is accessed and/or made available
+  RIM Mapping = N/A - New participation type required
+  To Do = Harmonization proposal to define participation type.  (And evaluate whether this is in the 80%)
 
  -- Row 16 -----------------------------------
   Element = DocumentReference.relatesTo
@@ -317,7 +317,6 @@
   v2 Mapping = TXA-18
   RIM Mapping = .confidentialityCode
   XDS Mapping = DocumentEntry.confidentialityCode
-  To Do = This was embedded in the comments, but made no sense, so I moved it here:\n\n[1..1] Confidentiality Security Classification Label Field [0..*] Sensitivity Security Category Label Field [0..*] Compartment Security Category Label Field [0..*] Integrity Security Category Label Field [0..*] Handling Caveat Security Category Field In the HL7 Healthcare Privacy and Security Classification System
 
  -- Row 21 -----------------------------------
   Element = DocumentReference.content

@@ -21,12 +21,13 @@
      <value value="52345"/>
   </identifier>
  
+  <status value="current"/>
+  <created value="2014-09-21T11:50:23-05:00"/>
+
   <recipient>
     <reference value="#org-1"/>
   </recipient>
 
-  <created value="2014-09-21T11:50:23-05:00"/>
-  <status value="current"/>
    
   <content>
 	 <pAttachment>

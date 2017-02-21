@@ -1,56 +1,51 @@
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="provenance-activity-type"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">  This is a value set of representative FHIR Activity Type codes. </div>
-  </text>
+	<id value="provenance-activity-type"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">  This is a value set of representative FHIR Activity Type codes. </div>
+	</text>
 
-  <url value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
-  <version value="1.1.0"/>
-  <name value="ProvenanceActivityType"/>
+	<url value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
+	<version value="1.1.0"/>
+	<name value="ProvenanceActivityType"/>
 
-  <status value="draft"/>
-  <experimental value="false"/>
+	<status value="draft"/>
+	<experimental value="false"/>
 
-  <date value="2017-01-30T18:00:00+01:00"/>
-  <publisher value="HL7 Security Work Group"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
-    </telecom>
-  </contact>
-  <description value="This value set contains representative Activity Type codes, which includes codes from the HL7 DocumentCompletion, ActStatus, and DataOperations code system, W3C PROV-DM and PROV-N concepts and display names, several HL7 Lifecycle Event codes for which there are agreed upon definitions, and non-duplicated codes from the HL7 Security and Privacy Ontology Operations codes."/>
-  <copyright value="This is a value set of representative Activity Type codes."/>
-  <extensible value="true"/>
+	<date value="2017-01-30T18:00:00+01:00"/>
+	<publisher value="HL7 Security Work Group"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+		<telecom>
+			<system value="email"/>
+			<value value="fhir@lists.hl7.org"/>
+		</telecom>
+	</contact>
+	<description value="This value set contains representative Activity Type codes, which includes codes from the HL7 DocumentCompletion, ActStatus, and DataOperations code system, W3C PROV-DM and PROV-N concepts and display names, several HL7 Lifecycle Event codes for which there are agreed upon definitions, and non-duplicated codes from the HL7 Security and Privacy Ontology Operations codes."/>
+	<copyright value="This is a value set of representative Activity Type codes."/>
+	<extensible value="true"/>
 
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
-    </include>
-    <include>
-      <system value="http://hl7.org/fhir/v3/ActStatus"/>
-	  </include>
-	  <include>
-	    <system value="http://hl7.org/fhir/v3/DataOperation"/>
-	  </include>
-	  <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ObligationPolicy"/>
-    </include>
-
-  <!--
-  <include>
-  <system value="http://hl7.org/fhir/w3c-provenance-activity-types"/>
-  </include>
-  -->  
-  <!--
-  <include>
-  <system value="http://hl7.org/fhir/ExtraActivityCodes"/>
-  </include>
--->
-  </compose>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/ActStatus"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/DataOperation"/>
+		</include>
+		<include>
+			<valueSet value="http://hl7.org/fhir/ValueSet/v3-ObligationPolicy"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/w3c-provenance-activity-type"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/extra-activity-type"/>
+		</include>
+	</compose>
 </ValueSet>

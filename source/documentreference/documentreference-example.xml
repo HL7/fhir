@@ -24,9 +24,9 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"/>
 	</identifier>
-	<subject>
-		<reference value="Patient/xcda"/>
-	</subject>
+	<status value="current"/>
+	<docStatus value="preliminary"/>
+
 	<type>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -41,22 +41,23 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 			<display value="History and Physical"/>
 		</coding>
 	</class>
+	<subject>
+		<reference value="Patient/xcda"/>
+	</subject>
+	<created value="2005-12-24T09:35:00+11:00"/>
+	<indexed value="2005-12-24T09:43:41+11:00"/>
 	<author>
 		<reference value="Practitioner/xcda1"/>
 	</author>
 	<author>
 		<reference value="#a2"/>
 	</author>
-	<custodian>
-		<reference value="Organization/organization-example"/>
-	</custodian>
 	<authenticator>
-		<reference value="Organization/organization-example"/>
+		<reference value="Organization/f001"/>
 	</authenticator>
-	<created value="2005-12-24T09:35:00+11:00"/>
-	<indexed value="2005-12-24T09:43:41+11:00"/>
-	<status value="current"/>
-	<docStatus value="preliminary"/>
+	<custodian>
+		<reference value="Organization/f001"/>
+	</custodian>
 	<relatesTo>
 		<code value="appends"/>
 		<target>
