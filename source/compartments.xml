@@ -230,7 +230,7 @@
     <Cell ss:StyleID="s66"><Data ss:Type="String">patient | payee</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">payee</Data></Cell>
-    <Cell><Data ss:Type="String">enterer | provider | payee or care-team</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
@@ -744,8 +744,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
