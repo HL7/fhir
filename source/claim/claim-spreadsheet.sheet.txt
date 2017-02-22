@@ -1536,6 +1536,30 @@
   Description = Facility responsible for the goods and services
   Path = Claim.facilityIdentifier
 
+ -- Row 15 -----------------------------------
+  Name = enterer
+  Type = reference
+  Description = The party responsible for the entry of the Claim
+  Path = Claim.enterer
+
+ -- Row 16 -----------------------------------
+  Name = payee
+  Type = reference
+  Description = The party receiving any payment for the Claim
+  Path = Claim.payee.party
+
+ -- Row 17 -----------------------------------
+  Name = care-team
+  Type = reference
+  Description = Member of the CareTeam
+  Path = Claim.careTeam.provider
+
+ -- Row 18 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Encounters associated with a billed line item
+  Path = Claim.item.encounter
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
