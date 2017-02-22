@@ -138,8 +138,9 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
  and transport being used. 
  </p>
  <p>
- For example, if a definitive 'Request' does not need to be documented and communicating parties are using FHIR REST 
- then a Read or Search (GET) may be used in place of a Create (POST) of the request resource. Alternately, if FHIR Operations are being used then
+ For example: If a content model is not requred to obtain the appropriate status element then a SEARCH (GET) may be used, 
+ however if a content model is required to support the request for information then the content model will need to be CREATEd (POST).
+ Alternately, if FHIR Operations are being used then
  the specified focal resource may be employed as one of the Operation parameters or may not be required.
  </p>
  
@@ -246,6 +247,14 @@ and begin live pilots with resources.
 </p>
 <p>
 Once the above is well underway FM can then look to developing the Enrollment-related resources and the resources to support the FIAB functions.
+</p>
+
+<a name="terminology"> </a>
+<h3>Terminology</h3>
+<p>
+In many cases an <b>example</b> valueset has been provided in this release. Financal Management wil be devoting effort in the 
+preparation to Release 4 of FHIR to develop more representative example sets and to determine where global codesets exist such
+that some of the valuesets may be elevated in strength to extensible or required. 
 </p>
 </div>
 
