@@ -657,9 +657,9 @@
   Short Name = organization | patient | practitioner | relatedperson
 
  -- Row 34 -----------------------------------
-  Element = ExplanationOfBenefit.payee.party[x]
+  Element = ExplanationOfBenefit.payee.party
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner|Organization|Patient|RelatedPerson)
+  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
   Short Name = Party to receive the payable
   Definition = Party to be reimbursed: Subscriber, provider, other.
   CDAnet v4 Mapping = B03, B04
