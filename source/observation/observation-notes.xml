@@ -47,42 +47,61 @@ Assessment tools such as an Apgar or Glasgow score may be represented with both 
 				<li>valuePeriod</li>
 			</ul>
 		</li>
-		<li>
-		If the data element is usually coded or if the type associated with the Observation.code defines a coded value, use CodeableConcept instead of string data type even if the value is uncoded text.  For example the LOINC 43304-5 <i>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</i> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, the Observation.valueCodeableConcept would be:
+		<li><p><strong>Using codes for result values</strong></p><p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values. Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example below.</p>
+
+		 For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:
+<pre class="json">
+	"valueCodeableConcept": {
+	"coding": [
+	  {
+		"system": "http://snomed.info/sct",
+		"code": "260385009",
+		"display": "Negative"
+	  },
+	  {
+		"https://acme.lab/resultcodes",
+		"code": "NEG",
+		"display": "Negative"
+	  }
+	],
+	"text": "Negative for Chlamydia Trachomatis rRNA"
+	  }
+			</pre>
+<p>Text values for coded results:</p><p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code> <em>even</em> if there is no appropriate code and only uncoded text is available. For example using text only, the <code>valueCodeableConcept</code> element the would be:</p>
+		<pre class="json">
+	"valueCodeableConcept": {
+	"text": "uncoded free text result"
+	  }
+			</pre>
+
+
+<p>When a coded answer list includes a concept code for &quot;other&quot; and there is a free text description of the concept, the <code>valueCodeableConcept.text</code> element should be used to capture the full meaning of the source.  In the example below, the answer code &quot;Other&quot; is provided in the <code>valueCodeableConcept</code> element and the text value supplied value in the <code>CodeableConcept.text</code> element.</p>
 			<pre class="json">
-			"valueCodeableConcept": {
-			"coding": [
-			  {
-				"system": "http://snomed.info/sct",
-				"code": "260385009",
-				"display": "Negative"
-			  },
-			  {
-				"system": "urn:oid:2.16.840.1.113883.3.72.5.24",
-				"code": "NEG",
-				"display": "Negative"
-			  }
-			],
-			"text": "Negative for Chlamydia Trachomatis rRNA"
-			  }
-			</pre>
-
-
-		Using text only, the Observation.valueCodeableConcept the would be:
-				<pre class="json">
-			"valueCodeableConcept": {
-			"text": "Negative for Chlamydia Trachomatis rRNA"
-			  }
-			</pre>
-		</li>
+    {
+      "resourceType": "Observation",
+      "code": {
+        "coding": [{
+          "system": "http://loinc.org",
+          "code": "74076-1",
+          "display": "Medication or substance involved"
+        }]
+      },
+      "valueCodeableConcept": {
+        "coding": [{
+          "system": "http://loinc.org",
+          "code": " LA20343-2",
+          "display": "Other substance: PLEASE SPECIFY"
+        }],
+        "text": "Other: Blue pills I found under my couch"
+      }
+    }
+</pre>
+</li>
 		<li>
-		A value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values is bound to the ValueCodeableConcept element.  Coded results are often coded in multiple value sets based on different code systems and these may be mapped using the ConceptMap resource and/or given as translations directly in the element as shown in the example above.
-		</li>
-		<li>
-		The Boolean data type is rarely used for Observation.value[x] because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.
+		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.
 		  </li>
-		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ( 'error' or "NaN").
-		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the Observation.valueQuantity would be:
+		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ( 'error' or 'NaN').
+		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
 			<pre class="json">
 		"valueQuantity": {
     "value": 2.0,
@@ -92,7 +111,7 @@ Assessment tools such as an Apgar or Glasgow score may be represented with both 
     "code": "mmol/L"
      }
 			</pre>
-If the value was "NaN"  (i.e. an error)  the Observation.valueCodeableConcept would be absent and Observation.dataAbsentReason would be:
+If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> element would be absent and <code>dataAbsentReason</code> element would be:
 <pre class="json">
 "dataAbsentReason": {
     "coding": [
