@@ -329,7 +329,7 @@
   Summary = Y
   Type = string
   Short Name = An identifier for the class
-  Definition = Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.
+  Definition = Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
@@ -349,7 +349,7 @@
   Summary = Y
   Type = string
   Short Name = An identifier for the subsection of the class
-  Definition = Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.
+  Definition = Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
@@ -531,7 +531,7 @@
   Path = Coverage.beneficiaryReference
 
  -- Row 20 -----------------------------------
-  Name = policyholder
+  Name = policy-holder
   Type = reference
   Description = Reference to the policyholder
   Path = Coverage.policyHolder

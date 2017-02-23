@@ -301,6 +301,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coverage</Data></Cell>
+    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary |payor</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |payor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DataElement</Data></Cell>
@@ -747,8 +749,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
