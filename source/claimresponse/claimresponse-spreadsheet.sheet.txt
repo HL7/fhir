@@ -830,6 +830,12 @@
   Description = The subject of care.
   Path = ClaimResponse.patient
 
+ -- Row 13 -----------------------------------
+  Name = request-provider
+  Type = reference
+  Description = The Provider of the claim
+  Path = ClaimResponse.requestProvider
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
