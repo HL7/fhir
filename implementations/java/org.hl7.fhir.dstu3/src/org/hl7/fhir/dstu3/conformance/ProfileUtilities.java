@@ -620,7 +620,11 @@ public class ProfileUtilities extends TranslatingUtilities {
                     if (!t.getCode().equals("Reference"))
                       throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
                   }
+                TypeRefComponent t = outcome.getType().get(0);
                 StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+//                if (t.getCode().equals("Extension") && t.hasProfile() && !t.getProfile().contains(":")) {
+// lloydfix                  dt = 
+//                }
                 if (dt == null)
                   throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
                 contextName = dt.getUrl();
@@ -1546,7 +1550,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     boolean allReference = !types.isEmpty();
     Set<AggregationMode> aggs = new HashSet<ElementDefinition.AggregationMode>();
     for (TypeRefComponent t : types) {
-      if (t.getCode().equals("Reference") && t.hasProfile()) {
+      if (t.getCode()!=null && t.getCode().equals("Reference") && t.hasProfile()) {
         for (Enumeration<AggregationMode> en : t.getAggregation())
           aggs.add(en.getValue());
       } else
@@ -1586,7 +1590,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       else
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
       tl = t;
-      if (t.getCode().equals("Reference")) {
+      if (t.getCode()!= null && t.getCode().equals("Reference")) {
         if (!allReference) {
           c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
           c.getPieces().add(gen.new Piece(null, "(", null));
