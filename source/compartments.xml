@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2017-02-23T08:31:06Z</LastSaved>
+  <LastSaved>2017-02-23T12:11:36Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -355,9 +355,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EligibilityRequest</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">enterer | provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EligibilityResponse</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter</Data></Cell>
@@ -542,9 +545,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Person</Data></Cell>
@@ -741,7 +746,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>64</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -749,8 +754,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>83</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

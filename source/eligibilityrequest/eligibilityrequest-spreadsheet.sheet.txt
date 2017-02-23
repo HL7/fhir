@@ -288,6 +288,12 @@
   Description = Facility responsible for the goods and services
   Path = EligibilityRequest.facilityidentifier
 
+ -- Row 15 -----------------------------------
+  Name = enterer
+  Type = reference
+  Description = The party who is responsible for the request
+  Path = EligibilityRequest.enterer
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
