@@ -116,6 +116,9 @@
 			<system value="urn:iso:std:iso:4217"/>
 			<code value="USD"/> 
 		</net> 
+		<encounter>
+			<reference value="Encounter/example"/>
+		</encounter>
 	</item>
 
 	<total>

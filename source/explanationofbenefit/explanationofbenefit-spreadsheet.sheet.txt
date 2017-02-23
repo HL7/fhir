@@ -2112,6 +2112,30 @@
   Description = The plan under which the claim was adjudicated
   Path = ExplanationOfBenefit.insurance.coverage
 
+ -- Row 20 -----------------------------------
+  Name = enterer
+  Type = reference
+  Description = The party responsible for the entry of the Claim
+  Path = ExplanationOfBenefit.enterer
+
+ -- Row 21 -----------------------------------
+  Name = payee
+  Type = reference
+  Description = The party receiving any payment for the Claim
+  Path = ExplanationOfBenefit.payee.party
+
+ -- Row 22 -----------------------------------
+  Name = care-team
+  Type = reference
+  Description = Member of the CareTeam
+  Path = ExplanationOfBenefit.careTeam.provider
+
+ -- Row 23 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Encounters associated with a billed line item
+  Path = ExplanationOfBenefit.item.encounter
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
