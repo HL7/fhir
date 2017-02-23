@@ -739,19 +739,19 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = example1
+  Name = Lipid Panel Task
   Identity = example1
-  Description = Example to demonstrate using task for actioning a procedurerequest
+  Description = Example task for actioning a lipid panel order
   Filename = task-example1.xml
 
  -- Row 2 -----------------------------------
-  Name = example2
+  Name = Specimen Collection Task
   Identity = example2
-  Description = Example of a filler generated subtask
+  Description = Example of a filler generated subtask to collect a specimen
   Filename = task-example2.xml
 
  -- Row 3 -----------------------------------
-  Name = example1
+  Name = Prescription Task
   Identity = example3
   Description = Example of simple prescription task
   Filename = task-example3.xml
