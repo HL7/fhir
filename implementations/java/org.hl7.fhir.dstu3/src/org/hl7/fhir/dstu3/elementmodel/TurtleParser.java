@@ -32,8 +32,9 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 public class TurtleParser extends ParserBase {
 
   private String base;
-  
+
   public static String FHIR_URI_BASE = "http://hl7.org/fhir/";
+  public static String FHIR_VERSION_BASE = "http://build.fhir.org/";
 
   public TurtleParser(IWorkerContext context) {
     super(context);
@@ -268,26 +269,32 @@ public class TurtleParser extends ParserBase {
 		ttl.commit(stream, false);
   }
 
+
+
   public void compose(Element e, Turtle ttl, String base) throws Exception {
     ttl.prefix("fhir", FHIR_URI_BASE);
-		ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-		ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
+    ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+    ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
     ttl.prefix("xsd", "http://www.w3.org/2001/XMLSchema#");
-		
-		Section section = ttl.section("resource");
-		Subject subject;
-		String id = e.getChildValue("id");
-    if (base == null || id == null)
-		  subject = section.triple("", "a", "fhir:"+e.getType());
-    else if (base.endsWith("#"))
-      subject = section.triple("<" + base + e.getType() + "-" + id + ">", "a", "fhir:" + e.getType());
-    else
-      subject = section.triple("<" + Utilities.pathReverse(base, e.getType(), id) + ">", "a", "fhir:" + e.getType());
+
+
+    Section section = ttl.section("resource");
+    String subjId = genSubjectId(e);
+
+    String ontologyId = subjId.replace(">", ".ttl>");
+    Section ontology = ttl.section("ontology header");
+    ontology.triple(ontologyId, "a", "owl:Ontology");
+    ontology.triple(ontologyId, "owl:imports", "fhir:fhir.ttl");
+    if(ontologyId.startsWith("<" + FHIR_URI_BASE))
+      ontology.triple(ontologyId, "owl:versionIRI", ontologyId.replace(FHIR_URI_BASE, FHIR_VERSION_BASE));
+
+    Subject subject = section.triple(subjId, "a", "fhir:" + e.getType());
 		subject.linkedPredicate("fhir:nodeRole", "fhir:treeRoot", linkResolver == null ? null : linkResolver.resolvePage("rdf.html#tree-root"));
 
 		for (Element child : e.getChildren()) {
 			composeElement(section, subject, child, null);
 		}
+
   }
   
   protected String getURIType(String uri) {
@@ -320,12 +327,22 @@ public class TurtleParser extends ParserBase {
 			return;
 		if ("http://snomed.info/sct".equals(system)) {
 			t.prefix("sct", "http://snomed.info/id/");
-			t.linkedPredicate("a", "sct:" + urlescape(code), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
+			t.linkedPredicate("a", "sct:" + urlescape(code), null);
     } else if ("http://loinc.org".equals(system)) {
 			t.prefix("loinc", "http://loinc.org/owl#");
-			t.linkedPredicate("fhir:concept", "fhir:LOINC"+urlescape(code).toUpperCase(), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
+			t.linkedPredicate("a", "loinc:"+urlescape(code).toUpperCase(), null);
 		}  
 	}
+
+  private String genSubjectId(Element e) {
+    String id = e.getChildValue("id");
+    if (base == null || id == null)
+      return "";
+    else if (base.endsWith("#"))
+      return "<" + base + e.getType() + "-" + id + ">";
+    else
+      return "<" + Utilities.pathReverse(base, e.getType(), id) + ">";
+  }
 
 	private String urlescape(String s) {
 	  StringBuilder b = new StringBuilder();
@@ -395,19 +412,19 @@ public class TurtleParser extends ParserBase {
       en = element.getElementProperty().getDefinition().getPath();
     else // CONTAINED
       en = "DomainResource.contained";
-    
-    if (en == null) 
+
+    if (en == null)
       en = element.getProperty().getDefinition().getPath();
     boolean doType = false;
       if (en.endsWith("[x]")) {
         en = en.substring(0, en.length()-3);
-        doType = true;        
+        doType = true;
       }
      if (doType || (element.getProperty().getDefinition().getType().size() > 1 && !allReference(element.getProperty().getDefinition().getType())))
        en = en + Utilities.capitalize(element.getType());
     return en;
   }
-	
+
 	private boolean allReference(List<TypeRefComponent> types) {
 	  for (TypeRefComponent t : types) {
 	    if (!t.getCode().equals("Reference"))
