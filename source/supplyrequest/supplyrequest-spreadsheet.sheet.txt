@@ -355,7 +355,7 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = General
+  Name = !General
   Identity = example
   Description = General Supply Example
   Filename = supplyrequest-example.xml

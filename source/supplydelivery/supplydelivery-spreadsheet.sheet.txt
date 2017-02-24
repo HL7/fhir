@@ -132,6 +132,7 @@
   Card. = 0..1
   Short Name = The item that is delivered or supplied
   Definition = The item that is being delivered or has been supplied
+  RIM Mapping = .participation[typeCode=PRD].role
 
  -- Row 9 -----------------------------------
   Element = SupplyDelivery.suppliedItem.quantity
@@ -227,9 +228,9 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = General
-  Identity = example
-  Description = General Supply Dispense Example
+  Name = Simple Resupply
+  Identity = simpledelivery
+  Description = Simple delivery for resupply
   Filename = supplydelivery-example.xml
 
  -- Row 2 -----------------------------------

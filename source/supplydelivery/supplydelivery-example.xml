@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+This is the corresponding supply delivery from the supplye request example
+-->
 <SupplyDelivery xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supplydelivery.xsd">
-<id value="example"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-
-  <!-- insert contents here -->
-  
+	<id value="simpledelivery"/>
+	<!--
+business identifier - in this case the same as the request id
+-->
+	<identifier>
+		<value value="Order10284"/>
+	</identifier>
+	<basedOn>
+		<reference value="SupplyRequest/simpleorder"/>
+	</basedOn>
+	<partOf>
+		<display value="Central Supply Restock"/>
+	</partOf>
+	<status value="completed"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/supply-item-type"/>
+			<code value="device"/>
+		</coding>
+		<text value="Blood collect tubes blue cap"/>
+	</type>
+	<suppliedItem>
+		<quantity>
+			<value value="10"/>
+		</quantity>
+		<itemCodeableConcept>
+			<coding>
+				<code value="BlueTubes"/>
+				<display value="Blood collect tubes blue cap"/>
+			</coding>
+		</itemCodeableConcept>
+	</suppliedItem>
+	<occurrenceDateTime value="2016-12-31"/>
+	<supplier>
+		<display value="Vendor1"/>
+	</supplier>
+	<destination>
+		<display value="Location 1"/>
+	</destination>
 </SupplyDelivery>

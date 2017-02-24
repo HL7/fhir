@@ -48,6 +48,10 @@
 				<code value="ACID"/>
 			</coding>
 		</procedure>
+		<additive>
+			<display value="6 N HCl"/>
+		</additive>
+		<timeDateTime value="2015-08-18T08:10:00Z"/>
 	</processing>
 	<container>
 		<type>

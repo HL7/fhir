@@ -27,8 +27,12 @@
 	<authoredOn value="2016-12-31"/>
 	<requester>
 		<agent>
-			<display value="Purchasing Dept"/>
+			<display value="Henry Seven"/>
 		</agent>
+		<onBehalfOf>
+			<display value="Purchasing Dept"/>
+	 </onBehalfOf>
+
 	</requester>
 	<supplier>
 		<display value="Vendor1"/>
