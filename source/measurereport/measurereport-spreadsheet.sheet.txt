@@ -73,6 +73,7 @@
   Type = DomainResource
   Short Name = Results of a measure evaluation
   Definition = The MeasureReport resource contains the results of evaluating a measure
+  Workflow Mapping = Event
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -82,6 +83,7 @@
   Type = Reference(Measure)
   Short Name = Measure that was evaluated
   Definition = A reference to the Measure that was evaluated to produce this report
+  Workflow Mapping = Event.definition
   w5 = what
 
  -- Row 3 -----------------------------------
@@ -92,6 +94,7 @@
   Binding = MeasureReportType
   Short Name = individual | patient-list | summary
   Definition = The type of measure report. This may be an individual report, which provides a single patient\'s score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure
+  Workflow Mapping = Event.code
   w5 = class
 
  -- Row 4 -----------------------------------
@@ -101,6 +104,7 @@
   Type = Reference(Patient)
   Short Name = Optional Patient
   Definition = Optional Patient if the report was requested for a single patient.
+  Workflow Mapping = Event.subject
   w5 = who.focus
 
  -- Row 5 -----------------------------------
@@ -119,6 +123,7 @@
   Binding = MeasureReportStatus
   Short Name = complete | pending | error
   Definition = The report status. No data will be available until the report status is complete
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -128,6 +133,7 @@
   Type = dateTime
   Short Name = Date the report was generated
   Definition = The date this measure report was generated
+  Workflow Mapping = Event.occurrenceDateTime
   w5 = when.recorded
 
  -- Row 8 -----------------------------------

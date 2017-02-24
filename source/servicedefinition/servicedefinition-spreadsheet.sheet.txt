@@ -17,42 +17,53 @@
   Type = MetadataResource
   Short Name = A description of decision support service functionality
   Definition = The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking
+  Workflow Mapping = Definition
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = ServiceDefinition.url
+  Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = ServiceDefinition.identifier
   Card. = 0..*
   Definition = & This is used for CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
+  Workflow Mapping = Definition.identifier
 
  -- Row 4 -----------------------------------
   Element = ServiceDefinition.version
+  Workflow Mapping = Definition.version
 
  -- Row 5 -----------------------------------
   Element = ServiceDefinition.name
 
  -- Row 6 -----------------------------------
   Element = ServiceDefinition.title
+  Workflow Mapping = Definition.title
 
  -- Row 7 -----------------------------------
   Element = ServiceDefinition.status
+  Workflow Mapping = Definition.status
 
  -- Row 8 -----------------------------------
   Element = ServiceDefinition.experimental
+  Workflow Mapping = Definition.experimental
 
  -- Row 9 -----------------------------------
   Element = ServiceDefinition.date
+  Workflow Mapping = Definition.date
 
  -- Row 10 -----------------------------------
   Element = ServiceDefinition.publisher
+  Workflow Mapping = Definition.publisher
 
  -- Row 11 -----------------------------------
   Element = ServiceDefinition.description
+  Workflow Mapping = Definition.description
 
  -- Row 12 -----------------------------------
   Element = ServiceDefinition.purpose
+  Workflow Mapping = Definition.purpose
 
  -- Row 13 -----------------------------------
   Element = ServiceDefinition.usage
@@ -63,18 +74,23 @@
 
  -- Row 14 -----------------------------------
   Element = ServiceDefinition.approvalDate
+  Workflow Mapping = Definition.approvalDate
 
  -- Row 15 -----------------------------------
   Element = ServiceDefinition.lastReviewDate
+  Workflow Mapping = Definition.lastReviewDate
 
  -- Row 16 -----------------------------------
   Element = ServiceDefinition.effectivePeriod
+  Workflow Mapping = Definition.effectivePeriod
 
  -- Row 17 -----------------------------------
   Element = ServiceDefinition.useContext
+  Workflow Mapping = Definition.useContext
 
  -- Row 18 -----------------------------------
   Element = ServiceDefinition.jurisdiction
+  Workflow Mapping = Definition.jurisdiction
 
  -- Row 19 -----------------------------------
   Element = ServiceDefinition.topic
@@ -95,9 +111,11 @@
 
  -- Row 21 -----------------------------------
   Element = ServiceDefinition.contact
+  Workflow Mapping = Definition.contact
 
  -- Row 22 -----------------------------------
   Element = ServiceDefinition.copyright
+  Workflow Mapping = Definition.copyright
 
  -- Row 23 -----------------------------------
   Element = ServiceDefinition.relatedArtifact

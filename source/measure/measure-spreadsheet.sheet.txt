@@ -206,42 +206,53 @@
   Type = MetadataResource
   Short Name = A quality measure definition
   Definition = The Measure resource provides the definition of a quality measure
+  Workflow Mapping = Definition
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = Measure.url
+  Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = Measure.identifier
   Card. = 0..*
+  Workflow Mapping = Definition.identifier
 
  -- Row 4 -----------------------------------
   Element = Measure.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
+  Workflow Mapping = Definition.version
 
  -- Row 5 -----------------------------------
   Element = Measure.name
 
  -- Row 6 -----------------------------------
   Element = Measure.title
+  Workflow Mapping = Definition.title
 
  -- Row 7 -----------------------------------
   Element = Measure.status
+  Workflow Mapping = Definition.status
 
  -- Row 8 -----------------------------------
   Element = Measure.experimental
+  Workflow Mapping = Definition.experimental
 
  -- Row 9 -----------------------------------
   Element = Measure.date
+  Workflow Mapping = Definition.date
 
  -- Row 10 -----------------------------------
   Element = Measure.publisher
+  Workflow Mapping = Definition.publisher
 
  -- Row 11 -----------------------------------
   Element = Measure.description
+  Workflow Mapping = Definition.description
 
  -- Row 12 -----------------------------------
   Element = Measure.purpose
+  Workflow Mapping = Definition.purpose
 
  -- Row 13 -----------------------------------
   Element = Measure.usage
@@ -252,18 +263,23 @@
 
  -- Row 14 -----------------------------------
   Element = Measure.approvalDate
+  Workflow Mapping = Definition.approvalDate
 
  -- Row 15 -----------------------------------
   Element = Measure.lastReviewDate
+  Workflow Mapping = Definition.lastReviewDate
 
  -- Row 16 -----------------------------------
   Element = Measure.effectivePeriod
+  Workflow Mapping = Definition.effectivePeriod
 
  -- Row 17 -----------------------------------
   Element = Measure.useContext
+  Workflow Mapping = Definition.useContext
 
  -- Row 18 -----------------------------------
   Element = Measure.jurisdiction
+  Workflow Mapping = Definition.jurisdiction
 
  -- Row 19 -----------------------------------
   Element = Measure.topic
@@ -284,9 +300,11 @@
 
  -- Row 21 -----------------------------------
   Element = Measure.contact
+  Workflow Mapping = Definition.contact
 
  -- Row 22 -----------------------------------
   Element = Measure.copyright
+  Workflow Mapping = Definition.copyright
 
  -- Row 23 -----------------------------------
   Element = Measure.relatedArtifact
@@ -339,6 +357,7 @@
   Binding = MeasureType
   Short Name = process | outcome | structure | patient-reported-outcome | composite
   Definition = Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization
+  Workflow Mapping = Definition.subjectCode
 
  -- Row 29 -----------------------------------
   Element = Measure.riskAdjustment

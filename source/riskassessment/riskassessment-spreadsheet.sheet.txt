@@ -49,6 +49,7 @@
   Type = DomainResource
   Short Name = Potential outcomes for a subject with likelihood
   Definition = An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
+  Workflow Mapping = Event
   v2 Mapping = N/A
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
   OpenEHR mapping = OpenEHR-EHR-EVALUATION.risk.v1
@@ -61,6 +62,7 @@
   Type = Identifier
   Short Name = Unique identifier for the assessment
   Definition = Business identifier assigned to the risk assessment
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   OpenEHR mapping = Workflow Identifier
   w5 = id
@@ -71,6 +73,7 @@
   Type = Reference(Any)
   Short Name = Request fulfilled by this assessment
   Definition = A reference to the request that is fulfilled by this risk assessment
+  Workflow Mapping = Event.basedOn
 
  -- Row 4 -----------------------------------
   Element = RiskAssessment.parent
@@ -78,6 +81,7 @@
   Type = Reference(Any)
   Short Name = Part of this occurrence
   Definition = A reference to a resource that this risk assessment is part of, such as a Procedure
+  Workflow Mapping = Event.partOf
 
  -- Row 5 -----------------------------------
   Element = RiskAssessment.status
@@ -86,6 +90,7 @@
   Binding = RiskAssessmentStatus
   Short Name = registered | preliminary | final | amended +
   Definition = The status of the RiskAssessment, using the same statuses as an Observation
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -108,6 +113,7 @@
   Type = CodeableConcept
   Short Name = Type of assessment
   Definition = The type of the risk assessment performed
+  Workflow Mapping = Event.code
   w5 = what
 
  -- Row 8 -----------------------------------
@@ -117,6 +123,7 @@
   Type = Reference(Patient|Group)
   Short Name = Who/what does assessment apply to?
   Definition = The patient or group the risk assessment applies to
+  Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
   OpenEHR mapping = Subject of Care
   To Do = Should this cover anything else?  Device?  Location?
@@ -129,6 +136,7 @@
   Type = Reference(Encounter | EpisodeOfCare)
   Short Name = Where was assessment performed?
   Definition = The encounter where the assessment was performed
+  Workflow Mapping = Event.context
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
@@ -140,6 +148,7 @@
   Short Name = When was assessment made?
   Definition = The date (and possibly time) the risk assessment was performed
   Requirements = The assessment results lose validity the more time elapses from when they are first made
+  Workflow Mapping = Event.occurrence
   RIM Mapping = .effectiveTime
   w5 = when.done
 
@@ -159,6 +168,7 @@
   Type = Reference(Practitioner | Device)
   Short Name = Who did assessment?
   Definition = The provider or software application that performed the assessment
+  Workflow Mapping = Event.performer.actor
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGNED]
   OpenEHR mapping = Information Provider
   w5 = who.actor
@@ -169,6 +179,7 @@
   Type = CodeableConcept | Reference(Any)
   Short Name = Why the assessment was necessary?
   Definition = The reason the risk assessment was performed
+  Workflow Mapping = Event.reason
   w5 = why
 
  -- Row 14 -----------------------------------
@@ -177,6 +188,7 @@
   Type = Reference(Any)
   Short Name = Information used in assessment
   Definition = Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=DRIV].target
   OpenEHR mapping = Risk Factor; Link to Evidence
 
@@ -260,6 +272,7 @@
   Type = Annotation
   Short Name = Comments on the risk assessment
   Definition = Additional comments about the risk assessment
+  Workflow Mapping = Event.note
 
 === Sheet Search =====================================
 

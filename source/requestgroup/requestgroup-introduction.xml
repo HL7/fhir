@@ -3,13 +3,11 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
-</p>
+<p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#request">Request</a>.</p>
 
-<p>The RequestGroup resource is used to represent a group of optional activities that may be performed for a specific patient or context.</p>
+<p>The RequestGroup resource is used to represent a group of optional activities that may be performed for a specific patient or context. This resource is often, but not always, the result of applying a specific <a href="plandefinition.html">PlanDefinition</a> to a particular patient. Other than differences that tie the RequestGroup to a particular subject and setting, the <code>actionDefinition</code> element of PlanDefinition is identical to the <code>action</code> element of the RequestGroup, allowing the same features and functionality to be used in both places to describe optionality of and relationships between activities in a workflow.</p>
 
-<p>For a detailed discussion of how this resource is used in the evaluation process, refer to the <a href="cqif/cqif-cds-on-fhir.html#guidance-request">Guidance Request</a> topic in the Clinical Reasoning module.</p>
+<p>RequestGroups can contain hierarchical groups of actions, where each specific action references the action to be performed (in terms of a <a href="workflow.html#request">Request</a> resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.</p>
 
 </div>
 

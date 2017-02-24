@@ -3,6 +3,8 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
+<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#event">Event</a>.</p>
+
 <p>
 This resource applies to various circumstances where there is a concern about an existing or proposed set of clinical activity.  The issue could relate to single, proposed, or multiple actions.  
 It does not apply to technical issues (e.g. lack of user permissions) but could relate to violation of patient consent limitations.  Examples include:

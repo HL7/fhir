@@ -2,43 +2,18 @@
 
 <!-- insert xhtml content here -->
 
-<h3>Category Mapping</h3>
-
-<p>The following table defines the mapping from ActivityDefinition categories to the appropriate <i>intent</i> resource:</p>
-
-<table>
-	<thead>
-		<tr><th>Category code</th><th>Resource</th></tr>
-	</thead>
-	<tbody>
-		<tr><td>communication</td><td>CommunicationRequest</td></tr>
-		<tr><td>device</td><td>DeviceRequest</td></tr>
-		<tr><td>diagnostic</td><td>ProcedureRequest</td></tr>
-		<tr><td>diet</td><td>NutritionOrder</td></tr>
-		<tr><td>drug</td><td>MedicationRequest</td></tr>
-		<tr><td>encounter</td><td>Appointment</td></tr>
-		<tr><td>immunization</td><td>ImmunizationRecommendation</td></tr>
-		<tr><td>observation</td><td>Observation</td></tr>
-		<tr><td>procedure</td><td>ProcedureRequest</td></tr>
-		<tr><td>referral</td><td>ReferralRequest</td></tr>
-		<tr><td>supply</td><td>SupplyRequest</td></tr>
-		<tr><td>vision</td><td>VisionPrescription</td></tr>
-		<tr><td>other</td><td>N/A</td></tr>
-	</tbody>
-</table>
-
 <h3>Realizing an ActivityDefinition</h3>
 
-<p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request directly. This process of converting the ActivityDefinition into a specific intent resource in a particular context is performed with the $apply operation.</p>
+<p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request directly. This process of converting the ActivityDefinition into a specific request resource in a particular context is performed with the <code>$apply</code> operation.</p>
 
-<p>In the simplest case, the process maps the elements specified in the ActivityDefinition to the corresponding elements on the intent resource of the appropriate type, based on the category of the definition as described in the category mapping table above.</p>
+<p>In the simplest case, the process maps the elements specified in the ActivityDefinition to the corresponding elements on the request resource of the appropriate type, using the <code>kind</code> element of the definition to determine the type of resource to be created.</p>
 
-<p>More dynamic scenarios can be achieved in one of two ways, either by providing dynamicValue expressions, or by specifying a StructureMap that transforms the definition into the appropriate intent resource.</p>
+<p>More dynamic scenarios can be achieved in one of two ways, either by providing <code>dynamicValue</code> expressions, or by specifying a <a href="structuremap.html">StructureMap</a> that transforms the definition into the appropriate request resource.</p>
 
-<p>Note that systems will likely vary widely in the degree of support they provide for the $apply operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for the medication category, but no support at all for the encounter category.</p>
+<p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ProcedureRequest activities.</p>
 
 <h3>Profiling ActivityDefinition</h3>
 
-<p>Because the ActivityDefinition resource can be used to describe many different types of intent resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the quantity element should not be used, but the dosageInstruction element must be.</p>
+<p>Because the ActivityDefinition resource can be used to describe many different types of request resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the <code>quantity</code> element should not be used, but the <code>dosage</code> element must be.</p>
 
 </div>

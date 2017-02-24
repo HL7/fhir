@@ -4,13 +4,15 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditional elements, options, and other decision points. The resource is flexible enough to be used to represent a variety of clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
-<p>PlanDefinitions can contain hierarchical groups of actions, where each specific action defines an activity to be performed (in terms of an ActivityDefinition resource), and each group defines additional behavior, relationships, and applicable conditions between the actions in the overall definition.</p>
+<p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditional elements, options, and other decision points. The resource is flexible enough to be used to represent a variety of workflows, as well as clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
 
-<p>In addition to describing what should take place, each action in a plan definition can specify <i>when</i> and <i>whether</i> the action should take place. For when the action should be taken, the triggerDefinition element specifies the action should be taken in response to some trigger occurring (such as a particular point in a workflow being reached, or as the result of a prescription being ordered). For whether the action should be taken, the condition element can be used to provide an expression that evaluates to true or false to indicate the applicability of the action to the specific context.</p>
+<p>PlanDefinitions can contain hierarchical groups of actions, where each specific action defines an activity to be performed (in terms of an <a href="activitydefinition.html">ActivityDefinition</a> resource), and each group defines additional behavior, relationships, and applicable conditions between the actions in the overall definition.</p>
 
-<p>The process of applying a PlanDefinition to a particular context typically produces request resources representing the actions that should be performed, potentially grouped within a CarePlan to capture relationships between the resulting request resources.</p>
+<p>In addition to describing what should take place, each action in a plan definition can specify <i>when</i> and <i>whether</i> the action should take place. For when the action should be taken, the <code>triggerDefinition</code> element specifies the action should be taken in response to some trigger occurring (such as a particular point in a workflow being reached, or as the result of a prescription being ordered). For whether the action should be taken, the <code>condition</code> element can be used to provide an expression that evaluates to true or false to indicate the applicability of the action to the specific context.</p>
+
+<p>The process of applying a PlanDefinition to a particular context typically produces request resources representing the actions that should be performed, typically grouped within a <a href="careplan.html">CarePlan</a> and/or <a href="requestgroup.html">RequestGroup</a> to capture relationships between the resulting request resources.</p>
 
 <p>Each ActivityDefinition is used to construct a specific resource, based on the definition of the activity and combined with contextual information for the particular patient that the plan definition is being applied to.</p>
 
@@ -18,7 +20,7 @@
 
 <p>Note that these mechanisms are provided on both the ActivityDefinition and the PlanDefinition to allow both reusable transformation descriptions, as well as customization of those descriptions within specific contexts. As such, the transform descriptions specified on the PlanDefinition <i>override</i> transform descriptions defined on the ActivityDefinition.</p>
 
-<p>Dynamic values within the definitions can be provided by specifying the expression directly, or by referencing an expression defined within a library. For more information on how to reference expressions within resources, refer to the Languages topic.</p>
+<p>Dynamic values within the definitions can be provided by specifying the expression directly, or by referencing an expression defined within a library. For more information on how to reference expressions within resources, refer to the <a href="cqif/cqif-topics-using-expressions.html">Using Expressions</a> topic.</p>
 
 <p>As an example, the Low Suicide Risk example order set from the Clinical Decision Support Knowledge Artifact Specification can be represented using the PlanDefinition and ActivityDefinition structures: <a href="plandefinition-example.html">Low Suicide Risk Example Order Set</a>.</p>
 

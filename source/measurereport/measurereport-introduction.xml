@@ -4,10 +4,14 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 
-<p>
-The <code>$evaluate-measure</code> operation of the Measure resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
+<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#event">Event</a>.</p>
 
-The resource is based on the HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category 1 (QRDA I) DSTU Release 3 (US Realm) and the HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category III (QRDA III), DSTU Release 1 implementation guides.
+<p>
+The MeasureReport resource represents the results of evaluating a measure for a specific patient or group of patients. The <code>$evaluate-measure</code> operation of the <a href="measure.html">Measure</a> resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
+</p>
+
+<p>
+The resource draws requirements from the HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category 1 (QRDA I) DSTU Release 3 (US Realm) and the HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category III (QRDA III), DSTU Release 1 implementation guides.
 </p>
 
 <p>Note that this resource is a special case of the more general notion of a query evaluation result. However, because the general case requires the ability to represent arbitrary content, this resource uses a simple indicator structure to describe population sizes for each population type defined in the measure. The intent is to be able to represent the more general case as well, either by generalizing this resource, or by making this structure a profile of a more general resource, and we are actively seeking comments about what approaches might be taken to achieve that aim.</p>

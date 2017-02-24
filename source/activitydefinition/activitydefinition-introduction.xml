@@ -3,18 +3,20 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>An activity definition is a shareable, consumable description of some activity to be performed. It may be used to specify actions to be taken as part of an order set or protocol, or it may be used independently as part of a catalog of activities such as orderables.</p>
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
-<p>For more information on how activity definitions can be used to construct request resources, see the Category Mapping and Realizing an ActivityDefinition topics below.</p>
+<p>An ActivityDefinition is a shareable, consumable description of some activity to be performed. It may be used to specify actions to be taken as part of a workflow, order set, or protocol, or it may be used independently as part of a catalog of activities such as orderables.</p>
+
+<p>For more information on how activity definitions can be used to construct request resources, see the Realizing an ActivityDefinition topic below.</p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>In general, an activity definition is simply a conceptual description of some specific action that should be taken. An instance of an ActivityDefinition does not indicate that any action has been performed (as an <i>event</i> resource does), nor does it indicate the actual <i>intent</i> to carry out any particular action (as a <i>request</i> resource does).</p>
+<p>In general, an activity definition is simply a conceptual description of some specific action that should be taken. An instance of an ActivityDefinition does not indicate that any action has been performed (as an <a href="workflow.html#event">event</a> resource does), nor does it indicate the actual <i>intent</i> to carry out any particular action (as a <a href="workflow.html#request">request</a> resource does).</p>
 
-<p>Instead, an activity definition provides a reusable template that can potentially be used to construct specific <i>request</i> resources such as ProcedureRequest and MedicationRequest. This is different than a DataElement in that ActivityDefinitions are less granular than data elements, which are typically used to describe more granular elements, such as a blood pressure, or the answer to a particular question.</p>
+<p>Instead, an activity definition provides a reusable template that can be used to construct specific <i>request</i> resources such as <a href="procedurerequest.html">ProcedureRequest</a> and <a href="medicationrequest.html">MedicationRequest</a>. This is different than a <a href="dataelement.html">DataElement</a> in that ActivityDefinitions are generally broader than data elements, which are typically used to describe more granular elements, such as a blood pressure, or the answer to a particular question.</p>
 
-<p>Note that this is conceptually similar to the Task resource as well, with the distinction being that ActivityDefinition represents the description of a task in the abstract, while the Task resource is used to track a specific instance of a task as it moves through the steps of a workflow.</p>
+<p>Note that this is conceptually similar to the <a href="task.html">Task</a> resource as well, with the distinction being that ActivityDefinition represents the description of a task in the abstract, while the Task resource is used to track a specific instance of a task as it moves through the steps of a workflow.</p>
 
 </div>
 
