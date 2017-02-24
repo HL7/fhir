@@ -4,7 +4,7 @@
 	<p>
 		The example binding used for the device element is from SNOMED CT. However, there are many other sources of possible codes for device type including:</p>
 		<ul>
-			<li><a href="https://www.gmdnagency.org/Info.aspx?pageid=1091">Global Medical Device Nomenclature (GMDN&reg;)</a></li>
+			<li><a href="https://www.gmdnagency.org/">Global Medical Device Nomenclature (GMDN&reg;)</a></li>
 			<li><a href="https://rtmms.nist.gov/rtmms/index.htm">Rosetta Terminology Mapping (RTM)</a></li>
 		</ul>
 		<p>Note that there may be translations of type code using one or more of these and other vocabularies</p>
