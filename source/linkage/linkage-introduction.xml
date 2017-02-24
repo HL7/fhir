@@ -16,14 +16,14 @@ live on different servers or have different 'owners'.  The <b>Linkage</b> resour
 
 </div>
 
-<!-- (recommended): 
+
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+The <a href="person.html">Person</a> resource should be used to link a person independent of a specific health-related context. Linkage can be used for all other use cases.
 </p>
 </div>
--->
+
 
 <!-- (optional):
 <div>

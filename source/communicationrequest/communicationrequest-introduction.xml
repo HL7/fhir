@@ -4,7 +4,9 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-    
+ 
+<p>CommunicationRequest is one of the <a href="workflow.html#request">request</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
+ 
 <p>
 This resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include:
 </p>
@@ -29,15 +31,7 @@ The use of <b>CommunicationRequest</b> excludes requests for referrals which are
 It also excludes requests for therapy or counseling which would be handled by the <a href="procedurerequest.html">ProcedureRequest</a> resource.
 The performance of a <b>CommunicationRequest</b> may result in a <a href="communication.html">Communication</a> resource.
 </p>
-<p>
-<b>PLANNED CHANGE:</b>
-</p>
-<p>
-<b>CommunicationRequest</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
-renaming a few elements.  At present, the workgroup plans to incorporate all elements with the exception of supportingInfo and relevantHistory, which will be handled as
-extensions.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
-</p>
+
 </div>
 
 <!-- (optional):

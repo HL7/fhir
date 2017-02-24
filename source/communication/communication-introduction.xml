@@ -4,7 +4,9 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-    
+   
+<p>Communication is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
+   
 <p>
 This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
 The sender and receivers may be patients, practitioners, related persons, organizations, or devices. Communication use cases include:
@@ -55,14 +57,6 @@ The phone calls involving the Patient should be handled using <a href="encounter
 (e.g. between practitioners or practitioner to relative) that are tracked for billing or other purposes can use Communication 
 to represent the information transferred, but are not ideal to represent the call itself.  
 A better mechanism for handling such calls will be explored in a future release.
-</p>
-<p>
-<b>PLANNED CHANGE:</b>
-</p>
-<p>
-<b>Communication</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
-renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
 </p>
 </div>
 

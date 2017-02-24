@@ -3,6 +3,9 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
+
+<p>CarePlan is one of the <a href="workflow.html#request">request</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
+
 <p> 
 Care Plans are used in many areas of healthcare with a variety of scopes.
 They can be as simple as a general practitioner keeping track of when their 
@@ -73,15 +76,6 @@ resource, the immunization-specific resource is preferred.
 <p>
 CarePlans represent a specific plan instance for a particular patient or group.  It is not intended to be used to define generic plans or protocols that are independent of a
 specific individual or group.  CarePlan represents a specific intent, not a general definition.  Protocols and order sets are supported through <a href="plandefinition.html">PlanDefinition</a>.
-</p>
-<p>
-<b>PLANNED CHANGE:</b>
-</p>
-<p>
-<b>CarePlan</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
-renaming a few elements.  Note that the resource name will remain CarePlan, not CarePlanRequest or something similar.
-Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
 </p>
 </div>
 

@@ -3,6 +3,8 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
+<p>Procedure is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
+
 <p>
 This resource is used to record the details of procedures performed on a patient. A procedure is an activity 
 that is performed with or on a patient as part of the provision of care. Examples include surgical 
@@ -40,14 +42,7 @@ the procedure resource is used to describe the activity.
 <p> Some diagnostic procedures may not have a Procedure record.  The Procedure record is only necessary when 
 there is a need to capture information about the physical intervention that was performed to capture the diagnostic 
 information (e.g. anesthetic, incision, scope size, etc.)</p>
-<p>
-<b>PLANNED CHANGE:</b>
-</p>
-<p>
-<b>Procedure</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
-renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
-</p>
+
 </div>
 
 </div>

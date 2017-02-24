@@ -3,6 +3,8 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
+<p>FamilyMemberHistory is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
+
 <p> 
 This resource records significant health events and conditions for a particular individual related to the subject. This information can be known to
 different levels of accuracy. Sometimes the exact condition ('asthma') is known, and sometimes it is less precise ('some sort of cancer').
@@ -14,14 +16,7 @@ for an example.</p>
 <p>
 The entire family history for an individual can be represented by combining references to <b>FamilyMemberHistory</b> instances into a <a href="list.html">List</a> resource instance.
 </p>
-<p>
-<b>PLANNED CHANGE:</b>
-</p>
-<p>
-<b>FamilyMemberHistory</b> is one of the <a href="workflow.html#event">Event</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
-renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
-</p>
+
 </div>
 
 </div>

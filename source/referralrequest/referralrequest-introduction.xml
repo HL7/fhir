@@ -3,6 +3,8 @@
 <div>
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
+<p>ReferralRequest is one of the <a href="workflow.html#request">request</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
+
 <p>
 This resource is used to share relevant information required to support a referral request or a transfer of care request from one
 practitioner or organization to another. It is intended for use when a patient is required to be referred to another provider for a
@@ -81,14 +83,7 @@ A ReferralRequest might be fulfilled by a <a href="diagnosticreport.html">Diagno
 A ReferralRequest should not be confused with an <a href="appointment.html">Appointment</a>, as appointments are intended for
 booking/scheduling purposes.
 </p>
-<p>
-<b>PLANNED CHANGE:</b>
-</p>
-<p>
-<b>ReferralRequest</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
-renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
-</p>
+
 </div>
 
 <!--
