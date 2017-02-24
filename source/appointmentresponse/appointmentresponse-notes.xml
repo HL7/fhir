@@ -18,8 +18,7 @@
 				The appointment information is effectively the same between the filler and placer, and given the nature of the
 				FHIR resource, there is only a single resource for both purposes. The Placer is the actor that performs the
 				PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and
-				processes the information and makes a decision if the appointment can be used.
-				<em>Brian: Does this seem right that the filler and placer are applied in this way?</em>
+				processes the information and makes a decision if the appointment can be used.				
 			</p>
 			<li>Interaction with other standards</li>
 			<p>

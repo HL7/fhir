@@ -93,6 +93,7 @@
   Type = CodeableConcept
   Binding = service-category
   Short Name = A broad categorisation of the service that is to be performed during this appointment
+  w5 = class
 
  -- Row 4 -----------------------------------
   Element = Slot.serviceType
@@ -101,6 +102,7 @@
   Type = CodeableConcept
   Binding = service-type
   Short Name = The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource
+  w5 = class
 
  -- Row 5 -----------------------------------
   Element = Slot.specialty
@@ -118,6 +120,7 @@
   Type = CodeableConcept
   Binding = appointment-type
   Short Name = The style of appointment or patient that may be booked in the slot (not service type)
+  w5 = class
 
  -- Row 7 -----------------------------------
   Element = Slot.schedule

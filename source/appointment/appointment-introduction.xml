@@ -68,7 +68,7 @@
 				<p>
 					Once all participants have their participation status created/updated
 					(and the main system marking the appointment participant records with the AppointmentResponse
-					statuses) then the overall status of the appointment is updated.
+					statuses) then the overall status of the Appointment is updated.
 				</p>
 			</li>
 			<li>

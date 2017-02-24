@@ -67,6 +67,7 @@
   Type = CodeableConcept
   Binding = service-category
   Short Name = A broad categorisation of the service that is to be performed during this appointment
+  w5 = class
 
  -- Row 5 -----------------------------------
   Element = Schedule.serviceType
@@ -85,6 +86,7 @@
   Type = CodeableConcept
   Binding = specialty
   Short Name = The specialty of a practitioner that would be required to perform the service requested in this appointment
+  w5 = class
 
  -- Row 7 -----------------------------------
   Element = Schedule.actor
