@@ -10,7 +10,7 @@ import java.util.Map;
 import org.apache.commons.codec.Charsets;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.test.TestingUtilities;
+import org.hl7.fhir.dstu3.test.support.TestingUtilities;
 import org.hl7.fhir.dstu3.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.dstu3.utils.formats.JsonTrackingParser.LocationData;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;

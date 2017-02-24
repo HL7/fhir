@@ -1692,26 +1692,6 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\valueset-cpt-all.ttl"));
   }
   @Test
-  public void test_testscript_update() throws FileNotFoundException, IOException, Exception {
-    System.out.println("testscript-update.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-update.ttl"));
-  }
-  @Test
-  public void test_testscript_search() throws FileNotFoundException, IOException, Exception {
-    System.out.println("testscript-search.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-search.ttl"));
-  }
-  @Test
-  public void test_testscript_readtest() throws FileNotFoundException, IOException, Exception {
-    System.out.println("testscript-readtest.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-readtest.ttl"));
-  }
-  @Test
-  public void test_testscript_history() throws FileNotFoundException, IOException, Exception {
-    System.out.println("testscript-history.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-history.ttl"));
-  }
-  @Test
   public void test_testscript_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("testscript-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-example.ttl"));
@@ -1720,16 +1700,6 @@ public class TurtleTests {
   public void test_testscript_example_rule() throws FileNotFoundException, IOException, Exception {
     System.out.println("testscript-example-rule.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-example-rule.ttl"));
-  }
-  @Test
-  public void test_testscript_example_multiserver() throws FileNotFoundException, IOException, Exception {
-    System.out.println("testscript-example-multiserver.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\testscript-example-multiserver.ttl"));
-  }
-  @Test
-  public void test_task_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("task-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\task-example.ttl"));
   }
   @Test
   public void test_supplyrequest_example() throws FileNotFoundException, IOException, Exception {
@@ -1900,11 +1870,6 @@ public class TurtleTests {
   public void test_provenance_example_sig() throws FileNotFoundException, IOException, Exception {
     System.out.println("provenance-example-sig.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\provenance-example-sig.ttl"));
-  }
-  @Test
-  public void test_protocol_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("protocol-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\protocol-example.ttl"));
   }
   @Test
   public void test_processresponse_example() throws FileNotFoundException, IOException, Exception {
@@ -2152,11 +2117,6 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example-xcda.ttl"));
   }
   @Test
-  public void test_patient_example_us_extensions() throws FileNotFoundException, IOException, Exception {
-    System.out.println("patient-example-us-extensions.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example-us-extensions.ttl"));
-  }
-  @Test
   public void test_patient_example_proband() throws FileNotFoundException, IOException, Exception {
     System.out.println("patient-example-proband.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\patient-example-proband.ttl"));
@@ -2260,26 +2220,6 @@ public class TurtleTests {
   public void test_organization_example_f001_burgers() throws FileNotFoundException, IOException, Exception {
     System.out.println("organization-example-f001-burgers.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\organization-example-f001-burgers.ttl"));
-  }
-  @Test
-  public void test_orderset_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("orderset-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\orderset-example.ttl"));
-  }
-  @Test
-  public void test_orderresponse_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("orderresponse-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\orderresponse-example.ttl"));
-  }
-  @Test
-  public void test_order_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("order-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\order-example.ttl"));
-  }
-  @Test
-  public void test_order_example_f201_physiotherapy() throws FileNotFoundException, IOException, Exception {
-    System.out.println("order-example-f201-physiotherapy.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\order-example-f201-physiotherapy.ttl"));
   }
   @Test
   public void test_operationoutcome_example() throws FileNotFoundException, IOException, Exception {
@@ -2517,11 +2457,6 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\namingsystem-example-id.ttl"));
   }
   @Test
-  public void test_moduledefinition_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("moduledefinition-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\moduledefinition-example.ttl"));
-  }
-  @Test
   public void test_messageheader_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("messageheader-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\messageheader-example.ttl"));
@@ -2567,159 +2502,19 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationstatementexample1.ttl"));
   }
   @Test
-  public void test_medicationorderexample9() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample9.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample9.ttl"));
+  public void test_medicationrequestexample2() throws FileNotFoundException, IOException, Exception {
+    System.out.println("medicationrequestexample2.ttl");
+    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationrequestexample2.ttl"));
   }
   @Test
-  public void test_medicationorderexample8() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample8.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample8.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample7() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample7.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample7.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample6() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample6.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample6.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample5() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample5.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample5.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample4() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample4.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample4.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample3() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample3.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample3.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample2() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample2.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample2.ttl"));
-  }
-  @Test
-  public void test_medicationorderexample1() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorderexample1.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorderexample1.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f203_paracetamol() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f203-paracetamol.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f203-paracetamol.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f202_flucloxacilline() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f202-flucloxacilline.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f202-flucloxacilline.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f201_salmeterol() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f201-salmeterol.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f201-salmeterol.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f005_enalapril() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f005-enalapril.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f005-enalapril.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f004_metoprolol() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f004-metoprolol.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f004-metoprolol.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f003_tolbutamide() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f003-tolbutamide.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f003-tolbutamide.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f002_crestor() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f002-crestor.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f002-crestor.ttl"));
-  }
-  @Test
-  public void test_medicationorder_example_f001_combivent() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationorder-example-f001-combivent.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationorder-example-f001-combivent.ttl"));
-  }
-  @Test
-  public void test_medicationexample8() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample8.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample8.ttl"));
-  }
-  @Test
-  public void test_medicationexample7() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample7.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample7.ttl"));
-  }
-  @Test
-  public void test_medicationexample6() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample6.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample6.ttl"));
-  }
-  @Test
-  public void test_medicationexample5() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample5.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample5.ttl"));
-  }
-  @Test
-  public void test_medicationexample4() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample4.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample4.ttl"));
-  }
-  @Test
-  public void test_medicationexample3() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample3.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample3.ttl"));
-  }
-  @Test
-  public void test_medicationexample2() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample2.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample2.ttl"));
-  }
-  @Test
-  public void test_medicationexample17() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample17.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample17.ttl"));
-  }
-  @Test
-  public void test_medicationexample16() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample16.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample16.ttl"));
+  public void test_medicationrequestexample1() throws FileNotFoundException, IOException, Exception {
+    System.out.println("medicationrequestexample1.ttl");
+    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationrequestexample1.ttl"));
   }
   @Test
   public void test_medicationexample15() throws FileNotFoundException, IOException, Exception {
     System.out.println("medicationexample15.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample15.ttl"));
-  }
-  @Test
-  public void test_medicationexample14() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample14.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample14.ttl"));
-  }
-  @Test
-  public void test_medicationexample13() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample13.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample13.ttl"));
-  }
-  @Test
-  public void test_medicationexample12() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample12.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample12.ttl"));
-  }
-  @Test
-  public void test_medicationexample11() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationexample11.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample11.ttl"));
   }
   @Test
   public void test_medicationexample1() throws FileNotFoundException, IOException, Exception {
@@ -2732,84 +2527,14 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationdispenseexample8.ttl"));
   }
   @Test
-  public void test_medicationdispenseexample6() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationdispenseexample6.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationdispenseexample6.ttl"));
-  }
-  @Test
-  public void test_medicationdispenseexample4() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationdispenseexample4.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationdispenseexample4.ttl"));
-  }
-  @Test
-  public void test_medicationdispenseexample3() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationdispenseexample3.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationdispenseexample3.ttl"));
-  }
-  @Test
-  public void test_medicationdispenseexample2() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationdispenseexample2.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationdispenseexample2.ttl"));
-  }
-  @Test
-  public void test_medicationdispenseexample1() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationdispenseexample1.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationdispenseexample1.ttl"));
-  }
-  @Test
   public void test_medicationadministrationexample3() throws FileNotFoundException, IOException, Exception {
     System.out.println("medicationadministrationexample3.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationadministrationexample3.ttl"));
   }
   @Test
-  public void test_medicationadministrationexample2() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationadministrationexample2.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationadministrationexample2.ttl"));
-  }
-  @Test
-  public void test_medicationadministrationexample1() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medicationadministrationexample1.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationadministrationexample1.ttl"));
-  }
-  @Test
   public void test_medication_example_f203_paracetamol() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f203-paracetamol.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f203-paracetamol.ttl"));
-  }
-  @Test
-  public void test_medication_example_f202_flucloxacilline() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f202-flucloxacilline.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f202-flucloxacilline.ttl"));
-  }
-  @Test
-  public void test_medication_example_f201_salmeterol() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f201-salmeterol.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f201-salmeterol.ttl"));
-  }
-  @Test
-  public void test_medication_example_f005_enalapril() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f005-enalapril.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f005-enalapril.ttl"));
-  }
-  @Test
-  public void test_medication_example_f004_metoprolol() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f004-metoprolol.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f004-metoprolol.ttl"));
-  }
-  @Test
-  public void test_medication_example_f003_tolbutamide() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f003-tolbutamide.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f003-tolbutamide.ttl"));
-  }
-  @Test
-  public void test_medication_example_f002_crestor() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f002-crestor.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f002-crestor.ttl"));
-  }
-  @Test
-  public void test_medication_example_f001_combivent() throws FileNotFoundException, IOException, Exception {
-    System.out.println("medication-example-f001-combivent.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medication-example-f001-combivent.ttl"));
+    System.out.println("medicationexample0312.ttl");
+    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\medicationexample0312.ttl"));
   }
   @Test
   public void test_media_example() throws FileNotFoundException, IOException, Exception {
@@ -2950,16 +2675,6 @@ public class TurtleTests {
   public void test_imagingstudy_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("imagingstudy-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\imagingstudy-example.ttl"));
-  }
-  @Test
-  public void test_imagingobjectselection_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("imagingobjectselection-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\imagingobjectselection-example.ttl"));
-  }
-  @Test
-  public void test_imagingexcerpt_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("imagingexcerpt-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\imagingexcerpt-example.ttl"));
   }
   @Test
   public void test_healthcareservice_example() throws FileNotFoundException, IOException, Exception {
@@ -3118,19 +2833,9 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticreport-genetics-comprehensive-bone-marrow-report.ttl"));
   }
   @Test
-  public void test_diagnosticreport_examples_lab_text() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticreport-examples-lab-text.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticreport-examples-lab-text.ttl"));
-  }
-  @Test
   public void test_diagnosticreport_examples_general() throws FileNotFoundException, IOException, Exception {
     System.out.println("diagnosticreport-examples-general.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticreport-examples-general.ttl"));
-  }
-  @Test
-  public void test_diagnosticreport_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticreport-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticreport-example.ttl"));
   }
   @Test
   public void test_diagnosticreport_example_ultrasound() throws FileNotFoundException, IOException, Exception {
@@ -3168,39 +2873,9 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticreport-example-dxa.ttl"));
   }
   @Test
-  public void test_diagnosticorder_genetics_example_2() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticorder-genetics-example-2.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticorder-genetics-example-2.ttl"));
-  }
-  @Test
-  public void test_diagnosticorder_genetics_example_1() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticorder-genetics-example-1.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticorder-genetics-example-1.ttl"));
-  }
-  @Test
-  public void test_diagnosticorder_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticorder-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticorder-example.ttl"));
-  }
-  @Test
-  public void test_diagnosticorder_example_ft4() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticorder-example-ft4.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticorder-example-ft4.ttl"));
-  }
-  @Test
-  public void test_diagnosticorder_example_di() throws FileNotFoundException, IOException, Exception {
-    System.out.println("diagnosticorder-example-di.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\diagnosticorder-example-di.ttl"));
-  }
-  @Test
   public void test_deviceusestatement_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("deviceusestatement-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\deviceusestatement-example.ttl"));
-  }
-  @Test
-  public void test_deviceuserequest_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("deviceuserequest-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\deviceuserequest-example.ttl"));
   }
   @Test
   public void test_devicemetric_example() throws FileNotFoundException, IOException, Exception {
@@ -3268,36 +2943,6 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\detectedissue-example-allergy.ttl"));
   }
   @Test
-  public void test_decisionsupportservicemodule_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("decisionsupportservicemodule-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\decisionsupportservicemodule-example.ttl"));
-  }
-  @Test
-  public void test_decisionsupportrule_exclusive_breastfeeding_intervention_04() throws FileNotFoundException, IOException, Exception {
-    System.out.println("decisionsupportrule-exclusive-breastfeeding-intervention-04.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\decisionsupportrule-exclusive-breastfeeding-intervention-04.ttl"));
-  }
-  @Test
-  public void test_decisionsupportrule_exclusive_breastfeeding_intervention_03() throws FileNotFoundException, IOException, Exception {
-    System.out.println("decisionsupportrule-exclusive-breastfeeding-intervention-03.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\decisionsupportrule-exclusive-breastfeeding-intervention-03.ttl"));
-  }
-  @Test
-  public void test_decisionsupportrule_exclusive_breastfeeding_intervention_02() throws FileNotFoundException, IOException, Exception {
-    System.out.println("decisionsupportrule-exclusive-breastfeeding-intervention-02.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\decisionsupportrule-exclusive-breastfeeding-intervention-02.ttl"));
-  }
-  @Test
-  public void test_decisionsupportrule_exclusive_breastfeeding_intervention_01() throws FileNotFoundException, IOException, Exception {
-    System.out.println("decisionsupportrule-exclusive-breastfeeding-intervention-01.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\decisionsupportrule-exclusive-breastfeeding-intervention-01.ttl"));
-  }
-  @Test
-  public void test_decisionsupportrule_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("decisionsupportrule-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\decisionsupportrule-example.ttl"));
-  }
-  @Test
   public void test_dataelement_labtestmaster_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("dataelement-labtestmaster-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\dataelement-labtestmaster-example.ttl"));
@@ -3321,21 +2966,6 @@ public class TurtleTests {
   public void test_contract_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("contract-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\contract-example.ttl"));
-  }
-  @Test
-  public void test_conformance_terminology_server() throws FileNotFoundException, IOException, Exception {
-    System.out.println("conformance-terminology-server.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\conformance-terminology-server.ttl"));
-  }
-  @Test
-  public void test_conformance_phr_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("conformance-phr-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\conformance-phr-example.ttl"));
-  }
-  @Test
-  public void test_conformance_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("conformance-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\conformance-example.ttl"));
   }
   @Test
   public void test_condition_example2() throws FileNotFoundException, IOException, Exception {
@@ -3421,11 +3051,6 @@ public class TurtleTests {
   public void test_communication_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("communication-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\communication-example.ttl"));
-  }
-  @Test
-  public void test_codesystem_restful_interaction() throws FileNotFoundException, IOException, Exception {
-    System.out.println("codesystem-restful-interaction.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\codesystem-restful-interaction.ttl"));
   }
   @Test
   public void test_codesystem_nhin_purposeofuse() throws FileNotFoundException, IOException, Exception {
@@ -3576,11 +3201,6 @@ public class TurtleTests {
   public void test_bundle_example() throws FileNotFoundException, IOException, Exception {
     System.out.println("bundle-example.ttl");
     new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\bundle-example.ttl"));
-  }
-  @Test
-  public void test_bodysite_example() throws FileNotFoundException, IOException, Exception {
-    System.out.println("bodysite-example.ttl");
-    new Turtle().parse(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\bodysite-example.ttl"));
   }
   @Test
   public void test_binary_f006() throws FileNotFoundException, IOException, Exception {

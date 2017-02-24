@@ -384,7 +384,7 @@ public class TurtleParser extends ParserBase {
       String refURI = getReferenceURI(element.getChildValue("reference"));
       if (refURI != null) {
         String uriType = getURIType(refURI);
-        if(uriType != null)
+        if(uriType != null && !section.hasSubject(refURI))
           section.triple(refURI, "a", "fhir:" + uriType);
       }
     }

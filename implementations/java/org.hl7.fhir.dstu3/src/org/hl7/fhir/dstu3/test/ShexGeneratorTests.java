@@ -9,6 +9,7 @@ import org.hl7.fhir.dstu3.conformance.ShExGenerator;
 import org.hl7.fhir.dstu3.conformance.ShExGenerator.HTMLLinkPolicy;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.test.support.TestingUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.TextFile;
 import org.junit.Test;

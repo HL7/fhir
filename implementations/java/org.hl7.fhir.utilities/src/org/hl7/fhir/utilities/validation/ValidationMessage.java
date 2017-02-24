@@ -646,7 +646,7 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
   }
 
   public String summary() {
-    return level.toString()+" @ "+location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+") " : " ") +message +(source != null ? " (src = "+source+")" : "");
+    return level.toString()+" @ "+location+(line>= 0 && col >= 0 ? " (line "+Integer.toString(line)+", col"+Integer.toString(col)+"): " : ": ") +message +(source != null ? " (src = "+source+")" : "");
   }
 
 

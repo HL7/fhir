@@ -205,6 +205,13 @@ public class Turtle {
 			subjects.add(s);
 			return s;
 		}
+
+    public boolean hasSubject(String subject) {
+      for (Subject ss : subjects) 
+        if (ss.id.equals(subject))
+          return true;
+      return false;
+    }
 	}
 
 	private List<Section> sections = new ArrayList<Section>();

@@ -43,6 +43,7 @@ import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.test.support.TestingUtilities;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 
 public class ResourceTest {
