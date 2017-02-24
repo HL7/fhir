@@ -616,4 +616,10 @@
   Description = Stroke example (for prognosis)
   Filename = condition-example-stroke.xml
 
+ -- Row 12 -----------------------------------
+  Name = Family History
+  Identity = family-history
+  Description = Family history concern
+  Filename = condition-example-family-history.xml
+
 === Sheet Examples =====================================

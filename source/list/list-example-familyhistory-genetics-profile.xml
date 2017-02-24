@@ -203,22 +203,6 @@
       </relationship>
     </FamilyMemberHistory>
   </contained>
-  <contained>
-	<Condition>
-		<id value="9"/>
-		<clinicalStatus value="active"/>
-		<code>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="312824007"/>
-				<display value="Family history of cancer of colon"/>
-			</coding>
-		</code>
-		<subject>
-			<reference value="Patient/example"/>
-		</subject>
-	</Condition>
-  </contained>
 
   <status value="current"/>
   <mode value="snapshot"/>
@@ -277,7 +261,8 @@
   </entry>
   <entry>
     <item>
-      <reference value="#9"/>
+      <reference value="Condition/family-history"/>
+	  <display value="Family history of cancer of colon"/>
     </item>
   </entry>
 </List>
