@@ -42,6 +42,9 @@
 		<system value="http:/goodhealth.org/identifiers"/>
 		<value value="20170201-001"/>
 	</identifier>
+	<basedOn>
+		<display value="General Wellness Careplan"/>
+	</basedOn>
 	<groupIdentifier>
 		<use value="official"/>
 		<system value="http:/goodhealth.org/accession/identifiers"/>
@@ -126,5 +129,4 @@
 		</period>
 	</restriction>
 	<!--The expected output of this task is a DiagnosticRequest and will generated once the task is near completion -->
-
 </Task>
