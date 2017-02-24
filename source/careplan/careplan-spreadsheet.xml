@@ -20,12 +20,12 @@
    <Path>\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>9510</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>8145</WindowHeight>
+  <WindowWidth>20130</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>777</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4962,7 +4962,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6260,9 +6259,10 @@
    <Column ss:StyleID="s136" ss:Width="89.25"/>
    <Column ss:StyleID="s136" ss:Width="29.25"/>
    <Column ss:StyleID="s136" ss:Width="329.25"/>
-   <Column ss:StyleID="s136" ss:Width="57"/>
-   <Column ss:StyleID="s136" ss:Width="206.25" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s136" ss:Width="41.25"/>
+   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="163.5"/>
+   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="244.5"/>
+   <Column ss:StyleID="s136" ss:Width="206.25"/>
+   <Column ss:StyleID="s136" ss:Width="41.25"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s102"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -6389,11 +6389,11 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">Narrative</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan to address obesity that is primarily narrative</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">obesity-narrative</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-obesity-narrative.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s141"/>
    </Row>
@@ -6658,6 +6658,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6677,8 +6678,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
-     <RangeSelection>R2C4:R11C4</RangeSelection>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

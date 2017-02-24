@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarePlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/CarePlan.xsd">
+  <id value="obesity-narrative"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p> Care plan to address obesity.  Goal is a target weight of 160 to 180 lbs.  Activities include diet and exercise.</p>
+    </div>
+  </text>
+ 
+	<status value="active"/>
+	<intent value="plan"/>
+	
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</subject>
+	
+</CarePlan>

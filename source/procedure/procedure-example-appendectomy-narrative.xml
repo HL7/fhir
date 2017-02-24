@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <id value="appendectomy-narrative"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Routine Appendectomy in April 2013 performed by Dr Cecil Surgeon</div>
+  </text>
+  <status value="completed"/>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+</Procedure>
