@@ -13,7 +13,7 @@ public class RDFNamespace {
     private String prefix;
     private String URI;
 
-    RDFNamespace(String prefix, String uri) {
+    public RDFNamespace(String prefix, String uri) {
         this.prefix = prefix;
         this.URI = uri;
     }
@@ -54,6 +54,7 @@ public class RDFNamespace {
     public static final RDFNamespace VS = new RDFNamespace("vs", "http://hl7.org/orim/valueset/");
     public static final RDFNamespace DT = new RDFNamespace("dt", "http://hl7.org/orim/datatype/");
     public static final RDFNamespace LOINC = new RDFNamespace("loinc", "http://loinc.org/owl#");
+    public static final RDFNamespace W5 = new RDFNamespace("w5", "http://hl7.org/fhir/w5#");
 
     // For some reason these aren't included in the XSD and RDF namespaces -- do we need to update Jena library?
     public static final Property XSDpattern;
@@ -71,6 +72,7 @@ public class RDFNamespace {
         model.setNsPrefix("rdf", RDF.getURI());
         model.setNsPrefix("rdfs", RDFS.getURI());
         FHIR.addNsPrefix(model);
+        W5.addNsPrefix(model);
         FHIR_VS.addNsPrefix(model);
         EX.addNsPrefix(model);
         model.setNsPrefix("xsd", XSD.getURI());

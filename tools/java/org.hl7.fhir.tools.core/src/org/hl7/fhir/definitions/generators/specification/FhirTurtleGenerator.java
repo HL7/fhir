@@ -62,14 +62,6 @@ public class FhirTurtleGenerator {
         genOntologyDefinition();
         genBaseMetadata();
 
-        for (String ptn : sorted(definitions.getPrimitives().keySet())) {
-            DefinedCode t = definitions.getPrimitives().get(ptn);
-            if (t instanceof PrimitiveType)
-                genPrimitiveType((PrimitiveType) t);
-            else if (t instanceof DefinedStringPattern)
-                genDefinedStringPattern((DefinedStringPattern) t);
-        }
-
         for (String infn : sorted(definitions.getInfrastructure().keySet()))
             genElementDefn(definitions.getInfrastructure().get(infn));
 
@@ -103,7 +95,8 @@ public class FhirTurtleGenerator {
     private void genOntologyDefinition() {
         fact.fhir_ontology("fhir.ttl", "FHIR Model Ontology")
                 .addDataProperty(RDFS.comment, "Formal model of FHIR Clinical Resources")
-                .addObjectProperty(OWL2.versionIRI, ResourceFactory.createResource("http://build.fhir.org/fhir.ttl"));
+                .addObjectProperty(OWL2.versionIRI, ResourceFactory.createResource("http://build.fhir.org/fhir.ttl"))
+                .addDataProperty(OWL2.imports, RDFNamespace.W5.getURI());
     }
 
     /**
@@ -249,6 +242,8 @@ public class FhirTurtleGenerator {
                 fact.fhir_class(resourceName, resourceType.getTypes().isEmpty()? OWL2.Thing : RDFNamespace.FHIR.resourceRef(resourceType.typeCode()))
                         .addDefinition(rd.getDefinition());
         processTypes(resourceName, rdRes, resourceType, true);
+        if(!Utilities.noString(resourceType.getW5()))
+            rdRes.addObjectProperty(RDFS.subClassOf, RDFNamespace.W5.resourceRef(resourceType.getW5()));
     }
 
     /**
@@ -324,6 +319,8 @@ public class FhirTurtleGenerator {
                 baseResource.restriction(
                         fact.fhir_cardinality_restriction(predicateResource.resource, baseDef.resource, ed.getMinCardinality(), ed.getMaxCardinality()));
                 predicateResource.range(baseDef.resource);
+                if(!Utilities.noString(ed.getW5()))
+                    predicateResource.addObjectProperty(RDFS.subPropertyOf, RDFNamespace.W5.resourceRef(ed.getW5()));
             }
         }
     }
