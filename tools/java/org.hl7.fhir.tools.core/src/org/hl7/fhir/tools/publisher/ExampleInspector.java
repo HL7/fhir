@@ -278,8 +278,6 @@ public class ExampleInspector {
   public void doValidate(String n, String rt, StructureDefinition profile) {
     errorsInt.clear();
     logger.log(" ...validate " + n, LogMessageType.Process);
-    if (n.contains("conceptmap-example-specimen-type"))
-      System.out.println("test");
     try {
       Element e = validateLogical(Utilities.path(rootDir, n+".xml"), profile, FhirFormat.XML);
       org.w3c.dom.Element xe = validateXml(Utilities.path(rootDir, n+".xml"), profile == null ? null : profile.getId());

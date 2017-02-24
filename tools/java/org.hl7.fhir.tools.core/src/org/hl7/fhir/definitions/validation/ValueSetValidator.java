@@ -55,7 +55,7 @@ public class ValueSetValidator extends BaseValidator {
 
   private BuildWorkerContext context;
   private List<String> fixups;
-  private Set<ValueSet> handled = new HashSet<ValueSet>();
+  private Set<String> handled = new HashSet<String>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
   private Set<String> styleExemptions;
   private Set<String> valueSets = new HashSet<String>();
@@ -172,8 +172,8 @@ public class ValueSetValidator extends BaseValidator {
       if (em.getLevel() == IssueSeverity.WARNING)
         o_warnings++;
     }
-    if (!handled.contains(vs)) {
-      handled.add(vs);
+    if (!handled.contains(vs.getId())) {
+      handled.add(vs.getId());
       duplicateList.add(new VSDuplicateList(vs));
     }
     rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", vs.hasDescription(), "Value Sets in the build must have a description");

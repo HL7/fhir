@@ -338,8 +338,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
-//  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+//  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
+  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
 
   public final static String WEB_PUB_NAME = "DSTU2";
   public final static String CI_PUB_NAME = "Current Build";
@@ -8480,10 +8480,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return testCount - executeFailCount;
     }
     public int roundTripPct() {
-      return ((executeCount() - roundTripFailCount) * 100) / executeCount();
+      return executeCount() == 0 ? 0 : ((executeCount() - roundTripFailCount) * 100) / executeCount();
     }
     public int r3ValidPct() {
-      return ((executeCount() - r3ValidationFailCount) * 100) / executeCount();
+      return executeCount() == 0 ? 0 : ((executeCount() - r3ValidationFailCount) * 100) / executeCount();
     }
 
   }

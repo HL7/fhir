@@ -190,8 +190,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String configFile;
   private String sourceDir;
   private String destDir;
-  private String txServer = "http://fhir3.healthintersections.com.au/open";
-//  private String txServer = "http://local.healthintersections.com.au:960/open";
+//  private static String txServer = "http://fhir3.healthintersections.com.au/open";
+  private static String txServer = "http://local.healthintersections.com.au:960/open";
   private String igPack = "";
   private boolean watch;
 
@@ -3094,7 +3094,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     b.append("\r\n");
 
     b.append("tx.server: ");
-    b.append("http://fhir3.healthintersections.com.au/open");
+    b.append(txServer);
     b.append("\r\n");
 
     b.append("tx.cache: ");

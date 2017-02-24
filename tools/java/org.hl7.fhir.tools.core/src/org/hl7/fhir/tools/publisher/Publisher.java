@@ -1648,7 +1648,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
 
     for (ValidationMessage e : page.getValidationErrors()) {
-    	s.write(e.toXML());
+      if (!page.getSuppressedMessages().contains(e.summary()))
+        s.write(e.toXML());
     }
 
     s.write("</warnings>");
