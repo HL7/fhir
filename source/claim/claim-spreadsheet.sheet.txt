@@ -384,6 +384,7 @@
   Type = DomainResource
   Short Name = Claim, Pre-determination or Pre-authorization
   Definition = A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
+  Workflow Mapping = Request
   w5 = financial.billing
 
  -- Row 2 -----------------------------------
@@ -395,6 +396,7 @@
   Type = Identifier
   Short Name = Claim number
   Definition = The business identifier for the instance: claim number, pre-determination or pre-authorization number.
+  Workflow Mapping = Request.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -426,6 +428,7 @@
   Binding = ClaimStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Request.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -466,6 +469,7 @@
   Type = Reference(Patient)
   Short Name = The subject of the Products and Services
   Definition = Patient Resource
+  Workflow Mapping = Request.subject
   w5 = who.focus
 
  -- Row 12 -----------------------------------
@@ -482,6 +486,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  Workflow Mapping = Request.authoredOn
   w5 = when.recorded
 
  -- Row 14 -----------------------------------
@@ -498,6 +503,7 @@
   Type = Reference(Organization)
   Short Name = Target
   Definition = The Insurer who is target of the request.
+  Workflow Mapping = Request.performer
 
  -- Row 16 -----------------------------------
   Element = Claim.provider
@@ -505,6 +511,7 @@
   Type = Reference(Practitioner)
   Short Name = Responsible provider
   Definition = The provider which is responsible for the bill, claim pre-determination, pre-authorization.
+  Workflow Mapping = Request.requester.agent
   w5 = who.source
 
  -- Row 17 -----------------------------------
@@ -513,6 +520,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the bill, claim pre-determination, pre-authorization.
+  Workflow Mapping = Request.requester.onBehalfOf
   w5 = who.source
 
  -- Row 18 -----------------------------------
@@ -522,6 +530,7 @@
   Binding = ProcessPriority
   Short Name = Desired processing priority
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
+  Workflow Mapping = Request.priority
 
  -- Row 19 -----------------------------------
   Element = Claim.fundsReserve
@@ -546,6 +555,7 @@
   Short Name = Reference to the related claim
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
   Comments = Do we need a relationship code?
+  Workflow Mapping = Request.replaces
 
  -- Row 22 -----------------------------------
   Element = Claim.related.relationship
@@ -687,6 +697,7 @@
   Short Name = Exceptions, special considerations, the condition, situation, prior or concurrent issues
   Definition = Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
   Requirements = Typically these information codes are required to support the services rendered or the adjudication of the services rendered.
+  Workflow Mapping = Request.supportingInfo
 
  -- Row 41 -----------------------------------
   Element = Claim.information.sequence
@@ -746,6 +757,7 @@
   Type = =Diagnosis
   Short Name = List of Diagnosis
   Definition = List of patient diagnosis for which care is sought.
+  Workflow Mapping = Request.reasonReference
 
  -- Row 49 -----------------------------------
   Element = Claim.diagnosis.sequence
@@ -1152,6 +1164,7 @@
   Type = Reference(Encounter)
   Short Name = Encounters related to this billed item
   Definition = A billed item may include goods or services provided in multiple encounters.
+  Workflow Mapping = Request.context
 
  -- Row 103 -----------------------------------
   Element = !Additional Charges (lab, expense, materials, components, tax)

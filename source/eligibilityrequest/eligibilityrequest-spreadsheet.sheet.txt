@@ -45,6 +45,7 @@
   Type = DomainResource
   Short Name = Determine insurance validity and scope of coverage
   Definition = The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
+  Workflow Mapping = Request
   w5 = financial.support
 
  -- Row 2 -----------------------------------
@@ -56,6 +57,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The Response business identifier.
+  Workflow Mapping = Request.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -85,6 +87,7 @@
   Binding = EligibilityRequestStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Request.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -94,6 +97,7 @@
   Binding = ProcessPriority
   Short Name = Desired processing priority
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
+  Workflow Mapping = Request.priority
   w5 = class
 
  -- Row 8 -----------------------------------
@@ -106,6 +110,7 @@
   Short Name = The subject of the Products and Services
   Definition = Patient Resource
   Comments = 1..1
+  Workflow Mapping = Request.subject
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
   w5 = who.focus
 
@@ -124,6 +129,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when this resource was created.
+  Workflow Mapping = Request.authoredOn
   w5 = when.recorded
 
  -- Row 12 -----------------------------------
@@ -140,6 +146,7 @@
   Type = Reference(Practitioner)
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
+  Workflow Mapping = Request.requester.agent
   CDAnet v4 Mapping = B01
   w5 = who.source
 
@@ -149,6 +156,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  Workflow Mapping = Request.requester.onBehalfOf
   w5 = who.source
 
  -- Row 15 -----------------------------------
@@ -157,6 +165,7 @@
   Type = Reference(Organization)
   Short Name = Target
   Definition = The Insurer who is target  of the request.
+  Workflow Mapping = Request.performer
   w5 = who
 
  -- Row 16 -----------------------------------

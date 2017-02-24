@@ -57,6 +57,7 @@
   Type = DomainResource
   Short Name = Request to perform some action on or in regards to an existing resource
   Definition = This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
+  Workflow Mapping = Request
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -68,6 +69,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The ProcessRequest business identifier
+  Workflow Mapping = Request.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -97,6 +99,7 @@
   Binding = ProcessRequestStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Request.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -122,6 +125,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when this resource was created.
+  Workflow Mapping = Request.authoredOn
   w5 = when.recorded
 
  -- Row 10 -----------------------------------
@@ -130,6 +134,7 @@
   Type = Reference(Practitioner)
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the action specified in this request.
+  Workflow Mapping = Request.requester.agent
   CDAnet v4 Mapping = B01
   w5 = who.source
 
@@ -139,6 +144,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the action speccified in this request.
+  Workflow Mapping = Request.requester.onBehalfOf
   w5 = who.source
 
  -- Row 12 -----------------------------------
@@ -147,6 +153,7 @@
   Type = Reference(Any)
   Short Name = Reference to the Request resource
   Definition = Reference of resource which is the target or subject of this action.
+  Workflow Mapping = Request.basedOn
 
  -- Row 13 -----------------------------------
   Element = ProcessRequest.response

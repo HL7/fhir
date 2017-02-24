@@ -92,6 +92,7 @@
   Type = DomainResource
   Short Name = Prescription for vision correction products for a patient
   Definition = An authorization for the supply of glasses and/or contact lenses to a patient.
+  Workflow Mapping = Request
   RIM Mapping = CombinedVisionRequest
   w5 = clinical.careprovision
 
@@ -101,6 +102,7 @@
   Type = Identifier
   Short Name = Business identifier
   Definition = Business identifier which may be used by other parties to reference or identify the prescription.
+  Workflow Mapping = Request.identifier
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = id
   w5 = id
@@ -114,6 +116,7 @@
   Binding = VisionStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Request.status
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -122,6 +125,7 @@
   Type = Reference(Patient)
   Short Name = Who prescription is for
   Definition = A link to a resource representing the person to whom the vision products will be supplied.
+  Workflow Mapping = Request.subject
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role
   w5 = who.focus
@@ -132,6 +136,7 @@
   Type = Reference(Encounter)
   Short Name = Created during encounter / admission / stay
   Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
+  Workflow Mapping = Request.context
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = componentOf.patientEncounter
   w5 = context
@@ -142,6 +147,7 @@
   Type = dateTime
   Short Name = When prescription was authorized
   Definition = The date (and perhaps time) when the prescription was written
+  Workflow Mapping = Request.authoredOn
   v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
   RIM Mapping = author.time
   w5 = when.recorded
@@ -152,6 +158,7 @@
   Type = Reference(Practitioner)
   Short Name = Who authorizes the vision product
   Definition = The healthcare professional responsible for authorizing the prescription
+  Workflow Mapping = Request.requester.onBehalfOf
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
   w5 = who.author
