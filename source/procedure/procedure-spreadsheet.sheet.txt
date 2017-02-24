@@ -643,4 +643,10 @@
   Description = Example of colonoscopy procedure with complication
   Filename = procedure-example-colonoscopy.xml
 
+ -- Row 12 -----------------------------------
+  Name = Appendectomy
+  Identity = appendectomy-narrative
+  Description = Example of an appendectomy procedure that is primarily narrative
+  Filename = procedure-example-appendectomy-narrative.xml
+
 === Sheet Examples =====================================

@@ -31,6 +31,7 @@
   Type = DomainResource
   Short Name = PaymentReconciliation resource
   Definition = This resource provides payment details and claim references supporting a bulk payment.
+  Workflow Mapping = Event
   w5 = financial.payment
 
  -- Row 2 -----------------------------------
@@ -42,6 +43,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The Response business identifier
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -72,6 +74,7 @@
   Binding = PaymentReconciliationStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -88,6 +91,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
@@ -96,6 +100,7 @@
   Type = Reference(Organization)
   Short Name = Insurer
   Definition = The Insurer who produced this adjudicated response.
+  Workflow Mapping = Event.performer.onBehalfOf
   w5 = who.source
 
  -- Row 10 -----------------------------------
@@ -121,6 +126,7 @@
   Type = string
   Short Name = Disposition Message
   Definition = A description of the status of the adjudication.
+  Workflow Mapping = Event.note
 
  -- Row 13 -----------------------------------
   Element = PaymentReconciliation.requestProvider

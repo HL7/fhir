@@ -96,6 +96,7 @@
   Type = DomainResource
   Short Name = Remittance resource
   Definition = This resource provides the adjudication details from the processing of a Claim resource.
+  Workflow Mapping = Event
   w5 = financial.billing
 
  -- Row 2 -----------------------------------
@@ -108,6 +109,7 @@
   Type = Identifier
   Short Name = Response  number
   Definition = The Response business identifier
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -140,6 +142,7 @@
   Binding = ClaimResponseStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -157,6 +160,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  Workflow Mapping = Event.occurrence
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
@@ -165,6 +169,7 @@
   Type = Reference(Organization)
   Short Name = Insurance issuing organization
   Definition = The Insurer who produced this adjudicated response.
+  Workflow Mapping = Event.performer.onBehalfOf
 
  -- Row 10 -----------------------------------
   Element = ClaimResponse.requestProvider
@@ -189,6 +194,7 @@
   Type = Reference(Claim)
   Short Name = Id of resource triggering adjudication
   Definition = Original request resource referrence
+  Workflow Mapping = Event.basedOn
   CDAnet v4 Mapping = A02|G01
   w5 = why
 
@@ -214,6 +220,7 @@
   Type = string
   Short Name = Disposition Message
   Definition = A description of the status of the adjudication.
+  Workflow Mapping = Event.note
 
  -- Row 16 -----------------------------------
   Element = !Payee Information

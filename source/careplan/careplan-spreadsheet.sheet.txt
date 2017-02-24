@@ -879,4 +879,10 @@
   Description = Real-world patient example
   Filename = careplan-example-f203-sepsis.xml
 
+ -- Row 11 -----------------------------------
+  Name = Narrative
+  Identity = obesity-narrative
+  Description = Care plan to address obesity that is primarily narrative
+  Filename = careplan-example-obesity-narrative.xml
+
 === Sheet Examples =====================================

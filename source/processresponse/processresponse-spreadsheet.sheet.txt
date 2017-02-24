@@ -31,6 +31,7 @@
   Type = DomainResource
   Short Name = ProcessResponse resource
   Definition = This resource provides processing status, errors and notes from the processing of a resource.
+  Workflow Mapping = Event
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -42,6 +43,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The Response business identifier
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -71,6 +73,7 @@
   Binding = ProcessResponseStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -79,6 +82,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
+  Workflow Mapping = Event.occurrence
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
@@ -87,6 +91,7 @@
   Type = Reference(Organization)
   Short Name = Authoring Organization
   Definition = The organization who produced this adjudicated response.
+  Workflow Mapping = Event.performer.onBehalfOf
   w5 = who.source
 
  -- Row 9 -----------------------------------
@@ -112,6 +117,7 @@
   Type = string
   Short Name = Disposition Message
   Definition = A description of the status of the adjudication or processing.
+  Workflow Mapping = Event.note
 
  -- Row 12 -----------------------------------
   Element = ProcessResponse.requestProvider

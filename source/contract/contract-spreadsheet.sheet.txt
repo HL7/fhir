@@ -88,6 +88,7 @@
   Type = DomainResource
   Short Name = Legal Agreement
   Definition = A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
+  Workflow Mapping = Event
   RIM Mapping = FinancialContract
   w5 = financial.other
 
@@ -98,6 +99,7 @@
   Type = Identifier
   Short Name = Contract number
   Definition = Unique identifier for this Contract.
+  Workflow Mapping = Event.identifier
   RIM Mapping = FinancialContract id
 
  -- Row 3 -----------------------------------
@@ -110,6 +112,7 @@
   Binding = ContractStatus
   Short Name = amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
   Definition = The status of the resource instance.
+  Workflow Mapping = Event.status
 
  -- Row 4 -----------------------------------
   Element = Contract.issued
@@ -118,6 +121,7 @@
   Type = dateTime
   Short Name = When this Contract was issued
   Definition = When this  Contract was issued.
+  Workflow Mapping = Event.occurrence
   RIM Mapping = FinancialContract effectiveTime
   w5 = when.done
 
@@ -140,6 +144,7 @@
   Definition = The target entity impacted by or of interest to parties to the agreement.
   Requirements = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
   Comments = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. \rIn many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
+  Workflow Mapping = Event.subject
   RIM Mapping = Role
   w5 = who.actor
 
@@ -152,6 +157,7 @@
   Definition = The matter of concern in the context of this agreement.
   Requirements = In the context of a contract, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the contract. \rGiven the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. \rThe same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. \rOne way to determine the Contract.topic is to answer the question: “What is the object of negotiation?”\rAnswer: The Contract.topic, which may be described with more detail in the [0..*]Contract.valuedItem @ [0..1] Contract.valuedItem.entity[x] Definition: Specific type of Contract Valued Item that may be priced. CodeableConcept|Reference(Any)\rContract.topic is “the what” that a grantor is exchanging with a grantee in return for some benefit. \rContract.topic is “the what” to which any Contract.action is being applied for any stipulated Contract.action.reason. \rAContract.topic is “the what” governed by the execution of the contract to which any party’s rights, privileges, obligations, restrictions, and prohibitions apply.
   Comments = The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. \rThe Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. \rHowever, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.\rIf the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
+  Workflow Mapping = Event.context
   RIM Mapping = Role
 
  -- Row 8 -----------------------------------
@@ -249,6 +255,7 @@
   Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
   Short Name = Contract Agent Type
   Definition = Who or what parties are assigned roles in this Contract.
+  Workflow Mapping = Event.performer.actor
 
  -- Row 19 -----------------------------------
   Element = Contract.agent.role

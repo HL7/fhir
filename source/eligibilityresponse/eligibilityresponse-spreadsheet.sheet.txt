@@ -66,6 +66,7 @@
   Type = DomainResource
   Short Name = EligibilityResponse resource
   Definition = This resource provides eligibility and plan details from the processing of an Eligibility resource.
+  Workflow Mapping = Event
   w5 = financial.support
 
  -- Row 2 -----------------------------------
@@ -77,6 +78,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The Response business identifier
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -106,6 +108,7 @@
   Binding = EligibilityResponseStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -131,6 +134,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  Workflow Mapping = Event.performer.onBehalfOf
   w5 = who.source
 
  -- Row 10 -----------------------------------
@@ -139,6 +143,7 @@
   Type = Reference(EligibilityRequest)
   Short Name = Eligibility reference
   Definition = Original request resource reference
+  Workflow Mapping = Event.basedOn
   CDAnet v4 Mapping = A02|G01
   w5 = why
 
@@ -156,6 +161,7 @@
   Type = string
   Short Name = Disposition Message
   Definition = A description of the status of the adjudication.
+  Workflow Mapping = Event.note
 
  -- Row 13 -----------------------------------
   Element = EligibilityResponse.insurer
