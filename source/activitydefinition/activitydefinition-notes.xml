@@ -12,6 +12,12 @@
 
 <p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ProcedureRequest activities.</p>
 
+<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical realization to CarePlan, RequestGroup, and Request resources:</p>
+
+<img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
+
+<p><i>Note to implementers: There is some overlap between the content that can be specified in PlanDefinition.actionDefinition and the ActivityDefinition resource. Part of the work for STU4 will be to resolve the overlap and this will likely result in some minor changes to the structures.</i></p>
+
 <h3>Profiling ActivityDefinition</h3>
 
 <p>Because the ActivityDefinition resource can be used to describe many different types of request resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the <code>quantity</code> element should not be used, but the <code>dosage</code> element must be.</p>

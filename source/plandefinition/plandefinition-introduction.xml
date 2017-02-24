@@ -8,7 +8,7 @@
 
 <p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditional elements, options, and other decision points. The resource is flexible enough to be used to represent a variety of workflows, as well as clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
 
-<p>PlanDefinitions can contain hierarchical groups of actions, where each specific action defines an activity to be performed (in terms of an <a href="activitydefinition.html">ActivityDefinition</a> resource), and each group defines additional behavior, relationships, and applicable conditions between the actions in the overall definition.</p>
+<p>PlanDefinitions can contain hierarchical groups of action definitions, where each specific action definition describes an activity to be performed (in terms of an <a href="activitydefinition.html">ActivityDefinition</a> resource), and each group defines additional behavior, relationships, and applicable conditions between the actions in the overall definition.</p>
 
 <p>In addition to describing what should take place, each action in a plan definition can specify <i>when</i> and <i>whether</i> the action should take place. For when the action should be taken, the <code>triggerDefinition</code> element specifies the action should be taken in response to some trigger occurring (such as a particular point in a workflow being reached, or as the result of a prescription being ordered). For whether the action should be taken, the <code>condition</code> element can be used to provide an expression that evaluates to true or false to indicate the applicability of the action to the specific context.</p>
 
@@ -35,6 +35,13 @@
 <p>As the name implies, the PlanDefinition resource is strictly definitional. It does not represent the intention to take any action, nor does it represent that any actions have been taken. Rather, the resource provides a definition that can be applied in the appropriate circumstances. When the plan definition is applied, the result will in general be a set of actions that should be (or potentially even have been) performed.</p>
 
 <p>Note that the PlanDefinition still has action-level information, as well as a reference to an <a href="activitydefinition.html">ActivityDefinition</a>. The action-level information defined in the PlanDefinition itself is used to describe how the actions are related to each other within the plan, where the ActivityDefinition contains only information about the activity itself.</p>
+
+<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical realization to CarePlan, RequestGroup, and Request resources:</p>
+
+<img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
+
+<p><i>Note to implementers: There is some overlap between the content that can be specified in PlanDefinition.actionDefinition and the ActivityDefinition resource. Part of the work for STU4 will be to resolve the overlap and this will likely result in some minor changes to the structures.</i></p>
+
 </div>
 
 <!-- (optional):
