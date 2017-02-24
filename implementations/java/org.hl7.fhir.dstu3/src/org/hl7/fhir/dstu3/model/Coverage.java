@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -231,10 +231,10 @@ public class Coverage extends DomainResource {
         protected StringType subPlanDisplay;
 
         /**
-         * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.
+         * Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.
          */
         @Child(name = "class", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="An identifier for the class", formalDefinition="Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group." )
+        @Description(shortDefinition="An identifier for the class", formalDefinition="Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment." )
         protected StringType class_;
 
         /**
@@ -245,10 +245,10 @@ public class Coverage extends DomainResource {
         protected StringType classDisplay;
 
         /**
-         * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.
+         * Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.
          */
         @Child(name = "subClass", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="An identifier for the subsection of the class", formalDefinition="Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group." )
+        @Description(shortDefinition="An identifier for the subsection of the class", formalDefinition="Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment." )
         protected StringType subClass;
 
         /**
@@ -660,7 +660,7 @@ public class Coverage extends DomainResource {
         }
 
         /**
-         * @return {@link #class_} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
+         * @return {@link #class_} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
          */
         public StringType getClass_Element() { 
           if (this.class_ == null)
@@ -680,7 +680,7 @@ public class Coverage extends DomainResource {
         }
 
         /**
-         * @param value {@link #class_} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
+         * @param value {@link #class_} (Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
          */
         public GroupComponent setClass_Element(StringType value) { 
           this.class_ = value;
@@ -688,14 +688,14 @@ public class Coverage extends DomainResource {
         }
 
         /**
-         * @return Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.
+         * @return Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.
          */
         public String getClass_() { 
           return this.class_ == null ? null : this.class_.getValue();
         }
 
         /**
-         * @param value Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.
+         * @param value Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.
          */
         public GroupComponent setClass_(String value) { 
           if (Utilities.noString(value))
@@ -758,7 +758,7 @@ public class Coverage extends DomainResource {
         }
 
         /**
-         * @return {@link #subClass} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.). This is the underlying object with id, value and extensions. The accessor "getSubClass" gives direct access to the value
+         * @return {@link #subClass} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.). This is the underlying object with id, value and extensions. The accessor "getSubClass" gives direct access to the value
          */
         public StringType getSubClassElement() { 
           if (this.subClass == null)
@@ -778,7 +778,7 @@ public class Coverage extends DomainResource {
         }
 
         /**
-         * @param value {@link #subClass} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.). This is the underlying object with id, value and extensions. The accessor "getSubClass" gives direct access to the value
+         * @param value {@link #subClass} (Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.). This is the underlying object with id, value and extensions. The accessor "getSubClass" gives direct access to the value
          */
         public GroupComponent setSubClassElement(StringType value) { 
           this.subClass = value;
@@ -786,14 +786,14 @@ public class Coverage extends DomainResource {
         }
 
         /**
-         * @return Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.
+         * @return Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.
          */
         public String getSubClass() { 
           return this.subClass == null ? null : this.subClass.getValue();
         }
 
         /**
-         * @param value Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.
+         * @param value Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.
          */
         public GroupComponent setSubClass(String value) { 
           if (Utilities.noString(value))
@@ -865,9 +865,9 @@ public class Coverage extends DomainResource {
           childrenList.add(new Property("planDisplay", "string", "A short description for the plan.", 0, java.lang.Integer.MAX_VALUE, planDisplay));
           childrenList.add(new Property("subPlan", "string", "Identifies a sub-style or sub-collective of coverage issued by the underwriter, for example may be used to identify a subset of a collection of benefits provided to employees.", 0, java.lang.Integer.MAX_VALUE, subPlan));
           childrenList.add(new Property("subPlanDisplay", "string", "A short description for the subplan.", 0, java.lang.Integer.MAX_VALUE, subPlanDisplay));
-          childrenList.add(new Property("class", "string", "Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.", 0, java.lang.Integer.MAX_VALUE, class_));
+          childrenList.add(new Property("class", "string", "Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage such as a level of deductables or co-payment.", 0, java.lang.Integer.MAX_VALUE, class_));
           childrenList.add(new Property("classDisplay", "string", "A short description for the class.", 0, java.lang.Integer.MAX_VALUE, classDisplay));
-          childrenList.add(new Property("subClass", "string", "Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage or employer group.", 0, java.lang.Integer.MAX_VALUE, subClass));
+          childrenList.add(new Property("subClass", "string", "Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a subclass of coverage such as a sub-level of deductables or co-payment.", 0, java.lang.Integer.MAX_VALUE, subClass));
           childrenList.add(new Property("subClassDisplay", "string", "A short description for the subclass.", 0, java.lang.Integer.MAX_VALUE, subClassDisplay));
         }
 
@@ -2308,32 +2308,6 @@ public class Coverage extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>policyholder</b>
-   * <p>
-   * Description: <b>Reference to the policyholder</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Coverage.policyHolder</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="policyholder", path="Coverage.policyHolder", description="Reference to the policyholder", type="reference", target={Organization.class, Patient.class, RelatedPerson.class } )
-  public static final String SP_POLICYHOLDER = "policyholder";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>policyholder</b>
-   * <p>
-   * Description: <b>Reference to the policyholder</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Coverage.policyHolder</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam POLICYHOLDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_POLICYHOLDER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Coverage:policyholder</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_POLICYHOLDER = new ca.uhn.fhir.model.api.Include("Coverage:policyholder").toLocked();
-
- /**
    * Search parameter: <b>subgroup</b>
    * <p>
    * Description: <b>Sub-group identifier</b><br>
@@ -2361,7 +2335,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.subscriber</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subscriber", path="Coverage.subscriber", description="Reference to the subscriber", type="reference", target={Patient.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="subscriber", path="Coverage.subscriber", description="Reference to the subscriber", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, RelatedPerson.class } )
   public static final String SP_SUBSCRIBER = "subscriber";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subscriber</b>
@@ -2447,7 +2421,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.payor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="payor", path="Coverage.payor", description="The identity of the insurer or party paying for services", type="reference", target={Organization.class, Patient.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="payor", path="Coverage.payor", description="The identity of the insurer or party paying for services", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, RelatedPerson.class } )
   public static final String SP_PAYOR = "payor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>payor</b>
@@ -2473,7 +2447,7 @@ public class Coverage extends DomainResource {
    * Path: <b>Coverage.beneficiary</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="beneficiary", path="Coverage.beneficiary", description="Covered party", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="beneficiary", path="Coverage.beneficiary", description="Covered party", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_BENEFICIARY = "beneficiary";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>beneficiary</b>
@@ -2590,6 +2564,32 @@ public class Coverage extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam GROUP = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GROUP);
+
+ /**
+   * Search parameter: <b>policy-holder</b>
+   * <p>
+   * Description: <b>Reference to the policyholder</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.policyHolder</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="policy-holder", path="Coverage.policyHolder", description="Reference to the policyholder", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, RelatedPerson.class } )
+  public static final String SP_POLICY_HOLDER = "policy-holder";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>policy-holder</b>
+   * <p>
+   * Description: <b>Reference to the policyholder</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.policyHolder</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam POLICY_HOLDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_POLICY_HOLDER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Coverage:policy-holder</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_POLICY_HOLDER = new ca.uhn.fhir.model.api.Include("Coverage:policy-holder").toLocked();
 
 
 }

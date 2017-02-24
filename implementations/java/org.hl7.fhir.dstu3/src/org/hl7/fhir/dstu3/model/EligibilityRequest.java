@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1296,7 +1296,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.provider</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="provider", path="EligibilityRequest.provider", description="The reference to the provider", type="reference", target={Practitioner.class } )
+  @SearchParamDefinition(name="provider", path="EligibilityRequest.provider", description="The reference to the provider", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_PROVIDER = "provider";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>provider</b>
@@ -1322,7 +1322,7 @@ public class EligibilityRequest extends DomainResource {
    * Path: <b>EligibilityRequest.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EligibilityRequest.patient", description="The reference to the patient", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="EligibilityRequest.patient", description="The reference to the patient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1385,6 +1385,32 @@ public class EligibilityRequest extends DomainResource {
    * the path value of "<b>EligibilityRequest:organization</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("EligibilityRequest:organization").toLocked();
+
+ /**
+   * Search parameter: <b>enterer</b>
+   * <p>
+   * Description: <b>The party who is responsible for the request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityRequest.enterer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="enterer", path="EligibilityRequest.enterer", description="The party who is responsible for the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  public static final String SP_ENTERER = "enterer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>enterer</b>
+   * <p>
+   * Description: <b>The party who is responsible for the request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EligibilityRequest.enterer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENTERER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENTERER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EligibilityRequest:enterer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTERER = new ca.uhn.fhir.model.api.Include("EligibilityRequest:enterer").toLocked();
 
  /**
    * Search parameter: <b>facility</b>

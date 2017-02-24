@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -455,11 +455,16 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * Party to be reimbursed: Subscriber, provider, other.
          */
-        @Child(name = "party", type = {Identifier.class, Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "party", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Party to receive the payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
-        protected Type party;
+        protected Reference party;
 
-        private static final long serialVersionUID = 1171160212L;
+        /**
+         * The actual object that is the target of the reference (Party to be reimbursed: Subscriber, provider, other.)
+         */
+        protected Resource partyTarget;
+
+        private static final long serialVersionUID = 1146157718L;
 
     /**
      * Constructor
@@ -519,34 +524,13 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @return {@link #party} (Party to be reimbursed: Subscriber, provider, other.)
          */
-        public Type getParty() { 
+        public Reference getParty() { 
+          if (this.party == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create PayeeComponent.party");
+            else if (Configuration.doAutoCreate())
+              this.party = new Reference(); // cc
           return this.party;
-        }
-
-        /**
-         * @return {@link #party} (Party to be reimbursed: Subscriber, provider, other.)
-         */
-        public Identifier getPartyIdentifier() throws FHIRException { 
-          if (!(this.party instanceof Identifier))
-            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.party.getClass().getName()+" was encountered");
-          return (Identifier) this.party;
-        }
-
-        public boolean hasPartyIdentifier() { 
-          return this.party instanceof Identifier;
-        }
-
-        /**
-         * @return {@link #party} (Party to be reimbursed: Subscriber, provider, other.)
-         */
-        public Reference getPartyReference() throws FHIRException { 
-          if (!(this.party instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.party.getClass().getName()+" was encountered");
-          return (Reference) this.party;
-        }
-
-        public boolean hasPartyReference() { 
-          return this.party instanceof Reference;
         }
 
         public boolean hasParty() { 
@@ -556,8 +540,23 @@ public class ExplanationOfBenefit extends DomainResource {
         /**
          * @param value {@link #party} (Party to be reimbursed: Subscriber, provider, other.)
          */
-        public PayeeComponent setParty(Type value) { 
+        public PayeeComponent setParty(Reference value) { 
           this.party = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Party to be reimbursed: Subscriber, provider, other.)
+         */
+        public Resource getPartyTarget() { 
+          return this.partyTarget;
+        }
+
+        /**
+         * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Party to be reimbursed: Subscriber, provider, other.)
+         */
+        public PayeeComponent setPartyTarget(Resource value) { 
+          this.partyTarget = value;
           return this;
         }
 
@@ -565,7 +564,7 @@ public class ExplanationOfBenefit extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Type of Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("resourceType", "CodeableConcept", "organization | patient | practitioner | relatedperson.", 0, java.lang.Integer.MAX_VALUE, resourceType));
-          childrenList.add(new Property("party[x]", "Identifier|Reference(Practitioner|Organization|Patient|RelatedPerson)", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, party));
+          childrenList.add(new Property("party", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
       @Override
@@ -573,7 +572,7 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -384364440: /*resourceType*/ return this.resourceType == null ? new Base[0] : new Base[] {this.resourceType}; // CodeableConcept
-        case 106437350: /*party*/ return this.party == null ? new Base[0] : new Base[] {this.party}; // Type
+        case 106437350: /*party*/ return this.party == null ? new Base[0] : new Base[] {this.party}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -589,7 +588,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.resourceType = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 106437350: // party
-          this.party = castToType(value); // Type
+          this.party = castToReference(value); // Reference
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -602,8 +601,8 @@ public class ExplanationOfBenefit extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("resourceType")) {
           this.resourceType = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("party[x]")) {
-          this.party = castToType(value); // Type
+        } else if (name.equals("party")) {
+          this.party = castToReference(value); // Reference
         } else
           return super.setProperty(name, value);
         return value;
@@ -614,7 +613,6 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 3575610:  return getType(); 
         case -384364440:  return getResourceType(); 
-        case 1189320666:  return getParty(); 
         case 106437350:  return getParty(); 
         default: return super.makeProperty(hash, name);
         }
@@ -626,7 +624,7 @@ public class ExplanationOfBenefit extends DomainResource {
         switch (hash) {
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case -384364440: /*resourceType*/ return new String[] {"CodeableConcept"};
-        case 106437350: /*party*/ return new String[] {"Identifier", "Reference"};
+        case 106437350: /*party*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -642,11 +640,7 @@ public class ExplanationOfBenefit extends DomainResource {
           this.resourceType = new CodeableConcept();
           return this.resourceType;
         }
-        else if (name.equals("partyIdentifier")) {
-          this.party = new Identifier();
-          return this.party;
-        }
-        else if (name.equals("partyReference")) {
+        else if (name.equals("party")) {
           this.party = new Reference();
           return this.party;
         }
@@ -12479,6 +12473,32 @@ public class ExplanationOfBenefit extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_COVERAGE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:coverage").toLocked();
 
  /**
+   * Search parameter: <b>care-team</b>
+   * <p>
+   * Description: <b>Member of the CareTeam</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.careTeam.provider</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="care-team", path="ExplanationOfBenefit.careTeam.provider", description="Member of the CareTeam", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  public static final String SP_CARE_TEAM = "care-team";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>care-team</b>
+   * <p>
+   * Description: <b>Member of the CareTeam</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.careTeam.provider</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CARE_TEAM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CARE_TEAM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:care-team</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CARE_TEAM = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:care-team").toLocked();
+
+ /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>The business identifier of the Explanation of Benefit</b><br>
@@ -12497,6 +12517,78 @@ public class ExplanationOfBenefit extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>created</b>
+   * <p>
+   * Description: <b>The creation date for the EOB</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ExplanationOfBenefit.created</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="created", path="ExplanationOfBenefit.created", description="The creation date for the EOB", type="date" )
+  public static final String SP_CREATED = "created";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
+   * <p>
+   * Description: <b>The creation date for the EOB</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ExplanationOfBenefit.created</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounters associated with a billed line item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.item.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="ExplanationOfBenefit.item.encounter", description="Encounters associated with a billed line item", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounters associated with a billed line item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.item.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>payee</b>
+   * <p>
+   * Description: <b>The party receiving any payment for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.payee.party</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="payee", path="ExplanationOfBenefit.payee.party", description="The party receiving any payment for the Claim", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  public static final String SP_PAYEE = "payee";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>payee</b>
+   * <p>
+   * Description: <b>The party receiving any payment for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.payee.party</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PAYEE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PAYEE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:payee</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PAYEE = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:payee").toLocked();
 
  /**
    * Search parameter: <b>disposition</b>
@@ -12526,7 +12618,7 @@ public class ExplanationOfBenefit extends DomainResource {
    * Path: <b>ExplanationOfBenefit.provider</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="provider", path="ExplanationOfBenefit.provider", description="The reference to the provider", type="reference", target={Practitioner.class } )
+  @SearchParamDefinition(name="provider", path="ExplanationOfBenefit.provider", description="The reference to the provider", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_PROVIDER = "provider";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>provider</b>
@@ -12552,7 +12644,7 @@ public class ExplanationOfBenefit extends DomainResource {
    * Path: <b>ExplanationOfBenefit.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ExplanationOfBenefit.patient", description="The reference to the patient", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="ExplanationOfBenefit.patient", description="The reference to the patient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -12569,26 +12661,6 @@ public class ExplanationOfBenefit extends DomainResource {
    * the path value of "<b>ExplanationOfBenefit:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:patient").toLocked();
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>The creation date for the EOB</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ExplanationOfBenefit.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="ExplanationOfBenefit.created", description="The creation date for the EOB", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>The creation date for the EOB</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ExplanationOfBenefit.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
    * Search parameter: <b>organization</b>
@@ -12641,6 +12713,32 @@ public class ExplanationOfBenefit extends DomainResource {
    * the path value of "<b>ExplanationOfBenefit:claim</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CLAIM = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:claim").toLocked();
+
+ /**
+   * Search parameter: <b>enterer</b>
+   * <p>
+   * Description: <b>The party responsible for the entry of the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.enterer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="enterer", path="ExplanationOfBenefit.enterer", description="The party responsible for the entry of the Claim", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  public static final String SP_ENTERER = "enterer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>enterer</b>
+   * <p>
+   * Description: <b>The party responsible for the entry of the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ExplanationOfBenefit.enterer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENTERER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENTERER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ExplanationOfBenefit:enterer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTERER = new ca.uhn.fhir.model.api.Include("ExplanationOfBenefit:enterer").toLocked();
 
  /**
    * Search parameter: <b>facility</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -919,83 +919,76 @@ public class RequestGroup extends DomainResource {
     @Block()
     public static class RequestGroupActionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.
-         */
-        @Child(name = "actionIdentifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Unique identifier", formalDefinition="A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique." )
-        protected Identifier actionIdentifier;
-
-        /**
          * A user-visible label for the action.
          */
-        @Child(name = "label", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "label", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="User-visible label for the action (e.g. 1. or A.)", formalDefinition="A user-visible label for the action." )
         protected StringType label;
 
         /**
          * The title of the action displayed to a user.
          */
-        @Child(name = "title", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "title", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="User-visible title", formalDefinition="The title of the action displayed to a user." )
         protected StringType title;
 
         /**
          * A short description of the action used to provide a summary to display to the user.
          */
-        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Short description of the action", formalDefinition="A short description of the action used to provide a summary to display to the user." )
         protected StringType description;
 
         /**
          * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
          */
-        @Child(name = "textEquivalent", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "textEquivalent", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system", formalDefinition="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically." )
         protected StringType textEquivalent;
 
         /**
          * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.
          */
-        @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "code", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Code representing the meaning of the action or sub-actions", formalDefinition="A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template." )
         protected List<CodeableConcept> code;
 
         /**
          * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
          */
-        @Child(name = "documentation", type = {RelatedArtifact.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "documentation", type = {RelatedArtifact.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Supporting documentation for the intended performer of the action", formalDefinition="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources." )
         protected List<RelatedArtifact> documentation;
 
         /**
          * An expression that describes applicability criteria, or start/stop conditions for the action.
          */
-        @Child(name = "condition", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "condition", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Whether or not the action is applicable", formalDefinition="An expression that describes applicability criteria, or start/stop conditions for the action." )
         protected List<RequestGroupActionConditionComponent> condition;
 
         /**
          * A relationship to another action such as "before" or "30-60 minutes after start of".
          */
-        @Child(name = "relatedAction", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "relatedAction", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Relationship to another action", formalDefinition="A relationship to another action such as \"before\" or \"30-60 minutes after start of\"." )
         protected List<RequestGroupActionRelatedActionComponent> relatedAction;
 
         /**
          * An optional value describing when the action should be performed.
          */
-        @Child(name = "timing", type = {DateTimeType.class, Period.class, Duration.class, Range.class, Timing.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "timing", type = {DateTimeType.class, Period.class, Duration.class, Range.class, Timing.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="When the action should take place", formalDefinition="An optional value describing when the action should be performed." )
         protected Type timing;
 
         /**
-         * The participant in the action.
+         * The participant that should perform or be responsible for this action.
          */
-        @Child(name = "participant", type = {Patient.class, Person.class, Practitioner.class, RelatedPerson.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Participant", formalDefinition="The participant in the action." )
+        @Child(name = "participant", type = {Patient.class, Person.class, Practitioner.class, RelatedPerson.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Who should perform the action", formalDefinition="The participant that should perform or be responsible for this action." )
         protected List<Reference> participant;
         /**
-         * The actual objects that are the target of the reference (The participant in the action.)
+         * The actual objects that are the target of the reference (The participant that should perform or be responsible for this action.)
          */
         protected List<Resource> participantTarget;
 
@@ -1003,7 +996,7 @@ public class RequestGroup extends DomainResource {
         /**
          * The type of action to perform (create, update, remove).
          */
-        @Child(name = "type", type = {Coding.class}, order=12, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "type", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-type")
         protected Coding type;
@@ -1011,7 +1004,7 @@ public class RequestGroup extends DomainResource {
         /**
          * Defines the grouping behavior for the action and its children.
          */
-        @Child(name = "groupingBehavior", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "groupingBehavior", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="visual-group | logical-group | sentence-group", formalDefinition="Defines the grouping behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-grouping-behavior")
         protected Enumeration<ActionGroupingBehavior> groupingBehavior;
@@ -1019,7 +1012,7 @@ public class RequestGroup extends DomainResource {
         /**
          * Defines the selection behavior for the action and its children.
          */
-        @Child(name = "selectionBehavior", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "selectionBehavior", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="any | all | all-or-none | exactly-one | at-most-one | one-or-more", formalDefinition="Defines the selection behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-selection-behavior")
         protected Enumeration<ActionSelectionBehavior> selectionBehavior;
@@ -1027,7 +1020,7 @@ public class RequestGroup extends DomainResource {
         /**
          * Defines the requiredness behavior for the action.
          */
-        @Child(name = "requiredBehavior", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "requiredBehavior", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="must | could | must-unless-documented", formalDefinition="Defines the requiredness behavior for the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-required-behavior")
         protected Enumeration<ActionRequiredBehavior> requiredBehavior;
@@ -1035,7 +1028,7 @@ public class RequestGroup extends DomainResource {
         /**
          * Defines whether the action should usually be preselected.
          */
-        @Child(name = "precheckBehavior", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "precheckBehavior", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="yes | no", formalDefinition="Defines whether the action should usually be preselected." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-precheck-behavior")
         protected Enumeration<ActionPrecheckBehavior> precheckBehavior;
@@ -1043,7 +1036,7 @@ public class RequestGroup extends DomainResource {
         /**
          * Defines whether the action can be selected multiple times.
          */
-        @Child(name = "cardinalityBehavior", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "cardinalityBehavior", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="single | multiple", formalDefinition="Defines whether the action can be selected multiple times." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-cardinality-behavior")
         protected Enumeration<ActionCardinalityBehavior> cardinalityBehavior;
@@ -1051,7 +1044,7 @@ public class RequestGroup extends DomainResource {
         /**
          * The resource that is the target of the action (e.g. CommunicationRequest).
          */
-        @Child(name = "resource", type = {Reference.class}, order=18, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {Reference.class}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The target of the action", formalDefinition="The resource that is the target of the action (e.g. CommunicationRequest)." )
         protected Reference resource;
 
@@ -1063,11 +1056,11 @@ public class RequestGroup extends DomainResource {
         /**
          * Sub actions.
          */
-        @Child(name = "action", type = {RequestGroupActionComponent.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "action", type = {RequestGroupActionComponent.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Sub action", formalDefinition="Sub actions." )
         protected List<RequestGroupActionComponent> action;
 
-        private static final long serialVersionUID = -1273051530L;
+        private static final long serialVersionUID = 362859874L;
 
     /**
      * Constructor
@@ -1075,30 +1068,6 @@ public class RequestGroup extends DomainResource {
       public RequestGroupActionComponent() {
         super();
       }
-
-        /**
-         * @return {@link #actionIdentifier} (A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.)
-         */
-        public Identifier getActionIdentifier() { 
-          if (this.actionIdentifier == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create RequestGroupActionComponent.actionIdentifier");
-            else if (Configuration.doAutoCreate())
-              this.actionIdentifier = new Identifier(); // cc
-          return this.actionIdentifier;
-        }
-
-        public boolean hasActionIdentifier() { 
-          return this.actionIdentifier != null && !this.actionIdentifier.isEmpty();
-        }
-
-        /**
-         * @param value {@link #actionIdentifier} (A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.)
-         */
-        public RequestGroupActionComponent setActionIdentifier(Identifier value) { 
-          this.actionIdentifier = value;
-          return this;
-        }
 
         /**
          * @return {@link #label} (A user-visible label for the action.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
@@ -1593,7 +1562,7 @@ public class RequestGroup extends DomainResource {
         }
 
         /**
-         * @return {@link #participant} (The participant in the action.)
+         * @return {@link #participant} (The participant that should perform or be responsible for this action.)
          */
         public List<Reference> getParticipant() { 
           if (this.participant == null)
@@ -2018,7 +1987,6 @@ public class RequestGroup extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("actionIdentifier", "Identifier", "A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
           childrenList.add(new Property("label", "string", "A user-visible label for the action.", 0, java.lang.Integer.MAX_VALUE, label));
           childrenList.add(new Property("title", "string", "The title of the action displayed to a user.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
@@ -2028,7 +1996,7 @@ public class RequestGroup extends DomainResource {
           childrenList.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           childrenList.add(new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, java.lang.Integer.MAX_VALUE, timing));
-          childrenList.add(new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant in the action.", 0, java.lang.Integer.MAX_VALUE, participant));
+          childrenList.add(new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant));
           childrenList.add(new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, java.lang.Integer.MAX_VALUE, groupingBehavior));
           childrenList.add(new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, java.lang.Integer.MAX_VALUE, selectionBehavior));
@@ -2042,7 +2010,6 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
         case 102727412: /*label*/ return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
@@ -2069,9 +2036,6 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -889046145: // actionIdentifier
-          this.actionIdentifier = castToIdentifier(value); // Identifier
-          return value;
         case 102727412: // label
           this.label = castToString(value); // StringType
           return value;
@@ -2138,9 +2102,7 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actionIdentifier")) {
-          this.actionIdentifier = castToIdentifier(value); // Identifier
-        } else if (name.equals("label")) {
+        if (name.equals("label")) {
           this.label = castToString(value); // StringType
         } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
@@ -2189,7 +2151,6 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145:  return getActionIdentifier(); 
         case 102727412:  return getLabelElement();
         case 110371416:  return getTitleElement();
         case -1724546052:  return getDescriptionElement();
@@ -2217,7 +2178,6 @@ public class RequestGroup extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145: /*actionIdentifier*/ return new String[] {"Identifier"};
         case 102727412: /*label*/ return new String[] {"string"};
         case 110371416: /*title*/ return new String[] {"string"};
         case -1724546052: /*description*/ return new String[] {"string"};
@@ -2243,11 +2203,7 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("actionIdentifier")) {
-          this.actionIdentifier = new Identifier();
-          return this.actionIdentifier;
-        }
-        else if (name.equals("label")) {
+        if (name.equals("label")) {
           throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.label");
         }
         else if (name.equals("title")) {
@@ -2327,7 +2283,6 @@ public class RequestGroup extends DomainResource {
       public RequestGroupActionComponent copy() {
         RequestGroupActionComponent dst = new RequestGroupActionComponent();
         copyValues(dst);
-        dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
         dst.label = label == null ? null : label.copy();
         dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
@@ -2380,11 +2335,11 @@ public class RequestGroup extends DomainResource {
         if (!(other instanceof RequestGroupActionComponent))
           return false;
         RequestGroupActionComponent o = (RequestGroupActionComponent) other;
-        return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(label, o.label, true)
-           && compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(textEquivalent, o.textEquivalent, true)
-           && compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true) && compareDeep(condition, o.condition, true)
-           && compareDeep(relatedAction, o.relatedAction, true) && compareDeep(timing, o.timing, true) && compareDeep(participant, o.participant, true)
-           && compareDeep(type, o.type, true) && compareDeep(groupingBehavior, o.groupingBehavior, true) && compareDeep(selectionBehavior, o.selectionBehavior, true)
+        return compareDeep(label, o.label, true) && compareDeep(title, o.title, true) && compareDeep(description, o.description, true)
+           && compareDeep(textEquivalent, o.textEquivalent, true) && compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(relatedAction, o.relatedAction, true)
+           && compareDeep(timing, o.timing, true) && compareDeep(participant, o.participant, true) && compareDeep(type, o.type, true)
+           && compareDeep(groupingBehavior, o.groupingBehavior, true) && compareDeep(selectionBehavior, o.selectionBehavior, true)
            && compareDeep(requiredBehavior, o.requiredBehavior, true) && compareDeep(precheckBehavior, o.precheckBehavior, true)
            && compareDeep(cardinalityBehavior, o.cardinalityBehavior, true) && compareDeep(resource, o.resource, true)
            && compareDeep(action, o.action, true);
@@ -2405,10 +2360,10 @@ public class RequestGroup extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
-          , description, textEquivalent, code, documentation, condition, relatedAction, timing
-          , participant, type, groupingBehavior, selectionBehavior, requiredBehavior, precheckBehavior
-          , cardinalityBehavior, resource, action);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, title, description
+          , textEquivalent, code, documentation, condition, relatedAction, timing, participant
+          , type, groupingBehavior, selectionBehavior, requiredBehavior, precheckBehavior, cardinalityBehavior
+          , resource, action);
       }
 
   public String fhirType() {
@@ -2804,11 +2759,11 @@ public class RequestGroup extends DomainResource {
     @Block()
     public static class RequestGroupActionRelatedActionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The unique identifier of the related action.
+         * The element id of the action this is related to.
          */
-        @Child(name = "actionIdentifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Identifier of the related action", formalDefinition="The unique identifier of the related action." )
-        protected Identifier actionIdentifier;
+        @Child(name = "actionId", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="What action this is related to", formalDefinition="The element id of the action this is related to." )
+        protected IdType actionId;
 
         /**
          * The relationship of this action to the related action.
@@ -2825,7 +2780,7 @@ public class RequestGroup extends DomainResource {
         @Description(shortDefinition="Time offset for the relationship", formalDefinition="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before." )
         protected Type offset;
 
-        private static final long serialVersionUID = 1011239532L;
+        private static final long serialVersionUID = 1063306770L;
 
     /**
      * Constructor
@@ -2837,33 +2792,54 @@ public class RequestGroup extends DomainResource {
     /**
      * Constructor
      */
-      public RequestGroupActionRelatedActionComponent(Identifier actionIdentifier, Enumeration<ActionRelationshipType> relationship) {
+      public RequestGroupActionRelatedActionComponent(IdType actionId, Enumeration<ActionRelationshipType> relationship) {
         super();
-        this.actionIdentifier = actionIdentifier;
+        this.actionId = actionId;
         this.relationship = relationship;
       }
 
         /**
-         * @return {@link #actionIdentifier} (The unique identifier of the related action.)
+         * @return {@link #actionId} (The element id of the action this is related to.). This is the underlying object with id, value and extensions. The accessor "getActionId" gives direct access to the value
          */
-        public Identifier getActionIdentifier() { 
-          if (this.actionIdentifier == null)
+        public IdType getActionIdElement() { 
+          if (this.actionId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create RequestGroupActionRelatedActionComponent.actionIdentifier");
+              throw new Error("Attempt to auto-create RequestGroupActionRelatedActionComponent.actionId");
             else if (Configuration.doAutoCreate())
-              this.actionIdentifier = new Identifier(); // cc
-          return this.actionIdentifier;
+              this.actionId = new IdType(); // bb
+          return this.actionId;
         }
 
-        public boolean hasActionIdentifier() { 
-          return this.actionIdentifier != null && !this.actionIdentifier.isEmpty();
+        public boolean hasActionIdElement() { 
+          return this.actionId != null && !this.actionId.isEmpty();
+        }
+
+        public boolean hasActionId() { 
+          return this.actionId != null && !this.actionId.isEmpty();
         }
 
         /**
-         * @param value {@link #actionIdentifier} (The unique identifier of the related action.)
+         * @param value {@link #actionId} (The element id of the action this is related to.). This is the underlying object with id, value and extensions. The accessor "getActionId" gives direct access to the value
          */
-        public RequestGroupActionRelatedActionComponent setActionIdentifier(Identifier value) { 
-          this.actionIdentifier = value;
+        public RequestGroupActionRelatedActionComponent setActionIdElement(IdType value) { 
+          this.actionId = value;
+          return this;
+        }
+
+        /**
+         * @return The element id of the action this is related to.
+         */
+        public String getActionId() { 
+          return this.actionId == null ? null : this.actionId.getValue();
+        }
+
+        /**
+         * @param value The element id of the action this is related to.
+         */
+        public RequestGroupActionRelatedActionComponent setActionId(String value) { 
+            if (this.actionId == null)
+              this.actionId = new IdType();
+            this.actionId.setValue(value);
           return this;
         }
 
@@ -2959,7 +2935,7 @@ public class RequestGroup extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("actionIdentifier", "Identifier", "The unique identifier of the related action.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
+          childrenList.add(new Property("actionId", "id", "The element id of the action this is related to.", 0, java.lang.Integer.MAX_VALUE, actionId));
           childrenList.add(new Property("relationship", "code", "The relationship of this action to the related action.", 0, java.lang.Integer.MAX_VALUE, relationship));
           childrenList.add(new Property("offset[x]", "Duration|Range", "A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.", 0, java.lang.Integer.MAX_VALUE, offset));
         }
@@ -2967,7 +2943,7 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
+        case -1656172047: /*actionId*/ return this.actionId == null ? new Base[0] : new Base[] {this.actionId}; // IdType
         case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
         case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
         default: return super.getProperty(hash, name, checkValid);
@@ -2978,8 +2954,8 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -889046145: // actionIdentifier
-          this.actionIdentifier = castToIdentifier(value); // Identifier
+        case -1656172047: // actionId
+          this.actionId = castToId(value); // IdType
           return value;
         case -261851592: // relationship
           value = new ActionRelationshipTypeEnumFactory().fromType(castToCode(value));
@@ -2995,8 +2971,8 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actionIdentifier")) {
-          this.actionIdentifier = castToIdentifier(value); // Identifier
+        if (name.equals("actionId")) {
+          this.actionId = castToId(value); // IdType
         } else if (name.equals("relationship")) {
           value = new ActionRelationshipTypeEnumFactory().fromType(castToCode(value));
           this.relationship = (Enumeration) value; // Enumeration<ActionRelationshipType>
@@ -3010,7 +2986,7 @@ public class RequestGroup extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145:  return getActionIdentifier(); 
+        case -1656172047:  return getActionIdElement();
         case -261851592:  return getRelationshipElement();
         case -1960684787:  return getOffset(); 
         case -1019779949:  return getOffset(); 
@@ -3022,7 +2998,7 @@ public class RequestGroup extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -889046145: /*actionIdentifier*/ return new String[] {"Identifier"};
+        case -1656172047: /*actionId*/ return new String[] {"id"};
         case -261851592: /*relationship*/ return new String[] {"code"};
         case -1019779949: /*offset*/ return new String[] {"Duration", "Range"};
         default: return super.getTypesForProperty(hash, name);
@@ -3032,9 +3008,8 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("actionIdentifier")) {
-          this.actionIdentifier = new Identifier();
-          return this.actionIdentifier;
+        if (name.equals("actionId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.actionId");
         }
         else if (name.equals("relationship")) {
           throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.relationship");
@@ -3054,7 +3029,7 @@ public class RequestGroup extends DomainResource {
       public RequestGroupActionRelatedActionComponent copy() {
         RequestGroupActionRelatedActionComponent dst = new RequestGroupActionRelatedActionComponent();
         copyValues(dst);
-        dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
+        dst.actionId = actionId == null ? null : actionId.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.offset = offset == null ? null : offset.copy();
         return dst;
@@ -3067,7 +3042,7 @@ public class RequestGroup extends DomainResource {
         if (!(other instanceof RequestGroupActionRelatedActionComponent))
           return false;
         RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other;
-        return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(relationship, o.relationship, true)
+        return compareDeep(actionId, o.actionId, true) && compareDeep(relationship, o.relationship, true)
            && compareDeep(offset, o.offset, true);
       }
 
@@ -3078,12 +3053,13 @@ public class RequestGroup extends DomainResource {
         if (!(other instanceof RequestGroupActionRelatedActionComponent))
           return false;
         RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other;
-        return compareValues(relationship, o.relationship, true);
+        return compareValues(actionId, o.actionId, true) && compareValues(relationship, o.relationship, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
-          , offset);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionId, relationship, offset
+          );
       }
 
   public String fhirType() {
@@ -3104,7 +3080,7 @@ public class RequestGroup extends DomainResource {
      * The subject for which the request group was created.
      */
     @Child(name = "subject", type = {Patient.class, Group.class}, order=1, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Subject of the request group", formalDefinition="The subject for which the request group was created." )
+    @Description(shortDefinition="Who the request group is about", formalDefinition="The subject for which the request group was created." )
     protected Reference subject;
 
     /**
@@ -3732,6 +3708,26 @@ public class RequestGroup extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.RequestGroup;
    }
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for the request group</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RequestGroup.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="RequestGroup.identifier", description="External identifiers for the request group", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for the request group</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>RequestGroup.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>patient</b>

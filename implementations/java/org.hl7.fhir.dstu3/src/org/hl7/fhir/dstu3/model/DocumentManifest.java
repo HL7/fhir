@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -447,9 +447,25 @@ public class DocumentManifest extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * The status of this document manifest.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="current | superseded | entered-in-error", formalDefinition="The status of this document manifest." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/document-reference-status")
+    protected Enumeration<DocumentReferenceStatus> status;
+
+    /**
+     * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.
+     */
+    @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Kind of document set", formalDefinition="Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-doc-typecodes")
+    protected CodeableConcept type;
+
+    /**
      * Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).
      */
-    @Child(name = "subject", type = {Patient.class, Practitioner.class, Group.class, Device.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Practitioner.class, Group.class, Device.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The subject of the set of documents", formalDefinition="Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)." )
     protected Reference subject;
 
@@ -459,29 +475,16 @@ public class DocumentManifest extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * A patient, practitioner, or organization for which this set of documents is intended.
+     * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
      */
-    @Child(name = "recipient", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Intended to get notified about this set of documents", formalDefinition="A patient, practitioner, or organization for which this set of documents is intended." )
-    protected List<Reference> recipient;
-    /**
-     * The actual objects that are the target of the reference (A patient, practitioner, or organization for which this set of documents is intended.)
-     */
-    protected List<Resource> recipientTarget;
-
-
-    /**
-     * Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.
-     */
-    @Child(name = "type", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Kind of document set", formalDefinition="Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-doc-typecodes")
-    protected CodeableConcept type;
+    @Child(name = "created", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When this document manifest created", formalDefinition="When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.)." )
+    protected DateTimeType created;
 
     /**
      * Identifies who is responsible for creating the manifest, and adding  documents to it.
      */
-    @Child(name = "author", type = {Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class, Organization.class, Device.class, Patient.class, RelatedPerson.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who and/or what authored the manifest", formalDefinition="Identifies who is responsible for creating the manifest, and adding  documents to it." )
     protected List<Reference> author;
     /**
@@ -491,26 +494,23 @@ public class DocumentManifest extends DomainResource {
 
 
     /**
-     * When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
+     * A patient, practitioner, or organization for which this set of documents is intended.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When this document manifest created", formalDefinition="When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.)." )
-    protected DateTimeType created;
+    @Child(name = "recipient", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Intended to get notified about this set of documents", formalDefinition="A patient, practitioner, or organization for which this set of documents is intended." )
+    protected List<Reference> recipient;
+    /**
+     * The actual objects that are the target of the reference (A patient, practitioner, or organization for which this set of documents is intended.)
+     */
+    protected List<Resource> recipientTarget;
+
 
     /**
      * Identifies the source system, application, or software that produced the document manifest.
      */
-    @Child(name = "source", type = {UriType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {UriType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The source system/application/software", formalDefinition="Identifies the source system, application, or software that produced the document manifest." )
     protected UriType source;
-
-    /**
-     * The status of this document manifest.
-     */
-    @Child(name = "status", type = {CodeType.class}, order=8, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="current | superseded | entered-in-error", formalDefinition="The status of this document manifest." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/document-reference-status")
-    protected Enumeration<DocumentReferenceStatus> status;
 
     /**
      * Human-readable description of the source document. This is sometimes known as the "title".
@@ -533,7 +533,7 @@ public class DocumentManifest extends DomainResource {
     @Description(shortDefinition="Related things", formalDefinition="Related identifiers or resources associated with the DocumentManifest." )
     protected List<DocumentManifestRelatedComponent> related;
 
-    private static final long serialVersionUID = -2056683927L;
+    private static final long serialVersionUID = -2081196115L;
 
   /**
    * Constructor
@@ -628,6 +628,75 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
+     * @return {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<DocumentReferenceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public DocumentManifest setStatusElement(Enumeration<DocumentReferenceStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The status of this document manifest.
+     */
+    public DocumentReferenceStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of this document manifest.
+     */
+    public DocumentManifest setStatus(DocumentReferenceStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
+     */
+    public CodeableConcept getType() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DocumentManifest.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeableConcept(); // cc
+      return this.type;
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    /**
+     * @param value {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
+     */
+    public DocumentManifest setType(CodeableConcept value) { 
+      this.type = value;
+      return this;
+    }
+
+    /**
      * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
     public Reference getSubject() { 
@@ -667,89 +736,51 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
+     * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public List<Reference> getRecipient() { 
-      if (this.recipient == null)
-        this.recipient = new ArrayList<Reference>();
-      return this.recipient;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public DocumentManifest setRecipient(List<Reference> theRecipient) { 
-      this.recipient = theRecipient;
-      return this;
-    }
-
-    public boolean hasRecipient() { 
-      if (this.recipient == null)
-        return false;
-      for (Reference item : this.recipient)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public Reference addRecipient() { //3
-      Reference t = new Reference();
-      if (this.recipient == null)
-        this.recipient = new ArrayList<Reference>();
-      this.recipient.add(t);
-      return t;
-    }
-
-    public DocumentManifest addRecipient(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.recipient == null)
-        this.recipient = new ArrayList<Reference>();
-      this.recipient.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #recipient}, creating it if it does not already exist
-     */
-    public Reference getRecipientFirstRep() { 
-      if (getRecipient().isEmpty()) {
-        addRecipient();
-      }
-      return getRecipient().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getRecipientTarget() { 
-      if (this.recipientTarget == null)
-        this.recipientTarget = new ArrayList<Resource>();
-      return this.recipientTarget;
-    }
-
-    /**
-     * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
-     */
-    public CodeableConcept getType() { 
-      if (this.type == null)
+    public DateTimeType getCreatedElement() { 
+      if (this.created == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentManifest.type");
+          throw new Error("Attempt to auto-create DocumentManifest.created");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept(); // cc
-      return this.type;
+          this.created = new DateTimeType(); // bb
+      return this.created;
     }
 
-    public boolean hasType() { 
-      return this.type != null && !this.type.isEmpty();
+    public boolean hasCreatedElement() { 
+      return this.created != null && !this.created.isEmpty();
+    }
+
+    public boolean hasCreated() { 
+      return this.created != null && !this.created.isEmpty();
     }
 
     /**
-     * @param value {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
+     * @param value {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DocumentManifest setType(CodeableConcept value) { 
-      this.type = value;
+    public DocumentManifest setCreatedElement(DateTimeType value) { 
+      this.created = value;
+      return this;
+    }
+
+    /**
+     * @return When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
+     */
+    public Date getCreated() { 
+      return this.created == null ? null : this.created.getValue();
+    }
+
+    /**
+     * @param value When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
+     */
+    public DocumentManifest setCreated(Date value) { 
+      if (value == null)
+        this.created = null;
+      else {
+        if (this.created == null)
+          this.created = new DateTimeType();
+        this.created.setValue(value);
+      }
       return this;
     }
 
@@ -817,52 +848,66 @@ public class DocumentManifest extends DomainResource {
     }
 
     /**
-     * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
+     * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
      */
-    public DateTimeType getCreatedElement() { 
-      if (this.created == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentManifest.created");
-        else if (Configuration.doAutoCreate())
-          this.created = new DateTimeType(); // bb
-      return this.created;
-    }
-
-    public boolean hasCreatedElement() { 
-      return this.created != null && !this.created.isEmpty();
-    }
-
-    public boolean hasCreated() { 
-      return this.created != null && !this.created.isEmpty();
+    public List<Reference> getRecipient() { 
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      return this.recipient;
     }
 
     /**
-     * @param value {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
+     * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DocumentManifest setCreatedElement(DateTimeType value) { 
-      this.created = value;
+    public DocumentManifest setRecipient(List<Reference> theRecipient) { 
+      this.recipient = theRecipient;
+      return this;
+    }
+
+    public boolean hasRecipient() { 
+      if (this.recipient == null)
+        return false;
+      for (Reference item : this.recipient)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addRecipient() { //3
+      Reference t = new Reference();
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
+      return t;
+    }
+
+    public DocumentManifest addRecipient(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.recipient == null)
+        this.recipient = new ArrayList<Reference>();
+      this.recipient.add(t);
       return this;
     }
 
     /**
-     * @return When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
+     * @return The first repetition of repeating field {@link #recipient}, creating it if it does not already exist
      */
-    public Date getCreated() { 
-      return this.created == null ? null : this.created.getValue();
-    }
-
-    /**
-     * @param value When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
-     */
-    public DocumentManifest setCreated(Date value) { 
-      if (value == null)
-        this.created = null;
-      else {
-        if (this.created == null)
-          this.created = new DateTimeType();
-        this.created.setValue(value);
+    public Reference getRecipientFirstRep() { 
+      if (getRecipient().isEmpty()) {
+        addRecipient();
       }
-      return this;
+      return getRecipient().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getRecipientTarget() { 
+      if (this.recipientTarget == null)
+        this.recipientTarget = new ArrayList<Resource>();
+      return this.recipientTarget;
     }
 
     /**
@@ -911,51 +956,6 @@ public class DocumentManifest extends DomainResource {
           this.source = new UriType();
         this.source.setValue(value);
       }
-      return this;
-    }
-
-    /**
-     * @return {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<DocumentReferenceStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DocumentManifest.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public DocumentManifest setStatusElement(Enumeration<DocumentReferenceStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The status of this document manifest.
-     */
-    public DocumentReferenceStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The status of this document manifest.
-     */
-    public DocumentManifest setStatus(DocumentReferenceStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
-        this.status.setValue(value);
       return this;
     }
 
@@ -1118,13 +1118,13 @@ public class DocumentManifest extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("masterIdentifier", "Identifier", "A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.", 0, java.lang.Integer.MAX_VALUE, masterIdentifier));
         childrenList.add(new Property("identifier", "Identifier", "Other identifiers associated with the document manifest, including version independent  identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("recipient", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "A patient, practitioner, or organization for which this set of documents is intended.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("author", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Identifies who is responsible for creating the manifest, and adding  documents to it.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("created", "dateTime", "When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("status", "code", "The status of this document manifest.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("type", "CodeableConcept", "Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device)", "Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("created", "dateTime", "When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).", 0, java.lang.Integer.MAX_VALUE, created));
+        childrenList.add(new Property("author", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Identifies who is responsible for creating the manifest, and adding  documents to it.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("recipient", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "A patient, practitioner, or organization for which this set of documents is intended.", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("source", "uri", "Identifies the source system, application, or software that produced the document manifest.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the \"title\".", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("content", "", "The list of Documents included in the manifest.", 0, java.lang.Integer.MAX_VALUE, content));
         childrenList.add(new Property("related", "", "Related identifiers or resources associated with the DocumentManifest.", 0, java.lang.Integer.MAX_VALUE, related));
@@ -1135,13 +1135,13 @@ public class DocumentManifest extends DomainResource {
         switch (hash) {
         case 243769515: /*masterIdentifier*/ return this.masterIdentifier == null ? new Base[0] : new Base[] {this.masterIdentifier}; // Identifier
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -1406328437: /*author*/ return this.author == null ? new Base[0] : this.author.toArray(new Base[this.author.size()]); // Reference
-        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
-        case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DocumentReferenceStatus>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
+        case -1406328437: /*author*/ return this.author == null ? new Base[0] : this.author.toArray(new Base[this.author.size()]); // Reference
+        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
+        case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 951530617: /*content*/ return this.content == null ? new Base[0] : this.content.toArray(new Base[this.content.size()]); // DocumentManifestContentComponent
         case 1090493483: /*related*/ return this.related == null ? new Base[0] : this.related.toArray(new Base[this.related.size()]); // DocumentManifestRelatedComponent
@@ -1159,27 +1159,27 @@ public class DocumentManifest extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
-        case -1867885268: // subject
-          this.subject = castToReference(value); // Reference
-          return value;
-        case 820081177: // recipient
-          this.getRecipient().add(castToReference(value)); // Reference
+        case -892481550: // status
+          value = new DocumentReferenceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -1406328437: // author
-          this.getAuthor().add(castToReference(value)); // Reference
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
           return value;
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
           return value;
+        case -1406328437: // author
+          this.getAuthor().add(castToReference(value)); // Reference
+          return value;
+        case 820081177: // recipient
+          this.getRecipient().add(castToReference(value)); // Reference
+          return value;
         case -896505829: // source
           this.source = castToUri(value); // UriType
-          return value;
-        case -892481550: // status
-          value = new DocumentReferenceStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -1201,21 +1201,21 @@ public class DocumentManifest extends DomainResource {
           this.masterIdentifier = castToIdentifier(value); // Identifier
         } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("subject")) {
-          this.subject = castToReference(value); // Reference
-        } else if (name.equals("recipient")) {
-          this.getRecipient().add(castToReference(value));
-        } else if (name.equals("type")) {
-          this.type = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("author")) {
-          this.getAuthor().add(castToReference(value));
-        } else if (name.equals("created")) {
-          this.created = castToDateTime(value); // DateTimeType
-        } else if (name.equals("source")) {
-          this.source = castToUri(value); // UriType
         } else if (name.equals("status")) {
           value = new DocumentReferenceStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
+        } else if (name.equals("type")) {
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
+        } else if (name.equals("created")) {
+          this.created = castToDateTime(value); // DateTimeType
+        } else if (name.equals("author")) {
+          this.getAuthor().add(castToReference(value));
+        } else if (name.equals("recipient")) {
+          this.getRecipient().add(castToReference(value));
+        } else if (name.equals("source")) {
+          this.source = castToUri(value); // UriType
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("content")) {
@@ -1232,13 +1232,13 @@ public class DocumentManifest extends DomainResource {
         switch (hash) {
         case 243769515:  return getMasterIdentifier(); 
         case -1618432855:  return addIdentifier(); 
-        case -1867885268:  return getSubject(); 
-        case 820081177:  return addRecipient(); 
-        case 3575610:  return getType(); 
-        case -1406328437:  return addAuthor(); 
-        case 1028554472:  return getCreatedElement();
-        case -896505829:  return getSourceElement();
         case -892481550:  return getStatusElement();
+        case 3575610:  return getType(); 
+        case -1867885268:  return getSubject(); 
+        case 1028554472:  return getCreatedElement();
+        case -1406328437:  return addAuthor(); 
+        case 820081177:  return addRecipient(); 
+        case -896505829:  return getSourceElement();
         case -1724546052:  return getDescriptionElement();
         case 951530617:  return addContent(); 
         case 1090493483:  return addRelated(); 
@@ -1252,13 +1252,13 @@ public class DocumentManifest extends DomainResource {
         switch (hash) {
         case 243769515: /*masterIdentifier*/ return new String[] {"Identifier"};
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case 820081177: /*recipient*/ return new String[] {"Reference"};
-        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
-        case -1406328437: /*author*/ return new String[] {"Reference"};
-        case 1028554472: /*created*/ return new String[] {"dateTime"};
-        case -896505829: /*source*/ return new String[] {"uri"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
+        case -896505829: /*source*/ return new String[] {"uri"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 951530617: /*content*/ return new String[] {};
         case 1090493483: /*related*/ return new String[] {};
@@ -1276,28 +1276,28 @@ public class DocumentManifest extends DomainResource {
         else if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("subject")) {
-          this.subject = new Reference();
-          return this.subject;
-        }
-        else if (name.equals("recipient")) {
-          return addRecipient();
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type DocumentManifest.status");
         }
         else if (name.equals("type")) {
           this.type = new CodeableConcept();
           return this.type;
         }
-        else if (name.equals("author")) {
-          return addAuthor();
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
         }
         else if (name.equals("created")) {
           throw new FHIRException("Cannot call addChild on a primitive type DocumentManifest.created");
         }
+        else if (name.equals("author")) {
+          return addAuthor();
+        }
+        else if (name.equals("recipient")) {
+          return addRecipient();
+        }
         else if (name.equals("source")) {
           throw new FHIRException("Cannot call addChild on a primitive type DocumentManifest.source");
-        }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type DocumentManifest.status");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type DocumentManifest.description");
@@ -1326,21 +1326,21 @@ public class DocumentManifest extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        dst.subject = subject == null ? null : subject.copy();
-        if (recipient != null) {
-          dst.recipient = new ArrayList<Reference>();
-          for (Reference i : recipient)
-            dst.recipient.add(i.copy());
-        };
+        dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.created = created == null ? null : created.copy();
         if (author != null) {
           dst.author = new ArrayList<Reference>();
           for (Reference i : author)
             dst.author.add(i.copy());
         };
-        dst.created = created == null ? null : created.copy();
+        if (recipient != null) {
+          dst.recipient = new ArrayList<Reference>();
+          for (Reference i : recipient)
+            dst.recipient.add(i.copy());
+        };
         dst.source = source == null ? null : source.copy();
-        dst.status = status == null ? null : status.copy();
         dst.description = description == null ? null : description.copy();
         if (content != null) {
           dst.content = new ArrayList<DocumentManifestContentComponent>();
@@ -1367,9 +1367,9 @@ public class DocumentManifest extends DomainResource {
           return false;
         DocumentManifest o = (DocumentManifest) other;
         return compareDeep(masterIdentifier, o.masterIdentifier, true) && compareDeep(identifier, o.identifier, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(type, o.type, true)
-           && compareDeep(author, o.author, true) && compareDeep(created, o.created, true) && compareDeep(source, o.source, true)
-           && compareDeep(status, o.status, true) && compareDeep(description, o.description, true) && compareDeep(content, o.content, true)
+           && compareDeep(status, o.status, true) && compareDeep(type, o.type, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(created, o.created, true) && compareDeep(author, o.author, true) && compareDeep(recipient, o.recipient, true)
+           && compareDeep(source, o.source, true) && compareDeep(description, o.description, true) && compareDeep(content, o.content, true)
            && compareDeep(related, o.related, true);
       }
 
@@ -1380,13 +1380,13 @@ public class DocumentManifest extends DomainResource {
         if (!(other instanceof DocumentManifest))
           return false;
         DocumentManifest o = (DocumentManifest) other;
-        return compareValues(created, o.created, true) && compareValues(source, o.source, true) && compareValues(status, o.status, true)
+        return compareValues(status, o.status, true) && compareValues(created, o.created, true) && compareValues(source, o.source, true)
            && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(masterIdentifier, identifier
-          , subject, recipient, type, author, created, source, status, description, content
+          , status, type, subject, created, author, recipient, source, description, content
           , related);
       }
 

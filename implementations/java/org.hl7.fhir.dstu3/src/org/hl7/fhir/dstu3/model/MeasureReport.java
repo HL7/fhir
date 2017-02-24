@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1223,7 +1223,7 @@ public class MeasureReport extends DomainResource {
          * The measure score for this stratum.
          */
         @Child(name = "measureScore", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The measure score", formalDefinition="The measure score for this stratum." )
+        @Description(shortDefinition="Score for this stratum", formalDefinition="The measure score for this stratum." )
         protected DecimalType measureScore;
 
         private static final long serialVersionUID = -772356228L;
@@ -1941,7 +1941,7 @@ public class MeasureReport extends DomainResource {
      * A reference to a Bundle containing the Resources that were used in the evaluation of this report.
      */
     @Child(name = "evaluatedResources", type = {Bundle.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Evaluated Resources", formalDefinition="A reference to a Bundle containing the Resources that were used in the evaluation of this report." )
+    @Description(shortDefinition="What data was evaluated to produce the measure score", formalDefinition="A reference to a Bundle containing the Resources that were used in the evaluation of this report." )
     protected Reference evaluatedResources;
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1210,9 +1210,16 @@ public class QuestionnaireResponse extends DomainResource {
     protected Resource contextTarget;
 
     /**
+     * The date and/or time that this version of the questionnaire response was authored.
+     */
+    @Child(name = "authored", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Date this version was authored", formalDefinition="The date and/or time that this version of the questionnaire response was authored." )
+    protected DateTimeType authored;
+
+    /**
      * Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.
      */
-    @Child(name = "author", type = {Device.class, Practitioner.class, Patient.class, RelatedPerson.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "author", type = {Device.class, Practitioner.class, Patient.class, RelatedPerson.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Person who received and recorded the answers", formalDefinition="Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system." )
     protected Reference author;
 
@@ -1220,13 +1227,6 @@ public class QuestionnaireResponse extends DomainResource {
      * The actual object that is the target of the reference (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
      */
     protected Resource authorTarget;
-
-    /**
-     * The date and/or time that this version of the questionnaire response was authored.
-     */
-    @Child(name = "authored", type = {DateTimeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date this version was authored", formalDefinition="The date and/or time that this version of the questionnaire response was authored." )
-    protected DateTimeType authored;
 
     /**
      * The person who answered the questions about the subject.
@@ -1247,7 +1247,7 @@ public class QuestionnaireResponse extends DomainResource {
     @Description(shortDefinition="Groups and questions", formalDefinition="Corresponds to a group or question item from the original questionnaire." )
     protected List<QuestionnaireResponseItemComponent> item;
 
-    private static final long serialVersionUID = -380712978L;
+    private static final long serialVersionUID = -1559552776L;
 
   /**
    * Constructor
@@ -1582,45 +1582,6 @@ public class QuestionnaireResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
-     */
-    public Reference getAuthor() { 
-      if (this.author == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create QuestionnaireResponse.author");
-        else if (Configuration.doAutoCreate())
-          this.author = new Reference(); // cc
-      return this.author;
-    }
-
-    public boolean hasAuthor() { 
-      return this.author != null && !this.author.isEmpty();
-    }
-
-    /**
-     * @param value {@link #author} (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
-     */
-    public QuestionnaireResponse setAuthor(Reference value) { 
-      this.author = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
-     */
-    public Resource getAuthorTarget() { 
-      return this.authorTarget;
-    }
-
-    /**
-     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
-     */
-    public QuestionnaireResponse setAuthorTarget(Resource value) { 
-      this.authorTarget = value;
-      return this;
-    }
-
-    /**
      * @return {@link #authored} (The date and/or time that this version of the questionnaire response was authored.). This is the underlying object with id, value and extensions. The accessor "getAuthored" gives direct access to the value
      */
     public DateTimeType getAuthoredElement() { 
@@ -1666,6 +1627,45 @@ public class QuestionnaireResponse extends DomainResource {
           this.authored = new DateTimeType();
         this.authored.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #author} (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
+     */
+    public Reference getAuthor() { 
+      if (this.author == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create QuestionnaireResponse.author");
+        else if (Configuration.doAutoCreate())
+          this.author = new Reference(); // cc
+      return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
+    }
+
+    /**
+     * @param value {@link #author} (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
+     */
+    public QuestionnaireResponse setAuthor(Reference value) { 
+      this.author = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
+     */
+    public Resource getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.)
+     */
+    public QuestionnaireResponse setAuthorTarget(Resource value) { 
+      this.authorTarget = value;
       return this;
     }
 
@@ -1770,8 +1770,8 @@ public class QuestionnaireResponse extends DomainResource {
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire response as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("subject", "Reference(Any)", "The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care with primary association to the questionnaire.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("author", "Reference(Device|Practitioner|Patient|RelatedPerson)", "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("authored", "dateTime", "The date and/or time that this version of the questionnaire response was authored.", 0, java.lang.Integer.MAX_VALUE, authored));
+        childrenList.add(new Property("author", "Reference(Device|Practitioner|Patient|RelatedPerson)", "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("source", "Reference(Patient|Practitioner|RelatedPerson)", "The person who answered the questions about the subject.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("item", "", "Corresponds to a group or question item from the original questionnaire.", 0, java.lang.Integer.MAX_VALUE, item));
       }
@@ -1786,8 +1786,8 @@ public class QuestionnaireResponse extends DomainResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<QuestionnaireResponseStatus>
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
-        case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case 1433073514: /*authored*/ return this.authored == null ? new Base[0] : new Base[] {this.authored}; // DateTimeType
+        case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // QuestionnaireResponseItemComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -1820,11 +1820,11 @@ public class QuestionnaireResponse extends DomainResource {
         case 951530927: // context
           this.context = castToReference(value); // Reference
           return value;
-        case -1406328437: // author
-          this.author = castToReference(value); // Reference
-          return value;
         case 1433073514: // authored
           this.authored = castToDateTime(value); // DateTimeType
+          return value;
+        case -1406328437: // author
+          this.author = castToReference(value); // Reference
           return value;
         case -896505829: // source
           this.source = castToReference(value); // Reference
@@ -1854,10 +1854,10 @@ public class QuestionnaireResponse extends DomainResource {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        } else if (name.equals("author")) {
-          this.author = castToReference(value); // Reference
         } else if (name.equals("authored")) {
           this.authored = castToDateTime(value); // DateTimeType
+        } else if (name.equals("author")) {
+          this.author = castToReference(value); // Reference
         } else if (name.equals("source")) {
           this.source = castToReference(value); // Reference
         } else if (name.equals("item")) {
@@ -1877,8 +1877,8 @@ public class QuestionnaireResponse extends DomainResource {
         case -892481550:  return getStatusElement();
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
-        case -1406328437:  return getAuthor(); 
         case 1433073514:  return getAuthoredElement();
+        case -1406328437:  return getAuthor(); 
         case -896505829:  return getSource(); 
         case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
@@ -1896,8 +1896,8 @@ public class QuestionnaireResponse extends DomainResource {
         case -892481550: /*status*/ return new String[] {"code"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
-        case -1406328437: /*author*/ return new String[] {"Reference"};
         case 1433073514: /*authored*/ return new String[] {"dateTime"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
         case -896505829: /*source*/ return new String[] {"Reference"};
         case 3242771: /*item*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -1932,12 +1932,12 @@ public class QuestionnaireResponse extends DomainResource {
           this.context = new Reference();
           return this.context;
         }
+        else if (name.equals("authored")) {
+          throw new FHIRException("Cannot call addChild on a primitive type QuestionnaireResponse.authored");
+        }
         else if (name.equals("author")) {
           this.author = new Reference();
           return this.author;
-        }
-        else if (name.equals("authored")) {
-          throw new FHIRException("Cannot call addChild on a primitive type QuestionnaireResponse.authored");
         }
         else if (name.equals("source")) {
           this.source = new Reference();
@@ -1973,8 +1973,8 @@ public class QuestionnaireResponse extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.context = context == null ? null : context.copy();
-        dst.author = author == null ? null : author.copy();
         dst.authored = authored == null ? null : authored.copy();
+        dst.author = author == null ? null : author.copy();
         dst.source = source == null ? null : source.copy();
         if (item != null) {
           dst.item = new ArrayList<QuestionnaireResponseItemComponent>();
@@ -1997,7 +1997,7 @@ public class QuestionnaireResponse extends DomainResource {
         QuestionnaireResponse o = (QuestionnaireResponse) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(parent, o.parent, true)
            && compareDeep(questionnaire, o.questionnaire, true) && compareDeep(status, o.status, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(context, o.context, true) && compareDeep(author, o.author, true) && compareDeep(authored, o.authored, true)
+           && compareDeep(context, o.context, true) && compareDeep(authored, o.authored, true) && compareDeep(author, o.author, true)
            && compareDeep(source, o.source, true) && compareDeep(item, o.item, true);
       }
 
@@ -2013,7 +2013,7 @@ public class QuestionnaireResponse extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
-          , questionnaire, status, subject, context, author, authored, source, item);
+          , questionnaire, status, subject, context, authored, author, source, item);
       }
 
   @Override

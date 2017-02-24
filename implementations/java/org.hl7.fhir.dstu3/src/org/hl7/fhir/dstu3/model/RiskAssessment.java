@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -775,16 +775,23 @@ public class RiskAssessment extends DomainResource {
     protected Enumeration<RiskAssessmentStatus> status;
 
     /**
+     * The algorithm, process or mechanism used to evaluate the risk.
+     */
+    @Child(name = "method", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Evaluation mechanism", formalDefinition="The algorithm, process or mechanism used to evaluate the risk." )
+    protected CodeableConcept method;
+
+    /**
      * The type of the risk assessment performed.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type of assessment", formalDefinition="The type of the risk assessment performed." )
     protected CodeableConcept code;
 
     /**
      * The patient or group the risk assessment applies to.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who/what does assessment apply to?", formalDefinition="The patient or group the risk assessment applies to." )
     protected Reference subject;
 
@@ -796,7 +803,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * The encounter where the assessment was performed.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Where was assessment performed?", formalDefinition="The encounter where the assessment was performed." )
     protected Reference context;
 
@@ -808,14 +815,14 @@ public class RiskAssessment extends DomainResource {
     /**
      * The date (and possibly time) the risk assessment was performed.
      */
-    @Child(name = "occurrence", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "occurrence", type = {DateTimeType.class, Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When was assessment made?", formalDefinition="The date (and possibly time) the risk assessment was performed." )
     protected Type occurrence;
 
     /**
      * For assessments or prognosis specific to a particular condition, indicates the condition being assessed.
      */
-    @Child(name = "condition", type = {Condition.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "condition", type = {Condition.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Condition assessed", formalDefinition="For assessments or prognosis specific to a particular condition, indicates the condition being assessed." )
     protected Reference condition;
 
@@ -827,7 +834,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * The provider or software application that performed the assessment.
      */
-    @Child(name = "performer", type = {Practitioner.class, Device.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, Device.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who did assessment?", formalDefinition="The provider or software application that performed the assessment." )
     protected Reference performer;
 
@@ -839,16 +846,9 @@ public class RiskAssessment extends DomainResource {
     /**
      * The reason the risk assessment was performed.
      */
-    @Child(name = "reason", type = {CodeableConcept.class, Reference.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reason", type = {CodeableConcept.class, Reference.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why the assessment was necessary?", formalDefinition="The reason the risk assessment was performed." )
     protected Type reason;
-
-    /**
-     * The algorithm, process or mechanism used to evaluate the risk.
-     */
-    @Child(name = "method", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Evaluation mechanism", formalDefinition="The algorithm, process or mechanism used to evaluate the risk." )
-    protected CodeableConcept method;
 
     /**
      * Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).
@@ -883,7 +883,7 @@ public class RiskAssessment extends DomainResource {
     @Description(shortDefinition="Comments on the risk assessment", formalDefinition="Additional comments about the risk assessment." )
     protected Annotation note;
 
-    private static final long serialVersionUID = 1014111911L;
+    private static final long serialVersionUID = -1613643505L;
 
   /**
    * Constructor
@@ -1044,6 +1044,30 @@ public class RiskAssessment extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<RiskAssessmentStatus>(new RiskAssessmentStatusEnumFactory());
         this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #method} (The algorithm, process or mechanism used to evaluate the risk.)
+     */
+    public CodeableConcept getMethod() { 
+      if (this.method == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create RiskAssessment.method");
+        else if (Configuration.doAutoCreate())
+          this.method = new CodeableConcept(); // cc
+      return this.method;
+    }
+
+    public boolean hasMethod() { 
+      return this.method != null && !this.method.isEmpty();
+    }
+
+    /**
+     * @param value {@link #method} (The algorithm, process or mechanism used to evaluate the risk.)
+     */
+    public RiskAssessment setMethod(CodeableConcept value) { 
+      this.method = value;
       return this;
     }
 
@@ -1323,30 +1347,6 @@ public class RiskAssessment extends DomainResource {
     }
 
     /**
-     * @return {@link #method} (The algorithm, process or mechanism used to evaluate the risk.)
-     */
-    public CodeableConcept getMethod() { 
-      if (this.method == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create RiskAssessment.method");
-        else if (Configuration.doAutoCreate())
-          this.method = new CodeableConcept(); // cc
-      return this.method;
-    }
-
-    public boolean hasMethod() { 
-      return this.method != null && !this.method.isEmpty();
-    }
-
-    /**
-     * @param value {@link #method} (The algorithm, process or mechanism used to evaluate the risk.)
-     */
-    public RiskAssessment setMethod(CodeableConcept value) { 
-      this.method = value;
-      return this;
-    }
-
-    /**
      * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
     public List<Reference> getBasis() { 
@@ -1541,6 +1541,7 @@ public class RiskAssessment extends DomainResource {
         childrenList.add(new Property("basedOn", "Reference(Any)", "A reference to the request that is fulfilled by this risk assessment.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("parent", "Reference(Any)", "A reference to a resource that this risk assessment is part of, such as a Procedure.", 0, java.lang.Integer.MAX_VALUE, parent));
         childrenList.add(new Property("status", "code", "The status of the RiskAssessment, using the same statuses as an Observation.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("method", "CodeableConcept", "The algorithm, process or mechanism used to evaluate the risk.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("code", "CodeableConcept", "The type of the risk assessment performed.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient or group the risk assessment applies to.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter where the assessment was performed.", 0, java.lang.Integer.MAX_VALUE, context));
@@ -1548,7 +1549,6 @@ public class RiskAssessment extends DomainResource {
         childrenList.add(new Property("condition", "Reference(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, java.lang.Integer.MAX_VALUE, condition));
         childrenList.add(new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("method", "CodeableConcept", "The algorithm, process or mechanism used to evaluate the risk.", 0, java.lang.Integer.MAX_VALUE, method));
         childrenList.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
         childrenList.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
         childrenList.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, java.lang.Integer.MAX_VALUE, mitigation));
@@ -1562,6 +1562,7 @@ public class RiskAssessment extends DomainResource {
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : new Base[] {this.basedOn}; // Reference
         case -995424086: /*parent*/ return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<RiskAssessmentStatus>
+        case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
@@ -1569,7 +1570,6 @@ public class RiskAssessment extends DomainResource {
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // Reference
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
-        case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
         case 93508670: /*basis*/ return this.basis == null ? new Base[0] : this.basis.toArray(new Base[this.basis.size()]); // Reference
         case 1161234575: /*prediction*/ return this.prediction == null ? new Base[0] : this.prediction.toArray(new Base[this.prediction.size()]); // RiskAssessmentPredictionComponent
         case 1293793087: /*mitigation*/ return this.mitigation == null ? new Base[0] : new Base[] {this.mitigation}; // StringType
@@ -1595,6 +1595,9 @@ public class RiskAssessment extends DomainResource {
           value = new RiskAssessmentStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<RiskAssessmentStatus>
           return value;
+        case -1077554975: // method
+          this.method = castToCodeableConcept(value); // CodeableConcept
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
@@ -1615,9 +1618,6 @@ public class RiskAssessment extends DomainResource {
           return value;
         case -934964668: // reason
           this.reason = castToType(value); // Type
-          return value;
-        case -1077554975: // method
-          this.method = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 93508670: // basis
           this.getBasis().add(castToReference(value)); // Reference
@@ -1647,6 +1647,8 @@ public class RiskAssessment extends DomainResource {
         } else if (name.equals("status")) {
           value = new RiskAssessmentStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<RiskAssessmentStatus>
+        } else if (name.equals("method")) {
+          this.method = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("subject")) {
@@ -1661,8 +1663,6 @@ public class RiskAssessment extends DomainResource {
           this.performer = castToReference(value); // Reference
         } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        } else if (name.equals("method")) {
-          this.method = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("basis")) {
           this.getBasis().add(castToReference(value));
         } else if (name.equals("prediction")) {
@@ -1683,6 +1683,7 @@ public class RiskAssessment extends DomainResource {
         case -332612366:  return getBasedOn(); 
         case -995424086:  return getParent(); 
         case -892481550:  return getStatusElement();
+        case -1077554975:  return getMethod(); 
         case 3059181:  return getCode(); 
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
@@ -1692,7 +1693,6 @@ public class RiskAssessment extends DomainResource {
         case 481140686:  return getPerformer(); 
         case -669418564:  return getReason(); 
         case -934964668:  return getReason(); 
-        case -1077554975:  return getMethod(); 
         case 93508670:  return addBasis(); 
         case 1161234575:  return addPrediction(); 
         case 1293793087:  return getMitigationElement();
@@ -1709,6 +1709,7 @@ public class RiskAssessment extends DomainResource {
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -995424086: /*parent*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
@@ -1716,7 +1717,6 @@ public class RiskAssessment extends DomainResource {
         case -861311717: /*condition*/ return new String[] {"Reference"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
-        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
         case 93508670: /*basis*/ return new String[] {"Reference"};
         case 1161234575: /*prediction*/ return new String[] {};
         case 1293793087: /*mitigation*/ return new String[] {"string"};
@@ -1742,6 +1742,10 @@ public class RiskAssessment extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type RiskAssessment.status");
+        }
+        else if (name.equals("method")) {
+          this.method = new CodeableConcept();
+          return this.method;
         }
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
@@ -1779,10 +1783,6 @@ public class RiskAssessment extends DomainResource {
           this.reason = new Reference();
           return this.reason;
         }
-        else if (name.equals("method")) {
-          this.method = new CodeableConcept();
-          return this.method;
-        }
         else if (name.equals("basis")) {
           return addBasis();
         }
@@ -1812,6 +1812,7 @@ public class RiskAssessment extends DomainResource {
         dst.basedOn = basedOn == null ? null : basedOn.copy();
         dst.parent = parent == null ? null : parent.copy();
         dst.status = status == null ? null : status.copy();
+        dst.method = method == null ? null : method.copy();
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.context = context == null ? null : context.copy();
@@ -1819,7 +1820,6 @@ public class RiskAssessment extends DomainResource {
         dst.condition = condition == null ? null : condition.copy();
         dst.performer = performer == null ? null : performer.copy();
         dst.reason = reason == null ? null : reason.copy();
-        dst.method = method == null ? null : method.copy();
         if (basis != null) {
           dst.basis = new ArrayList<Reference>();
           for (Reference i : basis)
@@ -1847,9 +1847,9 @@ public class RiskAssessment extends DomainResource {
           return false;
         RiskAssessment o = (RiskAssessment) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(parent, o.parent, true)
-           && compareDeep(status, o.status, true) && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true) && compareDeep(condition, o.condition, true)
-           && compareDeep(performer, o.performer, true) && compareDeep(reason, o.reason, true) && compareDeep(method, o.method, true)
+           && compareDeep(status, o.status, true) && compareDeep(method, o.method, true) && compareDeep(code, o.code, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(performer, o.performer, true) && compareDeep(reason, o.reason, true)
            && compareDeep(basis, o.basis, true) && compareDeep(prediction, o.prediction, true) && compareDeep(mitigation, o.mitigation, true)
            && compareDeep(note, o.note, true);
       }
@@ -1866,7 +1866,7 @@ public class RiskAssessment extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
-          , status, code, subject, context, occurrence, condition, performer, reason, method
+          , status, method, code, subject, context, occurrence, condition, performer, reason
           , basis, prediction, mitigation, note);
       }
 

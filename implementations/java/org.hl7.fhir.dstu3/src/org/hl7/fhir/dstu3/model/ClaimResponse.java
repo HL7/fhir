@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -6205,7 +6205,7 @@ public class ClaimResponse extends DomainResource {
    * Path: <b>ClaimResponse.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ClaimResponse.patient", description="The subject of care.", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="ClaimResponse.patient", description="The subject of care.", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -6242,6 +6242,32 @@ public class ClaimResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam PAYMENT_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PAYMENT_DATE);
+
+ /**
+   * Search parameter: <b>request-provider</b>
+   * <p>
+   * Description: <b>The Provider of the claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.requestProvider</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="request-provider", path="ClaimResponse.requestProvider", description="The Provider of the claim", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  public static final String SP_REQUEST_PROVIDER = "request-provider";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>request-provider</b>
+   * <p>
+   * Description: <b>The Provider of the claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClaimResponse.requestProvider</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUEST_PROVIDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUEST_PROVIDER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClaimResponse:request-provider</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST_PROVIDER = new ca.uhn.fhir.model.api.Include("ClaimResponse:request-provider").toLocked();
 
  /**
    * Search parameter: <b>outcome</b>

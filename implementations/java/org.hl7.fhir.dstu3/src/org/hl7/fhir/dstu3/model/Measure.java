@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * The Measure resource provides the definition of a quality measure.
  */
 @ResourceDef(name="Measure", profile="http://hl7.org/fhir/Profile/Measure")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "disclaimer", "scoring", "compositeScoring", "type", "riskAdjustment", "rateAggregation", "rationale", "clinicalRecommendationStatement", "improvementNotation", "definition", "guidance", "set", "group", "supplementalData"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "contact", "copyright", "relatedArtifact", "library", "disclaimer", "scoring", "compositeScoring", "type", "riskAdjustment", "rateAggregation", "rationale", "clinicalRecommendationStatement", "improvementNotation", "definition", "guidance", "set", "group", "supplementalData"})
 public class Measure extends MetadataResource {
 
     @Block()
@@ -909,7 +909,7 @@ public class Measure extends MetadataResource {
          * The criteria for the stratifier. This must be the name of an expression defined within a referenced library.
          */
         @Child(name = "criteria", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Stratifier criteria", formalDefinition="The criteria for the stratifier. This must be the name of an expression defined within a referenced library." )
+        @Description(shortDefinition="How the measure should be stratified", formalDefinition="The criteria for the stratifier. This must be the name of an expression defined within a referenced library." )
         protected StringType criteria;
 
         /**
@@ -1199,7 +1199,7 @@ public class Measure extends MetadataResource {
          * The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element.
          */
         @Child(name = "criteria", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Supplemental data criteria", formalDefinition="The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element." )
+        @Description(shortDefinition="Expression describing additional data to be reporrted", formalDefinition="The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element." )
         protected StringType criteria;
 
         /**
@@ -1563,21 +1563,21 @@ public class Measure extends MetadataResource {
      * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     @Child(name = "approvalDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When measure approved by publisher", formalDefinition="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
+    @Description(shortDefinition="When the measure was approved by publisher", formalDefinition="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
     protected DateType approvalDate;
 
     /**
-     * The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+     * The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     @Child(name = "lastReviewDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Last review date for the measure", formalDefinition="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date." )
+    @Description(shortDefinition="When the measure was last reviewed", formalDefinition="The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date." )
     protected DateType lastReviewDate;
 
     /**
      * The period during which the measure content was or is planned to be effective.
      */
     @Child(name = "effectivePeriod", type = {Period.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The effective date range for the measure", formalDefinition="The period during which the measure content was or is planned to be effective." )
+    @Description(shortDefinition="When the measure is effective", formalDefinition="The period during which the measure content was or is planned to be effective." )
     protected Period effectivePeriod;
 
     /**
@@ -1606,7 +1606,7 @@ public class Measure extends MetadataResource {
      * Related artifacts such as additional documentation, justification, or bibliographic references.
      */
     @Child(name = "relatedArtifact", type = {RelatedArtifact.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Related artifacts for the measure", formalDefinition="Related artifacts such as additional documentation, justification, or bibliographic references." )
+    @Description(shortDefinition="Additional documentation, citations, etc", formalDefinition="Related artifacts such as additional documentation, justification, or bibliographic references." )
     protected List<RelatedArtifact> relatedArtifact;
 
     /**
@@ -1625,7 +1625,7 @@ public class Measure extends MetadataResource {
      * Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure.
      */
     @Child(name = "disclaimer", type = {MarkdownType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Disclaimer for the measure", formalDefinition="Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure." )
+    @Description(shortDefinition="Disclaimer for use of the measure or its referenced content", formalDefinition="Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure." )
     protected MarkdownType disclaimer;
 
     /**
@@ -1677,7 +1677,7 @@ public class Measure extends MetadataResource {
      * Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure.
      */
     @Child(name = "clinicalRecommendationStatement", type = {MarkdownType.class}, order=18, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Clinical recommendation", formalDefinition="Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure." )
+    @Description(shortDefinition="Summary of clinical guidelines", formalDefinition="Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure." )
     protected MarkdownType clinicalRecommendationStatement;
 
     /**
@@ -1698,7 +1698,7 @@ public class Measure extends MetadataResource {
      * Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.
      */
     @Child(name = "guidance", type = {MarkdownType.class}, order=21, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The guidance for the measure", formalDefinition="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure." )
+    @Description(shortDefinition="Additional guidance for implementers", formalDefinition="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure." )
     protected MarkdownType guidance;
 
     /**
@@ -1719,7 +1719,7 @@ public class Measure extends MetadataResource {
      * The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path.
      */
     @Child(name = "supplementalData", type = {}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Supplemental data", formalDefinition="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path." )
+    @Description(shortDefinition="What other data should be reported with the measure", formalDefinition="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path." )
     protected List<MeasureSupplementalDataComponent> supplementalData;
 
     private static final long serialVersionUID = -875918689L;
@@ -2128,6 +2128,55 @@ public class Measure extends MetadataResource {
     }
 
     /**
+     * @return {@link #publisher} (The name of the individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType(); // bb
+      return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    /**
+     * @param value {@link #publisher} (The name of the individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public Measure setPublisherElement(StringType value) { 
+      this.publisher = value;
+      return this;
+    }
+
+    /**
+     * @return The name of the individual or organization that published the measure.
+     */
+    public String getPublisher() { 
+      return this.publisher == null ? null : this.publisher.getValue();
+    }
+
+    /**
+     * @param value The name of the individual or organization that published the measure.
+     */
+    public Measure setPublisher(String value) { 
+      if (Utilities.noString(value))
+        this.publisher = null;
+      else {
+        if (this.publisher == null)
+          this.publisher = new StringType();
+        this.publisher.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #description} (A free text natural language description of the measure from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public MarkdownType getDescriptionElement() { 
@@ -2324,7 +2373,7 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @return {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @return {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public DateType getLastReviewDateElement() { 
       if (this.lastReviewDate == null)
@@ -2344,7 +2393,7 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @param value {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @param value {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public Measure setLastReviewDateElement(DateType value) { 
       this.lastReviewDate = value;
@@ -2352,14 +2401,14 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @return The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+     * @return The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     public Date getLastReviewDate() { 
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
-     * @param value The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.
+     * @param value The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     public Measure setLastReviewDate(Date value) { 
       if (value == null)
@@ -2606,55 +2655,6 @@ public class Measure extends MetadataResource {
         addContributor();
       }
       return getContributor().get(0);
-    }
-
-    /**
-     * @return {@link #publisher} (The name of the individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
-     */
-    public StringType getPublisherElement() { 
-      if (this.publisher == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Measure.publisher");
-        else if (Configuration.doAutoCreate())
-          this.publisher = new StringType(); // bb
-      return this.publisher;
-    }
-
-    public boolean hasPublisherElement() { 
-      return this.publisher != null && !this.publisher.isEmpty();
-    }
-
-    public boolean hasPublisher() { 
-      return this.publisher != null && !this.publisher.isEmpty();
-    }
-
-    /**
-     * @param value {@link #publisher} (The name of the individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
-     */
-    public Measure setPublisherElement(StringType value) { 
-      this.publisher = value;
-      return this;
-    }
-
-    /**
-     * @return The name of the individual or organization that published the measure.
-     */
-    public String getPublisher() { 
-      return this.publisher == null ? null : this.publisher.getValue();
-    }
-
-    /**
-     * @param value The name of the individual or organization that published the measure.
-     */
-    public Measure setPublisher(String value) { 
-      if (Utilities.noString(value))
-        this.publisher = null;
-      else {
-        if (this.publisher == null)
-          this.publisher = new StringType();
-        this.publisher.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -3557,17 +3557,17 @@ public class Measure extends MetadataResource {
         childrenList.add(new Property("status", "code", "The status of this measure. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this measure is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the measure was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the measure.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("description", "markdown", "A free text natural language description of the measure from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("purpose", "markdown", "Explains why this measure is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("usage", "string", "A detailed description of how the measure is used from a clinical perspective.", 0, java.lang.Integer.MAX_VALUE, usage));
         childrenList.add(new Property("approvalDate", "date", "The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, java.lang.Integer.MAX_VALUE, approvalDate));
-        childrenList.add(new Property("lastReviewDate", "date", "The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
+        childrenList.add(new Property("lastReviewDate", "date", "The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
         childrenList.add(new Property("effectivePeriod", "Period", "The period during which the measure content was or is planned to be effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
         childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the measure is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the measure, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
-        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the measure.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("copyright", "markdown", "A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
@@ -3599,6 +3599,7 @@ public class Measure extends MetadataResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 111574433: /*usage*/ return this.usage == null ? new Base[0] : new Base[] {this.usage}; // StringType
@@ -3609,7 +3610,6 @@ public class Measure extends MetadataResource {
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // CodeableConcept
         case -1895276325: /*contributor*/ return this.contributor == null ? new Base[0] : this.contributor.toArray(new Base[this.contributor.size()]); // Contributor
-        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
@@ -3661,6 +3661,9 @@ public class Measure extends MetadataResource {
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
           return value;
+        case 1447404028: // publisher
+          this.publisher = castToString(value); // StringType
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
           return value;
@@ -3690,9 +3693,6 @@ public class Measure extends MetadataResource {
           return value;
         case -1895276325: // contributor
           this.getContributor().add(castToContributor(value)); // Contributor
-          return value;
-        case 1447404028: // publisher
-          this.publisher = castToString(value); // StringType
           return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
@@ -3772,6 +3772,8 @@ public class Measure extends MetadataResource {
           this.experimental = castToBoolean(value); // BooleanType
         } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
+        } else if (name.equals("publisher")) {
+          this.publisher = castToString(value); // StringType
         } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("purpose")) {
@@ -3792,8 +3794,6 @@ public class Measure extends MetadataResource {
           this.getTopic().add(castToCodeableConcept(value));
         } else if (name.equals("contributor")) {
           this.getContributor().add(castToContributor(value));
-        } else if (name.equals("publisher")) {
-          this.publisher = castToString(value); // StringType
         } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
         } else if (name.equals("copyright")) {
@@ -3846,6 +3846,7 @@ public class Measure extends MetadataResource {
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
         case 3076014:  return getDateElement();
+        case 1447404028:  return getPublisherElement();
         case -1724546052:  return getDescriptionElement();
         case -220463842:  return getPurposeElement();
         case 111574433:  return getUsageElement();
@@ -3856,7 +3857,6 @@ public class Measure extends MetadataResource {
         case -507075711:  return addJurisdiction(); 
         case 110546223:  return addTopic(); 
         case -1895276325:  return addContributor(); 
-        case 1447404028:  return getPublisherElement();
         case 951526432:  return addContact(); 
         case 1522889671:  return getCopyrightElement();
         case 666807069:  return addRelatedArtifact(); 
@@ -3891,6 +3891,7 @@ public class Measure extends MetadataResource {
         case -892481550: /*status*/ return new String[] {"code"};
         case -404562712: /*experimental*/ return new String[] {"boolean"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case -220463842: /*purpose*/ return new String[] {"markdown"};
         case 111574433: /*usage*/ return new String[] {"string"};
@@ -3901,7 +3902,6 @@ public class Measure extends MetadataResource {
         case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
         case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
         case -1895276325: /*contributor*/ return new String[] {"Contributor"};
-        case 1447404028: /*publisher*/ return new String[] {"string"};
         case 951526432: /*contact*/ return new String[] {"ContactDetail"};
         case 1522889671: /*copyright*/ return new String[] {"markdown"};
         case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
@@ -3951,6 +3951,9 @@ public class Measure extends MetadataResource {
         else if (name.equals("date")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.date");
         }
+        else if (name.equals("publisher")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.publisher");
+        }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.description");
         }
@@ -3981,9 +3984,6 @@ public class Measure extends MetadataResource {
         }
         else if (name.equals("contributor")) {
           return addContributor();
-        }
-        else if (name.equals("publisher")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Measure.publisher");
         }
         else if (name.equals("contact")) {
           return addContact();
@@ -4065,6 +4065,7 @@ public class Measure extends MetadataResource {
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
+        dst.publisher = publisher == null ? null : publisher.copy();
         dst.description = description == null ? null : description.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.usage = usage == null ? null : usage.copy();
@@ -4091,7 +4092,6 @@ public class Measure extends MetadataResource {
           for (Contributor i : contributor)
             dst.contributor.add(i.copy());
         };
-        dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<ContactDetail>();
           for (ContactDetail i : contact)

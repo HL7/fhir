@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1556,34 +1556,42 @@ public class Contract extends DomainResource {
         protected List<CodeableConcept> actionReason;
 
         /**
+         * A set of security labels that define which terms are controlled by this condition.
+         */
+        @Child(name = "securityLabel", type = {Coding.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Security Labels that define affected terms", formalDefinition="A set of security labels that define which terms are controlled by this condition." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-labels")
+        protected List<Coding> securityLabel;
+
+        /**
          * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
          */
-        @Child(name = "agent", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "agent", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Agent List", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
         protected List<TermAgentComponent> agent;
 
         /**
          * Human readable form of this Contract Provision.
          */
-        @Child(name = "text", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "text", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Human readable Contract term text", formalDefinition="Human readable form of this Contract Provision." )
         protected StringType text;
 
         /**
          * Contract Provision Valued Item List.
          */
-        @Child(name = "valuedItem", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "valuedItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Valued Item List", formalDefinition="Contract Provision Valued Item List." )
         protected List<TermValuedItemComponent> valuedItem;
 
         /**
          * Nested group of Contract Provisions.
          */
-        @Child(name = "group", type = {TermComponent.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "group", type = {TermComponent.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Nested Contract Term Group", formalDefinition="Nested group of Contract Provisions." )
         protected List<TermComponent> group;
 
-        private static final long serialVersionUID = -1949614999L;
+        private static final long serialVersionUID = 812661371L;
 
     /**
      * Constructor
@@ -1907,6 +1915,59 @@ public class Contract extends DomainResource {
         }
 
         /**
+         * @return {@link #securityLabel} (A set of security labels that define which terms are controlled by this condition.)
+         */
+        public List<Coding> getSecurityLabel() { 
+          if (this.securityLabel == null)
+            this.securityLabel = new ArrayList<Coding>();
+          return this.securityLabel;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TermComponent setSecurityLabel(List<Coding> theSecurityLabel) { 
+          this.securityLabel = theSecurityLabel;
+          return this;
+        }
+
+        public boolean hasSecurityLabel() { 
+          if (this.securityLabel == null)
+            return false;
+          for (Coding item : this.securityLabel)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Coding addSecurityLabel() { //3
+          Coding t = new Coding();
+          if (this.securityLabel == null)
+            this.securityLabel = new ArrayList<Coding>();
+          this.securityLabel.add(t);
+          return t;
+        }
+
+        public TermComponent addSecurityLabel(Coding t) { //3
+          if (t == null)
+            return this;
+          if (this.securityLabel == null)
+            this.securityLabel = new ArrayList<Coding>();
+          this.securityLabel.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #securityLabel}, creating it if it does not already exist
+         */
+        public Coding getSecurityLabelFirstRep() { 
+          if (getSecurityLabel().isEmpty()) {
+            addSecurityLabel();
+          }
+          return getSecurityLabel().get(0);
+        }
+
+        /**
          * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
          */
         public List<TermAgentComponent> getAgent() { 
@@ -2124,6 +2185,7 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("topic", "Reference(Any)", "The matter of concern in the context of this provision of the agrement.", 0, java.lang.Integer.MAX_VALUE, topic));
           childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("actionReason", "CodeableConcept", "Reason or purpose for the action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, actionReason));
+          childrenList.add(new Property("securityLabel", "Coding", "A set of security labels that define which terms are controlled by this condition.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
           childrenList.add(new Property("agent", "", "An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
           childrenList.add(new Property("text", "string", "Human readable form of this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("valuedItem", "", "Contract Provision Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
@@ -2141,6 +2203,7 @@ public class Contract extends DomainResource {
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // Reference
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
         case 1465121818: /*actionReason*/ return this.actionReason == null ? new Base[0] : this.actionReason.toArray(new Base[this.actionReason.size()]); // CodeableConcept
+        case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
         case 92750597: /*agent*/ return this.agent == null ? new Base[0] : this.agent.toArray(new Base[this.agent.size()]); // TermAgentComponent
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
         case 2046675654: /*valuedItem*/ return this.valuedItem == null ? new Base[0] : this.valuedItem.toArray(new Base[this.valuedItem.size()]); // TermValuedItemComponent
@@ -2177,6 +2240,9 @@ public class Contract extends DomainResource {
         case 1465121818: // actionReason
           this.getActionReason().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
+        case -722296940: // securityLabel
+          this.getSecurityLabel().add(castToCoding(value)); // Coding
+          return value;
         case 92750597: // agent
           this.getAgent().add((TermAgentComponent) value); // TermAgentComponent
           return value;
@@ -2212,6 +2278,8 @@ public class Contract extends DomainResource {
           this.getAction().add(castToCodeableConcept(value));
         } else if (name.equals("actionReason")) {
           this.getActionReason().add(castToCodeableConcept(value));
+        } else if (name.equals("securityLabel")) {
+          this.getSecurityLabel().add(castToCoding(value));
         } else if (name.equals("agent")) {
           this.getAgent().add((TermAgentComponent) value);
         } else if (name.equals("text")) {
@@ -2236,6 +2304,7 @@ public class Contract extends DomainResource {
         case 110546223:  return addTopic(); 
         case -1422950858:  return addAction(); 
         case 1465121818:  return addActionReason(); 
+        case -722296940:  return addSecurityLabel(); 
         case 92750597:  return addAgent(); 
         case 3556653:  return getTextElement();
         case 2046675654:  return addValuedItem(); 
@@ -2256,6 +2325,7 @@ public class Contract extends DomainResource {
         case 110546223: /*topic*/ return new String[] {"Reference"};
         case -1422950858: /*action*/ return new String[] {"CodeableConcept"};
         case 1465121818: /*actionReason*/ return new String[] {"CodeableConcept"};
+        case -722296940: /*securityLabel*/ return new String[] {"Coding"};
         case 92750597: /*agent*/ return new String[] {};
         case 3556653: /*text*/ return new String[] {"string"};
         case 2046675654: /*valuedItem*/ return new String[] {};
@@ -2294,6 +2364,9 @@ public class Contract extends DomainResource {
         }
         else if (name.equals("actionReason")) {
           return addActionReason();
+        }
+        else if (name.equals("securityLabel")) {
+          return addSecurityLabel();
         }
         else if (name.equals("agent")) {
           return addAgent();
@@ -2334,6 +2407,11 @@ public class Contract extends DomainResource {
           for (CodeableConcept i : actionReason)
             dst.actionReason.add(i.copy());
         };
+        if (securityLabel != null) {
+          dst.securityLabel = new ArrayList<Coding>();
+          for (Coding i : securityLabel)
+            dst.securityLabel.add(i.copy());
+        };
         if (agent != null) {
           dst.agent = new ArrayList<TermAgentComponent>();
           for (TermAgentComponent i : agent)
@@ -2362,9 +2440,9 @@ public class Contract extends DomainResource {
         TermComponent o = (TermComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(issued, o.issued, true) && compareDeep(applies, o.applies, true)
            && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true) && compareDeep(topic, o.topic, true)
-           && compareDeep(action, o.action, true) && compareDeep(actionReason, o.actionReason, true) && compareDeep(agent, o.agent, true)
-           && compareDeep(text, o.text, true) && compareDeep(valuedItem, o.valuedItem, true) && compareDeep(group, o.group, true)
-          ;
+           && compareDeep(action, o.action, true) && compareDeep(actionReason, o.actionReason, true) && compareDeep(securityLabel, o.securityLabel, true)
+           && compareDeep(agent, o.agent, true) && compareDeep(text, o.text, true) && compareDeep(valuedItem, o.valuedItem, true)
+           && compareDeep(group, o.group, true);
       }
 
       @Override
@@ -2379,8 +2457,8 @@ public class Contract extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, issued, applies
-          , type, subType, topic, action, actionReason, agent, text, valuedItem, group
-          );
+          , type, subType, topic, action, actionReason, securityLabel, agent, text, valuedItem
+          , group);
       }
 
   public String fhirType() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -4401,6 +4401,26 @@ public class CodeSystem extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
+   * Search parameter: <b>content-mode</b>
+   * <p>
+   * Description: <b>not-present | example | fragment | complete</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.content</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="content-mode", path="CodeSystem.content", description="not-present | example | fragment | complete", type="token" )
+  public static final String SP_CONTENT_MODE = "content-mode";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>content-mode</b>
+   * <p>
+   * Description: <b>not-present | example | fragment | complete</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CodeSystem.content</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTENT_MODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTENT_MODE);
+
+ /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
    * Description: <b>Intended jurisdiction for code system</b><br>
@@ -4519,26 +4539,6 @@ public class CodeSystem extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
-
- /**
-   * Search parameter: <b>content</b>
-   * <p>
-   * Description: <b>not-present | example | fragment | complete</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.content</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="content", path="CodeSystem.content", description="not-present | example | fragment | complete", type="token" )
-  public static final String SP_CONTENT = "content";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>content</b>
-   * <p>
-   * Description: <b>not-present | example | fragment | complete</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CodeSystem.content</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTENT);
 
  /**
    * Search parameter: <b>system</b>

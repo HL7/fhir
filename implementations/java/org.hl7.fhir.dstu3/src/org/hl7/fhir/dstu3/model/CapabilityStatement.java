@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1182,6 +1182,98 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
     }
 
+    public enum EventCapabilityMode {
+        /**
+         * The application sends requests and receives responses.
+         */
+        SENDER, 
+        /**
+         * The application receives requests and sends responses.
+         */
+        RECEIVER, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static EventCapabilityMode fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("sender".equals(codeString))
+          return SENDER;
+        if ("receiver".equals(codeString))
+          return RECEIVER;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown EventCapabilityMode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case SENDER: return "sender";
+            case RECEIVER: return "receiver";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case SENDER: return "http://hl7.org/fhir/event-capability-mode";
+            case RECEIVER: return "http://hl7.org/fhir/event-capability-mode";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case SENDER: return "The application sends requests and receives responses.";
+            case RECEIVER: return "The application receives requests and sends responses.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SENDER: return "Sender";
+            case RECEIVER: return "Receiver";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class EventCapabilityModeEnumFactory implements EnumFactory<EventCapabilityMode> {
+    public EventCapabilityMode fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("sender".equals(codeString))
+          return EventCapabilityMode.SENDER;
+        if ("receiver".equals(codeString))
+          return EventCapabilityMode.RECEIVER;
+        throw new IllegalArgumentException("Unknown EventCapabilityMode code '"+codeString+"'");
+        }
+        public Enumeration<EventCapabilityMode> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<EventCapabilityMode>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("sender".equals(codeString))
+          return new Enumeration<EventCapabilityMode>(this, EventCapabilityMode.SENDER);
+        if ("receiver".equals(codeString))
+          return new Enumeration<EventCapabilityMode>(this, EventCapabilityMode.RECEIVER);
+        throw new FHIRException("Unknown EventCapabilityMode code '"+codeString+"'");
+        }
+    public String toCode(EventCapabilityMode code) {
+      if (code == EventCapabilityMode.SENDER)
+        return "sender";
+      if (code == EventCapabilityMode.RECEIVER)
+        return "receiver";
+      return "?";
+      }
+    public String toSystem(EventCapabilityMode code) {
+      return code.getSystem();
+      }
+    }
+
     public enum MessageSignificanceCategory {
         /**
          * The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment.
@@ -1286,98 +1378,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       return "?";
       }
     public String toSystem(MessageSignificanceCategory code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum EventCapabilityMode {
-        /**
-         * The application sends requests and receives responses.
-         */
-        SENDER, 
-        /**
-         * The application receives requests and sends responses.
-         */
-        RECEIVER, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static EventCapabilityMode fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("sender".equals(codeString))
-          return SENDER;
-        if ("receiver".equals(codeString))
-          return RECEIVER;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown EventCapabilityMode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case SENDER: return "sender";
-            case RECEIVER: return "receiver";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case SENDER: return "http://hl7.org/fhir/event-capability-mode";
-            case RECEIVER: return "http://hl7.org/fhir/event-capability-mode";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case SENDER: return "The application sends requests and receives responses.";
-            case RECEIVER: return "The application receives requests and sends responses.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case SENDER: return "Sender";
-            case RECEIVER: return "Receiver";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class EventCapabilityModeEnumFactory implements EnumFactory<EventCapabilityMode> {
-    public EventCapabilityMode fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("sender".equals(codeString))
-          return EventCapabilityMode.SENDER;
-        if ("receiver".equals(codeString))
-          return EventCapabilityMode.RECEIVER;
-        throw new IllegalArgumentException("Unknown EventCapabilityMode code '"+codeString+"'");
-        }
-        public Enumeration<EventCapabilityMode> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<EventCapabilityMode>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("sender".equals(codeString))
-          return new Enumeration<EventCapabilityMode>(this, EventCapabilityMode.SENDER);
-        if ("receiver".equals(codeString))
-          return new Enumeration<EventCapabilityMode>(this, EventCapabilityMode.RECEIVER);
-        throw new FHIRException("Unknown EventCapabilityMode code '"+codeString+"'");
-        }
-    public String toCode(EventCapabilityMode code) {
-      if (code == EventCapabilityMode.SENDER)
-        return "sender";
-      if (code == EventCapabilityMode.RECEIVER)
-        return "receiver";
-      return "?";
-      }
-    public String toSystem(EventCapabilityMode code) {
       return code.getSystem();
       }
     }
@@ -5673,13 +5673,20 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected StringType documentation;
 
         /**
+         * References to message definitions for messages this system can send or receive.
+         */
+        @Child(name = "supportedMessage", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Messages supported by this system", formalDefinition="References to message definitions for messages this system can send or receive." )
+        protected List<CapabilityStatementMessagingSupportedMessageComponent> supportedMessage;
+
+        /**
          * A description of the solution's support for an event at this end-point.
          */
-        @Child(name = "event", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "event", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Declare support for this event", formalDefinition="A description of the solution's support for an event at this end-point." )
         protected List<CapabilityStatementMessagingEventComponent> event;
 
-        private static final long serialVersionUID = -1337173493L;
+        private static final long serialVersionUID = 816243355L;
 
     /**
      * Constructor
@@ -5836,6 +5843,59 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
+         * @return {@link #supportedMessage} (References to message definitions for messages this system can send or receive.)
+         */
+        public List<CapabilityStatementMessagingSupportedMessageComponent> getSupportedMessage() { 
+          if (this.supportedMessage == null)
+            this.supportedMessage = new ArrayList<CapabilityStatementMessagingSupportedMessageComponent>();
+          return this.supportedMessage;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CapabilityStatementMessagingComponent setSupportedMessage(List<CapabilityStatementMessagingSupportedMessageComponent> theSupportedMessage) { 
+          this.supportedMessage = theSupportedMessage;
+          return this;
+        }
+
+        public boolean hasSupportedMessage() { 
+          if (this.supportedMessage == null)
+            return false;
+          for (CapabilityStatementMessagingSupportedMessageComponent item : this.supportedMessage)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public CapabilityStatementMessagingSupportedMessageComponent addSupportedMessage() { //3
+          CapabilityStatementMessagingSupportedMessageComponent t = new CapabilityStatementMessagingSupportedMessageComponent();
+          if (this.supportedMessage == null)
+            this.supportedMessage = new ArrayList<CapabilityStatementMessagingSupportedMessageComponent>();
+          this.supportedMessage.add(t);
+          return t;
+        }
+
+        public CapabilityStatementMessagingComponent addSupportedMessage(CapabilityStatementMessagingSupportedMessageComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.supportedMessage == null)
+            this.supportedMessage = new ArrayList<CapabilityStatementMessagingSupportedMessageComponent>();
+          this.supportedMessage.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #supportedMessage}, creating it if it does not already exist
+         */
+        public CapabilityStatementMessagingSupportedMessageComponent getSupportedMessageFirstRep() { 
+          if (getSupportedMessage().isEmpty()) {
+            addSupportedMessage();
+          }
+          return getSupportedMessage().get(0);
+        }
+
+        /**
          * @return {@link #event} (A description of the solution's support for an event at this end-point.)
          */
         public List<CapabilityStatementMessagingEventComponent> getEvent() { 
@@ -5893,6 +5953,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           childrenList.add(new Property("endpoint", "", "An endpoint (network accessible address) to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
           childrenList.add(new Property("reliableCache", "unsignedInt", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, java.lang.Integer.MAX_VALUE, reliableCache));
           childrenList.add(new Property("documentation", "string", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, process for becoming an authorized messaging exchange partner.", 0, java.lang.Integer.MAX_VALUE, documentation));
+          childrenList.add(new Property("supportedMessage", "", "References to message definitions for messages this system can send or receive.", 0, java.lang.Integer.MAX_VALUE, supportedMessage));
           childrenList.add(new Property("event", "", "A description of the solution's support for an event at this end-point.", 0, java.lang.Integer.MAX_VALUE, event));
         }
 
@@ -5902,6 +5963,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1741102485: /*endpoint*/ return this.endpoint == null ? new Base[0] : this.endpoint.toArray(new Base[this.endpoint.size()]); // CapabilityStatementMessagingEndpointComponent
         case 897803608: /*reliableCache*/ return this.reliableCache == null ? new Base[0] : new Base[] {this.reliableCache}; // UnsignedIntType
         case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case -1805139079: /*supportedMessage*/ return this.supportedMessage == null ? new Base[0] : this.supportedMessage.toArray(new Base[this.supportedMessage.size()]); // CapabilityStatementMessagingSupportedMessageComponent
         case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // CapabilityStatementMessagingEventComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -5920,6 +5982,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
           return value;
+        case -1805139079: // supportedMessage
+          this.getSupportedMessage().add((CapabilityStatementMessagingSupportedMessageComponent) value); // CapabilityStatementMessagingSupportedMessageComponent
+          return value;
         case 96891546: // event
           this.getEvent().add((CapabilityStatementMessagingEventComponent) value); // CapabilityStatementMessagingEventComponent
           return value;
@@ -5936,6 +6001,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("documentation")) {
           this.documentation = castToString(value); // StringType
+        } else if (name.equals("supportedMessage")) {
+          this.getSupportedMessage().add((CapabilityStatementMessagingSupportedMessageComponent) value);
         } else if (name.equals("event")) {
           this.getEvent().add((CapabilityStatementMessagingEventComponent) value);
         } else
@@ -5949,6 +6016,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1741102485:  return addEndpoint(); 
         case 897803608:  return getReliableCacheElement();
         case 1587405498:  return getDocumentationElement();
+        case -1805139079:  return addSupportedMessage(); 
         case 96891546:  return addEvent(); 
         default: return super.makeProperty(hash, name);
         }
@@ -5961,6 +6029,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1741102485: /*endpoint*/ return new String[] {};
         case 897803608: /*reliableCache*/ return new String[] {"unsignedInt"};
         case 1587405498: /*documentation*/ return new String[] {"string"};
+        case -1805139079: /*supportedMessage*/ return new String[] {};
         case 96891546: /*event*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -5977,6 +6046,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         else if (name.equals("documentation")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.documentation");
+        }
+        else if (name.equals("supportedMessage")) {
+          return addSupportedMessage();
         }
         else if (name.equals("event")) {
           return addEvent();
@@ -5995,6 +6067,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         };
         dst.reliableCache = reliableCache == null ? null : reliableCache.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
+        if (supportedMessage != null) {
+          dst.supportedMessage = new ArrayList<CapabilityStatementMessagingSupportedMessageComponent>();
+          for (CapabilityStatementMessagingSupportedMessageComponent i : supportedMessage)
+            dst.supportedMessage.add(i.copy());
+        };
         if (event != null) {
           dst.event = new ArrayList<CapabilityStatementMessagingEventComponent>();
           for (CapabilityStatementMessagingEventComponent i : event)
@@ -6011,7 +6088,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return false;
         CapabilityStatementMessagingComponent o = (CapabilityStatementMessagingComponent) other;
         return compareDeep(endpoint, o.endpoint, true) && compareDeep(reliableCache, o.reliableCache, true)
-           && compareDeep(documentation, o.documentation, true) && compareDeep(event, o.event, true);
+           && compareDeep(documentation, o.documentation, true) && compareDeep(supportedMessage, o.supportedMessage, true)
+           && compareDeep(event, o.event, true);
       }
 
       @Override
@@ -6027,7 +6105,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(endpoint, reliableCache, documentation
-          , event);
+          , supportedMessage, event);
       }
 
   public String fhirType() {
@@ -6249,6 +6327,250 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
   public String fhirType() {
     return "CapabilityStatement.messaging.endpoint";
+
+  }
+
+  }
+
+    @Block()
+    public static class CapabilityStatementMessagingSupportedMessageComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The mode of this event declaration - whether application is sender or receiver.
+         */
+        @Child(name = "mode", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="sender | receiver", formalDefinition="The mode of this event declaration - whether application is sender or receiver." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-capability-mode")
+        protected Enumeration<EventCapabilityMode> mode;
+
+        /**
+         * Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
+         */
+        @Child(name = "definition", type = {MessageDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Definition of supported message", formalDefinition="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc." )
+        protected Reference definition;
+
+        /**
+         * The actual object that is the target of the reference (Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.)
+         */
+        protected MessageDefinition definitionTarget;
+
+        private static final long serialVersionUID = -741523869L;
+
+    /**
+     * Constructor
+     */
+      public CapabilityStatementMessagingSupportedMessageComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public CapabilityStatementMessagingSupportedMessageComponent(Enumeration<EventCapabilityMode> mode, Reference definition) {
+        super();
+        this.mode = mode;
+        this.definition = definition;
+      }
+
+        /**
+         * @return {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
+         */
+        public Enumeration<EventCapabilityMode> getModeElement() { 
+          if (this.mode == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementMessagingSupportedMessageComponent.mode");
+            else if (Configuration.doAutoCreate())
+              this.mode = new Enumeration<EventCapabilityMode>(new EventCapabilityModeEnumFactory()); // bb
+          return this.mode;
+        }
+
+        public boolean hasModeElement() { 
+          return this.mode != null && !this.mode.isEmpty();
+        }
+
+        public boolean hasMode() { 
+          return this.mode != null && !this.mode.isEmpty();
+        }
+
+        /**
+         * @param value {@link #mode} (The mode of this event declaration - whether application is sender or receiver.). This is the underlying object with id, value and extensions. The accessor "getMode" gives direct access to the value
+         */
+        public CapabilityStatementMessagingSupportedMessageComponent setModeElement(Enumeration<EventCapabilityMode> value) { 
+          this.mode = value;
+          return this;
+        }
+
+        /**
+         * @return The mode of this event declaration - whether application is sender or receiver.
+         */
+        public EventCapabilityMode getMode() { 
+          return this.mode == null ? null : this.mode.getValue();
+        }
+
+        /**
+         * @param value The mode of this event declaration - whether application is sender or receiver.
+         */
+        public CapabilityStatementMessagingSupportedMessageComponent setMode(EventCapabilityMode value) { 
+            if (this.mode == null)
+              this.mode = new Enumeration<EventCapabilityMode>(new EventCapabilityModeEnumFactory());
+            this.mode.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #definition} (Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.)
+         */
+        public Reference getDefinition() { 
+          if (this.definition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementMessagingSupportedMessageComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definition = new Reference(); // cc
+          return this.definition;
+        }
+
+        public boolean hasDefinition() { 
+          return this.definition != null && !this.definition.isEmpty();
+        }
+
+        /**
+         * @param value {@link #definition} (Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.)
+         */
+        public CapabilityStatementMessagingSupportedMessageComponent setDefinition(Reference value) { 
+          this.definition = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.)
+         */
+        public MessageDefinition getDefinitionTarget() { 
+          if (this.definitionTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementMessagingSupportedMessageComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definitionTarget = new MessageDefinition(); // aa
+          return this.definitionTarget;
+        }
+
+        /**
+         * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.)
+         */
+        public CapabilityStatementMessagingSupportedMessageComponent setDefinitionTarget(MessageDefinition value) { 
+          this.definitionTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("mode", "code", "The mode of this event declaration - whether application is sender or receiver.", 0, java.lang.Integer.MAX_VALUE, mode));
+          childrenList.add(new Property("definition", "Reference(MessageDefinition)", "Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.", 0, java.lang.Integer.MAX_VALUE, definition));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3357091: /*mode*/ return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<EventCapabilityMode>
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3357091: // mode
+          value = new EventCapabilityModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<EventCapabilityMode>
+          return value;
+        case -1014418093: // definition
+          this.definition = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("mode")) {
+          value = new EventCapabilityModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<EventCapabilityMode>
+        } else if (name.equals("definition")) {
+          this.definition = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3357091:  return getModeElement();
+        case -1014418093:  return getDefinition(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3357091: /*mode*/ return new String[] {"code"};
+        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("mode")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.mode");
+        }
+        else if (name.equals("definition")) {
+          this.definition = new Reference();
+          return this.definition;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public CapabilityStatementMessagingSupportedMessageComponent copy() {
+        CapabilityStatementMessagingSupportedMessageComponent dst = new CapabilityStatementMessagingSupportedMessageComponent();
+        copyValues(dst);
+        dst.mode = mode == null ? null : mode.copy();
+        dst.definition = definition == null ? null : definition.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof CapabilityStatementMessagingSupportedMessageComponent))
+          return false;
+        CapabilityStatementMessagingSupportedMessageComponent o = (CapabilityStatementMessagingSupportedMessageComponent) other;
+        return compareDeep(mode, o.mode, true) && compareDeep(definition, o.definition, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof CapabilityStatementMessagingSupportedMessageComponent))
+          return false;
+        CapabilityStatementMessagingSupportedMessageComponent o = (CapabilityStatementMessagingSupportedMessageComponent) other;
+        return compareValues(mode, o.mode, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, definition);
+      }
+
+  public String fhirType() {
+    return "CapabilityStatement.messaging.supportedMessage";
 
   }
 

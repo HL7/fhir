@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -8546,6 +8546,32 @@ public class Claim extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>care-team</b>
+   * <p>
+   * Description: <b>Member of the CareTeam</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.careTeam.provider</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="care-team", path="Claim.careTeam.provider", description="Member of the CareTeam", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  public static final String SP_CARE_TEAM = "care-team";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>care-team</b>
+   * <p>
+   * Description: <b>Member of the CareTeam</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.careTeam.provider</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CARE_TEAM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CARE_TEAM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:care-team</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CARE_TEAM = new ca.uhn.fhir.model.api.Include("Claim:care-team").toLocked();
+
+ /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>The primary identifier of the financial resource</b><br>
@@ -8564,32 +8590,6 @@ public class Claim extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>provider</b>
-   * <p>
-   * Description: <b>Provider responsible for the Claim</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.provider</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="provider", path="Claim.provider", description="Provider responsible for the Claim", type="reference", target={Practitioner.class } )
-  public static final String SP_PROVIDER = "provider";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>provider</b>
-   * <p>
-   * Description: <b>Provider responsible for the Claim</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.provider</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Claim:provider</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDER = new ca.uhn.fhir.model.api.Include("Claim:provider").toLocked();
 
  /**
    * Search parameter: <b>use</b>
@@ -8612,32 +8612,6 @@ public class Claim extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USE);
 
  /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Patient receiving the services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Claim.patient", description="Patient receiving the services", type="reference", target={Patient.class } )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Patient receiving the services</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Claim.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Claim:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Claim:patient").toLocked();
-
- /**
    * Search parameter: <b>created</b>
    * <p>
    * Description: <b>The creation date for the Claim</b><br>
@@ -8656,6 +8630,130 @@ public class Claim extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Encounters associated with a billed line item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.item.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="Claim.item.encounter", description="Encounters associated with a billed line item", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Encounters associated with a billed line item</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.item.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Claim:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>priority</b>
+   * <p>
+   * Description: <b>Processing priority requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.priority</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="priority", path="Claim.priority", description="Processing priority requested", type="token" )
+  public static final String SP_PRIORITY = "priority";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
+   * <p>
+   * Description: <b>Processing priority requested</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.priority</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>payee</b>
+   * <p>
+   * Description: <b>The party receiving any payment for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.payee.party</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="payee", path="Claim.payee.party", description="The party receiving any payment for the Claim", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  public static final String SP_PAYEE = "payee";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>payee</b>
+   * <p>
+   * Description: <b>The party receiving any payment for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.payee.party</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PAYEE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PAYEE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:payee</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PAYEE = new ca.uhn.fhir.model.api.Include("Claim:payee").toLocked();
+
+ /**
+   * Search parameter: <b>provider</b>
+   * <p>
+   * Description: <b>Provider responsible for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.provider</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="provider", path="Claim.provider", description="Provider responsible for the Claim", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  public static final String SP_PROVIDER = "provider";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>provider</b>
+   * <p>
+   * Description: <b>Provider responsible for the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.provider</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROVIDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROVIDER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:provider</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROVIDER = new ca.uhn.fhir.model.api.Include("Claim:provider").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Patient receiving the services</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Claim.patient", description="Patient receiving the services", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Patient receiving the services</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Claim:patient").toLocked();
 
  /**
    * Search parameter: <b>insurer</b>
@@ -8710,24 +8808,30 @@ public class Claim extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Claim:organization").toLocked();
 
  /**
-   * Search parameter: <b>priority</b>
+   * Search parameter: <b>enterer</b>
    * <p>
-   * Description: <b>Processing priority requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.priority</b><br>
+   * Description: <b>The party responsible for the entry of the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.enterer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="priority", path="Claim.priority", description="Processing priority requested", type="token" )
-  public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="enterer", path="Claim.enterer", description="The party responsible for the entry of the Claim", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  public static final String SP_ENTERER = "enterer";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
+   * <b>Fluent Client</b> search parameter constant for <b>enterer</b>
    * <p>
-   * Description: <b>Processing priority requested</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Claim.priority</b><br>
+   * Description: <b>The party responsible for the entry of the Claim</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Claim.enterer</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENTERER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENTERER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Claim:enterer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTERER = new ca.uhn.fhir.model.api.Include("Claim:enterer").toLocked();
 
  /**
    * Search parameter: <b>facility</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1022,7 +1022,7 @@ public class ConceptMap extends MetadataResource {
         @Description(shortDefinition="Other concepts that this mapping also produces", formalDefinition="A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on." )
         protected List<OtherElementComponent> product;
 
-        private static final long serialVersionUID = -1933941235L;
+        private static final long serialVersionUID = 1014141460L;
 
     /**
      * Constructor
@@ -1399,7 +1399,7 @@ public class ConceptMap extends MetadataResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
         case -15828692: /*equivalence*/ return this.equivalence == null ? new Base[0] : new Base[] {this.equivalence}; // Enumeration<ConceptMapEquivalence>
-        case -602415628: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         case -1109214266: /*dependsOn*/ return this.dependsOn == null ? new Base[0] : this.dependsOn.toArray(new Base[this.dependsOn.size()]); // OtherElementComponent
         case 2004005436: /*dependsOndisplay*/ return this.dependsOndisplay == null ? new Base[0] : new Base[] {this.dependsOndisplay}; // StringType
         case -309474065: /*product*/ return this.product == null ? new Base[0] : this.product.toArray(new Base[this.product.size()]); // OtherElementComponent
@@ -1421,7 +1421,7 @@ public class ConceptMap extends MetadataResource {
           value = new ConceptMapEquivalenceEnumFactory().fromType(castToCode(value));
           this.equivalence = (Enumeration) value; // Enumeration<ConceptMapEquivalence>
           return value;
-        case -602415628: // comment
+        case 950398559: // comment
           this.comment = castToString(value); // StringType
           return value;
         case -1109214266: // dependsOn
@@ -1466,7 +1466,7 @@ public class ConceptMap extends MetadataResource {
         case 3059181:  return getCodeElement();
         case 1671764162:  return getDisplayElement();
         case -15828692:  return getEquivalenceElement();
-        case -602415628:  return getCommentElement();
+        case 950398559:  return getCommentElement();
         case -1109214266:  return addDependsOn(); 
         case 2004005436:  return getDependsOndisplayElement();
         case -309474065:  return addProduct(); 
@@ -1481,7 +1481,7 @@ public class ConceptMap extends MetadataResource {
         case 3059181: /*code*/ return new String[] {"code"};
         case 1671764162: /*display*/ return new String[] {"string"};
         case -15828692: /*equivalence*/ return new String[] {"code"};
-        case -602415628: /*comment*/ return new String[] {"string"};
+        case 950398559: /*comment*/ return new String[] {"string"};
         case -1109214266: /*dependsOn*/ return new String[] {};
         case 2004005436: /*dependsOndisplay*/ return new String[] {"string"};
         case -309474065: /*product*/ return new String[] {"@ConceptMap.group.element.target.dependsOn"};

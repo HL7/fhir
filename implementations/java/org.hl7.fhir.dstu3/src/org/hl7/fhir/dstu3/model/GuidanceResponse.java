@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -70,6 +70,10 @@ public class GuidanceResponse extends DomainResource {
          */
         FAILURE, 
         /**
+         * The response was entered in error
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -86,6 +90,8 @@ public class GuidanceResponse extends DomainResource {
           return INPROGRESS;
         if ("failure".equals(codeString))
           return FAILURE;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -98,6 +104,7 @@ public class GuidanceResponse extends DomainResource {
             case DATAREQUIRED: return "data-required";
             case INPROGRESS: return "in-progress";
             case FAILURE: return "failure";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -108,6 +115,7 @@ public class GuidanceResponse extends DomainResource {
             case DATAREQUIRED: return "http://hl7.org/fhir/guidance-response-status";
             case INPROGRESS: return "http://hl7.org/fhir/guidance-response-status";
             case FAILURE: return "http://hl7.org/fhir/guidance-response-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/guidance-response-status";
             default: return "?";
           }
         }
@@ -118,6 +126,7 @@ public class GuidanceResponse extends DomainResource {
             case DATAREQUIRED: return "The request was processed, but more data is required to complete the evaluation";
             case INPROGRESS: return "The request is currently being processed";
             case FAILURE: return "The request was not processed successfully";
+            case ENTEREDINERROR: return "The response was entered in error";
             default: return "?";
           }
         }
@@ -128,6 +137,7 @@ public class GuidanceResponse extends DomainResource {
             case DATAREQUIRED: return "Data Required";
             case INPROGRESS: return "In Progress";
             case FAILURE: return "Failure";
+            case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
         }
@@ -148,6 +158,8 @@ public class GuidanceResponse extends DomainResource {
           return GuidanceResponseStatus.INPROGRESS;
         if ("failure".equals(codeString))
           return GuidanceResponseStatus.FAILURE;
+        if ("entered-in-error".equals(codeString))
+          return GuidanceResponseStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown GuidanceResponseStatus code '"+codeString+"'");
         }
         public Enumeration<GuidanceResponseStatus> fromType(Base code) throws FHIRException {
@@ -168,6 +180,8 @@ public class GuidanceResponse extends DomainResource {
           return new Enumeration<GuidanceResponseStatus>(this, GuidanceResponseStatus.INPROGRESS);
         if ("failure".equals(codeString))
           return new Enumeration<GuidanceResponseStatus>(this, GuidanceResponseStatus.FAILURE);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<GuidanceResponseStatus>(this, GuidanceResponseStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown GuidanceResponseStatus code '"+codeString+"'");
         }
     public String toCode(GuidanceResponseStatus code) {
@@ -181,6 +195,8 @@ public class GuidanceResponse extends DomainResource {
         return "in-progress";
       if (code == GuidanceResponseStatus.FAILURE)
         return "failure";
+      if (code == GuidanceResponseStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(GuidanceResponseStatus code) {
@@ -218,7 +234,7 @@ public class GuidanceResponse extends DomainResource {
      * The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.
      */
     @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="success | data-requested | data-required | in-progress | failure", formalDefinition="The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information." )
+    @Description(shortDefinition="success | data-requested | data-required | in-progress | failure | entered-in-error", formalDefinition="The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/guidance-response-status")
     protected Enumeration<GuidanceResponseStatus> status;
 
@@ -1292,6 +1308,46 @@ public class GuidanceResponse extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.GuidanceResponse;
    }
+
+ /**
+   * Search parameter: <b>request</b>
+   * <p>
+   * Description: <b>The identifier of the request associated with the response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>GuidanceResponse.requestId</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="request", path="GuidanceResponse.requestId", description="The identifier of the request associated with the response", type="token" )
+  public static final String SP_REQUEST = "request";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>request</b>
+   * <p>
+   * Description: <b>The identifier of the request associated with the response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>GuidanceResponse.requestId</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUEST = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUEST);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the guidance response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>GuidanceResponse.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="GuidanceResponse.identifier", description="The identifier of the guidance response", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the guidance response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>GuidanceResponse.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>patient</b>

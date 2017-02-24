@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 20, 2017 16:08+1100 for FHIR v1.9.0
+// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2704,7 +2704,7 @@ public class EligibilityResponse extends DomainResource {
    * Path: <b>EligibilityResponse.requestProvider</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="request-provider", path="EligibilityResponse.requestProvider", description="The EligibilityRequest provider", type="reference", target={Practitioner.class } )
+  @SearchParamDefinition(name="request-provider", path="EligibilityResponse.requestProvider", description="The EligibilityRequest provider", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_REQUEST_PROVIDER = "request-provider";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>request-provider</b>
