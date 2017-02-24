@@ -13463,6 +13463,10 @@
     <display value="5-FU"/>
     <display value="Fluorouracil (substance)"/>
   </concept>
+  <concept id="312824007" display="Family history of cancer of colon">
+    <display value="Family history of cancer of colon"/>
+    <display value="Family history of cancer of colon (situation)"/>
+  </concept>
   <concept id="314079002" display="Hyperlipidemia screening test (procedure)">
     <display value="Hyperlipidaemia screening test"/>
     <display value="Hyperlipidemia screening test"/>
