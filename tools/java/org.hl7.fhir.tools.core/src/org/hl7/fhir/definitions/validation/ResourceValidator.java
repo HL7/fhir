@@ -888,11 +888,33 @@ public class ResourceValidator extends BaseValidator {
         rule(errors, IssueType.STRUCTURE, path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED || cd.hasMax()) || isExemptFromProperBindingRules(path), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
+    if (!isComplex && !externalException(path)) {
+      ValueSet vs = cd.getValueSet();
+      if (warning(errors, IssueType.REQUIRED, path, vs != null, "Unable to resolve value set on 'code' Binding")) {
+        hint(errors, IssueType.REQUIRED, path, noExternals(vs), "Bindings for code data types should only use internally defined codes");
+      }
+    }
   }
     
   
 
-	// grand fathered in, to be removed
+	private boolean externalException(String path) {
+    return Utilities.existsInList(path, "Attachment.language", "Binary.contentType");
+}
+
+  private boolean noExternals(ValueSet vs) {
+    for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+      if (inc.hasValueSet())
+        throw new Error("not handled yet");
+      if (!inc.getSystem().startsWith("http://hl7.org/fhir/"))
+        return true;
+      if (inc.getSystem().startsWith("http://hl7.org/fhir/v2/") || inc.getSystem().startsWith("http://hl7.org/fhir/v3/"))
+        return true;
+    }
+    return false;
+  }
+
+  // grand fathered in, to be removed
 	private boolean isExemptFromProperBindingRules(String path) {
     return Utilities.existsInList(path, "ModuleMetadata.type", "ActionDefinition.type", "ElementDefinition.type.code", "Account.status", "MedicationOrder.category", "MedicationStatement.category", "Sequence.type", "StructureDefinition.type");
   }
