@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.hl7.fhir.dstu2.model.Identifier;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -60,7 +61,7 @@ public class ValueSetValidator extends BaseValidator {
   private List<String> fixups;
   private Set<String> handled = new HashSet<String>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
-  private Map<String, ValueSet> oids = new HashMap<String, ValueSet>();
+  private Map<String, MetadataResource> oids = new HashMap<String, MetadataResource>();
   private Set<String> styleExemptions;
   private Set<String> valueSets = new HashSet<String>();
   private Set<String> codeSystems = new HashSet<String>();
@@ -142,7 +143,13 @@ public class ValueSetValidator extends BaseValidator {
     if (rule(errors, IssueType.BUSINESSRULE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"].codeSystem", !codeSystems.contains(cs.getUrl()), "Duplicate Code System definition for "+cs.getUrl()))
       codeSystems.add(cs.getUrl());
     
-      
+    String oid = getOid(cs);
+    if (oid != null) {
+      if (!oids.containsKey(oid)) {
+        oids.put(oid, cs);
+      } else 
+        rule(errors, IssueType.DUPLICATE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"]", oids.get(oid).getUrl().equals(cs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+cs.getUrl());  
+    } 
     rule(errors, IssueType.BUSINESSRULE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"].codeSystem", cs.getUrl().startsWith("http://") || 
         cs.getUrl().startsWith("urn:") , "Unacceptable code system url "+cs.getUrl());
     
@@ -185,7 +192,7 @@ public class ValueSetValidator extends BaseValidator {
       if (!oids.containsKey(oid)) {
         oids.put(oid, vs);
       } else 
-        rule(errors, IssueType.DUPLICATE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", oids.get(oid).getUrl().equals(vs.getUrl()), "Duplicate OID for "+oid);  
+        rule(errors, IssueType.DUPLICATE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", oids.get(oid).getUrl().equals(vs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+vs.getUrl());  
     }
     
     rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", vs.hasDescription(), "Value Sets in the build must have a description");
@@ -240,6 +247,13 @@ public class ValueSetValidator extends BaseValidator {
       if (id.getSystem().equals("urn:ietf:rfc:3986") && id.getValue().startsWith("urn:oid:")) {
         return id.getValue().substring(8);
       }
+    }
+    return null;
+  }
+
+  private String getOid(CodeSystem cs) {
+    if (cs.hasIdentifier() && cs.getIdentifier().getSystem().equals("urn:ietf:rfc:3986") && cs.getIdentifier().getValue().startsWith("urn:oid:")) {
+      return cs.getIdentifier().getValue().substring(8);
     }
     return null;
   }

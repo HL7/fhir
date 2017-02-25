@@ -104,7 +104,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
-import org.hl7.fhir.definitions.parsers.BindingNameRegistry;
+import org.hl7.fhir.definitions.parsers.OIDRegistry;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
 import org.hl7.fhir.dstu3.conformance.ProfileComparer;
 import org.hl7.fhir.dstu3.conformance.ProfileComparer.ProfileComparison;
@@ -315,7 +315,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final BreadCrumbManager breadCrumbManager = new BreadCrumbManager(translations);
   private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
   private String publicationNotice = "";
-  private BindingNameRegistry registry;
+  private OIDRegistry registry;
   private String oid; // technical identifier associated with the page being built
   private HTMLLinkChecker htmlchecker;
   private String baseURL = "http://build.fhir.org/";
@@ -7410,12 +7410,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.publicationType = publicationType;
   }
 
-  public void setRegistry(BindingNameRegistry registry) {
+  public void setRegistry(OIDRegistry registry) {
     this.registry = registry;
 
   }
 
-  public BindingNameRegistry getRegistry() {
+  public OIDRegistry getRegistry() {
     return registry;
   }
 

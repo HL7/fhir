@@ -132,7 +132,7 @@ public class SourceParser {
   private final String termDir;
   public String dtDir;
   private final String rootDir;
-  private final BindingNameRegistry registry;
+  private final OIDRegistry registry;
   private final String version;
   private final BuildWorkerContext context;
   private final Calendar genDate;
@@ -143,10 +143,10 @@ public class SourceParser {
   private List<FHIRPathUsage> fpUsages;
   
 
-  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page, List<FHIRPathUsage> fpUsages) {
+  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, Map<String, StructureDefinition> extensionDefinitions, PageProcessor page, List<FHIRPathUsage> fpUsages) throws IOException {
     this.logger = logger;
     this.forPublication = forPublication;
-    this.registry = new BindingNameRegistry(root, forPublication);
+    this.registry = new OIDRegistry(root, forPublication);
     this.definitions = definitions;
     this.version = version;
     this.context = context;
@@ -1026,7 +1026,7 @@ public class SourceParser {
   }
 
 
-  public BindingNameRegistry getRegistry() {
+  public OIDRegistry getRegistry() {
     return registry;
   }
 

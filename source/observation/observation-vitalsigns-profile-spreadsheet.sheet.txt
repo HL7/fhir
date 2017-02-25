@@ -5,9 +5,7 @@
   Binding Name = Status
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/observation-status
-  Description = This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type.
   Conformance = required
-  Oid = 2.16.840.1.113883.3.88.12.80.62
 
  -- Row 2 -----------------------------------
   Binding Name = DAR
@@ -23,7 +21,6 @@
   Definition = This identifies the vital sign result type.
   Description = This identifies the vital sign result type. Original source C-CDA R1.1 ,  HITSP Vital Sign Result Type.
   Conformance = extensible
-  Oid = 2.16.840.1.113883.3.88.12.80.62
 
  -- Row 4 -----------------------------------
   Binding Name = VitalSignsUnits

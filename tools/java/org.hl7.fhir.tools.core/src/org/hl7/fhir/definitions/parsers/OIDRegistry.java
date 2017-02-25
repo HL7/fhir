@@ -1,5 +1,6 @@
 package org.hl7.fhir.definitions.parsers;
 import java.io.File;
+import java.io.IOException;
 
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -32,20 +33,33 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-public class BindingNameRegistry {
+public class OIDRegistry {
 
   private boolean forPublication;
   private IniFile ini;
 
-  public BindingNameRegistry(String srcDir, boolean forPublication) {
+  public OIDRegistry(String srcDir, boolean forPublication) throws IOException {
     this.forPublication = forPublication;
-    ini = new IniFile(srcDir+File.separator+"bindings.ini");
+    ini = new IniFile(Utilities.path(srcDir, "oids.ini"));
   }
 
-  public String idForName(String name) {
-    if (Utilities.noString(name))
-      throw new Error("Request for id for null name");
-    return idForNameInternal("Binding Names", "Last", name);
+  public String idForUri(String url) {
+    if (Utilities.noString(url))
+      throw new Error("Request for id for null url");
+    if (ini.getIntegerProperty("URLs", url) != null)
+      return ini.getIntegerProperty("URLs", url).toString();
+    else if (!forPublication)
+      return "0";
+    else {
+      Integer last;
+      if (ini.getIntegerProperty("Management", "last") != null)
+        last = ini.getIntegerProperty("Management", "last")+1;
+      else 
+        last = 1;
+      ini.setIntegerProperty("Management", "last", last, null);
+      ini.setIntegerProperty("URLs", url, last, null);
+      return last.toString();
+    }
   }
 
   public void commit() {
@@ -54,28 +68,4 @@ public class BindingNameRegistry {
     }
   }
 
-  public String idForQName(String q, String name) {
-    if (Utilities.noString(name))
-      throw new Error("Request for id for null name");
-    return idForNameInternal(q, q, name);
-  }
-  
-  public String idForNameInternal(String q, String k, String name) {
-    if (Utilities.noString(name))
-      throw new Error("Request for id for null name");
-    if (ini.getIntegerProperty(q, name) != null)
-      return ini.getIntegerProperty(q, name).toString();
-    else if (!forPublication)
-      return "0";
-    else {
-      Integer last;
-      if (ini.getIntegerProperty("Key", k) != null)
-        last = ini.getIntegerProperty("Key", k)+1;
-      else 
-        last = 1;
-      ini.setIntegerProperty("Key", k, last, null);
-      ini.setIntegerProperty(q, name, last, null);
-      return last.toString();
-    }
-  }
 }

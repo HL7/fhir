@@ -148,7 +148,7 @@ public class SpreadsheetParser {
 	private String folder;
 	private Logger log;
 	private String sheetname;
-	private BindingNameRegistry registry;
+	private OIDRegistry registry;
   private String dataTypesFolder;
   private String version; 
   private BuildWorkerContext context;
@@ -171,7 +171,7 @@ public class SpreadsheetParser {
   private ResourceDefn template;
   private String templateTitle;
 
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);	
@@ -204,7 +204,7 @@ public class SpreadsheetParser {
 		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
@@ -1194,12 +1194,7 @@ public class SpreadsheetParser {
         cd.setReference(sheet.getColumn(row, "Reference"));
       }			
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
-      
-      if (registry == null)
-        throw new Error("No id registry available"); // igtodo: how to generate this when not doing a full build?
-      else
-        cd.setId(registry.idForName(cd.getName()));
-      
+            
       if (cd.getValueSet() != null) {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
@@ -1211,9 +1206,11 @@ public class SpreadsheetParser {
         } else
           vs.setUserData("path", "valueset-"+vs.getId()+".html");
         if (!ValueSetUtilities.hasOID(vs))
-          ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + cd.getId());
-        if (vs.getUserData("cs") != null)
-          CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + cd.getId());
+          ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS +registry.idForUri(vs.getUrl()));
+        if (vs.getUserData("cs") != null) {
+          if (!CodeSystemUtilities.hasOID((CodeSystem) vs.getUserData("cs")))
+            CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + registry.idForUri(((CodeSystem) vs.getUserData("cs")).getUrl()));
+        }
         if (definitions != null)
           definitions.getBoundValueSets().put(vs.getUrl(), vs);
         else

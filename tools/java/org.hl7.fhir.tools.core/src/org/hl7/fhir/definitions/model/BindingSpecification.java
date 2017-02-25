@@ -54,7 +54,7 @@ import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 public class BindingSpecification {
   
   public static final String DEFAULT_OID_CS = "2.16.840.1.113883.4.642.1.";
-  public static final String DEFAULT_OID_VS = "2.16.840.1.113883.4.642.2.";
+  public static final String DEFAULT_OID_VS = "2.16.840.1.113883.4.642.3.";
   
   public enum BindingMethod {
     Unbound,
@@ -89,11 +89,7 @@ public class BindingSpecification {
   private ValueSet valueSet;
   private String maxReference;
   private ValueSet maxValueSet;
-  
-  
-  // to get rid of:
-  private String id; // to generate the OID
-  
+    
   // to move into valueset 
 	private String definition;
   private String uri; // used as the official value set identifier if provided, else one will be synthesized. For when code list is actually a value set defined elsewhere
@@ -124,13 +120,6 @@ public class BindingSpecification {
     return usageContext;
   }
 
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public String getName() {
     return name;

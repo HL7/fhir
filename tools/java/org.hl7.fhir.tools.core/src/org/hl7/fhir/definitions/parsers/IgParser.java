@@ -61,11 +61,11 @@ public class IgParser {
   private String committee;
   private Map<String, ConstraintStructure> profileIds;
   private Map<String, CodeSystem> codeSystems;
-  private BindingNameRegistry registry;
+  private OIDRegistry registry;
   private Map<String, ConceptMap> maps;
 
 
-  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, BindingNameRegistry registry, Map<String, ConceptMap> maps) {
+  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, OIDRegistry registry, Map<String, ConceptMap> maps) {
     super();
     this.logger = logger;
     this.context = context;

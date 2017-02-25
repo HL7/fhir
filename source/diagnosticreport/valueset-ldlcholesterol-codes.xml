@@ -41,10 +41,6 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/ValueSet/lipid-ldl-codes"/>
-	<identifier>
-    <system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.2.444"/>
-	</identifier>
   <version value="1.0.0"/>
   <name value="LDLCodes"/>
   <status value="draft"/>

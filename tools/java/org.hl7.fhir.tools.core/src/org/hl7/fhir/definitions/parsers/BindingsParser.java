@@ -64,13 +64,13 @@ public class BindingsParser {
   private String version;
   private String root;
   private XLSXmlParser xls;
-  private BindingNameRegistry registry;
+  private OIDRegistry registry;
   private TabDelimitedSpreadSheet tabfmt;
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
   private Calendar genDate;
 
-  public BindingsParser(InputStream file, String filename, String root, BindingNameRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Calendar genDate) {
+  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Calendar genDate) {
     this.file = file;
     this.filename = filename;
     this.root = root;
@@ -190,7 +190,6 @@ public class BindingsParser {
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
 
       
-      cd.setId(registry.idForName(cd.getName()));
       if (cd.getValueSet() != null) {
         touchVS(cd.getValueSet());
       }
@@ -217,11 +216,12 @@ public class BindingsParser {
 
   private void touchVS(ValueSet vs) throws FHIRFormatError, URISyntaxException {
     ValueSetUtilities.makeShareable(vs);
+    if (!ValueSetUtilities.hasOID(vs))
+      ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS +registry.idForUri(vs.getUrl()));
 
-    String nid = registry.idForName(vs.getId());
-    ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + nid);
     if (vs.getUserData("cs") != null)
-      CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + nid);
+      if (!CodeSystemUtilities.hasOID((CodeSystem) vs.getUserData("cs")))
+        CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + registry.idForUri(((CodeSystem) vs.getUserData("cs")).getUrl()));
   }
 
   private ValueSet loadValueSet(String ref, String committee) throws Exception {
