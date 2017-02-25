@@ -9,6 +9,10 @@
       <p>Owner: John Smith</p>
     </div>
   </text>
+  <identifier>
+    <system value="http://someveterinarianclinic.org/fhir/NamingSystem/herds"/>
+    <value value="12345"/>
+  </identifier>
   <type value="animal"/>
   <actual value="true"/>
   <code>
