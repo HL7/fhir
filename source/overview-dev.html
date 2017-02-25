@@ -492,7 +492,7 @@ Notes:
   <li><b>resourceType</b> (line 1) - "Patient" in the URL must match the resource type in the resource (line 9)</li>
   <li><b>resource id</b> (line 1, "347") - This must match the id in the resource (line 10)</li>
   <li><b>If-Match</b> (line 6) - if this is provided, it must match the value in meta.versionId (line 12), and the server must check the version integrity, or return 412 if it doesn't support versions</li>
-  <li><b>meta.lastUpdated</b> (line 10) - This value is ignored, and will be updated by the server (sometimes, if the server supports versioning)</li>
+  <li><b>meta.lastUpdated</b> (line 13) - This value is ignored, and will be updated by the server (mostly, but not always, if the server does not support versioning)</li>
   <li><b>resource content</b> (line 14) - Not shown here, the same as Patient above</li>
 </ul>
 
