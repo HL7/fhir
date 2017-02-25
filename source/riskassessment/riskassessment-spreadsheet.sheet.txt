@@ -103,7 +103,6 @@
   Definition = The algorithm, process or mechanism used to evaluate the risk
   Requirements = The method can influence the results of the assessment
   RIM Mapping = .methodCode
-  To Do = Is this in the 80%?
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -126,7 +125,6 @@
   Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
   OpenEHR mapping = Subject of Care
-  To Do = Should this cover anything else?  Device?  Location?
   w5 = who.focus
 
  -- Row 9 -----------------------------------
@@ -237,7 +235,6 @@
   Definition = Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.)
   Requirements = Absolute risk is less meaningful than relative risk
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"relative risk\"].value
-  To Do = Is this in the 80%?
 
  -- Row 20 -----------------------------------
   Element = RiskAssessment.prediction.when[x]
