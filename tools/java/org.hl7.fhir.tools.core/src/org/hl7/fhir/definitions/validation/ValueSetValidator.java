@@ -1,10 +1,13 @@
 package org.hl7.fhir.definitions.validation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu2.model.Identifier;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
@@ -57,6 +60,7 @@ public class ValueSetValidator extends BaseValidator {
   private List<String> fixups;
   private Set<String> handled = new HashSet<String>();
   private List<VSDuplicateList> duplicateList = new ArrayList<ValueSetValidator.VSDuplicateList>();
+  private Map<String, ValueSet> oids = new HashMap<String, ValueSet>();
   private Set<String> styleExemptions;
   private Set<String> valueSets = new HashSet<String>();
   private Set<String> codeSystems = new HashSet<String>();
@@ -176,6 +180,14 @@ public class ValueSetValidator extends BaseValidator {
       handled.add(vs.getId());
       duplicateList.add(new VSDuplicateList(vs));
     }
+    String oid = getOid(vs);
+    if (oid != null) {
+      if (!oids.containsKey(oid)) {
+        oids.put(oid, vs);
+      } else 
+        rule(errors, IssueType.DUPLICATE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", oids.get(oid).getUrl().equals(vs.getUrl()), "Duplicate OID for "+oid);  
+    }
+    
     rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", vs.hasDescription(), "Value Sets in the build must have a description");
     
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
@@ -221,6 +233,15 @@ public class ValueSetValidator extends BaseValidator {
         warnings++;
     }
     vs.setUserData("warnings", o_warnings - warnings);
+  }
+
+  private String getOid(ValueSet vs) {
+    for (org.hl7.fhir.dstu3.model.Identifier id : vs.getIdentifier()) {
+      if (id.getSystem().equals("urn:ietf:rfc:3986") && id.getValue().startsWith("urn:oid:")) {
+        return id.getValue().substring(8);
+      }
+    }
+    return null;
   }
 
   private boolean exemptFromStyleChecking(String system) {
