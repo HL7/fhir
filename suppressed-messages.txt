@@ -1,20 +1,23 @@
-INFORMATION @ AuditEvent.event: Name of child (event) overlaps with name of parent (AuditEvent) (src = ResourceValidator)
-INFORMATION @ DataElement.element: Name of child (element) overlaps with name of parent (DataElement) (src = ResourceValidator)
-INFORMATION @ ElementDefinition.definition: Name of child (definition) overlaps with name of parent (ElementDefinition) (src = ResourceValidator)
-INFORMATION @ ImmunizationRecommendation.recommendation: Name of child (recommendation) overlaps with name of parent (ImmunizationRecommendation) (src = ResourceValidator)
-INFORMATION @ MedicationDispense.dispense: Name of child (dispense) overlaps with name of parent (MedicationDispense) (src = ResourceValidator)
-INFORMATION @ ResourceReference.reference: Name of child (reference) overlaps with name of parent (ResourceReference) (src = ResourceValidator)
-INFORMATION @ SampledData.data: Name of child (data) overlaps with name of parent (SampledData) (src = ResourceValidator)
-WARNING @ AuditEvent: All resources should have an identifier (src = ResourceValidator)
-WARNING @ Basic: A resource must have an 'entered in error' status
-WARNING @ Conformance: RIM Mapping is required (src = ResourceValidator)
-WARNING @ Medication: All resources should have an identifier (src = ResourceValidator)
-WARNING @ Namespace: All resources should have an identifier (src = ResourceValidator)
-WARNING @ Profile: RIM Mapping is required (src = ResourceValidator)
-WARNING @ Provenance: All resources should have an identifier (src = ResourceValidator)
-WARNING @ Substance: All resources should have an identifier (src = ResourceValidator)
-INFORMATION:EpisodeOfCare.careManager Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
-WARNING @ CarePlan.addresses Element names should be singular
-WARNING @ CarePlan.replaces Element names should be singular
-WARNING @ Goal.addresses Element names should be singular
-WARNING @ Goal.target.detail[x] Need to provide a binding
+INFORMATION: DataElement.element: Name of child (element) overlaps with name of parent (DataElement)
+INFORMATION: ElementDefinition.definition: Name of child (definition) overlaps with name of parent (ElementDefinition)
+INFORMATION: EpisodeOfCare.careManager: Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
+INFORMATION: ImmunizationRecommendation.recommendation: Name of child (recommendation) overlaps with name of parent (ImmunizationRecommendation)
+INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
+WARNING: CompartmentDefinition: All resources should have an identifier
+WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
+WARNING: DataElement.mapping.comment: MnM must have confirmed this should not be an Annotation
+WARNING: DiagnosticReport.image.comment: MnM must have confirmed this should not be an Annotation
+WARNING: ElementDefinition.comment: MnM must have confirmed this should not be an Annotation
+WARNING: ElementDefinition.comment: The type of 'comment' must be 'string'
+WARNING: Linkage: All resources should have an identifier
+WARNING: Medication: All resources should have an identifier
+WARNING: NamingSystem.uniqueId.comment: MnM must have confirmed this should not be an Annotation
+WARNING: Observation.comment: MnM must have confirmed this should not be an Annotation
+WARNING: OperationDefinition.comment: MnM must have confirmed this should not be an Annotation
+WARNING: OperationDefinition.overload.comment: MnM must have confirmed this should not be an Annotation
+WARNING: Parameters: All resources should have an identifier
+WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
+WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))
+WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0267/index.html (v2 Days of the Week) & valueset-days-of-week.html (DaysOfWeek) (name: [weeks, days] / [weeks, days]))
+;temporary
+INFORMATION: Appointment.appointmentType: Name of child (appointmentType) overlaps with name of parent (Appointment)

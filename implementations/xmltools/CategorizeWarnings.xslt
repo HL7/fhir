@@ -75,7 +75,7 @@
     <xsl:for-each select="$message">
       <xsl:copy>
         <xsl:copy-of select="@*"/>
-        <xsl:attribute name="display" select="concat(@level, ': ', if (not(@location='')) then concat(@location, ': ') else '', @text)"/>
+<!--        <xsl:attribute name="display" select="concat(@level, ': ', if (not(@location='')) then concat(@location, ': ') else '', @text)"/>-->
         <xsl:copy-of select="node()"/>
       </xsl:copy>
     </xsl:for-each>

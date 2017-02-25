@@ -651,13 +651,17 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
 
 
   public String toXML() {
-    return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + Utilities.escapeXml(location) + "\" type=\"" + type + "\" level=\"" + level + "\"><plain>" + Utilities.escapeXml(message) + "</plain><html>" + html + "</html></message>";
+    return "<message source=\"" + source + "\" line=\"" + line + "\" col=\"" + col + "\" location=\"" + Utilities.escapeXml(location) + "\" type=\"" + type + "\" level=\"" + level + "\" display=\"" + Utilities.escapeXml(getDisplay()) + "\" ><plain>" + Utilities.escapeXml(message) + "</plain><html>" + html + "</html></message>";
   }
 
   public String getHtml() {
     return html == null ? Utilities.escapeXml(message) : html;
   }
 
+  public String getDisplay() {
+    return level + ": " + (location.isEmpty() ? "" : (location + ": ")) + message;
+  }
+  
   /**
    * Returns a representation of this ValidationMessage suitable for logging. The values of
    * most of the internal fields are included, so this may not be suitable for display to 

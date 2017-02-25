@@ -315,4 +315,7 @@
     </table>
   </xsl:template>
   <xsl:template match="Conformance"/>
+  <xsl:template match="*">
+    <xsl:message terminate="yes" select="concat('Unexpected resource: ', local-name(.))"/>
+  </xsl:template>
 </xsl:stylesheet>
