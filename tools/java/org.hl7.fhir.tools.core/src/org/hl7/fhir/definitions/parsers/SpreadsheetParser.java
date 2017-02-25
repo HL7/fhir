@@ -69,6 +69,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
+import org.hl7.fhir.definitions.validation.ExtensionDefinitionValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
@@ -2241,6 +2242,7 @@ public class SpreadsheetParser {
     assert(errors.size() == 0);
     utils.generateSnapshot(base, ex, ex.getUrl(), ex.getName());
     utils.setIds(ex, true);
+    new ExtensionDefinitionValidator(context).validate(ex);
 	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
 	  return row;
 	}
