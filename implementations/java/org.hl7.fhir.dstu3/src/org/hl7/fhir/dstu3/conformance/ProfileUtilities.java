@@ -14,11 +14,13 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
+import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Element;
@@ -39,6 +41,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -2175,6 +2178,9 @@ public class ProfileUtilities extends TranslatingUtilities {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
             c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, translate("sd.table", "Fixed Value")+": ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
+            if (isCoded(definition.getFixed()) && !hasDescription(definition.getFixed())) {
+              c.getPieces().add(describeCoded(gen, definition.getFixed()));
+            }
           } else if (definition.hasPattern()) {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
             c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, translate("sd.table", "Required Pattern")+": ", null).addStyle("font-weight:bold")));
@@ -2212,6 +2218,44 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     return c;
   }
+
+  private Piece describeCoded(HierarchicalTableGenerator gen, Type fixed) {
+    if (fixed instanceof Coding) {
+      Coding c = (Coding) fixed;
+      ValidationResult vr = context.validateCode(c.getSystem(), c.getCode(), c.getDisplay());
+      if (vr.getDisplay() != null)
+        return gen.new Piece(null, " ("+vr.getDisplay()+")", null).addStyle("color: darkgreen");
+    } else if (fixed instanceof CodeableConcept) {
+      CodeableConcept cc = (CodeableConcept) fixed;
+      for (Coding c : cc.getCoding()) {
+        ValidationResult vr = context.validateCode(c.getSystem(), c.getCode(), c.getDisplay());
+        if (vr.getDisplay() != null)
+          return gen.new Piece(null, " ("+vr.getDisplay()+")", null).addStyle("color: darkgreen");
+      }
+    }
+    return null;
+  }
+
+
+  private boolean hasDescription(Type fixed) {
+    if (fixed instanceof Coding) {
+      return ((Coding) fixed).hasDisplay();
+    } else if (fixed instanceof CodeableConcept) {
+      CodeableConcept cc = (CodeableConcept) fixed;
+      if (cc.hasText())
+        return true;
+      for (Coding c : cc.getCoding())
+        if (c.hasDisplay())
+         return true;
+    } // (fixed instanceof CodeType) || (fixed instanceof Quantity);
+    return false;
+  }
+
+
+  private boolean isCoded(Type fixed) {
+    return (fixed instanceof Coding) || (fixed instanceof CodeableConcept) || (fixed instanceof CodeType) || (fixed instanceof Quantity);
+  }
+
 
   private Cell generateGridDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, ElementDefinition valueDefn) throws IOException {
     Cell c = gen.new Cell();
