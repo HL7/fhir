@@ -5,11 +5,10 @@
     <FamilyMemberHistory>
       <id value="1"/>
       <status value="completed"/>
-	  <patient>
-        <reference value="Patient/147051"/>
+      <patient>
+        <reference value="Patient/example"/>
         <display value="Pam Taylor"/>
       </patient>
-      
       <name value="Mary"/>
       <relationship>
         <coding>
@@ -42,11 +41,10 @@
     <FamilyMemberHistory>
       <id value="2"/>
       <status value="completed"/>
-	  <patient>
-        <reference value="Patient/147051"/>
+      <patient>
+        <reference value="Patient/example"/>
         <display value="Pam Taylor"/>
       </patient>
-      
       <name value="Bob"/>
       <relationship>
         <coding>
@@ -78,11 +76,10 @@
     <FamilyMemberHistory>
       <id value="3"/>
       <status value="completed"/>
-	  <patient>
-        <reference value="Patient/147051"/>
+      <patient>
+        <reference value="Patient/example"/>
         <display value="Pam Taylor"/>
       </patient>
-      
       <name value="Jon"/>
       <relationship>
         <coding>
@@ -99,26 +96,26 @@
       <id value="4"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling">
         <extension url="type">
-            <valueCodeableConcept>
-                <coding>
-			<system value="http://hl7.org/fhir/v3/RoleCode"/>
-                    <code value="NSIS"/>
-                    <display value="natural sister"/>
-                </coding>
-                <text value="natural sister"/>
-            </valueCodeableConcept>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="NSIS"/>
+              <display value="natural sister"/>
+            </coding>
+            <text value="natural sister"/>
+          </valueCodeableConcept>
         </extension>
         <extension url="reference">
-            <valueReference>
-                <!--It is fake.-->
-                <reference value="FamilyMemberHistory/mother"/>
-                <display value="paternal grandmother"/>
-            </valueReference>
+          <valueReference>
+            <!--It is fake.-->
+            <reference value="FamilyMemberHistory/mother"/>
+            <display value="paternal grandmother"/>
+          </valueReference>
         </extension>
       </extension>
       <status value="completed"/>
       <patient>
-        <reference value="Patient/147051"/>
+        <reference value="Patient/example"/>
         <display value="Pam Taylor"/>
       </patient>
       <name value="Alica"/>
@@ -146,9 +143,9 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-                <system value="http://hl7.org/fhir/v3/RoleCode"/>
-                <code value="MTH"/>
-                <display value="mother"/>
+              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <code value="MTH"/>
+              <display value="mother"/>
             </coding>
             <text value="mother"/>
           </valueCodeableConcept>
@@ -162,7 +159,7 @@
       </extension>
       <status value="completed"/>
       <patient>
-        <reference value="Patient/147051"/>
+        <reference value="Patient/example"/>
         <display value="Pam Taylor"/>
       </patient>
       <name value="Aunt with Parent ID"/>
@@ -188,25 +185,25 @@
       <id value="6"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling">
         <extension url="type">
-            <valueCodeableConcept>
-                <coding>
-                    <code value="NBRO"/>
-                    <display value="natural brother"/>
-                </coding>
-                <text value="natural brother"/>
-            </valueCodeableConcept>
+          <valueCodeableConcept>
+            <coding>
+              <code value="NBRO"/>
+              <display value="natural brother"/>
+            </coding>
+            <text value="natural brother"/>
+          </valueCodeableConcept>
         </extension>
         <extension url="reference">
-            <valueReference>
-                <!--It is fake.-->
-                <reference value="FamilyMemberHistory/father"/>
-                <display value="maternal grandfather"/>
-            </valueReference>
+          <valueReference>
+            <!--It is fake.-->
+            <reference value="FamilyMemberHistory/father"/>
+            <display value="maternal grandfather"/>
+          </valueReference>
         </extension>
-    </extension>
+      </extension>
       <status value="completed"/>
       <patient>
-        <reference value="Patient/147051"/>
+        <reference value="Patient/example"/>
         <display value="Pam Taylor"/>
       </patient>
       <name value="Paul"/>
@@ -238,7 +235,7 @@
     <text value="TPMT gene mutations found [Identifier] in Blood or Tissue by Sequencing Nominal"/>
   </code>
   <subject>
-    <reference value="Patient/147051"/>
+    <reference value="Patient/example"/>
     <display value="Pam Taylor"/>
   </subject>
   <entry>
