@@ -233,6 +233,9 @@ public class ResourceValidator extends BaseValidator {
     if (rd.getRoot().getElementByName(definitions, "identifier", true, false) != null) {
       warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("identifier"), "A resource that contains an identifier must have a search parameter 'identifier'");
     }
+    if (rd.getRoot().getElementByName(definitions, "status", true, false) != null) {
+      hint(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("status"), "A resource that contains a status element must have a search parameter 'status'"); // todo: change to a warning post STU3
+    }
     if (rd.getRoot().getElementByName(definitions, "url", true, false) != null) {
       warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("url"), "A resource that contains a url element must have a search parameter 'url'");
     }
