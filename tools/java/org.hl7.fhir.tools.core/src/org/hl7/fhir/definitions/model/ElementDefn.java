@@ -276,6 +276,10 @@ public class ElementDefn {
       if (nameMatches(n, e, throughChoice, definitions))
         return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType);
     }
+    if (followType && focus.types.size() == 1 && !focus.getElements().isEmpty()) {
+      ElementDefn parent = definitions.getElementDefn("Type".equals(focus.typeCode()) || "Structure".equals(focus.typeCode())  ? "Element" : focus.typeCode());
+      return parent.getElementByName(definitions, name, throughChoice, followType);
+    }
     return null;
   }
 
@@ -651,18 +655,11 @@ public class ElementDefn {
 			    return invariants;
 	   }
 	   
-	   private List<String> acceptableGenericTypes = new ArrayList<String>();
-
     private String sliceDescription;
 
     private String path;
 
     private boolean fromTemplate;
-
-	   public List<String> getAcceptableGenericTypes()
-	   {
-		   return acceptableGenericTypes;
-	   }
 
     public boolean hasComments() {
       return comments != null && !"".equals(comments);

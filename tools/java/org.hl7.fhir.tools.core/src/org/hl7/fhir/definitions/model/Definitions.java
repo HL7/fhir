@@ -572,7 +572,7 @@ public class Definitions {
     }
     int i = 1;
     while (e != null && i < parts.length) {
-      if (e.getAcceptableGenericTypes().isEmpty() && hasType(e.typeCode()))
+      if (hasType(e.typeCode()))
         e = getElementDefn(e.typeCode());
       e = e.getElementByName(parts[i], true, this, purpose, followType);
       i++;

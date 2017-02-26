@@ -34,6 +34,7 @@ import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.sparql.util.Context;
 import org.apache.jena.sparql.util.IsoMatcher;
 import org.everit.json.schema.loader.SchemaLoader;
+import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
@@ -122,7 +123,7 @@ public class ExampleInspector {
     public Base resolveReference(Object appContext, String url) {
       try {
         String[] s = url.split("/");
-        if (s.length != 2 || !definitions.containsKey(s[0]))
+        if (s.length != 2 || !definitions.getResources().containsKey(s[0]))
           return null;
         String fn = Utilities.path(rootDir, s[0].toLowerCase()+"-"+s[1]+".xml");
         File f = new File(fn);
@@ -147,14 +148,14 @@ public class ExampleInspector {
   private List<ValidationMessage> errorsInt;
   private List<ValidationMessage> errorsExt;
   private Logger logger;
-  private Map<String, ResourceDefn> definitions;
+  private Definitions definitions;
   private boolean byProfile = VALIDATE_BY_PROFILE;
   private boolean bySchematron = VALIDATE_BY_SCHEMATRON;
   private boolean byJsonSchema = VALIDATE_BY_JSON_SCHEMA;
   private boolean byRdf = VALIDATE_RDF;
   private ExampleHostServices hostServices; 
   
-  public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Map<String, ResourceDefn> definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
+  public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Definitions definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
     super();
     this.context = context;
     this.logger = logger;
@@ -410,7 +411,7 @@ public class ExampleInspector {
   }
 
   private void testSearchParameters(Element e) throws FHIRException {
-    ResourceDefn r = definitions.get(e.fhirType());
+    ResourceDefn r = definitions.getResources().get(e.fhirType());
     if (r != null) {
       for (SearchParameterDefn sp : r.getSearchParams().values()) {
         if (!Utilities.noString(sp.getExpression())) {
@@ -424,7 +425,7 @@ public class ExampleInspector {
   }
   
   private void testSearchParameters(org.w3c.dom.Element xe, String rn, boolean inBundle) throws FHIRException {
-    ResourceDefn r = definitions.get(rn);
+    ResourceDefn r = definitions.getResources().get(rn);
     for (SearchParameterDefn sp : r.getSearchParams().values()) {
       if (!sp.isXPathDone() && !Utilities.noString(sp.getXPath())) {
         try {

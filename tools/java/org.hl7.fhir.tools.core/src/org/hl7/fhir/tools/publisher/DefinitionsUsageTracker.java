@@ -6,36 +6,32 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.dstu3.elementmodel.Element;
+import org.hl7.fhir.utilities.Utilities;
 
 public class DefinitionsUsageTracker {
 
-  private Map<String, ResourceDefn> definitions;
-
+  private Definitions definitions;
+  
   public DefinitionsUsageTracker(Definitions definitions) {
-    this.definitions = definitions.getResources();
-  }
-
-  public DefinitionsUsageTracker(Map<String, ResourceDefn> definitions) {
     this.definitions = definitions;
   }
 
-  public void updateUsage(org.hl7.fhir.dstu3.elementmodel.Element ex) {
-    ResourceDefn rd = definitions.get(ex.fhirType());
+  public void updateUsage(org.hl7.fhir.dstu3.elementmodel.Element ex) throws Exception {
+    ResourceDefn rd = definitions.getResources().get(ex.fhirType());
     if (rd != null) {
-      usage(ex, rd.getRoot());
+      usage(ex, rd.getRoot(), ex.fhirType());
     }
   }
-
-  private void usage(Element instance, ElementDefn definition) {
+    
+  private void usage(org.hl7.fhir.dstu3.elementmodel.Element instance, ElementDefn definition, String path) throws Exception {
     definition.setCoveredByExample(true);
     for (Element c : instance.getChildren()) {
-      ElementDefn cd = null;
-      for (ElementDefn t : definition.getElements()) {
-        if (c.getName().equals(t.getName()))
-          cd = t;
-      }
-      if (cd != null)
-        usage(c, cd);
+      String p = c.getProperty().getDefinition().getPath();
+      ElementDefn ed = definitions.getElementByPath(p.split("\\."), "example usage", true);
+      if (ed != null)
+        usage(c, ed, path+"."+c.getName());
+//      else if (!c.getName().equals("extension"))
+//        System.out.println("error finding "+c.getName()+" at "+path);
     }
     
   }

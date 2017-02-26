@@ -5219,7 +5219,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     runJUnitTests();
     page.clean();
     page.log("Validating Examples", LogMessageType.Process);
-    ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions().getResources());
+    ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
     page.log(".. Loading", LogMessageType.Process);
     ei.prepare();
     

@@ -859,7 +859,6 @@ public class SourceParser {
         SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, true, ini, "fhir", definitions.getProfileIds(), fpUsages, page.getConceptMaps());
         org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
         map.put(t.getName(), el);
-        el.getAcceptableGenericTypes().addAll(ts.get(0).getParams());
         genTypeProfile(el);
         return el.getName();
       } else {
