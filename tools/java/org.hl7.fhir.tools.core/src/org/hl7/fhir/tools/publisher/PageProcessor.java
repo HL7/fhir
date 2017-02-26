@@ -7885,7 +7885,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (String rn : definitions.sortedResourceNames()) {
       ResourceDefn r = definitions.getResourceByName(rn);
       if (r.getRoot().getW5().startsWith(cat)) {
-        b.append("<tr>\r\n <td>").append(rn).append("</td>\r\n");
+        b.append("<tr>\r\n <td>").append(rn).append(" (").append(r.getFmmLevel()).append(")").append("</td>\r\n");
         for (W5Entry e : items) {
           b.append(" <td>");
           addMatchingFields(b, r.getRoot().getElements(), r.getRoot().getName(), e.getCode(), true, types);
