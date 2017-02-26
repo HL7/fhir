@@ -148,7 +148,7 @@ public class TableGenerator extends BaseGenerator {
     for (String name : e.getInvariants().keySet()) {
       Invariant inv = e.getInvariants().get(name);
       cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
+      cc.getPieces().add(gen.new Piece(null, "+ "+inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
     if (e.unbounded()) {
       if (cc.getPieces().size() > 0)

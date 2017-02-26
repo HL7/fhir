@@ -535,7 +535,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
     rule(errors, IssueType.STRUCTURE, path, (parentName == null) || e.getName().charAt(0) == e.getName().toLowerCase().charAt(0), "Element Names must not start with an uppercase character");
     rule(errors, IssueType.STRUCTURE, path, e.getName().equals(path) || e.getElements().size() == 0 || (e.hasSvg() || e.isUmlBreak() || !Utilities.noString(e.getUmlDir())), "Element is missing a UML layout direction");
-// this isn't a real hint, just a way to gather information   hint(errors, path, !e.isModifier(), "isModifier, minimum cardinality = "+e.getMinCardinality().toString());
+    hint(errors, IssueType.BUSINESSRULE, path, !e.isModifier() || e.getMinCardinality() > 0, "if an element is modifier = true, minimum cardinality should be > 0");
     rule(errors, IssueType.STRUCTURE, path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
     rule(errors, IssueType.STRUCTURE, path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
