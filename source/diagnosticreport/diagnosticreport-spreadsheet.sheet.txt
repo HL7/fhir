@@ -528,7 +528,7 @@
   Name = General
   Identity = 101
   Description = General Lab Report Example
-  Filename = diagnosticreport-example-101.xml
+  Filename = diagnosticreport-example.xml
 
  -- Row 2 -----------------------------------
   Name = Assorted Collection
