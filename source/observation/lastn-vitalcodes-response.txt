@@ -1,0 +1,132 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType": "Bundle",
+  "id": "26419249-18b3-45de-b10e-dca0b2e72b",
+  "meta": {
+    "lastUpdated": "2017-02-18T03:28:49Z"
+  },
+  "type": "searchset",
+  "total": 9,
+  // Returns the patient's last 3 code = 9279-1 Respiratory Rate observations All from 20170219
+  "entry": [{
+    "fullUrl": "http://server/path/Observation/20170219-06RespRate",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20170219-06RespRate",
+      .. snip ...
+     "code": {
+       "coding": [
+         {
+           "system": "http://loinc.org",
+           "code": "9279-1",
+           "display": "Respiratory rate"
+         }
+       ],
+       "text": "Respiratory rate"
+ },
+     .. snip ...
+  ,{
+   "fullUrl": "http://server/path/Observation/20170219-05RespRate",
+       "resource": {
+         "resourceType": "Observation",
+         "id": "20170219-05RespRate",
+      .. snip ...
+    }
+      ,{
+       "fullUrl": "http://server/path/Observation/20170219-04RespRate",
+           "resource": {
+             "resourceType": "Observation",
+             "id": "20170217-04RespRate",
+          .. snip ...
+    },
+    // Returns the patient's last 3 code =  8867-4 Heart Rate observations All from 20170219
+    // the patient was being weighed daily
+    {
+    "fullUrl": "http://server/path/Observation/20170219-06HeartRate",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20170219-06HeartRate",
+      .. snip ...
+      ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+  ...snip...
+  ,{
+   "fullUrl": "http://server/path/Observation/20170219-05HeartRate",
+       "resource": {
+         "resourceType": "Observation",
+         "id": "20170219-05HeartRate",
+      .. snip ...
+    }
+      ,{
+       "fullUrl": "http://server/path/Observation/20170219-04HeartRate",
+           "resource": {
+             "resourceType": "Observation",
+             "id": "20170219-04HeartRate",
+          .. snip ...
+    },
+    // Returns the patient's last 3 code =  85354-9 Blood pressure systolic and diastolic All from 20170219
+        {
+        "fullUrl": "http://server/path/Observation/20170219-06BloodPressure",
+        "resource": {
+          "resourceType": "Observation",
+          "id": "20170219-06BloodPressure",
+          .. snip ...
+          "code": {
+           "coding": [
+             {
+               "system": "http://loinc.org",
+               "code": "85354-9",
+               "display": "Bood pressure panel with all children optional"
+             }
+           ],
+           "text": "Blood pressure systolic & diastolic"
+         },
+         ...snip...
+                 "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                },
+                {
+            ...snip...
+                        {
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "8462-4",
+                    "display": "Diastolic blood pressure"
+                  }
+                ]
+              },
+              ...snip....
+      ,{
+       "fullUrl": "http://server/path/Observation/20170219-05BloodPressure",
+           "resource": {
+             "resourceType": "Observation",
+             "id": "20170219-05BloodPressure",
+          .. snip ...
+        }
+          ,{
+           "fullUrl": "http://server/path/Observation/20170219-04BloodPressure",
+               "resource": {
+                 "resourceType": "Observation",
+                 "id": "20170219-04BloodPressure",
+              .. snip ...
+    }
+  ]
+}
