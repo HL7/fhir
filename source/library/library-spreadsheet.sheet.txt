@@ -247,6 +247,8 @@
   Use = System | Instance
   Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for a resource and all its dependencies as a single module definition
   Type = operation
+  Example.Request = $data-requirements-request.txt
+  Example.Response = $data-requirements-response.txt
   Title = Data Requirements
   Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for a given target resource. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the target resource and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
 

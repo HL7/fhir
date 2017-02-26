@@ -1,0 +1,4 @@
+// Apply the low suicide risk order set to patient 124
+GET [base]/PlanDefinition/example/$apply?patient=124
+
+

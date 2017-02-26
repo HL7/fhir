@@ -1,0 +1,3 @@
+// Request data requirements for the CMS146 library
+GET [base]/Library/library-cms146-example/$data-requirements
+

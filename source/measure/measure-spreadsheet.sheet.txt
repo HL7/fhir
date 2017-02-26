@@ -602,6 +602,8 @@
   Use = Resource | Instance
   Documentation = The evaluate-measure operation is used to invoke an eMeasure and obtain the results
   Type = operation
+  Example.Request = $evaluate-measure-request.txt
+  Example.Response = $evaluate-measure-response.txt
   Title = Evaluate Measure
   Footer = The effect of invoking this operation is to calculate the measure for the given patient, or all patients if no patient is supplied, and return the results as a MeasureReport resource of the appropriate type
 
@@ -682,6 +684,8 @@
   Use = Instance
   Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the measure and all its dependencies as a single module definition
   Type = operation
+  Example.Request = $data-requirements-request.txt
+  Example.Response = $data-requirements-response.txt
   Title = Data Requirements
   Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the measure. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the libraries referenced by the measures. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
 

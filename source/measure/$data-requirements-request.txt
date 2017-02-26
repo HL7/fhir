@@ -1,0 +1,3 @@
+// Request data requirements for the CMS146 measure
+GET [base]/Measure/CMS146/$data-requirements?periodStart=2014&periodEnd=2014
+

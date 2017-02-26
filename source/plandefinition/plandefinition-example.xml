@@ -920,27 +920,27 @@
         <dynamicValue>
           <path value="specialty"/>
           <!-- This expression is code selector syntax in CQL, returning the code from the NPI provider taxonomy -->
-          <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NPI Taxonomy&quot;"/>
+          <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NPI Taxonomy&quot; display 'Adult Mental Health'"/>
         </dynamicValue>
         <dynamicValue>
 		  <!-- The fulfillmentTime element of the resulting ReferralRequest will be set to the result of the ReferralRequestFulfillmentTime expression defined in the SuicideRiskLogic library -->
-          <path value="fulfillmentTime"/>
+          <path value="occurrenceDateTime"/>
           <expression value="SuicideRiskLogic.ReferralRequestFulfillmentTime"/>
         </dynamicValue>
         <dynamicValue>
-          <path value="patient"/>
+          <path value="subject"/>
           <expression value="SuicideRiskLogic.Patient"/>
         </dynamicValue>
         <dynamicValue>
-          <path value="requester"/>
+          <path value="requester.agent"/>
           <expression value="SuicideRiskLogic.Practitioner"/>
         </dynamicValue>
         <dynamicValue>
-          <path value="reason"/>
+          <path value="reasonCode"/>
           <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
         </dynamicValue>
         <dynamicValue>
-          <path value="supportingInformation"/>
+          <path value="reasonReference"/>
           <expression value="SuicideRiskLogic.RiskAssessment"/>
         </dynamicValue>
       </actionDefinition>
