@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OperationOutcome xmlns="http://hl7.org/fhir">
+<OperationOutcome xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/operationoutcome.xsd">
   <id value="validationfail"/>
   <text>
     <status value="generated"/>
@@ -13,6 +13,7 @@
     <details>
       <text value="Error parsing resource XML (Unknown Content &quot;label&quot;"/>
     </details> 
-    <location value="/f:Patient/f:identifier"/>    
+    <location value="/f:Patient/f:identifier"/>
+    <expression value="Patient.identifier"/>
   </issue>
 </OperationOutcome>
