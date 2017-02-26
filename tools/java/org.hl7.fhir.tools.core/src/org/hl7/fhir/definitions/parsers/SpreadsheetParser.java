@@ -1964,9 +1964,11 @@ public class SpreadsheetParser {
   private String checkW5(String value, String path) throws Exception {
     if (Utilities.noString(value))
       return null;
-    if (!value.contains(".")) {
+    if (path.contains(".")) {
       if (!definitions.getW5s().containsKey(value))
         throw new Exception("Unknown w5 value "+value+" at "+path);
+    } else if (!value.contains(".")) {
+      System.out.println("Got here:" + value);
     } else {
       String[] vs = value.split("\\."); 
       if (vs.length != 2)

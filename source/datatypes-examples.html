@@ -1034,12 +1034,11 @@ on the structured data elements of the address.
   &lt;/address&gt;
 </pre>
 
-<p>A Postal address - i.e. an address that it doesn't make sense to try and visit.</p>
+<p>A temporary postal address - i.e. an address that it doesn't make sense to try and visit.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-AD-use&quot;&gt; 
-      &lt;valueCode value=&quot;PST&quot;/&gt;
-    &lt;/extension&gt;
+    &lt;use value=&quot;temp&quot;/&gt; 
+    &lt;type value=&quot;postal&quot;/&gt;
     &lt;line value=&quot;PO Box 31445&quot;/&gt;
     &lt;city value=&quot;Erewhon&quot;/&gt;
     &lt;postalCode value=&quot;0001&quot;/&gt;

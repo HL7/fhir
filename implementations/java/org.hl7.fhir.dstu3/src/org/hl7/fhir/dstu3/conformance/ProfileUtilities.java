@@ -349,8 +349,8 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     for (ElementDefinition e : derived.getDifferential().getElement()) {
       if (!snapshotElements.containsKey(e.getId()))
-        throw new DefinitionException("Snapshot does not contain differential element with id: " + e.getId());
-//        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
+//        throw new DefinitionException("Snapshot does not contain differential element with id: " + e.getId());
+        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
     }
   }
 

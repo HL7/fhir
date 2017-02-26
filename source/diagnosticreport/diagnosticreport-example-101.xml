@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticreport.xsd">
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="101"/>
+	<meta>
+    <tag>
+      <system value="http://example.org/fhir/CodeSystem/workflow-codes"/>
+      <code value="01"/>
+      <display value="Needs Review"/>
+    </tag>
+	</meta>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
