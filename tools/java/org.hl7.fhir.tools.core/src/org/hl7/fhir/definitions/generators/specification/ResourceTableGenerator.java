@@ -18,7 +18,7 @@ public class ResourceTableGenerator extends TableGenerator {
     TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL);
 
     
-    model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode));
+    model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true));
     
     return gen.generate(model, prefix, 0);
   }

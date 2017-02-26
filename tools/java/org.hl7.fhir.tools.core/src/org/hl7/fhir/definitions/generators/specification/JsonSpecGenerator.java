@@ -71,6 +71,43 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   public void generateExtension(StructureDefinition ed) throws Exception {
     write("<pre class=\"spec\">\r\n");
 
+    generateExtensionInner(ed, true);
+
+    write("</pre>\r\n");
+    flush();
+    close();
+  }
+
+  private void generateExtensionInner(StructureDefinition ed, boolean extensionDefinition) throws IOException, Exception {
+    ElementDefinition root = ed.getSnapshot().getElement().get(0);
+    String rn = ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
+    write("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(ed.getName()) + "</span>\r\n");
+    
+    List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));
+    boolean complex = isComplex(children) && extensionDefinition;
+    if (!complex)
+      write("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
+    
+    int c = 0;
+    int l = lastChild(children);
+    for (ElementDefinition child : children)
+      if (child.hasSlicing())
+        generateCoreElemSliced(ed.getSnapshot().getElement(), child, children, 2, rn, false, child.getType().get(0), ++c == l, complex);
+      else if (wasSliced(child, children))
+        ; // nothing
+      else if (child.getType().size() == 1)
+        generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == l, complex);
+      else {
+        write("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+        for (TypeRefComponent t : child.getType())
+          generateCoreElem(ed.getSnapshot().getElement(), child, 2, rn, false, t, ++c == l, false);
+      }
+    write("  }\r\n");
+  }
+
+  public void generate(StructureDefinition ed) throws Exception {
+    write("<pre class=\"spec\">\r\n");
+
     generateInner(ed, true);
 
     write("</pre>\r\n");
@@ -80,7 +117,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
   private void generateInner(StructureDefinition ed, boolean extensionDefinition) throws IOException, Exception {
     ElementDefinition root = ed.getSnapshot().getElement().get(0);
-    String rn = ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension";
+    String rn = ed.getSnapshot().getElement().get(0).getPath();
     write("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(ed.getName()) + "</span>\r\n");
     
     List<ElementDefinition> children = getChildren(ed.getSnapshot().getElement(), ed.getSnapshot().getElement().get(0));

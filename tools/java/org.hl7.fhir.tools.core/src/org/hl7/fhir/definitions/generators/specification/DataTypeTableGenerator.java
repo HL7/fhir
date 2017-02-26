@@ -15,7 +15,7 @@ public class DataTypeTableGenerator extends TableGenerator {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
     TableModel model = gen.initNormalTable("", false);
     
-    model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE));
+    model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE, true));
     
     return gen.generate(model, "", 0);
   }

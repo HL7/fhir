@@ -1,5 +1,8 @@
 package org.hl7.fhir.definitions.generators.specification;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -38,7 +41,7 @@ public class TableGenerator extends BaseGenerator {
   protected boolean dictLinks() {
     return pageName != null;
   }
-  protected Row genElement(ElementDefn e, HierarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode) throws Exception {
+  protected Row genElement(ElementDefn e, HierarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode, boolean isRoot) throws Exception {
     Row row = gen.new Row();
 
     row.setAnchor(path);
@@ -150,17 +153,36 @@ public class TableGenerator extends BaseGenerator {
       cc.addPiece(gen.new Piece("br"));
       cc.getPieces().add(gen.new Piece(null, "+ "+inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
-    if (e.unbounded()) {
+    if (e.unbounded() && !isRoot) {
       if (cc.getPieces().size() > 0)
         cc.addPiece(gen.new Piece("br"));
       if (Utilities.noString(e.getOrderMeaning())) {
-        cc.getPieces().add(gen.new Piece(null, "This repeating element has no defined order", null));
+        // don't show this, this it's important: cc.getPieces().add(gen.new Piece(null, "This repeating element has no defined order", null));
       } else {
         cc.getPieces().add(gen.new Piece(null, "This repeating element order: "+e.getOrderMeaning(), null));
       }
-      
     }
-
+    if (isRoot && !Utilities.noString(e.typeCode()) && !"Logical".equals(e.typeCode())) {
+      List<ElementDefn> ancestors = new ArrayList<ElementDefn>();
+      ElementDefn f = definitions.getElementDefn(e.typeCode());
+      while (f != null) {
+        ancestors.add(0, f);
+        f = Utilities.noString(f.typeCode()) ? null : definitions.getElementDefn(f.typeCode());
+      }
+      
+      cc.getPieces().add(gen.new Piece("br"));
+      cc.getPieces().add(gen.new Piece(null, "Elements defined in Ancestors: ", null));
+      boolean first = true;
+      for (ElementDefn fi : ancestors) { 
+        for (ElementDefn fc : fi.getElements()) {
+          if (first)
+            first = false;
+          else
+            cc.getPieces().add(gen.new Piece(null, ", ", null));
+          cc.getPieces().add(gen.new Piece(definitions.getSrcFile(fi.getName())+".html#"+fi.getName(), fc.getName(), fc.getDefinition()));
+        }
+      }
+    }
     if (mode == RenderMode.LOGICAL) {
       String logical = e.getMappings().get("http://hl7.org/fhir/logical");
       Cell c = gen.new Cell();
@@ -222,7 +244,7 @@ public class TableGenerator extends BaseGenerator {
       }
     } else
       for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode));
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false));
     return row;
   }
 

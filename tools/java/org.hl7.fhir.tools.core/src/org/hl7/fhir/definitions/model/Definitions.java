@@ -185,6 +185,8 @@ public class Definitions {
   // Returns the root TypeDefn of a CompositeType or Resource,
 	// excluding future Resources (as they don't have definitions yet).
 	public TypeDefn getElementDefn(String name) throws Exception {
+    if (name.equals("Type") || name.equals("Structure"))
+      name = "Element";
     
 		TypeDefn root = null;
 		if (types.containsKey(name))

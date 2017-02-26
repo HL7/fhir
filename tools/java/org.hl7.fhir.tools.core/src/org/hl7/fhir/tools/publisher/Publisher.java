@@ -4488,14 +4488,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     // base resource to fill out all the missing bits
     //    validateProfile(profile);
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    XmlSpecGenerator gen = new XmlSpecGenerator(bs, null, "http://hl7.org/fhir/", page, "");
+    XmlSpecGenerator gen = new XmlSpecGenerator(bs, title + "-definitions.html", "", page, ig.isCore() ? "" : "../");
     gen.generate(profile.getResource());
     gen.close();
     String xml = new String(bs.toByteArray());
 
     bs = new ByteArrayOutputStream();
-    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, null, "http://hl7.org/fhir/", page, "");
-    // genJ.generate(profile.getResource());
+    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, title + "-definitions.html", "", page, ig.isCore() ? "" : "../");
+    genJ.generate(profile.getResource());
     genJ.close();
     String json = new String(bs.toByteArray());
 

@@ -2172,7 +2172,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             if (definition.hasOrderMeaning()) {
               c.getPieces().add(gen.new Piece(null, "This repeating element order: "+definition.getOrderMeaning(), null));
             } else {
-              c.getPieces().add(gen.new Piece(null, "This repeating element has no defined order", null));
+              // don't show this, this it's important: c.getPieces().add(gen.new Piece(null, "This repeating element has no defined order", null));
             }           
           }
 

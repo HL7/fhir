@@ -538,6 +538,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         }
       } else if (tail(elem.getPath()).equals("extension")) {
         write(" <a href=\""+prefix+"extensibility.html\"><span style=\"color: navy\">See Extensions</span></a> ");
+      } else if (elem.hasContentReference()) {
+        write(" <a href=\"#"+elem.getContentReference()+"\"><span style=\"color: navy\">See "+elem.getContentReference()+"</span></a> ");
       } else {
         write(" <a href=\""+prefix+"none.html\"><span style=\"color: navy\">No Types?</span></a> ");
       }
@@ -900,67 +902,49 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     return b.toString()+"\r\n"+ind;  
   }
 
-  public void generate(StructureDefinition resource) {
-    // TODO Auto-generated method stub
-    
+  public void generate(StructureDefinition sd) throws IOException, Exception {
+    write("<pre class=\"spec\">\r\n");
+
+    generateInner(sd);
+
+    write("</pre>\r\n");
+    flush();
+    close();
   }
   
-	// code ### | text
-//	private String renderCodeableConcept(int indent, CodeableConcept value)
-//			throws Exception {
-//		StringBuilder s = new StringBuilder();
-//		for (int i = 0; i < indent; i++)
-//			s.append(" ");
-//		String ind = s.toString();
-//		s = new StringBuilder();
-//		String[] parts = value.split("\\|");
-//		
-//
-//		if (parts[0].length() > 0) {
-//		  String[] parts2 = parts[0].split("#");
-//		  s.append("\r\n" + ind + "  &lt;coding&gt;");
-//		  if (parts2.length > 0 && parts2[0].length() > 0)
-//		    s.append("\r\n" + ind + "    &lt;code value=\"" + parts2[0] + "\"/&gt;");
-//      if (parts2.length > 1 && parts2[1].length() > 0)                   
-//		    s.append("\r\n" + ind + "    &lt;system value=\"" + parts2[1] + "\"/&gt;");
-//      if (parts2.length > 2 && parts2[2].length() > 0)
-//		    s.append("\r\n" + ind + "    &lt;display value=\"" + parts2[2] + "\"/&gt;");
-//      s.append("\r\n" + ind + "  &lt;/coding&gt;");
-//	  }
-//    if (parts.length > 1 && parts[1].length() > 0)
-//      s.append("\r\n" + ind + "  &lt;text value=\"" + parts[1] + "\"/&gt;");
-//		s.append("\r\n" + ind);
-//		return s.toString();
-//	}
-//
-//	private String renderQuantity(int indent, String value) throws Exception {
-//		StringBuilder s = new StringBuilder();
-//		for (int i = 0; i < indent; i++)
-//			s.append(" ");
-//		String ind = s.toString();
-//		s = new StringBuilder();
-//		String f = null;
-//		if (!Character.isDigit(value.charAt(0))) {
-//			f = value.substring(0, 1);
-//			value = value.substring(1);
-//		}
-//		String[] parts = value.split(" ");
-//		if (parts.length != 2)
-//			throw new Exception("unable to parse fixed quantity value " + value);
-//		String v = parts[0];
-//		String u = parts[1];
-//		s.append("\r\n" + ind + "  &lt;value&gt;" + v + "&lt;/value&gt;");
-//		if (f != null)
-//			s.append("\r\n" + ind + "  &lt;status&gt;"
-//					+ Utilities.escapeXml(Utilities.escapeXml(f))
-//					+ "&lt;/status&gt;");
-//		s.append("\r\n" + ind + "  &lt;units&gt;" + u + "&lt;/units&gt;");
-//		s.append("\r\n" + ind + "  &lt;code&gt;" + u + "&lt;/code&gt;");
-//		s.append("\r\n" + ind
-//				+ "  &lt;system&gt;urn:hl7-org:sid/ucum&lt;/system&gt;");
-//		s.append("\r\n" + ind);
-//		return s.toString();
-//	}
-//
+  private void generateInner(StructureDefinition sd) throws IOException, Exception {
+    ElementDefinition root = sd.getSnapshot().getElement().get(0);
+    write("&lt;!-- "+Utilities.escapeXml(sd.getName())+" -->");
+    write("<span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"xml.html\"><img src=\""+prefix+"help.png\" alt=\"doco\"/></a></span>\r\n");
+    String rn = sd.getSnapshot().getElement().get(0).getPath();
+
+    write("\r\n&lt;");
+    if (defPage == null)
+      write("<span title=\"" + Utilities.escapeXml(root.getDefinition())
+          + "\"><b>");
+    else
+      write("<a href=\"" + (defPage + "#" + root.getSliceName()) + "\" title=\""
+          + Utilities.escapeXml(root.getDefinition())
+          + "\" class=\"dict\"><b>");
+    write(rn);
+    if ((defPage == null))
+      write("</b></span>");
+    else
+      write("</b></a>");
+
+    write(" xmlns=\"http://hl7.org/fhir\"\r\n&gt;\r\n");
+
+    List<ElementDefinition> children = getChildren(sd.getSnapshot().getElement(), sd.getSnapshot().getElement().get(0));
+    boolean complex = isComplex(children);
+    if (!complex)
+      write("  &lt;!-- from Element: <a href=\""+prefix+"extensibility.html\">extension</a> -->\r\n");
+    for (ElementDefinition child : children)
+      generateCoreElem(sd.getSnapshot().getElement(), child, 1, rn, false, complex);
+
+    write("&lt;/");
+    write(rn);
+    write("&gt;\r\n");
+  }
+  
 
 }
