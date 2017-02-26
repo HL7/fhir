@@ -42,6 +42,10 @@ import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class SpecDifferenceEvaluator {
 
+  public interface TypeLinkProvider {
+    public String getLink(String typeName); 
+  }
+  
   public class SpecPackage {
     private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
     private Map<String, ValueSet> expansions = new HashMap<String, ValueSet>();
@@ -75,6 +79,7 @@ public class SpecDifferenceEvaluator {
   private Map<String, String> renames = new HashMap<String, String>();
   
   private XhtmlNode tbl;
+  private TypeLinkProvider linker;
   
   
   
@@ -112,7 +117,7 @@ public class SpecDifferenceEvaluator {
     b.append("<link href=\"fhir.css\" rel=\"stylesheet\"/>\r\n");
     b.append("</head>\r\n");
     b.append("<body>\r\n");
-    b.append(self.getDiffAsHtml());
+    b.append(self.getDiffAsHtml(null));
     b.append("</body>\r\n");
     b.append("</html>\r\n");
     TextFile.stringToFile(b.toString(), "c:\\temp\\diff.html");
@@ -159,7 +164,8 @@ public class SpecDifferenceEvaluator {
     }
   }
 
-  public String getDiffAsHtml(StructureDefinition rev) throws IOException {
+  public String getDiffAsHtml(TypeLinkProvider linker, StructureDefinition rev) throws IOException {
+    this.linker = linker;
 
     StructureDefinition orig = original.resources.get(checkRename(rev.getName()));
     if (orig == null)
@@ -173,7 +179,8 @@ public class SpecDifferenceEvaluator {
     }
   }
   
-  public String getDiffAsHtml() throws IOException {
+  public String getDiffAsHtml(TypeLinkProvider linker) throws IOException {
+    this.linker = linker;
     start();
     
     header("Types");
@@ -244,7 +251,11 @@ public class SpecDifferenceEvaluator {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", item ? "diff-item" : "diff-entry");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
-    left.addText(name);
+    String link = linker == null ? null : linker.getLink(name);
+    if (link!= null)
+      left.addTag("a").setAttribute("href", link).addText(name);
+    else
+      left.addText(name);
     right.addText("No Changes");
   }
   
@@ -252,7 +263,11 @@ public class SpecDifferenceEvaluator {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", item ? "diff-item" : "diff-entry");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
-    left.addText(name);
+    String link = linker == null ? null : linker.getLink(name);
+    if (link!= null)
+      left.addTag("a").setAttribute("href", link).addText(name);
+    else
+      left.addText(name);
     right.addText(change);
   }
   
@@ -268,14 +283,22 @@ public class SpecDifferenceEvaluator {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", item ? "diff-new-item" : "diff-new");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
-    left.addText(name);
+    String link = linker == null ? null : linker.getLink(name);
+    if (link!= null)
+      left.addTag("a").setAttribute("href", link).addText(name);
+    else
+      left.addText(name);
     right.addText(res ? "added Resource" : "added Element");    
   }
 
   private void compare(StructureDefinition orig, StructureDefinition rev) {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", "diff-item");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
-    left.addText(rev.getName());
+    String link = linker == null ? null : linker.getLink(rev.getName());
+    if (link!= null)
+      left.addTag("a").setAttribute("href", link).addText(rev.getName());
+    else
+      left.addText(rev.getName());
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
 
     // first, we must match revision elements to old elements
