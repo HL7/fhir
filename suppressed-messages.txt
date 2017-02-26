@@ -2,6 +2,7 @@ INFORMATION: DataElement.element: Name of child (element) overlaps with name of 
 INFORMATION: ElementDefinition.definition: Name of child (definition) overlaps with name of parent (ElementDefinition)
 INFORMATION: EpisodeOfCare.careManager: Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
 INFORMATION: ImmunizationRecommendation.recommendation: Name of child (recommendation) overlaps with name of parent (ImmunizationRecommendation)
+INFORMATION: Reference.reference: Name of child (reference) overlaps with name of parent (Reference)
 INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
 WARNING: CompartmentDefinition: All resources should have an identifier
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation

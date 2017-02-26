@@ -402,6 +402,7 @@
   Binding = DiscriminatorType
   Short Name = value | exists | pattern | type | profile
   Definition = How the element value is interpreted when discrimination is evaluated
+  RIM Mapping = N/A
 
  -- Row 10 -----------------------------------
   Element = ElementDefinition.slicing.discriminator.path
@@ -762,6 +763,7 @@
   Type = id
   Short Name = Reference to invariant about presence
   Definition = A reference to an invariant that may make additional statements about the cardinality or value in the instance
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 45 -----------------------------------
   Element = ElementDefinition.constraint
@@ -770,6 +772,7 @@
   Short Name = Condition that must evaluate to true
   Definition = Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance
   Comments = Constraints should be declared on the \"context\" element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint
+  RIM Mapping = N/A (MIF territory)
   11179 Mapping = ??
 
  -- Row 46 -----------------------------------
@@ -779,6 +782,7 @@
   Type = id
   Short Name = Target of \'condition\' reference above
   Definition = Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 47 -----------------------------------
   Element = ElementDefinition.constraint.requirements
@@ -787,6 +791,7 @@
   Short Name = Why this constraint is necessary or appropriate
   Definition = Description of why this constraint is necessary or appropriate
   Comments = To be used if the reason for the constraint may not be intuitive to all implementers
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 48 -----------------------------------
   Element = ElementDefinition.constraint.severity
@@ -796,6 +801,7 @@
   Short Name = error | warning
   Definition = Identifies the impact constraint violation has on the conformance of the instance
   Comments = This allows constraints to be asserted as \"shall\" (error) and \"should\" (warning)
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 49 -----------------------------------
   Element = ElementDefinition.constraint.human
@@ -804,6 +810,7 @@
   Short Name = Human description of constraint
   Definition = Text that can be used to describe the constraint in messages identifying that the constraint has been violated
   Comments = Should be expressed in business terms as much as possible
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 50 -----------------------------------
   Element = ElementDefinition.constraint.expression
@@ -812,6 +819,7 @@
   Short Name = FHIRPath expression of constraint
   Definition = A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met
   Requirements = Used by validation tooling tests of the validity of the resource
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 51 -----------------------------------
   Element = ElementDefinition.constraint.xpath
@@ -821,6 +829,7 @@
   Definition = An XPath expression of constraint that can be executed to see if this constraint is met
   Requirements = Used in Schematron tests of the validity of the resource
   Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes. \n\nNote: we are considering deprecating the xpath element. Implementer feedback is welcome
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 52 -----------------------------------
   Element = ElementDefinition.constraint.source
@@ -829,6 +838,7 @@
   Short Name = Reference to original source of constraint
   Definition = A reference to the original source of the constraint, for traceability purposes
   Comments = This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot
+  RIM Mapping = N/A (MIF territory)
 
  -- Row 53 -----------------------------------
   Element = ElementDefinition.mustSupport
@@ -838,6 +848,7 @@
   Definition = If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported
   Requirements = Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints
   Comments = \"Something useful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles. \n\nThis is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.\n\nNote that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.
+  RIM Mapping = N/A (MIF territory)
   11179 Mapping = ??
   Default Value = False
 
@@ -849,6 +860,7 @@
   Definition = If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
   Requirements = Allows elements to be introduced into a specification that can\'t safely be ignored by applications that don\'t recognize them
   Comments = Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles. An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear
+  RIM Mapping = N/A (MIF territory)
   11179 Mapping = ??
   Default Value = False
 
@@ -860,6 +872,7 @@
   Definition = Whether the element should be included if a client requests a search with the parameter _summary=true
   Requirements = Allow clients to search through large resources quickly
   Comments = Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance, so servers may not support per-profile use of the isSummary flag. When a request is made with _summary=true, serailisers only include elements marked as \'isSummary = true\'. Other than Attachment.data, all data type properties are included in the summary form. Modifier elements or elements with minimum cardinality = 1 must be marked as summary elements
+  RIM Mapping = N/A (MIF territory)
   11179 Mapping = ??
   Default Value = False
 

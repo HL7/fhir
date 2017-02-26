@@ -499,6 +499,9 @@
     <whoReference>
       <reference value="Device/software"/>
     </whoReference>
+    <onBehalfOfReference>
+      <reference value="Organization/example"/>
+    </onBehalfOfReference>
     <!-- a real document would typically have an digital signature, but 
       the publishing tools are not yet setup to produce a valid digital 
       signature. For now, an image of a signature -->

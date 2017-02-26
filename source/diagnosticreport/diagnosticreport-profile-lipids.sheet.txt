@@ -214,7 +214,7 @@
   Type = CodeableConcept
   Short Name = Triglyceride
   Committee Notes = Fix value to a single LOINC Code
-  Value = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35217-9\" , \"display\" : \"Triglyceride\" }]}
+  Pattern = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35217-9\"}]}
 
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity

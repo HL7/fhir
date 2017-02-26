@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Eric Haas (Health eData Inc) -->
-<DataElement xmlns="http://hl7.org/fhir">
+<DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="gender"/>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>
 				<b>Gender Code</b>: The code representing the gender of a person
-      
-      
-      
       </p>
 			<table>
 				<tbody>
@@ -85,9 +81,9 @@
 			<id value="2179414-permitted"/>
 			<status value="active"/>
 			<compose>
-        <include>
-				  <system value="http://example.org/fhir/2179414"/>
-        </include>
+				<include>
+					<system value="http://example.org/fhir/2179414"/>
+				</include>
 			</compose>
 		</ValueSet>
 	</contained>
@@ -101,38 +97,38 @@
 			<targetReference>
 				<reference value="#2179414-permitted"/>
 			</targetReference>
-      <group>
-        <source value="http://example.org/fhir/2179414"/>
-        <target value="http://example.org/fhir/2179414"/>
-        <element>
-          <code value="C17998"/>
-          <target>
-            <code value="0"/>
-            <equivalence value="equal"/>
-          </target>
-        </element>
-        <element>
-          <code value="C20197"/>
-          <target>
-            <code value="1"/>
-            <equivalence value="equal"/>
-          </target>
-        </element>
-        <element>
-          <code value="C16576"/>
-          <target>
-            <code value="2"/>
-            <equivalence value="equal"/>
-          </target>
-        </element>
-        <element>
-          <code value="C38046"/>
-          <target>
-            <code value="3"/>
-            <equivalence value="equal"/>
-          </target>
-        </element>
-      </group>
+			<group>
+				<source value="http://example.org/fhir/2179414"/>
+				<target value="http://example.org/fhir/2179414"/>
+				<element>
+					<code value="C17998"/>
+					<target>
+						<code value="0"/>
+						<equivalence value="equal"/>
+					</target>
+				</element>
+				<element>
+					<code value="C20197"/>
+					<target>
+						<code value="1"/>
+						<equivalence value="equal"/>
+					</target>
+				</element>
+				<element>
+					<code value="C16576"/>
+					<target>
+						<code value="2"/>
+						<equivalence value="equal"/>
+					</target>
+				</element>
+				<element>
+					<code value="C38046"/>
+					<target>
+						<code value="3"/>
+						<equivalence value="equal"/>
+					</target>
+				</element>
+			</group>
 		</ConceptMap>
 	</contained>
 	<identifier>
@@ -142,7 +138,12 @@
 	<status value="active"/>
 	<publisher value="DCP"/>
 	<name value="Gender Code"/>
-  <!--
+	<mapping>
+    <identity value="fhir"/>
+    <uri value="http://hl7.org/fhir"/>
+    <name value="Fast Healthcare Interoperable Resources (FHIR)"/>
+  </mapping>
+	<!--
 	<useContext>
 		<coding>
 			<system value="http://example.org/FBPP"/>
@@ -218,6 +219,11 @@
 			<valueString value="Gender"/>
 		</extension>
 		<path value="Gender"/>
+		<code>
+      <system value="http://loinc.org"/>
+      <code value="46098-0"/>
+      <display value="Sex"/>
+		</code>
 		<definition value="The code representing the gender of a person."/>
 		<type>
 			<code value="CodeableConcept"/>
@@ -239,5 +245,10 @@
 				<reference value="#2179414"/>
 			</valueSetReference>
 		</binding>
+		<mapping>
+      <identity value="fhir"/>
+      <language value="application/xquery"/>
+      <map value="return f:/Patient/f:gender"/>
+    </mapping>
 	</element>
 </DataElement>

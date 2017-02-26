@@ -200,14 +200,18 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<aggregation value="bundled"/>
+				<versioning value="either"/>
 			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<aggregation value="bundled"/>
 			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<aggregation value="bundled"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -225,7 +229,7 @@
 			</base>
 			<type>
 				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -260,6 +264,8 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest"/>
+				<aggregation value="referenced"/>
+				<versioning value="specific"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -324,6 +330,8 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+				<aggregation value="bundled"/>
+				<versioning value="specific"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -342,6 +350,8 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
+				<aggregation value="bundled"/>
+				<versioning value="specific"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -360,6 +370,8 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/triglyceride"/>
+				<aggregation value="bundled"/>
+				<versioning value="specific"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -378,6 +390,8 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/hdlcholesterol"/>
+				<aggregation value="bundled"/>
+				<versioning value="specific"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
@@ -396,6 +410,8 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ldlcholesterol"/>
+				<aggregation value="bundled"/>
+				<versioning value="specific"/>
 			</type>
 			<isModifier value="false"/>
 		</element>
