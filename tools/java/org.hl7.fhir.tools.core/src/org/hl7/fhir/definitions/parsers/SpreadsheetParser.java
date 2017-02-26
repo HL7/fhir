@@ -2187,7 +2187,7 @@ public class SpreadsheetParser {
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
       ex.setName(ex.getTitle());
-    if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName()))
+    if (!ex.hasName() && !Utilities.noString(sl))
       ex.setName(sl);
     if (!ex.hasName())
       throw new Exception("Extension "+ex.getUrl()+" missing name at "+getLocation(row));
