@@ -66,7 +66,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator;
-import org.hl7.fhir.convertors.SpecDifferenceEvaluator.TypeLinkProvider;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
@@ -214,7 +213,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
-public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService, TypeLinkProvider  {
+public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService  {
 
 
   public class PageEvaluationContext implements IEvaluationContext {
@@ -470,7 +469,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String diffForDt(String dt, String pn) throws Exception {
-    return diffEngine.getDiffAsHtml(this, definitions.getElementDefn(dt).getProfile());
+    return diffEngine.getDiffAsHtml(definitions.getElementDefn(dt).getProfile());
   }
 
 
@@ -765,12 +764,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
-          src = s1+diffEngine.getDiffAsHtml(this)+s3;
+          src = s1+diffEngine.getDiffAsHtml()+s3;
         } else {
           StructureDefinition sd = workerContext.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+com[1]);
           if (sd == null)
             throw new Exception("diff-analysis not found: "+com[1]);
-          src = s1+diffEngine.getDiffAsHtml(this, sd)+s3;
+          src = s1+diffEngine.getDiffAsHtml(sd)+s3;
         }
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
@@ -4598,12 +4597,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
-          src = s1+diffEngine.getDiffAsHtml(this)+s3;
+          src = s1+diffEngine.getDiffAsHtml()+s3;
         } else {
           StructureDefinition sd = workerContext.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+com[1]);
           if (sd == null)
             throw new Exception("diff-analysis not found: "+com[1]);
-          src = s1+diffEngine.getDiffAsHtml(this, sd)+s3;
+          src = s1+diffEngine.getDiffAsHtml(sd)+s3;
         }
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
@@ -5272,7 +5271,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("search-header"))
         src = s1+searchHeader(level)+s3;
       else if (com[0].equals("diff-analysis"))
-        src = s1+diffEngine.getDiffAsHtml(this, resource.getProfile())+s3;
+        src = s1+diffEngine.getDiffAsHtml(resource.getProfile())+s3;
       else if (com[0].equals("r2r3transforms"))
         src = s1+getR2r3transformNote(resource.getName())+s3;
       else if (com[0].equals("fmm-style"))
@@ -8604,15 +8603,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return b.toString();
 
-  }
-
-  @Override
-  public String getLink(String typeName) {
-    if (definitions.hasType(typeName)) 
-      return definitions.getSrcFile(typeName)+".html#"+typeName;
-    if (definitions.hasResource(typeName)) 
-      return typeName.toLowerCase()+".html#"+typeName;
-    return null;
   }
 
 }
