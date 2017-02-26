@@ -1213,7 +1213,9 @@ public class ProfileUtilities extends TranslatingUtilities {
 
       if (derived.hasIsSummaryElement()) {
         if (!Base.compareDeep(derived.getIsSummaryElement(), base.getIsSummaryElement(), false))
-          base.setIsSummaryElement(derived.getIsSummaryElement().copy());
+          throw new Error("can't override is-summary - please consult Grahame about this");
+//          base.setIsSummaryElement(derived.getIsSummaryElement().copy());
+        
         else if (trimDifferential)
           derived.setIsSummaryElement(null);
         else
@@ -2179,7 +2181,9 @@ public class ProfileUtilities extends TranslatingUtilities {
             c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, translate("sd.table", "Fixed Value")+": ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
             if (isCoded(definition.getFixed()) && !hasDescription(definition.getFixed())) {
-              c.getPieces().add(describeCoded(gen, definition.getFixed()));
+              Piece p = describeCoded(gen, definition.getFixed());
+              if (p != null)
+                c.getPieces().add(p);
             }
           } else if (definition.hasPattern()) {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
