@@ -1316,6 +1316,18 @@
   Description = Terminology Server Base Capability Statement
   Filename = capabilitystatement-terminology-server.xml
 
+ -- Row 6 -----------------------------------
+  Name = KnowledgeRepository
+  Identity = knowledge-repository
+  Description = Knowledge Repository Base Capability Statement
+  Filename = capabilitystatement-knowledge-repository.xml
+
+ -- Row 7 -----------------------------------
+  Name = MeasureProcessor
+  Identity = measure-processor
+  Description = Measure Processor Base Capability Statement
+  Filename = capabilitystatement-measure-processor.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

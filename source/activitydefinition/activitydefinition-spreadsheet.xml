@@ -5403,8 +5403,8 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional usage notes for an operation</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Evaluate.Request</Data></Cell>
-    <Cell><Data ss:Type="String">Evaluate.Response</Data></Cell>
+    <Cell><Data ss:Type="String">Example.Request</Data></Cell>
+    <Cell><Data ss:Type="String">Example.Response</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s126"><Data ss:Type="String">apply</Data><NamedCell
@@ -6060,7 +6060,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
      <ActiveCol>10</ActiveCol>
     </Pane>
    </Panes>
