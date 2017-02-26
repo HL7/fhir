@@ -144,7 +144,7 @@
   Type = markdown
   Short Name = Natural language description of the {{title}}
   Definition = A free text natural language description of the {{title}} from the consumer\'s perspective
-  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created)
 
  -- Row 15 -----------------------------------
   Element = MetadataResource.purpose
