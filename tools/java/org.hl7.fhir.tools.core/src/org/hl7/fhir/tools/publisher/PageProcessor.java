@@ -5182,6 +5182,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+produceProfiles(resource)+s3;
       else if (com[0].equals("extensionlist"))
         src = s1+produceExtensions(resource)+s3;
+      else if (com[0].equals("extensionreflist"))
+        src = s1+produceRefExtensions(resource)+s3;
       else if (com[0].equals("searchextensionlist"))
         src = s1+produceSearchExtensions(resource)+s3;
       else if (com[0].equals("wg"))
@@ -5839,6 +5841,44 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     if (count == 0)
       b.append("<tr><td>No Extensions defined for this resource</td></tr>");
+
+    return b.toString();
+  }
+
+  private String produceRefExtensions(ResourceDefn resource) {
+    int count = 0;
+    Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values()) {
+      boolean refers  = false;
+      for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+        for (TypeRefComponent tr : ed.getType()) {
+          if (tr.hasTargetProfile() && tr.getTargetProfile().endsWith("/"+resource.getName()))
+              refers = true;
+        }
+        if (refers)
+          map.put(sd.getId(), sd);
+      }
+    }
+
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(map.keySet())) {
+      StructureDefinition cs = map.get(s);
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = cs.getUserString("path");
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
+      Profile ap = (Profile) cs.getUserData("profile");
+      if (ap == null)
+        b.append("    <td></td>\r\n");
+      else {
+        ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      }
+      b.append(" </tr>\r\n");
+    }
+    if (count == 0)
+      b.append("<tr><td>No Extensions refer to this resource</td></tr>");
 
     return b.toString();
   }
