@@ -580,14 +580,31 @@ default slice makes no rules about the identiifer.system (which is the slicing d
 but fixes the cardinality of type to 1..1 in the @default slice.
 </p>
 
-
-allowed when the slicing rule = closed
-
 <a name="reslicing"> </a>
-<h3>Re-slicing</h3>
+<h3>Re-profiling and Re-slicing</h3>
 <p>
-When creating a profile based on another profile, it's sometimes necessary to slice data that has already been sliced in the base
-profile.  This is called "Re-slicing".  The rules for re-slicing are as follows:
+Profiles can be based on other profiles, and apply further constraints to those already 
+specified. This is a useful technique, but implementers should be wary of over-use - humans
+have understanding the implications of deep stacks of constraining profiles.
+</p>
+<p>
+When a profile constrains another profile, it can make additional constrainta, including
+extending the discriminator, adding new slices (if the slices are not already closed), and 
+slicing inside the existing slices.
+</p>
+<p>
+The rules for changing the slicing are as follows:
+</p>
+<ul>
+ <li>Rule = open can be changed to rule = closed, and unordered can be changed to ordered)</li>
+ <li>If a discriminator for an element is declared in a parent profile, child profiles referencing that element must either declare the same discriminator or must declare a new discriminator that includes the 
+   parent discriminator content. I.e. additional discriminator paths may be added, but none of the existing paths can be removed.</li>
+</ul>
+
+<p>
+It's sometimes necessary to slice data that has already been sliced in the base
+profile - that is, create new slices within the existing slices.  This is called 
+"Re-slicing".  The rules for re-slicing are as follows:
 </p>
 
 <p>
