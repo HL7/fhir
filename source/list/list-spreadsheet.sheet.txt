@@ -105,7 +105,6 @@
   Short Name = Information summarized from a list of other resources
   Definition = A set of information summarized from a list of other resources.
   RIM Mapping = Act[classCode<ORG,moodCode=EVN]
-  To Do = RIM harmonization proposal to move LIST under GROUPER  RIM harmonization proposal to allow organizers to group roles as well as acts.
   w5 = infrastructure.documents
 
  -- Row 2 -----------------------------------
@@ -126,6 +125,7 @@
   Binding = ListStatus
   Short Name = current | retired | entered-in-error
   Definition = Indicates the current state of this list
+  RIM Mapping = .status[current=active;retired=obsolete;entered-in-error=nullified]
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -149,6 +149,7 @@
   Short Name = Descriptive name for the list
   Definition = A label for the list assigned by the author
   Requirements = Allows customization beyond just the code identifying the kind of list
+  RIM Mapping = .title
   Example = Dr. Jane\'s Patients
 
  -- Row 6 -----------------------------------
@@ -227,6 +228,7 @@
   Type = Annotation
   Short Name = Comments about the list
   Definition = Comments that apply to the overall list
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].act.text
 
  -- Row 13 -----------------------------------
   Element = List.entry

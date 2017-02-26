@@ -199,4 +199,10 @@
   Filename = compartmentdefinition-encounter.xml
   Type = tool
 
+ -- Row 6 -----------------------------------
+  Name = Example
+  Identity = example
+  Description = Example Compartment
+  Filename = compartmentdefinition-example.xml
+
 === Sheet Examples =====================================

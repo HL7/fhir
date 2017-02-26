@@ -1,29 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<SearchParameter xmlns="http://hl7.org/fhir">
+<CompartmentDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <url value="http://hl7.org/fhir/SearchParameter/example"/>
-  <name value="Example Search Parameter"/>
+  <url value="http://hl7.org/fhir/CompartmentDefinition/example"/>
+  <name value="EXAMPLE"/>
+  <title value="Base FHIR compartment definition for Device(example)"/>
   <status value="draft"/>
-  <experimental value="false"/>
-  <date value="2013-10-23"/>
+  <experimental value="true"/>
+  <date value="2017-02-24"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
   <contact>
-  <name value="[string]"/><!-- 0..1 Name of an individual to contact -->
+    <name value="[string]"/><!-- 0..1 Name of an individual to contact -->
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  
-<!--  this is the canonical definition for the _id search parameter  -->
-  <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
-  <code value="_id"/>
-  <base value="Resource"/>
-  <type value="token"/>
-  <description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
-  <xpath value="f:*/f:id"/>
-  <xpathUsage value="normal"/>
-</SearchParameter>
+  <description value="The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only)."/>
+  <purpose value="Provides an example of a FHIR compartment definition based on the Device resource type."/>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/resource-types"/>
+        <code value="Device"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America (the)"/>
+    </coding>
+  </jurisdiction>
+  <code value="Device"/>
+  <search value="true"/>
+  <resource>
+    <code value="Communication"/>
+    <param value="sender"/>
+    <param value="recipient"/>
+    <documentation value="The device used as the message sender and recipient"/>
+  </resource>
+  <resource>
+    <code value="CommunicationRequest"/>
+    <param value="sender"/>
+    <param value="recipient"/>
+    <documentation value="The device used as the message sender and recipient"/>
+  </resource>
+</CompartmentDefinition>
 
 

@@ -416,7 +416,13 @@
  -- Row 3 -----------------------------------
   Name = Sound
   Identity = sound
-  Description = Exxample Sound Recording
+  Description = Example Sound Recording
   Filename = media-example-sound.xml
+
+ -- Row 4 -----------------------------------
+  Name = X-ray
+  Identity = xray
+  Description = Example hand x-ray
+  Filename = media-example-xray.xml
 
 === Sheet Examples =====================================
