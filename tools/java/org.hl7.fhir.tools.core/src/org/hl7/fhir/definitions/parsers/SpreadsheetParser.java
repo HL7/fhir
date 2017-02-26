@@ -1964,7 +1964,7 @@ public class SpreadsheetParser {
   private String checkW5(String value, String path) throws Exception {
     if (Utilities.noString(value))
       return null;
-    if (path.contains(".")) {
+    if (!value.contains(".")) {
       if (!definitions.getW5s().containsKey(value))
         throw new Exception("Unknown w5 value "+value+" at "+path);
     } else {
@@ -2280,7 +2280,7 @@ public class SpreadsheetParser {
     
     // things that go on Extension.value
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
-      ElementDefn exv = new ElementDefn();
+      ElementDefn exv = new ElementDefn(); 
       exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false, sheet.title));
       if (exv.getTypes().size()>1) {
         exv.setName("valueReference");
@@ -2299,6 +2299,17 @@ public class SpreadsheetParser {
           exv.setName("value" + name.substring(0,1).toUpperCase() + name.substring(1));
         }
       }
+/*      if (!exv.getName().equals("value[x]")) {
+        ElementDefn exd = new ElementDefn();
+        exd.setName("value[x]");
+        exd.setMaxCardinality(1);
+        exd.getTypes().add(new TypeRef(exv.getTypes().get(0).getName()));
+        List<String> discriminator = new ArrayList<String>();
+        discriminator.add("@type");
+        exd.setDiscriminator(discriminator);
+        exe.getElements().add(exd);
+        exv.setProfileName("value");
+      }*/
       exe.getElements().add(exv);
       String bindingName = sheet.getColumn(row, "Binding");
       if (!Utilities.noString(bindingName)) {
