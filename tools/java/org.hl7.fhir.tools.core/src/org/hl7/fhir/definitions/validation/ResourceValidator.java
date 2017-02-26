@@ -538,7 +538,8 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("entries"), "Element named \"entries\" not allowed");
     rule(errors, IssueType.STRUCTURE, path, (parentName == null) || e.getName().charAt(0) == e.getName().toLowerCase().charAt(0), "Element Names must not start with an uppercase character");
     rule(errors, IssueType.STRUCTURE, path, e.getName().equals(path) || e.getElements().size() == 0 || (e.hasSvg() || e.isUmlBreak() || !Utilities.noString(e.getUmlDir())), "Element is missing a UML layout direction");
-    hint(errors, IssueType.BUSINESSRULE, path, !e.isModifier() || e.getMinCardinality() > 0, "if an element is modifier = true, minimum cardinality should be > 0");
+//Comment out until STU 4
+    //    hint(errors, IssueType.BUSINESSRULE, path, !e.isModifier() || e.getMinCardinality() > 0 || e.getDefaultValue()!=null, "if an element is modifier = true, minimum cardinality should be > 0 if no default is specified");
     rule(errors, IssueType.STRUCTURE, path, !e.getDefinition().toLowerCase().startsWith("this is"), "Definition should not start with 'this is'");
     rule(errors, IssueType.STRUCTURE, path, e.getDefinition().endsWith(".") || e.getDefinition().endsWith("?") , "Definition should end with '.' or '?', but is '"+e.getDefinition()+"'");
     if (e.usesType("string") && e.usesType("CodeableConcept"))
@@ -894,7 +895,8 @@ public class ResourceValidator extends BaseValidator {
     if (!isComplex && !externalException(path)) {
       ValueSet vs = cd.getValueSet();
       if (warning(errors, IssueType.REQUIRED, path, vs != null, "Unable to resolve value set on 'code' Binding")) {
-        hint(errors, IssueType.REQUIRED, path, noExternals(vs), "Bindings for code data types should only use internally defined codes");
+// Comment out for now.  Reactivate in STU 4
+//        hint(errors, IssueType.REQUIRED, path, noExternals(vs), "Bindings for code data types should only use internally defined codes");
       }
     }
   }
@@ -910,11 +912,11 @@ public class ResourceValidator extends BaseValidator {
       if (inc.hasValueSet())
         throw new Error("not handled yet");
       if (!inc.getSystem().startsWith("http://hl7.org/fhir/"))
-        return true;
+        return false;
       if (inc.getSystem().startsWith("http://hl7.org/fhir/v2/") || inc.getSystem().startsWith("http://hl7.org/fhir/v3/"))
-        return true;
+        return false;
     }
-    return false;
+    return true;
   }
 
   // grand fathered in, to be removed
