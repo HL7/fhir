@@ -674,3 +674,44 @@ tr.diff-del-item {
 .self-link-parent:hover a {
  visibility:visible;
 }
+
+tr.frm-group {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 1px solid black override;
+  border-bottom: 0px none black override;
+  font-weight: bold;
+}
+
+tr.frm-group-n {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+tr.frm-contents {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  padding-bottom: 3px;
+  border-bottom: 1px solid black override;
+}
+
+td.frm-category {
+  border-left: 1px solid #eeeeee;
+  font-weight: bold;
+  text-align: center;
+}
+
+td.frm-group {
+  background: #f4f4f4;
+  font-weight: bold;
+}
+
+td.frm-null {
+  background: #f4f4f4;
+}
+
+
+td.frm-set {
+  border-left: 1px solid #eeeeee;
+}
+

@@ -11771,6 +11771,11 @@
     <display value="Suicide risk assessment"/>
     <display value="Suicide risk assessment (procedure)"/>
   </concept>
+  <concept id="225444004" display="At risk for suicide">
+    <display value="At risk for suicide"/>
+    <display value="At risk for suicide (finding)"/>
+    <display value="Suicide risk"/>
+  </concept>
   <concept id="22549003" display="Hospital-based outpatient gynecology clinic (environment)">
     <display value="Hospital-based outpatient gynaecology clinic"/>
     <display value="Hospital-based outpatient gynecology clinic"/>
@@ -14991,6 +14996,10 @@
     <display value="Dabbling duck"/>
     <display value="Duck"/>
     <display value="Duck genus"/>
+  </concept>
+  <concept id="39714003" display="Skeletal X-ray of wrist and hand">
+    <display value="Skeletal X-ray of wrist and hand"/>
+    <display value="Skeletal X-ray of wrist and hand (procedure)"/>
   </concept>
   <concept id="397158004" display="Perianal region structure (body structure)">
     <display value="Perianal region structure (body structure)"/>
