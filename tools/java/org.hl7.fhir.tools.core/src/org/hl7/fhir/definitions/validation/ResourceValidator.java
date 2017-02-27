@@ -230,6 +230,9 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
     if (rd.getRoot().getElementByName(definitions, "patient", true, false) != null && rd.getRoot().getElementByName(definitions, "patient", true, false).typeCode().startsWith("Reference"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
+    ElementDefn sed = rd.getRoot().getElementByName(definitions, "subject", true, false);
+    if (sed != null && sed.typeCode().startsWith("Reference") && sed.typeCode().contains("Patient"))
+      warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "A resource that contains a subject that can be a patient reference must have a search parameter 'patient'");
     if (rd.getRoot().getElementByName(definitions, "identifier", true, false) != null) {
       warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("identifier"), "A resource that contains an identifier must have a search parameter 'identifier'");
     }
