@@ -46,7 +46,7 @@
         HL7 Healthcare (Security and Privacy) Access Control Catalog.  
 
         In Role-Based Access Control (RBAC), permissions are operations on an object that a user wishes to access. Permissions are grouped into roles. 
-        A role characterizes the functions a user is allowed to perform. Roles are assigned to users. If the user’s role has the appropriate permissions 
+        A role characterizes the functions a user is allowed to perform. Roles are assigned to users. If the user's role has the appropriate permissions 
         to access an object, then that user is granted access to the object. FHIR readily enables RBAC, as FHIR Resources are object types and the CRUDE 
         events (the FHIR equivalent to permissions in the RBAC scheme) are operations on those objects.
 

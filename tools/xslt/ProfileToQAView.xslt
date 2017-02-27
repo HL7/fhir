@@ -45,7 +45,7 @@
     <h2 style="mso-no-prooyes">
       <xsl:value-of select="url/@value"/>
     </h2>
-    <xsl:variable name="isExtension" as="xs:boolean" select="constrainedType/@value='Extension'"/>
+    <xsl:variable name="isExtension" as="xs:boolean" select="type/@value='Extension'"/>
     <table lang="EN-US" style="mso-ansi-language:EN-US">
       <tbody>
         <xsl:if test="$isExtension">
@@ -60,6 +60,36 @@
             </tr>
           </xsl:for-each>
         </xsl:if>
+        <xsl:for-each select="title/@value">
+          <tr>
+            <td>
+              <b style="mso-no-prooyes">Title</b>
+            </td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="description/@value">
+          <tr>
+            <td>
+              <b style="mso-no-prooyes">Description</b>
+            </td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="purpose/@value">
+          <tr>
+            <td>
+              <b style="mso-no-prooyes">Purpose</b>
+            </td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
         <xsl:for-each select="differential/element">
           <xsl:for-each select="path/@value">
             <tr>
@@ -75,24 +105,14 @@
               </td>
             </tr>
           </xsl:for-each>
-          <xsl:if test="$isExtension">
-            <xsl:for-each select="name/@value">
-              <tr>
-                <td>Name</td>
-                <td>
-                  <xsl:value-of select="."/>
-                </td>
-              </tr>
-            </xsl:for-each>
-            <xsl:for-each select="display/@value">
-              <tr>
-                <td>Label</td>
-                <td>
-                  <xsl:value-of select="."/>
-                </td>
-              </tr>
-            </xsl:for-each>
-          </xsl:if>
+          <xsl:for-each select="label/@value">
+            <tr>
+              <td>Label</td>
+              <td>
+                <xsl:value-of select="."/>
+              </td>
+            </tr>
+          </xsl:for-each>
           <xsl:for-each select="short/@value[not(contains(., '|'))]">
             <!-- Exclude short names that just enumerate codes -->
             <tr>
@@ -110,9 +130,9 @@
               </td>
             </tr>
           </xsl:for-each>
-          <xsl:for-each select="comments/@value">
+          <xsl:for-each select="comment/@value">
             <tr>
-              <td>Comments</td>
+              <td>Comment</td>
               <td>
                 <xsl:value-of select="."/>
               </td>
@@ -142,6 +162,22 @@
               </td>
             </tr>
           </xsl:for-each>
+          <xsl:for-each select="orderMeaning/@value">
+            <tr>
+              <td>Order meaning</td>
+              <td>
+                <xsl:value-of select="."/>
+              </td>
+            </tr>
+          </xsl:for-each>
+          <xsl:for-each select="example/label/@value">
+            <tr>
+              <td>Example Label</td>
+              <td>
+                <xsl:value-of select="."/>
+              </td>
+            </tr>
+          </xsl:for-each>
           <xsl:for-each select="constraint">
             <xsl:for-each select="requirements/@value">
               <tr>
@@ -160,7 +196,7 @@
               </tr>
             </xsl:for-each>
           </xsl:for-each>
-          <xsl:for-each select="slicing/description">
+          <xsl:for-each select="slicing/description/@value">
             <tr>
               <td>Slicing description</td>
               <td>
@@ -197,7 +233,7 @@
             <xsl:value-of select="concat(' (', substring(.,1,1), replace(substring(.,2),'(\p{Lu})', concat(' ', '$1')), '): ')"/>
           </xsl:for-each>
         </b>
-        <xsl:for-each select="description/@value">
+        <xsl:for-each select="purpose/@value">
           <xsl:value-of select="."/>
         </xsl:for-each>
       </td>
@@ -228,23 +264,23 @@
             </td>
           </tr>
         </xsl:for-each>
-        <xsl:for-each select="requirements/@value">
+        <xsl:for-each select="purpose/@value">
           <tr>
-            <td style="mso-no-prooyes">Requirements</td>
+            <td style="mso-no-prooyes">Purpose</td>
             <td>
               <xsl:value-of select="."/>
             </td>
           </tr>
         </xsl:for-each>
-        <xsl:for-each select="notes/@value">
+        <xsl:for-each select="comment/@value">
           <tr>
-            <td style="mso-no-prooyes">Notes</td>
+            <td style="mso-no-prooyes">Comment</td>
             <td>
               <xsl:value-of select="."/>
             </td>
           </tr>
         </xsl:for-each>
-        <xsl:for-each select="parameter">
+        <xsl:for-each select="parameter|descendant::part">
           <tr>
             <td style="mso-no-prooyes">
               <xsl:value-of select="concat('Parameter ', name/@value)"/>
@@ -274,6 +310,14 @@
             </td>
           </tr>
         </xsl:for-each>
+        <xsl:for-each select="title/@value">
+          <tr>
+            <td style="mso-no-prooyes">Title</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
         <xsl:for-each select="description/@value">
           <tr>
             <td style="mso-no-prooyes">Description</td>
@@ -282,9 +326,9 @@
             </td>
           </tr>
         </xsl:for-each>
-        <xsl:for-each select="requirements/@value">
+        <xsl:for-each select="purpose/@value">
           <tr>
-            <td style="mso-no-prooyes">Requirements</td>
+            <td style="mso-no-prooyes">Purpose</td>
             <td>
               <xsl:value-of select="."/>
             </td>
@@ -298,7 +342,79 @@
             </td>
           </tr>
         </xsl:for-each>
-        <xsl:for-each select="codeSystem/descendant::concept">
+      </tbody>
+    </table>
+  </xsl:template>
+  <xsl:template match="CodeSystem">
+    <h2 style="mso-no-prooyes">
+      <xsl:value-of select="concat('ValueSet: ', name/@value)"/>
+    </h2>
+    <table lang="EN-US" style="mso-ansi-language:EN-US">
+      <tbody>
+        <xsl:for-each select="name/@value">
+          <tr>
+            <td style="mso-no-prooyes">Name</td>
+            <td>
+              <span style="mso-no-prooyes">
+                <xsl:value-of select="."/>
+              </span>
+              <xsl:value-of select="concat(' (', substring(.,1,1), replace(substring(.,2),'(\p{Lu})', concat(' ', '$1')), ')')"/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="title/@value">
+          <tr>
+            <td style="mso-no-prooyes">Title</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="description/@value">
+          <tr>
+            <td style="mso-no-prooyes">Description</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="purpose/@value">
+          <tr>
+            <td style="mso-no-prooyes">Purpose</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="copyright/@value">
+          <tr>
+            <td style="mso-no-prooyes">Copyright</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="filter/description/@value">
+          <tr>
+            <td style="mso-no-prooyes">
+              <xsl:if test="position()=1">Filter Description</xsl:if>
+            </td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="property/description/@value">
+          <tr>
+            <td style="mso-no-prooyes">
+              <xsl:if test="position()=1">Property Description</xsl:if>
+            </td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="descendant::concept">
           <tr>
             <td style="mso-no-prooyes">
               <xsl:if test="position()=1">Content</xsl:if>
@@ -314,7 +430,61 @@
       </tbody>
     </table>
   </xsl:template>
-  <xsl:template match="CapabilityStatement|CompartmentDefinition"/>
+  <xsl:template match="CompartmentDefinition">
+    <h2 style="mso-no-prooyes">
+      <xsl:value-of select="concat('CompartmentDefinition: ', name/@value)"/>
+    </h2>
+    <table lang="EN-US" style="mso-ansi-language:EN-US">
+      <tbody>
+        <xsl:for-each select="name/@value">
+          <tr>
+            <td style="mso-no-prooyes">Name</td>
+            <td>
+              <span style="mso-no-prooyes">
+                <xsl:value-of select="."/>
+              </span>
+              <xsl:value-of select="concat(' (', substring(.,1,1), replace(substring(.,2),'(\p{Lu})', concat(' ', '$1')), ')')"/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="title/@value">
+          <tr>
+            <td style="mso-no-prooyes">Title</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="description/@value">
+          <tr>
+            <td style="mso-no-prooyes">Description</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="purpose/@value">
+          <tr>
+            <td style="mso-no-prooyes">Purpose</td>
+            <td>
+              <xsl:value-of select="."/>
+            </td>
+          </tr>
+        </xsl:for-each>
+        <xsl:for-each select="resource[documentation/@value]">
+          <tr>
+            <td style="mso-no-prooyes">
+              <xsl:value-of select="code/@value"/>
+            </td>
+            <td>
+              <xsl:value-of select="documentation/@value"/>
+            </td>
+          </tr>
+        </xsl:for-each>
+      </tbody>
+    </table>
+  </xsl:template>
+  <xsl:template match="CapabilityStatement"/>
   <xsl:template match="*">
     <xsl:message terminate="yes" select="concat('Unexpected resource: ', local-name(.))"/>
   </xsl:template>

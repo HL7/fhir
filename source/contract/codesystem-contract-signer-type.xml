@@ -17,7 +17,7 @@
   <concept>
     <code value="AUTHN"/>
     <display value="Authenticator"/>
-    <definition value="A person in the role of verifier who attests to the accuracy of an act, but who does not have privileges to legally authenticate information content. An example would be a resident physician who sees a patient and dictates a note, then later signs it. The resident’s signature constitutes an authentication."/>
+    <definition value="A person in the role of verifier who attests to the accuracy of an act, but who does not have privileges to legally authenticate information content. An example would be a resident physician who sees a patient and dictates a note, then later signs it. The resident's signature constitutes an authentication."/>
   </concept>
   <concept>
     <code value="AUT"/>
@@ -92,7 +92,7 @@
   <concept>
     <code value="DEPEND"/>
     <display value="Dependent"/>
-    <definition value="A person covered under an insurance policy or program based on an association with a subscriber, which is recognized by the policy holder. The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child. The policy holder may be required by law to recognize certain associations or may have discretion about the associations. For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents. Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently-abled or deceased, a guardian ad Lidem or estate executor may be appointed to assume the subscriber’s legal standing in the relationship with the dependent."/>
+    <definition value="A person covered under an insurance policy or program based on an association with a subscriber, which is recognized by the policy holder. The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child. The policy holder may be required by law to recognize certain associations or may have discretion about the associations. For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents. Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently-abled or deceased, a guardian ad Lidem or estate executor may be appointed to assume the subscriber's legal standing in the relationship with the dependent."/>
   </concept>
   <concept>
     <code value="DPOWATT"/>
@@ -117,17 +117,17 @@
   <concept>
     <code value="GRANTEE"/>
     <display value="Grantee"/>
-    <definition value="A person who grants to another person the authority to represent or act on that person’s behalf.  Examples include (1) exercising specific rights belonging to the grantee; (2) performing specific duties on behalf of a grantee; and (3) making specific decisions concerning a grantee."/>
+    <definition value="A person who grants to another person the authority to represent or act on that person's behalf.  Examples include (1) exercising specific rights belonging to the grantee; (2) performing specific duties on behalf of a grantee; and (3) making specific decisions concerning a grantee."/>
   </concept>
   <concept>
     <code value="GRANTOR"/>
     <display value="Grantor"/>
-    <definition value="A person who has been granted the authority to represent or act on another’s behalf. Examples include (1) exercising specific rights belonging to the grantee; (2) performing specific duties on behalf of a grantee; and (3) making specific decisions concerning a grantee."/>
+    <definition value="A person who has been granted the authority to represent or act on another's behalf. Examples include (1) exercising specific rights belonging to the grantee; (2) performing specific duties on behalf of a grantee; and (3) making specific decisions concerning a grantee."/>
   </concept>
   <concept>
     <code value="GUAR"/>
     <display value="Guarantor"/>
-    <definition value="A person or organization contractually recognized by the issuer as an entity that has assumed fiscal responsibility (e.g., by making or giving a promise, assurance, or pledge) for another entity’s financial obligations by guaranteeing to pay for amounts owed to a particular account.  In a healthcare context, the account may be a patient’s billing account for services rendered by a provider or a health plan premium account."/>
+    <definition value="A person or organization contractually recognized by the issuer as an entity that has assumed fiscal responsibility (e.g., by making or giving a promise, assurance, or pledge) for another entity's financial obligations by guaranteeing to pay for amounts owed to a particular account.  In a healthcare context, the account may be a patient's billing account for services rendered by a provider or a health plan premium account."/>
   </concept>
   <concept>
     <code value="GUARD"/>
@@ -147,7 +147,7 @@
   <concept>
     <code value="INTPRT"/>
     <display value="Interpreter"/>
-    <definition value="A person who converts spoken or written language into the language of key participants in an event such as when a provider is obtaining a patient’s consent to treatment or permission to disclose information."/>
+    <definition value="A person who converts spoken or written language into the language of key participants in an event such as when a provider is obtaining a patient's consent to treatment or permission to disclose information."/>
   </concept>
   <concept>
     <code value="INSBJ"/>

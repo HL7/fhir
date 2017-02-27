@@ -1160,15 +1160,15 @@
   </concept>
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
-      <valueString value="May include the patient&#39;s voice, or the voice of staff present in the room, or an operator&#39;s voice (whether for the purpose of recording a narrative accompanying a procedure or not)."/>
+      <valueString value="May include the patient's voice, or the voice of staff present in the room, or an operator's voice (whether for the purpose of recording a narrative accompanying a procedure or not)."/>
     </extension>
     <code value="109110"/>
     <display value="Voice"/>
-    <definition value="The sound of a human&#39;s speech, recorded during a procedure"/>
+    <definition value="The sound of a human's speech, recorded during a procedure"/>
   </concept>
   <concept>
     <code value="109111"/>
-    <display value="Operator&#39;s narrative"/>
+    <display value="Operator's narrative"/>
     <definition value="The voice of a device operator, recorded during a procedure"/>
   </concept>
   <concept>
@@ -1269,8 +1269,8 @@
   </concept>
   <concept>
     <code value="109201"/>
-    <display value="America&#39;s Pet Registry Inc."/>
-    <definition value="America&#39;s Pet Registry Inc"/>
+    <display value="America's Pet Registry Inc."/>
+    <definition value="America's Pet Registry Inc"/>
   </concept>
   <concept>
     <code value="109202"/>
@@ -1334,8 +1334,8 @@
   </concept>
   <concept>
     <code value="109214"/>
-    <display value="International Progressive Dog Breeders&#39; Alliance"/>
-    <definition value="International Progressive Dog Breeders&#39; Alliance"/>
+    <display value="International Progressive Dog Breeders' Alliance"/>
+    <definition value="International Progressive Dog Breeders' Alliance"/>
   </concept>
   <concept>
     <code value="109215"/>
@@ -2590,7 +2590,7 @@
   <concept>
     <code value="110803"/>
     <display value="Proton Density Weighted MR Signal Intensity"/>
-    <definition value="Signal intensity of a Proton Density Weighted MR image. All MR images have intensity proportional to proton density. Images with very little T1 or T2 weighting are called &#39;PD-weighted&#39;"/>
+    <definition value="Signal intensity of a Proton Density Weighted MR image. All MR images have intensity proportional to proton density. Images with very little T1 or T2 weighting are called 'PD-weighted'"/>
   </concept>
   <concept>
     <code value="110804"/>
@@ -2685,17 +2685,17 @@
   <concept>
     <code value="110822"/>
     <display value="Spatial Displacement X Component"/>
-    <definition value="Spatial Displacement along axis X of a non-linear deformable spatial registration image. The X axis is defined in reference to the patient&#39;s orientation, and is increasing to the left hand side of the patient"/>
+    <definition value="Spatial Displacement along axis X of a non-linear deformable spatial registration image. The X axis is defined in reference to the patient's orientation, and is increasing to the left hand side of the patient"/>
   </concept>
   <concept>
     <code value="110823"/>
     <display value="Spatial Displacement Y Component"/>
-    <definition value="Spatial Displacement along axis Y of a non-linear deformable spatial registration image. The Y axis is defined in reference to the patient&#39;s orientation, and is increasing to the posterior side of the patient"/>
+    <definition value="Spatial Displacement along axis Y of a non-linear deformable spatial registration image. The Y axis is defined in reference to the patient's orientation, and is increasing to the posterior side of the patient"/>
   </concept>
   <concept>
     <code value="110824"/>
     <display value="Spatial Displacement Z Component"/>
-    <definition value="Spatial Displacement along axis Z of a non-linear deformable spatial registration image. The Z axis is defined in reference to the patient&#39;s orientation, and is increasing toward the head of the patient"/>
+    <definition value="Spatial Displacement along axis Z of a non-linear deformable spatial registration image. The Z axis is defined in reference to the patient's orientation, and is increasing toward the head of the patient"/>
   </concept>
   <concept>
     <code value="110825"/>
@@ -2885,17 +2885,17 @@
   <concept>
     <code value="110860"/>
     <display value="Left-Right Axis"/>
-    <definition value="A spatial dimension axis running along a line between the patient&#39;s left and right side"/>
+    <definition value="A spatial dimension axis running along a line between the patient's left and right side"/>
   </concept>
   <concept>
     <code value="110861"/>
     <display value="Head-Foot Axis"/>
-    <definition value="A spatial dimension axis running along a line between the patient&#39;s head and foot"/>
+    <definition value="A spatial dimension axis running along a line between the patient's head and foot"/>
   </concept>
   <concept>
     <code value="110862"/>
     <display value="Anterior-Posterior Axis"/>
-    <definition value="A spatial dimension axis running along a line between the patient&#39;s anterior and posterior sides"/>
+    <definition value="A spatial dimension axis running along a line between the patient's anterior and posterior sides"/>
   </concept>
   <concept>
     <code value="110863"/>
@@ -3141,7 +3141,7 @@
   <concept>
     <code value="111020"/>
     <display value="Depth"/>
-    <definition value="A location identifier based on a feature&#39;s inferred distance from the surface of the associated anatomy"/>
+    <definition value="A location identifier based on a feature's inferred distance from the surface of the associated anatomy"/>
   </concept>
   <concept>
     <code value="111021"/>
@@ -3512,8 +3512,8 @@
   </concept>
   <concept>
     <code value="111111"/>
-    <display value="Cooper&#39;s ligament changes"/>
-    <definition value="Straightening or thickening of Cooper&#39;s ligaments"/>
+    <display value="Cooper's ligament changes"/>
+    <definition value="Straightening or thickening of Cooper's ligaments"/>
   </concept>
   <concept>
     <code value="111112"/>
@@ -3880,32 +3880,32 @@
   </concept>
   <concept>
     <code value="111187"/>
-    <display value="Flash doesn&#39;t include patient name and additional patient id"/>
+    <display value="Flash doesn't include patient name and additional patient id"/>
     <definition value="Image quality deficiency according to MQCM"/>
   </concept>
   <concept>
     <code value="111188"/>
-    <display value="Flash doesn&#39;t include date of examination"/>
+    <display value="Flash doesn't include date of examination"/>
     <definition value="Image quality deficiency according to MQCM"/>
   </concept>
   <concept>
     <code value="111189"/>
-    <display value="Flash doesn&#39;t include facility name and location"/>
+    <display value="Flash doesn't include facility name and location"/>
     <definition value="Image quality deficiency according to MQSA"/>
   </concept>
   <concept>
     <code value="111190"/>
-    <display value="Flash doesn&#39;t include technologist identification"/>
+    <display value="Flash doesn't include technologist identification"/>
     <definition value="Image quality deficiency according to MQCM"/>
   </concept>
   <concept>
     <code value="111191"/>
-    <display value="Flash doesn&#39;t include cassette/screen/detector identification"/>
+    <display value="Flash doesn't include cassette/screen/detector identification"/>
     <definition value="Image quality deficiency according to MQCM"/>
   </concept>
   <concept>
     <code value="111192"/>
-    <display value="Flash doesn&#39;t include mammography unit identification"/>
+    <display value="Flash doesn't include mammography unit identification"/>
     <definition value="Image quality deficiency according to MQCM"/>
   </concept>
   <concept>
@@ -3986,12 +3986,12 @@
   <concept>
     <code value="111208"/>
     <display value="Grid artifact(s)"/>
-    <definition value="Feature(s) arising from the acquisition unit&#39;s anti-scatter grid mechanism. For two-dimensional systems, such features include those of mechanically damaged or incorrectly positioned grids. For moving or Bucky grids, artifacts may result from intentional grid motion that is inadequate in duration or velocity uniformity"/>
+    <definition value="Feature(s) arising from the acquisition unit's anti-scatter grid mechanism. For two-dimensional systems, such features include those of mechanically damaged or incorrectly positioned grids. For moving or Bucky grids, artifacts may result from intentional grid motion that is inadequate in duration or velocity uniformity"/>
   </concept>
   <concept>
     <code value="111209"/>
     <display value="Positioning"/>
-    <definition value="Inadequate arrangement of the anatomy of interest with respect to the X-Ray field and image detector sensitive area. Examples: 1) positioning is &quot;cutoff&quot; when the projection of anatomy of interest falls outside the sensitive area of the detector; 2) &quot;cone cut&quot;, in which the X-Ray field does not adequately cover the anatomy of interest; 3) detector&#39;s sensitive surface is too small to cover the projection of the anatomy of interest; 4) improper angular orientation or &quot;rotation&quot; of anatomy of interest with respect to the X-Ray source, or detector; 5) projection of other anatomy or clothing over the anatomy of interest in the image"/>
+    <definition value="Inadequate arrangement of the anatomy of interest with respect to the X-Ray field and image detector sensitive area. Examples: 1) positioning is &quot;cutoff&quot; when the projection of anatomy of interest falls outside the sensitive area of the detector; 2) &quot;cone cut&quot;, in which the X-Ray field does not adequately cover the anatomy of interest; 3) detector's sensitive surface is too small to cover the projection of the anatomy of interest; 4) improper angular orientation or &quot;rotation&quot; of anatomy of interest with respect to the X-Ray source, or detector; 5) projection of other anatomy or clothing over the anatomy of interest in the image"/>
   </concept>
   <concept>
     <code value="111210"/>
@@ -5153,7 +5153,7 @@
   <concept>
     <code value="111419"/>
     <display value="Additional evaluation requested from abnormal screening exam"/>
-    <definition value="Additional breast imaging performed at the time of the patient&#39;s screening mammogram"/>
+    <definition value="Additional breast imaging performed at the time of the patient's screening mammogram"/>
   </concept>
   <concept>
     <code value="111420"/>
@@ -5653,7 +5653,7 @@
   <concept>
     <code value="111515"/>
     <display value="Relevant Risk Factors"/>
-    <definition value="Personal, familial, and other health factors that may indicate an increase in the patient&#39;s chances of developing a health condition or disease, such as breast cancer"/>
+    <definition value="Personal, familial, and other health factors that may indicate an increase in the patient's chances of developing a health condition or disease, such as breast cancer"/>
   </concept>
   <concept>
     <code value="111516"/>
@@ -5763,7 +5763,7 @@
   <concept>
     <code value="111537"/>
     <display value="Family Member with Risk Factor"/>
-    <definition value="A patient&#39;s biological relative who exhibits a health factor that may indicate an increase in the patient&#39;s chances of developing a particular disease or medical problem"/>
+    <definition value="A patient's biological relative who exhibits a health factor that may indicate an increase in the patient's chances of developing a particular disease or medical problem"/>
   </concept>
   <concept>
     <code value="111538"/>
@@ -5818,7 +5818,7 @@
   <concept>
     <code value="111548"/>
     <display value="Environmental Factor"/>
-    <definition value="A classification of a potentially harmful substance or gas in a subject&#39;s environment, such as asbestos, lead, or carcinogens"/>
+    <definition value="A classification of a potentially harmful substance or gas in a subject's environment, such as asbestos, lead, or carcinogens"/>
   </concept>
   <concept>
     <code value="111549"/>
@@ -5873,17 +5873,17 @@
   <concept>
     <code value="111559"/>
     <display value="Weak family history of breast cancer"/>
-    <definition value="A patient&#39;s biological aunt, grandmother, or female cousin was diagnosed with breast cancer. Definition from BI-RADS®"/>
+    <definition value="A patient's biological aunt, grandmother, or female cousin was diagnosed with breast cancer. Definition from BI-RADS®"/>
   </concept>
   <concept>
     <code value="111560"/>
     <display value="Intermediate family history of breast cancer"/>
-    <definition value="A patient&#39;s biological mother or sister was diagnosed with breast cancer after they had gone through menopause. Definition from BI-RADS®"/>
+    <definition value="A patient's biological mother or sister was diagnosed with breast cancer after they had gone through menopause. Definition from BI-RADS®"/>
   </concept>
   <concept>
     <code value="111561"/>
     <display value="Very strong family history of breast cancer"/>
-    <definition value="A patient&#39;s biological mother or sister was diagnosed with breast cancer before they had gone through menopause, or more than one of the patient&#39;s first-degree relatives (biological mother or sister) were diagnosed with breast cancer after they had gone through menopause. Definition from BI-RADS®"/>
+    <definition value="A patient's biological mother or sister was diagnosed with breast cancer before they had gone through menopause, or more than one of the patient's first-degree relatives (biological mother or sister) were diagnosed with breast cancer after they had gone through menopause. Definition from BI-RADS®"/>
   </concept>
   <concept>
     <code value="111562"/>
@@ -5893,7 +5893,7 @@
   <concept>
     <code value="111563"/>
     <display value="Family history unknown"/>
-    <definition value="The health record of a patient&#39;s biological relatives is not known"/>
+    <definition value="The health record of a patient's biological relatives is not known"/>
   </concept>
   <concept>
     <code value="111564"/>
@@ -6303,27 +6303,27 @@
   <concept>
     <code value="111679"/>
     <display value="Distance Pupillary Distance"/>
-    <definition value="Distance in mm between the pupils when the patient&#39;s object of regard is in the distance"/>
+    <definition value="Distance in mm between the pupils when the patient's object of regard is in the distance"/>
   </concept>
   <concept>
     <code value="111680"/>
     <display value="Near Pupillary Distance"/>
-    <definition value="Distance in mm between the pupils when the patient&#39;s object of regard is at near"/>
+    <definition value="Distance in mm between the pupils when the patient's object of regard is at near"/>
   </concept>
   <concept>
     <code value="111685"/>
     <display value="Autorefraction Visual Acuity"/>
-    <definition value="A patient&#39;s vision with the correction measured by an autorefractor in place"/>
+    <definition value="A patient's vision with the correction measured by an autorefractor in place"/>
   </concept>
   <concept>
     <code value="111686"/>
     <display value="Habitual Visual Acuity"/>
-    <definition value="A patient&#39;s vision with whichever vision correction the patient customarily wears"/>
+    <definition value="A patient's vision with whichever vision correction the patient customarily wears"/>
   </concept>
   <concept>
     <code value="111687"/>
     <display value="Prescription Visual Acuity"/>
-    <definition value="A patient&#39;s vision with the final spectacle prescription in place"/>
+    <definition value="A patient's vision with the final spectacle prescription in place"/>
   </concept>
   <concept>
     <code value="111688"/>
@@ -6373,7 +6373,7 @@
   <concept>
     <code value="111697"/>
     <display value="Visual Fixation Quality Problem"/>
-    <definition value="The reason why the patient&#39;s visual fixation was not steady or was indeterminate"/>
+    <definition value="The reason why the patient's visual fixation was not steady or was indeterminate"/>
   </concept>
   <concept>
     <code value="111698"/>
@@ -6413,7 +6413,7 @@
   <concept>
     <code value="111706"/>
     <display value="Issuer of Parent Specimen Identifier"/>
-    <definition value="Assigning authority for parent specimen&#39;s identifier"/>
+    <definition value="Assigning authority for parent specimen's identifier"/>
   </concept>
   <concept>
     <code value="111707"/>
@@ -6543,7 +6543,7 @@
   <concept>
     <code value="111751"/>
     <display value="Ultrasound Immersion"/>
-    <definition value="A method of obtaining ophthalmic axial measurements that uses ultrasound, and that requires immersion of the patient&#39;s eye in fluid as he lies in a supine position"/>
+    <definition value="A method of obtaining ophthalmic axial measurements that uses ultrasound, and that requires immersion of the patient's eye in fluid as he lies in a supine position"/>
   </concept>
   <concept>
     <code value="111752"/>
@@ -6793,7 +6793,7 @@
   <concept>
     <code value="111818"/>
     <display value="Visual Field Full Threshold Test Strategy"/>
-    <definition value="Threshold test algorithm that determines a patient&#39;s sensitivity at each test point in the threshold test pattern by adjusting intensity by 4 dB steps until the patient changes their response, and then adjusts the intensity in the opposite direction by 2 dB steps until the patient changes their response again. The last stimulus seen by the patient is recognized as the threshold for that point. The starting values are determined by first thresholding a &quot;primary&quot; point in each quadrant then using the results of each primary point to determine the starting values for neighboring points"/>
+    <definition value="Threshold test algorithm that determines a patient's sensitivity at each test point in the threshold test pattern by adjusting intensity by 4 dB steps until the patient changes their response, and then adjusts the intensity in the opposite direction by 2 dB steps until the patient changes their response again. The last stimulus seen by the patient is recognized as the threshold for that point. The starting values are determined by first thresholding a &quot;primary&quot; point in each quadrant then using the results of each primary point to determine the starting values for neighboring points"/>
   </concept>
   <concept>
     <code value="111819"/>
@@ -6888,7 +6888,7 @@
   <concept>
     <code value="111837"/>
     <display value="Visual Field CLASS Strategy"/>
-    <definition value="A supra threshold screening strategy. The starting stimuli intensities depend on the classification of the patient&#39;s visual hill by measuring the central (fovea) or peripheral (15° meridian) threshold. The result of each dot slightly underestimates the sensitivity value (within 5 dB)"/>
+    <definition value="A supra threshold screening strategy. The starting stimuli intensities depend on the classification of the patient's visual hill by measuring the central (fovea) or peripheral (15° meridian) threshold. The result of each dot slightly underestimates the sensitivity value (within 5 dB)"/>
   </concept>
   <concept>
     <code value="111838"/>
@@ -6923,17 +6923,17 @@
   <concept>
     <code value="111844"/>
     <display value="Blind Spot Monitoring"/>
-    <definition value="A method of monitoring the patient&#39;s fixation by periodically presenting stimulus in a location on the background surface that corresponds to the patient&#39;s blind spot"/>
+    <definition value="A method of monitoring the patient's fixation by periodically presenting stimulus in a location on the background surface that corresponds to the patient's blind spot"/>
   </concept>
   <concept>
     <code value="111845"/>
     <display value="Macular Fixation Testing"/>
-    <definition value="A method of monitoring the patient&#39;s fixation by presenting the stimulus to the patient&#39;s macula"/>
+    <definition value="A method of monitoring the patient's fixation by presenting the stimulus to the patient's macula"/>
   </concept>
   <concept>
     <code value="111846"/>
     <display value="Observation by Examiner"/>
-    <definition value="A method of monitoring the patient&#39;s fixation by observation from the examiner of the patient"/>
+    <definition value="A method of monitoring the patient's fixation by observation from the examiner of the patient"/>
   </concept>
   <concept>
     <code value="111847"/>
@@ -6963,17 +6963,17 @@
   <concept>
     <code value="111852"/>
     <display value="Visual Field Index"/>
-    <definition value="Index of a patient&#39;s remaining visual field normalized for both age and generalized defect"/>
+    <definition value="Index of a patient's remaining visual field normalized for both age and generalized defect"/>
   </concept>
   <concept>
     <code value="111853"/>
     <display value="Visual Field Loss Due to Diffuse Defect"/>
-    <definition value="Estimate of the portion of a patient&#39;s visual field loss that is diffuse (i.e., spread evenly across all portions of the visual field)"/>
+    <definition value="Estimate of the portion of a patient's visual field loss that is diffuse (i.e., spread evenly across all portions of the visual field)"/>
   </concept>
   <concept>
     <code value="111854"/>
     <display value="Visual Field Loss Due to Local Defect"/>
-    <definition value="Estimate of the portion of a patient&#39;s visual field loss that is local (i.e., not spread evenly across all portions of the visual field)"/>
+    <definition value="Estimate of the portion of a patient's visual field loss that is local (i.e., not spread evenly across all portions of the visual field)"/>
   </concept>
   <concept>
     <code value="111855"/>
@@ -7133,7 +7133,7 @@
   <concept>
     <code value="111929"/>
     <display value="Total retinal thickness (ILM to BM)"/>
-    <definition value="Measurement approximating the distance related to the structure between the ILM and the Bruch&#39;s membrane (BM); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
+    <definition value="Measurement approximating the distance related to the structure between the ILM and the Bruch's membrane (BM); see Section III.6 &quot;Retinal Thickness Definition&quot; in PS3.17"/>
   </concept>
   <concept>
     <code value="111930"/>
@@ -7198,7 +7198,7 @@
   <concept>
     <code value="111942"/>
     <display value="Corneal refractive power map"/>
-    <definition value="A two dimensional representation of the refractive power of the cornea. Corneal refractive power is calculated using Snell&#39;s Law"/>
+    <definition value="A two dimensional representation of the refractive power of the cornea. Corneal refractive power is calculated using Snell's Law"/>
   </concept>
   <concept>
     <code value="111943"/>
@@ -7413,7 +7413,7 @@
   <concept>
     <code value="112037"/>
     <display value="Non-lesion Modifier"/>
-    <definition value="A descriptor for a non-lesion object finding or feature, used to indicate whether the object was detected as being internal or external to the patient&#39;s body"/>
+    <definition value="A descriptor for a non-lesion object finding or feature, used to indicate whether the object was detected as being internal or external to the patient's body"/>
   </concept>
   <concept>
     <code value="112038"/>
@@ -7762,7 +7762,7 @@
   </concept>
   <concept>
     <code value="112107"/>
-    <display value="Fleischner&#39;s line(s)"/>
+    <display value="Fleischner's line(s)"/>
     <definition value="A straight, curved, or irregular linear opacity that is visible in multiple projections; usually situated in the lower half of the lung; vary markedly in length and width [Fraser and Pare]"/>
   </concept>
   <concept>
@@ -7997,7 +7997,7 @@
   </concept>
   <concept>
     <code value="112154"/>
-    <display value="Bat&#39;s wing distribution"/>
+    <display value="Bat's wing distribution"/>
     <definition value="Spatial arrangement of opacities that bears vague resemblance to the shape of a bat in flight; bilaterally symmetric [Fraser and Pare]"/>
   </concept>
   <concept>
@@ -9112,8 +9112,8 @@
   </concept>
   <concept>
     <code value="113068"/>
-    <display value="Student&#39;s T-Test"/>
-    <definition value="Values are derived by calculating the value of the Student&#39;s T-Test statistic from multiple image samples"/>
+    <display value="Student's T-Test"/>
+    <definition value="Values are derived by calculating the value of the Student's T-Test statistic from multiple image samples"/>
   </concept>
   <concept>
     <code value="113069"/>
@@ -9298,7 +9298,7 @@
   <concept>
     <code value="113108"/>
     <display value="Retain Patient Characteristics Option"/>
-    <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained; e.g. Patient&#39;s Age, Sex, Size (height) and Weight"/>
+    <definition value="Retention of information that would otherwise be removed during de-identification according to an option defined in PS3.15 that requires that any physical characteristics of the patient, which are descriptive rather than identifying information per se, be retained; e.g. Patient's Age, Sex, Size (height) and Weight"/>
   </concept>
   <concept>
     <code value="113109"/>
@@ -9383,7 +9383,7 @@
   <concept>
     <code value="113516"/>
     <display value="Prescription Identifier"/>
-    <definition value="Administered Product&#39;s Prescription Number"/>
+    <definition value="Administered Product's Prescription Number"/>
   </concept>
   <concept>
     <code value="113517"/>
@@ -9428,7 +9428,7 @@
   <concept>
     <code value="113528"/>
     <display value="Package Insert"/>
-    <definition value="Reference authority The reported organ dose is based on radiopharmaceutical&#39;s package insert"/>
+    <definition value="Reference authority The reported organ dose is based on radiopharmaceutical's package insert"/>
   </concept>
   <concept>
     <code value="113529"/>
@@ -10008,7 +10008,7 @@
   <concept>
     <code value="113763"/>
     <display value="Calibration Uncertainty"/>
-    <definition value="Uncertainty of the &#39;actual&#39; value"/>
+    <definition value="Uncertainty of the 'actual' value"/>
   </concept>
   <concept>
     <code value="113764"/>
@@ -10343,7 +10343,7 @@
   <concept>
     <code value="113852"/>
     <display value="Irradiation Event"/>
-    <definition value="An irradiation event is the loading of X-Ray equipment caused by a single continuous actuation of the equipment&#39;s irradiation switch, from the start of the loading time of the first pulse until the loading time trailing edge of the final pulse. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user; e.g. a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event"/>
+    <definition value="An irradiation event is the loading of X-Ray equipment caused by a single continuous actuation of the equipment's irradiation switch, from the start of the loading time of the first pulse until the loading time trailing edge of the final pulse. Any automatic on-off switching of the irradiation source during the event is not treated as separate events, rather the event includes the time between start and stop of irradiation as triggered by the user; e.g. a pulsed fluoro X-Ray acquisition shall be treated as a single irradiation event"/>
   </concept>
   <concept>
     <code value="113853"/>
@@ -10653,7 +10653,7 @@
   <concept>
     <code value="113937"/>
     <display value="AAPM 204 Effective Diameter Estimated From Patient Age"/>
-    <definition value="The Size Specific Dose Estimation is computed using Table 1D (32cm phantom) or Table 2D (16cm phantom) using an effective diameter estimated from the patient&#39;s age using Table 3 of AAPM Report 204"/>
+    <definition value="The Size Specific Dose Estimation is computed using Table 1D (32cm phantom) or Table 2D (16cm phantom) using an effective diameter estimated from the patient's age using Table 3 of AAPM Report 204"/>
   </concept>
   <concept>
     <code value="113940"/>
@@ -10947,17 +10947,17 @@
   </concept>
   <concept>
     <code value="121009"/>
-    <display value="Person Observer&#39;s Organization Name"/>
+    <display value="Person Observer's Organization Name"/>
     <definition value="Organization or institution with which the human observer is affiliated for the context of the current observation"/>
   </concept>
   <concept>
     <code value="121010"/>
-    <display value="Person Observer&#39;s Role in the Organization"/>
+    <display value="Person Observer's Role in the Organization"/>
     <definition value="Organizational role of human observer for the context of the current observation"/>
   </concept>
   <concept>
     <code value="121011"/>
-    <display value="Person Observer&#39;s Role in this Procedure"/>
+    <display value="Person Observer's Role in this Procedure"/>
     <definition value="Procedural role of human observer for the context of the current observation"/>
   </concept>
   <concept>
@@ -11250,7 +11250,7 @@
   <concept>
     <code value="121057"/>
     <display value="Perimeter outline"/>
-    <definition value="A set of points on an image, that when connected by line segments, provide a closed polyline that is a two-dimensional border of a three-dimensional region&#39;s intersection with, or projection into the image"/>
+    <definition value="A set of points on an image, that when connected by line segments, provide a closed polyline that is a two-dimensional border of a three-dimensional region's intersection with, or projection into the image"/>
   </concept>
   <concept>
     <code value="121058"/>
@@ -11946,7 +11946,7 @@
   <concept>
     <code value="121156"/>
     <display value="Percutaneous Entry Action"/>
-    <definition value="Action of a clinical professional at the site of percutaneous access to a patient&#39;s cardiovascular system"/>
+    <definition value="Action of a clinical professional at the site of percutaneous access to a patient's cardiovascular system"/>
   </concept>
   <concept>
     <code value="121157"/>
@@ -13982,22 +13982,22 @@
   <concept>
     <code value="122242"/>
     <display value="BSA = 0.0235*WT^0.51456*HT^ 0.42246"/>
-    <definition value="Body Surface Area computed from patient height and weight: BSA = 0.0235* WT[kg] ^0.51456*HT[cm]^ 0.42246 [Gehan EA, George SL, &#39;Estimation of human body surface area from height and weight&#39;, Cancer Chemother Rep 1970 54:225-35]"/>
+    <definition value="Body Surface Area computed from patient height and weight: BSA = 0.0235* WT[kg] ^0.51456*HT[cm]^ 0.42246 [Gehan EA, George SL, 'Estimation of human body surface area from height and weight', Cancer Chemother Rep 1970 54:225-35]"/>
   </concept>
   <concept>
     <code value="122243"/>
     <display value="BSA = 0.024265*WT^0.5378*HT^0.3964"/>
-    <definition value="Body Surface Area computed from patient height and weight: BSA = 0.024265 * WT[kg] ^ 0.5378 * HT[cm] ^ 0.3964 [Haycock G.B., Schwartz G.J., Wisotsky D.H. &#39;Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.&#39; The Journal of Pediatrics 1978 93:1:62-66]"/>
+    <definition value="Body Surface Area computed from patient height and weight: BSA = 0.024265 * WT[kg] ^ 0.5378 * HT[cm] ^ 0.3964 [Haycock G.B., Schwartz G.J., Wisotsky D.H. 'Geometric method for measuring body surface area: A height weight formula validated in infants, children and adults.' The Journal of Pediatrics 1978 93:1:62-66]"/>
   </concept>
   <concept>
     <code value="122244"/>
     <display value="BSA = (HT * WT/36) ^0.5"/>
-    <definition value="Body Surface Area computed from patient height and weight: BSA = (HT[m] * WT[kg] / 36) ^ 0.5 [Mosteller, R.D. &#39;Simplified Calculation of Body Surface Area.&#39; N Engl J Med 1987 Oct 22;317(17):1098]"/>
+    <definition value="Body Surface Area computed from patient height and weight: BSA = (HT[m] * WT[kg] / 36) ^ 0.5 [Mosteller, R.D. 'Simplified Calculation of Body Surface Area.' N Engl J Med 1987 Oct 22;317(17):1098]"/>
   </concept>
   <concept>
     <code value="122245"/>
     <display value="BSA = 1321+0.3433*WT"/>
-    <definition value="Body Surface Area computed from patient weight:BSA = 1321 + 0.3433 * WT[kg] (for pediatrics 3-30 kg) [Current, J.D. &#39;A Linear Equation For Estimating The Body Surface Area In Infants And Children&#39;, The Internet Journal of Anesthesiology. 1998. 2:2]"/>
+    <definition value="Body Surface Area computed from patient weight:BSA = 1321 + 0.3433 * WT[kg] (for pediatrics 3-30 kg) [Current, J.D. 'A Linear Equation For Estimating The Body Surface Area In Infants And Children', The Internet Journal of Anesthesiology. 1998. 2:2]"/>
   </concept>
   <concept>
     <code value="122246"/>
@@ -14097,7 +14097,7 @@
   <concept>
     <code value="122266"/>
     <display value="BSA = 0.007358 * WT ^ 0.425 * HT ^ 0.725"/>
-    <definition value="Body Surface Area computed from patient height and weight: BSA = 0.007358 * WT[kg] ^ 0.425 * HT[cm] ^ 0.725 (for East Asian adult, aged 15+ years) [Kanai Izumi, Masamitsu Kanai, &#39;Clinical examination method summary&#39;]"/>
+    <definition value="Body Surface Area computed from patient height and weight: BSA = 0.007358 * WT[kg] ^ 0.425 * HT[cm] ^ 0.725 (for East Asian adult, aged 15+ years) [Kanai Izumi, Masamitsu Kanai, 'Clinical examination method summary']"/>
   </concept>
   <concept>
     <code value="122267"/>
@@ -15477,7 +15477,7 @@
   <concept>
     <code value="122731"/>
     <display value="Hodges QTc Algorithm"/>
-    <definition value="Hodges QT Correction Algorithm; QT + 1.75 (heart rate-60); Hodges M, Salerno Q, Erlien D. &quot;Bazett&#39;s QT correction reviewed. Evidence that a linear QT correction for heart rate is better.&quot; J Am Coll Cardiol1:694 (1983)"/>
+    <definition value="Hodges QT Correction Algorithm; QT + 1.75 (heart rate-60); Hodges M, Salerno Q, Erlien D. &quot;Bazett's QT correction reviewed. Evidence that a linear QT correction for heart rate is better.&quot; J Am Coll Cardiol1:694 (1983)"/>
   </concept>
   <concept>
     <code value="122732"/>
@@ -16060,7 +16060,7 @@
   <concept>
     <code value="125203"/>
     <display value="Acquisition Protocol"/>
-    <definition value="A type of clinical acquisition protocol for creating images or image-derived measurements. Acquisition protocols may be specific to a manufacturer&#39;s product"/>
+    <definition value="A type of clinical acquisition protocol for creating images or image-derived measurements. Acquisition protocols may be specific to a manufacturer's product"/>
   </concept>
   <concept>
     <code value="125204"/>
@@ -16180,7 +16180,7 @@
   <concept>
     <code value="125227"/>
     <display value="Modified Simpson"/>
-    <definition value="Modified Simpson&#39;s Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. &quot;Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms&quot;. J Am Soc Echocardiogr.1989 2(5):358-367. Sep-Oct"/>
+    <definition value="Modified Simpson's Method of estimating ventricular volume, based on the method of disks with paired apical views. Schiller NB, et al. &quot;Recommendations for quantitation of the left ventricle by two-dimensional echocardiography. American Society of Echocardiography Committee on Standards, Subcommittee on Quantitation of Two-Dimensional Echocardiograms&quot;. J Am Soc Echocardiogr.1989 2(5):358-367. Sep-Oct"/>
   </concept>
   <concept>
     <code value="125228"/>
@@ -16943,8 +16943,8 @@
   </concept>
   <concept>
     <code value="126517"/>
-    <display value="cG250-F(ab&#39;)(2) ^89^Zr"/>
-    <definition value="A Zr 89 cG250-F(ab&#39;)(2) PET Radiotracer"/>
+    <display value="cG250-F(ab')(2) ^89^Zr"/>
+    <definition value="A Zr 89 cG250-F(ab')(2) PET Radiotracer"/>
   </concept>
   <concept>
     <code value="126518"/>
