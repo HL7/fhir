@@ -1,10 +1,11 @@
-// Fetch the last 3 results for all vitals for a patient
-GET [base]/Observation$lastn?max=3&patient=Patient/123&category=vital-signs
+//  1): Fetch the last 3 results for all vitals for a patient  2): Fetch the last lab results for a patient 3): Fetch the last 3 blood pressures, respiratory rate and heart rates for a patient
+
+1) GET [base]/Observation$lastn?max=3&patient=Patient/123&category=vital-signs
 
 --------------------------------------------
-// Fetch the last lab results for a patient
-GET [base]/Observation$lastn?patient=Patient/123&category=laboratory
+
+2) GET [base]/Observation$lastn?patient=Patient/123&category=laboratory
 
 --------------------------------------------
-// Fetch the last 3 blood pressures, respiratory rate and heart rates for a patient
-GET [base]/Observation$lastn?max=3&patient=Patient/123&category=vital-signs&code=9279-1,8867-4,85354-9
+
+3) GET [base]/Observation$lastn?max=3&patient=Patient/123&category=vital-signs&code=9279-1,8867-4,85354-9
