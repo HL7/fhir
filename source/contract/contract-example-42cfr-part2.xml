@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Contract xmlns="http://hl7.org/fhir">
+  <id value="C-2121"/>
+  <meta>
+    <versionId value="1"/>
+    <lastUpdated value="2016-07-19T18:18:42.108-04:00"/>
+  </meta>
+  <issued value="2031-11-01T21:18:27-04:00"/>
+  <subject>
+    <reference value="Patient/f201"/>
+  </subject>
+  <type>
+    <coding>
+      <system value="http://org.mdhhs.fhir.consentdirective-type"/>
+      <code value="OPTIN"/>
+    </coding>
+    <text value="Opt-in consent directive"/>
+  </type>
+  <subType>
+    <coding>
+      <system value="http://hl7.org/fhir/ValueSet/consent-category"/>
+      <code value="MDHHS-5515"/>
+      <display
+        value="Michigan MDHHS-5515 Consent to Share Behavioral Health Information for Care Coordination Purposes"
+      />
+    </coding>
+  </subType>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+    <code value="R"/>
+    <display value="Restricted"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActCode"/>
+    <code value="ETH"/>
+    <display value="substance abuse information sensitivity"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActCode"/>
+    <code value="42CFRPart2"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActReason"/>
+    <code value="TREAT"/>
+    <display value="treatment"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActReason"/>
+    <code value="HPAYMT"/>
+    <display value="healthcare payment"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActReason"/>
+    <code value="HOPERAT"/>
+    <display value="healthcare operations"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActCode"/>
+    <code value="PERSISTLABEL"/>
+    <display value="persist security label"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActCode"/>
+    <code value="PRIVMARK"/>
+    <display value="privacy mark"/>
+  </securityLabel>
+  <securityLabel>
+    <system value="http://hl7.org/fhir/v3/ActCode"/>
+    <code value="NORDSCLCD"/>
+    <display value="no redisclosure without consent directive"/>
+  </securityLabel>
+  <agent>
+    <actor>
+      <reference value="Organization/f001"/>
+      <display value="VA Ann Arbor Healthcare System"/>
+    </actor>
+    <role>
+      <coding>
+        <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+        <code value="IR"/>
+        <display value="Recipient"/>
+      </coding>
+      <text value="Recipient of restricted health information"/>
+    </role>
+  </agent>
+  <agent>
+    <actor>
+      <reference value="Organization/2"/>
+      <display value="Community Mental Health Clinic"/>
+    </actor>
+    <role>
+      <coding>
+        <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+        <code value="IS"/>
+        <display value="Sender"/>
+      </coding>
+      <text value="Sender of restricted health information"/>
+    </role>
+  </agent>
+  <signer>
+    <type>
+      <system value="http://org.mdhhs.fhir.consent-signer-type"/>
+      <code value="SELF"/>
+    </type>
+    <party>
+      <reference value="Patient/f201"/>
+      <display value="Alice Recruit"/>
+    </party>
+    <signature>
+      <type>
+        <system value="urn:iso-astm:E1762-95:2013"/>
+        <code value="1.2.840.10065.1.12.1.1"/>
+      </type>
+      <when value="2017-02-08T10:57:34+01:00"/>
+      <whoReference>
+        <reference value="Patient/f201"/>
+      </whoReference>
+    </signature>
+  </signer>
+  <legal>
+    <contentAttachment>
+      <contentType value="application/pdf"/>
+      <language value="en-US"/>
+      <url value="http://org.mihin.ecms/ConsentDirective-2121"/>
+      <title value="MDHHS-5515 Consent To Share Your Health Information"/>
+    </contentAttachment>
+  </legal>
+</Contract>

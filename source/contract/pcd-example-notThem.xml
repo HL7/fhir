@@ -30,13 +30,13 @@
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Contract.authority element -->
   <authority>
-    <reference value="Organization/Infoway"/>
+    <reference value="Organization/2"/>
     <display value="Canada Infoway"/>
   </authority>
 
   <!-- and/or would this [also] go into Contract.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
   <domain>
-    <reference value="Location/Infoway"/>
+    <reference value="Location/ukp"/>
     <display value="Canada Infoway"/>
   </domain>
 
@@ -55,13 +55,13 @@
       <display value="Default Authorization with exceptions."/>
     </coding>
   </subType>
-  
+
   <agent>
     <actor>
       <reference value="Patient/f001"/>
     </actor>
   </agent>
-  
+
   <signer>
     <type>
       <system value="http://www.hl7.org/fhir/contractsignertypecodes"/>

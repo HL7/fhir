@@ -789,4 +789,10 @@
   Description = ConsentDirective Example
   Filename = pcd-example-notLabs.xml
 
+ -- Row 7 -----------------------------------
+  Name = 42CFR-Part2
+  Identity = C-2121
+  Description = 42 CFR Part 2 Consent Directive
+  Filename = contract-example-42cfr-part2.xml
+
 === Sheet Examples =====================================
