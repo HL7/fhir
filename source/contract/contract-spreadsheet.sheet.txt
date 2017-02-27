@@ -122,7 +122,7 @@
   Short Name = When this Contract was issued
   Definition = When this  Contract was issued.
   Workflow Mapping = Event.occurrence
-  RIM Mapping = FinancialContract effectiveTime
+  RIM Mapping = Act.availabilityTime.  Definition: A time expression specifying when an Observation, Procedure, or other Act occurs, or, depending on the mood, is supposed to occur, scheduled to occur, etc. The activityTime includes the times of component actions (such as preparation and clean-up). For Procedures and SubstanceAdministrations, the activityTime can provide a needed administrative function by providing a more inclusive time to be anticipated in scheduling. UsageNotes:The activityTime is primarily of administrative rather than clinical use. The clinically relevant time is the effectiveTime. When an observation of a prior symptom is made, the activityTime describes the time the observation is made, as opposed to effectiveTime which is the time the symptom is reported to have occurred. Thus the activityTime may be entirely different from the effectiveTime of the same Act. However, even apart from clinical use cases, designers should first consider effectiveTime as the primary relevant time for an Act. ActivityTime indicates when an Act occurs, not when it is recorded.
   w5 = when.done
 
  -- Row 5 -----------------------------------
@@ -132,7 +132,7 @@
   Type = Period
   Short Name = Effective time
   Definition = Relevant time or time-period when this Contract is applicable
-  RIM Mapping = FinancialContract activityTime
+  RIM Mapping = Act.effectiveTime Definition: The clinically or operationally relevant time of an act, exclusive of administrative activity.
 
  -- Row 6 -----------------------------------
   Element = Contract.subject
@@ -145,7 +145,7 @@
   Requirements = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
   Comments = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. \rIn many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
   Workflow Mapping = Event.subject
-  RIM Mapping = Role
+  RIM Mapping = RoleClass, RoleCode
   w5 = who.actor
 
  -- Row 7 -----------------------------------
@@ -158,7 +158,7 @@
   Requirements = In the context of a contract, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the contract. \rGiven the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. \rThe same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. \rOne way to determine the Contract.topic is to answer the question: “What is the object of negotiation?”\rAnswer: The Contract.topic, which may be described with more detail in the [0..*]Contract.valuedItem @ [0..1] Contract.valuedItem.entity[x] Definition: Specific type of Contract Valued Item that may be priced. CodeableConcept|Reference(Any)\rContract.topic is “the what” that a grantor is exchanging with a grantee in return for some benefit. \rContract.topic is “the what” to which any Contract.action is being applied for any stipulated Contract.action.reason. \rAContract.topic is “the what” governed by the execution of the contract to which any party’s rights, privileges, obligations, restrictions, and prohibitions apply.
   Comments = The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. \rThe Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. \rHowever, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.\rIf the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
   Workflow Mapping = Event.context
-  RIM Mapping = Role
+  RIM Mapping = Includes many ActClass, ActCode, RoleClass, RoleCode, EntityClass, EntityCode, ParticipationType codes from HL7 concept domains and code systems. For example, RoleCode: HLD (held entity) Description: Entity that is currently in the possession of a holder (scoper), who holds, or uses it, usually based on some agreement with the owner. MANU (manufactured product) Description: Scoped by the manufacturer. OWN (owned entity) Description: An Entity (player) for which someone (scoper) is granted by law the right to call the material (player) his own. This entitles the scoper to make decisions about the disposition of that material. WRTE (warranted product) Description:\rA role a product plays when a guarantee is given to the purchaser by the seller (scoping entity) stating that the product is reliable and free from known defects and that the seller will repair or replace defective parts within a given time limit and under certain conditions.
 
  -- Row 8 -----------------------------------
   Element = Contract.authority
@@ -166,7 +166,7 @@
   Type = Reference(Organization)
   Short Name = Authority under which this Contract has standing
   Definition = A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.
-  RIM Mapping = Role Scoper
+  RIM Mapping = Organization Role.  CONCEPT DOMAIN: OrganizationEntityType Description: Further classifies entities of EntityClass ORG.
 
  -- Row 9 -----------------------------------
   Element = Contract.domain
@@ -175,6 +175,7 @@
   Type = Reference(Location)
   Short Name = Domain in which this Contract applies
   Definition = Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.
+  RIM Mapping = TERR (territory of authority) Description: Relates a place entity (player) as the region over which the scoper (typically an Organization) has certain authority (jurisdiction). For example, the Calgary Regional Health Authority (scoper) has authority over the territory \"Region 4 of Alberta\" (player) in matters of health.\rEntity Class = Place? A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place may or may not be constant.\rCONCEPT DOMAIN: TerritoryEntityType Description: A territorial entity that may be cited as the body over which an agency exercises jurisdiction, or which defines a sphere in which a party has a particular responsibility. CONCEPT DOMAIN: OrganizationEntityType\rDescription: Further classifies entities of EntityClass ORG.
 
  -- Row 10 -----------------------------------
   Element = Contract.type
@@ -184,7 +185,7 @@
   Binding = ContractType
   Short Name = Type or form
   Definition = Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.
-  RIM Mapping = CNTRCT
+  RIM Mapping = Maps to multiple ActClass and ActCode Concept Domains and Code Systems such as the following:   In the ActClass Concept Domain: ActClassPolicy. In the ActCode Concept Domain:   ActContractType, which generalizes ActFinancialContractType, ActCoverageType, ActBillingArrangementType.  ActConsentType, which generalizes ActDataConsentType; ActFinancialParticipationConsentType; ActInformationAccessCode; AdvanceBeneficiaryNoticeType.  ActPolicyType, which generalizes: ActPrivacyPolicyType, ActSensitivityPrivacyPolicyType, ActSecurityPolicyType.  In the ActClass Code System:  CNTRCT (contract) Description: An agreement of obligation between two or more parties that is subject to contractual law and enforcement, lwhich generalizes FCNTRCT (financial contract) and COV (coverage).  POLICY (policy) - Description: A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by one party on: The activity of another party; the behavior of another party; or the manner in which an act is executed. LEAF CONCEPTS: JURISPOL (jurisdictional policy) Description:A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by a jurisdiction on: The activity of another party; the behavior of another party; or the manner in which an act is executed.Examples:A jurisdictional mandate regarding the prescribing and dispensing of a particular medication. A jurisdictional privacy or security regulation dictating the manner in which personal health information is disclosed. A jurisdictional requirement that certain services or health conditions are reported to a monitoring program, e.g., immunizations, methadone treatment, or cancer registries.ORGPOL (organizational policy)Examples:A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere. A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options.SCOPOL (scope of practice policy)Description:An ethical or clinical obligation, requirement, rule, or expectation imposed or strongly encouraged by organizations that oversee particular clinical domains or provider certification which define the boundaries within which a provider may practice and which may have legal basis or ramifications.Examples:An ethical obligation for a provider to fully inform a patient about all treatment options. An ethical obligation for a provider not to disclose personal health information that meets certain criteria, e.g., where disclosure might result in harm to the patient or another person. The set of health care services which a provider is credentialed or privileged to provide. STDPOL (standard of practice policy) Examples:A payer may require a prescribing provider to adhere to formulary guidelines. An institution may adopt clinical guidelines and protocols and implement these within its electronic health record and decision support systems.  CONS (consent)Description: The Consent class represents informed consents and all similar medico-legal transactions between the patient (or his legal guardian) and the provider. Examples are informed consent for surgical procedures, informed consent for clinical trials, advanced beneficiary notice, against medical advice decline from service, release of information agreement, etc.  The details of consents vary. Often an institution has a number of different consent forms for various purposes, including reminding the physician about the topics to mention. Such forms also include patient education material. In electronic medical record communication, consents thus are information-generating acts on their own and need to be managed similar to medical activities. Thus, Consent is modeled as a special class of Act. The \"signatures\" to the consent document are represented electronically through Participation instances to the consent object. Typically an informed consent has Participation.typeCode of \"performer\", the healthcare provider informing the patient, and \"consenter\", the patient or legal guardian. Some consent may associate a witness or a notary public (e.g., living wills, advanced directives). In consents where a healthcare provider is not required (e.g. living will), the performer may be the patient himself or a notary public.
 
  -- Row 11 -----------------------------------
   Element = Contract.subType
@@ -194,7 +195,7 @@
   Binding = ContractSubtype
   Short Name = Subtype within the context of type
   Definition = More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.
-  RIM Mapping = e.g. RECOV
+  RIM Mapping = Examples of Contract or Policy subtypes in ActCodes:_ActCoverageTypeCode Definition: Set of codes indicating the type of insurance policy or program that pays for the cost of benefits provided to covered parties. Generalizes:  _ActInsurancePolicyCode;  _ActInsuranceTypeCode; ActProgramTypeCode.  _ActPolicyType  Description:Types of policies that further specify the ActClassPolicy value set. Generalizes: _ActPrivacyPolicy; _ActPrivacyLaw; _InformationSensitivityPolicy; ActTrustPolicyType;  SecurityPolicy.  _ActInvoiceAdjudicationPaymentGroupCode  Description: Codes representing adjustments to a Payment Advice such as retroactive, clawback, garnishee, etc., e.g. RECOV (recovery) Description: Retroactive adjustment such as fee rate adjustment due to contract negotiations.
 
  -- Row 12 -----------------------------------
   Element = Contract.action
@@ -203,7 +204,7 @@
   Binding = ContractAction
   Short Name = Action stipulated by this Contract
   Definition = Action stipulated by this Contract.
-  RIM Mapping = e.g. JURISPOL
+  RIM Mapping = Maps to multiple ActClass and ActCode Concept Domains and Code Systems.
 
  -- Row 13 -----------------------------------
   Element = Contract.actionReason
@@ -212,7 +213,7 @@
   Binding = ContractActionReason
   Short Name = Rationale for the stiplulated action
   Definition = Reason for action stipulated by this Contract.
-  RIM Mapping = e.g. QUALIMP
+  RIM Mapping = Examples from ActReason Concept Domains: ActCoverageReason Description:Codes used to specify reasons or criteria relating to coverage provided under a policy or program. May be used to convey reasons pertaining to coverage contractual provisions, including criteria for eligibility, coverage limitations, coverage maximums, or financial participation required of covered parties. ActInformationPrivacyReason Description: The rationale or purpose for an act relating to the management of personal information, such as disclosing personal tax information for the purpose of complying with a court order. ClinicalResearchObservationReason Definition: Specifies the reason that a test was performed or observation collected in a clinical research study. SafetyInvestigationReportReasonType Description: Possible reasons generating a report providing information developed during the investigation of an adverse event or a product problem. ControlActReason Description: Indicates the motivation, cause or rationale of an Act which results in a trigger event.  NonPerformanceReasonCode Description: The reason the action was not performed, e.g. why the medication was not taken. If an action was not performed, it is often clinically important to know why the action was not taken. RefusalReasonCode Description: Identifies why a request to add (or activate) a record is being refused. Examples include the receiving system not able to match the identifier and find that record in the receiving system, having no permission, or a detected issue exists which precludes the requested action.\r\r\r\r\r\r\r\rExamples from HL7 ActReason Code System: QUALIMP (quality improvement) Description:Operational activities conducted for the purposes of improving the quality of an activity, product, or service. _PatientProfileQueryReasonCode Description: A collection of concepts identifying why the patient\'s profile is being queried. _ActInformationManagementReason Description:The rationale or purpose for an act relating to information management, such as archiving information for the purpose of complying with an enterprise data retention policy. _ActInvalidReason (ActInvalidReason) Description: Types of reasons why a substance is invalid for use. _NonPerformanceReasonCode Description: The reason the action wasn\'t performed, e.g. why the medication was not taken. If an action wasn\"t performed, it is often clinically important to know why the action wasn\"t taken.
 
  -- Row 14 -----------------------------------
   Element = Contract.decisionType
@@ -221,6 +222,7 @@
   Binding = ContractDecisionType
   Short Name = Decision by Grantor
   Definition = The type of decision made by a grantor with respect to an offer made by a grantee.
+  RIM Mapping = ActCode: _ActConsentDirective [abstract term] Description: Specifies the type of agreement between one or more grantor and grantee in which rights and obligations related to one or more shared items of interest are allocated. Usage Note: Such agreements may be considered \"consent directives\" or \"contracts\" depending on the context, and are considered closely related or synonymous from a legal perspective.
 
  -- Row 15 -----------------------------------
   Element = Contract.contentDerivative
@@ -229,6 +231,7 @@
   Binding = ContractContentDerivative
   Short Name = Content derived from the basal information
   Definition = The minimal content derived from the basal information source at a specific stage in its lifecycle.
+  RIM Mapping = Maps partially to several v3 codes: ActClass: REG (registration) Description: Represents the act of maintaining information about the registration of its associated registered subject. The subject can be either an Act or a Role, and includes subjects such as lab exam definitions, drug protocol definitions, prescriptions, persons, patients, practitioners, and equipment.\rThe registration may have a unique identifier - separate from the unique identification of the subject - as well as a core set of related participations and act relationships that characterize the registration event and aid in the disposition of the subject information by a receiving system. Observation: VERIF (Verification) Description: An act which describes the process whereby a \'verifying party\' validates either the existence of the Role attested to by some Credential or the actual Vetting act and its details. TRFR (transfer) Description: The act of transferring information without the intent of imparting understanding about a topic to the subject that is the recipient or holder of the transferred information where the participation association must be RCV or HLD. _ActDetectedIssueManagementCode [abstract term] Description: Codes dealing with the management of Detected Issue observations. _ActInformationAccessContextCode [abstract term] Description: Concepts conveying the context in which authorization given under jurisdictional law, by organizational policy, or by a patient consent directive permits the collection, access, use or disclosure of specified patient health information. _ActListCode [abstract term]vDescription: Provides codes associated with ActClass value of LIST (working list). RefusalReasonCode [abstract term] Description:\rDescription: Identifies why a request to add (or activate) a record is being refused. Examples include the receiving system not able to match the identifier and find that record in the receiving system, having no permission, or a detected issue exists which precludes the requested action.
 
  -- Row 16 -----------------------------------
   Element = Contract.securityLabel
@@ -238,6 +241,7 @@
   Binding = SecurityLabels
   Short Name = Security Labels that define affected resources
   Definition = A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels
+  RIM Mapping = ActCode ObservationType:SECOBS [abstract term]\rDescription: An observation identifying security metadata about an IT resource (data, information object, service, or system capability), which may be used to make access control decisions. Security metadata are used to name security labels. \rRationale: According to ISO/TS 22600-3:2009(E) A.9.1.7 SECURITY LABEL MATCHING, Security label matching compares the initiator\'s clearance to the target\'s security label. All of the following must be true for authorization to be granted:\rThe security policy identifiers shall be identical.  The classification level of the initiator shall be greater than or equal to that of the target (that is, there shall be at least one value in the classification list of the clearance greater than or equal to the classification of the target), and For each security category in the target label, there shall be a security category of the same type in the initiator\'s clearance and the initiator\'s classification level shall dominate that of the target. Examples: SecurityObservationType security label fields include: Confidentiality classification; Compartment category; Sensitivity category\rSecurity mechanisms used to ensure data integrity or to perform authorized data transformation Indicators of an IT resource completeness, veracity, reliability, trustworthiness, or provenance. Usage Note: SecurityObservationType codes designate security label field types, which are valued with an applicable SecurityObservationValue code as the \"security label tag\".  _SecurityObservationValue [abstract term] Description: Observation values used to indicate security observation metadata.
 
  -- Row 17 -----------------------------------
   Element = Contract.agent
@@ -256,6 +260,7 @@
   Short Name = Contract Agent Type
   Definition = Who or what parties are assigned roles in this Contract.
   Workflow Mapping = Event.performer.actor
+  RIM Mapping = RIM Role, Participation Type classes
 
  -- Row 19 -----------------------------------
   Element = Contract.agent.role
@@ -264,6 +269,7 @@
   Binding = ContractActorRole
   Short Name = Role type of the agent
   Definition = Role type of agent assigned roles in this Contract.
+  RIM Mapping = RoleClass, RoleCode, ParticipationType, ParticipationFunction codes
 
  -- Row 20 -----------------------------------
   Element = Contract.signer
@@ -282,6 +288,7 @@
   Binding = ContractSignerType
   Short Name = Contract Signatory Role
   Definition = Role of this Contract signer, e.g. notary, grantee.
+  RIM Mapping = RoleClass, RoleCode, ParticipationType, ParticipationFunction class codes.
 
  -- Row 22 -----------------------------------
   Element = Contract.signer.party
@@ -289,6 +296,7 @@
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Contract Signatory Party
   Definition = Party which is a signator to this Contract.
+  RIM Mapping = Role Class
 
  -- Row 23 -----------------------------------
   Element = Contract.signer.signature
@@ -296,6 +304,7 @@
   Type = Signature
   Short Name = Contract Documentation Signature
   Definition = Legally binding Contract DSIG signature contents in Base64.
+  RIM Mapping = Participation.signatureCode :: CD (0..1) Definition: Whether the participant has attested participation through a signature, or whether such a signature is needed. Examples: A surgical Procedure act object (representing a procedure report) requires a signature of the performing and responsible surgeon, and possibly other participants; The participant intends to provide a signature.  Participation.signatureText :: ED (0..1) Definition: A textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. UsageNotes: The signature can be represented either inline or by reference according to the ED data type. Typical cases are \r1) Paper-based signatures: the ED data type may refer to a document or other resource that can be retrieved through an electronic interface to a hardcopy archive. 2) Electronic signature: this attribute can represent virtually any electronic signature scheme. 3) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc. Examples: 1) An \"author\" participant assumes accountability for the truth of the Act statement to the best of his knowledge. 2) An information recipient only attests to the fact that he or she has received the information.
 
  -- Row 24 -----------------------------------
   Element = Contract.valuedItem
@@ -328,7 +337,7 @@
   Type = dateTime
   Short Name = Contract Valued Item Effective Tiem
   Definition = Indicates the time during which this Contract ValuedItem information is effective.
-  RIM Mapping = COCT_RM440000UV09 ValuedItem                effectiveTime
+  RIM Mapping = COCT_RM440000UV09 ValuedItem effectiveTime
 
  -- Row 28 -----------------------------------
   Element = Contract.valuedItem.quantity
@@ -377,6 +386,7 @@
   Type = =Term
   Short Name = Contract Term List
   Definition = One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
+  RIM Mapping = RIM mechanism for grouping or nesting rules, which are likely Acts and Observations.
 
  -- Row 34 -----------------------------------
   Element = Contract.term.identifier
@@ -385,6 +395,7 @@
   Type = Identifier
   Short Name = Contract Term Number
   Definition = Unique identifier for this particular Contract Provision.
+  RIM Mapping = Act or Observation identifier.
 
  -- Row 35 -----------------------------------
   Element = Contract.term.issued
@@ -393,6 +404,7 @@
   Type = dateTime
   Short Name = Contract Term Issue Date Time
   Definition = When this Contract Provision was issued.
+  RIM Mapping = Act availabilityTime
 
  -- Row 36 -----------------------------------
   Element = Contract.term.applies
@@ -401,6 +413,7 @@
   Type = Period
   Short Name = Contract Term Effective Time
   Definition = Relevant time or time-period when this Contract Provision is applicable.
+  RIM Mapping = Act effectiveTime
 
  -- Row 37 -----------------------------------
   Element = Contract.term.type
@@ -409,6 +422,7 @@
   Binding = ContractTermType
   Short Name = Contract Term Type or Form
   Definition = Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
+  RIM Mapping = See Contract.term mapping.
 
  -- Row 38 -----------------------------------
   Element = Contract.term.subType
@@ -417,6 +431,7 @@
   Binding = ContractTermSubType
   Short Name = Contract Term Type specific classification
   Definition = Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
+  RIM Mapping = See Contract.topic mapping.
 
  -- Row 39 -----------------------------------
   Element = Contract.term.topic
@@ -427,7 +442,7 @@
   Definition = The matter of concern in the context of this provision of the agrement.
   Requirements = A contract term topic is typically about a portion of the contract topic which has additional or specialized rights, privileges, obligations, restrictions, and prohibitions that are binding on any grantor and grantee parties upon the execution of the contract. \rContract.term.topic may be described in more detail in the [0..*] Contract.term.valuedItem @[0..1] Contract.term.valuedItem [x] Definition: Specific type of Contract Provision Valued Item that may be priced. CodeableConcept|Reference(Any) [See Contract.topic Requirements for further elaboration on this requirement.]
   Comments = The Contract.term.topic, as a Contract Resource subpart, is handled in the same manner as the Contract Resource as discussed above.
-  RIM Mapping = Role
+  RIM Mapping = See Contract.subType mapping.
 
  -- Row 40 -----------------------------------
   Element = !Contract.term.subject
@@ -435,6 +450,7 @@
   Type = Reference(Any)
   Short Name = Subject of this Contract Term
   Definition = Who or what this Contract Provision is about.
+  RIM Mapping = See Contract.subject mapping.
 
  -- Row 41 -----------------------------------
   Element = Contract.term.action
@@ -443,6 +459,7 @@
   Binding = ContractAction
   Short Name = Contract Term Activity
   Definition = Action stipulated by this Contract Provision.
+  RIM Mapping = See Contract.action mapping.
 
  -- Row 42 -----------------------------------
   Element = Contract.term.actionReason
@@ -451,6 +468,7 @@
   Binding = ContractActionReason
   Short Name = Purpose for the Contract Term Action
   Definition = Reason or purpose for the action stipulated by this Contract Provision.
+  RIM Mapping = See Contract.actionReason mapping.
 
  -- Row 43 -----------------------------------
   Element = Contract.term.securityLabel
@@ -460,6 +478,7 @@
   Binding = SecurityLabels
   Short Name = Security Labels that define affected terms
   Definition = A set of security labels that define which terms are controlled by this condition.
+  RIM Mapping = See Contract.securityLabel mapping.
 
  -- Row 44 -----------------------------------
   Element = Contract.term.agent
@@ -470,6 +489,7 @@
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
   Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\rFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+  RIM Mapping = See Contract.agent mapping.
 
  -- Row 45 -----------------------------------
   Element = Contract.term.agent.actor
@@ -477,6 +497,7 @@
   Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
   Short Name = Contract Term Agent Subject
   Definition = The agent assigned a role in this Contract Provision.
+  RIM Mapping = See Contract.agent.actor mapping.
 
  -- Row 46 -----------------------------------
   Element = Contract.term.agent.role
@@ -485,6 +506,7 @@
   Binding = ContractActorRole
   Short Name = Type of the Contract Term Agent
   Definition = Role played by the agent assigned this role in the execution of this Contract Provision.
+  RIM Mapping = See Contract.agent.role mapping.
 
  -- Row 47 -----------------------------------
   Element = Contract.term.text
@@ -564,6 +586,7 @@
   Type = Money
   Short Name = Total Contract Term Valued Item Value
   Definition = Expresses the product of the Contract Provision Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  RIM Mapping = COCT_RM440000UV09 ValuedUnitItem net
 
  -- Row 57 -----------------------------------
   Element = Contract.term.group
@@ -571,6 +594,7 @@
   Type = @Contract.term
   Short Name = Nested Contract Term Group
   Definition = Nested group of Contract Provisions.
+  RIM Mapping = RIM Grouping or Nesting mechanisms
 
  -- Row 58 -----------------------------------
   Element = Contract.binding[x]
@@ -578,6 +602,7 @@
   Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
   Short Name = Binding Contract
   Definition = Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.
+  RIM Mapping = DocumentCompletion code system AU (authenticated) Description: A completion status in which a document has been signed manually or electronically by one or more individuals who attest to its accuracy. No explicit determination is made that the assigned individual has performed the authentication. While the standard allows multiple instances of authentication, it would be typical to have a single instance of authentication, usually by the assigned individual.
 
  -- Row 59 -----------------------------------
   Element = !Contract.bindingDateTime
@@ -600,6 +625,7 @@
   Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
   Short Name = Easily comprehended representation of this Contract
   Definition = Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.
+  RIM Mapping = Act.text Definition: A renderable textual or multimedia description (or reference to a description) of the complete information which would reasonably be expected to be displayed to a human reader conveyed by the Act.
 
  -- Row 62 -----------------------------------
   Element = !Contract.friendly.dateTime
@@ -622,6 +648,7 @@
   Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
   Short Name = Contract Legal Text
   Definition = Contract legal text in human renderable form.
+  RIM Mapping = Example: Act.text of an Act coded as with ActPrivacyLaw, ActPolicy code
 
  -- Row 65 -----------------------------------
   Element = !Contract.legal.dateTime
@@ -644,6 +671,7 @@
   Type = Attachment|Reference(DocumentReference)
   Short Name = Computable Contract Rules
   Definition = Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
+  RIM Mapping = Computable Policy Consent [Observation: templateId 2.16.840.1.113883.3.445.16] This template is used to represent an alternative representation of the Privacy Consent Directive (e.g.,ODRL, XrML, XACML) as a computer-readable set of rules. An implementation may use any appropriate representations of the privacy consent in addition to the \"ConsentDirectiveStructuredDefinition\" which uses the Clinical Template structure to express the elements of a consent directive in an interoperable way.\r1. SHALL contain exactly one [1..1] templateId ( CONF-CD-16 ) such that it\ra. SHALL contain exactly one [1..1] @root=\"2.16.840.1.113883.3.445.16\"\r2. SHALL contain exactly one [1..1] @moodCode=\"DEF\" (CodeSystem: 2.16.840.1.113883.5.1001 HL7ActMood) (CONF:14912)\r3. SHALL contain exactly one [1..1] code (CONF:9139)/@code=\"57016-8\" Privacy Policy Acknowledgement Document (CodeSystem: 2.16.840.1.113883.6.1 LOINC) (CONF:9138)\rIt specifies the LOINC code corresponding to \"Privacy Policy Acknowledgement Document\", it is fixed at this value.\r4. SHOULD contain zero or more [0..*] value with @xsi:type=\"ANY\" (CONF:9140) The value contains the computable representation of the policy. This may be a standard-based access control or attribute control based policy (See\r\"References\"). Computable Policy Consent example\r<!-- Sample computable policy language representation -->\r<entryRelationship typeCode=\"COMP\">\r<templateId root=\"2.16.840.1.113883.3.445.16\" />\r<observationMedia classCode=\"OBS\" moodCode=\"EVN\">\r<value mediaType=\"text/xml\" representation=\"TXT\"> ... </value>\r</observationMedia>\r</entryRelationship>
 
  -- Row 68 -----------------------------------
   Element = !Contract.rule.dateTime
