@@ -244,12 +244,12 @@ largest number of common healthcare transactions.
 Descriptions of the layers in the framework:
 </p>
 <ol>
-<li><b>Foundation Reaources</b>: Platform resources are the most rudimentary, foundational resources. They are often used for infrastructural tasks. 
+<li><b>Foundation Reaources</b>: Foundation resources are the most rudimentary, foundational resources. They are often used for infrastructural tasks. 
   Although not prohibited, they are not always referenced by other resources.</li>
 <li><b>Base Resources</b>: Layer two consists of base resources. These are often the leaf nodes of a resource graph. In other words, they are often
 referenced by  other resources, but don't typically reference other resources themselves. These resources are typically the most commonly used, and
  therefore require the highest degree of consistency and architectural rigor. Governance is greatest for resources in layers one and two.</li>
-<li><b>Clinica; Resources</b>: Layer 3 includes the resources that are clinical in nature but are also very common across many use cases. This 
+<li><b>Clinical Resources</b>: Layer 3 includes the resources that are clinical in nature but are also very common across many use cases. This 
 includes resources for clinical observations, clinical treatment, care provision, and medications. These resources can be used by themselves, but
 typically build on the resources in later two. For example, an observation resource will reference the patient resource from layer two. These resources 
 are also frequently contextualized when they are referenced by resources in layers three, four and five.</li>
@@ -258,8 +258,8 @@ For example, a billing resource will reference clinical events and activities as
 <li><b>Specialized Resources</b>: In layer five, we find more specialized resources for less common use cases. These resources almost always reference
  resources in lower layers. Given that FHIR places priority on satisfying the most common use cases, there are fewer resources in this layer.</li>
  <li><b>Resource Contextualization</b>: Layer 6 does not contain resources. However, it does extend the composition framework made up by the first 
-  five layers of resources. Layer 6 includes profiles and clusters. Profiles are used to extend, constrain, or otherwise contextualize resources for 
-  a given purpose. Clusters are compositions of resources, or resource graphs, that contain attributes of their own.</li>
+  five layers of resources. Layer 6 includes profiles and graphs. Profiles are used to extend, constrain, or otherwise contextualize resources for 
+  a given purpose. Graphs are compositions of resources, or webs of resource, that contain attributes of their own.</li>
 </ol>
 <p>
 <img src="framework-2.png" style="float: none"/>
