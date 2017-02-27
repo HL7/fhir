@@ -421,9 +421,9 @@
             </td>
             <td>
               <b>
-                <xsl:value-of select="concat(code/@value, ': ')"/>
+                <xsl:value-of select="concat(display/@value, ': ')"/>
               </b>
-              <xsl:value-of select="display/@value"/>
+              <xsl:value-of select="definition/@value"/>
             </td>
           </tr>
         </xsl:for-each>
