@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="summary"/>
+	<url value="http://hl7.org/fhir/CodeSystem/summary"/>
+	<name value="Code system summary example for ACME body sites"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="HL7 International"/>
+	<contact>
+		<name value="FHIR project team"/>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="This is an example code system summary for the ACME codes for body site."/>
+	<useContext>
+    <code>
+      <system value="http://example.org/CodeSystem/contexttype"/>
+      <code value="species"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="337915000"/>
+        <display value="Homo sapiens (organism)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CA"/>
+    </coding>
+  </jurisdiction>
+	<caseSensitive value="true"/>
+	<content value="not-present"/>
+	<count value="92"/>
+</CodeSystem>

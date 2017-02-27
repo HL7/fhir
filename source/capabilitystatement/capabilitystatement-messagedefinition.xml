@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="messagedefinition"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<date value="2012-01-04"/>
+	<publisher value="ACME Corporation"/>
+	<contact>
+		<name value="System Administrator"/>
+		<telecom>
+			<system value="email"/>
+			<value value="wile@acme.org"/>
+		</telecom>
+	</contact>
+	<description value="Sample capability statement showing new MessageDefinition structure"/>
+	<kind value="instance"/>
+	<software>
+		<name value="EHR"/>
+	</software>
+	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
+    required. Note that this may be rescinded later?  -->
+	<fhirVersion value="1.0.0"/>
+	<!--  this system accepts unknown content in the resources  -->
+	<acceptUnknown value="both"/>
+	<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
+	<format value="xml"/>
+	<format value="json"/>
+	<messaging>
+		<endpoint>
+			<protocol>
+				<system value="http://hl7.org/fhir/message-transport"/>
+				<code value="mllp"/>
+			</protocol>
+			<!-- LLP server at 10.1.1.10 on port 9234 -->
+			<address value="mllp:10.1.1.10:9234"/>
+		</endpoint>
+		<reliableCache value="30"/>
+		<documentation value="ADT A08 equivalent for external system notifications"/>
+		<supportedMessage>
+      <mode value="receiver"/>
+      <definition>
+        <reference value="MessageDefinition/example"/>
+      </definition>
+    </supportedMessage>
+	</messaging>
+</CapabilityStatement>

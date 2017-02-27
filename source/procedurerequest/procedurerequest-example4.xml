@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="benchpress"/>
+	<!-- Showing part of an excercise plan -->
+	<status value="active"/>
+	<intent value="plan"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="229115003"/>
+			<display value="Bench Press (regime/therapy) "/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<occurrenceTiming>
+		<repeat>
+      <count value="20"/>
+      <countMax value="30"/>
+			<frequency value="3"/>
+			<period value="1"/>
+			<periodUnit value="wk"/>
+		</repeat>
+	</occurrenceTiming>
+	<note>
+    <text value="Start with 30kg and increase in increments of 5kg when you feel ready"/>
+  </note>
+</ProcedureRequest>
