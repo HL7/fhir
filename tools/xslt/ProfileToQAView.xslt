@@ -347,7 +347,7 @@
   </xsl:template>
   <xsl:template match="CodeSystem">
     <h2 style="mso-no-prooyes">
-      <xsl:value-of select="concat('ValueSet: ', name/@value)"/>
+      <xsl:value-of select="concat('CodeSystem: ', name/@value)"/>
     </h2>
     <table lang="EN-US" style="mso-ansi-language:EN-US">
       <tbody>
@@ -421,9 +421,9 @@
             </td>
             <td>
               <b>
-                <xsl:value-of select="concat(display/@value, ': ')"/>
+                <xsl:value-of select="concat(code/@value, ': ')"/>
               </b>
-              <xsl:value-of select="definition/@value"/>
+              <xsl:value-of select="display/@value"/>
             </td>
           </tr>
         </xsl:for-each>
