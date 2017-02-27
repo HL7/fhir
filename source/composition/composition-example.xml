@@ -53,19 +53,26 @@
 		<reference value="Organization/2.16.840.1.113883.19.5"/>
 		<display value="Good Health Clinic"/>
 	</custodian>
-  <relatesTo>
-    <code value="replaces"/>
-    <!-- 
+	<relatesTo>
+		<code value="replaces"/>
+		<!-- 
       you can identify a composition or a document.
       A document is a frozen version of a composition
       that is wrapped in a bundle
       - can refer to the composition or document by identifier
       - or by reference. to refer to a document by reference, Bundle/xxxx
     -->
-    <targetReference>
-      <reference value="Composition/old-example"/>
-    </targetReference>
-  </relatesTo>
+		<targetReference>
+			<reference value="Composition/old-example"/>
+		</targetReference>
+	</relatesTo>
+	<relatesTo>
+		<code value="appends"/>
+		<targetIdentifier>
+      <system value="http://example.org/fhir/NamingSystem/document-ids"/>
+      <value value="ABC123"/>
+		</targetIdentifier>
+	</relatesTo>
 	<event>
 		<code>
 			<coding>
@@ -166,7 +173,7 @@
 		<text>
 			<status value="generated"/>
 			<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>History of family member diseases - not available</p>
+				<p>History of family member diseases - not available</p>
 			</div>
 		</text>
 		<mode value="snapshot"/>

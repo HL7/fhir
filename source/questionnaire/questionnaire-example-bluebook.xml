@@ -33,7 +33,7 @@
     <text value="Birth details - To be completed by health professional"/>
     <type value="group"/>
     <item>
-	  <linkId value="group"/>
+      <linkId value="group"/>
       <type value="group"/>
       <item>
         <linkId value="nameOfChild"/>

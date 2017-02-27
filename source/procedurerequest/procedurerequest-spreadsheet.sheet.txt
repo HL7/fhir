@@ -665,4 +665,10 @@
   Description = An example of an order to not turn a patient
   Filename = procedurerequest-example3.xml
 
+ -- Row 11 -----------------------------------
+  Name = Bench Press
+  Identity = benchpress
+  Description = Part of an exercise plan
+  Filename = procedurerequest-example4.xml
+
 === Sheet Examples =====================================

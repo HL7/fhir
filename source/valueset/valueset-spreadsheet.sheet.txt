@@ -630,6 +630,12 @@
   Description = NHIN Purpose of Use
   Filename = valueset-nhin-purposeofuse.xml
 
+ -- Row 9 -----------------------------------
+  Name = inactive
+  Identity = inactive
+  Description = Valueset including inactive concepts
+  Filename = valueset-example-inactive.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

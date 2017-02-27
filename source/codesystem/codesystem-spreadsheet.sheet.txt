@@ -507,6 +507,12 @@
   Description = Canonical Definition for SNOMED CT
   Filename = codesystem-snomedct.xml
 
+ -- Row 5 -----------------------------------
+  Name = Summary
+  Identity = summary
+  Description = Code system summary
+  Filename = codesystem-example-summary.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

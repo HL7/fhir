@@ -340,6 +340,7 @@
   Short Name = Questionnaire intends to support these contexts
   Definition = A code that identifies the questionnaire as falling into a particular group of like questionnaires; e.g. \"Pediatric\", \"Admissions\", \"Research\", \"Demographic\", \"Opinion Survey\", etc.
   Requirements = Allows discovery of questionnaires.  Also allows organization of lists of questionnaires into groups for presentation
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]
 
  -- Row 10 -----------------------------------
   Element = Questionnaire.title

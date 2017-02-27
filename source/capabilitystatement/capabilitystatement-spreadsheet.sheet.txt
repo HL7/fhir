@@ -1328,6 +1328,12 @@
   Description = Measure Processor Base Capability Statement
   Filename = capabilitystatement-measure-processor.xml
 
+ -- Row 8 -----------------------------------
+  Name = MessageDefinition
+  Identity = messagedefinition
+  Description = Showing new message definition structure
+  Filename = capabilitystatement-messagedefinition.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

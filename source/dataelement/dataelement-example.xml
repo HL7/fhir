@@ -136,8 +136,16 @@
 	</identifier>
 	<version value="1.0"/>
 	<status value="active"/>
+	<date value="2016-01-01"/>
 	<publisher value="DCP"/>
 	<name value="Gender Code"/>
+	<title value="Administrative gender"/>
+	<jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+	</jurisdiction>
 	<mapping>
     <identity value="fhir"/>
     <uri value="http://hl7.org/fhir"/>

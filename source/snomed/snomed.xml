@@ -11883,6 +11883,10 @@
     <display value="Visualisation technique"/>
     <display value="Visualization technique"/>
   </concept>
+  <concept id="229115003" display="Bench press">
+    <display value="Bench press"/>
+    <display value="Bench press (regime/therapy)"/>
+  </concept>
   <concept id="229506003" display="Scar tissue massage (regime/therapy)">
     <display value="Scar tissue massage (regime/therapy)"/>
     <display value="Scar tissue massage"/>

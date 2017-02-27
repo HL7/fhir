@@ -89,6 +89,7 @@
   Short Name = Request fulfilled by this QuestionnaireResponse
   Definition = Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.
   Requirements = Supports traceability of authorization and confirmation of action on recommendations
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target
 
  -- Row 4 -----------------------------------
   Element = QuestionnaireResponse.parent
@@ -98,6 +99,7 @@
   Short Name = Part of this action
   Definition = Identifies a procedure or observation that this questionnaire was performed as part of the execution of
   Comments = Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
 
  -- Row 5 -----------------------------------
   Element = QuestionnaireResponse.questionnaire
@@ -146,6 +148,7 @@
   Short Name = Encounter or Episode during which questionnaire was completed
   Definition = The encounter or episode of care with primary association to the questionnaire
   Comments = A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter.
+  RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
  -- Row 9 -----------------------------------

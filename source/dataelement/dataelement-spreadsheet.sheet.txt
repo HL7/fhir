@@ -239,7 +239,6 @@
   Requirements = 1
   Comments = For simple data types there will only be one repetition.  For complex data types, multiple repetitions will be present defining a nested structure using the \"path\" element
   RIM Mapping = N/A (MIF)
-  To Do = Type should have {http://hl7.org/fhir/StructureDefinition/elementdefinition-de}
 
 === Sheet Search =====================================
 
