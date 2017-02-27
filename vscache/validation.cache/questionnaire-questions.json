@@ -17,11 +17,6 @@
       "message": "The code provided (http://example.org/system/code/questions#COMORBCAR) is not  valid in the value set Questionnaire Question Codes"
     },
     {
-      "hash": "|http://example.org/system/code/questions|null|COMORBVAS|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/questions#COMORBVAS) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
       "hash": "|http://example.org/system/code/questions|null|COMORB|null",
       "severity": "error",
       "message": "The code provided (http://example.org/system/code/questions#COMORB) is not  valid in the value set Questionnaire Question Codes"

@@ -85,7 +85,7 @@
   Id = 4
   Code = longitudinal
   Display = Longitudinal Care Coordination
-  Definition = This type of team focuses on overall care coordination managing one or more conditions across the continuum of care ensuring there are smooth transitions of care. The members of the team are determined or selected by an individual or organization. When determined by an organization, the team may be assigned or based on the person’s enrollment in a particular program. For example, disease management team or patient centered medical home team.
+  Definition = This type of team focuses on overall care coordination managing one or more conditions across the continuum of care ensuring there are smooth transitions of care. The members of the team are determined or selected by an individual or organization. When determined by an organization, the team may be assigned or based on the person\'s enrollment in a particular program. For example, disease management team or patient centered medical home team.
 
  -- Row 5 -----------------------------------
   Id = 5

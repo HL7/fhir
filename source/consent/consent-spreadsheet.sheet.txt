@@ -156,7 +156,7 @@
  -- Row 1 -----------------------------------
   Element = Consent
   Type = DomainResource
-  Short Name = A healthcare consumer’s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
+  Short Name = A healthcare consumer\'s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
   Definition = A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
   Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
   RIM Mapping = FinancialConsent
