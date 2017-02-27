@@ -64,12 +64,44 @@ tr {
 	vertical-align: top;
 	text-align: left;
 }
+table.cols {
+	width: 100%;
+}
+
+table.cols td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: #ffffe6;
+}
+
+table.colsd {
+	width: 100%;
+}
+
+table.colsd td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: salmon;
+}
+
 table.list td {
         border-top: 1px silver solid;
 	border-spacing: 0;
 }
 table.bare td {
 	border-spacing: 0;
+}
+
+ul.dict li {
+	font-size: 11px;
+	line-height: 1.2em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
 }
 
 table.dict td {
@@ -217,7 +249,7 @@ div.mapping {
 	padding: 5px;
 	margin-bottom: 10px;
 	font-size: 0.75em;
-	width: 670px;
+	width: 800px;
 }
 
 
@@ -298,12 +330,22 @@ pre.xml              {
 	width: 650px;
 }
 
-span.xmltag   {
+a.xmltag   {
+  color: Navy;
+}
+a.xmltag :visited  {
   color: Navy;
 }
 
-a.xmltag   {
+a.xmltag :hover  {
+  color: Blue;
+}
+
+span.xmltag   {
   color: Navy;
+}
+span.xmltagred  {
+  color: Maroon;
 }
 
 span.xmlcomment  {
@@ -472,44 +514,105 @@ div.itoc p.link
 }
 
 span.sectioncount {
-color: grey;
-x-x-position: absolute;
-x-x-right: 0;
-x-x-margin-right: 30px;
+color: silver;
+x-position: absolute;
+x-right: 0;
+x-margin-right: 30px;
 }
 
-a.button {
-color: #000000;
-background-color: #dae2ed;
-border-bottom: 1px solid #778899;
-border-right: 1px solid #778899;
-padding: 3px 4px 3px 4px;
-margin: 2px 2px 2px 0;
-text-decoration: none;
-font-size: 90%;
-line-height: 2.4;
-white-space: nowrap;
+@font-face {
+    font-family: 'OpenSansCondensedLight';
+    src: url('OpenSans-CondLight-webfont.eot');
+    src: url('OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-CondLight-webfont.woff') format('woff'),
+         url('OpenSans-CondLight-webfont.ttf') format('truetype'),
+         url('OpenSans-CondLight-webfont.svg#open_sanscondensed_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-a.tag {
-color: #3E6D8E;
-background-color: #E0EAF1;
-border-bottom: 1px solid #b3cee1;
-border-right: 1px solid #b3cee1;
-padding: 3px 4px 3px 4px;
-margin: 2px 2px 2px 0;
-text-decoration: none;
-font-size: 90%;
-line-height: 2.4;
-white-space: nowrap;
+@font-face {
+    font-family: 'OpenSansCondensedBold';
+    src: url('OpenSans-CondBold-webfont.eot');
+    src: url('OpenSans-CondBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-CondBold-webfont.woff') format('woff'),
+         url('OpenSans-CondBold-webfont.ttf') format('truetype'),
+         url('OpenSans-CondBold-webfont.svg#open_sans_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
+.diagram-class-title {
+	font-size: 1em; 
+	text-anchor: middle; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+}
+
+.diagram-resource {
+	font-family: OpenSansCondensedBold;
+	font-weight: bold;
+}
+
+.diagram-class-title-link {
+	font-size: .9em; 
+	text-anchor: middle; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+}
+
+.diagram-class-reference {
+	fill: navy;
+}
+
+.diagram-class-detail {
+	font-size: .8em; 
+	text-anchor: left; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+}
+
+.diagram-class-linkage {
+	font-size: .9em; 
+	text-anchor: middle; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+	opacity: 1;
+}
+
+.hierarchy {
+  border: 0px;
+  padding:0px 4px 0px 4px;
+	font-size: 11px;
+	font-family: verdana;
+	vertical-align: top;
+}
+
+tr.hierarchy {
+  border: 1px #F0F0F0 solid;
+  padding:0px 4px 0px 4px;
+	font-size: 11px;
+	font-family: verdana;
+	vertical-align: top;
+}
+
+img.hierarchy {
+  border: 0px;
+  padding:0px;
+	vertical-align: top;
+  background-color: white;
+}
 
 .linecounter { 
   counter-reset: listing 
 }
 
-code { counter-increment: listing; }
+
+code { 
+  counter-increment: listing; 
+}
 
 .linecounter  i:before { 
   content: counter(listing) ". "; color: black; 
@@ -528,6 +631,13 @@ code { counter-increment: listing; }
   min-width: 2.5em; 
 }
 
+div.warning {
+  background-color: #FFE6E6;
+  border: 1px silver solid;
+  padding: 5px;
+}
+
+
 
 tr.diff-title td {
   font-weight: bold;
@@ -535,12 +645,15 @@ tr.diff-title td {
 }
 tr.diff-item td.diff-left {
   font-weight: bold;
+  vertical-align: top;
 }
 tr.diff-new-item td.diff-left {
   font-weight: bold;
+  vertical-align: top;
 }
 tr.diff-del-item td.diff-left {
   font-weight: bold;
+  vertical-align: top;
 }
 tr.diff-new {
   background-color: #f4fff4;
@@ -555,10 +668,50 @@ tr.diff-del-item {
   background-color: #fff4f4;
 }
 
-
 .self-link-parent a{
   visibility:hidden;
 }
 .self-link-parent:hover a {
  visibility:visible;
 }
+
+tr.frm-group {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-top: 1px solid black override;
+  border-bottom: 0px none black override;
+  font-weight: bold;
+}
+
+tr.frm-group-n {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+tr.frm-contents {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  padding-bottom: 3px;
+  border-bottom: 1px solid black override;
+}
+
+td.frm-category {
+  border-left: 1px solid #eeeeee;
+  font-weight: bold;
+  text-align: center;
+}
+
+td.frm-group {
+  background: #f4f4f4;
+  font-weight: bold;
+}
+
+td.frm-null {
+  background: #f4f4f4;
+}
+
+
+td.frm-set {
+  border-left: 1px solid #eeeeee;
+}
+

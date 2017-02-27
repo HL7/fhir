@@ -225,62 +225,83 @@ requiring human due diligence and governance to ensure adherence.
 Organizing FHIR Resources
 </h3>
 <p>
-It is impractical to model the entirety of health data in a single information model. Every modeling initiative in healthcare from HL7 version 2 
-message specifications, to the CIMI clinical models, to the domains within the FHIM, to FHIR resources decomposes the healthcare domain into 
-smaller, more manageable sub-domains or information model snippets. With FHIR, each resource is essentially a snippet of the larger healthcare 
-information domain. With this approach, it is important to have a framework or set of guidelines in place to assemble the snippets to 
-reconstitute the business domain when needed and to ensure that the snippets are logically congruent with each other.
+It is impractical to model the entirety of health data in a single information model. Every modeling
+initiative in healthcare from HL7 version 2 message specifications to FHIR resources decomposes the
+healthcare domain into smaller, more manageable sub-domains or information model snippets. With FHIR,
+each resource is essentially a snippet of the larger healthcare information domain. 
 </p>
 <p>
-To this end, FHIR has an informative (non-normative) part of the specification that describes how to organize FHIR resources into logical 
-packages or sub-domains in a manner that promotes the reuse and consistency of resources such that they can be assembled to reconstitute 
-the health data domain in a logical, non-duplicative, unambiguous and non-conflicting manner. The fact that there is not a normative framework 
-and set of constraints in place to guarantee this speaks to more to the variability that exists in healthcare practice today than it does to 
-the ability of the FHIR specification to define such rules. 
+When breaking down the healthcare information model into smaller chunks (or resources for FHIR), it
+is important to have a framework and set of guidelines to promote consistency and integrity within
+the resource structures and in the way resources reference each other. The framework shown below
+includes health information model sub-categories organized into layers based on their degree of
+commonness. The layers and categories are useful for identifying which parts of healthcare information
+are the most common and therefore need to be the most consistently defined and tightly governed. The
+categories at the top layers are the most common and contain the FHIR resources that support the
+largest number of common healthcare transactions.
 </p>
 <p>
-The framework is based on the following premise:
+<img src="framework-2.png"/>
 </p>
-<ul>
-<li>Separation of Concerns – it is important to break large healthcare concepts into their constituent parts ensuring that each sub-part has a unique and dedicated purpose.</li>
-<li>Reuse – design resources with reuse in mind based. The more common a resource, the more important it is to design the resource for reuse</li>
-</ul>
 <p>
-<img src="framework.png"/>
+The complete set of FHIR resources organized against this framework is found on the <a href="resourcelist.html">Resources page</a>.
 </p>
+<p>
+The framework serves three primary purposes:
+</p>
+<ol>
+ <li>Organize resource for navigation and identification</li>
+ <li>Classify resources into categories based on common sense groupings or patterns describing expected structures and/or behaviors amongst resources in the same category</li>
+ <li>Disseminate resources across layers to stratify relative common-ness with the most common resources in the top layers</li>
+</ol>
+<p>
+<img src="framework-2.png"/>
+</p>
+<p>
+Descriptions of the layers in this framework:
+</p>
+<ol>
+<li><b>Foundation Reaources</b>: Platform resources are the most rudimentary, foundational resources. They are often used for infrastructural tasks. 
+  Although not prohibited, they are not always referenced by other resources.</li>
+<li><b>Base Resources</b>: Layer two consists of base resources. These are often the leaf nodes of a resource graph. In other words, they are often
+referenced by  other resources, but don't typically reference other resources themselves. These resources are typically the most commonly used, and
+ therefore require the highest degree of consistency and architectural rigor. Governance is greatest for resources in layers one and two.</li>
+<li><b>Clinica; Resources</b>: Layer 3 includes the resources that are clinical in nature but are also very common across many use cases. This 
+includes resources for clinical observations, clinical treatment, care provision, and medications. These resources can be used by themselves, but
+typically build on the resources in later two. For example, an observation resource will reference the patient resource from layer two. These resources 
+are also frequently contextualized when they are referenced by resources in layers three, four and five.</li>
+<li><b>Financial Resources</b>: Layer four is dedicated to financial resources. Logically, financial resources build on clinical and base resources. 
+For example, a billing resource will reference clinical events and activities as well as base resources like a patient.</li>
+<li><b>Specialized Resources</b>: In layer five, we find more specialized resources for less common use cases. These resources almost always reference
+ resources in lower layers. Given that FHIR places priority on satisfying the most common use cases, there are fewer resources in this layer.</li>
+ <li><b>Resource Contextualization</b>: Layer 6 does not contain resources. However, it does extend the composition framework made up by the first 
+  five layers of resources. Layer 6 includes profiles and clusters. Profiles are used to extend, constrain, or otherwise contextualize resources for 
+  a given purpose. Clusters are compositions of resources, or resource graphs, that contain attributes of their own.</li>
+</ol>
+
 <p> 
-This framework shows a collection of health information model sub-domains relative to each other based on their degree of commonness. 
-The domains depicted (e.g., Medications, Urology, etc.) are representative of logical sub-groupings within the larger healthcare 
-data domain and are not prescriptive. Nonetheless, this notional sub-domain depiction is useful for identifying which types of 
-healthcare information is the most common and therefore the best candidate for a FHIR resource. In the framework, the domains at 
-the top are the most common meaning that they contain the data elements (and therefore the FHIR resources) that support the largest 
-number of common healthcare transactions. It stands to reason that nearly every healthcare transaction should have knowledge of the 
-medical encounter (or event) where health information was collected, the people involved (e.g., patient, provider, next of kin, etc.) 
-and the organization where the health encounter took place. The domains on the top most layer are referred to as “attribution” because 
-they describe the attributes included in most healthcare business objects (e.g., an observation, an order event, a medication 
-dispensation event, etc.). 
+Purposes 2 and 3 set the foundation for future architectural rigor and resource governance to optimize 
+consistency, integrity and predictability of new or refined resources in the future. The actual rules 
+and patterns will be defined and refined in future FHIR releases. However, one general guideline to 
+state now is that resources generally reference resources in the same layer or higher. In other words, 
+a layer 4 resource will typically only reference resources in layers 4, 3, 2 or 1. There is nothing 
+prohibiting a layer 4 resource from referencing a layer 5 resource, but this is not as common. 
+Given this guideline, it is possible to identify the resources that are likely to be most common 
+across use cases and therefore demand the highest degree of consistency and governance. Further, the 
+framework helps identify the areas where creating new FHIR resources is the highest priority. It is 
+generally a higher priority to create FHIR resources in the higher layers (layers 1, 2 and 3) than 
+it is to create FHIR resources in the lower layers (layers 4 and 5) because the higher layer resources 
+will provide the greatest value across the largest number of use cases and stakeholders. This is not 
+to say that the business transactions needed for the higher layers are not important, it’s just that 
+they are not as common across the whole healthcare space.  
 </p>
 <p>
-The framework includes 4 additional layers that include domains that are increasingly less common 
-across typical healthcare business transactions as you proceed down the layers. For instance, domains in the “core business” layer 
-are mostly like less common that domains in the “attribution layer”, but more common than the domains in the “specialized business” layer. 
-Therefore, FHIR resources that logically belong in one the “core business” domains are most likely going to be used more than FHIR resources 
-that logically belong in one of the “specialized business” domains. Thus, from an architectural perspective, it is a higher priority to create 
-FHIR resources from domains such as “medications”, pathology” and “procedures” than it is to create FHIR resource for things like “urology”, 
-“geriatrics” or “maternity”. This is not to say that the business transactions needed for the practice of urology are not important, it’s just 
-that they are not as common across the whole healthcare space that all the business transactions (including urology transactions) 
-that require knowledge of the patient’s medications. Mostly, the business transactions for specific the practice of urology are based
-on collections of the resources defined in the higher higher level domains.
+The 6th layer of the framework are not actually resources. Profiles and Clusters are extensions of resources 
+or resource compositions that continue the progression through the FHIR Composition Framework. The provide 
+additional contextualization required to satisfy certain use cases. 
 </p>
 <p>
-Based on the reasoning above and layers of commonality in the framework, it is important to note that the more common the domain that 
-a FHIR resource is logically part of, the higher the degree of expected reuse across business transactions. Further, resources that are 
-reused the most require the greatest level of governance to ensure consistency and remove ambiguity and duplication. The relative 
-relationships between commonality, reuse and governance across the domain framework are depicted as arrows on the right side of the 
-framework diagram.
-</p>
-<p>
-There are several benefits expected from aligning the creation of FHIR resources to this framework, including:
+There are several benefits expected from aligning the creation of FHIR resources to this framework, including::
 </p>
 <ul>
 <li>Organization and manageability of health domains - the framework provides a basis for decomposition and modularity</li>
@@ -292,7 +313,8 @@ There are several benefits expected from aligning the creation of FHIR resources
 The framework is further elaborated in the <a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Considerations">FHIR Resource Considerations page</a>.
 </p>
 <p>
-Another useful tool for visualizing how FHIR resources are organized relative to each other can be found using the Resource Reference Visualization tool on <a href="https://fhirblog.com/2016/06/14/resource-reference-visualization-in-clinfhir/">clinFHIR</a>.
+Another useful tool for visualizing how FHIR resources are organized relative to each other can be found using the Resource Reference 
+Visualization tool on <a href="https://fhirblog.com/2016/06/14/resource-reference-visualization-in-clinfhir/">clinFHIR</a>.
 </p>
 <h3>
 FHIR Implementation – High-Level Design Considerations
