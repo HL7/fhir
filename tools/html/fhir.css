@@ -704,17 +704,6 @@ td.frm-category {
 td.frm-group {
   background: #f4f4f4;
   font-weight: bold;
-  transform: rotate(-90deg);
-  /* Safari */
-  -webkit-transform: rotate(-90deg);
-  /* Firefox */
-  -moz-transform: rotate(-90deg);
-  /* IE */
-  -ms-transform: rotate(-90deg);
-  /* Opera */
-  -o-transform: rotate(-90deg);
-  /* Internet Explorer */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 td.frm-null {
@@ -726,3 +715,17 @@ td.frm-set {
   border-left: 1px solid #eeeeee;
 }
 
+.rotate {
+  text-align: center;
+  vertical-align: middle;
+  width: 1.5em;
+}
+.rotate div {
+     -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+       -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+         margin-left: -10em;
+         margin-right: -10em;
+}

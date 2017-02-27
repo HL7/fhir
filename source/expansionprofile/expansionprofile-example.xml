@@ -27,7 +27,7 @@
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
-      <value value="001"/>
+      <code value="001"/>
       <display value="World"/>
     </coding>
   </jurisdiction>
