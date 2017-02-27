@@ -2186,6 +2186,8 @@ public class SpreadsheetParser {
     String sl = exe.getShortDefn();
     ex.setName(sheet.getColumn(row, "Name"));
     if (!ex.hasName())
+      ex.setName(exe.getName());
+    if (!ex.hasName())
       ex.setName(ex.getTitle());
     if (!ex.hasName() && !Utilities.noString(sl))
       ex.setName(sl);
