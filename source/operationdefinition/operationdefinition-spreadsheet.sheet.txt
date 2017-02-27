@@ -307,9 +307,9 @@
   Element = OperationDefinition.overload
   Card. = 0..*
   UML = left
-  Short Name = For generating overloaded methods in code
-  Definition = Defines an appropriate combination of parameters to use when invoking this operation
-  Comments = This element is intended for generating overloaded methods in code, and the combinations are not authoritative
+  Short Name = Define overloaded variants for when  generating code
+  Definition = Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation
+  Comments = The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative
 
  -- Row 37 -----------------------------------
   Element = OperationDefinition.overload.parameterName

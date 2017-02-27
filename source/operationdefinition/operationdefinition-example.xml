@@ -58,6 +58,14 @@
 		<type value="Reference"/>
 	</parameter>
 	<parameter>
+		<name value="local"/>
+		<use value="in"/>
+		<min value="0"/>
+		<max value="1"/>
+		<documentation value="If the *local* parameter is set to true, server information about the specified subject will be used to populate the instance."/>
+		<type value="Reference"/>
+	</parameter>
+	<parameter>
 		<name value="return"/>
 		<use value="out"/>
 		<min value="1"/>
@@ -65,4 +73,13 @@
 		<documentation value="The partially (or fully)-populated set of answers for the specified Questionnaire"/>
 		<type value="QuestionnaireResponse"/>
 	</parameter>
+  <!-- if generating code for this operation, generate 2 overloads, with and without the local parameter -->
+  <overload>
+    <parameterName value="subject"/>
+    <parameterName value="local"/>
+  </overload>
+  <overload>
+    <parameterName value="subject"/>
+    <comment value="local defaults to false when not passed as a parameter"/>
+  </overload>
 </OperationDefinition>
