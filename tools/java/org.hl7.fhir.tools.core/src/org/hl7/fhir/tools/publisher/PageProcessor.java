@@ -8105,7 +8105,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a></td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
-          b.append("    <td>"+(oid == null ? "" : oid.substring(8))+"</td>\r\n");
+          b.append("    <td>"+(oid == null ? "" : oid)+"</td>\r\n");
           b.append("  </tr>\r\n");
         }
       }
