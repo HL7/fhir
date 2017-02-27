@@ -384,6 +384,8 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 		xml.exit(FHIR_NS, name);
 	}
 
+	
+
 	protected abstract void composeResource(String name, Resource res) throws IOException ;
 
 }

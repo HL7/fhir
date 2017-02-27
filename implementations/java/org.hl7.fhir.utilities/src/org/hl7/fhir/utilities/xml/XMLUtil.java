@@ -279,7 +279,7 @@ public class XMLUtil {
 				else if (ch > '~' && charset != null && charSetImpliesAscii(charset)) 
 					// TODO - why is hashcode the only way to get the unicode number for the character
 					// in jre 5.0?
-					sb.append("&#x"+Integer.toHexString(new Character(ch).hashCode()).toUpperCase()+";");
+					sb.append("&#x"+Integer.toHexString(ch).toUpperCase()+";");
 				else if (isNoLines) {
 					if (ch == '\r')
 						sb.append("&#xA;");

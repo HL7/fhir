@@ -234,7 +234,7 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 					write(element[0]);
 					write("=\"");
 					if (element[1] != null)
-						write(element[1]);
+						write(xmlEscape(element[1]));
 					write("\"");
 				}
 			}
@@ -242,6 +242,18 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 		return col;
 	}
 
+	 protected String xmlEscape(String s) {
+     StringBuilder b = new StringBuilder();
+     for (char c : s.toCharArray()) {
+       if (c < ' ' || c > '~') {
+         b.append("&#x");
+         b.append(Integer.toHexString(c).toUpperCase());
+         b.append(";");
+       } else
+         b.append(c);
+     }
+     return b.toString();
+   }
 	/* (non-Javadoc)
 	 * @see org.eclipse.ohf.utilities.xml.IXMLWriter#attribute(java.lang.String, java.lang.String, java.lang.String, boolean)
 	 */
@@ -702,7 +714,7 @@ public class XMLWriter extends OutputStreamWriter implements IXMLWriter {
 			if (dontEscape)
 				write(content);
 			else
-				write(XMLUtil.escapeXML(content, charset, false));
+				write(XMLUtil.escapeXML(content, "US-ASCII", false));
 		}
 	}
 

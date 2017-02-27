@@ -18734,6 +18734,7 @@ public class XmlParser extends XmlParserBase {
     }    
   }    
 
+ 
   protected void composeInteger(String name, IntegerType value) throws IOException  {
     if (value != null) { // integer
       composeElementAttributes(value);
