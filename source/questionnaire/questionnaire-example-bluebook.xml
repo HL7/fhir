@@ -26,6 +26,12 @@
   <status value="draft"/>
   <date value="2013-02-19"/>
   <publisher value="New South Wales Department of Health"/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="AU"/>
+    </coding>
+  </useContext>
   <title value="NSW Government My Personal Health Record"/>
   <subjectType value="Patient"/>
   <item>

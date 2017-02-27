@@ -6,14 +6,14 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <pre>
             1.Comorbidity?
-              1.1 Cardial Comorbidity?
+              1.1 Cardial Comorbidity
                 1.1.1 Angina?
                 1.1.2 MI?
-              1.2 a) Vascular Comorbidity?
+              1.2 Vascular Comorbidity?
               ...
-            2. Histopathology
-              2.1 Abdominal
-                2.1.1 pT category
+            Histopathology
+              Abdominal
+                pT category?
               ...
           </pre>
     </div>
@@ -29,7 +29,6 @@
       <system value="http://example.org/system/code/sections"/>
       <code value="COMORBIDITY"/>
     </code>
-    <prefix value="1"/>
     <type value="group"/>
     <item>
       <linkId value="1.1"/>
@@ -37,18 +36,17 @@
         <system value="http://example.org/system/code/questions"/>
         <code value="COMORB"/>
       </code>
-      <prefix value="1.1"/>
+      <prefix value="1"/>
       <type value="choice"/>
       <options>
         <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
       </options>
       <item>
-        <linkId value="1.1.1"/>
+        <linkId value="1.1"/>
         <code>
           <system value="http://example.org/system/code/sections"/>
           <code value="CARDIAL"/>
         </code>
-        <prefix value="1.1.1"/>
         <type value="group"/>
         <enableWhen>
           <question value="1.1"/>
@@ -63,38 +61,50 @@
             <system value="http://example.org/system/code/questions"/>
             <code value="COMORBCAR"/>
           </code>
-          <prefix value="1.1.1.1"/>
+          <prefix value="1.1"/>
           <type value="choice"/>
           <options>
             <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
           </options>
+          <item>
+            <linkId value="1.1.1.1.1"/>
+            <code>
+              <system value="http://example.org/system/code/questions"/>
+              <code value="COMCAR00"/>
+              <display value="Angina Pectoris"/>
+            </code>
+            <code>
+              <system value="http://snomed.info/sct"/>
+              <code value="194828000"/>
+              <display value="Angina (disorder)"/>
+            </code>
+            <prefix value="1.1.1"/>
+            <type value="choice"/>
+            <options>
+              <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
+            </options>
+          </item>
+          <item>
+            <linkId value="1.1.1.1.2"/>
+            <code>
+              <system value="http://snomed.info/sct"/>
+              <code value="22298006"/>
+              <display value="Myocardial infarction (disorder)"/>
+            </code>
+            <prefix value="1.1.2"/>
+            <type value="choice"/>
+            <options>
+              <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
+            </options>
+          </item>
         </item>
         <item>
           <linkId value="1.1.1.2"/>
           <code>
             <system value="http://example.org/system/code/questions"/>
-            <code value="COMCAR00"/>
-            <display value="Angina Pectoris"/>
+            <code value="COMORBVAS"/>
           </code>
-          <code>
-            <system value="http://snomed.info/sct"/>
-            <code value="194828000"/>
-            <display value="Angina (disorder)"/>
-          </code>
-          <prefix value="1.1.1.2"/>
-          <type value="choice"/>
-          <options>
-            <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
-          </options>
-        </item>
-        <item>
-          <linkId value="1.1.1.3"/>
-          <code>
-            <system value="http://snomed.info/sct"/>
-            <code value="22298006"/>
-            <display value="Myocardial infarction (disorder)"/>
-          </code>
-          <prefix value="1.1.3"/>
+          <prefix value="1.2"/>
           <type value="choice"/>
           <options>
             <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
@@ -109,7 +119,6 @@
       <system value="http://example.org/system/code/sections"/>
       <code value="HISTOPATHOLOGY"/>
     </code>
-    <prefix value="2"/>
     <type value="group"/>
     <item>
       <linkId value="2.1"/>
@@ -117,7 +126,6 @@
         <system value="http://example.org/system/code/sections"/>
         <code value="ABDOMINAL"/>
       </code>
-      <prefix value="2.1"/>
       <type value="group"/>
       <item>
         <linkId value="2.1.2"/>
@@ -126,7 +134,6 @@
           <code value="STADPT"/>
           <display value="pT category"/>
         </code>
-        <prefix value="2.1.2"/>
         <type value="choice"/>
       </item>
     </item>

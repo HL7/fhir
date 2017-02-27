@@ -38,6 +38,22 @@
     </Patient>
   </contained>
   <contained>
+    <ProcedureRequest>
+      <id value="order"/>
+      <status value="unknown"/>
+      <intent value="order"/>
+      <code>
+        <text value="quality forum questionnaire"/>
+      </code>
+      <subject>
+        <reference value="#patsub"/>
+      </subject>
+      <requester>
+        <agent></agent>
+      </requester>
+    </ProcedureRequest>
+  </contained>
+  <contained>
     <Practitioner>
       <id value="questauth"/>
       <identifier>
@@ -77,10 +93,23 @@
       </valueCodeableConcept>
     </Observation>
   </contained> -->
+  <identifier>
+    <system value="http://example.org/fhir/NamingSystem/questionnaire-ids"/>
+    <value value="Q12349876"/>
+  </identifier>
+  <basedOn>
+    <reference value="#order"/>
+  </basedOn>
+  <parent>
+    <reference value="Procedure/f201"/>
+  </parent>
   <status value="completed"/>
   <subject>
     <reference value="#patsub"/>
   </subject>
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
   <authored value="2013-02-19T14:15:00-05:00"/>
   <author>
     <reference value="#questauth"/>
@@ -90,9 +119,9 @@
     <!--   First main section of the form, questions about comorbidity   -->
     <!--   section contains one question: whether there is comorbidity   -->
     <linkId value="1"/>
-	<item>
+    <item>
       <linkId value="1.1"/>
-	  <answer>
+      <answer>
         <valueCoding>
           <system value="http://cancer.questionnaire.org/system/code/yesno"/>
           <code value="1"/>
@@ -102,8 +131,8 @@
           <!--   COMORBIDITY/CARDIAL   -->
           <!--   Subsection about specific comorbidity: cardial   -->
           <linkId value="1.1.1"/>
-		  <item>
-		    <linkId value="1.1.1.1"/>
+          <item>
+            <linkId value="1.1.1.1"/>
             <answer>
               <valueCoding>
                 <system value="http://cancer.questionnaire.org/system/code/yesno"/>
@@ -114,7 +143,7 @@
           <item>
             <!--   This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code   -->
             <linkId value="1.1.1.2"/>
-			<answer>
+            <answer>
               <valueCoding>
                 <system value="http://cancer.questionnaire.org/system/code/yesno"/>
                 <code value="1"/>
@@ -123,7 +152,7 @@
           </item>
           <item>
             <linkId value="1.1.1.3"/>
-			<answer>
+            <answer>
               <valueCoding>
                 <system value="http://cancer.questionnaire.org/system/code/yesno"/>
                 <code value="0"/>
