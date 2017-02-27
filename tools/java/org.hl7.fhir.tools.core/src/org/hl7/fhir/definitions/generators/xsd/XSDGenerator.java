@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
@@ -369,7 +370,7 @@ public class XSDGenerator  {
 			String en = null;
 			if (e.hasBinding()) {
 				BindingSpecification cd = e.getBinding();
-				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
+				if (cd != null && cd.getStrength() == BindingStrength.REQUIRED && cd.getValueSet() != null) {
 					en = cd.getValueSet().getName();
 					if (!cd.isShared()) {
 					  enums.put(en, cd.getValueSet());
