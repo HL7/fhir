@@ -371,7 +371,7 @@ public class XSDGenerator  {
 			if (e.hasBinding()) {
 				BindingSpecification cd = e.getBinding();
 				if (cd != null && cd.getStrength() == BindingStrength.REQUIRED && cd.getValueSet() != null) {
-					en = cd.getValueSet().getName();
+					en = namify(cd.getValueSet().getName());
 					if (!cd.isShared()) {
 					  enums.put(en, cd.getValueSet());
 					  enumDefs.put(en, cd.getDefinition());
@@ -394,6 +394,22 @@ public class XSDGenerator  {
 		else  
 			return type.getName()+"_"+upFirst(type.getParams().get(0));
 	}
+
+  private String namify(String name) {
+    StringBuilder b = new StringBuilder();
+    boolean ws = false;
+    for (char c : name.toCharArray()) {
+      if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        if (ws) {
+          ws = false;
+          b.append(Character.toUpperCase(c));
+        } else 
+          b.append(c);          
+      } else 
+        ws = true;        
+    }
+    return b.toString();
+  }
 
   public OutputStreamWriter getWriter() {
     return writer;
