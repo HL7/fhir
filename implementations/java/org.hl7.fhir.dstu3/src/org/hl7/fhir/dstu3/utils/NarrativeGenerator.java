@@ -1988,9 +1988,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     XhtmlNode p = x.para();
     p.tx("Mapping from ");
-    AddVsRef(((Reference) cm.getSource()).getReference(), p);
+    AddVsRef(cm.getSource() instanceof Reference ? ((Reference) cm.getSource()).getReference() : ((UriType) cm.getSource()).asStringValue(), p);
     p.tx(" to ");
-    AddVsRef(((Reference) cm.getTarget()).getReference(), p);
+    AddVsRef(cm.getSource() instanceof Reference ? ((Reference) cm.getTarget()).getReference() : ((UriType) cm.getTarget()).asStringValue(), p);
 
     p = x.para();
     if (cm.getExperimental())
@@ -3659,42 +3659,44 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.h2().addText(conf.getName());
     addMarkdown(x, conf.getDescription());
-    CapabilityStatementRestComponent rest = conf.getRest().get(0);
-    XhtmlNode t = x.table(null);
-    addTableRow(t, "Mode", rest.getMode().toString());
-    addTableRow(t, "Description", rest.getDocumentation());
+    if (conf.getRest().size() > 0) {
+      CapabilityStatementRestComponent rest = conf.getRest().get(0);
+      XhtmlNode t = x.table(null);
+      addTableRow(t, "Mode", rest.getMode().toString());
+      addTableRow(t, "Description", rest.getDocumentation());
 
-    addTableRow(t, "Transaction", showOp(rest, SystemRestfulInteraction.TRANSACTION));
-    addTableRow(t, "System History", showOp(rest, SystemRestfulInteraction.HISTORYSYSTEM));
-    addTableRow(t, "System Search", showOp(rest, SystemRestfulInteraction.SEARCHSYSTEM));
+      addTableRow(t, "Transaction", showOp(rest, SystemRestfulInteraction.TRANSACTION));
+      addTableRow(t, "System History", showOp(rest, SystemRestfulInteraction.HISTORYSYSTEM));
+      addTableRow(t, "System Search", showOp(rest, SystemRestfulInteraction.SEARCHSYSTEM));
 
-    t = x.table(null);
-    XhtmlNode tr = t.tr();
-    tr.th().b().tx("Resource Type");
-    tr.th().b().tx("Profile");
-    tr.th().b().tx("Read");
-    tr.th().b().tx("V-Read");
-    tr.th().b().tx("Search");
-    tr.th().b().tx("Update");
-    tr.th().b().tx("Updates");
-    tr.th().b().tx("Create");
-    tr.th().b().tx("Delete");
-    tr.th().b().tx("History");
+      t = x.table(null);
+      XhtmlNode tr = t.tr();
+      tr.th().b().tx("Resource Type");
+      tr.th().b().tx("Profile");
+      tr.th().b().tx("Read");
+      tr.th().b().tx("V-Read");
+      tr.th().b().tx("Search");
+      tr.th().b().tx("Update");
+      tr.th().b().tx("Updates");
+      tr.th().b().tx("Create");
+      tr.th().b().tx("Delete");
+      tr.th().b().tx("History");
 
-    for (CapabilityStatementRestResourceComponent r : rest.getResource()) {
-      tr = t.tr();
-      tr.td().addText(r.getType());
-      if (r.hasProfile()) {
-      	tr.td().ah(prefix+r.getProfile().getReference()).addText(r.getProfile().getReference());
+      for (CapabilityStatementRestResourceComponent r : rest.getResource()) {
+        tr = t.tr();
+        tr.td().addText(r.getType());
+        if (r.hasProfile()) {
+          tr.td().ah(prefix+r.getProfile().getReference()).addText(r.getProfile().getReference());
+        }
+        tr.td().addText(showOp(r, TypeRestfulInteraction.READ));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.VREAD));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.SEARCHTYPE));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.UPDATE));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.HISTORYINSTANCE));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.CREATE));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.DELETE));
+        tr.td().addText(showOp(r, TypeRestfulInteraction.HISTORYTYPE));
       }
-      tr.td().addText(showOp(r, TypeRestfulInteraction.READ));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.VREAD));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.SEARCHTYPE));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.UPDATE));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.HISTORYINSTANCE));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.CREATE));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.DELETE));
-      tr.td().addText(showOp(r, TypeRestfulInteraction.HISTORYTYPE));
     }
 
     inject(conf, x, NarrativeStatus.GENERATED);

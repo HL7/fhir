@@ -292,7 +292,7 @@
   Context = Timing.repeat
   English = If there\'s an offset, there must be a when (and not C, CM, CD, CV)
   XPath = not(exists(f:offset)) or exists(f:when)
-  Expression = offset.empty() or (when.exists() and (when in (\'C\' | \'CM\' | \'CD\' | \'CV\').not()))
+  Expression = offset.empty() or (when.exists() and ((when in (\'C\' | \'CM\' | \'CD\' | \'CV\')).not()))
 
  -- Row 9 -----------------------------------
   Id = 10

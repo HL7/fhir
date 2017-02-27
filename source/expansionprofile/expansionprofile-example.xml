@@ -5,7 +5,32 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">[ Provide Rendering ]</div>
   </text>
+ <url value="http://hl7.org/fhir/ExpansionProfile/example"/>
+  <identifier>
+    <system value="http://example.org/profiles"/>
+    <value value="example"/>
+  </identifier>
+  <version value="0.1"/>
+  <name value="Example Expansion Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
+  <date value="2016-12-23"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>  
+  <description value="exanple ExpansionProfile for publication"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <value value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <excludeNested value="true"/>
 </ExpansionProfile>
+

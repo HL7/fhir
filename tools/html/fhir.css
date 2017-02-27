@@ -678,8 +678,8 @@ tr.diff-del-item {
 tr.frm-group {
   border-right: 1px solid black;
   border-left: 1px solid black;
-  border-top: 1px solid black override;
-  border-bottom: 0px none black override;
+  border-top: 1px solid black;
+  border-bottom: 0px none black;
   font-weight: bold;
 }
 
@@ -692,7 +692,7 @@ tr.frm-contents {
   border-right: 1px solid black;
   border-left: 1px solid black;
   padding-bottom: 3px;
-  border-bottom: 1px solid black override;
+  border-bottom: 1px solid black;
 }
 
 td.frm-category {
@@ -704,6 +704,17 @@ td.frm-category {
 td.frm-group {
   background: #f4f4f4;
   font-weight: bold;
+  transform: rotate(-90deg);
+  /* Safari */
+  -webkit-transform: rotate(-90deg);
+  /* Firefox */
+  -moz-transform: rotate(-90deg);
+  /* IE */
+  -ms-transform: rotate(-90deg);
+  /* Opera */
+  -o-transform: rotate(-90deg);
+  /* Internet Explorer */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 td.frm-null {

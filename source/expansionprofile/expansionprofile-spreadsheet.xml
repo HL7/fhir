@@ -1806,9 +1806,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Designation use</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">What kind of Designation to include</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Designation uses for inclusion in the expansion</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Which kinds of designation to include in the expansion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">In the absence of a use, all designations are retained which match the designation.language parameter for this include.designation element</Data><NamedCell
@@ -3843,8 +3843,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -11,7 +11,8 @@
     Could also be a UUID too  -->
     <version value="20120613"/>
     <!--  set of loinc codes for cholesterol for LONC 2.36  -->
-    <name value="FHIR/v3 Address Use Mapping"/>
+    <name value="FHIR-v3-Address-Use"/>
+    <title value="FHIR/v3 Address Use Mapping"/>
     <status value="draft"/>
     <experimental value="true"/>
     <date value="2012-06-13"/>
@@ -36,12 +37,8 @@
     </useContext>
     <purpose value="To help implementers map from HL7 v3/CDA to FHIR"/>
     <copyright value="Creative Commons 0"/>
-    <sourceReference>
-        <reference value="http://hl7.org/fhir/ValueSet/address-use"/>
-    </sourceReference>
-    <targetReference>
-        <reference value="http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
-    </targetReference>
+    <sourceUri value="http://hl7.org/fhir/ValueSet/address-use"/>
+    <targetUri value="http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
     <group>
         <source value="http://hl7.org/fhir/address-use"/>
         <target value="http://hl7.org/fhir/v3/AddressUse"/>

@@ -2062,7 +2062,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String conceptmaplist(String id, String level) {
     List<ConceptMap> cmaps = new ArrayList<ConceptMap>();
     for (ConceptMap cm : conceptMaps.values()) {
-      if (((Reference) cm.getSource()).getReference().equals(id) || ((Reference) cm.getTarget()).getReference().equals(id))
+      if (getCMRef(cm.getSource()).equals(id) || getCMRef(cm.getTarget()).equals(id))
         cmaps.add(cm);
     }
     if (cmaps.size() == 0)
@@ -2082,10 +2082,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append(" <tr><td>");
         if (((Reference) cm.getSource()).getReference().equals(id)) {
           b.append("to <a href=\"").append(getValueSetRef(prefix, ((Reference) cm.getTarget()).getReference())).append("\">")
-                  .append(describeValueSetByRef(((Reference) cm.getTarget()).getReference()));
+                  .append(describeValueSetByRef(cm.getTarget()));
         } else {
           b.append("from <a href=\"").append(getValueSetRef(prefix, ((Reference) cm.getSource()).getReference())).append("\">")
-                  .append(describeValueSetByRef(((Reference) cm.getSource()).getReference()));
+                  .append(describeValueSetByRef(cm.getSource()));
         }
         b.append("</a></td><td><a href=\"").append(prefix).append(cm.getUserData("path")).append("\">").append(cm.getName())
                 .append("</a></td><td><a href=\"").append(prefix).append(Utilities.changeFileExt((String) cm.getUserData("path"), ".xml.html"))
@@ -2094,6 +2094,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("</table>\r\n");
       return b.toString();
     }
+  }
+
+  private String getCMRef(Type target) {
+    return target instanceof Reference ? ((Reference) target).getReference() : ((UriType) target).asStringValue();
   }
 
   private String getValueSetRef(String prefix, String ref) {
@@ -2107,7 +2111,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return prefix+vs.getUserData("path");
   }
 
-  private String describeValueSetByRef(String ref) {
+  private String describeValueSetByRef(Type reft) {
+    String ref = reft instanceof UriType ?  ((UriType) reft).asStringValue() : ((Reference) reft).getReference();
     ValueSet vs = definitions.getValuesets().get(ref);
     if (vs == null) {
       if (ref.equals("http://snomed.info/id"))
@@ -3667,8 +3672,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       //String n = sn.substring(23);
       ConceptMap cm = ae;
       s.append(" <tr><td><a href=\"").append(ae.getUserData("path")).append("\">").append(cm.getName()).append("</a></td>")
-              .append("<td><a href=\"").append(getValueSetRef("", ((Reference) cm.getSource()).getReference())).append("\">").append(describeValueSetByRef(((Reference) cm.getSource()).getReference())).append("</a></td>")
-              .append("<td><a href=\"").append(getValueSetRef("", ((Reference) cm.getTarget()).getReference())).append("\">").append(describeValueSetByRef(((Reference) cm.getTarget()).getReference())).append("</a></td></tr>\r\n");
+              .append("<td><a href=\"").append(getValueSetRef("", cm.getSource() instanceof Reference ? (cm.getSourceReference()).getReference() : cm.getSourceUriType().asStringValue())).append("\">").append(describeValueSetByRef(cm.getSource())).append("</a></td>")
+              .append("<td><a href=\"").append(getValueSetRef("", cm.getTarget() instanceof Reference ? (cm.getTargetReference()).getReference() : cm.getTargetUriType().asStringValue())).append("\">").append(describeValueSetByRef(cm.getTarget())).append("</a></td></tr>\r\n");
     }
     s.append("</table>\r\n");
     return s.toString();

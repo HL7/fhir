@@ -219,8 +219,8 @@
   Summary = y
   Type = Coding
   Binding = ConceptDesignationUse
-  Short Name = Designation use
-  Definition = Designation uses for inclusion in the expansion
+  Short Name = What kind of Designation to include
+  Definition = Which kinds of designation to include in the expansion
   Comments = In the absence of a use, all designations are retained which match the designation.language parameter for this include.designation element
 
  -- Row 27 -----------------------------------
