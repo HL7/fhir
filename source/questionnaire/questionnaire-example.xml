@@ -42,7 +42,7 @@
         <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
       </options>
       <item>
-        <linkId value="1.1"/>
+        <linkId value="1.1.1"/>
         <code>
           <system value="http://example.org/system/code/sections"/>
           <code value="CARDIAL"/>

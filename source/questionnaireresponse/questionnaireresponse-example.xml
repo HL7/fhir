@@ -38,20 +38,19 @@
     </Patient>
   </contained>
   <contained>
-    <ProcedureRequest>
+    <ReferralRequest>
       <id value="order"/>
       <status value="unknown"/>
       <intent value="order"/>
-      <code>
-        <text value="quality forum questionnaire"/>
-      </code>
       <subject>
         <reference value="#patsub"/>
       </subject>
       <requester>
-        <agent></agent>
+        <agent>
+          <reference value="Practitioner/example"/>
+        </agent>
       </requester>
-    </ProcedureRequest>
+    </ReferralRequest>
   </contained>
   <contained>
     <Practitioner>
