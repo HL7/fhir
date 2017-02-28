@@ -157,7 +157,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = DeviceComponentOperationalStatus
-  Short Name = Current operational status of the component, for example On, Off, Standby, etc..
+  Short Name = Current operational status of the component, for example On, Off or Standby
   Definition = Indicates current operational status of the device. For example: On, Off, Standby, etc.
   Comments = OperationalStatus for the MDS, VMD, or Channel will be bound to a specific ValueSet that is defined in its profile.
 
@@ -181,7 +181,7 @@
   Element = DeviceComponent.productionSpecification
   Card. = 0..*
   UML = 420;50
-  Short Name = Specification details such as Component Revisions, Serial Numbers, etc..
+  Short Name = Specification details such as Component Revisions, or Serial Numbers
   Definition = Describes the production specification such as component revision, serial number, etc.
 
  -- Row 11 -----------------------------------

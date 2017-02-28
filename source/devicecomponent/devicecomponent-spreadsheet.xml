@@ -1180,7 +1180,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Current operational status of the component, for example On, Off, Standby, etc..</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Current operational status of the component, for example On, Off or Standby</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates current operational status of the device. For example: On, Off, Standby, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1275,7 +1275,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Specification details such as Component Revisions, Serial Numbers, etc..</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Specification details such as Component Revisions, or Serial Numbers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Describes the production specification such as component revision, serial number, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3643,7 +3643,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3660,7 +3660,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
