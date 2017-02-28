@@ -61,7 +61,7 @@
   Context = Observation.effective[x]
   English = Datetime must be at least to day.
   XPath = f:matches(effectiveDateTime,/\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d([+-][0-2]\\d:[0-5]\\d|Z)/)
-  Expression = length() >= 8
+  Expression = ($this as dateTime).toString().length() >= 8
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -84,8 +84,8 @@
   Id = vs-4
   Context = Observation.category
   English = Must have a category of \'vital-signs\' and a code system \'http://hl7.org/fhir/observation-category\'
-  XPath = exists(f:coding/code[@value=\'laboratory\']) and exists(f:coding/system[@value=\'http://hl7.org/fhir/observation-category\'])
-  Expression = where(coding.system=\'http://hl7.org/fhir/observation-category\' and coding.code=\'laboratory\').exists()
+  XPath = exists(f:coding/code[@value=\'vital-signs\']) and exists(f:coding/system[@value=\'http://hl7.org/fhir/observation-category\'])
+  Expression = where(coding.system=\'http://hl7.org/fhir/observation-category\' and coding.code=\'vital-signs\').exists()
   Severity = error
 
 === Sheet VitalSigns =====================================

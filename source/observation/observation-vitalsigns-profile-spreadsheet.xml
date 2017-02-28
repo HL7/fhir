@@ -9,8 +9,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-14T20:15:12Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2017-02-28T06:14:06Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,8 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>808</TabRatio>
-  <ActiveSheet>21</ActiveSheet>
-  <FirstVisibleSheet>6</FirstVisibleSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -948,6 +947,9 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
+  </Style>
+  <Style ss:ID="s173">
+   <Font ss:FontName="Tahoma" x:Family="Swiss" ss:Size="9" ss:Color="#666666"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -3938,7 +3940,7 @@
    <Column ss:Width="227.25"/>
    <Column ss:Width="515.25"/>
    <Column ss:Width="251.25"/>
-   <Column ss:Width="570.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="612.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:AutoFitWidth="0" ss:Width="107.25"/>
@@ -3983,7 +3985,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Observation.effective[x]</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Datetime must be at least to day.</Data></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">length() &gt;= 8</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">($this as dateTime).toString().length() &gt;= 8</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">f:matches(effectiveDateTime,/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z)/)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4010,8 +4012,8 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Observation.category</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Must have a category of 'vital-signs' and a code system 'http://hl7.org/fhir/observation-category'</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='laboratory').exists()</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">exists(f:coding/code[@value='laboratory']) and exists(f:coding/system[@value='http://hl7.org/fhir/observation-category'])</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">where(coding.system='http://hl7.org/fhir/observation-category' and coding.code='vital-signs').exists()</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">exists(f:coding/code[@value='vital-signs']) and exists(f:coding/system[@value='http://hl7.org/fhir/observation-category'])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s127"/>
@@ -4440,11 +4442,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -41934,7 +41938,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>141</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
