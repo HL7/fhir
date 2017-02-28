@@ -431,6 +431,7 @@
   Card. = 0..*
   Summary = Y
   UML = up
+  Type = =ExceptActor
   Short Name = Who|what controlled by this exception (or group, by role)
   Definition = Who or what is controlled by this Exception. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
@@ -515,6 +516,7 @@
   Card. = 0..*
   Summary = Y
   UML = down
+  Type = =ExceptData
   Short Name = Data controlled by this exception
   Definition = The resources controlled by this exception, if specific resources are referenced
   RIM Mapping = Role
