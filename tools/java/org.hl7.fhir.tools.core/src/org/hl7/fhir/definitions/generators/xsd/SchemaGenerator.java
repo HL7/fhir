@@ -33,7 +33,9 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -71,6 +73,7 @@ public class SchemaGenerator {
 	  xsdb.setDefinitions(definitions);
 	  xsdb.generate(version, genDate, true);
 	  xsdb.getWriter().close();
+    Set<String> allenums = new HashSet<String>();
 
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getResources().keySet());
@@ -78,7 +81,7 @@ public class SchemaGenerator {
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration, workerContext);
+		  XSDGenerator sgen = new XSDGenerator(new OutputStreamWriter(new FileOutputStream(new CSFile(xsdDir+root.getName().toLowerCase()+".xsd")), "UTF-8"), definitions, forCodeGeneration, workerContext, allenums);
 		  sgen.setDataTypes(definitions.getKnownTypes());
 		  sgen.generate(root.getRoot(), version, genDate, true);
 		  sgen.getWriter().close();
@@ -119,9 +122,10 @@ public class SchemaGenerator {
 //    single.write("  </xs:complexType>\r\n");
 //    single.write("  <xs:element name=\"Binary\" type=\"Binary\"/>\r\n");
 //  
+    allenums = new HashSet<String>();
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration, workerContext);
+      XSDGenerator sgen = new XSDGenerator(single, definitions, forCodeGeneration, workerContext, allenums);
       sgen.setDataTypes(definitions.getKnownTypes());
       sgen.generate(root.getRoot(), version, genDate, false);
     }
