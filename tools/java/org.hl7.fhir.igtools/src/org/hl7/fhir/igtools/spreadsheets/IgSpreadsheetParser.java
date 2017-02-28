@@ -714,7 +714,8 @@ public class IgSpreadsheetParser {
       e.setIsModifier(true);
     e.setMustSupport(parseBoolean(sheet.getColumn(row, "Must Support"), row, false));
 
-    e.setIsSummary(parseBoolean(sheet.getColumn(row, "Summary"), row, false));
+    if (sheet.hasColumn(row, "Summary"))
+      e.setIsSummary(parseBoolean(sheet.getColumn(row, "Summary"), row, false));
 
     String uml = sheet.getColumn(row, "UML");
     if (!Utilities.noString(uml)) {

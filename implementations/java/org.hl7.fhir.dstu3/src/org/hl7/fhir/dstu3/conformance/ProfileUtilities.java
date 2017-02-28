@@ -1212,11 +1212,11 @@ public class ProfileUtilities extends TranslatingUtilities {
         //  base
 
       if (derived.hasIsSummaryElement()) {
-        if (!Base.compareDeep(derived.getIsSummaryElement(), base.getIsSummaryElement(), false))
-          throw new Error("can't override is-summary - please consult Grahame about this");
-//          base.setIsSummaryElement(derived.getIsSummaryElement().copy());
-        
-        else if (trimDifferential)
+        if (!Base.compareDeep(derived.getIsSummaryElement(), base.getIsSummaryElement(), false)) {
+          if (base.hasIsSummary())
+            throw new Error("Error in profile "+pn+" at "+derived.getPath()+": Base isSummary = "+base.getIsSummaryElement().asStringValue()+", derived isSummary = "+derived.getIsSummaryElement().asStringValue());
+          base.setIsSummaryElement(derived.getIsSummaryElement().copy());
+        } else if (trimDifferential)
           derived.setIsSummaryElement(null);
         else
           derived.getIsSummaryElement().setUserData(DERIVATION_EQUALS, true);

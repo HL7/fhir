@@ -13,7 +13,7 @@
   <identity value="tst"/>
   <uri value="http://testuri.org/"/>
   <name value="Test Mapping"/>
-  <comments value="Test Mapping Details"/>
+  <comment value="Test Mapping Details"/>
  </mapping>
  <kind value="resource"/>
  <abstract value="false"/>
