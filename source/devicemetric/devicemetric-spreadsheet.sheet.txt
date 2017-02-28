@@ -217,7 +217,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = MetricType
-  Short Name = Type of metric
+  Short Name = Identity of metric, for example Heart Rate, PEEP Setting, etc..
   Definition = Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
   Comments = DeviceMetric.type can be referred to either GDMN (nomenclature system supported by FDA Global UDI Database) or preferable RTMMS coding system.
   w5 = class
@@ -235,7 +235,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MetricUnit
-  Short Name = Unit of metric
+  Short Name = Unit of Measure for the Metric
   Definition = Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.
   Comments = DeviceMetric.unit can be referred to either UCUM or preferable RTMMS coding system.
 
