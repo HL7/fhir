@@ -221,3 +221,10 @@ group for types positiveIntToInteger extends Element
   "positiveIntToInteger-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types unsignedIntToInteger extends Element
+  input src : unsignedIntR2 as source
+  input tgt : integer as target
+
+  "unsignedIntToInteger-value" : for src.value as v make tgt.value = v
+endgroup
+
