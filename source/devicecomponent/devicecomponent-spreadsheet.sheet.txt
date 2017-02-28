@@ -142,7 +142,7 @@
   Element = DeviceComponent.source
   Card. = 0..1
   Type = Reference(Device)
-  Short Name = A source device of this component
+  Short Name = Top-level device resource link
   Definition = Describes the link to the source Device that contains administrative device information such as manufacture, serial number, etc.
 
  -- Row 6 -----------------------------------
@@ -157,7 +157,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = DeviceComponentOperationalStatus
-  Short Name = Component operational status
+  Short Name = Current operational status of the component, for example On, Off, Standby, etc..
   Definition = Indicates current operational status of the device. For example: On, Off, Standby, etc.
   Comments = OperationalStatus for the MDS, VMD, or Channel will be bound to a specific ValueSet that is defined in its profile.
 
@@ -181,7 +181,7 @@
   Element = DeviceComponent.productionSpecification
   Card. = 0..*
   UML = 420;50
-  Short Name = Production specification of the component
+  Short Name = Specification details such as Component Revisions, Serial Numbers, etc..
   Definition = Describes the production specification such as component revision, serial number, etc.
 
  -- Row 11 -----------------------------------
@@ -189,7 +189,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DeviceSpecificationSpecType
-  Short Name = Specification type
+  Short Name = Type or kind of production specification, for example serial number, software revision, etc..
   Definition = Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.
 
  -- Row 12 -----------------------------------
