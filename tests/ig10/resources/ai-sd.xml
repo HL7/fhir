@@ -41,7 +41,6 @@
 			<name value="DAFCoreAllergyIntolerance"/>
 			<mustSupport value="false"/>
 			<isModifier value="false"/>
-			<isSummary value="false"/>
 		</element>
 		<element id="AllergyIntolerance-dafcoreallergyintolerance.patient">
 			<path value="AllergyIntolerance.patient"/>
@@ -53,7 +52,6 @@
 			</type>
 			<mustSupport value="true"/>
 			<isModifier value="false"/>
-			<isSummary value="false"/>
 		</element>
 		<element id="AllergyIntolerance-dafcoreallergyintolerance.substance">
 			<path value="AllergyIntolerance.substance"/>
@@ -64,7 +62,6 @@
 			</type>
 			<mustSupport value="true"/>
 			<isModifier value="false"/>
-			<isSummary value="false"/>
 			<binding>
 				<strength value="extensible"/>
 				<valueSetReference>
@@ -81,7 +78,6 @@
 			</type>
 			<mustSupport value="true"/>
 			<isModifier value="false"/>
-			<isSummary value="false"/>
 			<binding>
 				<strength value="required"/>
 				<valueSetReference>

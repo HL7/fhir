@@ -6,6 +6,7 @@
     "temp" : "temp",
     "qa" : "qa",
     "output" : "output",
+    "txCache" : "txCache",
     "specification" : "http://hl7.org/fhir/2016May"
   },
 	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
