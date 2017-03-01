@@ -96,7 +96,7 @@ public class FhirTurtleGenerator {
         fact.fhir_ontology("fhir.ttl", "FHIR Model Ontology")
                 .addDataProperty(RDFS.comment, "Formal model of FHIR Clinical Resources")
                 .addObjectProperty(OWL2.versionIRI, ResourceFactory.createResource("http://build.fhir.org/fhir.ttl"))
-                .addDataProperty(OWL2.imports, RDFNamespace.W5.getURI());
+                .addObjectProperty(OWL2.imports, RDFNamespace.W5.resourceRef(""));
     }
 
     /**
