@@ -1,37 +1,36 @@
+INFORMATION: CodeSystem.concept.property.value[x]: An element of type CodeableConcept or Coding must have a binding
 INFORMATION: DataElement.element: Name of child (element) overlaps with name of parent (DataElement)
 INFORMATION: ElementDefinition.definition: Name of child (definition) overlaps with name of parent (ElementDefinition)
 INFORMATION: EpisodeOfCare.careManager: Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
 INFORMATION: ImmunizationRecommendation.recommendation: Name of child (recommendation) overlaps with name of parent (ImmunizationRecommendation)
 INFORMATION: Reference.reference: Name of child (reference) overlaps with name of parent (Reference)
 INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
+WARNING: Attachment.contentType Unable to resolve value set on 'code' Binding
+WARNING: CapabilityStatement.format Unable to resolve value set on 'code' Binding
+WARNING: CapabilityStatement.patchFormat Unable to resolve value set on 'code' Binding
+WARNING: CapabilityStatement.rest.security.certificate.type Unable to resolve value set on 'code' Binding
 WARNING: CompartmentDefinition: All resources should have an identifier
+WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: DataElement.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: DiagnosticReport.image.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ElementDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ElementDefinition.comment: The type of 'comment' must be 'string'
+WARNING: ElementDefinition.mapping.language: Unable to resolve value set on 'code' Binding
+WARNING: ImplementationGuide.page.format: Unable to resolve value set on 'code' Binding
 WARNING: Linkage: All resources should have an identifier
+WARNING: Measure.supplementalData Element names should be singular
 WARNING: Medication: All resources should have an identifier
 WARNING: NamingSystem.uniqueId.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Observation.comment: MnM must have confirmed this should not be an Annotation
 WARNING: OperationDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: OperationDefinition.overload.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Parameters: All resources should have an identifier
+WARNING: Signature.contentType Unable to resolve value set on 'code' Binding
 WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0267/index.html (v2 Days of the Week) & valueset-days-of-week.html (DaysOfWeek) (name: [weeks, days] / [weeks, days]))
 ;temporary
 INFORMATION: Appointment.appointmentType: Name of child (appointmentType) overlaps with name of parent (Appointment)
-;proposed
-INFORMATION: CodeSystem.concept.property.value[x]: An element of type CodeableConcept or Coding must have a binding
-WARNING: Attachment.contentType Unable to resolve value set on 'code' Binding
-WARNING: Signature.contentType Unable to resolve value set on 'code' Binding
-WARNING: CapabilityStatement.format Unable to resolve value set on 'code' Binding
-WARNING: CapabilityStatement.patchFormat Unable to resolve value set on 'code' Binding
-WARNING: CapabilityStatement.rest.security.certificate.type Unable to resolve value set on 'code' Binding
-WARNING: ImplementationGuide.page.format: Unable to resolve value set on 'code' Binding
-WARNING: ElementDefinition.mapping.language: Unable to resolve value set on 'code' Binding
-;Proposed Temporary:
 WARNING: CompartmentDefinition.jurisdiction: Search Parameter 'CompartmentDefinition.jurisdiction' had no found values in any example. Consider reviewing the expression (CompartmentDefinition.jurisdiction)
 WARNING: CompartmentDefinition.title: Search Parameter 'CompartmentDefinition.title' had no found values in any example. Consider reviewing the expression (CompartmentDefinition.title)
-INFORMATION: Binding @ QuestionnaireResponse.item.answer.value[x]: Need to provide a binding

@@ -292,7 +292,7 @@
   Id = 1
   Context = StructureMap.group.rule.target
   English = Can only have a element if you have a context
-  XPath = not(f:/element) or (f:/context)
+  XPath = not(f:element) or (f:context)
   Expression = element.exists() implies context.exists()
   Severity = error
 
@@ -300,7 +300,7 @@
   Id = 2
   Context = StructureMap.group.rule.target
   English = Must have a contextType if you have a context
-  XPath = not(f:/context) or (f:/contextType)
+  XPath = not(f:context) or (f:contextType)
   Expression = context.exists() implies contextType.exists()
   Severity = error
 

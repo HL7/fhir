@@ -13,7 +13,7 @@
   Id = md-1
   Context = MessageDefinition.focus
   English = Max must be postive int or *
-  XPath = f:/max@value=\'*\' or f:max/@value > 0
+  XPath = f:max/@value=\'*\' or f:max/@value > 0
   Expression = max=\'*\' or (max.toInteger() > 0)
 
 === Sheet Data Elements =====================================
@@ -205,3 +205,47 @@
   Type = markdown
   Short Name = When should this response be used
   Definition = Provides a description of the circumstances in which this response should be used (as opposed to one of the alternative responses)
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = event
+  Type = token
+  Description = The event that triggers the message
+  Path = MessageDefinition.event
+
+ -- Row 2 -----------------------------------
+  Name = category
+  Type = token
+  Description = The behavior associated with the message
+  Path = MessageDefinition.category
+
+ -- Row 3 -----------------------------------
+  Name = focus
+  Type = token
+  Description = A resource that is a permitted focus of the message
+  Path = MessageDefinition.focus.code
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General Example
+  Identity = example
+  Description = A typical message definition
+  Filename = messagedefinition-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Patient Link Notification
+  Identity = patient-link-notification
+  Description = An example of a patient link notification
+  Filename = messagedefinition-patient-link-notification.xml
+
+ -- Row 3 -----------------------------------
+  Name = Patient Link Response
+  Identity = patient-link-response
+  Description = An example of a patient link response
+  Filename = messagedefinition-patient-link-response.xml
+
+=== Sheet Examples =====================================
