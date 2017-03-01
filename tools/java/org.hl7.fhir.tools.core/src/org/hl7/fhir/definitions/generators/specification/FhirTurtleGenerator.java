@@ -1,6 +1,5 @@
 package org.hl7.fhir.definitions.generators.specification;
 
-import org.apache.jena.datatypes.xsd.impl.XMLLiteralType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -109,7 +108,7 @@ public class FhirTurtleGenerator {
         FHIRResource Reference = fact.fhir_class("Reference");
 
         // Primitive isn't in the actual model - added here
-        FHIRResource Primitive = fact.fhir_class("Primitive", Element.resource)
+        fact.fhir_class("Primitive", Element.resource)
                 .addTitle("Types with only a value")
                 .addDefinition("Types with only a value and no additional elements as children")
                 .restriction(fact.fhir_restriction(value, RDFS.Literal));
@@ -213,7 +212,7 @@ public class FhirTurtleGenerator {
                 (ed.getTypes().isEmpty() ? fact.fhir_class(typeName) : fact.fhir_class(typeName, "Element"))
                         .addTitle(ed.getShortDefn())
                         .addDefinition(ed.getDefinition());
-        processTypes(typeName, typeRes, ed, false);
+        processTypes(typeName, typeRes, ed, typeName, false);
     }
 
     /**
@@ -241,7 +240,7 @@ public class FhirTurtleGenerator {
         FHIRResource rdRes =
                 fact.fhir_class(resourceName, resourceType.getTypes().isEmpty()? OWL2.Thing : RDFNamespace.FHIR.resourceRef(resourceType.typeCode()))
                         .addDefinition(rd.getDefinition());
-        processTypes(resourceName, rdRes, resourceType, true);
+        processTypes(resourceName, rdRes, resourceType, resourceName, true);
         if(!Utilities.noString(resourceType.getW5()))
             rdRes.addObjectProperty(RDFS.subClassOf, RDFNamespace.W5.resourceRef(resourceType.getW5()));
     }
@@ -251,11 +250,13 @@ public class FhirTurtleGenerator {
      * @param baseResourceName Name of base resource
      * @param baseResource FHIRResource for base resource
      * @param td Inner type definitions
+     * @param predicateBase Root name for predicate
+     * @param innerIsBackbone True if we're processing a backbone element
      */
-    private void processTypes(String baseResourceName, FHIRResource baseResource, ElementDefn td, boolean innerIsBackbone) throws Exception {
+    private void processTypes(String baseResourceName, FHIRResource baseResource, ElementDefn td, String predicateBase, boolean innerIsBackbone) throws Exception {
 
         for (ElementDefn ed : td.getElements()) {
-            String predicateName = baseResourceName + "." + (ed.getName().endsWith("[x]")?
+            String predicateName = predicateBase + "." + (ed.getName().endsWith("[x]")?
                             ed.getName().substring(0, ed.getName().length() - 3) : ed.getName());
             FHIRResource predicateResource;
 
@@ -297,7 +298,7 @@ public class FhirTurtleGenerator {
                     String targetClassName = ed.getDeclaredTypeName();
                     baseDef = fact.fhir_class(targetClassName, innerIsBackbone? "BackboneElement": "Element")
                             .addDefinition(ed.getDefinition());
-                    processTypes(targetClassName, baseDef, ed, innerIsBackbone);
+                    processTypes(targetClassName, baseDef, ed, predicateName, innerIsBackbone);
                 } else {
                     TypeRef targetType = ed.getTypes().get(0);
                     String targetName = targetType.getName();
@@ -348,6 +349,7 @@ public class FhirTurtleGenerator {
         fact.serialize(destination);
         destination.flush();
         destination.close();
+        System.exit(2);
     }
 
     protected List<String> sorted(Set<String> keys) {
