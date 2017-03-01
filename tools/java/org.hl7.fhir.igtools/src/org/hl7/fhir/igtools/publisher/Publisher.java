@@ -2146,6 +2146,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     // now, list the profiles - all the profiles
     JsonObject data = new JsonObject();
+    int i = 0;
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals("StructureDefinition")) {
@@ -2153,6 +2154,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
           JsonObject item = new JsonObject();
           data.add(sd.getId(), item);
+          item.addProperty("index", i);
           item.addProperty("url", sd.getUrl());
           item.addProperty("name", sd.getName());
           item.addProperty("path", sd.getUserString("path"));
@@ -2178,6 +2180,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
               contexts.add(new JsonPrimitive(context.asStringValue()));
             }
           }
+          i++;
         }
       }
     }
