@@ -4,8 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"log"
-	"net/http"
-	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -16,7 +14,7 @@ import (
 type AfterRoutes func(*gin.Engine)
 
 type FHIRServer struct {
-	DatabaseHost     string
+	Config           Config
 	Engine           *gin.Engine
 	MiddlewareConfig map[string][]gin.HandlerFunc
 	AfterRoutes      []AfterRoutes
@@ -44,9 +42,9 @@ func (f *FHIRServer) AddInterceptor(op, resourceType string, handler Interceptor
 	return errors.New(fmt.Sprintf("AddInterceptor: unsupported database operation %s", op))
 }
 
-func NewServer(databaseHost string) *FHIRServer {
+func NewServer(config Config) *FHIRServer {
 	server := &FHIRServer{
-		DatabaseHost:     databaseHost,
+		Config:           config,
 		MiddlewareConfig: make(map[string][]gin.HandlerFunc),
 		Interceptors:     make(map[string]InterceptorList),
 	}
@@ -62,43 +60,51 @@ func NewServer(databaseHost string) *FHIRServer {
 		ValidateHeaders: false,
 	}))
 
-	server.Engine.Use(AbortNonJSONRequests)
+	server.Engine.Use(AbortNonJSONRequestsMiddleware)
+
+	if config.ReadOnly {
+		server.Engine.Use(ReadOnlyMiddleware)
+	}
 
 	return server
 }
 
-func (f *FHIRServer) Run(config Config) {
+func (f *FHIRServer) Run() {
 	var err error
 
 	// Establish initial connection to mongo
-	session, err := mgo.Dial(f.DatabaseHost)
-
+	session, err := mgo.Dial(f.Config.DatabaseHost)
 	if err != nil {
 		panic(err)
 	}
-
 	defer session.Close()
-	Database = session.DB(config.DatabaseName)
+
+	session.SetSocketTimeout(f.Config.DatabaseTimeout)
+
+	Database = session.DB(f.Config.DatabaseName)
 	log.Println("Connected to mongodb")
 
 	// Establish master session
-	masterSession := NewMasterSession(session, config.DatabaseName)
+	masterSession := NewMasterSession(session, f.Config.DatabaseName)
 
-	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(masterSession, f.Interceptors), config)
-	ConfigureIndexes(masterSession, config)
+	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(masterSession, f.Interceptors, f.Config), f.Config)
+	ConfigureIndexes(masterSession, f.Config)
 
 	for _, ar := range f.AfterRoutes {
 		ar(f.Engine)
 	}
 
-	f.Engine.Run(":3001")
-}
-
-// AbortNonJSONRequests is middleware that responds to any request that Accepts a format
-// other than JSON with a 406 Not Acceptable status.
-func AbortNonJSONRequests(c *gin.Context) {
-	acceptHeader := c.Request.Header.Get("Accept")
-	if acceptHeader != "" && !strings.Contains(acceptHeader, "json") && !strings.Contains(acceptHeader, "*/*") {
-		c.AbortWithStatus(http.StatusNotAcceptable)
+	// If not in -readonly mode, clear the count cache
+	if !f.Config.ReadOnly {
+		worker := masterSession.GetWorkerSession()
+		defer worker.Close()
+		err = worker.DB().C("countcache").DropCollection()
+		if err != nil {
+			log.Println("Failed to clear search result count cache")
+		}
+	} else {
+		log.Println("Running in read-only mode!")
 	}
+
+	f.Engine.Run(":3001")
 }

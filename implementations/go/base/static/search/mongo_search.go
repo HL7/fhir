@@ -1,6 +1,7 @@
 package search
 
 import (
+	"crypto/md5"
 	"fmt"
 	"net/http"
 	"regexp"
@@ -29,15 +30,28 @@ func (b *BSONQuery) usesPipeline() bool {
 	return b.Query == nil
 }
 
+// CountCache is used to cache the total count of results for a specific query.
+// The Id is the md5 hash of the query string.
+type CountCache struct {
+	Id    string `bson:"_id"`
+	Count uint32 `bson:"count"`
+}
+
 // MongoSearcher implements FHIR searches using the Mongo database.
 type MongoSearcher struct {
-	db *mgo.Database
+	db               *mgo.Database
+	enableCISearches bool
+	readonly         bool
 }
 
 // NewMongoSearcher creates a new instance of a MongoSearcher, given a pointer
 // to an mgo.Database.
-func NewMongoSearcher(db *mgo.Database) *MongoSearcher {
-	return &MongoSearcher{db}
+func NewMongoSearcher(db *mgo.Database, enableCISearches bool, readonly bool) *MongoSearcher {
+	return &MongoSearcher{
+		db:               db,
+		enableCISearches: enableCISearches,
+		readonly:         readonly,
+	}
 }
 
 // GetDB returns a pointer to the Mongo database.  This is helpful for custom search
@@ -62,11 +76,25 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	// build the BSON query (without any options)
 	bsonQuery := m.convertToBSON(query)
 
+	// Check to see if we already have a count cached for this query. If so, use it
+	// and tell the searcher to skip doing the count. This can only be done reliably if
+	// the server is in -readonly mode.
+	docount := true
+	queryHash := fmt.Sprintf("%x", md5.Sum([]byte(query.Query)))
+	if m.readonly {
+		countcache := &CountCache{}
+		err = m.db.C("countcache").FindId(queryHash).One(countcache)
+		if err == nil {
+			total = countcache.Count
+			docount = false
+		}
+	}
+
 	// execute the query
 	if bsonQuery.usesPipeline() {
 		// The (slower) aggregation pipeline is used if the query contains includes or revincludes
 		var mgoPipe *mgo.Pipe
-		mgoPipe, total, err = m.aggregate(bsonQuery, query.Options())
+		mgoPipe, total, err = m.aggregate(bsonQuery, query.Options(), docount)
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
@@ -78,7 +106,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	} else {
 		// Otherwise, the (faster) standard query is used
 		var mgoQuery *mgo.Query
-		mgoQuery, total, err = m.find(bsonQuery, query.Options())
+		mgoQuery, total, err = m.find(bsonQuery, query.Options(), docount)
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
@@ -93,44 +121,59 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		return nil, 0, err
 	}
 
+	// If the count wasn't already in cache, add it to cache.
+	if m.readonly && docount {
+		countcache := &CountCache{
+			Id:    queryHash,
+			Count: total,
+		}
+		// Don't collect the error here since this should fail silently.
+		m.db.C("countcache").Insert(countcache)
+	}
+
 	return results, total, nil
 }
 
 // aggregate takes a BSONQuery and runs its Pipeline through the mongo aggregation framework. Any query options
 // will be added to the end of the pipeline.
-func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions) (pipe *mgo.Pipe, total uint32, err error) {
+func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, docount bool) (pipe *mgo.Pipe, total uint32, err error) {
 	c := m.db.C(models.PluralizeLowerResourceName(bsonQuery.Resource))
 
 	// First get a count of the total results (doesn't apply any options)
-	if len(bsonQuery.Pipeline) == 1 {
-		// The pipeline is only being used for includes/revincludes, meaning the entire
-		// collection is being searched. It's faster just to get a total count from the
-		// collection after a find operation. The first stage in the Pipeline will
-		// always be a $match stage.
-		intTotal, err := c.Find(bsonQuery.Pipeline[0]["$match"]).Count()
-		if err != nil {
-			return nil, 0, err
+	if docount {
+		if len(bsonQuery.Pipeline) == 1 {
+			// The pipeline is only being used for includes/revincludes, meaning the entire
+			// collection is being searched. It's faster just to get a total count from the
+			// collection after a find operation. The first stage in the Pipeline will
+			// always be a $match stage.
+			intTotal, err := c.Find(bsonQuery.Pipeline[0]["$match"]).Count()
+			if err != nil {
+				return nil, 0, err
+			}
+			total = uint32(intTotal)
+		} else {
+			// Do the count in the aggregation framework
+			countStage := bson.M{"$group": bson.M{
+				"_id":   nil,
+				"total": bson.M{"$sum": 1},
+			}}
+			countPipeline := make([]bson.M, len(bsonQuery.Pipeline)+1)
+			copy(countPipeline, bsonQuery.Pipeline)
+			countPipeline[len(countPipeline)-1] = countStage
+
+			result := struct {
+				Total float64 `bson:"total"`
+			}{}
+
+			err = c.Pipe(countPipeline).One(&result)
+			if err != nil {
+				return nil, 0, err
+			}
+			total = uint32(result.Total)
 		}
-		total = uint32(intTotal)
 	} else {
-		// Do the count in the aggregation framework
-		countStage := bson.M{"$group": bson.M{
-			"_id":   nil,
-			"total": bson.M{"$sum": 1},
-		}}
-		countPipeline := make([]bson.M, len(bsonQuery.Pipeline)+1)
-		copy(countPipeline, bsonQuery.Pipeline)
-		countPipeline[len(countPipeline)-1] = countStage
-
-		result := struct {
-			Total float64 `bson:"total"`
-		}{}
-
-		err = c.Pipe(countPipeline).One(&result)
-		if err != nil {
-			return nil, 0, err
-		}
-		total = uint32(result.Total)
+		// The count was already cached, so return 0 and expect it to be overwritten in MongoSearcher.Search().
+		total = uint32(0)
 	}
 
 	// Now setup the search pipeline (applying options, if any)
@@ -143,15 +186,20 @@ func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions) (
 
 // find takes a BSONQuery and runs a standard mongo search on that query. Any query options are applied
 // after the initial search is performed.
-func (m *MongoSearcher) find(bsonQuery *BSONQuery, options *QueryOptions) (query *mgo.Query, total uint32, err error) {
+func (m *MongoSearcher) find(bsonQuery *BSONQuery, options *QueryOptions, docount bool) (query *mgo.Query, total uint32, err error) {
 	c := m.db.C(models.PluralizeLowerResourceName(bsonQuery.Resource))
 
 	// First get a count of the total results (doesn't apply any options)
-	intTotal, err := c.Find(bsonQuery.Query).Count()
-	if err != nil {
-		return nil, 0, err
+	if docount {
+		intTotal, err := c.Find(bsonQuery.Query).Count()
+		if err != nil {
+			return nil, 0, err
+		}
+		total = uint32(intTotal)
+	} else {
+		// The count was already cached, so return 0 and expect it to be overwritten in MongoSearcher.Search().
+		total = uint32(0)
 	}
-	total = uint32(intTotal)
 
 	searchQuery := c.Find(bsonQuery.Query)
 	if options != nil {
@@ -786,12 +834,12 @@ func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
 		}
 		if q.System == "" {
 			criteria["$or"] = []bson.M{
-				bson.M{"code": ci(q.Code)},
-				bson.M{"unit": ci(q.Code)},
+				bson.M{"code": m.ci(q.Code)},
+				bson.M{"unit": m.ci(q.Code)},
 			}
 		} else {
-			criteria["code"] = q.Code
-			criteria["system"] = ci(q.System)
+			criteria["code"] = m.ci(q.Code)
+			criteria["system"] = m.ci(q.System)
 		}
 		return buildBSON(p.Path, criteria)
 	}
@@ -812,7 +860,7 @@ func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 				criteria["type"] = ref.Type
 			}
 		case ExternalReference:
-			criteria["reference"] = ci(ref.URL)
+			criteria["reference"] = m.ci(ref.URL)
 
 		case ChainedQueryReference:
 			// This should be handled exclusively by the createPipelineObject
@@ -853,20 +901,20 @@ func (m *MongoSearcher) createStringQueryObject(s *StringParam) bson.M {
 		case "HumanName":
 			return buildBSON(p.Path, bson.M{
 				"$or": []bson.M{
-					bson.M{"text": cisw(s.String)},
-					bson.M{"family": cisw(s.String)},
-					bson.M{"given": cisw(s.String)},
+					bson.M{"text": m.cisw(s.String)},
+					bson.M{"family": m.cisw(s.String)},
+					bson.M{"given": m.cisw(s.String)},
 				},
 			})
 		case "Address":
 			return buildBSON(p.Path, bson.M{
 				"$or": []bson.M{
-					bson.M{"text": cisw(s.String)},
-					bson.M{"line": cisw(s.String)},
-					bson.M{"city": cisw(s.String)},
-					bson.M{"state": cisw(s.String)},
-					bson.M{"postalCode": cisw(s.String)},
-					bson.M{"country": cisw(s.String)},
+					bson.M{"text": m.cisw(s.String)},
+					bson.M{"line": m.cisw(s.String)},
+					bson.M{"city": m.cisw(s.String)},
+					bson.M{"state": m.cisw(s.String)},
+					bson.M{"postalCode": m.cisw(s.String)},
+					bson.M{"country": m.cisw(s.String)},
 				},
 			})
 		default:
@@ -891,23 +939,23 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 			criteria = bson.M{}
 			criteria["code"] = t.Code
 			if !t.AnySystem {
-				criteria["system"] = ci(t.System)
+				criteria["system"] = m.ci(t.System)
 			}
 		case "CodeableConcept":
 			if t.AnySystem {
-				criteria["coding.code"] = t.Code
+				criteria["coding.code"] = m.ci(t.Code)
 			} else {
-				criteria["coding"] = bson.M{"$elemMatch": bson.M{"system": ci(t.System), "code": t.Code}}
+				criteria["coding"] = bson.M{"$elemMatch": bson.M{"system": m.ci(t.System), "code": m.ci(t.Code)}}
 			}
 		case "Identifier":
-			criteria["value"] = t.Code
+			criteria["value"] = m.ci(t.Code)
 			if !t.AnySystem {
-				criteria["system"] = ci(t.System)
+				criteria["system"] = m.ci(t.System)
 			}
 		case "ContactPoint":
-			criteria["value"] = t.Code
+			criteria["value"] = m.ci(t.Code)
 			if !t.AnySystem {
-				criteria["use"] = ci(t.System)
+				criteria["use"] = m.ci(t.System)
 			}
 		case "boolean":
 			switch t.Code {
@@ -919,9 +967,7 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", t.Name)))
 			}
 		case "code", "string":
-			// We do case-sensitive matching for any code or string parameter. For example, gender and address-city fall into this category.
-			// Case-sensitivity is in violation of the FHIR spec but is a necessary performance tradeoff to avoid the use of regular expressions.
-			return buildBSON(p.Path, t.Code)
+			return buildBSON(p.Path, m.ci(t.Code))
 
 		case "id":
 			// IDs do not need the case-insensitive match.
@@ -1144,13 +1190,19 @@ func processOrCriteria(path string, orValue interface{}, result bson.M) {
 }
 
 // Case-insensitive match
-func ci(s string) bson.RegEx {
-	return bson.RegEx{Pattern: fmt.Sprintf("^%s$", regexp.QuoteMeta(s)), Options: "i"}
+func (m *MongoSearcher) ci(s string) interface{} {
+	if m.enableCISearches {
+		return bson.RegEx{Pattern: fmt.Sprintf("^%s$", regexp.QuoteMeta(s)), Options: "i"}
+	}
+	return s
 }
 
 // Case-insensitive starts-with
-func cisw(s string) bson.RegEx {
-	return bson.RegEx{Pattern: fmt.Sprintf("^%s", regexp.QuoteMeta(s)), Options: "i"}
+func (m *MongoSearcher) cisw(s string) interface{} {
+	if m.enableCISearches {
+		return bson.RegEx{Pattern: fmt.Sprintf("^%s", regexp.QuoteMeta(s)), Options: "i"}
+	}
+	return s
 }
 
 // When multiple paths are present, they should be represented as an OR.
