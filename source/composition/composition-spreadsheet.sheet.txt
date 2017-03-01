@@ -660,7 +660,7 @@
 
  -- Row 18 -----------------------------------
   Name = related-id
-  Type = reference
+  Type = token
   Path = Composition.relatesTo.targetIdentifier
 
 === Sheet Profiles =====================================
