@@ -2415,8 +2415,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       StringBuilder table = new StringBuilder();
       for (Item i : items) {
         StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        String name = sd.getName();
-        genEntryItem(list, lists, table, i.f, i.r, name);
+        genEntryItem(list, lists, table, i.f, i.r, i.sort);
       }
       fragment("list-profiles", list.toString(), otherFilesRun);
       fragment("list-simple-profiles", lists.toString(), otherFilesRun);
@@ -2443,8 +2442,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       StringBuilder table = new StringBuilder();
       for (Item i : items) {
         StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        String name = sd.getName();
-        genEntryItem(list, lists, table, i.f, i.r, name);
+        genEntryItem(list, lists, table, i.f, i.r, i.sort);
       }
       fragment("list-extensions", list.toString(), otherFilesRun);
       fragment("list-simple-extensions", lists.toString(), otherFilesRun);
@@ -2471,8 +2469,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       StringBuilder table = new StringBuilder();
       for (Item i : items) {
         StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        String name = sd.getName();
-        genEntryItem(list, lists, table, i.f, i.r, name);
+        genEntryItem(list, lists, table, i.f, i.r, i.sort);
       }
       fragment("list-logicals", list.toString(), otherFilesRun);
       fragment("list-simple-logicals", lists.toString(), otherFilesRun);
@@ -2514,7 +2511,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         String name = i.r.getTitle();
         if (Utilities.noString(name))
           name = rt.toString();
-        genEntryItem(list, lists, table, i.f, i.r, name);
+        genEntryItem(list, lists, table, i.f, i.r, i.sort);
       }
       fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
       fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), lists.toString(), otherFilesRun);
@@ -2916,7 +2913,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "dict"))
       fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "maps"))
-      fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-maps", sdr.mappings(false), f.getOutputNames(), r, vars, null);
+    if (igpkp.wantGen(r, "maps"))
+      fragment("StructureDefinition-"+sd.getId()+"-maps-all", sdr.mappings(true), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "xref"))
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "span"))

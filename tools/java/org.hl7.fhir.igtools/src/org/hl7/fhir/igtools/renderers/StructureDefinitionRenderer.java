@@ -882,7 +882,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return b.toString();
   }
 
-  public String mappings() {
+  public String mappings(boolean complete) {
     if (sd.getMapping().isEmpty())
       return "<p>"+translate("sd.maps", "No Mappings")+"</p>";
     else {
@@ -902,7 +902,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         for (ElementDefinition e : sd.getSnapshot().getElement()) {
           if (path == null || !e.getPath().startsWith(path)) {
             path = null;
-            if (e.hasMax() && e.getMax().equals("0")) {
+            if (e.hasMax() && e.getMax().equals("0") || !(complete || hasMappings(e, map))) {
               path = e.getPath()+".";
             } else
               genElement(s, e, map.getIdentity());
@@ -912,6 +912,23 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
       return s.toString();
     }
+  }
+
+  private boolean hasMappings(ElementDefinition e, StructureDefinitionMappingComponent map) {
+    ElementDefinitionMappingComponent m = getMap(e, map.getIdentity());
+    if (m != null)
+      return true;
+    int i = sd.getSnapshot().getElement().indexOf(e)+1;
+    while (i < sd.getSnapshot().getElement().size()) {
+      ElementDefinition t =  sd.getSnapshot().getElement().get(i);
+      if (t.getPath().startsWith(e.getPath()+".")) {
+        m = getMap(t, map.getIdentity());
+        if (m != null)
+          return true;
+      }
+      i++;
+    }
+    return false;
   }
 
   private void genElement(StringBuilder s, ElementDefinition e, String id) {
@@ -928,7 +945,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       s.append(e.getPath());
     else
       s.append(tail(e.getPath()));
-    s.append("</td><td>"+Utilities.escapeXml(e.getSliceName())+"</td>");
+    if (e.hasSliceName()) {
+      s.append(" (");
+      s.append(Utilities.escapeXml(e.getSliceName()));
+      s.append(")");
+    }
     ElementDefinitionMappingComponent m = getMap(e, id);
     if (m == null)
       s.append("<td></td>");
