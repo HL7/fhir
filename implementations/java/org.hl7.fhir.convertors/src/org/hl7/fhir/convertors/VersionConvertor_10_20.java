@@ -7777,6 +7777,8 @@ public class VersionConvertor_10_20 {
     copyElement(src, tgt);
     if (src.getExample())
       tgt.setPurpose(org.hl7.fhir.dstu2.model.ImplementationGuide.GuideResourcePurpose.EXAMPLE);
+    else
+      tgt.setPurpose(org.hl7.fhir.dstu2.model.ImplementationGuide.GuideResourcePurpose.PROFILE);
     tgt.setName(src.getName());
     tgt.setDescription(src.getDescription());
     tgt.setAcronym(src.getAcronym());
