@@ -87,16 +87,23 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		countcache := &CountCache{}
 		err = m.db.C("countcache").FindId(queryHash).One(countcache)
 		if err == nil {
+			// Use the cached total and don't bother recomputing it.
 			total = countcache.Count
 			doCount = false
 		}
 	}
 
+	// There's no point in running the query if we already know it will return 0 results.
+	if m.readonly && !doCount && total == 0 {
+		return nil, 0, nil
+	}
+
 	// execute the query
+	var computedTotal uint32
 	if bsonQuery.usesPipeline() {
 		// The (slower) aggregation pipeline is used if the query contains includes or revincludes
 		var mgoPipe *mgo.Pipe
-		mgoPipe, total, err = m.aggregate(bsonQuery, query.Options(), doCount)
+		mgoPipe, computedTotal, err = m.aggregate(bsonQuery, query.Options(), doCount)
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
@@ -108,7 +115,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	} else {
 		// Otherwise, the (faster) standard query is used
 		var mgoQuery *mgo.Query
-		mgoQuery, total, err = m.find(bsonQuery, query.Options(), doCount)
+		mgoQuery, computedTotal, err = m.find(bsonQuery, query.Options(), doCount)
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
@@ -127,10 +134,14 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	if m.readonly && doCount {
 		countcache := &CountCache{
 			Id:    queryHash,
-			Count: total,
+			Count: computedTotal,
 		}
 		// Don't collect the error here since this should fail silently.
 		m.db.C("countcache").Insert(countcache)
+	}
+
+	if doCount {
+		total = computedTotal
 	}
 
 	return results, total, nil
@@ -917,10 +928,8 @@ func (m *MongoSearcher) createStringQueryObject(s *StringParam) bson.M {
 			if s.Name == "_id" {
 				return buildBSON(p.Path, s.String)
 			}
-			// Default search (for example, address-city) does not use case-insensitive matching.
-			// This is in violation of the FHIR spec but is essential to performance by avoiding the
-			// use of regular expressions.
-			return buildBSON(p.Path, s.String)
+
+			return buildBSON(p.Path, m.ci(s.String))
 		}
 	}
 
