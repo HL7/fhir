@@ -601,7 +601,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
-    return new ValidationResult(IssueSeverity.WARNING, "Unknown code system "+system);
+     return new ValidationResult(IssueSeverity.WARNING, "Unknown code system "+system);
   }
 
   

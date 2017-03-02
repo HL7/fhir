@@ -225,7 +225,7 @@ public class ValueSetValidator extends BaseValidator {
             if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
               warning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
                   "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)",
-                  "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)");             
+                  "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1a)");             
             else if (!isValidCode(cc.getCode(), inc.getSystem()))
               rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", false, 
                 "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (2)");

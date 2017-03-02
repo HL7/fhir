@@ -1094,6 +1094,9 @@ public class IgSpreadsheetParser {
       ElementDefinition child = ex.getDifferential().addElement();
       child.setPath("Extension.extension");
       child.setSliceName(n.substring(n.lastIndexOf(".")+1));
+      exu = ex.getDifferential().addElement();
+      exu.setPath("Extension.extension.url");
+      exu.setFixed(new UriType(child.getSliceName()));
       parseExtensionElement(sheet, row, ex, child, true);
       if (invariants != null) {
         for (ElementDefinitionConstraintComponent inv : invariants.values()) {

@@ -1897,6 +1897,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getNavigation().parse(page.getFolders().srcDir + "navigation.xml");
 
     processCDA();
+    page.log("Generate RDF", LogMessageType.Process);
     processRDF();
 
     page.log("Produce Schemas", LogMessageType.Process);

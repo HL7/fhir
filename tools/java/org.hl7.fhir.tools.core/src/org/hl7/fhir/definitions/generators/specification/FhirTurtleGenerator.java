@@ -349,7 +349,7 @@ public class FhirTurtleGenerator {
         fact.serialize(destination);
         destination.flush();
         destination.close();
-    }
+   }
 
     protected List<String> sorted(Set<String> keys) {
         List<String> names = new ArrayList<String>();
