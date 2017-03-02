@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -2374,24 +2375,49 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateLogicals();
   }
 
+  private class Item {
+    public Item(FetchedFile f, FetchedResource r, String sort) {
+      this.f= f;
+      this.r = r;
+      this.sort = sort;
+    }
+    public Item() {
+      // TODO Auto-generated constructor stub
+    }
+    private String sort;
+    private FetchedFile f;
+    private FetchedResource r;
+  }
+  private class ItemSorter implements Comparator<Item> {
+
+    @Override
+    public int compare(Item a0, Item a1) {
+      return a0.sort.compareTo(a1.sort);
+    }   
+  }
+  
   private void generateProfiles() throws Exception {
-    StringBuilder list = new StringBuilder();
-    StringBuilder lists = new StringBuilder();
-    StringBuilder table = new StringBuilder();
-    boolean found = false;
+    List<Item> items = new ArrayList<Item>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals("StructureDefinition")) {
           StructureDefinition sd = (StructureDefinition) r.getResource();
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && sd.getKind() == StructureDefinitionKind.RESOURCE) {
-            found = true;
-            String name = sd.getName();
-            genEntryItem(list, lists, table, f, r, name);
+            items.add(new Item(f, r, sd.hasTitle() ? sd.getTitle() : sd.hasName() ? sd.getName() : r.getTitle()));
           }
         }
       }
     }
-    if (found) {
+    if (items.size() > 0) {
+      Collections.sort(items, new ItemSorter());
+      StringBuilder list = new StringBuilder();
+      StringBuilder lists = new StringBuilder();
+      StringBuilder table = new StringBuilder();
+      for (Item i : items) {
+        StructureDefinition sd = (StructureDefinition) i.r.getResource();
+        String name = sd.getName();
+        genEntryItem(list, lists, table, i.f, i.r, name);
+      }
       fragment("list-profiles", list.toString(), otherFilesRun);
       fragment("list-simple-profiles", lists.toString(), otherFilesRun);
       fragment("table-profiles", table.toString(), otherFilesRun);
@@ -2399,23 +2425,27 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateExtensions() throws Exception {
-    StringBuilder list = new StringBuilder();
-    StringBuilder lists = new StringBuilder();
-    StringBuilder table = new StringBuilder();
-    boolean found = false;
+    List<Item> items = new ArrayList<Item>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals("StructureDefinition")) {
           StructureDefinition sd = (StructureDefinition) r.getResource();
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && sd.getType().equals("Extension")) {
-            found = true;
-            String name = sd.getName();
-            genEntryItem(list, lists, table, f, r, name);
+            items.add(new Item(f, r, sd.hasTitle() ? sd.getTitle() : sd.hasName() ? sd.getName() : r.getTitle()));
           }
         }
       }
     }
-    if (found) {
+    
+    if (items.size() > 0) {
+      StringBuilder list = new StringBuilder();
+      StringBuilder lists = new StringBuilder();
+      StringBuilder table = new StringBuilder();
+      for (Item i : items) {
+        StructureDefinition sd = (StructureDefinition) i.r.getResource();
+        String name = sd.getName();
+        genEntryItem(list, lists, table, i.f, i.r, name);
+      }
       fragment("list-extensions", list.toString(), otherFilesRun);
       fragment("list-simple-extensions", lists.toString(), otherFilesRun);
       fragment("table-extensions", table.toString(), otherFilesRun);
@@ -2423,23 +2453,27 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateLogicals() throws Exception {
-    StringBuilder list = new StringBuilder();
-    StringBuilder lists = new StringBuilder();
-    StringBuilder table = new StringBuilder();
-    boolean found = false;
+    List<Item> items = new ArrayList<Item>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals("StructureDefinition")) {
           StructureDefinition sd = (StructureDefinition) r.getResource();
           if (sd.getKind() == StructureDefinitionKind.LOGICAL) {
-            found = true;
-            String name = sd.getName();
-            genEntryItem(list, lists, table, f, r, name);
+            items.add(new Item(f, r, sd.hasTitle() ? sd.getTitle() : sd.hasName() ? sd.getName() : r.getTitle()));
           }
         }
       }
     }
-    if (found) {
+
+    if (items.size() > 0) {
+      StringBuilder list = new StringBuilder();
+      StringBuilder lists = new StringBuilder();
+      StringBuilder table = new StringBuilder();
+      for (Item i : items) {
+        StructureDefinition sd = (StructureDefinition) i.r.getResource();
+        String name = sd.getName();
+        genEntryItem(list, lists, table, i.f, i.r, name);
+      }
       fragment("list-logicals", list.toString(), otherFilesRun);
       fragment("list-simple-logicals", lists.toString(), otherFilesRun);
       fragment("table-logicals", table.toString(), otherFilesRun);
@@ -2459,22 +2493,29 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateResourceReferences(ResourceType rt) throws Exception {
-    StringBuilder list = new StringBuilder();
-    StringBuilder lists = new StringBuilder();
-    StringBuilder table = new StringBuilder();
-    boolean found = false;
+    List<Item> items = new ArrayList<Item>();
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals(rt.toString())) {
-          found = true;
-          String name = r.getTitle();
-          if (Utilities.noString(name))
-            name = rt.toString();
-          genEntryItem(list, lists, table, f, r, name);
+            if (r.getResource() instanceof MetadataResource) {
+              MetadataResource md = (MetadataResource) r.getResource();
+              items.add(new Item(f, r, md.hasTitle() ? md.getTitle() : md.hasName() ? md.getName() : r.getTitle()));
+            } else
+              items.add(new Item(f, r, Utilities.noString(r.getTitle()) ? r.getId() : r.getTitle()));
         }
       }
     }
-    if (found) {
+
+    if (items.size() > 0) {
+      StringBuilder list = new StringBuilder();
+      StringBuilder lists = new StringBuilder();
+      StringBuilder table = new StringBuilder();
+      for (Item i : items) {
+        String name = i.r.getTitle();
+        if (Utilities.noString(name))
+          name = rt.toString();
+        genEntryItem(list, lists, table, i.f, i.r, name);
+      }
       fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
       fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), lists.toString(), otherFilesRun);
       fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), table.toString(), otherFilesRun);
