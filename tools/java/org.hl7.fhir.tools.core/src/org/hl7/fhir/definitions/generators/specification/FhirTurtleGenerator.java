@@ -349,7 +349,6 @@ public class FhirTurtleGenerator {
         fact.serialize(destination);
         destination.flush();
         destination.close();
-        System.exit(2);
     }
 
     protected List<String> sorted(Set<String> keys) {
