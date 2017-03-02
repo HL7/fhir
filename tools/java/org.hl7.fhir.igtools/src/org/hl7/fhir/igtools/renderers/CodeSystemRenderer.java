@@ -85,6 +85,7 @@ public class CodeSystemRenderer extends BaseRenderer {
 //    else {
       CodeSystem csc = cs.copy();
       csc.setId(cs.getId()); // because that's not copied
+      csc.setText(null);
       new NarrativeGenerator(prefix, prefix, context).generate(csc);
       return new XhtmlComposer().compose(csc.getText().getDiv());
 //    }

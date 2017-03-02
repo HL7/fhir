@@ -855,8 +855,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igm.setName(name);
     igm.setBase(location);
     specMaps.add(igm);
-    if (!Constants.VERSION.equals(igm.getVersion()))
+    if (!Constants.VERSION.equals(igm.getVersion())) {
       log("Version mismatch. This IG is version "+Constants.VERSION+", while the IG '"+name+"' is from version "+igm.getVersion()+". Will try to run anyway)");
+      deleteFromCache(source, name);
+    }
 
     for (String fn : files.keySet()) {
       if (fn.endsWith(".json")) {
@@ -881,6 +883,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
+  private void deleteFromCache(String source, String name) throws IOException {
+    if (source.startsWith("http:") || source.startsWith("https:")) {
+      String filename = Utilities.path(vsCache, name+".cache");
+      File f = new File(filename);
+      if (f.exists())
+        f.delete();
+      
+    }
+  }
+  
   private Map<String, byte[]> fetchDefinitions(String source, String name) throws Exception {
     // todo: if filename is a URL
     Map<String, byte[]> res = new HashMap<String, byte[]>();
