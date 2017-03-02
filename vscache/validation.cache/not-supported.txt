@@ -32,6 +32,7 @@ http://hl7.org/fhir/ValueSet/chromosome-human
 https://meshb.nlm.nih.gov
 http://ncforms.org/formid
 http:/acme.ped/apgarheartrate
+http://hl7.org/fhir/object-lifecycle
 http://acme.org/messagetypes
 http://acme.org/lab/codes/flags
 urn:ietf:bcp:47
@@ -88,6 +89,7 @@ http://www.ensembl.org
 http://www.infoway-inforoute.ca.org/Consent-subtype-codes
 https://intranet.aumc.nl/labtestcodes
 http://acmelabs.org
+http://hl7.org/fhir/device-safety
 http://hl7.org/fhir/encounter-diagnosis-role
 http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor

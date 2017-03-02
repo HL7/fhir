@@ -2914,23 +2914,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     String s = Utilities.padLeft("", '\u00A0', i*2);
 
     td.addText(s);
-    Resource e = context.fetchCodeSystem(c.getSystem());
-    if (e == null) {
-      if (c.getAbstract())
-        td.i().setAttribute("title", ABSTRACT_CODE_HINT).addText(c.getCode());
-      else
-        td.addText(c.getCode());
-    } else {
-      String href = prefix+getCsRef(e);
-      if (href.contains("#"))
-        href = href + "-"+Utilities.nmtokenize(c.getCode());
-      else
-        href = href + "#"+e.getId()+"-"+Utilities.nmtokenize(c.getCode());
-      if (c.getAbstract())
-        td.ah(href).setAttribute("title", ABSTRACT_CODE_HINT).i().addText(c.getCode());
-      else
-        td.ah(href).addText(c.getCode());
-    }
+    addCodeToTable(c.getAbstract(), c.getSystem(), c.getCode(), c.getDisplay(), td);
     if (doSystem) {
       td = tr.td();
       td.addText(c.getSystem());
@@ -2972,6 +2956,30 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
       addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, mymaps, allCS, langs);
+    }
+  }
+
+  private void addCodeToTable(boolean isAbstract, String system, String code, String display, XhtmlNode td) {
+    CodeSystem e = context.fetchCodeSystem(system);
+    if (e == null || e.getContent() != org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode.COMPLETE) {
+      if (isAbstract)
+        td.i().setAttribute("title", ABSTRACT_CODE_HINT).addText(code);
+      else if ("http://snomed.info/sct".equals(system)) {
+        td.ah("http://browser.ihtsdotools.org/?perspective=full&conceptId1="+code).addText(code);
+      } else if ("http://loinc.org".equals(system)) {
+          td.ah("http://details.loinc.org/LOINC/"+code+".html").addText(code);
+      } else        
+        td.addText(code);
+    } else {
+      String href = prefix+getCsRef(e);
+      if (href.contains("#"))
+        href = href + "-"+Utilities.nmtokenize(code);
+      else
+        href = href + "#"+e.getId()+"-"+Utilities.nmtokenize(code);
+      if (isAbstract)
+        td.ah(href).setAttribute("title", ABSTRACT_CODE_HINT).i().addText(code);
+      else
+        td.ah(href).addText(code);
     }
   }
 
@@ -3236,10 +3244,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
           addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false);
           for (ConceptReferenceComponent c : inc.getConcept()) {
             XhtmlNode tr = t.tr();
-            tr.td().addText(c.getCode());
-            ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc);
-
             XhtmlNode td = tr.td();
+            ConceptDefinitionComponent cc = getConceptForCode(e, c.getCode(), inc);
+            addCodeToTable(false, inc.getSystem(), c.getCode(), c.hasDisplay()? c.getDisplay() : cc != null ? cc.getDisplay() : "", td);
+
+            td = tr.td();
             if (!Utilities.noString(c.getDisplay()))
               td.addText(c.getDisplay());
             else if (cc != null && !Utilities.noString(cc.getDisplay()))
@@ -3395,9 +3404,27 @@ public class NarrativeGenerator implements INarrativeGenerator {
       else if (!ref.contains(".html"))
           ref = ref + ".html";
       XhtmlNode a = li.ah(prefix+ref.replace("\\", "/"));
-      a.addText(inc.getSystem());
-    } else
-      li.addText(inc.getSystem());
+      a.code(inc.getSystem());
+    } else {
+      String spec = getSpecialReference(inc.getSystem());
+      if (spec != null) {
+        XhtmlNode a = li.ah(spec);
+        a.code(inc.getSystem());
+      } else 
+        li.code(inc.getSystem());
+    }
+  }
+
+  private String getSpecialReference(String system) {
+    if ("http://snomed.info/sct".equals(system))
+      return "http://www.snomed.org/";
+    if (Utilities.existsInList(system, "http://loinc.org", "http://unitsofmeasure.org", "http://www.nlm.nih.gov/research/umls/rxnorm", "http://ncimeta.nci.nih.gov", "http://fdasis.nlm.nih.gov", 
+         "http://www.radlex.org", "http://www.whocc.no/atc", "http://dicom.nema.org/resources/ontology/DCM", "http://www.genenames.org", "http://www.ensembl.org", "http://www.ncbi.nlm.nih.gov/nuccore", 
+         "http://www.ncbi.nlm.nih.gov/clinvar", "http://sequenceontology.org", "http://www.hgvs.org/mutnomen", "http://www.ncbi.nlm.nih.gov/projects/SNP", "http://cancer.sanger.ac.uk/cancergenome/projects/cosmic", 
+         "http://www.lrg-sequence.org", "http://www.omim.org", "http://www.ncbi.nlm.nih.gov/pubmed", "http://www.pharmgkb.org", "http://clinicaltrials.gov", "http://www.ebi.ac.uk/ipd/imgt/hla/")) 
+      return system;
+      
+    return null;
   }
 
   private String getCsRef(String system) {
