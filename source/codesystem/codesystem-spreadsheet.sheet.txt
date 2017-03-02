@@ -490,24 +490,18 @@
   Filename = codesystem-example.xml
 
  -- Row 2 -----------------------------------
-  Name = DICOM DICM
-  Identity = dicom-dcim
-  Description = Codes defined by DICOM
-  Filename = codesystem-dicom-dcim.xml
-
- -- Row 3 -----------------------------------
   Name = NHIN PurposeOfUse
   Identity = nhin-purposeofuse
   Description = NHIN Purpose of Use
   Filename = codesystem-nhin-purposeofuse.xml
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = SNOMED CT
   Identity = snomedct
   Description = Canonical Definition for SNOMED CT
   Filename = codesystem-snomedct.xml
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = Summary
   Identity = summary
   Description = Code system summary
