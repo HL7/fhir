@@ -79,14 +79,16 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	// Check to see if we already have a count cached for this query. If so, use it
 	// and tell the searcher to skip doing the count. This can only be done reliably if
 	// the server is in -readonly mode.
-	docount := true
-	queryHash := fmt.Sprintf("%x", md5.Sum([]byte(query.Query)))
+	doCount := true
+	var queryHash string
+
 	if m.readonly {
+		queryHash = fmt.Sprintf("%x", md5.Sum([]byte(query.Query)))
 		countcache := &CountCache{}
 		err = m.db.C("countcache").FindId(queryHash).One(countcache)
 		if err == nil {
 			total = countcache.Count
-			docount = false
+			doCount = false
 		}
 	}
 
@@ -94,7 +96,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	if bsonQuery.usesPipeline() {
 		// The (slower) aggregation pipeline is used if the query contains includes or revincludes
 		var mgoPipe *mgo.Pipe
-		mgoPipe, total, err = m.aggregate(bsonQuery, query.Options(), docount)
+		mgoPipe, total, err = m.aggregate(bsonQuery, query.Options(), doCount)
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
@@ -106,7 +108,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	} else {
 		// Otherwise, the (faster) standard query is used
 		var mgoQuery *mgo.Query
-		mgoQuery, total, err = m.find(bsonQuery, query.Options(), docount)
+		mgoQuery, total, err = m.find(bsonQuery, query.Options(), doCount)
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
@@ -122,7 +124,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	}
 
 	// If the count wasn't already in cache, add it to cache.
-	if m.readonly && docount {
+	if m.readonly && doCount {
 		countcache := &CountCache{
 			Id:    queryHash,
 			Count: total,
@@ -136,11 +138,11 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 
 // aggregate takes a BSONQuery and runs its Pipeline through the mongo aggregation framework. Any query options
 // will be added to the end of the pipeline.
-func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, docount bool) (pipe *mgo.Pipe, total uint32, err error) {
+func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, doCount bool) (pipe *mgo.Pipe, total uint32, err error) {
 	c := m.db.C(models.PluralizeLowerResourceName(bsonQuery.Resource))
 
 	// First get a count of the total results (doesn't apply any options)
-	if docount {
+	if doCount {
 		if len(bsonQuery.Pipeline) == 1 {
 			// The pipeline is only being used for includes/revincludes, meaning the entire
 			// collection is being searched. It's faster just to get a total count from the
@@ -171,9 +173,6 @@ func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, d
 			}
 			total = uint32(result.Total)
 		}
-	} else {
-		// The count was already cached, so return 0 and expect it to be overwritten in MongoSearcher.Search().
-		total = uint32(0)
 	}
 
 	// Now setup the search pipeline (applying options, if any)
@@ -186,19 +185,16 @@ func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, d
 
 // find takes a BSONQuery and runs a standard mongo search on that query. Any query options are applied
 // after the initial search is performed.
-func (m *MongoSearcher) find(bsonQuery *BSONQuery, options *QueryOptions, docount bool) (query *mgo.Query, total uint32, err error) {
+func (m *MongoSearcher) find(bsonQuery *BSONQuery, options *QueryOptions, doCount bool) (query *mgo.Query, total uint32, err error) {
 	c := m.db.C(models.PluralizeLowerResourceName(bsonQuery.Resource))
 
 	// First get a count of the total results (doesn't apply any options)
-	if docount {
+	if doCount {
 		intTotal, err := c.Find(bsonQuery.Query).Count()
 		if err != nil {
 			return nil, 0, err
 		}
 		total = uint32(intTotal)
-	} else {
-		// The count was already cached, so return 0 and expect it to be overwritten in MongoSearcher.Search().
-		total = uint32(0)
 	}
 
 	searchQuery := c.Find(bsonQuery.Query)
