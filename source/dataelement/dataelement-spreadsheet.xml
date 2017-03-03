@@ -817,7 +817,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">proposed-order</Data></Cell>
-    <Cell><Data ss:Type="String">url,identifier,version,status,experimental,date,publisher</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

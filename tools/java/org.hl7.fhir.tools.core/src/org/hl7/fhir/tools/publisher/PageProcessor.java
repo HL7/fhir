@@ -653,11 +653,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //      else if (com[0].equals("atomheader"))
 //        src = s1+atomHeader(name, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, true)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, true, file)+s3;
       else if (com[0].equals("codelist-nh"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false, file)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false, file)+s3;
       else if (com[0].equals("toc"))
         src = s1 + generateToc() + s3;
       else if (com[0].equals("codetoc"))
@@ -2361,9 +2361,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, name, description, level, adorn, n+".xml.html");
     String html = ("<%setlevel "+Integer.toString(level)+"%>"+TextFile.fileToString(folders.srcDir + "template-example-xml.html")).replace("<%example%>", b.toString());
-    html = processPageIncludes(n+".xml.html", html, pageType, null, null, null, crumbTitle, ig);
+    html = processPageIncludes(n+".xml.html", html, pageType, null, n+".xml.html", null, null, crumbTitle,  (adorn && hasNarrative(xdoc)) ? new Boolean(true) : null, ig);
     TextFile.stringToFile(html, dst);
     htmlchecker.registerExternal(dst);
+  }
+
+  private boolean hasNarrative(Document xdoc) {
+    return XMLUtil.hasNamedChild(XMLUtil.getNamedChild(xdoc.getDocumentElement(), "text"), "div");
   }
 
   public void jsonToXhtml(String src, String dst, String name, String description, int level, String json, String pageType, String crumbTitle, ImplementationGuideDefn ig) throws Exception {
@@ -3493,11 +3497,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //    return b.toString();
 //  }
 
-  private String codelist(CodeSystem cs, String mode, boolean links, boolean heading) throws Exception {
+  private String codelist(CodeSystem cs, String mode, boolean links, boolean heading, String source) throws Exception {
     if (cs == null)
       cs = definitions.getCodeSystems().get(mode);
     if (cs == null)
-      throw new Exception("No Code system for "+mode);
+      throw new Exception("No Code system for "+mode+" from "+source);
     boolean hasComments = false;
     for (ConceptDefinitionComponent c : cs.getConcept())
       hasComments = hasComments || checkHasComment(c);
@@ -4099,11 +4103,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader(name, "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, true)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, true, file)+s3;
       else if (com[0].equals("codelist-nh"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false, file)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false, file)+s3;
       else if (com[0].equals("sct-vs-list"))
         src = s1+getSnomedCTVsList()+s3;
       else if (com[0].equals("sct-concept-list"))
@@ -4516,11 +4520,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("w5"))
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("codelist"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, true)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, true, file)+s3;
       else if (com[0].equals("codelist-nh"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, false, false, file)+s3;
       else if (com[0].equals("linkcodelist"))
-        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false)+s3;
+        src = s1+codelist((CodeSystem) resource, com.length > 1 ? com[1] : null, true, false, file)+s3;
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("vs-warning"))
@@ -6352,7 +6356,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
       }
     }
-    List<String> allowed = Arrays.asList("div", "h2", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "tr", "th", "td", "ol", "ul", "li", "br", "span", "em", "strong");
+    List<String> allowed = Arrays.asList("div", "h2", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "thead", "tbody", "tr", "th", "td", "ol", "ul", "li", "br", "span", "em", "strong");
     iterateAllChildNodes(doc, allowed);
   }
 

@@ -2849,7 +2849,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       check(page.getDefinitions().hasConcreteResource(sd.getType()), sd, "Unknown constrained base type "+sd.getType());
       check(!page.getDefinitions().hasResource(sd.getId()), sd, "Duplicate resource name "+sd.getType());
     } else {
-      check(page.getDefinitions().hasAbstractResource(sd.getType()), sd, "Unknown specialised base type "+sd.getType());
+      if (sd.hasBaseDefinition()) 
+         check(page.getDefinitions().hasAbstractResource(sd.getBaseDefinition().substring(40)), sd, "Unknown specialised base resource "+sd.getType());
+      else
+        check(page.getDefinitions().hasAbstractResource(sd.getType()), sd, "Unknown specialised base resource "+sd.getType());
     }
     return false;
   }
@@ -2858,10 +2861,13 @@ public class Publisher implements URIResolver, SectionNumberer {
     check(!sd.getAbstract() || sd.getName().equals("Element") || sd.getName().equals("BackboneElement") , sd, "Only Element/BackboneElement can be abstract");
     check(!sd.hasContext() || "Extension".equals(sd.getType()), sd, "Only extensions can have context (base type = "+sd.getType()+")");
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-      check(page.getDefinitions().hasBaseType(sd.getType()), sd, "Unknown constrained base type "+sd.getType());
+      check(page.getDefinitions().hasType(sd.getType()) || sd.getType().equals("ElementDefinition"), sd, "Unknown constrained base type "+sd.getType());
       check(page.getDefinitions().hasPrimitiveType(sd.getId()) || !page.getDefinitions().hasBaseType(sd.getId()), sd, "Duplicate type name "+sd.getType());
     } else {
-      check(page.getDefinitions().hasBaseType(sd.getType()), sd, "Unknown specialised base type "+sd.getType());
+      if (sd.hasBaseDefinition())
+        check(page.getDefinitions().hasBaseType(sd.getBaseDefinition().substring(40)), sd, "Unknown specialised base type "+sd.getType());
+      else
+        check(page.getDefinitions().hasBaseType(sd.getType()), sd, "Unknown specialised base type "+sd.getType());
     }
     return false;
   }

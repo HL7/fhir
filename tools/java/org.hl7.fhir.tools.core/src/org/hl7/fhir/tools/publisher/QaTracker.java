@@ -1,5 +1,6 @@
 package org.hl7.fhir.tools.publisher;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -12,6 +13,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
@@ -75,26 +77,45 @@ public class QaTracker {
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "WarningsToQA.xslt");
     s.append(Utilities.saxonTransform(page.getFolders().dstDir + "work-group-warnings.xml", xslt));
     
-    return s.toString();
-    
+    return s.toString(); 
   }
-  public void commit(String rootDir) {
+  
+  public void commit(String rootDir) throws IOException {
+    String src = TextFile.fileToString(rootDir+"records.csv");
+    
     Calendar c = new GregorianCalendar();
     c.set(Calendar.HOUR_OF_DAY, 0); //anything 0 - 23
     c.set(Calendar.MINUTE, 0);
     c.set(Calendar.SECOND, 0);
     Date d = c.getTime();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-    String n = sdf.format(d);
-    IniFile ini = new IniFile(rootDir+"records.cache");
-    ini.setIntegerProperty("resources", n, current.resources, null);   
-    ini.setIntegerProperty("types", n, current.types, null);   
-    ini.setIntegerProperty("profiles", n, current.packs, null); // need to maintain the old word here   
-    ini.setIntegerProperty("paths", n, current.paths, null);   
-    ini.setIntegerProperty("valuesets", n, current.valuesets, null);   
-    ini.setIntegerProperty("information messages", n, current.hints, null);   
-    ini.setIntegerProperty("warnings", n, current.warnings, null);   
-    ini.save();
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    StringBuilder b = new StringBuilder();
+    b.append(sdf.format(d));
+    b.append(",");
+    b.append(current.resources);   
+    b.append(",");
+    b.append(current.types);   
+    b.append(",");
+    b.append(current.packs); // need to maintain the old word here   
+    b.append(",");
+    b.append(current.paths);   
+    b.append(",");
+    // bindings
+    b.append(",");
+    // code lists
+    b.append(",");
+    b.append(current.valuesets);   
+    b.append(",");
+    // codes
+    b.append(",");
+    b.append(current.hints);   
+    b.append(",");
+    b.append(current.warnings);   
+    b.append(",");
+    // uncovered
+    b.append(",");
+    // broken links
+    TextFile.stringToFile(src+"\r\n"+b.toString(), rootDir+"records.csv");
   }
 
   public void setCounts(int e, int w, int i) {

@@ -24,7 +24,8 @@ signatures.html
       <page title="Operations" filename="operationslist.html"/>
       <page title="Services" filename="servicelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
-      <page title="Ballot Introduction" filename="ballot-intro.html"/>
+      <page title="Workgroup List" filename="wglist.html"/>
+<!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -280,6 +281,11 @@ signatures.html
       <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Immunization"/>
       <page type="resource" resource="ImmunizationRecommendation"/>
+      <page title="Dosage" filename="dosage.html">
+        <page title="Examples" filename="dosage-examples.html"/>
+        <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
+        <page title="Dosage Mappings" filename="dosage-mappings.html"/>
+      </page>
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">

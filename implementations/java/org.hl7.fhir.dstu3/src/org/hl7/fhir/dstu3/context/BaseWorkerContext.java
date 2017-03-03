@@ -107,7 +107,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return false;
       if (bndCodeSystems == null) {
         try {
-          log("Terminology server: Check for supported code systems for "+system);
+          tlog("Terminology server: Check for supported code systems for "+system);
         bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
         } catch (Exception e) {
           if (canRunWithoutTerminology) {
@@ -261,7 +261,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       Map<String, String> params = new HashMap<String, String>();
       params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
-      log("Terminology Server: $expand on "+getVSSummary(vs));
+      tlog("Terminology Server: $expand on "+getVSSummary(vs));
       ValueSet result = txServer.expandValueset(vs, expProfile.setIncludeDefinition(false), params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
@@ -411,7 +411,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     ValidationResult res = loadFromCache(cacheName);
     if (res != null)
       return res;
-    log("Terminology Server: $validate-code "+describeValidationParameters(pin));
+    tlog("Terminology Server: $validate-code "+describeValidationParameters(pin));
     for (ParametersParameterComponent pp : pin.getParameter())
       if (pp.getName().equals("profile"))
         throw new Error("Can only specify profile in the context");
@@ -452,6 +452,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return res;
   }
 
+
+  private void tlog(String msg) {
+//    log(msg);
+  }
 
   @SuppressWarnings("rawtypes")
   private String describeValidationParameters(Parameters pin) {

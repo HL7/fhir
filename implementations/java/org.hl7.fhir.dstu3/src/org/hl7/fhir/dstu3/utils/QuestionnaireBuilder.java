@@ -308,7 +308,10 @@ public class QuestionnaireBuilder {
   }
 
   private boolean isInlineDataType(List<TypeRefComponent> type) {
-    return type.size() == 1 && (type.get(0).getCode().equals("ContactDetail") || type.get(0).getCode().equals("UsageContext"));
+    return type.size() == 1 && !Utilities.existsInList(type.get(0).getCode(), "code", "string", "id", "oid", "markdown", "uri", "boolean", "decimal", "dateTime", "date", "instant", "time", "CodeableConcept", "Period", "Ratio",
+        "HumanName", "Address", "ContactPoint", "Identifier", "integer", "positiveInt", "unsignedInt", "Coding", "Quantity",  "Count",  "Age",  "Duration", 
+        "Distance",  "Money", "Money", "Reference", "Duration", "base64Binary", "Attachment", "Age", "Range", "Timing", "Annotation", "SampledData", "Extension",
+        "SampledData", "Narrative", "Resource", "Meta");
   }
 
   private boolean isExempt(ElementDefinition element, ElementDefinition child) {
@@ -748,7 +751,7 @@ public class QuestionnaireBuilder {
         addExtensionQuestions(profile, group, element, path, t.getProfile(), answerGroups);
     } else if (t.getCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
-    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("ElementDefinition")&& !t.getCode().equals("Meta")&& !t.getCode().equals("Signature"))
+    else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("Meta") && !t.getCode().equals("Signature"))
       throw new NotImplementedException("Unhandled Data Type: "+t.getCode()+" on element "+element.getPath());
   }
 
