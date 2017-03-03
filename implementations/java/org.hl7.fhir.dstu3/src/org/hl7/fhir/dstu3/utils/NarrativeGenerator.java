@@ -3398,20 +3398,19 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (Utilities.noString(ref))
         ref = (String) cs.getUserData("path");
     }
-    if (cs != null && ref != null) {
+    String spec = getSpecialReference(inc.getSystem());
+    if (spec != null) {
+      XhtmlNode a = li.ah(spec);
+      a.code(inc.getSystem());
+    } else if (cs != null && ref != null) {
       if (!Utilities.noString(prefix) && ref.startsWith("http://hl7.org/fhir/"))
         ref = ref.substring(20)+"/index.html";
       else if (!ref.contains(".html"))
-          ref = ref + ".html";
+        ref = ref + ".html";
       XhtmlNode a = li.ah(prefix+ref.replace("\\", "/"));
       a.code(inc.getSystem());
     } else {
-      String spec = getSpecialReference(inc.getSystem());
-      if (spec != null) {
-        XhtmlNode a = li.ah(spec);
-        a.code(inc.getSystem());
-      } else 
-        li.code(inc.getSystem());
+      li.code(inc.getSystem());
     }
   }
 

@@ -49,6 +49,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -193,6 +194,7 @@ import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
 import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
 import org.hl7.fhir.tools.publisher.ExampleInspector.EValidationFailed;
+import org.hl7.fhir.tools.publisher.Publisher.ProfileBundleSorter;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
@@ -238,6 +240,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
  *
  */
 public class Publisher implements URIResolver, SectionNumberer {
+
   public static final String CANONICAL_BASE = "http://build.fhir.org/";
   
   public class DocumentHolder {
@@ -2238,6 +2241,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       checkBundleURLs(page.getResourceBundle());
       checkStructureDefinitions(page.getResourceBundle());
+      page.getResourceBundle().getEntry().sort(new ProfileBundleSorter());
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "profiles-resources.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, page.getResourceBundle());
       s.close();
@@ -2246,6 +2250,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
       checkBundleURLs(page.getTypeBundle());
       checkStructureDefinitions(page.getTypeBundle());
+      page.getTypeBundle().getEntry().sort(new ProfileBundleSorter());
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, page.getTypeBundle());
       s.close();
@@ -2576,6 +2581,39 @@ public class Publisher implements URIResolver, SectionNumberer {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  public class ProfileBundleSorter implements Comparator<BundleEntryComponent> {
+
+    @Override
+    public int compare(BundleEntryComponent o1, BundleEntryComponent o2) {
+      String s1 = typeScore(o1.getResource());
+      String s2 = typeScore(o2.getResource());
+      return s1.compareTo(s2);
+    }
+
+    private String typeScore(Resource r) {
+      if (!(r instanceof StructureDefinition))
+        return r.fhirType()+"."+r.getId();
+      StructureDefinition sd = (StructureDefinition) r;
+      String p = sd.getDerivation() == TypeDerivationRule.CONSTRAINT ? "1" : "0";
+      if (sd.getId().equals("Element"))
+        return "aaStructureDefinition.00."+p+".Element";
+      if (sd.getId().equals("BackboneElement"))
+        return "aaStructureDefinition.01."+p+".BackboneElement";
+      if (sd.getId().equals("Resource"))
+        return "aaStructureDefinition.03."+p+".Resource";
+      if (sd.getId().equals("BackboneElement"))
+        return "aaStructureDefinition.04."+p+".DomainResource";
+      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) 
+        return "aaStructureDefinition.05."+p+"."+r.getId();
+      if (sd.getKind() == StructureDefinitionKind.COMPLEXTYPE) 
+        return "aaStructureDefinition.06."+p+"."+r.getId();
+      if (sd.getKind() == StructureDefinitionKind.RESOURCE) 
+        return "aaStructureDefinition.07."+p+"."+r.getId();
+//    (r1.getKind() == StructureDefinitionKind.LOGICAL) 
+      return "aaStructureDefinition.08."+p+"."+r.getId();
+    }
   }
 
   private void produceMap(String name, SectionTracker st) throws Exception {
