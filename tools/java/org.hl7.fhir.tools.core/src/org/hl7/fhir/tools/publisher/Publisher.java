@@ -2663,8 +2663,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     for (String s : page.getCodeSystems().keySet()) {
       CodeSystem cs = page.getCodeSystems().get(s);
-      if (cs == null)
-        System.out.println("No code system for "+s);
+      if (cs == null && !Utilities.existsInList(s, "http://unitsofmeasure.org", "http://hl7.org/fhir/sid/cvx", "http://loinc.org", "http://fdasis.nlm.nih.gov", "http://www.nlm.nih.gov/research/umls/rxnorm", "urn:oid:1.2.36.1.2001.1005.17"))
+        System.out.println("No code system resource found for "+s);
     }
     for (CodeSystem cs : page.getCodeSystems().values()) {
       if (cs != null && cs.hasUserData("path")) {
@@ -2846,7 +2846,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     check(!sd.getAbstract() || sd.getName().equals("Resource") || sd.getName().equals("DomainResource"), sd, "Only Resource/DomainResource can be abstract");
     check(!sd.hasContext(), sd, "Only extensions can have context (not resources)");
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-      check(page.getDefinitions().hasConcreteResource(sd.getType()), sd, "Unknown constrained base type "+sd.getType());
+      check(page.getDefinitions().hasConcreteResource(sd.getType()), sd, "Unknown constrained base resource "+sd.getType());
       check(!page.getDefinitions().hasResource(sd.getId()), sd, "Duplicate resource name "+sd.getType());
     } else {
       if (sd.hasBaseDefinition()) 
@@ -2861,7 +2861,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     check(!sd.getAbstract() || sd.getName().equals("Element") || sd.getName().equals("BackboneElement") , sd, "Only Element/BackboneElement can be abstract");
     check(!sd.hasContext() || "Extension".equals(sd.getType()), sd, "Only extensions can have context (base type = "+sd.getType()+")");
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
-      check(page.getDefinitions().hasType(sd.getType()) || sd.getType().equals("ElementDefinition"), sd, "Unknown constrained base type "+sd.getType());
+      check(page.getDefinitions().hasType(sd.getType()), sd, "Unknown constrained base type "+sd.getType());
       check(page.getDefinitions().hasPrimitiveType(sd.getId()) || !page.getDefinitions().hasBaseType(sd.getId()), sd, "Duplicate type name "+sd.getType());
     } else {
       if (sd.hasBaseDefinition())

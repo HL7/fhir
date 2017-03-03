@@ -893,8 +893,11 @@ public class ProfileGenerator {
     if (!resource.getRoot().getTypes().isEmpty() && (resource.getRoot().getTypes().get(0).getProfile() != null))
       p.setBaseDefinition(resource.getRoot().getTypes().get(0).getProfile());
     else
-      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+resource.getName());    
-    p.setKind(StructureDefinitionKind.RESOURCE);
+      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+resource.getName());
+    if (definitions.hasType(resource.getName()))
+      p.setKind(StructureDefinitionKind.COMPLEXTYPE);
+    else
+      p.setKind(StructureDefinitionKind.RESOURCE);
     p.setType(resource.getName());
     p.setDerivation(TypeDerivationRule.CONSTRAINT);
     p.setAbstract(false);
