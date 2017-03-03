@@ -1086,8 +1086,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genWGReport() + s3;
       else if (com[0].equals("r2maps-summary"))
         src = s1 + genR2MapsSummary() + s3;
-
-      else
+      else if (com[0].equals("past-narrative-link")) {
+       if (object == null || !(object instanceof Boolean))  
+         src = s1 + s3;
+       else
+         src = s1 + "<p><a href=\"#DomainResource.text.div-end\">Jump past Narrative</a></p>" + s3;
+      } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
@@ -6386,7 +6390,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return loadXmlNotesFromFile(filename, checkHeaders, definition, null, tabs, ig);
   }
 
-  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuideDefn ig, boolean isDict) throws Exception {
+  public String processProfileIncludes(String filename, String fileid, Profile pack, ConstraintStructure profile, String xml, String json, String tx, String src, String master, String path, String intro, String notes, ImplementationGuideDefn ig, boolean isDict, boolean hasNarrative) throws Exception {
     String workingTitle = null;
 
     int level = (ig == null || ig.isCore()) ? 0 : 1;
@@ -6557,7 +6561,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(pack.getCandidateResource(), genlevel(level))+s3;
-      else if (com[0].equals("resurl")) {
+      else if (com[0].equals("past-narrative-link")) {
+        if (hasNarrative)  
+          src = s1 + s3;
+        else
+          src = s1 + "<p><a href=\"#DomainResource.text.div-end\">Jump past Narrative</a></p>" + s3;
+       } else if (com[0].equals("resurl")) {
          if (Utilities.noString(pack.metadata("id")))
            src = s1+s3;
          else

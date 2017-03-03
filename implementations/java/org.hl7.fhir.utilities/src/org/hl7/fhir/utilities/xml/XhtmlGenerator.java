@@ -173,20 +173,26 @@ public class XhtmlGenerator {
       out.write("<span class=\"xmltagred\">&lt;"+node.getNodeName()+"</span>");
     if (node.hasAttributes()) {
       out.write("<span class=\"xmlattr\">");
-      XhtmlGeneratorAdornerState newstate = adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, state, node);
+      out.write("<a name=\""+adorner.getNodeId(state, node)+"\"> </a>");
+      
+      XhtmlGeneratorAdornerState newstate = adorner == null ? new XhtmlGeneratorAdornerState(null, "", "") : adorner.getState(this, state, node);
       for (int i = 0; i < node.getAttributes().getLength(); i++) {
+        if (i > 0)
+          out.write(" ");
         if (adorner != null) {
           XhtmlGeneratorAdornerState attrState = adorner.getAttributeMarkup(this, newstate, node, node.getAttributes().item(i).getNodeName(), node.getAttributes().item(i).getTextContent());
-          out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+attrState.getPrefix()+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()), level)+attrState.getSuffix()+"</span>\"");
+          out.write(node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+attrState.getPrefix()+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()), level)+attrState.getSuffix()+"</span>\"");
         } else
-          out.write(" "+node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()), level)+"</span>\"");
+          out.write(node.getAttributes().item(i).getNodeName()+"=\"<span class=\"xmlattrvalue\">"+escapeHtml(Utilities.escapeXml(node.getAttributes().item(i).getTextContent()), level)+"</span>\"");
       }
       out.write("</span>");
 
     }
     if (node.hasChildNodes()) {
       out.write("<span class=\"xmltag\">&gt;</span>");
-      XhtmlGeneratorAdornerState newstate = adorner == null ? new XhtmlGeneratorAdornerState("", "") : adorner.getState(this, state, node);
+      if (!node.hasAttributes())
+        out.write("<a name=\""+adorner.getNodeId(state, node)+"\"> </a>");
+      XhtmlGeneratorAdornerState newstate = adorner == null ? new XhtmlGeneratorAdornerState(null, "", "") : adorner.getState(this, state, node);
       if (newstate.isSuppress())
         out.write("<span class=\"xmlcomment\">&lt;!-- "+escapeHtml(newstate.getSupressionMessage(), level)+" --&gt;</span>");
       else {
@@ -201,8 +207,12 @@ public class XhtmlGenerator {
       else
         out.write("<span class=\"xmltag\">&lt;/"+node.getNodeName()+"&gt;</span>");
     }
-    else 
+    else { 
       out.write("<span class=\"xmltag\">/&gt;</span>");
+      if (!node.hasAttributes())
+        out.write("<a name=\""+adorner.getNodeId(state, node)+"\"> </a>");
+    }
+    out.write("<a name=\""+adorner.getNodeId(state, node)+"-end\"> </a>");
 	}
 	
   private void writeElementPlain(Writer out, Element node, int level) throws IOException, FHIRException  {
