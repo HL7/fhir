@@ -950,6 +950,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       s.append(Utilities.escapeXml(e.getSliceName()));
       s.append(")");
     }
+    s.append("</td>");
     ElementDefinitionMappingComponent m = getMap(e, id);
     if (m == null)
       s.append("<td></td>");
