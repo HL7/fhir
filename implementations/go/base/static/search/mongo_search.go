@@ -95,7 +95,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 
 	// There's no point in running the query if we already know it will return 0 results.
 	if m.readonly && !doCount && total == 0 {
-		return nil, 0, nil
+		return results, 0, nil
 	}
 
 	// execute the query
@@ -107,7 +107,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
-				return nil, 0, nil
+				return results, 0, nil
 			}
 			return nil, 0, err
 		}
@@ -119,7 +119,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		if err != nil {
 			if err == mgo.ErrNotFound {
 				// This was a valid search that returned zero results
-				return nil, 0, nil
+				return results, 0, nil
 			}
 			return nil, 0, err
 		}
