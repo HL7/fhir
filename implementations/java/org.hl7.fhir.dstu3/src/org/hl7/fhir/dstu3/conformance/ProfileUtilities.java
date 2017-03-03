@@ -1447,6 +1447,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, describeCardinality(ed.getSnapshot().getElement().get(0), null, new UnusedTracker()), null, null));
 
+    ElementDefinition ved = null;
     if (full || vdeep) {
       r.getCells().add(gen.new Cell("", "", "Extension", null, null));
 
@@ -1466,7 +1467,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       r.setIcon("icon_"+m+"extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
       
       for (ElementDefinition c : children) {
-        ElementDefinition ved = getValueFor(ed, c);
+        ved = getValueFor(ed, c);
         ElementDefinition ued = getUrlFor(ed, c);
         if (ved != null && ued != null) {
           Row r1 = gen.new Row();
@@ -1480,7 +1481,6 @@ public class ProfileUtilities extends TranslatingUtilities {
         }
       }
     } else  {
-      ElementDefinition ved = null;
       for (ElementDefinition ted : ed.getSnapshot().getElement()) {
         if (ted.getPath().startsWith("Extension.value"))
           ved = ted;
@@ -1492,10 +1492,20 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, ed.getName()+": "+ed.getDescription(), null));
+    if (!full && !(deep || vdeep) && ved != null && ved.hasBinding()) {  
+        c.addPiece(gen.new Piece("br"));
+      BindingResolution br = pkp.resolveBinding(ed, ved.getBinding(), ved.getPath());
+      c.getPieces().add(checkForNoChange(ved.getBinding(), gen.new Piece(null, translate("sd.table", "Binding")+": ", null).addStyle("font-weight:bold")));
+      c.getPieces().add(checkForNoChange(ved.getBinding(), gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url) || !pkp.prependLinks() ? br.url : corePath+br.url, br.display, null)));
+      if (ved.getBinding().hasStrength()) {
+        c.getPieces().add(checkForNoChange(ved.getBinding(), gen.new Piece(null, " (", null)));
+        c.getPieces().add(checkForNoChange(ved.getBinding(), gen.new Piece(corePath+"terminologies.html#"+ved.getBinding().getStrength().toCode(), egt(ved.getBinding().getStrengthElement()), ved.getBinding().getStrength().getDefinition())));              
+        c.getPieces().add(gen.new Piece(null, ")", null));
+      }
+    }
     c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, describeExtensionContext(ed), null));
     r.getCells().add(c);
-
-
+    
     try {
       return gen.generate(model, corePath, 0);
   	} catch (org.hl7.fhir.exceptions.FHIRException e) {
