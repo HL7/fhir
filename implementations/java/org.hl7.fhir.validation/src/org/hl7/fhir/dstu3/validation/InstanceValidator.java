@@ -82,6 +82,7 @@ import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.IResourceValidator;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.ValidationProfileSet;
 import org.hl7.fhir.dstu3.utils.ValidationProfileSet.ProfileRegistration;
 import org.hl7.fhir.exceptions.DefinitionException;
@@ -1169,7 +1170,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "primitive types must have a value or must have child extensions");
       return;
     }
-    if (type.equals("boolean")) {
+    String regex = context.getExtensionString(ToolingExtensions.EXT_REGEX);
+    if (regex!=null)
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches(regex), "Element value '" + e.primitiveValue() + "' does not meet regex '" + regex + "'");
+    
+    if (type.equals("boolean")) { 
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, "true".equals(e.primitiveValue()) || "false".equals(e.primitiveValue()), "boolean values must be 'true' or 'false'");
     }
     if (type.equals("uri")) {
