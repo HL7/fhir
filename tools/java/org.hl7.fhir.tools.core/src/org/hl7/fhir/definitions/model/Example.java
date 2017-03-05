@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,6 +36,7 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CSVProcessor;
 import org.hl7.fhir.utilities.Utilities;
@@ -54,6 +56,7 @@ public class Example {
   private Set<Example> inbounds = new HashSet<Example>();
   private String ig;
   private String exampleFor;
+  private Element element;
   
   
   public enum ExampleType {
@@ -71,6 +74,7 @@ public class Example {
     this.type = type;
     this.registered = registered;
     this.title = title;
+    this.element = element;
     
     xml = doc;
     resourceName = xml.getDocumentElement().getNodeName();
@@ -216,6 +220,21 @@ public class Example {
 
   public String getExampleFor() {
     return exampleFor;
+  }
+
+
+  public Element getElement() {
+    return element;
+  }
+
+
+  public void setElement(Element element) {
+    this.element = element;
+  }
+
+
+  public boolean hasXml() {
+    return xml != null;
   }
   
   

@@ -153,6 +153,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private boolean noBindingMsgSuppressed;
   private HashMap<Element, ResourceProfiles> resourceProfilesMap;
   private IValidatorResourceFetcher fetcher;
+  long time = 0;
 
   /*
    * Keeps track of whether a particular profile has been checked or not yet
@@ -303,16 +304,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   @Override
-  public void setNoInvariantChecks(boolean value) {
+  public IResourceValidator setNoInvariantChecks(boolean value) {
     this.noInvariantChecks = value;
+    return this;
   }
 
   public IValidatorResourceFetcher getFetcher() {
     return this.fetcher;
   }
 
-  public void setFetcher(IValidatorResourceFetcher value) {
+  public IResourceValidator setFetcher(IValidatorResourceFetcher value) {
     this.fetcher = value;
+    return this;
   }
 
   private boolean allowUnknownExtension(String url) {
@@ -1358,58 +1361,81 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return;
     }
 
-    String refType = ref.startsWith("#")? "contained": (localResolve(ref, stack, errors, path)!=null ? "bundle" : "remote");
-    Element we = resolve(appContext, ref, stack, errors, path);
+    Element we = localResolve(ref, stack, errors, path);
+    String refType;
+    if (ref.startsWith("#")) {
+      refType = "contained";
+    } else {
+      if (we == null) {
+        refType = "remote";
+      } else {
+        refType = "bundle";
+      }
+    }
     String ft;
     if (we != null)
       ft = we.getType();
     else
       ft = tryParse(ref);
+    ReferenceValidationPolicy pol = refType.equals("contained") ? ReferenceValidationPolicy.CHECK_VALID : fetcher == null ? ReferenceValidationPolicy.IGNORE : fetcher.validationPolicy(appContext, ref);
 
-    rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, we!=null || !refType.equals("contained"), "Unable to resolve contained resource");
-    if (hint(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ft!=null, "Unable to determine type of target resource")) {
-      boolean ok = false;
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      for (TypeRefComponent type : container.getType()) {
-        if (!ok && type.getCode().equals("Reference")) {
-          // we validate as much as we can. First, can we infer a type from the profile?  (Need to change this to targetProfile when Grahame's ready)
-          if (!type.hasTargetProfile() || type.getTargetProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
-            ok = true;
-          else {
-            String pr = type.getTargetProfile(); // Need to change to targetProfile when Grahame's ready
+    if (pol.checkExists()) {
+      if (we == null) {
+        if (fetcher == null)
+          throw new FHIRException("Resource resolution services not provided");
+        we = fetcher.fetch(appContext, ref);
+      }
+      rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, we != null, "Unable to resolve resource '"+ref+"'");
+    }
 
-            String bt = getBaseType(profile, pr);
-            StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + bt);
-            if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, bt != null, "Unable to resolve the profile reference '" + pr + "'")) {
-              b.append(bt);
-              ok = bt.equals(ft);
-              if (ok && we!=null) {
-                doResourceProfile(appContext, we, pr, errors, stack.push(we, -1, null, null), path, element);
+    if (we != null && pol.checkType()) {
+      if (warning(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ft!=null, "Unable to determine type of target resource")) {
+        boolean ok = false;
+        CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+        for (TypeRefComponent type : container.getType()) {
+          if (!ok && type.getCode().equals("Reference")) {
+            // we validate as much as we can. First, can we infer a type from the profile? 
+            if (!type.hasTargetProfile() || type.getTargetProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
+              ok = true;
+            else {
+              String pr = type.getTargetProfile();
+
+              String bt = getBaseType(profile, pr);
+              StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + bt);
+              if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, bt != null, "Unable to resolve the profile reference '" + pr + "'")) {
+                b.append(bt);
+                ok = bt.equals(ft);
+                if (ok && we!=null) {
+                  doResourceProfile(appContext, we, pr, errors, stack.push(we, -1, null, null), path, element);
+                }
+              } else
+                ok = true; // suppress following check
+              if (ok && type.hasAggregation()) {
+                boolean modeOk;
+                for (Enumeration<AggregationMode> mode : type.getAggregation()) {
+                  if (mode.getValue().equals(AggregationMode.CONTAINED) && refType.equals("contained"))
+                    ok = true;
+                  else if (mode.getValue().equals(AggregationMode.BUNDLED) && refType.equals("bundled"))
+                    ok = true;
+                  else if (mode.getValue().equals(AggregationMode.REFERENCED) && (refType.equals("bundled")||refType.equals("remote")))
+                    ok = true;
+                }
+                rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Reference is " + refType + " which isn't supported by the specified aggregation mode(s) for the reference");
               }
-            } else
-              ok = true; // suppress following check
-            if (ok && type.hasAggregation()) {
-              boolean modeOk;
-              for (Enumeration<AggregationMode> mode : type.getAggregation()) {
-                if (mode.getValue().equals(AggregationMode.CONTAINED) && refType.equals("contained"))
-                  ok = true;
-                else if (mode.getValue().equals(AggregationMode.BUNDLED) && refType.equals("bundled"))
-                  ok = true;
-                else if (mode.getValue().equals(AggregationMode.REFERENCED) && (refType.equals("bundled")||refType.equals("remote")))
-                  ok = true;
-              }
-              rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Reference is " + refType + " which isn't supported by the specified aggregation mode(s) for the reference");
             }
           }
+          if (!ok && type.getCode().equals("*")) {
+            ok = true; // can refer to anything
+          }
         }
-        if (!ok && type.getCode().equals("*")) {
-          ok = true; // can refer to anything
-        }
+        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Invalid Resource target type. Found " + ft + ", but expected one of (" + b.toString() + ")");
       }
-      rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Invalid Resource target type. Found " + ft + ", but expected one of (" + b.toString() + ")");
+    }
+    if (pol == ReferenceValidationPolicy.CHECK_VALID) {
+      // todo....
     }
   }
-
+  
   private void doResourceProfile(Object appContext, Element resource, String profile, List<ValidationMessage> errors, NodeStack stack, String path, Element element) throws FHIRException, IOException {
     ResourceProfiles resourceProfiles = addResourceProfile(errors, resource, profile, path, element, stack);
     if (resourceProfiles.isProcessed()) {
@@ -2028,7 +2054,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return null;
   }
 
-  private Element resolve(Object appContext, String ref, NodeStack stack, List<ValidationMessage> errors, String path) throws FHIRFormatError, DefinitionException, IOException {
+  private Element resolve(Object appContext, String ref, NodeStack stack, List<ValidationMessage> errors, String path) throws IOException, FHIRException {
     Element local = localResolve(ref, stack, errors, path);
     if (local!=null)
       return local;
@@ -2162,8 +2188,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     this.anyExtensionsAllowed = anyExtensionsAllowed;
   }
 
-  public void setBestPracticeWarningLevel(BestPracticeWarningLevel value) {
+  public IResourceValidator setBestPracticeWarningLevel(BestPracticeWarningLevel value) {
     bpWarnings = value;
+    return this;
   }
 
   @Override
@@ -2906,7 +2933,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   // String firstBase = null;
   // firstBase = ebase == null ? base : ebase;
 
-  long time = 0;
   private void validateElement(Object appContext, List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context,
       Element resource, Element element, String actualType, NodeStack stack, boolean inCodeableConcept) throws FHIRException, FHIRException, IOException {
     element.markValidation(profile, definition);
@@ -3644,8 +3670,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return noBindingMsgSuppressed;
   }
 
-  public void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed) {
+  public IResourceValidator setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed) {
     this.noBindingMsgSuppressed = noBindingMsgSuppressed;
+    return this;
   }
 
   
@@ -3653,8 +3680,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return noTerminologyChecks;
   }
 
-  public void setNoTerminologyChecks(boolean noTerminologyChecks) {
+  public IResourceValidator setNoTerminologyChecks(boolean noTerminologyChecks) {
     this.noTerminologyChecks = noTerminologyChecks;
+    return this;
   }
 
   public void checkAllInvariants(){
@@ -3679,4 +3707,5 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     }
   }
+
 }

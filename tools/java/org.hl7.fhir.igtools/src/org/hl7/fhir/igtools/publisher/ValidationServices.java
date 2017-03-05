@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
@@ -79,6 +80,12 @@ public class ValidationServices implements IValidatorResourceFetcher {
     if (url.contains("/CodeSystem/"))
       return CodeSystem.class;
     return null;
+  }
+
+
+  @Override
+  public ReferenceValidationPolicy validationPolicy(Object appContext, String url) {
+    return ReferenceValidationPolicy.CHECK_EXISTS_AND_TYPE;
   }
 
 }

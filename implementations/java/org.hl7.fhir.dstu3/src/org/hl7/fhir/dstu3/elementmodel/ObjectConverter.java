@@ -30,6 +30,8 @@ public class ObjectConverter  {
   }
 
   public Element convert(Resource ig) throws IOException, FHIRFormatError, DefinitionException {
+    if (ig == null)
+      return null;
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
     jp.compose(bs, ig);

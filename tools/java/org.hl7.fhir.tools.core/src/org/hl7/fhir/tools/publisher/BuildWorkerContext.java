@@ -43,6 +43,7 @@ import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.dstu3.model.OperationDefinition;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
@@ -120,10 +121,12 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
   private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
+  
   private UcumService ucum;
   private String version;
   private List<String> resourceNames = new ArrayList<String>();
   private Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
+  private Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
   private Definitions definitions;
   private Map<String, Concept> snomedCodes = new HashMap<String, Concept>();
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
@@ -190,6 +193,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return questionnaires;
   }
 
+  public Map<String, OperationDefinition> getOperations() {
+    return operations;
+  }
+
   public void seeExtensionDefinition(String url, StructureDefinition ed) throws Exception {
     if (extensionDefinitions.get(ed.getUrl()) != null)
       throw new Exception("duplicate extension definition: " + ed.getUrl());
@@ -203,6 +210,13 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       throw new Exception("duplicate extension definition: "+theQuestionnaire.getId());
     questionnaires.put(theQuestionnaire.getId(), theQuestionnaire);
     questionnaires.put(url, theQuestionnaire);
+  }
+
+  public void seeOperation(OperationDefinition opd) throws Exception {
+    if (operations.get(opd.getUrl()) != null)
+      throw new Exception("duplicate extension definition: "+opd.getUrl());
+    operations.put(opd.getUrl(), opd);
+    operations.put(opd.getId(), opd);
   }
 
   public void seeValueSet(String url, ValueSet vs) throws Exception {
@@ -312,6 +326,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
     if (class_ == StructureDefinition.class && !uri.contains("/"))
       uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
+
     
     if (uri.startsWith("http:")) {
       if (uri.contains("#"))
@@ -330,6 +345,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           return (T) codeSystems.get(uri);
         else
           return null;      
+      } else if (class_ == OperationDefinition.class) {
+        return (T) operations.get(uri);
       }
     }
     if (class_ == null && uri.contains("/")) {

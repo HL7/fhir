@@ -42,6 +42,7 @@ import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 
@@ -282,14 +283,14 @@ public class Definitions {
   }
   
 
-	public ResourceDefn getResourceByName(String name) throws Exception {
+	public ResourceDefn getResourceByName(String name) throws FHIRException {
 		ResourceDefn root = null;
 		if (resources.containsKey(name))
 			root = resources.get(name);
     if (root == null)
       root = baseResources.get(name);
 		if (root == null)
-			throw new Exception("unable to find resource '" + name+"'");
+			throw new FHIRException("unable to find resource '" + name+"'");
 		return root;
 	}
 

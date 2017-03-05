@@ -35,23 +35,32 @@ import org.apache.jena.sparql.util.Context;
 import org.apache.jena.sparql.util.IsoMatcher;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.OperationDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.XmlValidator;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.rdf.ModelComparer;
 import org.hl7.fhir.rdf.ShExValidator;
@@ -77,7 +86,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 
-public class ExampleInspector {
+public class ExampleInspector implements IValidatorResourceFetcher {
 
   public static class EValidationFailed extends Exception {
     private static final long serialVersionUID = 1538324138218778487L;
@@ -137,6 +146,7 @@ public class ExampleInspector {
     }
 
   }
+  private static final boolean VALIDATE_CONFORMANCE_REFERENCES = false;
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
@@ -185,6 +195,7 @@ public class ExampleInspector {
     validator.setResourceIdRule(IdStatus.REQUIRED);
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
     validator.getExtensionDomains().add("http://hl7.org/fhir/StructureDefinition/us-core-");
+    validator.setFetcher(this);
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
 
@@ -486,5 +497,56 @@ public class ExampleInspector {
   }
 
 
+  @Override
+  public Element fetch(Object appContext, String url) throws IOException, FHIRException {
+    String[] parts = url.split("\\/");
+    if (parts.length == 2 && definitions.hasResource(parts[0])) {
+      ResourceDefn r = definitions.getResourceByName(parts[0]);
+      for (Example e : r.getExamples()) {
+        if (e.getElement() == null && e.hasXml()) {
+          e.setElement(new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).parse(e.getXml()));
+        }
+        if (e.getElement() != null) {
+          if (e.getElement().fhirType().equals("Bundle")) {
+            for (Base b : e.getElement().listChildrenByName("entry")) {
+              if (b.getChildByName("resource").hasValues()) {
+                Element res = (Element) b.getChildByName("resource").getValues().get(0);
+                if (res.fhirType().equals(parts[0]) && parts[1].equals(res.getChildValue("id"))) {
+                  return res;
+                }
+              }
+            }
+          } else  if (e.getElement().fhirType().equals(parts[0]) && e.getId().equals(parts[1])) {
+            return e.getElement();
+          }
+        }
+      }
+      try {
+      if (parts[0].equals("StructureDefinition"))
+        return new ObjectConverter(context).convert(context.fetchResourceWithException(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[1]));
+      if (parts[0].equals("CodeSystem"))
+        return new ObjectConverter(context).convert(context.fetchResourceWithException(CodeSystem.class, "http://hl7.org/fhir/CodeSystem/"+parts[1]));
+      if (parts[0].equals("OperationDefinition"))
+        return new ObjectConverter(context).convert(context.fetchResourceWithException(OperationDefinition.class, "http://hl7.org/fhir/OperationDefinition/"+parts[1]));
+      } catch (Exception e) {
+        return null;
+      }
+      return null;
+    } else
+      return null;
+  }
+
+
+  @Override
+  public ReferenceValidationPolicy validationPolicy(Object appContext, String url) {
+    String[] parts = url.split("\\/");
+    if (VALIDATE_CONFORMANCE_REFERENCES) {
+      if (parts.length == 2 && definitions.hasResource(parts[0])) {
+        if (Utilities.existsInList(parts[0], "StructureDefinition", "StructureMap", "DataElement", "CapabilityStatement", "MessageDefinition", "OperationDefinition", "SearchParameter", "CompartmentDefinition", "ImplementationGuide", "CodeSystem", "ValueSet", "ConceptMap", "ExpansionProfile", "NamingSystem"))
+          return ReferenceValidationPolicy.CHECK_EXISTS_AND_TYPE;
+      }    
+    }
+    return ReferenceValidationPolicy.CHECK_TYPE_IF_EXISTS;
+  }
   
  }

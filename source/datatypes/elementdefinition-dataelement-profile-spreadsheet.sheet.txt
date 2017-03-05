@@ -5,7 +5,7 @@
 
  -- Row 1 -----------------------------------
   Element = ElementDefinition
-  Type = DomainResource
+  Type = ElementDefinition
 
  -- Row 2 -----------------------------------
   Element = ElementDefinition.extension

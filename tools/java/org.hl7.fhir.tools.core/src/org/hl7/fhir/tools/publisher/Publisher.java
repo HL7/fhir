@@ -3802,9 +3802,10 @@ public class Publisher implements URIResolver, SectionNumberer {
     ttlToXhtml(dir+"operation-" + name, "Operation Definition", resource2Ttl(opd), "resource-instance:OperationDefinition", "Operation definition");
     
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + dir+"operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
-    if (buildFlags.get("all"))
+    if (buildFlags.get("all")) {
       addToResourceFeed(opd, page.getResourceBundle(), name);
-
+      page.getWorkerContext().seeOperation(opd);
+    }
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
     html = page.processPageIncludes(dir+"operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition", ig);
