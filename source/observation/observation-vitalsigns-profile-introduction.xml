@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>Vital signs will be one of the first areas where there is a need for a single, global vocabularly to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient that include the primary vitals signs plus additional measurements such as height weight and BMI. Support for basic mandatory searching of resources are defined below in the <a href=#Quick_Start>Quick Start</a> section. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
+		<p>Vital signs will be one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profile sets  minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient that include the primary vital signs plus additional measurements such as height weight and BMI. Support for basic mandatory searching of resources is defined below in the <a href=#Quick_Start>Quick Start</a> section. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vital sign observation.</p>
 		<p>These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.</p>
 	</div>
 	<div>
@@ -12,13 +12,12 @@
 		<p>
 			<strong>Example Usage Scenarios:</strong>
 		</p>
-		<p>The following are example usage scenarios for this profile
-profile:</p>
+		<p>The following are example usage scenarios for this profile:</p>
 		<ul>
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
-		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and valid examples are provided as well. Note that many of the examples capture more that the minimum required. The links to the <a href="#content"><strong>Profile Definitions</strong></a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
+		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content"><strong>Profile Definitions</strong></a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
 			<strong>Each Observation must have:</strong>
 		</p>
@@ -27,7 +26,7 @@ profile:</p>
 			<li>a category code of 'vital-signs'</li>
 			<li>a "magic value" which tells you what is being measured
 <ul>
-					<li>LOINC was chosen for the "magic values" because this aligns with the most countries. But it can be treated as simply a fixed core set of common codes to communicate basic vital signs.  Implementers that need to use a different code system can still map accordingly.</li>
+					<li>LOINC was chosen for the "magic values" because this aligns with the most countries, but it can be treated as simply a fixed core set of common codes to communicate basic vital signs.  Implementers that need to use a different code system can still map accordingly.</li>
 				</ul>
 			</li>
 			<li>a patient</li>
@@ -49,10 +48,10 @@ profile:</p>
 
 
 		<ul>
-			<li>The table below represents a minimum set of vital sign concepts , the required codes ("magic values"), and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>The table below represents a minimum set of vital sign concepts, the required codes ("magic values"), and UCUM units of measure codes used for representing vital signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
 			<li>
-				 If a more specific code or another code system is recorded or required, implementers must support both the values (LOINC) listed below and the translated code - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific (local) codes.
+				 If a more specific code or another code system is recorded or required, implementers must support both the values (LOINC) listed below and the translated code - e.g. method specific LOINC codes, SNOMED CT concepts, system specific (local) codes.
 			 </li>
 			<li>In addition the implementer may choose to provide alternate codes in addition to the standard codes defined here.  The examples illustrate using other codes as translations.
 			</li>
@@ -79,7 +78,7 @@ profile:</p>
 					</td>
 					<td>85353-1</td>
 					<td>
-						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em> - It represent a panel of vital signs listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.    When used, Observation.valueQuantity is not present ; instead, related links (with type=has-member) reference the vital signs observations  (e.g. respiratory rate, heart rate, BP, etc).   Note that querying for the panel may miss individual results that are not part of an actual panel.  This code replaces the deprecated code 8716-3  - <em>Vital signs</em>  which is used in the Argonaut Data Query Implementation Guide. </td>
+						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em> - It represent a panel of vital signs listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.    When used, Observation.valueQuantity is not present; instead, related links (with type=has-member) reference the vital signs observations  (e.g. respiratory rate, heart rate, BP, etc).  This code replaces the deprecated code 8716-3  - <em>Vital signs</em>  which is used in the Argonaut Data Query Implementation Guide. </td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>
@@ -169,7 +168,7 @@ profile:</p>
 					</td>
 					<td>cm, [in_i]</td>
 					<td>
-						<a href="observation-example-head-circumference.html">Head Cirmcumference Example</a>
+						<a href="observation-example-head-circumference.html">Head Circumference Example</a>
 					</td>
 				</tr>
 				<tr>
@@ -257,10 +256,10 @@ profile:</p>
 		<ul>
 			<li>A client has connected to a server and fetched all of a patient's vital signs by searching by category using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs</code>.</li>
 			<li>A client has connected to a server and fetched all of a patient's vital signs searching by category code and date range using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
-			<li>A client has connected to a server and fetched any of a patient's vital signs by searching by one or more of the codes listed below using <code>GET [base]/Observation?patient=[id]&amp;code[vital sign LOINC{,LOINC2,LOINC3,...}]</code>.</li>
+			<li>A client has connected to a server and fetched any of a patient's vital signs by searching by one or more of the codes listed above using <code>GET [base]/Observation?patient=[id]&amp;code[vital sign LOINC{,LOINC2,LOINC3,...}]</code>.</li>
 		</ul>
 		<ul>
-			<li>A client <strong>SHOULD</strong> be capable of connecting to a server and fetching any of a patient's vital signs searching by one or more of the codes listed below and date range using <code>GET [base]/Observation?patient=[id]&amp;code=[LOINC{,LOINC2...}]vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
+			<li>A client <strong>SHOULD</strong> be capable of connecting to a server and fetching any of a patient's vital signs searching by one or more of the codes listed above and date range using <code>GET [base]/Observation?patient=[id]&amp;code=[LOINC{,LOINC2...}]vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
 		</ul>
 		<p>
 			<strong>Servers</strong>
@@ -268,10 +267,10 @@ profile:</p>
 		<ul>
 			<li>A server is capable of returning all of a patient's vital signs that it supports using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs</code>.</li>
 			<li>A server is capable of returning all of a patient's vital signs queried by date range using <code>GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
-			<li>A server is capable of returning any of a patient's vital signs queried by one or more of the codes listed below using <code>GET [base]/Observation?patient=[id]&amp;code[vital sign LOINC{,LOINC2,LOINC3,...}]</code>.</li>
+			<li>A server is capable of returning any of a patient's vital signs queried by one or more of the codes listed above using <code>GET [base]/Observation?patient=[id]&amp;code[vital sign LOINC{,LOINC2,LOINC3,...}]</code>.</li>
 		</ul>
 		<ul>
-			<li>A server <strong>SHOULD</strong> be capable of returning any of a patient's vital signs queried by one or more of the codes listed below and date range using <code>GET [base]/Observation?patient=[id]&amp;code=[LOINC{,LOINC2...}]vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
+			<li>A server <strong>SHOULD</strong> be capable of returning any of a patient's vital signs queried by one or more of the codes listed above and date range using <code>GET [base]/Observation?patient=[id]&amp;code=[LOINC{,LOINC2...}]vital-signs&amp;date=[date]{&amp;date=[date]}</code>.</li>
 		</ul>
 		<ul>
 			<li>A server has ensured that every API request includes a valid Authorization token, supplied via:Authorization: Bearer {server-specific-token-here}</li>
@@ -283,7 +282,7 @@ profile:</p>
 		</h4>
 		<p>
 			<strong>Example:</strong>
-			Search for all Vitals Signs measurements for a patient
+			Search for all Vital Signs measurements for a patient
 		</p>
 		<p>
 			<a href="#.html">GET [base]/Observation?patient=1186747&amp;category=vital-signs</a>
@@ -313,14 +312,14 @@ Search for all heart rate observations for a patient:</p>
 		</p>
 		<p>
 			<strong>Example:</strong>
-Search for all heart rate, respiratory rate and blood pressure observations for a patient</p>
+Search for all heart rate, respiratory rate and blood pressure observations for a patient:</p>
 		<p>
-			<a href="#.html">GET [base]/Observation?patient=1186747&amp;code=8867-4,9279-1,55284-4</a>
+			<a href="#.html">GET [base]/Observation?patient=1186747&amp;code=8867-4,9279-1,85354-9</a>
 		</p>
 		<p>
 			<em>Support:</em>  Mandatory to support search by vital sign LOINC(s) listed above.</p>
 		<p>
-			<em>Implementation Notes:</em>   1)Search based on vital sign LOINC code(s). This fetches a bundle of all Observation resources for specific vital sign(s) listed in the table above for the specified patient <a href="search.html#reference">(how to search by reference)</a> and [how to search by token)]. 2) The Argonaut Observation "code" parameter has been defined to search both in both Observation.code and Observation.component.code. For example when fetching blood pressures the same resources will be returned whether the search is based on 55284-4(Systolic and Diastolic BP), or the component codes 8480-6(Systolic BP) or 8462-4 (Diastolic BP).</p>
+			<em>Implementation Notes:</em>   1)Search based on vital sign LOINC code(s). This fetches a bundle of all Observation resources for specific vital sign(s) listed in the table above for the specified patient <a href="search.html#reference">(how to search by reference)</a> and [how to search by token)]. 2) The "code" parameter searches only <code>Observation.code</code>. For example when fetching blood pressures the resource will be only be returned when the search is based on 55284-4(Systolic and Diastolic BP). Using the component codes 8480-6(Systolic BP) or 8462-4 (Diastolic BP) will not return the resource .  In order to search both <code>Observation.code</code> and <code>Observation.component.code</code> in a single query,  use the "combo-code" search parameter.</p>
 		<p>
 			<em>Response Class:</em>
 		</p>
@@ -336,9 +335,9 @@ Search for all heart rate, respiratory rate and blood pressure observations for 
 		</h4>
 		<p>
 			<strong>Example:</strong>
-Find all the blood pressures after 2013-03-14</p>
+Find all the blood pressures after 2015-01-14</p>
 		<p>
-			<a href="#.hml">GET [base]/Observation?patient=555580&amp;code=55284-4&amp;date=ge2015-01-14</a>
+			<a href="#.hml">GET [base]/Observation?patient=555580&amp;code=85354-9&amp;date=ge2015-01-14</a>
 		</p>
 		<p>
 			<em>Support:</em>  Mandatory to support search by category code and date</p>

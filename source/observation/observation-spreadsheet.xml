@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-02-20T01:30:20Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,8 +21,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5201,7 +5201,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9274,7 +9273,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring system does not know which.</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s191"><Data ss:Type="String">2/26/2015 EH: #5669</Data></Cell>
@@ -9751,10 +9750,11 @@
    </PageSetup>
    <Unsynced/>
    <Zoom>150</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -9768,11 +9768,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9853,7 +9854,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">Derived From</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  &quot;derived-from&quot; is only logical choice when referencing QuestionnaireResponse.</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  &quot;derived-from&quot; is the only logical choice when referencing QuestionnaireResponse.</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"><Data ss:Type="String" x:Ticked="1">=ActRrelationshipType.DRIV</Data></Cell>
     <Cell ss:StyleID="s191"><Data ss:Type="String">#3819</Data></Cell>
@@ -9897,7 +9898,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">Interfered By</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value).</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRrelationshipType.INTF</Data></Cell>
     <Cell ss:StyleID="s191"/>
@@ -10392,8 +10393,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2C1:R2C9</RangeSelection>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

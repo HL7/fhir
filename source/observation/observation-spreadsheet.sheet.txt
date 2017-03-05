@@ -129,7 +129,7 @@
   Id = 7
   Code = unknown
   Display = Unknown
-  Definition = The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
+  Definition = The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, but the authoring system does not know which.
 
 === Sheet observation-relationshiptypes =====================================
 
@@ -144,7 +144,7 @@
   Id = 3
   Code = derived-from
   Display = Derived From
-  Definition = The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  \"derived-from\" is only logical choice when referencing QuestionnaireResponse.
+  Definition = The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  \"derived-from\" is the only logical choice when referencing QuestionnaireResponse.
   v3 = =ActRrelationshipType.DRIV
 
  -- Row 3 -----------------------------------
@@ -172,7 +172,7 @@
   Id = 7
   Code = interfered-by
   Display = Interfered By
-  Definition = The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value).
+  Definition = The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value).
   v3 = =ActRrelationshipType.INTF
 
 === Sheet observation-statistics =====================================
