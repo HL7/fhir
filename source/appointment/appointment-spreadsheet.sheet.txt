@@ -479,8 +479,8 @@
   Element = Appointment.requestedPeriod
   Card. = 0..*
   Type = Period
-  Short Name = Potential date/time interval(s) requested to allocate the appointment during
-  Definition = A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
+  Short Name = Potential date/time interval(s) requested to allocate the appointment within
+  Definition = A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
   Comments = This does not introduce a capacity for recurring appointments.
   v2 Mapping = ARQ-11
   RIM Mapping = .activityTime[@xsi:type = (\'SXPR_TS\', \'PIVL_TS\')]

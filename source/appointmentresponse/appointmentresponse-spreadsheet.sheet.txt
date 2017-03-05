@@ -53,7 +53,7 @@
   Type = Reference(Appointment)
   Short Name = Appointment this response relates to
   Definition = Appointment that this response is replying to
-  RIM Mapping = scheduleRequest.Appointment[@moodCode &lt;= \'RQO\']
+  RIM Mapping = scheduleRequest.ActAppointmentRequest[@moodCode &lt;= \'ARQ\']
 
  -- Row 4 -----------------------------------
   Element = AppointmentResponse.start
@@ -84,8 +84,8 @@
   Binding = ParticipantType
   Short Name = Role of participant in the appointment
   Definition = Role of participant in the appointment
-  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\n\nIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\n\nThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
-  RIM Mapping = performer.person.@classCode | reusableDevice.manufacturedDevice.@classCode | subject.patient.@classCode | location.serviceDeliveryLocation.@classCode
+  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
+  RIM Mapping = (performer | reusableDevice | subject | location).@typeCode
   iCal Mapping = n/a
 
  -- Row 7 -----------------------------------
@@ -109,7 +109,7 @@
   Binding = ParticipantStatus
   Short Name = accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
   Definition = Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
-  RIM Mapping = n/a
+  RIM Mapping = (performer | reusableDevice | subject | location).statusCode
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
  -- Row 9 -----------------------------------
@@ -119,7 +119,7 @@
   Short Name = Additional comments
   Definition = Additional comments about the appointment
   Comments = This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why.
-  RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
+  RIM Mapping = .subjectOf.observation[@moodCode = \'EVN\'][code = \'annotation\'].value
   iCal Mapping = COMMENT
 
  -- Row 10 -----------------------------------

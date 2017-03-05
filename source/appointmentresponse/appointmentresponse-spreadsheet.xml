@@ -6,17 +6,17 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Brian Postlethwaite</LastAuthor>
+  <LastAuthor>Microsoft Office-gebruiker</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-28T03:43:31Z</LastSaved>
+  <LastSaved>2017-03-05T21:34:06Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17480</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>16740</WindowHeight>
+  <WindowWidth>28160</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>440</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -854,7 +854,7 @@
     ss:RefersTo="='Data Elements'!R1C1:R100C26" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="16384" ss:ExpandedRowCount="100"
-   x:FullColumns="1" x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="55"
+   x:FullColumns="1" x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="54"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:Width="227"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="77"/>
@@ -872,7 +872,7 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="170"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="65"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="104" ss:Span="2"/>
    <Column ss:Index="24" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="50"/>
@@ -1102,7 +1102,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">scheduleRequest.Appointment[@moodCode &amp;lt;= 'RQO']</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">scheduleRequest.ActAppointmentRequest[@moodCode &amp;lt;= 'ARQ']</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1185,7 +1185,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="240">
     <Cell ss:StyleID="s87"><Data ss:Type="String">AppointmentResponse.participantType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1209,10 +1209,10 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Role of participant in the appointment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.&#10;&#10;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#10;&#10;This value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.&#13;&#13;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#13;&#13;This value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">performer.person.@classCode | reusableDevice.manufacturedDevice.@classCode | subject.patient.@classCode | location.serviceDeliveryLocation.@classCode</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(performer | reusableDevice | subject | location).@typeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">n/a</Data><NamedCell
@@ -1288,7 +1288,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">n/a</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">(performer | reusableDevice | subject | location).statusCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ATTENDEE;CN=&quot;Brian Postlethwaite&quot;;RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)</Data><NamedCell
@@ -1324,7 +1324,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">.subjectOf.observationEvent[code=&quot;annotation&quot;].value</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">.subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">COMMENT</Data><NamedCell
@@ -3904,7 +3904,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>13</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3919,7 +3919,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
@@ -5410,6 +5410,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -6024,6 +6025,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -6470,6 +6472,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C7" xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8316,6 +8319,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
