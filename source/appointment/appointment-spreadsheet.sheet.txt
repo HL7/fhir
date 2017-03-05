@@ -189,7 +189,7 @@
   Element = Appointment
   Type = DomainResource
   Short Name = A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)
-  RIM Mapping = Act (ActMood = ActMoodAppointment or ActMoodAppointmentRequest)
+  RIM Mapping = Act[@moodCode <= \'INT\']
   iCal Mapping = VEVENT
   w5 = workflow.scheduling
 
@@ -266,7 +266,7 @@
   Short Name = Reason this appointment is scheduled
   Definition = The reason that this appointment is being scheduled. This is more clinical than administrative
   v2 Mapping = AIS-3, SCH-7
-  RIM Mapping = (encounter appointment).reason
+  RIM Mapping = .reasonCode
 
  -- Row 9 -----------------------------------
   Element = Appointment.indication
@@ -274,7 +274,7 @@
   Type = Reference(Condition|Procedure)
   Short Name = Reason the appointment is to takes place (resource)
   Definition = Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
-  RIM Mapping = n/a
+  RIM Mapping = .inboundRelationship[@typeCode = \'RSON\'].observation
 
  -- Row 10 -----------------------------------
   Element = Appointment.priority
@@ -304,7 +304,7 @@
   Type = Reference(Any)
   Short Name = Additional information to support the appointment
   Definition = Additional information to support the appointment provided when making the appointment
-  RIM Mapping = n/a
+  RIM Mapping = .inboundRelationship[@typeCode = \'SPRT\'].observation
   w5 = context
 
  -- Row 13 -----------------------------------
@@ -335,7 +335,7 @@
   Type = positiveInt
   Short Name = Can be less than start/end (e.g. estimate)
   Definition = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)
-  RIM Mapping = .effectiveTime.width
+  RIM Mapping = .activityTime[@xsi:type = (\'SXPR_TS\', \'PIVL_TS\')].width
   Committee Notes = Removed when taking out the recurrence fields
 
  -- Row 16 -----------------------------------
@@ -344,7 +344,7 @@
   Type = Schedule
   Short Name = When (if) appointment repeats
   Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
-  RIM Mapping = .effectiveTime[@xsi:type=(\'PIVL_TS\', \'SXPR_TS\')]
+  RIM Mapping = .effectiveTime[@xsi:type = (\'PIVL_TS\', \'SXPR_TS\')]
 
  -- Row 17 -----------------------------------
   Element = !Appointment.timezone
@@ -361,7 +361,7 @@
   Type = Reference(Slot)
   Short Name = The slots that this appointment is filling
   Definition = The slots from the participants\' schedules that will be filled by the appointment
-  RIM Mapping = Schedule-Slot (classCode=ACT, moodCode = SLOT)
+  RIM Mapping = .outboundRelationship[@typeCode = \'REFR\'].act[@classCode = \'ACT\'][@moodCode = \'SLOT\']
 
  -- Row 19 -----------------------------------
   Element = Appointment.created
@@ -389,7 +389,7 @@
   Definition = Additional comments about the appointment
   Comments = Additional text to aid in facilitating the appointment. For instance, a comment might be, \"patient should proceed immediately to infusion room upon arrival\"\r\rWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.
   v2 Mapping = NTE-3
-  RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
+  RIM Mapping = .subjectOf.observation[@moodCode = \'EVN\'][code = \'annotation\'].value
   iCal Mapping = COMMENT
 
  -- Row 22 -----------------------------------
@@ -408,7 +408,7 @@
   Type = Reference(ReferralRequest)
   Short Name = The ReferralRequest provided as information to allocate to the Encounter
   Definition = The referral request this appointment is allocated to assess (incoming referral)
-  RIM Mapping = .reason.ClinicalDocument
+  RIM Mapping = .outboundRelationship[@typeCode = \'FLFS\'].act[@classCode < \'ActCareProvisionRequestType\'][@moodCode = \'RQO\']
 
  -- Row 24 -----------------------------------
   Element = Appointment.participant
@@ -430,7 +430,7 @@
   Definition = Role of participant in the appointment
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
   v2 Mapping = AIP-4, AIG-4
-  RIM Mapping = .@typeCode
+  RIM Mapping = (performer | reusableDevice | subject | location).@typeCode
   iCal Mapping = n/a
 
  -- Row 26 -----------------------------------
@@ -453,7 +453,7 @@
   Binding = ParticipantRequired
   Short Name = required | optional | information-only
   Definition = Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
-  RIM Mapping = performer.performInd
+  RIM Mapping = (performer | reusableDevice | subject | location).@performInd
   iCal Mapping = ROLE=REQ-PARTICIPANT (roleparam)
 
  -- Row 28 -----------------------------------
@@ -462,9 +462,9 @@
   Type = code
   Binding = ParticipationStatus
   Short Name = accepted | declined | tentative | needs-action
-  Definition = Participation status of the Patient
+  Definition = Participation status of the actor
   v2 Mapping = AIP-12, AIG-14
-  RIM Mapping = n/a
+  RIM Mapping = (performer | reusableDevice | subject | location).statusCode
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
  -- Row 29 -----------------------------------
@@ -483,7 +483,7 @@
   Definition = A set of date ranges (potentially including times) that the appointment is preferred to be scheduled. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
   Comments = This does not introduce a capacity for recurring appointments.
   v2 Mapping = ARQ-11
-  RIM Mapping = ActAppointmentRequest.effectiveTime
+  RIM Mapping = .activityTime[@xsi:type = (\'SXPR_TS\', \'PIVL_TS\')]
 
 === Sheet Search =====================================
 
