@@ -691,7 +691,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -768,7 +768,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -837,7 +837,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -911,7 +911,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -988,7 +988,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -1057,7 +1057,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -1133,7 +1133,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -1212,7 +1212,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
@@ -1282,7 +1282,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
                     <valueCodeableConcept>
                         <coding>
-                            <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+                            <system value="http://loinc.org"/>
                             <code value="LA6683-2"/>
                             <display value="germline"/>
                         </coding>
