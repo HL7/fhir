@@ -127,7 +127,7 @@
   Card. = 1..1
   Type = Identifier
   Short Name = Instance id assigned by the software stack
-  Definition = The local assigned unique identification by the software. For example: handle ID.
+  Definition = The locally assigned unique identification by the software. For example: handle ID.
   w5 = id
 
  -- Row 4 -----------------------------------
