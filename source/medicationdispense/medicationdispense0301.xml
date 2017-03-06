@@ -76,15 +76,15 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
-            <code value="EF"/>
-            <display value="emergency Fill"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="EM"/>
+            <display value="Emergency Supply"/>
         </coding>
     </type>
     <quantity>
         <value value="12"/>
         <unit value="Vial"/>
-        <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
         <code value="Vial"/> 
     </quantity>
     <daysSupply>

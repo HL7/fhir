@@ -1,6 +1,6 @@
 <OperationDefinition xmlns="http://hl7.org/fhir"> 
   <id value="patient-mpi"/>
-  <url value="http://hl7.org/fhir/OperationDefinitino/patient-mpi"/>
+  <url value="http://hl7.org/fhir/OperationDefinition/patient-mpi"/>
   <name value="Patient MPI (Multiple Patient Index) search"/>
   <status value="draft"/>
   <kind value="query"/>

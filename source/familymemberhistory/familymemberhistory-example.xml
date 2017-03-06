@@ -22,8 +22,9 @@
   
   <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/familial-relationship"/>
-      <code value="father"/>
+      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <code value="FTH"/>
+      <display value="father"/>
     </coding>
   </relationship>
   <gender value="male"/>

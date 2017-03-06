@@ -392,6 +392,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   private PublisherTestSuites tester;
   private List<FHIRPathUsage> fpUsages = new ArrayList<FHIRPathUsage>();
 
+  private ProfileGenerator pgen;
+
   public static void main(String[] args) throws Exception {
     //
 
@@ -1335,6 +1337,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
   
   private void generateConformanceStatement(boolean full, String name, boolean register) throws Exception {
+    pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages);
     CapabilityStatement cpbs = new CapabilityStatement();
     cpbs.setId(FormatUtilities.makeId(name));
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
@@ -1458,7 +1461,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private CapabilityStatementRestResourceSearchParamComponent makeSearchParam(CapabilityStatement p, String rn, SearchParameterDefn i) throws Exception {
     CapabilityStatementRestResourceSearchParamComponent result = new CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent();
     result.setName(i.getCode());
-    result.setDefinition("http://hl7.org/fhir/SearchParameter/"+rn.toLowerCase()+"-"+i.getCode().replace("-[x]", "").replace("_", ""));
+    result.setDefinition("http://hl7.org/fhir/SearchParameter/"+i.getCommonId());
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
     i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later

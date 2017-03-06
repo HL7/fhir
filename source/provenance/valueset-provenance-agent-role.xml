@@ -2,7 +2,7 @@
 <!-- not used anymore -->
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/provenance-participant-role"/>
   <name value="ProvenanceParticipantRole"/>

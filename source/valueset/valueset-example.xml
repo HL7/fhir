@@ -3,7 +3,7 @@
 	<id value="example-extensional"/>
 	<meta>
 		<!--   shareable value sets are fully described, and can be put in the HL7 registry   -->
-		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<text>
 		<status value="generated"/>

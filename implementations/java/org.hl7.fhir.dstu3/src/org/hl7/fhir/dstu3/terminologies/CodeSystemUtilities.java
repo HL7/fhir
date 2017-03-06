@@ -86,9 +86,9 @@ public class CodeSystemUtilities {
     if (!cs.hasMeta())
       cs.setMeta(new Meta());
     for (UriType t : cs.getMeta().getProfile()) 
-      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"))
+      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/shareablecodesystem"))
         return cs;
-    cs.getMeta().getProfile().add(new UriType("http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"));
+    cs.getMeta().getProfile().add(new UriType("http://hl7.org/fhir/StructureDefinition/shareablecodesystem"));
     return cs;
   }
 

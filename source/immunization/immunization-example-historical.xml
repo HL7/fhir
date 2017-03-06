@@ -22,7 +22,7 @@
 	<primarySource value="false"/>
 	<reportOrigin>
 		<coding>
-			<system value="http://hl7.org/fhir/vaccination-origin"/>
+			<system value="http://hl7.org/fhir/immunization-origin"/>
 			<code value="record"/>
 		</coding>
 		<text value="Written Record"/>

@@ -148,7 +148,7 @@
 	</jurisdiction>
 	<mapping>
     <identity value="fhir"/>
-    <uri value="http://hl7.org/fhir"/>
+    <uri value="http://hl7.org/fhir/api"/>
     <name value="Fast Healthcare Interoperable Resources (FHIR)"/>
   </mapping>
 	<!--

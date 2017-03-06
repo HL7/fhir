@@ -11,9 +11,9 @@ public class ValueSetUtilities {
     if (!vs.hasMeta())
       vs.setMeta(new Meta());
     for (UriType t : vs.getMeta().getProfile()) 
-      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"))
+      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/shareablevalueset"))
         return vs;
-    vs.getMeta().getProfile().add(new UriType("http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"));
+    vs.getMeta().getProfile().add(new UriType("http://hl7.org/fhir/StructureDefinition/shareablevalueset"));
     return vs;
   }
 
@@ -21,7 +21,7 @@ public class ValueSetUtilities {
     if (!vs.hasMeta())
       throw new Error("ValueSet "+vs.getUrl()+" is not shareable");
     for (UriType t : vs.getMeta().getProfile()) {
-      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"))
+      if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/shareablevalueset"))
         return;
     }
     throw new Error("ValueSet "+vs.getUrl()+" is not shareable");    

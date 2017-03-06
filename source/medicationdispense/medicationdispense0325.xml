@@ -28,9 +28,9 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
-            <code value="EF"/>
-            <display value="emergency Fill"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="EM"/>
+            <display value="Emergency Supply"/>
         </coding>
     </type>
     <quantity>

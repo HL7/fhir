@@ -13,7 +13,7 @@
 	<status value="on-hold"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/valueset-goal-category"/>
+			<system value="http://hl7.org/fhir/goal-category"/>
 			<code value="dietary"/>
 		</coding>
 	</category>

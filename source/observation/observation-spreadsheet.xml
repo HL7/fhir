@@ -9845,7 +9845,7 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">Has Member</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.</Data></Cell>
     <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRrelationshipType.MBR</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRelationshipType.MBR</Data></Cell>
     <Cell ss:StyleID="s191"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -9856,7 +9856,7 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">Derived From</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  &quot;derived-from&quot; is the only logical choice when referencing QuestionnaireResponse.</Data></Cell>
     <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String" x:Ticked="1">=ActRrelationshipType.DRIV</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String" x:Ticked="1">=ActRelationshipType.DRIV</Data></Cell>
     <Cell ss:StyleID="s191"><Data ss:Type="String">#3819</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -9867,7 +9867,7 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">Sequel To</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).</Data></Cell>
     <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRrelationshipType.SEQL</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRelationshipType.SEQL</Data></Cell>
     <Cell ss:StyleID="s191"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -9878,7 +9878,7 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">Replaces</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.</Data></Cell>
     <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRrelationshipType.RPLC</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRelationshipType.RPLC</Data></Cell>
     <Cell ss:StyleID="s191"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -9889,7 +9889,7 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">Qualified By</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipemia measure target from a plasma measure).</Data></Cell>
     <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRrelationshipType.QUALF</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRelationshipType.QUALF</Data></Cell>
     <Cell ss:StyleID="s191"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -9900,7 +9900,7 @@
     <Cell ss:StyleID="s198"><Data ss:Type="String">Interfered By</Data></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value).</Data></Cell>
     <Cell ss:StyleID="s170"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRrelationshipType.INTF</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">=ActRelationshipType.INTF</Data></Cell>
     <Cell ss:StyleID="s191"/>
    </Row>
    <Row ss:AutoFitHeight="0">

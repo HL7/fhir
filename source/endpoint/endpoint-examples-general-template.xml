@@ -27,7 +27,7 @@
           <display value="[%managingOrganization%]"/>
         </managingOrganization>
         <!--<method>
-          <system value="http://hl7.org/fhir/ValueSet/http-verb" />
+          <system value="http://hl7.org/fhir/http-verb" />
           <code value="[%method%]" />
         </method>-->
         <payloadType>

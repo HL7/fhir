@@ -1,33 +1,33 @@
 <AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
- <id value="example-disclosure"/>
+  <id value="example-disclosure"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</div>
   </text>    
 
-    <type>
-        <system value="http://nema.org/dicom/dicm"/>
-        <code value="110106"/>
-        <display value="Export"/>
-    </type>
-    <subtype>
-          <code value="Disclosure"/>
-          <display value="HIPAA disclosure"/>
-    </subtype>
-    <action value="R"/>
-    <recorded value="2013-09-22T00:08:00Z"/>
-    <outcome value="0"/>
-	<outcomeDesc value="Successful  Disclosure"/>
-	<purposeOfEvent>
-	   <coding>
-		<system value="http://hl7.org/fhir/v3/ActReason"/>
-		<code value="HMARKT"/>
-		<display value="healthcare marketing"/>
-	  </coding>
-	</purposeOfEvent>
+  <type>
+    <system value="http://nema.org/dicom/dicm"/>
+    <code value="110106"/>
+    <display value="Export"/>
+  </type>
+  <subtype>
+    <code value="Disclosure"/>
+    <display value="HIPAA disclosure"/>
+  </subtype>
+  <action value="R"/>
+  <recorded value="2013-09-22T00:08:00Z"/>
+  <outcome value="0"/>
+  <outcomeDesc value="Successful  Disclosure"/>
+  <purposeOfEvent>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <code value="HMARKT"/>
+      <display value="healthcare marketing"/>
+    </coding>
+  </purposeOfEvent>
 
   <agent>
-  <!-- who disclosed the data -->
+    <!-- who disclosed the data -->
     <role>
       <coding>
         <system value="http://nema.org/dicom/dicm"/>
@@ -36,22 +36,22 @@
       </coding>
     </role>
     <userId>
-		<value value="SomeIdiot@nowhere.com"/>
-	</userId>
-	<altId value="notMe"/>
-	<name value="That guy everyone wishes would be caught"/>
+      <value value="SomeIdiot@nowhere.com"/>
+    </userId>
+    <altId value="notMe"/>
+    <name value="That guy everyone wishes would be caught"/>
     <requestor value="true"/>
-	<location>
-		<reference value="Location/1"/>
-	</location>
-	<policy value="http://consent.com/yes"/>
+    <location>
+      <reference value="Location/1"/>
+    </location>
+    <policy value="http://consent.com/yes"/>
     <network>
       <address value="custodian.net"/>
       <type value="1"/>
     </network>
   </agent>
   <agent>
-  <!-- who received the data -->
+    <!-- who received the data -->
     <role>
       <coding>
         <system value="http://nema.org/dicom/dicm"/>
@@ -60,91 +60,91 @@
       </coding>
     </role>
     <reference>
-	  <reference value="Practitioner/example"/>
-	</reference>
+      <reference value="Practitioner/example"/>
+    </reference>
     <userId >
-		<value value="Where"/>
-	</userId>
+      <value value="Where"/>
+    </userId>
     <requestor value="false"/>
     <network>
       <address value="marketing.land"/>
       <type value="1"/>
     </network>
-	<purposeOfUse>
-	  <coding>
-	  	<system value="http://hl7.org/fhir/v3/ActReason"/>
-		<code value="HMARKT"/>
-		<display value="healthcare marketing"/>
-	  </coding>
-	</purposeOfUse>
+    <purposeOfUse>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="HMARKT"/>
+        <display value="healthcare marketing"/>
+      </coding>
+    </purposeOfUse>
   </agent>
   <source>
-  <!-- what system detected this disclosure -->
-	<site value="Watcher"/>
+    <!-- what system detected this disclosure -->
+    <site value="Watcher"/>
     <identifier>
-		<value value="Watchers Accounting of Disclosures Application"/>
-	</identifier>
-	<type>
-        <system value="http://hl7.org/fhir/security-source-type"/>
-        <code value="4"/>
-        <display value="Application Server"/>
-	</type>
+      <value value="Watchers Accounting of Disclosures Application"/>
+    </identifier>
+    <type>
+      <system value="http://hl7.org/fhir/security-source-type"/>
+      <code value="4"/>
+      <display value="Application Server"/>
+    </type>
   </source>
   <entity>
-  <!-- patient whos data got disclosed -->
+    <!-- patient whos data got disclosed -->
     <reference>
-	  <reference value="Patient/example"/>
-	</reference>
-	<type>
-		<system value="http://hl7.org/fhir/object-type"/>
-		<code value="1"/>
-		<display value="Person"/>
-	</type>
-	<role>
-		<system value="http://hl7.org/fhir/valueset-object-role"/>
-		<code value="1"/>
-		<display value="Patient"/>
-	</role>
+      <reference value="Patient/example"/>
+    </reference>
+    <type>
+      <system value="http://hl7.org/fhir/object-type"/>
+      <code value="1"/>
+      <display value="Person"/>
+    </type>
+    <role>
+      <system value="http://hl7.org/fhir/object-role"/>
+      <code value="1"/>
+      <display value="Patient"/>
+    </role>
   </entity>
   <entity>
-  <!-- data that got disclosed -->
+    <!-- data that got disclosed -->
     <identifier>
       <value value="What.id"/>
     </identifier>
     <reference>
       <reference value="Patient/example/_history/1"/>
     </reference>
-	<type>
-		<system value="http://hl7.org/fhir/object-type"/>
-		<code value="2"/>
-		<display value="System Object"/>
-	</type>
-	<role>
-		<system value="http://hl7.org/fhir/valueset-object-role"/>
-		<code value="4"/>
-		<display value="DomainResource"/>
-	</role>
+    <type>
+      <system value="http://hl7.org/fhir/object-type"/>
+      <code value="2"/>
+      <display value="System Object"/>
+    </type>
+    <role>
+      <system value="http://hl7.org/fhir/object-role"/>
+      <code value="4"/>
+      <display value="Domain Resource"/>
+    </role>
     <lifecycle>
-		<system value="http://hl7.org/fhir/object-lifecycle"/>
-		<code value="11"/>
-		<display value="Disclosure"/>
-	</lifecycle>
-	<securityLabel>
-			<system value="http://hl7.org/fhir/v3/Confidentiality"/>
-			<code value="V"/>
-			<display value="very restricted"/>
-	</securityLabel>
-	<securityLabel>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
-			<code value="STD"/>
-			<display value="sexually transmitted disease information sensitivity"/>
-	</securityLabel>
-	<securityLabel>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
-			<code value="DELAU"/>
-			<display value="delete after use"/>
-	</securityLabel>
+      <system value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
+      <code value="11"/>
+      <display value="Disclosure"/>
+    </lifecycle>
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+      <code value="V"/>
+      <display value="very restricted"/>
+    </securityLabel>
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="STD"/>
+      <display value="sexually transmitted disease information sensitivity"/>
+    </securityLabel>
+    <securityLabel>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="DELAU"/>
+      <display value="delete after use"/>
+    </securityLabel>
     <name value="Namne of What"/>
-	<description value="data about Everthing important"/>
+    <description value="data about Everthing important"/>
   </entity>
 </AuditEvent>

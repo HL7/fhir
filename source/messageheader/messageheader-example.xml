@@ -8,7 +8,7 @@
     </div>
   </text>
   <event>
-    <system value="http://hl7.org/fhir/message-type"/>
+    <system value="http://hl7.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </event>
   <destination>

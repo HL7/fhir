@@ -1016,12 +1016,12 @@ public class ProfileGenerator {
         created = false;
         sp = csp.getDefinition();
       }
-      spd.setCommonId(sp.getId());
     } else {
       shared = false;
       sp = new SearchParameter();
       sp.setId(id.replace("[", "").replace("]", ""));
     }
+    spd.setCommonId(sp.getId());
     if (created) {
       sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
       if (context.getSearchParameters().containsKey(sp.getUrl()))

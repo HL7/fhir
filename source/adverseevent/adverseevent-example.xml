@@ -32,7 +32,7 @@
   <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
   <seriousness>
     <coding>
-      <system value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"></system>
+      <system value="http://hl7.org/fhir/adverse-event-seriousness"></system>
       <code value="Mild"/>
       <display value="Mild"/>
     </coding>

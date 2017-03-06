@@ -89,7 +89,7 @@
         <doseQuantity>
             <value value="4"/>
             <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </doseQuantity>
     </dosageInstruction>
@@ -124,7 +124,7 @@
         <doseQuantity>
             <value value="2"/>
             <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </doseQuantity>
     </dosageInstruction>
@@ -159,7 +159,7 @@
         <doseQuantity>
             <value value="1"/>
             <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </doseQuantity>
     </dosageInstruction>
@@ -172,7 +172,7 @@
         <quantity>
             <value value="51"/>
             <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </quantity>
         <expectedSupplyDuration>
@@ -189,7 +189,7 @@
         <allowed value="true"></allowed>
         <reason>
             <coding>
-                <system value="http://hl7.org/fhir"/>
+                <system value="http://hl7.org/fhir/v3/ActReason"/>
                 <code value="FP"/>
                 <display value="formulary policy"/>             
             </coding>

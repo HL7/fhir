@@ -57,7 +57,7 @@
         </numerator>
         <denominator>
           <value value="1"/>
-          <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
       </amount>
@@ -78,7 +78,7 @@
         </numerator>
         <denominator>
           <value value="1"/>
-          <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
       </amount>
@@ -99,7 +99,7 @@
       </itemReference>
       <amount>
         <value value="100"/>
-        <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
         <code value="TAB"/>
       </amount>
     </content>

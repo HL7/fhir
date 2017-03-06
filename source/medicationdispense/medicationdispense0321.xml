@@ -28,9 +28,9 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/ActPharmacySupplyType"/>
-            <code value="PF"/>
-            <display value="partial Fill"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="RFP"/>
+            <display value="Refill - Part Fill"/>
         </coding>
     </type>
     <quantity>
@@ -79,7 +79,7 @@
         <doseQuantity>
             <value value="1"/>
             <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </doseQuantity>
     </dosageInstruction>

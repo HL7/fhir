@@ -53,7 +53,7 @@
 	<practitioner>
 		<role>
 			<coding>
-				<system value="http://hl7.org/fhir/vaccination-practitioner-role"/>
+				<system value="http://hl7.org/fhir/v2/0443"/>
 				<code value="OP"/>
 			</coding>
 		</role>
@@ -64,7 +64,7 @@
 	<practitioner>
 		<role>
 			<coding>
-				<system value="http://hl7.org/fhir/vaccination-practitioner-role"/>
+				<system value="http://hl7.org/fhir/v2/0443"/>
 				<code value="AP"/>
 			</coding>
 		</role>

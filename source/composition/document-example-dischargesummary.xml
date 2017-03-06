@@ -491,7 +491,7 @@
   </entry>
   <signature>
     <type>
-      <system value="http://hl7.org/fhir/valueset-signature-type"/>
+      <system value="urn:iso-astm:E1762-95:2013"/>
       <code value="1.2.840.10065.1.12.1.1"/>
       <display value="Author's Signature"/>
     </type>

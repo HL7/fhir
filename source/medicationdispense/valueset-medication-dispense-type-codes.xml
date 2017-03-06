@@ -13,7 +13,7 @@
   <description value="This HL7 set is used here as the example terminology. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for dispensing"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/ActPharmacySupplyType"/>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
       <concept>
         <code value="DF"/>
       </concept>

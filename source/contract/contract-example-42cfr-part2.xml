@@ -19,7 +19,7 @@
   </type>
   <subType>
     <coding>
-      <system value="http://hl7.org/fhir/ValueSet/consent-category"/>
+      <system value="http://hl7.org/fhir/consentcategorycodes"/>
       <code value="MDHHS-5515"/>
       <display
         value="Michigan MDHHS-5515 Consent to Share Behavioral Health Information for Care Coordination Purposes"

@@ -39,14 +39,14 @@
     <type>
         <coding>
             <system value="http:hl7.org/fhir"/>
-            <code value="EF"/>
-            <display value="emergency Fill"/>
+            <code value="EM"/>
+            <display value="Emergency Supply"/>
         </coding>
     </type>
     <quantity>
         <value value="30"/>
         <unit value="TAB"/>
-        <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
         <code value="TAB"/> 
     </quantity>
     <daysSupply>
@@ -90,7 +90,7 @@
         <doseQuantity>
             <value value="1"/>
             <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </doseQuantity>
     </dosageInstruction>

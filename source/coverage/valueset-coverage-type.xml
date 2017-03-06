@@ -14,10 +14,10 @@
   <copyright value="HL7 International."/>
   <compose>
     <include>
-	  <system value="http://hl7.org/fhir/coverage-selfpay"/>
-	</include>
+	    <system value="http://hl7.org/fhir/coverage-selfpay"/>
+	  </include>
     <include>
-      <system value="http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode"/>
     </include>
   </compose>
 </ValueSet>

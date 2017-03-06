@@ -62,13 +62,13 @@
 	<payee>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/ValueSet/payeetype"/>
+				<system value="http://hl7.org/fhir/payeetype"/>
 				<code value="provider"/>
 			</coding>
 		</type>
 		<resourceType>
 			<coding>
-				<system value="http://hl7.org/fhir/ValueSet/resource-type-link"/>
+				<system value="http://hl7.org/fhir/resource-type-link"/>
 				<code value="organization"/>
 			</coding>
 		</resourceType>

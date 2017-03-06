@@ -33,9 +33,9 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
-            <code value="PF"/>
-            <display value="Partial Fill"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <code value="RFP"/>
+            <display value="Refill - Part Fill"/>
         </coding>
     </type>
     <quantity>
@@ -78,14 +78,14 @@
     <wasSubstituted value="true"></wasSubstituted>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
+            <system value="http://hl7.org/fhir/v3/substanceAdminSubstitution"/>
             <code value="F"/>
-            <display value="Formulary"/>
+            <display value="formulary"/>
         </coding>
     </type>
     <reason>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
+            <system value="http://hl7.org/fhir/v3/ActReason"/>
             <code value="FP"/>
             <display value="Formulary Policy"/>
         </coding>

@@ -92,7 +92,7 @@
         <quantity>
             <value value="30"/>
             <unit value="RECSUPP"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="RECSUPP"/> 
         </quantity>
         <expectedSupplyDuration>
@@ -106,7 +106,7 @@
         <allowed value="true"></allowed>
         <reason>
             <coding>
-                <system value="http://hl7.org/fhir"/>
+                <system value="http://hl7.org/fhir/v3/ActReason"/>
                 <code value="FP"/>
                 <display value="formulary policy"/>             
             </coding>

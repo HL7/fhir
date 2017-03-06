@@ -101,11 +101,6 @@
     <!--  no need for version history (though servers can), and no need to conditional updates etc. -->
     <!--  search parameters: at least code, date, name, reference, status, system, url and version. More is recommended  -->
       <searchParam>
-        <name value="code"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-code"/>
-        <type value="token"/>
-      </searchParam>
-      <searchParam>
         <name value="date"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-date"/>
         <type value="date"/>
@@ -124,11 +119,6 @@
         <name value="status"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-status"/>
         <type value="token"/>
-      </searchParam>
-      <searchParam>
-        <name value="system"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-system"/>
-        <type value="uri"/>
       </searchParam>
       <searchParam>
         <name value="url"/>

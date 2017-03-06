@@ -800,6 +800,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
     if (system != null && code != null && !noTerminologyChecks) {
+      rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, !isValueSet(system), "The Coding references a value set, not a code system (\""+system+"\")");
       try {
         if (checkCode(errors, element, path, code, system, display))
           if (theElementCntext != null && theElementCntext.hasBinding()) {
@@ -850,6 +851,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       } catch (Exception e) {
         rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating Coding");
       }
+    }
+  }
+
+  private boolean isValueSet(String url) {
+    try {
+      ValueSet vs = context.fetchResourceWithException(ValueSet.class, url);
+      return vs != null;
+    } catch (Exception e) {
+      return false;
     }
   }
 
@@ -1168,7 +1178,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     checkFixedValue(errors, path + ".end", focus.getNamedChild("end"), fixed.getEndElement(), "end", focus);
   }
 
-  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementDefinition context, Element e, StructureDefinition profile) throws FHIRException {
+  private void checkPrimitive(Object appContext, List<ValidationMessage> errors, String path, String type, ElementDefinition context, Element e, StructureDefinition profile) throws FHIRException, IOException {
     if (isBlank(e.primitiveValue())) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "primitive types must have a value or must have child extensions");
       return;
@@ -1185,6 +1195,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().startsWith("uuid:"), "URI values cannot start with uuid:");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().equals(e.primitiveValue().trim()), "URI values cannot have leading or trailing whitespace");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
+      
+      // now, do we check the URI target? 
+      if (fetcher != null) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, fetcher.resolveURL(appContext, path, e.primitiveValue()), "URL value '"+e.primitiveValue()+"' does not resolve");
+      }
     }
     if (type.equalsIgnoreCase("string") && e.hasPrimitiveValue()) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().length() > 0, "@value cannot be empty")) {
@@ -1377,7 +1392,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       ft = we.getType();
     else
       ft = tryParse(ref);
-    ReferenceValidationPolicy pol = refType.equals("contained") ? ReferenceValidationPolicy.CHECK_VALID : fetcher == null ? ReferenceValidationPolicy.IGNORE : fetcher.validationPolicy(appContext, ref);
+    ReferenceValidationPolicy pol = refType.equals("contained") ? ReferenceValidationPolicy.CHECK_VALID : fetcher == null ? ReferenceValidationPolicy.IGNORE : fetcher.validationPolicy(appContext, path, ref);
 
     if (pol.checkExists()) {
       if (we == null) {
@@ -3170,7 +3185,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
         if (type != null) {
           if (isPrimitiveType(type)) {
-            checkPrimitive(errors, ei.path, type, ei.definition, ei.element, profile);
+            checkPrimitive(appContext, errors, ei.path, type, ei.definition, ei.element, profile);
           } else {
             if (type.equals("Identifier"))
               checkIdentifier(errors, ei.path, ei.element, ei.definition);

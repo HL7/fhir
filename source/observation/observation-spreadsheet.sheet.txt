@@ -138,42 +138,42 @@
   Code = has-member
   Display = Has Member
   Definition = This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
-  v3 = =ActRrelationshipType.MBR
+  v3 = =ActRelationshipType.MBR
 
  -- Row 2 -----------------------------------
   Id = 3
   Code = derived-from
   Display = Derived From
   Definition = The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  \"derived-from\" is the only logical choice when referencing QuestionnaireResponse.
-  v3 = =ActRrelationshipType.DRIV
+  v3 = =ActRelationshipType.DRIV
 
  -- Row 3 -----------------------------------
   Id = 4
   Code = sequel-to
   Display = Sequel To
   Definition = This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
-  v3 = =ActRrelationshipType.SEQL
+  v3 = =ActRelationshipType.SEQL
 
  -- Row 4 -----------------------------------
   Id = 5
   Code = replaces
   Display = Replaces
   Definition = This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
-  v3 = =ActRrelationshipType.RPLC
+  v3 = =ActRelationshipType.RPLC
 
  -- Row 5 -----------------------------------
   Id = 6
   Code = qualified-by
   Display = Qualified By
   Definition = The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipemia measure target from a plasma measure).
-  v3 = =ActRrelationshipType.QUALF
+  v3 = =ActRelationshipType.QUALF
 
  -- Row 6 -----------------------------------
   Id = 7
   Code = interfered-by
   Display = Interfered By
   Definition = The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value).
-  v3 = =ActRrelationshipType.INTF
+  v3 = =ActRelationshipType.INTF
 
 === Sheet observation-statistics =====================================
 

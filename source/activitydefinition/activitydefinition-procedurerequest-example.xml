@@ -4,12 +4,115 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-    </div>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Id: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/referralPrimaryCareMentalHealth</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Status: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">draft</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Description: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Category: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">referral</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Code: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-right: 25px;">
+                  <span style="padding-left: 25px;">
+                     <b>text: </b>
+                     <span>Referral to service (procedure)</span>
+                     <br/>
+                  </span>
+                  <span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>system: </b>
+                           <span>http://snomed.info/sct</span>
+                           <br/>
+                        </span>
+                        <span style="padding-left: 25px;">
+                           <b>code: </b>
+                           <span>306206005</span>
+                           <br/>
+                        </span>
+                     </span>
+                  </span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Participant: </b>
+               </td>
+            </tr>
+            <tr style="vertical-align: top;">
+               <td style="padding-left: 25px; padding-right: 25px;">practitioner</td>
+            </tr>
+         </table>
+      </div>
   </text>
-  <status value="draft"/>
-  <description value="Heart valve replacement"/>
-  <purpose value="Describes the proposal to perform a Heart Valve replacement."/>
-  <usage value="This activity definition is used as the definition of a procedure request to perform a heart valve replacement. Elements that apply universally are defined here, while elements that apply to the specific setting of a referral within a particular order set are defined in the order set."/>
+  <url value="http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealth"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://motivemi.com/artifacts"/>
+    <value value="referralPrimaryCareMentalHealth"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="ReferralPrimaryCareMentalHealth"/>
+  <title value="Referral to Primary Care Mental Health"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2017-03-03T14:06:00Z"/>
+  <publisher value="Motive Medical Intelligence"/>
+  <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
+  <purpose value="Defines a referral to a mental-health integrated care program for use in suicide risk order sets. The definition is independent of the order set in which it appears to allow reuse of the general definition of the referrral."/>
+  <usage value="This activity definition is used as the definition of a referral request within various suicide risk order sets. Elements that apply universally are defined here, while elements that apply to the specific setting of a referral within a particular order set are defined in the order set."/>
+  <approvalDate value="2016-03-12"/>
+  <lastReviewDate value="2016-08-15"/>
+  <effectivePeriod>
+    <start value="2016-01-01"/>
+    <end value="2017-12-31"/>
+  </effectivePeriod>
   <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -26,6 +129,58 @@
   <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="87512008"/>
+        <display value="Mild major depression"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="40379007"/>
+        <display value="Major depression, recurrent, mild"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="225444004"/>
+        <display value="At risk for suicide (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="306206005"/>
+        <display value="Referral to service (procedure)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
       <code value="user"/>
     </code>
     <valueCodeableConcept>
@@ -36,47 +191,81 @@
       </coding>
     </valueCodeableConcept>
   </useContext>
-  <topic>
-	<coding> 
-		<system value="http://snomed.info/sct"/> 
-		<code value="34068001"/> 
-		<display value="Heart valve replacement"/> 
-	</coding> 
-  </topic>
-  <kind value="ProcedureRequest"/>
-    <code> 
-        <coding> 
-            <system value="http://snomed.info/sct"/> 
-            <code value="34068001"/> 
-            <display value="Heart valve replacement"/> 
-        </coding> 
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="venue"/>
     </code>
-    <timingTiming>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="440655000"/>
+        <display value="Outpatient environment"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <topic>
+    <text value="Mental Health Referral"/>
+  </topic>
+  <contributor>
+    <type value="author"/>
+    <name value="Motive Medical Intelligence"/>
+    <contact>
+      <telecom>
+        <system value="phone"/>
+        <value value="415-362-4007"/>
+        <use value="work"/>
+      </telecom>
+      <telecom>
+        <system value="email"/>
+        <value value="info@motivemi.com"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+  </contributor>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="415-362-4007"/>
+      <use value="work"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="info@motivemi.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
+	<relatedArtifact>
+      <type value="citation"/>
+      <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+	</relatedArtifact>
+  <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
+  <kind value="ReferralRequest"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="306206005"/>
+    </coding>
+    <text value="Referral to service (procedure)"/>
+  </code>
+  <timingTiming>
     <event>
+	  <!-- The expression here specifies the value for the timing of the resulting resource.
+		   In this case, referralRequest.fulfillmentTime.start -->
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
         <valueString value="Now()"/>
       </extension>
     </event>
   </timingTiming>
-  <location>
-    <reference value="Location/1"/>
-  </location>
   <participant>
-	<type value="practitioner"/>
-	<role>
-	  <coding>
-	    <system value="http://npidb.org/taxonomy"/>
-	    <code value="207RI0011X"/>
-	    <display value="Interventional Cardiology"/>
-	  </coding>
-	  <text value="Interventional Cardiology"/>
-	</role>
+		<type value="practitioner"/>
   </participant>
-    <bodySite> 
-		<coding> 
-			<system value="http://snomed.info/sct"/> 
-			<code value="17401000"/> 
-			<display value="Heart valve structure"/> 
-		</coding>  
-    </bodySite>
 </ActivityDefinition>

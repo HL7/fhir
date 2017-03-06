@@ -48,8 +48,10 @@ import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.OperationDefinition;
+import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.TypeDetails;
+import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
@@ -146,7 +148,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     }
 
   }
-  private static final boolean VALIDATE_CONFORMANCE_REFERENCES = false;
+  private static final boolean VALIDATE_CONFORMANCE_REFERENCES = true;
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
@@ -522,12 +524,16 @@ public class ExampleInspector implements IValidatorResourceFetcher {
         }
       }
       try {
-      if (parts[0].equals("StructureDefinition"))
-        return new ObjectConverter(context).convert(context.fetchResourceWithException(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[1]));
-      if (parts[0].equals("CodeSystem"))
-        return new ObjectConverter(context).convert(context.fetchResourceWithException(CodeSystem.class, "http://hl7.org/fhir/CodeSystem/"+parts[1]));
-      if (parts[0].equals("OperationDefinition"))
-        return new ObjectConverter(context).convert(context.fetchResourceWithException(OperationDefinition.class, "http://hl7.org/fhir/OperationDefinition/"+parts[1]));
+        if (parts[0].equals("StructureDefinition")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+          return new ObjectConverter(context).convert(context.fetchResourceWithException(StructureDefinition.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
+        if (parts[0].equals("OperationDefinition")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+          return new ObjectConverter(context).convert(context.fetchResourceWithException(OperationDefinition.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
+        if (parts[0].equals("SearchParameter")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+          return new ObjectConverter(context).convert(context.fetchResourceWithException(SearchParameter.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
+        if (parts[0].equals("ValueSet")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+          return new ObjectConverter(context).convert(context.fetchResourceWithException(ValueSet.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
+        if (parts[0].equals("CodeSystem")) //, "CodeSystem", "OperationDefinition", "SearchParameter", "ValueSet"))
+          return new ObjectConverter(context).convert(context.fetchResourceWithException(CodeSystem.class, "http://hl7.org/fhir/"+parts[0]+"/"+parts[1]));
       } catch (Exception e) {
         return null;
       }
@@ -538,15 +544,44 @@ public class ExampleInspector implements IValidatorResourceFetcher {
 
 
   @Override
-  public ReferenceValidationPolicy validationPolicy(Object appContext, String url) {
+  public ReferenceValidationPolicy validationPolicy(Object appContext, String path, String url) {
     String[] parts = url.split("\\/");
     if (VALIDATE_CONFORMANCE_REFERENCES) {
+      if (Utilities.existsInList(url, "ValueSet/LOINCDepressionAnswersList", "ValueSet/LOINCDifficultyAnswersList", "CodeSystem/npi-taxonomy", "ValueSet/1.2.3.4.5", "StructureDefinition/daf-patient", "ValueSet/zika-affected-area"))
+        return ReferenceValidationPolicy.IGNORE;
       if (parts.length == 2 && definitions.hasResource(parts[0])) {
         if (Utilities.existsInList(parts[0], "StructureDefinition", "StructureMap", "DataElement", "CapabilityStatement", "MessageDefinition", "OperationDefinition", "SearchParameter", "CompartmentDefinition", "ImplementationGuide", "CodeSystem", "ValueSet", "ConceptMap", "ExpansionProfile", "NamingSystem"))
           return ReferenceValidationPolicy.CHECK_EXISTS_AND_TYPE;
       }    
     }
     return ReferenceValidationPolicy.CHECK_TYPE_IF_EXISTS;
+  }
+
+
+  @Override
+  public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
+    if (path.endsWith(".fullUrl"))
+      return true;
+    if (url.startsWith("http://hl7.org/fhir")) {
+      if (url.contains("#"))
+        url = url.substring(0, url.indexOf("#"));
+      String[] parts = url.split("\\/");
+      if (parts.length >= 5 &&  definitions.hasResource(parts[4])) {
+        if ("DataElement".equals(parts[4]))
+          return true;
+        Element res = fetch(appContext, url.substring(20));
+        return true; // disable this test. Try again for R4. res != null || Utilities.existsInList(parts[4], "NamingSystem", "CapabilityStatement", "CompartmentDefinition", "ConceptMap");
+      } else if (context.fetchCodeSystem(url) != null)
+        return true;
+      else if (definitions.getMapTypes().containsKey(url))
+        return true;
+      else if (url.startsWith("http://hl7.org/fhir/sid") || Utilities.existsInList(url, "http://hl7.org/fhir/ConsentPolicy/opt-in", "http://hl7.org/fhir/ConsentPolicy/opt-out", "http://hl7.org/fhir/api", 
+          "http://hl7.org/fhir/terminology-server", "http://hl7.org/fhir/knowledge-repository", "http://hl7.org/fhir/measure-processor"))
+        return true;
+      else
+        return true; // disable this test. Try again for R4
+    } else
+      return true;
   }
   
  }

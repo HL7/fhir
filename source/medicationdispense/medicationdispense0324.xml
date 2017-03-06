@@ -29,8 +29,8 @@
     <type>
         <coding>
             <system value="http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
-            <code value="PF"/>
-            <display value="partial Fill"/>
+            <code value="RFP"/>
+            <display value="Refill - Part Fill"/>
         </coding>
     </type>
     <quantity>

@@ -51,7 +51,7 @@
 		<display value="System Object"/>
 	</type>
     <lifecycle>
-		<system value="http://hl7.org/fhir/object-lifecycle"/>
+		<system value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
 		<code value="6"/>
 		<display value="Access / Use"/>
 	</lifecycle>

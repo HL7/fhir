@@ -38,7 +38,7 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
             <code value="FF"/>
             <display value="First Fill"/>
         </coding>

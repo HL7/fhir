@@ -63,12 +63,12 @@
 
  -- Row 12 -----------------------------------
   Element = CodeSystem.concept.display
-  Card. = 1..1
+  Card. = 0..1
   Type = string
 
  -- Row 13 -----------------------------------
   Element = CodeSystem.concept.definition
-  Card. = 1..1
+  Card. = 0..1
   Type = string
 
  -- Row 14 -----------------------------------

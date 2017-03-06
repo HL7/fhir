@@ -64,7 +64,7 @@
 	</procedureCode>
 	<reason>
 		<coding>
-			<system value="http://hl7.org/fhir/ValueSet/procedure-reason"/>
+			<system value="http://snomed.info/sct"/>
 			<code value="357009"/>
 			<display value="Closed fracture of trapezoidal bone of wrist"/>
 		</coding>

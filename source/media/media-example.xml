@@ -11,7 +11,7 @@
   
   <subtype>
     <coding>
-      <system value="http://hl7.org/fhir/media-method"/>
+      <system value="http://hl7.org/fhir/media-subtype"/>
       <code value="diagram"/>
     </coding>
   </subtype>

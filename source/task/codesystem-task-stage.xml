@@ -2,7 +2,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
   <id value="task-stage"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/task-stage"/>
   <name value="Task Stage Codes"/>

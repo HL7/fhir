@@ -13,8 +13,9 @@
   
   <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/familial-relationship"/>
-      <code value="mother"/>
+      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <code value="MTH"/>
+      <display value="mother"/>
     </coding>
   </relationship>
   <condition>

@@ -144,7 +144,7 @@
 		<informationLinkId value="1"/>
 		<service>
 			<coding>
-				<system value="http://hl7.org/fhir/oralservicecodes"/>
+				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="67221"/>
 				<display value="Maryland Bridge"/>
 			</coding>
@@ -183,7 +183,7 @@
 		<careTeamLinkId value="1"/>
 		<service>
 			<coding>
-				<system value="http://hl7.org/fhir/oralservicecodes"/>
+				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="21211"/>
 			</coding>
 		</service>
@@ -224,7 +224,7 @@
 		<procedureLinkId value="1"/>
 		<service>
 			<coding>
-				<system value="http://hl7.org/fhir/oralservicecodes"/>
+				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="27211"/>
 			</coding>
 		</service>
@@ -256,7 +256,7 @@
 			<sequence value="1"/>
 			<service>
 				<coding>
-					<system value="http://hl7.org/fhir/oralservicecodes"/>
+					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="27211"/>
 				</coding>
 			</service>
@@ -277,7 +277,7 @@
 			<sequence value="2"/>
 			<service>
 				<coding>
-					<system value="http://hl7.org/fhir/oralservicecodes"/>
+					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="lab"/>
 				</coding>
 			</service>

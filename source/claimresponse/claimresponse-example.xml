@@ -127,7 +127,7 @@
 	<payment>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/ValueSet/ex-paymenttype"/>
+				<system value="http://hl7.org/fhir/ex-paymenttype"/>
 				<code value="complete"/>
 			</coding>
 		</type>	

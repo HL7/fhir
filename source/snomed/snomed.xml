@@ -13938,6 +13938,12 @@
     <display value="Southdown sheep"/>
     <display value="Southdown sheep (organism)"/>
   </concept>
+  <concept id="357009" display="Closed fracture of trapezoidal bone of wrist">
+    <display value="Closed fracture of trapezoidal bone of wrist"/>
+    <display value="Closed fracture of small multangular bone of wrist"/>
+    <display value="Closed fracture of trapezoidal bone of wrist (disorder)"/>
+    <display value="Closed fracture trapezoid"/>
+  </concept>
   <concept id="35839008" display="Leghorn chicken">
     <display value="Leghorn chicken"/>
     <display value="Leghorn chicken (organism)"/>

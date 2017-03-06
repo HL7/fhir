@@ -13,6 +13,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -84,8 +85,15 @@ public class ValidationServices implements IValidatorResourceFetcher {
 
 
   @Override
-  public ReferenceValidationPolicy validationPolicy(Object appContext, String url) {
+  public ReferenceValidationPolicy validationPolicy(Object appContext, String path, String url) {
     return ReferenceValidationPolicy.CHECK_EXISTS_AND_TYPE;
+  }
+
+
+  @Override
+  public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
+    // todo: what to do here?
+    return true;
   }
 
 }

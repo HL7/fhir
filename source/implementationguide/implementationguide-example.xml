@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
  
   <id value="example"/>
-  <url value="http://hl7.org/fhir/daf"/>
+  <url value="http://hl7.org/fhir/us/daf"/>
   <version value="0"/>
   <name value="Data Access Framework (DAF)"/>
   <status value="draft"/>

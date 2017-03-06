@@ -41,7 +41,7 @@
 	<code value="_id"/>
 	<base value="Resource"/>
 	<type value="token"/>
-	<derivedFrom value="http://hl7.org/fhir/SearchParameter/base"/>
+	<derivedFrom value="http://hl7.org/fhir/SearchParameter/Resource-id"/>
 	<description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
 	<expression value="id"/>
 	<xpath value="f:*/f:id"/>

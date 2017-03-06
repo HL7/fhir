@@ -1,7 +1,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="extra-security-role-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
     <status value="generated"/>

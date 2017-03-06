@@ -3,7 +3,7 @@
   <id value="action-participant-role"/>
   <meta>
     <lastUpdated value="2017-02-15T16:33:00.000-07:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
     <status value="generated"/>

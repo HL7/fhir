@@ -21,7 +21,7 @@ protocol. The correct use of this is discussed on the [security labels](security
       <!-- this is not really the right code; it's being used at cross -purposes to it's definition.
         todo: get a more correct concept defined -->
       <coding>
-        <system value="http://hl7.org/fhir/v3-ActReason"/>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
         <code value="ETREAT"/>
         <display value="Emergency Treatment"/>
       </coding>

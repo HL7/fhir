@@ -78,7 +78,7 @@
         <quantity>
             <value value="5"/>
             <unit value="Tab"/>
-            <system value="http://hl7.org/fhir/ValueSet/v3-orderableDrugForm"/>
+            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="Tab"/> 
         </quantity>
         <expectedSupplyDuration>

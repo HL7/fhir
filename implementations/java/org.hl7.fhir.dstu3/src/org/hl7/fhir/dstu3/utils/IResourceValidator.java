@@ -38,7 +38,8 @@ public interface IResourceValidator {
   
   public interface IValidatorResourceFetcher {
     Element fetch(Object appContext, String url) throws FHIRFormatError, DefinitionException, IOException, FHIRException;
-    ReferenceValidationPolicy validationPolicy(Object appContext, String url);
+    ReferenceValidationPolicy validationPolicy(Object appContext, String path, String url);
+    boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException; 
   }
   
   public enum BestPracticeWarningLevel {

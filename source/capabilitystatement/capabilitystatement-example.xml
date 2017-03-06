@@ -79,7 +79,7 @@
 	<patchFormat value="application/xml-patch+xml"/>
 	<patchFormat value="application/json-patch+json"/>
 	<!--  this system supports the US Lab implementation guide  -->
-	<implementationGuide value="http://hl7.org/fhir/uslab"/>
+	<implementationGuide value="http://hl7.org/fhir/us/lab"/>
 	<!--  this system supports the Genetics family history profile -->
 	<profile>
 		<reference value="http://hl7.org/fhir/us/core/StructureDefinition/familymemberhistory-genetic"/>
@@ -159,8 +159,8 @@
 				<documentation value="Only supports search by institution MRN"/>
 			</searchParam>
 			<searchParam>
-				<name value="careprovider"/>
-				<definition value="http://hl7.org/fhir/SearchParameter/Patient-careprovider"/>
+				<name value="general-practitioner"/>
+				<definition value="http://hl7.org/fhir/SearchParameter/Patient-general-practitioner"/>
 				<type value="reference"/>
 			</searchParam>
 		</resource>
@@ -170,7 +170,7 @@
 		<interaction>
 			<code value="history-system"/>
 		</interaction>
-		<compartment value="http://hl7.org/fhir/compartment/Patient"/>
+		<compartment value="http://hl7.org/fhir/CompartmentDefinition/patient"/>
 	</rest>
 	<!--  a messaging capability statement. Applications are not required to make a capability 
     statement with regard to messaging, though there is active argument that they should.   -->
@@ -187,7 +187,7 @@
 		<documentation value="ADT A08 equivalent for external system notifications"/>
 		<event>
 			<code>
-				<system value="http://hl7.org/fhir/message-type"/>
+				<system value="http://hl7.org/fhir/message-events"/>
 				<code value="admin-notify"/>
 			</code>
 			<category value="Consequence"/>

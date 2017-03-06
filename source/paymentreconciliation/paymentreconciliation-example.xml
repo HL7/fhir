@@ -48,7 +48,7 @@
 	<detail>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/paymenttype"/>
+				<system value="http://hl7.org/fhir/payment-type"/>
 				<code value="payment"/>
 			</coding>
 		</type>
@@ -81,7 +81,7 @@
 	<detail>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/paymenttype"/>
+				<system value="http://hl7.org/fhir/payment-type"/>
 				<code value="payment"/>
 			</coding>
 		</type>
@@ -99,7 +99,7 @@
 	<detail>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/paymenttype"/>
+				<system value="http://hl7.org/fhir/payment-type"/>
 				<code value="advance"/>
 			</coding>
 		</type>

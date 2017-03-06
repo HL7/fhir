@@ -24,4 +24,9 @@
     <display value="Tooth abcess"/>
     <definition value="Emergency department treatment of a tooth abcess."/>
   </concept>
+  <concept>
+    <code value="400"/>
+    <display value="Head trauma - concussion"/>
+    <definition value="Head trauma - concussion."/>
+  </concept>
 </CodeSystem>

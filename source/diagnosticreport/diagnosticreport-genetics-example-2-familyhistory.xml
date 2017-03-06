@@ -40,7 +40,7 @@
           
           <relationship>
               <coding>
-                  <system value="http://hl7.org/fhir/familial-relationship"/>
+                  <system value="http://hl7.org/fhir/v3/RoleCode"/>
                   <code value="MTH"/>
                   <display value="Mother"/>
               </coding>

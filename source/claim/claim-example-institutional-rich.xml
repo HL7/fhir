@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
- <id value="960151"/>
+  <id value="960151"/>
 
- <text>
+  <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Claim</div>
   </text>
@@ -10,174 +10,174 @@
   <identifier>
     <system value="http://happyhospital.com/claim"/>
     <value value="96123451"/>
- </identifier>
- 
+  </identifier>
+
   <status value = "active"/>
 
   <type>
-   <coding>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="institutional"/>
-   </coding>
-  </type>
- 
- <use value="complete"/>
-
- <patient>
-   <reference value="Patient/1"/>
- </patient>
- 
- <billablePeriod>
-   <start value="2014-08-15"/>
-   <end value="2014-08-16"/>
- </billablePeriod>
- 
- <created value="2014-08-16"/>
-
- <enterer>
-   <identifier>
-    <system value="http://jurisdiction.org/facilities/HOSP1234/users"/>
-    <value value="UC1234"/>
-   </identifier>
-</enterer>
-
- <insurer>
-  <reference value="Organization/2"/>
-</insurer>
-
-<provider>
-  <identifier>
-    <system value="http://npid.org/providerid"/>
-    <value value="NJ12345"/>
-  </identifier>
-</provider>
-
- <organization>
-    <reference value="Organization/1"/>
- </organization>
-
- <priority>
-  <coding>
-    <code value="normal"/>
-  </coding>
- </priority>
-
- <payee>
-   <type>
     <coding>
-     <code value="provider"/>
-	</coding>
-   </type>
- </payee>
- 
- <facility>
-  <identifier>
-    <system value="http://jurisdiction.org/facilities"/>
-    <value value="HOSP1234"/>
-  </identifier>
- </facility>
- 
-   <careTeam>
-     <sequence value="1"/>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-	 <responsible value="true"/>
-	 <role>
-	   <coding>
-	     <system value="http://hl7.org/fhir/ValueSet/claim-careteamrole"/>
-		 <code value="primary"/>
-	   </coding>
-	 </role>
-     <qualification>
-	   <coding>
-	     <system value="http://hl7.org/fhir/ValueSet/provider-qualification"/>
-		 <code value="physician"/>
-	   </coding>
-	 </qualification>
-	 </careTeam>
+      <system value="http://hl7.org/fhir/ex-claimtype"/>
+      <code value="institutional"/>
+    </coding>
+  </type>
 
-   <diagnosis>
+  <use value="complete"/>
+
+  <patient>
+    <reference value="Patient/1"/>
+  </patient>
+
+  <billablePeriod>
+    <start value="2014-08-15"/>
+    <end value="2014-08-16"/>
+  </billablePeriod>
+
+  <created value="2014-08-16"/>
+
+  <enterer>
+    <identifier>
+      <system value="http://jurisdiction.org/facilities/HOSP1234/users"/>
+      <value value="UC1234"/>
+    </identifier>
+  </enterer>
+
+  <insurer>
+    <reference value="Organization/2"/>
+  </insurer>
+
+  <provider>
+    <identifier>
+      <system value="http://npid.org/providerid"/>
+      <value value="NJ12345"/>
+    </identifier>
+  </provider>
+
+  <organization>
+    <reference value="Organization/1"/>
+  </organization>
+
+  <priority>
+    <coding>
+      <code value="normal"/>
+    </coding>
+  </priority>
+
+  <payee>
+    <type>
+      <coding>
+        <code value="provider"/>
+      </coding>
+    </type>
+  </payee>
+
+  <facility>
+    <identifier>
+      <system value="http://jurisdiction.org/facilities"/>
+      <value value="HOSP1234"/>
+    </identifier>
+  </facility>
+
+  <careTeam>
     <sequence value="1"/>
-	<diagnosisCodeableConcept>
-	 <coding>
-	  <code value="654456"/>
-	 </coding>
-	</diagnosisCodeableConcept>
-	<type>
-	  <coding>
-	    <system value="http://hl7.org/fhir/ValueSet/ex-diagnosistype"/>
-		<code value="admitting"/>
-	  </coding>
-	</type>
+    <provider>
+      <reference value="Practitioner/example"/>
+    </provider>
+    <responsible value="true"/>
+    <role>
+      <coding>
+        <system value="http://hl7.org/fhir/claim-careteamrole"/>
+        <code value="primary"/>
+      </coding>
+    </role>
+    <qualification>
+      <coding>
+        <system value="http://hl7.org/fhir/provider-qualification"/>
+        <code value="physician"/>
+      </coding>
+    </qualification>
+  </careTeam>
+
+  <diagnosis>
+    <sequence value="1"/>
+    <diagnosisCodeableConcept>
+      <coding>
+        <code value="654456"/>
+      </coding>
+    </diagnosisCodeableConcept>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/ex-diagnosistype"/>
+        <code value="admitting"/>
+      </coding>
+    </type>
     <packageCode>
-	  <coding>
-	    <system value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
-		<code value="400"/>
-		<display value="Head trauma - concussion"/>
-	  </coding>
-	</packageCode>
-	</diagnosis>
- 
- <insurance>
-   <sequence value="1"/>
-   <focal value="true"/>
-   <coverage>
-     <reference value="Coverage/9876B1"/>
-   </coverage>
-   <businessArrangement value="BA987123"/>
-   <preAuthRef value="PA2014G56473"/>
- </insurance>
-  
+      <coding>
+        <system value="http://hl7.org/fhir/ex-diagnosisrelatedgroup"/>
+        <code value="400"/>
+        <display value="Head trauma - concussion"/>
+      </coding>
+    </packageCode>
+  </diagnosis>
+
+  <insurance>
+    <sequence value="1"/>
+    <focal value="true"/>
+    <coverage>
+      <reference value="Coverage/9876B1"/>
+    </coverage>
+    <businessArrangement value="BA987123"/>
+    <preAuthRef value="PA2014G56473"/>
+  </insurance>
+
   <accident>
     <date value="2014-07-09"/>
-	<type>
-	  <coding>
-	    <system value="http://hl7.org/fhir/ValueSet/v3-ActIncidentCode"/>
-		<code value="SPT"/>
-		<display value="Sporting Accident"/>
-	  </coding>
-	</type>
-	<locationAddress>
-	  <text value="Grouse Mountain Ski Hill"/>
-	</locationAddress>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActIncidentCode"/>
+        <code value="SPT"/>
+        <display value="Sporting Accident"/>
+      </coding>
+    </type>
+    <locationAddress>
+      <text value="Grouse Mountain Ski Hill"/>
+    </locationAddress>
   </accident>
- 
+
   <employmentImpacted>
-   <start value="2014-08-16"/>
-   <end value="2014-08-16"/>
+    <start value="2014-08-16"/>
+    <end value="2014-08-16"/>
   </employmentImpacted>
- 
+
   <hospitalization>
-   <start value="2014-08-15"/>
-   <end value="2014-08-16"/>
+    <start value="2014-08-15"/>
+    <end value="2014-08-16"/>
   </hospitalization>
- 
- <item>
-   <sequence value="1"/>
-   <careTeamLinkId value="1"/>
-   <service>
-    <coding>
-     <system value="http://hl7.org/fhir/ex-serviceproduct"/>
-     <code value="exam"/> 
-	</coding>
-   </service>
-   <servicedDate value="2014-08-16"/>
-   <unitPrice>
+
+  <item>
+    <sequence value="1"/>
+    <careTeamLinkId value="1"/>
+    <service>
+      <coding>
+        <system value="http://hl7.org/fhir/ex-serviceproduct"/>
+        <code value="exam"/> 
+      </coding>
+    </service>
+    <servicedDate value="2014-08-16"/>
+    <unitPrice>
       <value value="125.00"/>
-	  <system value="urn:iso:std:iso:4217"/>
+      <system value="urn:iso:std:iso:4217"/>
       <code value="USD"/> 
-   </unitPrice> 
-   <net>
+    </unitPrice> 
+    <net>
       <value value="125.00"/>
-	  <system value="urn:iso:std:iso:4217"/>
+      <system value="urn:iso:std:iso:4217"/>
       <code value="USD"/> 
-   </net> 
+    </net> 
   </item>
 
   <total>
     <value value="125.00"/>
-	<system value="urn:iso:std:iso:4217"/>
+    <system value="urn:iso:std:iso:4217"/>
     <code value="USD"/>  
   </total>
 </Claim>

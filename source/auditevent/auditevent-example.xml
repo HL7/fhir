@@ -45,8 +45,9 @@
 		<value value="Grahame's Laptop"/>
 	</identifier>
     <type>
-      <system value="http://hl7.org/fhir/audit-event-sub-type"/>
-      <code value="1"/>
+      <system value="http://nema.org/dicom/dicm"/>
+      <code value="110122"/>
+      <display value="Login"/>
     </type>
   </source>
   <entity>
@@ -71,7 +72,7 @@
 		<display value="Domain Resource"/>
 	</role>
     <lifecycle>
-		<system value="http://hl7.org/fhir/object-lifecycle"/>
+		<system value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
 		<code value="6"/>
 		<display value="Access / Use"/>
 	</lifecycle>

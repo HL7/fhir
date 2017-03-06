@@ -347,6 +347,24 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           return null;      
       } else if (class_ == OperationDefinition.class) {
         return (T) operations.get(uri);
+      } else if (class_ == SearchParameter.class) {
+        SearchParameter res = searchParameters.get(uri);
+        if (res == null) {
+          StringBuilder b = new StringBuilder();
+          for (String s : searchParameters.keySet()) {
+            b.append(s);
+            b.append("\r\n");
+          }
+          try {
+            TextFile.stringToFile(b.toString(), "c:\\temp\\sp.txt");
+          } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+          }
+        }
+        
+          
+        return (T) res;
       }
     }
     if (class_ == null && uri.contains("/")) {
