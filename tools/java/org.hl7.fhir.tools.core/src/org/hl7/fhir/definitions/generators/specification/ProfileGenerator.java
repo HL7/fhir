@@ -1050,7 +1050,7 @@ public class ProfileGenerator {
         sp.setDescription(preProcessMarkdown(spd.getDescription(), "Search Description"));
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(spd.getExpression());
-      String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
+      String xpath = Utilities.noString(spd.getXPath()) ? new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths()) : spd.getXPath();
       if (xpath != null) {
         if (xpath.contains("[x]"))
           xpath = convertToXpath(xpath);

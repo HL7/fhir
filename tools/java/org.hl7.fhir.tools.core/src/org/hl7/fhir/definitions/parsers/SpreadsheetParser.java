@@ -766,6 +766,8 @@ public class SpreadsheetParser {
     tabfmt.column("Type");
     tabfmt.column("Description");
     tabfmt.column("Path");
+    tabfmt.column("Expression");
+    tabfmt.column("XPath");
     tabfmt.column("Target Types");
     tabfmt.column("Path Usage");
 
@@ -775,6 +777,8 @@ public class SpreadsheetParser {
       tabfmt.cell(sheet.getColumn(row, "Type"));
       tabfmt.cell(sheet.getColumn(row, "Description"));
       tabfmt.cell(sheet.getColumn(row, "Path"));
+      tabfmt.cell(sheet.getColumn(row, "Expression"));
+      tabfmt.cell(sheet.getColumn(row, "XPath"));
       tabfmt.cell(sheet.getColumn(row, "Target Types"));
       tabfmt.cell(sheet.getColumn(row, "Path Usage"));
 
@@ -837,6 +841,7 @@ public class SpreadsheetParser {
           throw new Exception("not supported");
         } else {
           String[] pl = sheet.getColumn(row, "Path").split("\\|");
+          String xp = sheet.getColumn(row, "XPath");
           for (String pi : pl) {
             String p = pi.trim();
             ElementDefn e = null;
@@ -893,7 +898,7 @@ public class SpreadsheetParser {
             sp.setDescription(d);
           }
 
-          sp.setXpath(new XPathQueryGenerator(definitions, log, null).generateXpath(pn));
+          sp.setXpath(Utilities.noString(xp) ? new XPathQueryGenerator(definitions, log, null).generateXpath(pn) : xp);
           sp.setXpathUsage(readSearchXPathUsage(sheet.getColumn(row, "Path Usage"), row));
         }
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
@@ -914,6 +919,8 @@ public class SpreadsheetParser {
       tabfmt.column("Type");
       tabfmt.column("Description");
       tabfmt.column("Path");
+      tabfmt.column("Expression");
+      tabfmt.column("XPath");
       tabfmt.column("Target Types");
       tabfmt.column("Path Usage");
 
@@ -923,6 +930,8 @@ public class SpreadsheetParser {
         tabfmt.cell(sheet.getColumn(row, "Type"));
         tabfmt.cell(sheet.getColumn(row, "Description"));
         tabfmt.cell(sheet.getColumn(row, "Path"));
+        tabfmt.cell(sheet.getColumn(row, "Expression"));
+        tabfmt.cell(sheet.getColumn(row, "XPath"));
         tabfmt.cell(sheet.getColumn(row, "Target Types"));
         tabfmt.cell(sheet.getColumn(row, "Path Usage"));
 
@@ -979,6 +988,7 @@ public class SpreadsheetParser {
             sp.getComposites().addAll(pn);
           } else {
             List<String> pn = new ArrayList<String>();
+            String xp = sheet.getColumn(row, "XPath");
             String[] pl = sheet.getColumn(row, "Path").split("\\|");
             for (String pi : pl) {
               String p = pi.trim();
@@ -1023,6 +1033,8 @@ public class SpreadsheetParser {
 
             sp = new SearchParameterDefn(n, d, t, pu);
             sp.getPaths().addAll(pn);
+            if (!Utilities.noString(xp))
+              sp.setXPath(xp);
             if (!Utilities.noString(sheet.getColumn(row, "Expression")))
               sp.setExpression(sheet.getColumn(row, "Expression"));
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {

@@ -1464,7 +1464,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     result.setDefinition("http://hl7.org/fhir/SearchParameter/"+i.getCommonId());
     result.setType(getSearchParamType(i.getType()));
     result.setDocumentation(i.getDescription());
-    i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
+    if (Utilities.noString(i.getXPath()))
+      i.setXPath(new XPathQueryGenerator(page.getDefinitions(), page, page.getQa()).generateXpath(i.getPaths())); // used elsewhere later
     return result;
   }
 

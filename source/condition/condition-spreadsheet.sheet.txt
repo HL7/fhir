@@ -445,42 +445,55 @@
   Type = quantity
   Description = Onsets as age or age range
   Path = Condition.onset[x]
+  Expression = Condition.onset.as(Quantity) | Condition.onset.as(Range)
+  XPath = f:Condition/f:onsetAge | f:Condition/f:onsetRange
 
  -- Row 7 -----------------------------------
   Name = onset-date
   Type = date
   Description = Date related onsets (dateTime and Period)
   Path = Condition.onset[x]
+  Expression = Condition.onset.as(dateTime) | Condition.onset.as(Period)
+  XPath = f:Condition/f:onsetDateTime | f:Condition/f:onsetPeriod
 
  -- Row 8 -----------------------------------
   Name = onset-info
   Type = string
   Description = Onsets as a string
   Path = Condition.onset[x]
+  Expression = Condition.onset.as(string)
+  XPath = f:Condition/f:onsetString
 
  -- Row 9 -----------------------------------
   Name = abatement-age
   Type = quantity
   Description = Abatement as age or age range
   Path = Condition.abatement[x]
+  Expression = Condition.abatement.as(Quantity) | Condition.abatement.as(Range) | Condition.abatement.as(Age)
+  XPath = f:Condition/f:abatementAge | f:Condition/f:abatementRange
 
  -- Row 10 -----------------------------------
   Name = abatement-boolean
   Type = token
   Description = Abatement boolean (boolean is true or non-boolean values are present)
   Path = Condition.abatement[x]
+  Expression = Condition.abatement.as(boolean) | Condition.abatement.is(dateTime) | Condition.abatement.is(Age) | Condition.abatement.is(Period) | Condition.abatement.is(Range) | Condition.abatement.is(string)
 
  -- Row 11 -----------------------------------
   Name = abatement-date
   Type = date
   Description = Date-related abatements (dateTime and period)
   Path = Condition.abatement[x]
+  Expression = Condition.abatement.as(dateTime) | Condition.abatement.as(Period)
+  XPath = f:Condition/f:abatementDateTime | f:Condition/f:abatementPeriod
 
  -- Row 12 -----------------------------------
   Name = abatement-string
   Type = string
   Description = Abatement as a string
   Path = Condition.abatement[x]
+  Expression = Condition.abatement.as(string)
+  XPath = f:Condition/f:abatementString
 
  -- Row 13 -----------------------------------
   Name = context

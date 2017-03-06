@@ -309,11 +309,15 @@
   Name = finding-code
   Type = token
   Path = ClinicalImpression.finding.item[x]
+  Expression = ClinicalImpression.finding.item.as(CodeableConcept)
+  XPath = f:ClinicalImpression/f:finding/f:itemCodeableConcept
 
  -- Row 5 -----------------------------------
   Name = finding-ref
   Type = reference
   Path = ClinicalImpression.finding.item[x]
+  Expression = ClinicalImpression.finding.item.as(Reference)
+  XPath = f:ClinicalImpression/f:finding/f:itemReference
 
  -- Row 6 -----------------------------------
   Name = action
