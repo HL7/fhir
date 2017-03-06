@@ -189,7 +189,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = DeviceSpecificationSpecType
-  Short Name = Type or kind of production specification, for example serial number, software revision, etc
+  Short Name = Type or kind of production specification, for example serial number or software revision
   Definition = Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.
 
  -- Row 12 -----------------------------------
