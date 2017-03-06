@@ -8,6 +8,8 @@
   Definition = Describes the type of the component.
   Description = IEEE 11073-10101
   Conformance = preferred
+  Uri = urn:iso:std:iso:11073:10101
+  Oid = 2.16.840.1.113883.6.24
 
  -- Row 2 -----------------------------------
   Binding Name = MeasmntPrinciple
