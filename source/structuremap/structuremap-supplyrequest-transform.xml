@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/structuremap.xsd">
+  <id value="supplyrequest-transform"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+map "http://hl7.org/fhir/StructureMap/supplyrequest-transform" = supplyRequestTransform
+
+uses "http://hl7.org/fhir/StructureDefinition/activitydefinition" as source
+uses "http://hl7.org/fhir/StructureDefinition/supplyrequest" as target
+
+group main
+  input "source": ActivityDefinition as source
+  input "target": SupplyRequest as target
+
+  "status": for source.id make target.status = 'draft'
+  "category": for source.id make target.category = 'non-stock'
+  "priority": for source.id make target.priority = 'routine'
+  "quantity": for source.quantity make target.orderedItem.quantity
+  "item": for source.code make target.orderedItem.itemCodeableConcept
+  "when": for source.id make target.occurrenceDateTime = Now()
+  "authoredOn": for source.id make target.authoredOn = Now()
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/StructureMap/supplyrequest-transform"/>
+  <name value="Transform from an ActivityDefinition to a SupplyRequest"/>
+  <status value="draft"/>
+  <structure>
+	<url value="http://hl7.org/fhir/StructureDefinition/activitydefinition"/>
+	<mode value="source"/>
+  </structure>
+  <structure>
+	<url value="http://hl7.org/fhir/StructureDefinition/supplyrequest"/>
+	<mode value="target"/>
+  </structure>
+  <group>
+    <name value="main"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="source"/>
+      <mode value="source"/>
+    </input>  
+    <input>
+	  <name value="target"/>
+      <mode value="target"/>
+	</input>
+    <rule>
+      <name value="status"/>
+      <source>
+        <context value="source"/>
+        <element value="id"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="status"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="'draft'"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="category"/>
+      <source>
+        <context value="source"/>
+        <element value="id"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="category"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="'non-stock'"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="priority"/>
+      <source>
+        <context value="source"/>
+        <element value="id"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="priority"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="'routine'"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="quantity"/>
+      <source>
+        <context value="source"/>
+        <element value="quantity"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="category"/>
+        <transform value="copy"/>
+      </target>
+    </rule>
+    <rule>
+      <name value="item"/>
+      <source>
+        <context value="source"/>
+        <element value="code"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="orderedItem.itemCodeableConcept"/>
+        <transform value="copy"/>
+      </target>
+    </rule>
+    <rule>
+      <name value="when"/>
+      <source>
+        <context value="source"/>
+        <element value="id"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="occurrenceDateTime"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="now()"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="authoredOn"/>
+      <source>
+        <context value="source"/>
+        <element value="id"/>
+        <variable value="a"/>
+      </source>
+      <target>
+        <context value="target"/>
+        <contextType value="variable"/>
+        <element value="authoredOn"/>
+        <transform value="evaluate"/>
+        <parameter>
+          <valueString value="now()"/>
+        </parameter>
+      </target>
+    </rule>
+  </group>
+  
+</StructureMap>

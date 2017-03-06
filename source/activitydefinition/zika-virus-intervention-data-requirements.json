@@ -1,0 +1,96 @@
+{
+  "resourceType": "Library",
+  "type": {
+    "coding": [
+      {
+        "code": "module-definition"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "display": "Zika Affected Areas",
+      "resource": {
+        "reference": "ValueSet/zika-affected-areas"
+      }
+    },
+    {
+      "type": "depends-on",
+      "display": "Pregnancy",
+      "resource": {
+        "identifier": "urn:oid:X.Y.Z",
+        "display": "Pregnancy value set"
+      }
+    },
+    {
+      "type": "depends-on",
+      "display": "Zika Exposure Assessment",
+      "resource": {
+        "identifier": "urn:oid:X.Y.Z",
+        "display": "Zika Virus Exposure Assessment value set"
+      }
+    },
+    {
+      "type": "depends-on",
+      "display": "Zika Virus Signs and Symptoms",
+      "url": "https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7459",
+      "resource": {
+        "identifier": "urn:oid:2.16.840.1.114222.4.11.7459",
+        "display": "Zika Virus Signs and Symptoms value set"
+      }
+    },
+  ]
+  "dataRequirement": [
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSetString": "Pregnancy"
+        }
+      ]
+    },
+    {
+      "type": "Patient"
+    },
+    {
+      "type": "Observation",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSetString": [
+            "Zika Exposure Assessment"
+          ]
+        },
+        {
+          "path": "status",
+          "valueCode": [
+            "final"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "category",
+          "valueCode": [
+            "diagnosis"
+          ]
+        },
+        {
+          "path": "clinicalStatus",
+          "valueCode": [
+            "confirmed"
+          ]
+        },
+        {
+          "path": "code",
+          "valueSetString": "Zika Virus Signs and Symptoms"
+        }
+      ]
+    }
+  ]
+}

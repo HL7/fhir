@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id value="example"/>
+  <id value="low-suicide-risk-order-set"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +11,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/example</td>
+               <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/low-suicide-risk-order-set</td>
             </tr>
          </table>
          <p/>
@@ -429,7 +429,7 @@
             <tr>
                <td style="padding-left: 25px; padding-right: 25px;">
                   <b>reference: </b>
-                  <span>Library/mmi-suiciderisk-orderset-logic</span>
+                  <span>Library/suiciderisk-orderset-logic</span>
                </td>
             </tr>
             <tr>
@@ -750,13 +750,17 @@
       </code>
     </Substance>
   </contained>
+  <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
   <identifier>
     <use value="official"/>
+    <system value="http://motivemi.com/artifacts"/>
     <value value="mmi:low-suicide-risk-order-set"/>
   </identifier>
   <version value="1.0.0"/>
+  <name value="LowSuicideRiskOrderSet"/>
   <title value="Low Suicide Risk Order Set"/>
-  <status value="draft"/>
+  <status value="active"/>
+  <experimental value="true"/>
   <date value="2015-08-15"/>
   <publisher value="Motive Medical Intelligence"/>
   <description value="Orders to be applied to a patient characterized as low suicide risk."/>
@@ -896,8 +900,14 @@
       <use value="work"/>
     </telecom>
   </contact>
+  <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
+	<relatedArtifact>
+      <type value="citation"/>
+      <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+	</relatedArtifact>
   <library>
-    <reference value="Library/mmi-suiciderisk-orderset-logic"/>
+    <reference value="Library/suiciderisk-orderset-logic"/>
     <display value="SuicideRiskLogic"/>
   </library>
   <!-- Actions -->
@@ -973,7 +983,7 @@
         <actionDefinition>
           <title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
           <documentation>
-            <type value="justification"/>
+            <type value="citation"/>
             <document>
               <contentType value="text/html"/>
               <url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>

@@ -36,7 +36,6 @@
             </denominator>
           </amount>
         </ingredient>
-
     </Medication>
   </contained>
   <contained>
@@ -51,7 +50,162 @@
       </code>
     </Substance>
   </contained>
-	<status value="draft"/>
+  <url value="http://motivemi.com/artifacts/ActivityDefinition/citalopramPrescription"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://motivemi.com"/>
+    <value value="citalopramPrescription"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="CitalopramPrescription"/>
+  <title value="Citalopram Prescription"/>
+	<status value="active"/>
+	<experimental value="true"/>
+  <date value="2015-08-15"/>
+  <publisher value="Motive Medical Intelligence"/>
+  <description value="Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills"/>
+  <purpose value="Defines a guideline supported prescription for the treatment of depressive disorders"/>
+  <usage value="This activity definition is used as part of various suicide risk order sets"/>
+  <approvalDate value="2016-03-12"/>
+  <lastReviewDate value="2016-08-15"/>
+  <effectivePeriod>
+    <start value="2016-01-01"/>
+    <end value="2017-12-31"/>
+  </effectivePeriod>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://meshb.nlm.nih.gov"/>
+        <code value="D000328"/>
+        <display value="Adult"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="87512008"/>
+        <display value="Mild major depression"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="40379007"/>
+        <display value="Major depression, recurrent, mild"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="225444004"/>
+        <display value="At risk for suicide (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="306206005"/>
+        <display value="Referral to service (procedure)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="user"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="309343006"/>
+        <display value="Physician"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="venue"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="440655000"/>
+        <display value="Outpatient environment"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <topic>
+    <text value="Mental Health Treatment"/>
+  </topic>
+  <contributor>
+    <type value="author"/>
+    <name value="Motive Medical Intelligence"/>
+    <contact>
+      <telecom>
+        <system value="phone"/>
+        <value value="415-362-4007"/>
+        <use value="work"/>
+      </telecom>
+      <telecom>
+        <system value="email"/>
+        <value value="info@motivemi.com"/>
+        <use value="work"/>
+      </telecom>
+    </contact>
+  </contributor>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="415-362-4007"/>
+      <use value="work"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="info@motivemi.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
+	<relatedArtifact>
+      <type value="citation"/>
+      <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+	</relatedArtifact>
 	<kind value="MedicationRequest"/>
 	<productReference>
 		<reference value="#citalopramMedication"/>
@@ -78,11 +232,15 @@
 		</doseQuantity>
 	</dosage>
 	<dynamicValue>
+	    <description value="dispenseRequest.numberOfRepeatsAllowed is three (3)"/>
 		<path value="dispenseRequest.numberOfRepeatsAllowed"/>
+	    <language value="text/cql"/>
 		<expression value="3"/>
 	</dynamicValue>
 	<dynamicValue>
+	    <description value="dispenseRequest.quantity is thirty (30) tablets"/>
 		<path value="dispenseRequest.quantity"/>
+	    <language value="text/cql"/>
 		<expression value="30 '{tbl}'"/>
 	</dynamicValue>
 </ActivityDefinition>

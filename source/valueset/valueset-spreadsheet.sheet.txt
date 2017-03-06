@@ -636,6 +636,12 @@
   Description = Valueset including inactive concepts
   Filename = valueset-example-inactive.xml
 
+ -- Row 10 -----------------------------------
+  Name = !Zika Affected Areas
+  Identity = zika-affected-areas
+  Description = ValueSet Example referencing PHINVADS value set by OID
+  Filename = valueset-zika-affected-areas.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

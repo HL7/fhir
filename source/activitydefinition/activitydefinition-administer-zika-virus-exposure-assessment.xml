@@ -90,6 +90,9 @@
   <url value="http://example.org/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
   <status value="draft"/>
   <description value="Administer Zika Virus Exposure Assessment"/>
+  <library>
+    <reference value="Library/zika-virus-intervention-logic"/>
+  </library>
   <kind value="ProcedureRequest"/>
   <code>
     <coding>

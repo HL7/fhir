@@ -230,7 +230,7 @@
 
  -- Row 7 -----------------------------------
   Name = SuicideRisk
-  Identity = mmi-suiciderisk-orderset-logic
+  Identity = suiciderisk-orderset-logic
   Description = Suicide Risk Order Set Logic
   Filename = library-mmi-suiciderisk-orderset-logic.xml
 
@@ -239,6 +239,12 @@
   Identity = library-fhir-helpers
   Description = FHIR Helpers
   Filename = library-fhir-helpers.xml
+
+ -- Row 9 -----------------------------------
+  Name = Zika Virus Intervention Logic
+  Identity = zika-virus-intervention-logic
+  Description = Zika Virus Management Intervention Logic
+  Filename = library-zika-virus-intervention-logic.xml
 
 === Sheet Examples =====================================
 

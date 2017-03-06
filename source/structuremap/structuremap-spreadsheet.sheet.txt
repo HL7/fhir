@@ -710,6 +710,18 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = Example
+  Identity = example
+  Description = Example
+  Filename = structuremap-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = SupplyRequest Transform
+  Identity = supplyrequest-transform
+  Description = Transforms an ActivityDefinition to a SupplyRequest
+  Filename = structuremap-supplyrequest-transform.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
