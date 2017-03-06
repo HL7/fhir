@@ -83,7 +83,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	var queryHash string
 
 	if m.readonly {
-		queryHash = fmt.Sprintf("%x", md5.Sum([]byte(query.Query)))
+		queryHash = fmt.Sprintf("%x", md5.Sum([]byte(query.Resource+"?"+query.Query)))
 		countcache := &CountCache{}
 		err = m.db.C("countcache").FindId(queryHash).One(countcache)
 		if err == nil {
