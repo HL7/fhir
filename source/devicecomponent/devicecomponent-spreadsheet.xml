@@ -6217,8 +6217,8 @@
     <Cell ss:StyleID="s147" ss:HRef="https://rtmms.nist.gov/rtmms/index.htm#!hrosetta"><Data
       ss:Type="String">https://rtmms.nist.gov/rtmms/index.htm#!hrosetta</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">IEEE 11073-10101</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">2.16.840.1.113883.6.24</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">urn:iso:std:iso:11073:10101</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -6679,8 +6679,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
