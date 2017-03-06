@@ -143,7 +143,7 @@
   Card. = 0..1
   Type = Reference(Device)
   Short Name = Top-level device resource link
-  Definition = The link to the source Device that contains administrative device information such as manufacture, serial number, etc.
+  Definition = The link to the source Device that contains administrative device information such as manufacturer, serial number, etc.
 
  -- Row 6 -----------------------------------
   Element = DeviceComponent.parent
