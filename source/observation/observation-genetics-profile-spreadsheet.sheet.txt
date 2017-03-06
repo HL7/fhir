@@ -89,15 +89,15 @@
  -- Row 11 -----------------------------------
   Binding Name = !LOINC 48019-4 answerlist
   Binding = code list
-  Reference = #LOINC-48019-4-answerlist
+  Reference = http://loinc.org/vs/LL379-9
   Definition = DNA sequence variant type
   Description = Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type.
   Conformance = preferred
 
  -- Row 12 -----------------------------------
   Binding Name = !LOINC 48002-0 answerlist
-  Binding = code list
-  Reference = #LOINC-48002-0-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/LL378-1
   Definition = Genomic source class
   Description = Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal.
   Conformance = preferred

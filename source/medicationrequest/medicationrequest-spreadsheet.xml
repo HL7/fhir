@@ -6925,7 +6925,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">A coded concept identifying additional instructions such as &quot;take with water&quot; or &quot;avoid operating heavy machinery&quot;.</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-additional-instructions-codes</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-additional-instruction-codes</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>

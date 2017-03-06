@@ -69,7 +69,7 @@
  -- Row 10 -----------------------------------
   Binding Name = AdditionalInstructions
   Binding = value set
-  Reference = valueset-additional-instructions-codes
+  Reference = valueset-additional-instruction-codes
   Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
   Conformance = example
 

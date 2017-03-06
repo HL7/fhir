@@ -5338,7 +5338,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s109"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s109"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s109"><Data ss:Type="String">LOINC 48002-0 answerlist</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s109"><Data ss:Type="String">LOINC 48002-0 answerlist (http://loinc.org/vs/LL378-1)</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s109"><Data ss:Type="String">GenomicSourceClass</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Genomic source class means category of source of tissue sample used to determine the sequence: Germline / Somatic / Prenatal / Likely Germline / Likely Somatic / Likely Prenatal / Unknown Genomic Origin</Data></Cell>
    </Row>

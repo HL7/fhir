@@ -6863,7 +6863,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">A coded concept identifying additional instructions such as &quot;take with water&quot; or &quot;avoid operating heavy machinery&quot;</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/additional-instructions-codes</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/additional-instruction-codes</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s140"/>

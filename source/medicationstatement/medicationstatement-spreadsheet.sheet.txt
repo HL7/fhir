@@ -61,7 +61,7 @@
  -- Row 9 -----------------------------------
   Binding Name = AdditionalInstructions
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/additional-instructions-codes
+  Reference = http://hl7.org/fhir/ValueSet/additional-instruction-codes
   Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
   Conformance = example
 

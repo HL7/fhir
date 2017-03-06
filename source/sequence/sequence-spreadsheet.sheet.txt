@@ -26,15 +26,15 @@
 
  -- Row 4 -----------------------------------
   Binding Name = LOINC 48019-4 answerlist
-  Binding = code list
-  Reference = #LOINC-48019-4-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/LL379-9
   Definition = LOINC answer list for Type of variation
   Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = LOINC 48002-0 answerlist
-  Binding = code list
-  Reference = #LOINC-48002-0-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/LL378-1
   Definition = LOINC answer list for Genomic source class
   Conformance = example
 
@@ -47,8 +47,8 @@
 
  -- Row 7 -----------------------------------
   Binding Name = LOINC 53034-5 answerlist
-  Binding = code list
-  Reference = #LOINC-53034-5-answerlist
+  Binding = value set
+  Reference = http://loinc.org/vs/LL381-5
   Definition = LOINC answer list for AllelicState
   Conformance = example
 
@@ -123,94 +123,6 @@
   Description = Type for repository
   Conformance = required
 
-=== Sheet LOINC-48019-4-answerlist =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = LA9658-1
-  Display = Wild type
-  Definition = Wild type
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = LA6692-3
-  Display = Deletion
-  Definition = Deletion
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = LA6686-5
-  Display = Duplication
-  Definition = Duplication
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = LA6687-3
-  Display = Insertion
-  Definition = Insertion
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = LA6688-1
-  Display = Insertion/Deletion
-  Definition = Insertion/Deletion
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = LA6689-9
-  Display = Inversion
-  Definition = Inversion
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = LA6690-7
-  Display = Substitution
-  Definition = Substitution
-
-=== Sheet LOINC-48002-0-answerlist =====================================
-
- -- Row 1 -----------------------------------
-  Id = http://loinc.org
-  Code = LA6683-2
-  Display = Germline
-  Definition = Germline
-
- -- Row 2 -----------------------------------
-  Id = http://loinc.org
-  Code = LA6684-0
-  Display = Somatic
-  Definition = Somatic
-
- -- Row 3 -----------------------------------
-  Id = http://loinc.org
-  Code = LA10429-1
-  Display = Prenatal
-  Definition = Prenatal
-
- -- Row 4 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18194-3
-  Display = Likely Germline
-  Definition = Likely Germline
-
- -- Row 5 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18195-0
-  Display = Likely Somatic
-  Definition = Likely Somatic
-
- -- Row 6 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18196-8
-  Display = Likely Prenatal
-  Definition = Likely Prenatal
-
- -- Row 7 -----------------------------------
-  Id = http://loinc.org
-  Code = LA18197-6
-  Display = Unknown Genomic Origin
-  Definition = Unknown Genomic Origin
-
 === Sheet variant-state =====================================
 
  -- Row 1 -----------------------------------
@@ -230,38 +142,6 @@
   Code = absent
   Display = absent
   Definition = result of the variant is missing
-
-=== Sheet LOINC-53034-5-answerlist =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = LA6703-8
-  Display = Heteroplasmic
-  Definition = Heteroplasmic
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = LA6704-6
-  Display = Homoplasmic
-  Definition = Homoplasmic
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = LA6705-3
-  Display = Homozygous
-  Definition = Homozygous
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = LA6706-1
-  Display = Heterozygous
-  Definition = Heterozygous
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = LA6707-9
-  Display = Hemizygous
-  Definition = Hemizygous
 
 === Sheet sequence-type =====================================
 
@@ -924,6 +804,7 @@
   Type = composite
   Description = Search parameter for region of the reference DNA sequence string. This will refer to part of a locus or part of a gene where search region will be represented in 1-based system. Since the coordinateSystem can either be 0-based or 1-based, this search query will include the result of both coordinateSystem that contains the equivalent segment of the gene or whole genome sequence. For example, a search for sequence can be represented as `coordinate=1$lt345$gt123`, this means it will search for the Sequence resource on chromosome 1 and with position >123 and <345, where in 1-based system resource, all strings within region 1:124-344 will be revealed, while in 0-based system resource, all strings within region 1:123-344 will be revealed. You may want to check detail about 0-based v.s. 1-based above.
   Path = chromosome & start & end
+  Expression = Sequence.variant; %resource.referenceSeq.chromosome; start; end
 
  -- Row 5 -----------------------------------
   Name = type
