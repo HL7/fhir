@@ -72,7 +72,7 @@
       </condition>
       <role>
         <coding>
-          <system value="http://hl7.org/fhir/encounter-diagnosis-role"/>
+          <system value="http://hl7.org/fhir/diagnosis-role"/>
           <code value="AD"/>
           <display value="Admission diagnosis"/>
         </coding>
@@ -85,7 +85,7 @@
       </condition>
       <role>
         <coding>
-          <system value="http://hl7.org/fhir/encounter-diagnosis-role"/>
+          <system value="http://hl7.org/fhir/diagnosis-role"/>
           <code value="DD"/>
           <display value="Discharge diagnosis"/>
         </coding>

@@ -53,9 +53,9 @@
     </condition>
     <role>
       <coding>
-        <system value="http://hl7.org/fhir/encounter-diagnosis-role"/>
+        <system value="http://hl7.org/fhir/diagnosis-role"/>
         <code value="CC"/>
-        <display value="Cheif complaint"/>
+        <display value="Chief complaint"/>
       </coding>
     </role>
     <rank value="1"/>

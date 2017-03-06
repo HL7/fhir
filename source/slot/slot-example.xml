@@ -27,8 +27,8 @@
 	</specialty>
 	<appointmentType>
 		<coding>
-			<system value="http://hl7.org/fhir/v2-0276" />
-			<code value="walkin"/>
+			<system value="http://hl7.org/fhir/v2/0276" />
+			<code value="WALKIN"/>
 			<display value="A previously unscheduled walk-in visit" />
 		</coding>
 	</appointmentType>
