@@ -177,7 +177,7 @@
   Id = 2
   Code = replaces
   Display = Replaces
-  Definition = This plan takes the places of the referenced plan.
+  Definition = This plan takes the place of the referenced plan.
 
  -- Row 3 -----------------------------------
   Id = 3

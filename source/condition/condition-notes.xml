@@ -35,7 +35,7 @@ a value - instead, the value must be understood from the Condition.code.
 <blockquote class="dstu-note">
 <a name="dstu-1"> </a>
 <p>
-<b>STU Note:</b>There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
+<b>STU Note:</b> There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://gforge.hl7.org/gf/project/fhir/tracker/">feedback</a> is sought regarding the preferred approach.
 </p>
 </blockquote>
@@ -49,7 +49,7 @@ as described above, or using the <a href="list.html">List</a> resource with empt
 <p>
 Generally, electronic records do not contain assertions of conditions that a patient does not have.  There are however two exceptions:
 <ul>
-<li>It is appropriate to capture a "refuted" Condition record if the patient or anyone else had reason to believe that a patient did have a condition for a period of time and subsequent evidence has demonstrated that belief was mistaken.  In this case, a concrete statement acknowledging the belief as well as the refution of it is useful.</li>
+<li>It is appropriate to capture a "refuted" Condition record if the patient or anyone else had reason to believe that a patient did have a condition for a period of time and subsequent evidence has demonstrated that belief was mistaken.  In this case, a concrete statement acknowledging the belief as well as the refutation of it is useful.</li>
 <li>It is common as part of checklists prior to admission, surgery, enrollment in trials, etc. to ask questions such as "are you pregnant", "do you have a history of hypertension", etc.  This information should NOT be captured using the Condition resource but should instead be captured using QuestionnaireResponse or Observation.  In this case, the combination of the question and answer would convey that a particular condition was not present.</li>
 </ul>
 </p>

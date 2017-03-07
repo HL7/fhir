@@ -19,7 +19,7 @@
   Binding Name = AllergyIntoleranceCertainty
   Binding = code list
   Reference = #reaction-event-certainty
-  Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.
+  Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in a reaction event.
   Conformance = required
 
 === Sheet allerg-intol-substance-exp-risk =====================================

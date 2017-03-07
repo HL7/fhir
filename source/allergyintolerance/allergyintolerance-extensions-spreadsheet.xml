@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9210</WindowHeight>
+  <WindowHeight>9510</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>826</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4581,7 +4581,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>93</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5681,7 +5680,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s93"><Data ss:Type="String">AllergyIntoleranceCertainty</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in a reaction event.</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s127"><Data ss:Type="String">#reaction-event-certainty</Data></Cell>
@@ -6108,6 +6107,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6127,8 +6127,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -4,7 +4,7 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-This resource allows the assertion of linkages between multiple resource instances (generally of the same type) that are referring to the same underlying business objects.  For example, multiple Condition records that refer to the same underlying problem/issue for a particular Patient; multiple AllergyIntolerance records that refer to the same reaction susceptibility; multiple Patient, Practioner and/or RelatedPerson records that refer to the same human being or animal.
+This resource allows the assertion of linkages between multiple resource instances (generally of the same type) that are referring to the same underlying business objects.  For example, multiple Condition records that refer to the same underlying problem/issue for a Patient; multiple AllergyIntolerance records that refer to the same reaction susceptibility; multiple Patient, Practioner and/or RelatedPerson records that refer to the same human being or animal.
 </p>
 <p>
 FHIR supports a process for sharing electronic records.  It is common for multiple records to exist that deal with the same real-world phenomenon.  This can result from information being captured by different systems, information being captured within a single system by different users (either deliberately to represent distinct perspectives or accidentally when a new record is created rather than updating an existing record).  These multiple records may be referred to as "duplicate" records, but in practice they aren't often actually "duplicate" in that the data represented (and the history of the records) will be at least somewhat distinct.
