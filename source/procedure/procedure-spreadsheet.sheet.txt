@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ProcedureRelationshipType
+  Binding Name = !ProcedureRelationshipType
   Binding = code list
   Reference = #procedure-relationship-type
   Definition = The nature of the relationship with this procedure.
@@ -92,20 +92,6 @@
   Reference = http://hl7.org/fhir/ValueSet/device-kind
   Definition = Codes describing items used during a procedure
   Conformance = example
-
-=== Sheet procedure-relationship-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = caused-by
-  Display = Caused By
-  Definition = This procedure had to be performed because of the related one.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = because-of
-  Display = Because Of
-  Definition = This procedure caused the related one to be performed.
 
 === Sheet Invariants =====================================
 

@@ -51,7 +51,7 @@
   Conformance = example
 
  -- Row 8 -----------------------------------
-  Binding Name = CarePlanRelationship
+  Binding Name = !CarePlanRelationship
   Binding = code list
   Reference = #care-plan-relationship
   Definition = Codes identifying the types of relationships between two plans.
@@ -164,26 +164,6 @@
   Code = unknown
   Display = Unknown
   Definition = The authoring system doesn\'t know the current state of the activity.
-
-=== Sheet care-plan-relationship =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = includes
-  Display = Includes
-  Definition = The referenced plan is considered to be part of this plan.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = replaces
-  Display = Replaces
-  Definition = This plan takes the place of the referenced plan.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = fulfills
-  Display = Fulfills
-  Definition = This plan provides details about how to perform activities defined at a higher level by the referenced plan.
 
 === Sheet care-plan-intent =====================================
 
