@@ -1,0 +1,7 @@
+// Transform input model
+POST [base]/StructureMap/example/$tansform
+Content-Type: text/xml
+
+<classA xmlns="http://example.org">
+  <test>value</test>
+</class>
