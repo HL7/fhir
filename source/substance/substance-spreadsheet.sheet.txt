@@ -242,6 +242,11 @@
   Description = Unique identifier for the substance
   Path = Substance.identifier
 
+ -- Row 8 -----------------------------------
+  Name = status
+  Type = token
+  Path = Substance.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

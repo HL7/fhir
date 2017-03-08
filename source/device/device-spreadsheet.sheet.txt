@@ -464,6 +464,11 @@
   Description = A server defined search that may match any of the string fields in the Device.udi.name  or Device.type.coding.display or  Device.type.text
   Path = Device.udi.name | Device.type.text | Device.type.coding.display
 
+ -- Row 12 -----------------------------------
+  Name = status
+  Type = token
+  Path = Device.status
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

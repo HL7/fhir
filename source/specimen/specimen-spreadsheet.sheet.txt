@@ -457,6 +457,11 @@
   Description = The kind of specimen container
   Path = Specimen.container.type
 
+ -- Row 12 -----------------------------------
+  Name = status
+  Type = token
+  Path = Specimen.status
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
