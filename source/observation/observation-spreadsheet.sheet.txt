@@ -628,7 +628,7 @@
   Short Name = Provides guide for interpretation
   Definition = Guidance on how to interpret the value by comparison to a normal or recommended range
   Requirements = Knowing what values are considered \"normal\" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts
-  Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
+  Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
   v2 Mapping = OBX.7
   RIM Mapping = outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]
 
@@ -808,7 +808,7 @@
   Short Name = High, low, normal, etc.
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
-  Comments = The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element.
+  Comments = The component interpretation is applies only to the individual component value.  For an overall interpretation all components together use Observation.interpretation element.
   SNOMED CT Concept Domain = < 260245000 |Findings values|
   v2 Mapping = OBX-8
   RIM Mapping = interpretationCode
@@ -822,7 +822,7 @@
   Short Name = Provides guide for interpretation of component result
   Definition = Guidance on how to interpret the value by comparison to a normal or recommended range
   Requirements = Knowing what values are considered \"normal\" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts
-  Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
+  Comments = Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient\'s age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties
   v2 Mapping = OBX.7
   RIM Mapping = outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]
 
@@ -923,72 +923,84 @@
   Type = composite
   Description = Code and quantity value parameter pair
   Path = code & value-quantity
+  Expression = Observation; code; value.as(Quantity)
 
  -- Row 17 -----------------------------------
   Name = code-value-concept
   Type = composite
   Description = Code and coded value parameter pair
   Path = code & value-concept
+  Expression = Observation ; code; value.as(CodeableConcept)
 
  -- Row 18 -----------------------------------
   Name = code-value-date
   Type = composite
   Description = Code and date/time value parameter pair
   Path = code & value-date
+  Expression = Observation ; code; value.as(DateTime) | value.as(Period)
 
  -- Row 19 -----------------------------------
   Name = code-value-string
   Type = composite
   Description = Code and string value parameter pair
   Path = code & value-string
+  Expression = Observation ; code; value.as(string)
 
  -- Row 20 -----------------------------------
   Name = combo-code-value-quantity
   Type = composite
   Description = Code and quantity value parameter pair, including in components
   Path = combo-code & combo-value-quantity
+  Expression = Observation | Observation.component; code; value.as(Quantity)
 
  -- Row 21 -----------------------------------
   Name = combo-code-value-concept
   Type = composite
   Description = Code and coded value parameter pair, including in components
   Path = combo-code & combo-value-concept
+  Expression = Observation | Observation.component; code; value.as(CodeableConcept)
 
  -- Row 22 -----------------------------------
   Name = !combo-code-value-date
   Type = composite
   Description = Code and date/time value parameter pair, including in components
   Path = combo-code & combo-value-date
+  Expression = Observation | Observation.component; code; value.as(DateTime) | value.as(Period)
 
  -- Row 23 -----------------------------------
   Name = !combo-code-value-string
   Type = composite
   Description = Code and string value parameter pair, including in components
   Path = combo-code & combo-value-string
+  Expression = Observation | Observation.component; code; value.as(string)
 
  -- Row 24 -----------------------------------
   Name = component-code-value-quantity
   Type = composite
   Description = Component code and component quantity value parameter pair
   Path = component-code & component-value-quantity
+  Expression = Observation.component; code; value.as(Quantity)
 
  -- Row 25 -----------------------------------
   Name = component-code-value-concept
   Type = composite
   Description = Component code and component coded value parameter pair
   Path = component-code & component-value-concept
+  Expression = Observation.component; code; value.as(CodeableConcept)
 
  -- Row 26 -----------------------------------
   Name = !component-code-value-date
   Type = composite
   Description = Component code and component date/time value parameter pair
   Path = component-code & component-value-date
+  Expression = Observation.component; code; value.as(DateTime) | value.as(Period)
 
  -- Row 27 -----------------------------------
   Name = !component-code-value-string
   Type = composite
   Description = Component code and component string value parameter pair
   Path = component-code & component-value-string
+  Expression = Observation.component; code; value.as(string)
 
  -- Row 28 -----------------------------------
   Name = date
@@ -1040,6 +1052,7 @@
   Type = composite
   Description = Related Observations - search on related-type and related-target together
   Path = related-target & related-type
+  Expression = Observation.related; target; type
 
  -- Row 37 -----------------------------------
   Name = encounter

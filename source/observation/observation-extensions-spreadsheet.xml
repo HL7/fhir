@@ -5696,12 +5696,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">FocalSubject</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">codes for observation targets.  Derived from from both HL7 v3 and SNOMED CT code systems</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">codes for observation targets.  Derived from both HL7 v3 and SNOMED CT code systems</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">valueset-focal-subject</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Derived from from both HL7 v3 and SNOMED CT code systems</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Derived from both HL7 v3 and SNOMED CT code systems</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>

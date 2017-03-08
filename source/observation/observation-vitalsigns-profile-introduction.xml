@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>Vital signs will be one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profile sets  minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient that include the primary vital signs plus additional measurements such as height weight and BMI. Support for basic mandatory searching of resources is defined below in the <a href=#Quick_Start>Quick Start</a> section. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vital sign observation.</p>
+		<p>Vital signs will be one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profile sets  minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient that include the primary vital signs plus additional measurements such as height, weight and BMI. Support for basic mandatory searching of resources is defined below in the <a href=#Quick_Start>Quick Start</a> section. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vital sign observation.</p>
 		<p>These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.</p>
 	</div>
 	<div>
@@ -17,7 +17,7 @@
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
-		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content"><strong>Profile Definitions</strong></a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
+		<p>The following data-elements are mandatory (i.e. data MUST be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content"><strong>Profile Definitions</strong></a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
 			<strong>Each Observation must have:</strong>
 		</p>
@@ -56,7 +56,7 @@
 			<li>In addition the implementer may choose to provide alternate codes in addition to the standard codes defined here.  The examples illustrate using other codes as translations.
 			</li>
 			<li>
-				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital sign. For implementers using LOINC, optional qualifier codes are provided in the notes below.
+				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital signs. For implementers using LOINC, optional qualifier codes are provided in the notes below.
 			</li>
 		</ul>
 <p></p>
@@ -78,7 +78,7 @@
 					</td>
 					<td>85353-1</td>
 					<td>
-						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em> - It represent a panel of vital signs listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.    When used, Observation.valueQuantity is not present; instead, related links (with type=has-member) reference the vital signs observations  (e.g. respiratory rate, heart rate, BP, etc).  This code replaces the deprecated code 8716-3  - <em>Vital signs</em>  which is used in the Argonaut Data Query Implementation Guide. </td>
+						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em> - It represent a panel of vital signs listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.    When used, Observation.valueQuantity is not present; instead, related links (with type=has-member) reference the vital signs observations  (e.g. respiratory rate, heart rate, BP, etc.).  This code replaces the deprecated code 8716-3  - <em>Vital signs</em>  which is used in the Argonaut Data Query Implementation Guide. </td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>

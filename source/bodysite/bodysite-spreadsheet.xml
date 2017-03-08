@@ -1238,12 +1238,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The Description of anatomical location</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Anatomical location description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Description of anatomical location.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A summary, charactarization or explanation of the anatomic location.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This Description  could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This description could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">.text</Data><NamedCell

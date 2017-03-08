@@ -225,7 +225,7 @@
   Element = DataElement.mapping.comment
   Card. = 0..1
   Type = string
-  Short Name = Versions, Issues, Scope limitations etc.
+  Short Name = Versions, issues, scope limitations, etc.
   Definition = Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage
   RIM Mapping = N/A (MIF)
 
@@ -236,7 +236,6 @@
   Type = ElementDefinition
   Short Name = Definition of element
   Definition = Defines the structure, type, allowed values and other constraining characteristics of the data element
-  Requirements = 1
   Comments = For simple data types there will only be one repetition.  For complex data types, multiple repetitions will be present defining a nested structure using the \"path\" element
   RIM Mapping = N/A (MIF)
 

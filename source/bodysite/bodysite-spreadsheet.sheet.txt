@@ -105,9 +105,9 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Name = The Description of anatomical location
-  Definition = Description of anatomical location.
-  Comments = This Description  could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.
+  Short Name = Anatomical location description
+  Definition = A summary, charactarization or explanation of the anatomic location.
+  Comments = This description could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.
   RIM Mapping = .text
   OpenEHR mapping = Description of anatomical location/Visual markings/orientation
   w5 = what

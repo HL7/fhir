@@ -1852,7 +1852,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Set this to true if the record is saying that the procedure should NOT be performed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm etc. </Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1901,7 +1901,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Used for filtering what procedure request are retreived and displayed.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Used for filtering what procedure request are retrieved and displayed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String"> There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set. &#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2079,7 +2079,7 @@
     <Cell ss:StyleID="s95" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
       ss:Type="String">ProcedureRequest.occurrence[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">scheduled</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">schedule</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2291,7 +2291,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Individual making the request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">The device, practitioner or organization. who initiated the request</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">The device, practitioner or organization who initiated the request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2391,7 +2391,7 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">Desired type of performer for doing the diagnostic testing. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">this is a  role, not  a participation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">.participation[typeCode=PRF].role[scoper.determinerCode=KIND].code</Data><NamedCell
@@ -2440,7 +2440,7 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">If needed, use an [extension](extensibility.html) for listing alternative alternative performers and/or roles and/or preference.</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">.participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]</Data><NamedCell
@@ -2686,7 +2686,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String"> Anatomic location where the procedure should be performed. This is the target site.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Knowing where the procedure is made is important for tracking if multiple sites are possible.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Knowing where the procedure is performed is important for tracking if multiple sites are possible.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Only used if not implicit in the code found in ProcedureRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedurerequest-targetBodySite](extension-procedurerequest-targetbodysite.html)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

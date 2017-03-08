@@ -46,11 +46,13 @@
 				<li>valueTime</li>
 				<li>valueDateTime</li>
 				<li>valuePeriod</li>
-			</ul>
+
+			</ul><br />
+
 		</li>
 		<li><p><strong>Using codes for result values</strong></p><p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values. Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example below.</p>
 
-		 For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:
+		 <p>For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:</p>
 <pre class="json">
 	"valueCodeableConcept": {
 	"coding": [
@@ -68,7 +70,7 @@
 	"text": "Negative for Chlamydia Trachomatis rRNA"
 	  }
 			</pre>
-<p>Text values for coded results:</p><p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code> <em>even</em> if there is no appropriate code and only uncoded text is available. For example using text only, the <code>valueCodeableConcept</code> element the would be:</p>
+<p>Text values for coded results:</p><p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code> <em>even if</em> there is no appropriate code and only un-coded text is available. For example using text only, the <code>valueCodeableConcept</code> element would be:</p>
 		<pre class="json">
 	"valueCodeableConcept": {
 	"text": "uncoded free text result"
@@ -101,7 +103,7 @@
 		<li>
 		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.
 		  </li>
-		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ( 'error' or 'NaN').
+		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').
 		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
 			<pre class="json">
 		"valueQuantity": {
@@ -139,10 +141,10 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
     often reported as a single point in time.</p>
 	<h3>Reference Range</h3>
 	<p>
-		Most commonly observations will only have one generic reference range.  Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.
+		Most common observations will only have one generic reference range.  Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.
 		</p>
 	<h3>Canceled or Aborted Observations</h3>
-	<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "canceled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.
+	<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.
 </p>
 
 <a name="observation-operations"> </a>
