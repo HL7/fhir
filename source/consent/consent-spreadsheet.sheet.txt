@@ -321,7 +321,7 @@
   Card. = 0..1
   Inv. = 1
   Type = uri
-  Short Name = Authority of policy
+  Short Name = Enforcement source for policy
   Definition = Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives.
 
  -- Row 18 -----------------------------------
