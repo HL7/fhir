@@ -700,15 +700,9 @@
   Target Types = Patient
 
  -- Row 14 -----------------------------------
-  Name = timing-period
+  Name = date
   Type = date
-  Description = Returns medication requests that are expected to be administered during a peiod
-  Path = MedicationRequest.dosageInstruction.timing.repeat.boundsPeriod
-
- -- Row 15 -----------------------------------
-  Name = timing-event
-  Type = date
-  Description = Returns medication requests that are expected to be administered at specific time
+  Description = Returns medication request to be administered on a specific date
   Path = MedicationRequest.dosageInstruction.timing.event
 
 === Sheet Profiles =====================================
