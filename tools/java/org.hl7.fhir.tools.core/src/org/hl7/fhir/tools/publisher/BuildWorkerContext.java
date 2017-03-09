@@ -658,14 +658,16 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     Document xdoc = builder.parse(new CSFileInputStream(filename));
     Element code = XMLUtil.getFirstChild(xdoc.getDocumentElement());
     while (code != null) {
-      Concept c = new Concept();
-      c.display = code.getAttribute("display");
-      Element child = XMLUtil.getFirstChild(code);
-      while (child != null) {
-        c.displays.add(child.getAttribute("value"));
-        child = XMLUtil.getNextSibling(child);
+      if (Utilities.noString(code.getAttribute("no"))) {
+        Concept c = new Concept();
+        c.display = code.getAttribute("display");
+        Element child = XMLUtil.getFirstChild(code);
+        while (child != null) {
+          c.displays.add(child.getAttribute("value"));
+          child = XMLUtil.getNextSibling(child);
+        }
+        snomedCodes.put(code.getAttribute("id"), c);
       }
-      snomedCodes.put(code.getAttribute("id"), c);
       code = XMLUtil.getNextSibling(code);
     }
   }

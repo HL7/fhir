@@ -85,7 +85,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private boolean canRunWithoutTerminology;
   protected boolean noTerminologyServer;
   protected String cache;
-  private int expandCodesLimit = 10000;
+  private int expandCodesLimit = 1000;
   protected ILoggingService logger;
   protected ExpansionProfile expProfile;
 
