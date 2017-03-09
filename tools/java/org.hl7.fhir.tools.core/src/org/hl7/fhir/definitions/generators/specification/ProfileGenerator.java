@@ -302,7 +302,7 @@ public class ProfileGenerator {
     ec2.setMin(0);
     ec2.setMax("1");
     ec2.setShort("xml:id (or equivalent in JSON)");
-    ec2.getType().add(new TypeRefComponent().setCode("id"));
+    ec2.getType().add(new TypeRefComponent().setCode("string"));
     generateElementDefinition(ec2, ec1);
     ec2.makeBase("Element.id", 0, "1");
 
@@ -438,7 +438,7 @@ public class ProfileGenerator {
     ec2.setMin(0);
     ec2.setMax("1");
     ec2.setShort("xml:id (or equivalent in JSON)");
-    ec2.getType().add(new TypeRefComponent().setCode("id"));
+    ec2.getType().add(new TypeRefComponent().setCode("string"));
     generateElementDefinition(ec2, ec1);
     ec2.makeBase("Element.id", 0, "1");
 
@@ -563,7 +563,7 @@ public class ProfileGenerator {
     ecid.setMin(0);
     ecid.setMax("1");
     ecid.setShort("xml:id (or equivalent in JSON)");
-    ecid.getType().add(new TypeRefComponent().setCode("id"));
+    ecid.getType().add(new TypeRefComponent().setCode("string"));
     ecid.makeBase("Element.id", 0, "1");
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
