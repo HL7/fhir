@@ -188,6 +188,41 @@
   Description = The minimum relevance score of any match that will be returned
   Path = Bundle/entry/search/score
 
+ -- Row 3 -----------------------------------
+  Name = depends-on
+  Type = reference
+  Path = Library.relatedArtifact.resource
+  Expression = Library.relatedArtifact.where(type=\'depends-on\').resource
+  XPath = f:Library/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource
+
+ -- Row 4 -----------------------------------
+  Name = derived-from
+  Type = reference
+  Path = Library.relatedArtifact.resource
+  Expression = Library.relatedArtifact.where(type=\'derived-from\').resource
+  XPath = f:Library/f:relatedArtifact[f:type/@value=\'derived-from\']/f:resource
+
+ -- Row 5 -----------------------------------
+  Name = successor
+  Type = reference
+  Path = Library.relatedArtifact.resource
+  Expression = Library.relatedArtifact.where(type=\'successor\').resource
+  XPath = f:Library/f:relatedArtifact[f:type/@value=\'successor\']/f:resource
+
+ -- Row 6 -----------------------------------
+  Name = predecessor
+  Type = reference
+  Path = Library.relatedArtifact.resource
+  Expression = Library.relatedArtifact.where(type=\'predecessor\').resource
+  XPath = f:Library/f:relatedArtifact[f:type/@value=\'predecessor\']/f:resource
+
+ -- Row 7 -----------------------------------
+  Name = composed-of
+  Type = reference
+  Path = Library.relatedArtifact.resource
+  Expression = Library.relatedArtifact.where(type=\'composed-of\').resource
+  XPath = f:Library/f:relatedArtifact[f:type/@value=\'composed-of\']/f:resource
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

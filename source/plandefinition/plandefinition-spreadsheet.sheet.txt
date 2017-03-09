@@ -890,3 +890,237 @@
   Short Name = A sub-action
   Definition = Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition
   Workflow Mapping = InverseRelationship of Definition.partOf
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = PlanDefinition.topic
+
+ -- Row 2 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
+
+ -- Row 3 -----------------------------------
+  Name = depends-on
+  Type = reference
+  Path = PlanDefinition.relatedArtifact.resource
+  Expression = PlanDefinition.relatedArtifact.where(type=\'depends-on\').resource
+  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource
+
+ -- Row 4 -----------------------------------
+  Name = derived-from
+  Type = reference
+  Path = PlanDefinition.relatedArtifact.resource
+  Expression = PlanDefinition.relatedArtifact.where(type=\'derived-from\').resource
+  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'derived-from\']/f:resource
+
+ -- Row 5 -----------------------------------
+  Name = successor
+  Type = reference
+  Path = PlanDefinition.relatedArtifact.resource
+  Expression = PlanDefinition.relatedArtifact.where(type=\'successor\').resource
+  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'successor\']/f:resource
+
+ -- Row 6 -----------------------------------
+  Name = predecessor
+  Type = reference
+  Path = PlanDefinition.relatedArtifact.resource
+  Expression = PlanDefinition.relatedArtifact.where(type=\'predecessor\').resource
+  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'predecessor\']/f:resource
+
+ -- Row 7 -----------------------------------
+  Name = composed-of
+  Type = reference
+  Path = PlanDefinition.relatedArtifact.resource
+  Expression = PlanDefinition.relatedArtifact.where(type=\'composed-of\').resource
+  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'composed-of\']/f:resource
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = OrderSetExample
+  Identity = low-suicide-risk-order-set
+  Description = Low Suicide Risk Order Set
+  Filename = plandefinition-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = CSExample
+  Identity = chlamydia-screening-intervention
+  Description = Chlamydia Screening CDS example
+  Filename = plandefinition-chlamydia-screening-intervention.xml
+
+ -- Row 3 -----------------------------------
+  Name = CMS9CDS01
+  Identity = exclusive-breastfeeding-intervention-01
+  Description = Exclusive Breastfeeding Intervention 01
+  Filename = plandefinition-exclusive-breastfeeding-intervention-01.xml
+
+ -- Row 4 -----------------------------------
+  Name = CMS9CDS02
+  Identity = exclusive-breastfeeding-intervention-02
+  Description = Exclusive Breastfeeding Intervention 02
+  Filename = plandefinition-exclusive-breastfeeding-intervention-02.xml
+
+ -- Row 5 -----------------------------------
+  Name = CMS9CDS03
+  Identity = exclusive-breastfeeding-intervention-03
+  Description = Exclusive Breastfeeding Intervention 03
+  Filename = plandefinition-exclusive-breastfeeding-intervention-03.xml
+
+ -- Row 6 -----------------------------------
+  Name = CMS9CDS04
+  Identity = exclusive-breastfeeding-intervention-04
+  Description = Exclusive Breastfeeding Intervention 04
+  Filename = plandefinition-exclusive-breastfeeding-intervention-04.xml
+
+ -- Row 7 -----------------------------------
+  Name = ProtocolExample
+  Identity = protocol-example
+  Description = Obesity Assessment Protocol
+  Filename = plandefinition-protocol-example.xml
+
+ -- Row 8 -----------------------------------
+  Name = !StudyExample
+  Identity = protocol-study-example
+  Description = Study Protocol
+  Filename = plandefinition-protocol-study-example.xml
+
+ -- Row 9 -----------------------------------
+  Name = KDN5
+  Identity = KDN5
+  Description = Chemotherapy Regimen
+  Filename = plandefinition-example-kdn5-simplified.xml
+
+ -- Row 10 -----------------------------------
+  Name = ZikaVirusInfection
+  Identity = zika-virus-intervention
+  Description = Zika Virus Infection Management Process
+  Filename = plandefinition-zika-virus-intervention.xml
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = apply
+  Use = Instance
+  Documentation = The apply operation applies a PlanDefinition to a given context
+  Type = operation
+  Example.Request = $apply-request.txt
+  Example.Response = $apply-response.txt
+  Title = Apply
+  Footer = The result of this operation is a CarePlan resource, with activities for each of the applicable actions based on evaluating the applicability condition in context. For each applicable action, the activitydefinition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an activity to the CarePlan. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation
+
+ -- Row 2 -----------------------------------
+  Name = apply.patient
+  Use = in
+  Documentation = The patient that is the target of the plan to be applied
+  Type = Reference(Patient)
+  Title = Patient
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = apply.encounter
+  Use = in
+  Documentation = The encounter in context, if any
+  Type = Reference(Encounter)
+  Title = Encounter
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = apply.practitioner
+  Use = in
+  Documentation = The practitioner applying the plan definition
+  Type = Reference(Practitioner)
+  Title = Practitioner
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = apply.organization
+  Use = in
+  Documentation = The organization applying the plan definition
+  Type = Reference(Organization)
+  Title = Organization
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = apply.userType
+  Use = in
+  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = User Type
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = apply.userLanguage
+  Use = in
+  Documentation = Preferred language of the person using the system
+  Type = CodeableConcept
+  Title = User Language
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = apply.userTaskContext
+  Use = in
+  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  Type = CodeableConcept
+  Title = User Task Context
+  Min = 0
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = apply.setting
+  Use = in
+  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Type = CodeableConcept
+  Title = Setting
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = apply.settingContext
+  Use = in
+  Documentation = Additional detail about the setting of the request, if any
+  Type = CodeableConcept
+  Title = Setting Context
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = apply.return
+  Use = out
+  Documentation = The CarePlan that is the result of applying the plan definition
+  Type = CarePlan
+  Title = Return
+  Min = 1
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = data-requirements
+  Use = Instance
+  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the plan definition and all its dependencies as a single module definition library
+  Type = operation
+  Example.Request = $data-requirements-request.txt
+  Example.Response = $data-requirements-response.txt
+  Title = Data Requirements
+  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the plan definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the plan definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
+
+ -- Row 13 -----------------------------------
+  Name = data-requirements.return
+  Use = out
+  Documentation = The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the plan definition
+  Type = Library
+  Title = Return
+  Min = 1
+  Max = 1

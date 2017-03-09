@@ -258,12 +258,14 @@
   Type = token
   Description = A value in a phone contact
   Path = PractitionerRole.telecom(system=phone)
+  Expression = PractitionerRole.telecom.where(system=\'phone\')
 
  -- Row 5 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
   Path = PractitionerRole.telecom(system=email)
+  Expression = PractitionerRole.telecom.where(system=\'email\')
 
  -- Row 6 -----------------------------------
   Name = organization
@@ -293,6 +295,21 @@
   Name = endpoint
   Type = reference
   Path = PractitionerRole.endpoint
+
+ -- Row 11 -----------------------------------
+  Name = active
+  Type = token
+  Path = PractitionerRole.active
+
+ -- Row 12 -----------------------------------
+  Name = date
+  Type = date
+  Path = PractitionerRole.period
+
+ -- Row 13 -----------------------------------
+  Name = service
+  Type = reference
+  Path = PractitionerRole.healthcareService
 
 === Sheet Profiles =====================================
 
