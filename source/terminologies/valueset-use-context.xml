@@ -39,9 +39,30 @@
       <system value="urn:iso:std:iso:3166"/>
     </include>
 
+    <!--  ISO 2 letter country codes   -->
+    <include>
+      <system value="urn:iso:std:iso:3166"/>
+    </include>
+
   <!--   ISO region codes   -->
     <include>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <filter>
+        <property value="class"/>
+        <op value="="/>
+        <value value="region"/>
+      </filter>
     </include>
+
+    <!-- species -->
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="387961004"/>
+      </filter>
+    </include>
+    
   </compose>
 </ValueSet>

@@ -14578,6 +14578,12 @@
     <display value="Operative procedure"/>
     <display value="Planned structural alteration of the body, usually requiring disruption of a body surface (usually skin or mucosa)"/>
   </concept>
+  <concept id="387961004" display="Kingdom Animalia">
+    <display value="Kingdom Animalia (organism)"/>
+    <display value="Kingdom Animalia"/>
+    <display value="Animal"/>
+    <display value="Animals"/>
+  </concept>
   <concept id="388445009" display="Genus Equus (organism)">
     <display value="Genus Equus (organism)"/>
     <display value="Genus Equus"/>
