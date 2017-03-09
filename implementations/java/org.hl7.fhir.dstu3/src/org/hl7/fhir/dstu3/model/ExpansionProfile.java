@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1076,10 +1076,10 @@ public class ExpansionProfile extends MetadataResource {
         protected CodeType language;
 
         /**
-         * Designation uses for inclusion in the expansion.
+         * Which kinds of designation to include in the expansion.
          */
         @Child(name = "use", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Designation use", formalDefinition="Designation uses for inclusion in the expansion." )
+        @Description(shortDefinition="What kind of Designation to include", formalDefinition="Which kinds of designation to include in the expansion." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/designation-use")
         protected Coding use;
 
@@ -1142,7 +1142,7 @@ public class ExpansionProfile extends MetadataResource {
         }
 
         /**
-         * @return {@link #use} (Designation uses for inclusion in the expansion.)
+         * @return {@link #use} (Which kinds of designation to include in the expansion.)
          */
         public Coding getUse() { 
           if (this.use == null)
@@ -1158,7 +1158,7 @@ public class ExpansionProfile extends MetadataResource {
         }
 
         /**
-         * @param value {@link #use} (Designation uses for inclusion in the expansion.)
+         * @param value {@link #use} (Which kinds of designation to include in the expansion.)
          */
         public DesignationIncludeDesignationComponent setUse(Coding value) { 
           this.use = value;
@@ -1168,7 +1168,7 @@ public class ExpansionProfile extends MetadataResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("language", "code", "The language this designation is defined for.", 0, java.lang.Integer.MAX_VALUE, language));
-          childrenList.add(new Property("use", "Coding", "Designation uses for inclusion in the expansion.", 0, java.lang.Integer.MAX_VALUE, use));
+          childrenList.add(new Property("use", "Coding", "Which kinds of designation to include in the expansion.", 0, java.lang.Integer.MAX_VALUE, use));
         }
 
       @Override
@@ -1463,10 +1463,10 @@ public class ExpansionProfile extends MetadataResource {
         protected CodeType language;
 
         /**
-         * Designation uses for exclusion in the expansion.
+         * Which kinds of designation to exclude from the expansion.
          */
         @Child(name = "use", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Designation use", formalDefinition="Designation uses for exclusion in the expansion." )
+        @Description(shortDefinition="What kind of Designation to exclude", formalDefinition="Which kinds of designation to exclude from the expansion." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/designation-use")
         protected Coding use;
 
@@ -1529,7 +1529,7 @@ public class ExpansionProfile extends MetadataResource {
         }
 
         /**
-         * @return {@link #use} (Designation uses for exclusion in the expansion.)
+         * @return {@link #use} (Which kinds of designation to exclude from the expansion.)
          */
         public Coding getUse() { 
           if (this.use == null)
@@ -1545,7 +1545,7 @@ public class ExpansionProfile extends MetadataResource {
         }
 
         /**
-         * @param value {@link #use} (Designation uses for exclusion in the expansion.)
+         * @param value {@link #use} (Which kinds of designation to exclude from the expansion.)
          */
         public DesignationExcludeDesignationComponent setUse(Coding value) { 
           this.use = value;
@@ -1555,7 +1555,7 @@ public class ExpansionProfile extends MetadataResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("language", "code", "The language this designation is defined for.", 0, java.lang.Integer.MAX_VALUE, language));
-          childrenList.add(new Property("use", "Coding", "Designation uses for exclusion in the expansion.", 0, java.lang.Integer.MAX_VALUE, use));
+          childrenList.add(new Property("use", "Coding", "Which kinds of designation to exclude from the expansion.", 0, java.lang.Integer.MAX_VALUE, use));
         }
 
       @Override

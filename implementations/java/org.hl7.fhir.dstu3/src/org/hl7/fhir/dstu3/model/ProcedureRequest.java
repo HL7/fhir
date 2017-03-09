@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -537,14 +537,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     @Block()
     public static class ProcedureRequestRequesterComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The device, practitioner or organization. who initiated the request.
+         * The device, practitioner or organization who initiated the request.
          */
         @Child(name = "agent", type = {Device.class, Practitioner.class, Organization.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner or organization. who initiated the request." )
+        @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner or organization who initiated the request." )
         protected Reference agent;
 
         /**
-         * The actual object that is the target of the reference (The device, practitioner or organization. who initiated the request.)
+         * The actual object that is the target of the reference (The device, practitioner or organization who initiated the request.)
          */
         protected Resource agentTarget;
 
@@ -578,7 +578,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
         /**
-         * @return {@link #agent} (The device, practitioner or organization. who initiated the request.)
+         * @return {@link #agent} (The device, practitioner or organization who initiated the request.)
          */
         public Reference getAgent() { 
           if (this.agent == null)
@@ -594,7 +594,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @param value {@link #agent} (The device, practitioner or organization. who initiated the request.)
+         * @param value {@link #agent} (The device, practitioner or organization who initiated the request.)
          */
         public ProcedureRequestRequesterComponent setAgent(Reference value) { 
           this.agent = value;
@@ -602,14 +602,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @return {@link #agent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization. who initiated the request.)
+         * @return {@link #agent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization who initiated the request.)
          */
         public Resource getAgentTarget() { 
           return this.agentTarget;
         }
 
         /**
-         * @param value {@link #agent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization. who initiated the request.)
+         * @param value {@link #agent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization who initiated the request.)
          */
         public ProcedureRequestRequesterComponent setAgentTarget(Resource value) { 
           this.agentTarget = value;
@@ -662,7 +662,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("agent", "Reference(Device|Practitioner|Organization)", "The device, practitioner or organization. who initiated the request.", 0, java.lang.Integer.MAX_VALUE, agent));
+          childrenList.add(new Property("agent", "Reference(Device|Practitioner|Organization)", "The device, practitioner or organization who initiated the request.", 0, java.lang.Integer.MAX_VALUE, agent));
           childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         }
 

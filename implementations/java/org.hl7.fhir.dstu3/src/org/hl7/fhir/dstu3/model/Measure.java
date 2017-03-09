@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -4235,24 +4235,30 @@ public class Measure extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>effective</b>
+   * Search parameter: <b>successor</b>
    * <p>
-   * Description: <b>Effective time associated with the measure</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Measure.effectivePeriod</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="effective", path="Measure.effectivePeriod", description="Effective time associated with the measure", type="date" )
-  public static final String SP_EFFECTIVE = "effective";
+  @SearchParamDefinition(name="successor", path="Measure.relatedArtifact.where(type='successor').resource", description="The related resource", type="reference" )
+  public static final String SP_SUCCESSOR = "successor";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
+   * <b>Fluent Client</b> search parameter constant for <b>successor</b>
    * <p>
-   * Description: <b>Effective time associated with the measure</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Measure.effectivePeriod</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUCCESSOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUCCESSOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Measure:successor</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUCCESSOR = new ca.uhn.fhir.model.api.Include("Measure:successor").toLocked();
 
  /**
    * Search parameter: <b>jurisdiction</b>
@@ -4275,26 +4281,6 @@ public class Measure extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Name of the measure</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="Measure.name", description="Name of the measure", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Name of the measure</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>description</b>
    * <p>
    * Description: <b>Text search against the description of the measure</b><br>
@@ -4315,44 +4301,56 @@ public class Measure extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>derived-from</b>
    * <p>
-   * Description: <b>Name of the publisher of the measure</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.publisher</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="Measure.publisher", description="Name of the publisher of the measure", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="derived-from", path="Measure.relatedArtifact.where(type='derived-from').resource", description="The related resource", type="reference" )
+  public static final String SP_DERIVED_FROM = "derived-from";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>derived-from</b>
    * <p>
-   * Description: <b>Name of the publisher of the measure</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Measure.publisher</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DERIVED_FROM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DERIVED_FROM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Measure:derived-from</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DERIVED_FROM = new ca.uhn.fhir.model.api.Include("Measure:derived-from").toLocked();
 
  /**
-   * Search parameter: <b>topic</b>
+   * Search parameter: <b>predecessor</b>
    * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.topic</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="topic", path="Measure.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
+  @SearchParamDefinition(name="predecessor", path="Measure.relatedArtifact.where(type='predecessor').resource", description="The related resource", type="reference" )
+  public static final String SP_PREDECESSOR = "predecessor";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>predecessor</b>
    * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Measure.topic</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PREDECESSOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PREDECESSOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Measure:predecessor</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PREDECESSOR = new ca.uhn.fhir.model.api.Include("Measure:predecessor").toLocked();
 
  /**
    * Search parameter: <b>title</b>
@@ -4373,6 +4371,32 @@ public class Measure extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
+   * Search parameter: <b>composed-of</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="composed-of", path="Measure.relatedArtifact.where(type='composed-of').resource", description="The related resource", type="reference" )
+  public static final String SP_COMPOSED_OF = "composed-of";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>composed-of</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COMPOSED_OF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COMPOSED_OF);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Measure:composed-of</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COMPOSED_OF = new ca.uhn.fhir.model.api.Include("Measure:composed-of").toLocked();
 
  /**
    * Search parameter: <b>version</b>
@@ -4413,6 +4437,112 @@ public class Measure extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>effective</b>
+   * <p>
+   * Description: <b>Effective time associated with the measure</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Measure.effectivePeriod</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="effective", path="Measure.effectivePeriod", description="Effective time associated with the measure", type="date" )
+  public static final String SP_EFFECTIVE = "effective";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
+   * <p>
+   * Description: <b>Effective time associated with the measure</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Measure.effectivePeriod</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
+
+ /**
+   * Search parameter: <b>depends-on</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="depends-on", path="Measure.relatedArtifact.where(type='depends-on').resource", description="The related resource", type="reference" )
+  public static final String SP_DEPENDS_ON = "depends-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Measure.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEPENDS_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEPENDS_ON);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Measure:depends-on</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEPENDS_ON = new ca.uhn.fhir.model.api.Include("Measure:depends-on").toLocked();
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Name of the measure</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="Measure.name", description="Name of the measure", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Name of the measure</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the measure</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="Measure.publisher", description="Name of the publisher of the measure", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the measure</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="Measure.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
 
  /**
    * Search parameter: <b>status</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -176,7 +176,7 @@ public class ActivityDefinition extends MetadataResource {
          */
         DEVICE, 
         /**
-         * Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
+         * The characteristics, operational status and capabilities of a medical-related component of a medical device.
          */
         DEVICECOMPONENT, 
         /**
@@ -1058,7 +1058,7 @@ public class ActivityDefinition extends MetadataResource {
             case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
             case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
-            case DEVICECOMPONENT: return "Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.";
+            case DEVICECOMPONENT: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
@@ -2819,9 +2819,8 @@ public class ActivityDefinition extends MetadataResource {
     /**
      * The period, timing or frequency upon which the described activity is to occur.
      */
-    @Child(name = "timing", type = {CodeableConcept.class, Timing.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "timing", type = {Timing.class, DateTimeType.class, Period.class, Range.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When activity is to occur", formalDefinition="The period, timing or frequency upon which the described activity is to occur." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/timing-abbreviation")
     protected Type timing;
 
     /**
@@ -4140,19 +4139,6 @@ public class ActivityDefinition extends MetadataResource {
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public CodeableConcept getTimingCodeableConcept() throws FHIRException { 
-      if (!(this.timing instanceof CodeableConcept))
-        throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.timing.getClass().getName()+" was encountered");
-      return (CodeableConcept) this.timing;
-    }
-
-    public boolean hasTimingCodeableConcept() { 
-      return this.timing instanceof CodeableConcept;
-    }
-
-    /**
-     * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
-     */
     public Timing getTimingTiming() throws FHIRException { 
       if (!(this.timing instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
@@ -4161,6 +4147,45 @@ public class ActivityDefinition extends MetadataResource {
 
     public boolean hasTimingTiming() { 
       return this.timing instanceof Timing;
+    }
+
+    /**
+     * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
+     */
+    public DateTimeType getTimingDateTimeType() throws FHIRException { 
+      if (!(this.timing instanceof DateTimeType))
+        throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
+      return (DateTimeType) this.timing;
+    }
+
+    public boolean hasTimingDateTimeType() { 
+      return this.timing instanceof DateTimeType;
+    }
+
+    /**
+     * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
+     */
+    public Period getTimingPeriod() throws FHIRException { 
+      if (!(this.timing instanceof Period))
+        throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
+      return (Period) this.timing;
+    }
+
+    public boolean hasTimingPeriod() { 
+      return this.timing instanceof Period;
+    }
+
+    /**
+     * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
+     */
+    public Range getTimingRange() throws FHIRException { 
+      if (!(this.timing instanceof Range))
+        throw new FHIRException("Type mismatch: the type Range was expected, but "+this.timing.getClass().getName()+" was encountered");
+      return (Range) this.timing;
+    }
+
+    public boolean hasTimingRange() { 
+      return this.timing instanceof Range;
     }
 
     public boolean hasTiming() { 
@@ -4571,7 +4596,7 @@ public class ActivityDefinition extends MetadataResource {
         childrenList.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the asset.", 0, java.lang.Integer.MAX_VALUE, library));
         childrenList.add(new Property("kind", "code", "A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("timing[x]", "CodeableConcept|Timing", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
+        childrenList.add(new Property("timing[x]", "Timing|dateTime|Period|Range", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
         childrenList.add(new Property("location", "Reference(Location)", "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("participant", "", "Indicates who should participate in performing the action described.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("product[x]", "Reference(Medication|Substance)|CodeableConcept", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
@@ -4885,7 +4910,7 @@ public class ActivityDefinition extends MetadataResource {
         case 166208699: /*library*/ return new String[] {"Reference"};
         case 3292052: /*kind*/ return new String[] {"code"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -873664438: /*timing*/ return new String[] {"CodeableConcept", "Timing"};
+        case -873664438: /*timing*/ return new String[] {"Timing", "dateTime", "Period", "Range"};
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case 767422259: /*participant*/ return new String[] {};
         case -309474065: /*product*/ return new String[] {"Reference", "CodeableConcept"};
@@ -4978,12 +5003,20 @@ public class ActivityDefinition extends MetadataResource {
           this.code = new CodeableConcept();
           return this.code;
         }
-        else if (name.equals("timingCodeableConcept")) {
-          this.timing = new CodeableConcept();
-          return this.timing;
-        }
         else if (name.equals("timingTiming")) {
           this.timing = new Timing();
+          return this.timing;
+        }
+        else if (name.equals("timingDateTime")) {
+          this.timing = new DateTimeType();
+          return this.timing;
+        }
+        else if (name.equals("timingPeriod")) {
+          this.timing = new Period();
+          return this.timing;
+        }
+        else if (name.equals("timingRange")) {
+          this.timing = new Range();
           return this.timing;
         }
         else if (name.equals("location")) {
@@ -5202,24 +5235,30 @@ public class ActivityDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>effective</b>
+   * Search parameter: <b>successor</b>
    * <p>
-   * Description: <b>Effective time associated with the activity definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ActivityDefinition.effectivePeriod</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="effective", path="ActivityDefinition.effectivePeriod", description="Effective time associated with the activity definition", type="date" )
-  public static final String SP_EFFECTIVE = "effective";
+  @SearchParamDefinition(name="successor", path="ActivityDefinition.relatedArtifact.where(type='successor').resource", description="The related resource", type="reference" )
+  public static final String SP_SUCCESSOR = "successor";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
+   * <b>Fluent Client</b> search parameter constant for <b>successor</b>
    * <p>
-   * Description: <b>Effective time associated with the activity definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ActivityDefinition.effectivePeriod</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUCCESSOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUCCESSOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ActivityDefinition:successor</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUCCESSOR = new ca.uhn.fhir.model.api.Include("ActivityDefinition:successor").toLocked();
 
  /**
    * Search parameter: <b>jurisdiction</b>
@@ -5242,26 +5281,6 @@ public class ActivityDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Name of the activity definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ActivityDefinition.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="ActivityDefinition.name", description="Name of the activity definition", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Name of the activity definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ActivityDefinition.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>description</b>
    * <p>
    * Description: <b>Text search against the description of the activity definition</b><br>
@@ -5282,44 +5301,56 @@ public class ActivityDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>derived-from</b>
    * <p>
-   * Description: <b>Name of the publisher of the activity definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ActivityDefinition.publisher</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="ActivityDefinition.publisher", description="Name of the publisher of the activity definition", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="derived-from", path="ActivityDefinition.relatedArtifact.where(type='derived-from').resource", description="The related resource", type="reference" )
+  public static final String SP_DERIVED_FROM = "derived-from";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>derived-from</b>
    * <p>
-   * Description: <b>Name of the publisher of the activity definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ActivityDefinition.publisher</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DERIVED_FROM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DERIVED_FROM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ActivityDefinition:derived-from</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DERIVED_FROM = new ca.uhn.fhir.model.api.Include("ActivityDefinition:derived-from").toLocked();
 
  /**
-   * Search parameter: <b>topic</b>
+   * Search parameter: <b>predecessor</b>
    * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ActivityDefinition.topic</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="topic", path="ActivityDefinition.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
+  @SearchParamDefinition(name="predecessor", path="ActivityDefinition.relatedArtifact.where(type='predecessor').resource", description="The related resource", type="reference" )
+  public static final String SP_PREDECESSOR = "predecessor";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <b>Fluent Client</b> search parameter constant for <b>predecessor</b>
    * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ActivityDefinition.topic</b><br>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PREDECESSOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PREDECESSOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ActivityDefinition:predecessor</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PREDECESSOR = new ca.uhn.fhir.model.api.Include("ActivityDefinition:predecessor").toLocked();
 
  /**
    * Search parameter: <b>title</b>
@@ -5340,6 +5371,32 @@ public class ActivityDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
+   * Search parameter: <b>composed-of</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="composed-of", path="ActivityDefinition.relatedArtifact.where(type='composed-of').resource", description="The related resource", type="reference" )
+  public static final String SP_COMPOSED_OF = "composed-of";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>composed-of</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COMPOSED_OF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COMPOSED_OF);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ActivityDefinition:composed-of</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COMPOSED_OF = new ca.uhn.fhir.model.api.Include("ActivityDefinition:composed-of").toLocked();
 
  /**
    * Search parameter: <b>version</b>
@@ -5380,6 +5437,112 @@ public class ActivityDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>effective</b>
+   * <p>
+   * Description: <b>Effective time associated with the activity definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ActivityDefinition.effectivePeriod</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="effective", path="ActivityDefinition.effectivePeriod", description="Effective time associated with the activity definition", type="date" )
+  public static final String SP_EFFECTIVE = "effective";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
+   * <p>
+   * Description: <b>Effective time associated with the activity definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ActivityDefinition.effectivePeriod</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
+
+ /**
+   * Search parameter: <b>depends-on</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="depends-on", path="ActivityDefinition.relatedArtifact.where(type='depends-on').resource", description="The related resource", type="reference" )
+  public static final String SP_DEPENDS_ON = "depends-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
+   * <p>
+   * Description: <b>The related resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ActivityDefinition.relatedArtifact.resource</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEPENDS_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEPENDS_ON);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ActivityDefinition:depends-on</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEPENDS_ON = new ca.uhn.fhir.model.api.Include("ActivityDefinition:depends-on").toLocked();
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Name of the activity definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ActivityDefinition.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="ActivityDefinition.name", description="Name of the activity definition", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Name of the activity definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ActivityDefinition.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the activity definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ActivityDefinition.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="ActivityDefinition.publisher", description="Name of the publisher of the activity definition", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the activity definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ActivityDefinition.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ActivityDefinition.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="ActivityDefinition.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ActivityDefinition.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
 
  /**
    * Search parameter: <b>status</b>

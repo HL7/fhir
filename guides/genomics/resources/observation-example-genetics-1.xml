@@ -20,7 +20,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass" >
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist" />
+        <system value="http://loinc.org" />
         <code value="LA6684-0" />
         <display value="somatic" />
       </coding>

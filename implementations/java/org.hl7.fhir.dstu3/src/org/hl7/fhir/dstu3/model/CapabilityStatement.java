@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -6346,7 +6346,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
          */
         @Child(name = "definition", type = {MessageDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Definition of supported message", formalDefinition="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc." )
+        @Description(shortDefinition="Message supported by this system", formalDefinition="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc." )
         protected Reference definition;
 
         /**
@@ -9472,6 +9472,32 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
+   * Search parameter: <b>resource-profile</b>
+   * <p>
+   * Description: <b>A profile id invoked in a capability statement</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CapabilityStatement.rest.resource.profile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="resource-profile", path="CapabilityStatement.rest.resource.profile", description="A profile id invoked in a capability statement", type="reference", target={StructureDefinition.class } )
+  public static final String SP_RESOURCE_PROFILE = "resource-profile";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>resource-profile</b>
+   * <p>
+   * Description: <b>A profile id invoked in a capability statement</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CapabilityStatement.rest.resource.profile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESOURCE_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESOURCE_PROFILE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CapabilityStatement:resource-profile</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCE_PROFILE = new ca.uhn.fhir.model.api.Include("CapabilityStatement:resource-profile").toLocked();
+
+ /**
    * Search parameter: <b>software</b>
    * <p>
    * Description: <b>Part of a the name of a software application</b><br>
@@ -9632,26 +9658,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
-   * Search parameter: <b>securityservice</b>
-   * <p>
-   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CapabilityStatement.rest.security.service</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="securityservice", path="CapabilityStatement.rest.security.service", description="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", type="token" )
-  public static final String SP_SECURITYSERVICE = "securityservice";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>securityservice</b>
-   * <p>
-   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CapabilityStatement.rest.security.service</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITYSERVICE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITYSERVICE);
-
- /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>The uri that identifies the capability statement</b><br>
@@ -9718,30 +9724,24 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam MODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MODE);
 
  /**
-   * Search parameter: <b>resourceprofile</b>
+   * Search parameter: <b>security-service</b>
    * <p>
-   * Description: <b>A profile id invoked in a capability statement</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CapabilityStatement.rest.resource.profile</b><br>
+   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CapabilityStatement.rest.security.service</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="resourceprofile", path="CapabilityStatement.rest.resource.profile", description="A profile id invoked in a capability statement", type="reference", target={StructureDefinition.class } )
-  public static final String SP_RESOURCEPROFILE = "resourceprofile";
+  @SearchParamDefinition(name="security-service", path="CapabilityStatement.rest.security.service", description="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates", type="token" )
+  public static final String SP_SECURITY_SERVICE = "security-service";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>resourceprofile</b>
+   * <b>Fluent Client</b> search parameter constant for <b>security-service</b>
    * <p>
-   * Description: <b>A profile id invoked in a capability statement</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CapabilityStatement.rest.resource.profile</b><br>
+   * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CapabilityStatement.rest.security.service</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESOURCEPROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESOURCEPROFILE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CapabilityStatement:resourceprofile</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCEPROFILE = new ca.uhn.fhir.model.api.Include("CapabilityStatement:resourceprofile").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITY_SERVICE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITY_SERVICE);
 
  /**
    * Search parameter: <b>name</b>

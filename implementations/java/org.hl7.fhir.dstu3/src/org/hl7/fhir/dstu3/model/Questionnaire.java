@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3721,6 +3721,26 @@ Any information provided in these elements on a Questionnaire Item overrides the
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>Globally unique logical identifier for  questionnaire</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Questionnaire.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="Questionnaire.url", description="Globally unique logical identifier for  questionnaire", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>Globally unique logical identifier for  questionnaire</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Questionnaire.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
    * Search parameter: <b>status</b>

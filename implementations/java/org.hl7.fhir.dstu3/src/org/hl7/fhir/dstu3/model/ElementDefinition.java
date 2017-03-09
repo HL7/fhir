@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1382,9 +1382,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * Minimum cardinality of the base element identified by the path.
          */
-        @Child(name = "min", type = {IntegerType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "min", type = {UnsignedIntType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Min cardinality of the base element", formalDefinition="Minimum cardinality of the base element identified by the path." )
-        protected IntegerType min;
+        protected UnsignedIntType min;
 
         /**
          * Maximum cardinality of the base element identified by the path.
@@ -1393,7 +1393,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         @Description(shortDefinition="Max cardinality of the base element", formalDefinition="Maximum cardinality of the base element identified by the path." )
         protected StringType max;
 
-        private static final long serialVersionUID = 232204455L;
+        private static final long serialVersionUID = -1412704221L;
 
     /**
      * Constructor
@@ -1405,7 +1405,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public ElementDefinitionBaseComponent(StringType path, IntegerType min, StringType max) {
+      public ElementDefinitionBaseComponent(StringType path, UnsignedIntType min, StringType max) {
         super();
         this.path = path;
         this.min = min;
@@ -1460,12 +1460,12 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #min} (Minimum cardinality of the base element identified by the path.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public IntegerType getMinElement() { 
+        public UnsignedIntType getMinElement() { 
           if (this.min == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ElementDefinitionBaseComponent.min");
             else if (Configuration.doAutoCreate())
-              this.min = new IntegerType(); // bb
+              this.min = new UnsignedIntType(); // bb
           return this.min;
         }
 
@@ -1480,7 +1480,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @param value {@link #min} (Minimum cardinality of the base element identified by the path.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public ElementDefinitionBaseComponent setMinElement(IntegerType value) { 
+        public ElementDefinitionBaseComponent setMinElement(UnsignedIntType value) { 
           this.min = value;
           return this;
         }
@@ -1497,7 +1497,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         public ElementDefinitionBaseComponent setMin(int value) { 
             if (this.min == null)
-              this.min = new IntegerType();
+              this.min = new UnsignedIntType();
             this.min.setValue(value);
           return this;
         }
@@ -1550,7 +1550,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("path", "string", "The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a [[[StructureDefinition]]] without a StructureDefinition.base.", 0, java.lang.Integer.MAX_VALUE, path));
-          childrenList.add(new Property("min", "integer", "Minimum cardinality of the base element identified by the path.", 0, java.lang.Integer.MAX_VALUE, min));
+          childrenList.add(new Property("min", "unsignedInt", "Minimum cardinality of the base element identified by the path.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "Maximum cardinality of the base element identified by the path.", 0, java.lang.Integer.MAX_VALUE, max));
         }
 
@@ -1558,7 +1558,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
-        case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
+        case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // UnsignedIntType
         case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1572,7 +1572,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.path = castToString(value); // StringType
           return value;
         case 108114: // min
-          this.min = castToInteger(value); // IntegerType
+          this.min = castToUnsignedInt(value); // UnsignedIntType
           return value;
         case 107876: // max
           this.max = castToString(value); // StringType
@@ -1587,7 +1587,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (name.equals("path")) {
           this.path = castToString(value); // StringType
         } else if (name.equals("min")) {
-          this.min = castToInteger(value); // IntegerType
+          this.min = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("max")) {
           this.max = castToString(value); // StringType
         } else
@@ -1610,7 +1610,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3433509: /*path*/ return new String[] {"string"};
-        case 108114: /*min*/ return new String[] {"integer"};
+        case 108114: /*min*/ return new String[] {"unsignedInt"};
         case 107876: /*max*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -3410,7 +3410,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         @Description(shortDefinition="Details of the mapping", formalDefinition="Expresses what part of the target specification corresponds to this element." )
         protected StringType map;
 
-        private static final long serialVersionUID = -669205371L;
+        /**
+         * Comments that provide information about the mapping or it's use.
+         */
+        @Child(name = "comment", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Comments about the mapping or it's use", formalDefinition="Comments that provide information about the mapping or it's use." )
+        protected StringType comment;
+
+        private static final long serialVersionUID = 1386816887L;
 
     /**
      * Constructor
@@ -3567,11 +3574,61 @@ public class ElementDefinition extends Type implements ICompositeType {
           return this;
         }
 
+        /**
+         * @return {@link #comment} (Comments that provide information about the mapping or it's use.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         */
+        public StringType getCommentElement() { 
+          if (this.comment == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionMappingComponent.comment");
+            else if (Configuration.doAutoCreate())
+              this.comment = new StringType(); // bb
+          return this.comment;
+        }
+
+        public boolean hasCommentElement() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        public boolean hasComment() { 
+          return this.comment != null && !this.comment.isEmpty();
+        }
+
+        /**
+         * @param value {@link #comment} (Comments that provide information about the mapping or it's use.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         */
+        public ElementDefinitionMappingComponent setCommentElement(StringType value) { 
+          this.comment = value;
+          return this;
+        }
+
+        /**
+         * @return Comments that provide information about the mapping or it's use.
+         */
+        public String getComment() { 
+          return this.comment == null ? null : this.comment.getValue();
+        }
+
+        /**
+         * @param value Comments that provide information about the mapping or it's use.
+         */
+        public ElementDefinitionMappingComponent setComment(String value) { 
+          if (Utilities.noString(value))
+            this.comment = null;
+          else {
+            if (this.comment == null)
+              this.comment = new StringType();
+            this.comment.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("identity", "id", "An internal reference to the definition of a mapping.", 0, java.lang.Integer.MAX_VALUE, identity));
           childrenList.add(new Property("language", "code", "Identifies the computable language in which mapping.map is expressed.", 0, java.lang.Integer.MAX_VALUE, language));
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
+          childrenList.add(new Property("comment", "string", "Comments that provide information about the mapping or it's use.", 0, java.lang.Integer.MAX_VALUE, comment));
         }
 
       @Override
@@ -3580,6 +3637,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -135761730: /*identity*/ return this.identity == null ? new Base[0] : new Base[] {this.identity}; // IdType
         case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // CodeType
         case 107868: /*map*/ return this.map == null ? new Base[0] : new Base[] {this.map}; // StringType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3597,6 +3655,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 107868: // map
           this.map = castToString(value); // StringType
           return value;
+        case 950398559: // comment
+          this.comment = castToString(value); // StringType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -3610,6 +3671,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.language = castToCode(value); // CodeType
         } else if (name.equals("map")) {
           this.map = castToString(value); // StringType
+        } else if (name.equals("comment")) {
+          this.comment = castToString(value); // StringType
         } else
           return super.setProperty(name, value);
         return value;
@@ -3621,6 +3684,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -135761730:  return getIdentityElement();
         case -1613589672:  return getLanguageElement();
         case 107868:  return getMapElement();
+        case 950398559:  return getCommentElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3632,6 +3696,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -135761730: /*identity*/ return new String[] {"id"};
         case -1613589672: /*language*/ return new String[] {"code"};
         case 107868: /*map*/ return new String[] {"string"};
+        case 950398559: /*comment*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3648,6 +3713,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("map")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.map");
         }
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.comment");
+        }
         else
           return super.addChild(name);
       }
@@ -3658,6 +3726,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         dst.identity = identity == null ? null : identity.copy();
         dst.language = language == null ? null : language.copy();
         dst.map = map == null ? null : map.copy();
+        dst.comment = comment == null ? null : comment.copy();
         return dst;
       }
 
@@ -3669,7 +3738,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other;
         return compareDeep(identity, o.identity, true) && compareDeep(language, o.language, true) && compareDeep(map, o.map, true)
-          ;
+           && compareDeep(comment, o.comment, true);
       }
 
       @Override
@@ -3680,12 +3749,12 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other;
         return compareValues(identity, o.identity, true) && compareValues(language, o.language, true) && compareValues(map, o.map, true)
-          ;
+           && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, language, map
-          );
+          , comment);
       }
 
   public String fhirType() {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2562,7 +2562,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.onset[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="onset-age", path="Condition.onset.as(Quantity) | Condition.onset.as(Range)", description="Onsets as age or age range", type="quantity" )
+  @SearchParamDefinition(name="onset-age", path="Condition.onset.as(Age) | Condition.onset.as(Range)", description="Onsets as age or age range", type="quantity" )
   public static final String SP_ONSET_AGE = "onset-age";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>onset-age</b>
@@ -2582,7 +2582,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.abatement[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="abatement-age", path="Condition.abatement.as(Quantity) | Condition.abatement.as(Range) | Condition.abatement.as(Age)", description="Abatement as age or age range", type="quantity" )
+  @SearchParamDefinition(name="abatement-age", path="Condition.abatement.as(Age) | Condition.abatement.as(Range) | Condition.abatement.as(Age)", description="Abatement as age or age range", type="quantity" )
   public static final String SP_ABATEMENT_AGE = "abatement-age";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>abatement-age</b>

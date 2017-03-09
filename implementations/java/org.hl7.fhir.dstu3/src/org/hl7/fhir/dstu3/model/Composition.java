@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3353,27 +3353,21 @@ public class Composition extends DomainResource {
    * Search parameter: <b>related-id</b>
    * <p>
    * Description: <b>Target of the relationship</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Composition.relatesTo.targetIdentifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="related-id", path="Composition.relatesTo.target.as(Identifier)", description="Target of the relationship", type="reference", target={Composition.class } )
+  @SearchParamDefinition(name="related-id", path="Composition.relatesTo.target.as(Identifier)", description="Target of the relationship", type="token" )
   public static final String SP_RELATED_ID = "related-id";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>related-id</b>
    * <p>
    * Description: <b>Target of the relationship</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Composition.relatesTo.targetIdentifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RELATED_ID = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RELATED_ID);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Composition:related-id</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATED_ID = new ca.uhn.fhir.model.api.Include("Composition:related-id").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATED_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATED_ID);
 
  /**
    * Search parameter: <b>subject</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1597,10 +1597,10 @@ public class OperationDefinition extends MetadataResource {
     protected List<OperationDefinitionParameterComponent> parameter;
 
     /**
-     * Defines an appropriate combination of parameters to use when invoking this operation.
+     * Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.
      */
     @Child(name = "overload", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="For generating overloaded methods in code", formalDefinition="Defines an appropriate combination of parameters to use when invoking this operation." )
+    @Description(shortDefinition="Define overloaded variants for when  generating code", formalDefinition="Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation." )
     protected List<OperationDefinitionOverloadComponent> overload;
 
     private static final long serialVersionUID = 1292377899L;
@@ -2692,7 +2692,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #overload} (Defines an appropriate combination of parameters to use when invoking this operation.)
+     * @return {@link #overload} (Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.)
      */
     public List<OperationDefinitionOverloadComponent> getOverload() { 
       if (this.overload == null)
@@ -2768,7 +2768,7 @@ public class OperationDefinition extends MetadataResource {
         childrenList.add(new Property("type", "boolean", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, java.lang.Integer.MAX_VALUE, instance));
         childrenList.add(new Property("parameter", "", "The parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter));
-        childrenList.add(new Property("overload", "", "Defines an appropriate combination of parameters to use when invoking this operation.", 0, java.lang.Integer.MAX_VALUE, overload));
+        childrenList.add(new Property("overload", "", "Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.", 0, java.lang.Integer.MAX_VALUE, overload));
       }
 
       @Override
@@ -3335,32 +3335,6 @@ public class OperationDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
-   * Search parameter: <b>paramprofile</b>
-   * <p>
-   * Description: <b>Profile on the type</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.parameter.profile</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="paramprofile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference", target={StructureDefinition.class } )
-  public static final String SP_PARAMPROFILE = "paramprofile";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>paramprofile</b>
-   * <p>
-   * Description: <b>Profile on the type</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.parameter.profile</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARAMPROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARAMPROFILE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>OperationDefinition:paramprofile</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARAMPROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:paramprofile").toLocked();
-
- /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>The uri that identifies the operation definition</b><br>
@@ -3439,6 +3413,32 @@ public class OperationDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>param-profile</b>
+   * <p>
+   * Description: <b>Profile on the type</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.parameter.profile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="param-profile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference", target={StructureDefinition.class } )
+  public static final String SP_PARAM_PROFILE = "param-profile";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>param-profile</b>
+   * <p>
+   * Description: <b>Profile on the type</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.parameter.profile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARAM_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARAM_PROFILE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OperationDefinition:param-profile</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARAM_PROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:param-profile").toLocked();
 
  /**
    * Search parameter: <b>status</b>

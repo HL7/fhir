@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 25, 2017 06:03+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1032,7 +1032,7 @@ public class DeviceMetric extends DomainResource {
      * Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Type of metric", formalDefinition="Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc." )
+    @Description(shortDefinition="Identity of metric, for example Heart Rate or PEEP Setting", formalDefinition="Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc." )
     protected CodeableConcept type;
 
     /**
@@ -1046,7 +1046,7 @@ public class DeviceMetric extends DomainResource {
      * Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.
      */
     @Child(name = "unit", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Unit of metric", formalDefinition="Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc." )
+    @Description(shortDefinition="Unit of Measure for the Metric", formalDefinition="Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc." )
     protected CodeableConcept unit;
 
     /**
