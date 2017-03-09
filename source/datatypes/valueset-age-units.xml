@@ -27,11 +27,38 @@
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="min"/>
+        <display value="minutes"/>
+      </concept>
+      <concept>
+        <code value="h"/>
+        <display value="hours"/>
+      </concept>
+      <concept>
+        <code value="d"/>
+        <display value="days"/>
+      </concept>
+      <concept>
+        <code value="wk"/>
+        <display value="weeks"/>
+      </concept>
+      <concept>
+        <code value="mo"/>
+        <display value="months"/>
+      </concept>
+      <concept>
+        <code value="a"/>
+        <display value="years"/>
+      </concept>
+<!--
+This is the correct filter, but includes all sorts of units that would not be used for age such as /U, mg/kg/s
       <filter>
         <property value="canonical"/>
         <op value="="/>
         <value value="a"/>
       </filter>
+-->       
     </include>
   </compose>
 </ValueSet>

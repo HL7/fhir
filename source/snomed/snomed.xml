@@ -12271,6 +12271,10 @@
     <display value="Hyperlipidemia screening test"/>
     <display value="Hyperlipidemia screening test (procedure)"/>
   </concept>
+  <concept id="314453003" display="Average diastolic blood pressure">
+    <display value="Average diastolic blood pressure"/>
+    <display value="Average diastolic blood pressure (observable entity)"/>
+  </concept>
   <concept id="315619001" display="FH myocardial infarction male first degree age known">
     <display value="FH myocardial infarction male first degree age known"/>
     <display value="Family history of myocardial infarction in male relative of first degree, age known (situation)"/>
@@ -13749,6 +13753,12 @@
     <display value="MM - Mucous membrane"/>
     <display value="Mucous membrane"/>
     <display value="Tunica mucosa"/>
+  </concept>
+  <concept id="414916001" display="Obesity">
+    <display value="Obesity (disorder)"/>
+    <display value="Obesity"/>
+    <display value="Adiposis"/>
+    <display value="Adiposity"/>
   </concept>
   <concept id="41561001" display="DK pig 30">
     <display value="DK pig 30"/>
@@ -16017,6 +16027,10 @@
   <concept id="89972002" display="Hospital-based outpatient oncology clinic">
     <display value="Hospital-based outpatient oncology clinic"/>
     <display value="Hospital-based outpatient oncology clinic (environment)"/>
+  </concept>
+  <concept id="900000000000003001" display="Fully specified name">
+    <display value="Fully specified name"/>
+    <display value="Fully specified name (core metadata concept)"/>
   </concept>
   <concept id="900000000000446008" display="Description type">
     <display value="Description type (core metadata concept)"/>
