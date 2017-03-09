@@ -148,19 +148,19 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
     </tr>
     <tr>
       <td>text</td>
-      <td>string</td>
+      <td><a href="datatypes.html#string">string</a></td>
     </tr>
     <tr>
       <td>url</td>
-      <td>uri</td>
+      <td><a href="datatypes.html#uri">uri</a></td>
     </tr>
     <tr>
       <td>choice</td>
-      <td>Coding</td>
+      <td><a href="datatypes.html#Coding">Coding</a></td>
     </tr>
     <tr>
       <td>open-choice</td>
-      <td>Coding</td>
+      <td><a href="datatypes.html#Coding">Coding</a> (if choosing from one of the listed choices) or <a href="datatypes.html#string">string</a> (if a different value is provided)</td>
     </tr>
   </tbody>
 </table>

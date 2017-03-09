@@ -137,7 +137,7 @@
  -- Row 14 -----------------------------------
   Id = 11
   Code = open-choice
-  Definition = Answer is a Coding drawn from a list of options or a free-text entry captured as Coding.display
+  Definition = Answer is a Coding drawn from a list of options or a free-text entry in a string
   Parent = #17
 
  -- Row 15 -----------------------------------

@@ -1,0 +1,21 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/c80-doc-typecodes",
+  "outcomes": [
+    {
+      "hash": "#|http://ihe.net/connectathon/classCodes|null|History and Physical|History and Physical",
+      "severity": "error",
+      "message": "The code provided (http://ihe.net/connectathon/classCodes#History and Physical) is not  valid in the value set Document Type Value Set"
+    },
+    {
+      "hash": "#|http://loinc.org|null|34108-1|Outpatient Note",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Outpatient Note"
+      }
+    }
+  ]
+}

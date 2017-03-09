@@ -1,0 +1,27 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/consent-content-code",
+  "outcomes": [
+    {
+      "hash": "|http://loinc.org|null|18842-5|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Discharge summary"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|34133-9|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Summary of episode note"
+      }
+    }
+  ]
+}

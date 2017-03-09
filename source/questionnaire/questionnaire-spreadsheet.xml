@@ -8070,7 +8070,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">#17</Data></Cell>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">Answer is a Coding drawn from a list of options or a free-text entry captured as Coding.display</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Answer is a Coding drawn from a list of options or a free-text entry in a string</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s149"/>
