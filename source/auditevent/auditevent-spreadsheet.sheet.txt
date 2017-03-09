@@ -41,8 +41,8 @@
 
  -- Row 5 -----------------------------------
   Binding Name = AuditEventEntityType
-  Binding = code list
-  Reference = #object-type
+  Binding = value set
+  Reference = valueset-audit-entity-type
   Definition = Code for the entity type involved audited.
   Description = DICOM Audit Event Entity Type
   Conformance = extensible
@@ -216,32 +216,6 @@
   Code = 5
   Display = URI
   Definition = URI (User directory, HTTP-PUT, ftp, etc.).
-
-=== Sheet object-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = 1
-  Display = Person
-  Definition = Person
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = 2
-  Display = System Object
-  Definition = System Object
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = 3
-  Display = Organization
-  Definition = Organization
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = 4
-  Display = Other
-  Definition = Other
 
 === Sheet object-role =====================================
 

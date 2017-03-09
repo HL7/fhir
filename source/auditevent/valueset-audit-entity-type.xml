@@ -1,0 +1,28 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="AuditEventEntityType"/> 
+  <status value="draft"/> 
+  <experimental value="false"/> 
+  <date value="2017-03-10T09:44:54+11:00"/> 
+  <publisher value="HL7 (FHIR Project)"/> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://hl7.org/fhir"/> 
+    </telecom> 
+    <telecom> 
+      <system value="email"/> 
+      <value value="fhir@lists.hl7.org"/> 
+    </telecom> 
+  </contact> 
+  <description value="Code for the entity type involved audited."/> 
+  <immutable value="true"/> 
+
+  <compose> 
+    <include> 
+      <system value="http://hl7.org/fhir/audit-entity-type"/> 
+    </include> 
+    <include> 
+      <system value="http://hl7.org/fhir/resource-types"/> 
+    </include> 
+  </compose> 
+</ValueSet> 
