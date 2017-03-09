@@ -2,6 +2,12 @@
 
 <!-- the build tool builds these from the designated snomed server, when it can -->
 <snomed>
+  <concept id="10001005" display="Bacterial septicemia">
+    <display value="Bacterial septicemia"/>
+    <display value="Bacterial sepsis"/>
+    <display value="Bacterial septicaemia"/>
+    <display value="Bacterial sepsis (disorder)"/>
+  </concept>
   <concept id="1006005" display="Percheron horse">
     <display value="Percheron horse"/>
     <display value="Percheron horse (organism)"/>
@@ -19,9 +25,49 @@
     <display value="Belgium landrace pig"/>
     <display value="Belgium landrace pig (organism)"/>
   </concept>
+  <concept id="103391001" display="Urgency">
+    <display value="Urgency"/>
+    <display value="Has urgency"/>
+    <display value="Urgency (qualifier value)"/>
+    <display value="Urgent"/>
+  </concept>
   <concept id="103693007" display="Diagnostic procedure">
     <display value="Diagnostic procedure"/>
     <display value="Diagnostic procedure (procedure)"/>
+  </concept>
+  <concept id="103696004" display="Patient referral to specialist">
+    <display value="Patient referral to specialist"/>
+    <display value="Patient referral to specialist (procedure)"/>
+  </concept>
+  <concept id="104177005" display="Blood culture for bacteria, including anaerobic screen">
+    <display value="Blood culture for bacteria, including anaerobic screen"/>
+    <display value="Blood culture for bacteria, including anaerobic screen (procedure)"/>
+  </concept>
+  <concept id="104485008" display="Albumin measurement, serum">
+    <display value="Albumin measurement, serum"/>
+    <display value="Serum albumin"/>
+    <display value="SA - Serum albumin"/>
+    <display value="Albumin measurement, serum (procedure)"/>
+    <display value="Serum albumin level"/>
+  </concept>
+  <concept id="104784006" display="Lipids, triglycerides measurement">
+    <display value="Lipids, triglycerides measurement"/>
+    <display value="Lipids, triglycerides measurement (procedure)"/>
+  </concept>
+  <concept id="104866001" display="Phosphate measurement">
+    <display value="Phosphate measurement"/>
+    <display value="Phosphate measurement (procedure)"/>
+    <display value="Phosphate level"/>
+  </concept>
+  <concept id="104934005" display="Sodium measurement, serum">
+    <display value="Sodium measurement, serum"/>
+    <display value="Serum sodium"/>
+    <display value="Sodium measurement, serum (procedure)"/>
+    <display value="Serum sodium level"/>
+  </concept>
+  <concept id="104979009" display="Total globulins measurement">
+    <display value="Total globulins measurement"/>
+    <display value="Total globulins measurement (procedure)"/>
   </concept>
   <concept id="10531005" display="Free-standing ambulatory surgery facility">
     <display value="Free-standing ambulatory surgery facility"/>
@@ -39,6 +85,20 @@
   <concept id="10643004" display="Araucana chicken">
     <display value="Araucana chicken (organism)"/>
     <display value="Araucana chicken"/>
+  </concept>
+  <concept id="10828004" display="Positive">
+    <display value="Positive"/>
+    <display value="Positive for"/>
+    <display value="Ruled in"/>
+    <display value="Positive (qualifier value)"/>
+  </concept>
+  <concept id="108761006" display="Capecitabine">
+    <display value="Capecitabine"/>
+    <display value="Capecitabine (product)"/>
+  </concept>
+  <concept id="108806006" display="Docetaxel">
+    <display value="Docetaxel"/>
+    <display value="Docetaxel (product)"/>
   </concept>
   <concept id="11161001" display="DK pig 77">
     <display value="DK pig 77"/>
@@ -83,22 +143,326 @@
     <display value="Pilgrim goose"/>
     <display value="Pilgrim goose (organism)"/>
   </concept>
+  <concept id="11274001" display="Lactate dehydrogenase measurement">
+    <display value="Lactate dehydrogenase measurement"/>
+    <display value="LDH measurement"/>
+    <display value="LD measurement"/>
+    <display value="Lactic acid dehydrogenase measurement"/>
+    <display value="Lactate dehydrogenase measurement (procedure)"/>
+    <display value="Lactate dehydrogenase level"/>
+  </concept>
   <concept id="11424001" display="Ambulance-based care">
     <display value="Ambulance-based care"/>
     <display value="Ambulance-based care (environment)"/>
   </concept>
+  <concept id="11429006" display="Consultation">
+    <display value="Consultation"/>
+    <display value="Consultation (procedure)"/>
+  </concept>
+  <concept id="115665000" display="Atopic state">
+    <display value="Atopic state"/>
+    <display value="Atopic diathesis"/>
+    <display value="Atopy"/>
+    <display value="Atopy (disorder)"/>
+  </concept>
+  <concept id="11585000" display="Bubo">
+    <display value="Bubo"/>
+    <display value="Bubo (morphologic abnormality)"/>
+  </concept>
+  <concept id="116602009" display="Prednisone">
+    <display value="Prednisone"/>
+    <display value="Prednisone (substance)"/>
+  </concept>
   <concept id="11830008" display="Delaware chicken">
     <display value="Delaware chicken"/>
     <display value="Delaware chicken (organism)"/>
+  </concept>
+  <concept id="11840006" display="Traveler&#39;s diarrhea">
+    <display value="Traveler&#39;s diarrhea"/>
+    <display value="Turista"/>
+    <display value="Traveler&#39;s diarrhoea"/>
+    <display value="Traveler&#39;s diarrhea (disorder)"/>
   </concept>
   <concept id="119295008" display="Specimen obtained by aspiration">
     <display value="Specimen obtained by aspiration"/>
     <display value="Specimen obtained by aspiration (specimen)"/>
     <display value="Aspirate"/>
   </concept>
+  <concept id="119297000" display="Blood specimen">
+    <display value="Blood specimen"/>
+    <display value="Blood specimen (specimen)"/>
+    <display value="Blood sample"/>
+  </concept>
+  <concept id="119300005" display="Specimen from blood product">
+    <display value="Specimen from blood product"/>
+    <display value="Specimen from blood product (specimen)"/>
+  </concept>
+  <concept id="119301009" display="Plant specimen">
+    <display value="Plant specimen"/>
+    <display value="Plant specimen (specimen)"/>
+  </concept>
+  <concept id="119304001" display="Blood bag specimen">
+    <display value="Blood bag specimen"/>
+    <display value="Blood bag specimen (specimen)"/>
+  </concept>
+  <concept id="119305000" display="Plasma bag specimen">
+    <display value="Plasma bag specimen"/>
+    <display value="Plasma bag specimen (specimen)"/>
+  </concept>
+  <concept id="119306004" display="Drain device specimen">
+    <display value="Drain device specimen"/>
+    <display value="Drain device specimen (specimen)"/>
+  </concept>
+  <concept id="119307008" display="Endotracheal tube specimen">
+    <display value="Endotracheal tube specimen"/>
+    <display value="Endotracheal secretion sample"/>
+    <display value="Endotracheal fluid sample"/>
+    <display value="Endotracheal aspirate"/>
+    <display value="Specimen from endotracheal tube (specimen)"/>
+    <display value="Specimen from endotracheal tube"/>
+  </concept>
+  <concept id="119310001" display="Tube specimen">
+    <display value="Tube specimen"/>
+    <display value="Tube specimen (specimen)"/>
+  </concept>
+  <concept id="119311002" display="Catheter specimen">
+    <display value="Catheter specimen"/>
+    <display value="Catheter specimen (specimen)"/>
+  </concept>
+  <concept id="119312009" display="Catheter tip specimen">
+    <display value="Catheter tip specimen"/>
+    <display value="Catheter tip specimen (specimen)"/>
+  </concept>
+  <concept id="119314005" display="Electrode specimen">
+    <display value="Electrode specimen"/>
+    <display value="Electrode specimen (specimen)"/>
+  </concept>
+  <concept id="119317003" display="Gaseous material specimen">
+    <display value="Gaseous material specimen"/>
+    <display value="Gaseous material specimen (specimen)"/>
+  </concept>
+  <concept id="119318008" display="Water specimen">
+    <display value="Water specimen"/>
+    <display value="Water specimen (specimen)"/>
+    <display value="Water sample"/>
+  </concept>
+  <concept id="119320006" display="Food specimen">
+    <display value="Food specimen"/>
+    <display value="Food specimen (specimen)"/>
+    <display value="Foodstuff sample"/>
+  </concept>
+  <concept id="119323008" display="Pus specimen">
+    <display value="Pus specimen"/>
+    <display value="Pus specimen (specimen)"/>
+    <display value="Pus sample"/>
+  </concept>
+  <concept id="119324002" display="Specimen of unknown material">
+    <display value="Specimen of unknown material"/>
+    <display value="Specimen of unknown material (specimen)"/>
+  </concept>
+  <concept id="119325001" display="Skin specimen">
+    <display value="Skin specimen"/>
+    <display value="Skin (tissue) specimen (specimen)"/>
+    <display value="Skin sample"/>
+    <display value="Skin (tissue) specimen"/>
+    <display value="Tissue specimen from skin"/>
+  </concept>
+  <concept id="119326000" display="Hair specimen">
+    <display value="Hair specimen"/>
+    <display value="Hair specimen (specimen)"/>
+    <display value="Hair sample"/>
+  </concept>
+  <concept id="119327009" display="Nail specimen">
+    <display value="Nail specimen"/>
+    <display value="Nail specimen (specimen)"/>
+    <display value="Nail sample"/>
+  </concept>
+  <concept id="119329007" display="Colostrum specimen">
+    <display value="Colostrum specimen"/>
+    <display value="Colostrum specimen (specimen)"/>
+    <display value="Colostrum sample"/>
+  </concept>
+  <concept id="119332005" display="Synovial fluid specimen">
+    <display value="Synovial fluid specimen"/>
+    <display value="Synovial fluid sample"/>
+    <display value="Synovial fluid specimen (specimen)"/>
+  </concept>
+  <concept id="119334006" display="Sputum specimen">
+    <display value="Sputum specimen"/>
+    <display value="Sputum specimen (specimen)"/>
+    <display value="Sputum sample"/>
+  </concept>
+  <concept id="119335007" display="Coughed sputum specimen">
+    <display value="Coughed sputum specimen"/>
+    <display value="Coughed sputum specimen (specimen)"/>
+    <display value="Sputum - coughed sample"/>
+  </concept>
+  <concept id="119336008" display="Exhaled air specimen">
+    <display value="Exhaled air specimen"/>
+    <display value="Exhaled air specimen (specimen)"/>
+  </concept>
+  <concept id="119337004" display="Inhaled gas specimen">
+    <display value="Inhaled gas specimen"/>
+    <display value="Inhaled gas specimen (specimen)"/>
+  </concept>
+  <concept id="119339001" display="Stool specimen">
+    <display value="Stool specimen"/>
+    <display value="Stool specimen (specimen)"/>
+    <display value="Faeces sample"/>
+    <display value="Feces sample"/>
+    <display value="Stool sample"/>
+    <display value="Faeces specimen"/>
+    <display value="Feces specimen"/>
+  </concept>
+  <concept id="119342007" display="Saliva specimen">
+    <display value="Saliva specimen"/>
+    <display value="Saliva specimen (specimen)"/>
+  </concept>
+  <concept id="119345009" display="Menstrual blood specimen">
+    <display value="Menstrual blood specimen"/>
+    <display value="Menstrual blood specimen (specimen)"/>
+  </concept>
+  <concept id="119349003" display="Spermatozoa specimen">
+    <display value="Spermatozoa specimen"/>
+    <display value="Spermatozoa specimen (specimen)"/>
+  </concept>
+  <concept id="119350003" display="Calculus specimen">
+    <display value="Calculus specimen"/>
+    <display value="Calculus specimen (specimen)"/>
+    <display value="Calculus sample"/>
+    <display value="Stone sample"/>
+  </concept>
+  <concept id="119360007" display="Dialysis fluid specimen">
+    <display value="Dialysis fluid specimen"/>
+    <display value="Dialysis fluid specimen (specimen)"/>
+    <display value="Dialysis fluid sample"/>
+  </concept>
+  <concept id="119361006" display="Plasma specimen">
+    <display value="Plasma specimen"/>
+    <display value="Plasma specimen (specimen)"/>
+    <display value="Plasma sample"/>
+  </concept>
+  <concept id="119362004" display="Platelet poor plasma specimen">
+    <display value="Platelet poor plasma specimen"/>
+    <display value="Platelet poor plasma specimen (specimen)"/>
+  </concept>
+  <concept id="119363009" display="Platelet rich plasma specimen">
+    <display value="Platelet rich plasma specimen"/>
+    <display value="Platelet rich plasma specimen (specimen)"/>
+  </concept>
+  <concept id="119364003" display="Serum specimen">
+    <display value="Serum specimen"/>
+    <display value="Serum specimen (specimen)"/>
+    <display value="Serum sample"/>
+  </concept>
+  <concept id="119365002" display="Specimen from wound">
+    <display value="Specimen from wound"/>
+    <display value="Specimen from wound (specimen)"/>
+  </concept>
+  <concept id="119366001" display="Specimen from wound abscess">
+    <display value="Specimen from wound abscess"/>
+    <display value="Specimen from wound abscess (specimen)"/>
+  </concept>
+  <concept id="119367005" display="Specimen from burn injury">
+    <display value="Specimen from burn injury"/>
+    <display value="Specimen from burn injury (specimen)"/>
+  </concept>
+  <concept id="119368000" display="Specimen from cyst">
+    <display value="Specimen from cyst"/>
+    <display value="Specimen from cyst (specimen)"/>
+  </concept>
+  <concept id="119370009" display="Specimen from fistula">
+    <display value="Specimen from fistula"/>
+    <display value="Specimen from fistula (specimen)"/>
+  </concept>
+  <concept id="119371008" display="Specimen from abscess">
+    <display value="Specimen from abscess"/>
+    <display value="Specimen from abscess (specimen)"/>
+  </concept>
+  <concept id="119376003" display="Tissue specimen">
+    <display value="Tissue specimen"/>
+    <display value="Tissue specimen (specimen)"/>
+  </concept>
+  <concept id="119379005" display="Specimen from stomach">
+    <display value="Specimen from stomach"/>
+    <display value="Specimen from stomach (specimen)"/>
+  </concept>
+  <concept id="119394009" display="Specimen from vagina">
+    <display value="Specimen from vagina"/>
+    <display value="Specimen from vagina (specimen)"/>
+  </concept>
+  <concept id="119401005" display="Specimen from conjunctiva">
+    <display value="Specimen from conjunctiva"/>
+    <display value="Specimen from conjunctiva (specimen)"/>
+  </concept>
   <concept id="11967001" display="Kerry Hill sheep">
     <display value="Kerry Hill sheep"/>
     <display value="Kerry Hill sheep (organism)"/>
+  </concept>
+  <concept id="122462000" display="Drainage">
+    <display value="Drainage"/>
+    <display value="Drainage procedure"/>
+    <display value="Drainage procedure (procedure)"/>
+    <display value="Evacuation of liquid contents by gravity"/>
+  </concept>
+  <concept id="122555007" display="Venous blood specimen">
+    <display value="Venous blood specimen"/>
+    <display value="Venous blood specimen (specimen)"/>
+    <display value="Venous blood sample"/>
+  </concept>
+  <concept id="122565001" display="Urinary catheter specimen">
+    <display value="Urinary catheter specimen"/>
+    <display value="Urinary catheter specimen (specimen)"/>
+  </concept>
+  <concept id="122566000" display="Fluid specimen from wound">
+    <display value="Fluid specimen from wound"/>
+    <display value="Fluid specimen from wound (specimen)"/>
+    <display value="Wound fluid sample"/>
+  </concept>
+  <concept id="122568004" display="Exudate specimen from wound">
+    <display value="Exudate specimen from wound"/>
+    <display value="Exudate specimen from wound (specimen)"/>
+  </concept>
+  <concept id="122571007" display="Pericardial fluid specimen">
+    <display value="Pericardial fluid specimen"/>
+    <display value="Pericardial fluid specimen (specimen)"/>
+    <display value="Heart sac fluid sample"/>
+  </concept>
+  <concept id="122572000" display="Vomitus specimen">
+    <display value="Vomitus specimen"/>
+    <display value="Vomitus specimen (specimen)"/>
+    <display value="Vomit sample"/>
+  </concept>
+  <concept id="122575003" display="Urine specimen">
+    <display value="Urine specimen"/>
+    <display value="Urine specimen (specimen)"/>
+    <display value="Urine sample"/>
+  </concept>
+  <concept id="122580007" display="Cerumen specimen">
+    <display value="Cerumen specimen"/>
+    <display value="Cerumen specimen (specimen)"/>
+  </concept>
+  <concept id="122593002" display="Tissue specimen obtained from ulcer">
+    <display value="Tissue specimen obtained from ulcer"/>
+    <display value="Tissue specimen obtained from ulcer (specimen)"/>
+  </concept>
+  <concept id="122609004" display="Specimen from lung obtained by bronchial washing procedure">
+    <display value="Specimen from lung obtained by bronchial washing procedure"/>
+    <display value="Specimen from lung obtained by bronchial washing procedure (specimen)"/>
+    <display value="Bronchial washings"/>
+  </concept>
+  <concept id="122877000" display="Upper respiratory fluid specimen obtained by tracheal aspiration">
+    <display value="Upper respiratory fluid specimen obtained by tracheal aspiration"/>
+    <display value="Upper respiratory fluid specimen obtained by tracheal aspiration (specimen)"/>
+  </concept>
+  <concept id="122880004" display="Urine specimen obtained by clean catch procedure">
+    <display value="Urine specimen obtained by clean catch procedure"/>
+    <display value="Urine specimen obtained by clean catch procedure (specimen)"/>
+  </concept>
+  <concept id="123038009" display="Specimen">
+    <display value="Specimen"/>
+    <display value="Specimen (specimen)"/>
+    <display value="Material (structure, substance, device) removed from a source (patient, donor, physical location, product)"/>
   </concept>
   <concept id="12360007" display="Missouri fox trotting horse">
     <display value="Missouri fox trotting horse"/>
@@ -172,19 +536,68 @@
     <display value="Goose"/>
     <display value="Greylag goose species"/>
   </concept>
+  <concept id="125154007" display="Specimen unsatisfactory for evaluation">
+    <display value="Specimen unsatisfactory for evaluation"/>
+    <display value="Specimen unsatisfactory for evaluation (finding)"/>
+  </concept>
   <concept id="125676002" display="Person">
     <display value="Person"/>
     <display value="Person (person)"/>
   </concept>
+  <concept id="126066007" display="White petroleum">
+    <display value="White petroleum"/>
+    <display value="White petroleum (substance)"/>
+  </concept>
+  <concept id="127490009" display="Gastrostomy route">
+    <display value="Gastrostomy route"/>
+    <display value="Gastrostomy route (qualifier value)"/>
+    <display value="Gastrostomy use"/>
+    <display value="An intragastric and gastrointestinal stoma route that begins through a surgically created opening into the stomach."/>
+  </concept>
+  <concept id="127492001" display="Nasogastric route">
+    <display value="Nasogastric route"/>
+    <display value="NG - Nasogastric route"/>
+    <display value="Nasogastric route (qualifier value)"/>
+    <display value="Nasogastric use"/>
+    <display value="NG - Nasogastric use"/>
+    <display value="An intragastric route that begins through the nose and into the stomach by means of a tube."/>
+  </concept>
+  <concept id="127850001" display="Wife">
+    <display value="Wife"/>
+    <display value="Wife (person)"/>
+  </concept>
+  <concept id="128160006" display="Tissue specimen from conjunctiva">
+    <display value="Tissue specimen from conjunctiva"/>
+    <display value="Tissue specimen from conjunctiva (specimen)"/>
+  </concept>
   <concept id="12874007" display="Crevecoeur chicken">
     <display value="Crevecoeur chicken"/>
     <display value="Crevecoeur chicken (organism)"/>
+  </concept>
+  <concept id="129112001" display="Aspiration from trachea">
+    <display value="Aspiration from trachea"/>
+    <display value="Tracheal suction"/>
+    <display value="Aspiration from trachea (procedure)"/>
+  </concept>
+  <concept id="12921003" display="Pelvis">
+    <display value="Pelvis"/>
+    <display value="Pelvic region"/>
+    <display value="Pelvic structure"/>
+    <display value="Pelvic structure (body structure)"/>
   </concept>
   <concept id="129264002" display="Action">
     <display value="Action"/>
     <display value="Clinical actions"/>
     <display value="Clinical action"/>
     <display value="Action (qualifier value)"/>
+  </concept>
+  <concept id="129300006" display="Puncture - action">
+    <display value="Puncture - action"/>
+    <display value="Puncture - action (qualifier value)"/>
+  </concept>
+  <concept id="129472003" display="Alemtuzumab">
+    <display value="Alemtuzumab"/>
+    <display value="Alemtuzumab (substance)"/>
   </concept>
   <concept id="131426006" display="Africander cattle breed">
     <display value="Africander cattle breed"/>
@@ -10264,6 +10677,10 @@
     <display value="Madura cattle breed (organism)"/>
     <display value="Madura cattle breed"/>
   </concept>
+  <concept id="134622004" display="Capecitabine 500mg tablet">
+    <display value="Capecitabine 500mg tablet"/>
+    <display value="Capecitabine 500mg tablet (product)"/>
+  </concept>
   <concept id="13487004" display="Shire horse">
     <display value="Shire horse"/>
     <display value="Shire horse (organism)"/>
@@ -10272,6 +10689,11 @@
     <display value="Belted Galloway cattle breed (organism)"/>
     <display value="Belted Galloway cattle"/>
     <display value="Belted Galloway cattle breed"/>
+  </concept>
+  <concept id="13648007" display="Urethra">
+    <display value="Urethra"/>
+    <display value="Urethral structure"/>
+    <display value="Urethral structure (body structure)"/>
   </concept>
   <concept id="13934009" display="Panama sheep">
     <display value="Panama sheep"/>
@@ -10287,10 +10709,47 @@
     <display value="Morbilli"/>
     <display value="Measles (disorder)"/>
   </concept>
+  <concept id="14745005" display="Hepatitis A virus vaccine">
+    <display value="Hepatitis A virus vaccine"/>
+    <display value="Hepatitis A virus vaccine (product)"/>
+    <display value="Hepatitis A vaccine"/>
+    <display value="Hep A - Hepatitis A vaccine"/>
+  </concept>
+  <concept id="14766002" display="Removal by suction">
+    <display value="Removal by suction"/>
+    <display value="Aspiration procedure"/>
+    <display value="Aspiration"/>
+    <display value="Aspiration (procedure)"/>
+    <display value="Extraction using negative pressure"/>
+  </concept>
+  <concept id="14803004" display="Transitory">
+    <display value="Transitory"/>
+    <display value="Transient"/>
+    <display value="Temporary"/>
+    <display value="Transitory (qualifier value)"/>
+  </concept>
+  <concept id="1481000119100" display="Diabetes mellitus type 2 without retinopathy">
+    <display value="Diabetes mellitus type 2 without retinopathy"/>
+    <display value="Diabetes mellitus type 2 without retinopathy (disorder)"/>
+  </concept>
   <concept id="14866005" display="Hospital-based outpatient mental health clinic">
     <display value="Hospital-based outpatient mental health clinic"/>
     <display value="Hospital-based outpatient psychiatric clinic"/>
     <display value="Hospital-based outpatient mental health clinic (environment)"/>
+  </concept>
+  <concept id="15108003" display="Restricted fiber diet">
+    <display value="Restricted fiber diet"/>
+    <display value="Low fiber diet"/>
+    <display value="Minimal residue diet"/>
+    <display value="LF - Low fiber diet"/>
+    <display value="Low fibre diet"/>
+    <display value="LF - Low fibre diet"/>
+    <display value="Restricted fibre diet"/>
+    <display value="Restricted fiber diet (finding)"/>
+  </concept>
+  <concept id="15220000" display="Laboratory test">
+    <display value="Laboratory test"/>
+    <display value="Laboratory test (procedure)"/>
   </concept>
   <concept id="15443006" display="Yuca pig">
     <display value="Yuca pig"/>
@@ -10302,6 +10761,10 @@
     <display value="Genus Anser (organism)"/>
     <display value="Genus Anser"/>
     <display value="Goose genus"/>
+  </concept>
+  <concept id="159285000" display="Medical laboratory technician">
+    <display value="Medical laboratory technician"/>
+    <display value="Medical laboratory technician (occupation)"/>
   </concept>
   <concept id="15961007" display="British saddleback pig">
     <display value="British saddleback pig"/>
@@ -10324,9 +10787,129 @@
     <display value="Beefmaster cattle"/>
     <display value="Beefmaster cattle breed"/>
   </concept>
+  <concept id="160670007" display="DD - Diabetic diet">
+    <display value="DD - Diabetic diet"/>
+    <display value="Diabetic diet"/>
+    <display value="Diabetic diet (finding)"/>
+  </concept>
+  <concept id="161832001" display="Weight decreasing">
+    <display value="Weight decreasing"/>
+    <display value="Losing weight"/>
+    <display value="Weight decreasing (finding)"/>
+    <display value="Progressive weight loss"/>
+  </concept>
+  <concept id="16208003" display="Low fat diet">
+    <display value="Low fat diet"/>
+    <display value="Low fat diet (finding)"/>
+    <display value="LF - Low fat diet"/>
+    <display value="LFD - Low fat diet"/>
+    <display value="Diet - low in fat"/>
+  </concept>
   <concept id="16404004" display="Induced">
     <display value="Induced"/>
     <display value="Induced (qualifier value)"/>
+  </concept>
+  <concept id="166643006" display="Liver enzymes abnormal">
+    <display value="Liver enzymes abnormal"/>
+    <display value="Liver enzymes abnormal (finding)"/>
+  </concept>
+  <concept id="166698001" display="Serum bicarbonate level normal">
+    <display value="Serum bicarbonate level normal"/>
+    <display value="Serum bicarbonate level normal (finding)"/>
+  </concept>
+  <concept id="166708003" display="Corrected serum calcium measurement">
+    <display value="Corrected serum calcium measurement"/>
+    <display value="Corrected serum calcium level"/>
+    <display value="Corrected serum calcium measurement (procedure)"/>
+  </concept>
+  <concept id="166717003" display="Serum creatinine raised">
+    <display value="Serum creatinine raised"/>
+    <display value="Serum creatinine raised (finding)"/>
+  </concept>
+  <concept id="168137004" display="Gastric aspirate sample">
+    <display value="Gastric aspirate sample"/>
+    <display value="Stomach aspirate sample"/>
+    <display value="Gastric aspirate sample (specimen)"/>
+  </concept>
+  <concept id="168138009" display="Gastric lavage aspirate sample">
+    <display value="Gastric lavage aspirate sample"/>
+    <display value="Gastric lavage aspirate sample (specimen)"/>
+    <display value="Gastric washings"/>
+    <display value="Gastric washing"/>
+  </concept>
+  <concept id="168139001" display="Peritoneal fluid sample">
+    <display value="Peritoneal fluid sample"/>
+    <display value="Peritoneal fluid sample (specimen)"/>
+  </concept>
+  <concept id="168141000" display="Nasal fluid sample">
+    <display value="Nasal fluid sample"/>
+    <display value="Nasal fluid sample (specimen)"/>
+  </concept>
+  <concept id="169068008" display="CT of neck">
+    <display value="CT of neck"/>
+    <display value="Computed tomography of neck (procedure)"/>
+    <display value="Computed tomography of neck"/>
+  </concept>
+  <concept id="169069000" display="CT of chest">
+    <display value="CT of chest"/>
+    <display value="CT of thorax"/>
+    <display value="Chest CT"/>
+    <display value="Computed tomography of chest (procedure)"/>
+    <display value="Computed tomography of chest"/>
+  </concept>
+  <concept id="169895004" display="Apgar at 1 minute">
+    <display value="Apgar at 1 minute"/>
+    <display value="Apgar score at 1 minute (observable entity)"/>
+    <display value="Apgar score at 1 minute"/>
+  </concept>
+  <concept id="169909004" display="Apgar at 5 minutes">
+    <display value="Apgar at 5 minutes"/>
+    <display value="Apgar score at 5 minutes (observable entity)"/>
+    <display value="Apgar score at 5 minutes"/>
+  </concept>
+  <concept id="169922007" display="Apgar at 10 minutes">
+    <display value="Apgar at 10 minutes"/>
+    <display value="Apgar score at 10 minutes (observable entity)"/>
+    <display value="Apgar score at 10 minutes"/>
+  </concept>
+  <concept id="172676009" display="Myringotomy and insertion of short-term grommet">
+    <display value="Myringotomy and insertion of short-term grommet"/>
+    <display value="Gs - Short-term grommet insertion"/>
+    <display value="Myringotomy and insertion of short-term tympanic ventilation tube (procedure)"/>
+    <display value="Myringotomy and insertion of short-term tympanic ventilation tube"/>
+  </concept>
+  <concept id="172960003" display="Incision of retropharyngeal abscess">
+    <display value="Incision of retropharyngeal abscess"/>
+    <display value="Incision of retropharyngeal abscess (procedure)"/>
+  </concept>
+  <concept id="173830003" display="Irrigation of stomach">
+    <display value="Irrigation of stomach"/>
+    <display value="Washing out stomach contents"/>
+    <display value="Gastric irrigation"/>
+    <display value="Pumping stomach out"/>
+    <display value="Stomach washout"/>
+    <display value="Gastric lavage"/>
+    <display value="Gastric washout"/>
+    <display value="Gastric lavage (procedure)"/>
+  </concept>
+  <concept id="17401000" display="Cardiac valve">
+    <display value="Cardiac valve"/>
+    <display value="Cardiac valve structure"/>
+    <display value="Cardiac valve structure (body structure)"/>
+    <display value="Heart valve structure"/>
+  </concept>
+  <concept id="17561000" display="Cardiologist">
+    <display value="Cardiologist"/>
+    <display value="Cardiologist (occupation)"/>
+  </concept>
+  <concept id="176178006" display="Diagnostic cystoscopy">
+    <display value="Diagnostic cystoscopy"/>
+    <display value="Diagnostic cystoscopy (procedure)"/>
+  </concept>
+  <concept id="17621005" display="Normal">
+    <display value="Normal"/>
+    <display value="Unremarkable"/>
+    <display value="Normal (qualifier value)"/>
   </concept>
   <concept id="17717005" display="Pic Cambourgh pig">
     <display value="Pic Cambourgh pig"/>
@@ -10336,18 +10919,37 @@
     <display value="Free-standing radiology facility"/>
     <display value="Free-standing radiology facility (environment)"/>
   </concept>
+  <concept id="17888004" display="High density lipoprotein measurement">
+    <display value="High density lipoprotein measurement"/>
+    <display value="HDL measurement"/>
+    <display value="High density lipoprotein measurement (procedure)"/>
+  </concept>
   <concept id="1789009" display="Trakehner horse">
     <display value="Trakehner horse"/>
     <display value="Trakehner horse (organism)"/>
+  </concept>
+  <concept id="18099001" display="Retropharyngeal abscess">
+    <display value="Retropharyngeal abscess"/>
+    <display value="Retropharyngeal abscess (disorder)"/>
   </concept>
   <concept id="1814000" display="Hospital-based outpatient geriatric clinic">
     <display value="Hospital-based outpatient geriatric clinic"/>
     <display value="Hospital-based outpatient gerontology clinic"/>
     <display value="Hospital-based outpatient geriatric clinic (environment)"/>
   </concept>
+  <concept id="181414000" display="Kidney">
+    <display value="Kidney"/>
+    <display value="Entire kidney"/>
+    <display value="Entire kidney (body structure)"/>
+  </concept>
   <concept id="18212001" display="Boar power pig 72">
     <display value="Boar power pig 72"/>
     <display value="Boar power pig 72 (organism)"/>
+  </concept>
+  <concept id="182836005" display="Medication review">
+    <display value="Medication review"/>
+    <display value="Review of medication"/>
+    <display value="Review of medication (procedure)"/>
   </concept>
   <concept id="182922004" display="Dietary regime">
     <display value="Dietary regime"/>
@@ -10358,6 +10960,10 @@
   <concept id="18299006" display="Orpington chicken">
     <display value="Orpington chicken"/>
     <display value="Orpington chicken (organism)"/>
+  </concept>
+  <concept id="183807002" display="Inpatient stay 9 days">
+    <display value="Inpatient stay 9 days"/>
+    <display value="Inpatient stay 9 days (finding)"/>
   </concept>
   <concept id="183932001" display="Procedure contraindicated">
     <display value="Procedure contraindicated"/>
@@ -10375,6 +10981,18 @@
     <display value="Congenital rubella syndrome"/>
     <display value="Congenital rubella syndrome (disorder)"/>
   </concept>
+  <concept id="188340000" display="Malignant tumor of craniopharyngeal duct">
+    <display value="Malignant tumor of craniopharyngeal duct"/>
+    <display value="Malignant neoplasm of craniopharyngeal duct"/>
+    <display value="Malignant tumour of craniopharyngeal duct"/>
+    <display value="Malignant tumor of craniopharyngeal duct (disorder)"/>
+  </concept>
+  <concept id="18911002" display="Penis">
+    <display value="Penis"/>
+    <display value="Penile structure"/>
+    <display value="Penile structure (body structure)"/>
+    <display value="Penis structure"/>
+  </concept>
   <concept id="18949003" display="Change of dressing">
     <display value="Change of dressing"/>
     <display value="Reapplying a fresh dressing"/>
@@ -10391,6 +11009,17 @@
   <concept id="19356005" display="Hunter horse">
     <display value="Hunter horse"/>
     <display value="Hunter horse (organism)"/>
+  </concept>
+  <concept id="194828000" display="Angina">
+    <display value="Angina"/>
+    <display value="Cardiac angina"/>
+    <display value="Angina pectoris"/>
+    <display value="Stenocardia"/>
+    <display value="Anginal syndrome"/>
+    <display value="AP - Angina pectoris"/>
+    <display value="Ischemic heart disease - angina"/>
+    <display value="Ischaemic heart disease - angina"/>
+    <display value="Angina (disorder)"/>
   </concept>
   <concept id="19602009" display="Fee-for-service private physicians&#39; group office">
     <display value="Fee-for-service private physicians&#39; group office"/>
@@ -10412,6 +11041,11 @@
     <display value="Drug abuse treatment centre"/>
     <display value="Substance abuse treatment center (environment)"/>
   </concept>
+  <concept id="20233005" display="Scrotum">
+    <display value="Scrotum"/>
+    <display value="Scrotal structure"/>
+    <display value="Scrotal structure (body structure)"/>
+  </concept>
   <concept id="20255002" display="Flushing">
     <display value="Flushing"/>
     <display value="Blushing"/>
@@ -10423,6 +11057,10 @@
   <concept id="20280002" display="Hampshire pig">
     <display value="Hampshire pig"/>
     <display value="Hampshire pig (organism)"/>
+  </concept>
+  <concept id="203082005" display="Fibromyalgia">
+    <display value="Fibromyalgia"/>
+    <display value="Fibromyalgia (disorder)"/>
   </concept>
   <concept id="2034000" display="White turkey">
     <display value="White turkey"/>
@@ -10437,6 +11075,13 @@
   <concept id="2081004" display="Hospital ship">
     <display value="Hospital ship"/>
     <display value="Hospital ship (environment)"/>
+  </concept>
+  <concept id="2095001" display="Accessory sinus">
+    <display value="Accessory sinus"/>
+    <display value="Paranasal sinus"/>
+    <display value="Nasal sinus"/>
+    <display value="Nasal sinus structure"/>
+    <display value="Nasal sinus structure (body structure)"/>
   </concept>
   <concept id="21021000" display="Large black pig">
     <display value="Large black pig"/>
@@ -10454,6 +11099,11 @@
     <display value="Morgan horse"/>
     <display value="Morgan horse (organism)"/>
   </concept>
+  <concept id="21306003" display="Jejunum">
+    <display value="Jejunum"/>
+    <display value="Jejunal structure"/>
+    <display value="Jejunal structure (body structure)"/>
+  </concept>
   <concept id="21553004" display="Luing cattle breed">
     <display value="Luing cattle breed (organism)"/>
     <display value="Luing cattle breed"/>
@@ -10463,6 +11113,15 @@
     <display value="Canadian cattle"/>
     <display value="Canadienne cattle breed"/>
     <display value="Canadian cattle breed"/>
+  </concept>
+  <concept id="22298006" display="Myocardial infarction">
+    <display value="Myocardial infarction"/>
+    <display value="Infarction of heart"/>
+    <display value="Cardiac infarction"/>
+    <display value="Heart attack"/>
+    <display value="Myocardial infarction (disorder)"/>
+    <display value="MI - Myocardial infarction"/>
+    <display value="Myocardial infarct"/>
   </concept>
   <concept id="22330003" display="Commercial white egg layer type chicken">
     <display value="Commercial white egg layer type chicken (organism)"/>
@@ -10476,6 +11135,15 @@
     <display value="Health profession"/>
     <display value="Healthcare professional (occupation)"/>
   </concept>
+  <concept id="224542009" display="Coronary care nurse">
+    <display value="Coronary care nurse"/>
+    <display value="CCU - Coronary care nurse"/>
+    <display value="Coronary care nurse (occupation)"/>
+  </concept>
+  <concept id="224565004" display="Renal nurse">
+    <display value="Renal nurse"/>
+    <display value="Renal nurse (occupation)"/>
+  </concept>
   <concept id="224687002" display="Prison hospital">
     <display value="Prison hospital"/>
     <display value="Prison hospital (environment)"/>
@@ -10484,13 +11152,38 @@
     <display value="British lop pig"/>
     <display value="British lop pig (organism)"/>
   </concept>
+  <concept id="225109005" display="Collection of nephrostomy urine specimen">
+    <display value="Collection of nephrostomy urine specimen"/>
+    <display value="Collection of nephrostomy urine specimen (procedure)"/>
+  </concept>
   <concept id="225164002" display="Removal of ligature">
     <display value="Removal of ligature"/>
     <display value="Removal of ligature (procedure)"/>
   </concept>
+  <concept id="225271002" display="Collection of mid-stream specimen of urine">
+    <display value="Collection of mid-stream specimen of urine"/>
+    <display value="MSU - Collection of mid-stream specimen of urine"/>
+    <display value="Collection of mid-stream specimen of urine (procedure)"/>
+  </concept>
   <concept id="2253004" display="Marans chicken">
     <display value="Marans chicken"/>
     <display value="Marans chicken (organism)"/>
+  </concept>
+  <concept id="225304007" display="Following the program plan">
+    <display value="Following the program plan"/>
+    <display value="Implementing proposed interventions"/>
+    <display value="Following the programme plan"/>
+    <display value="Implementation of planned interventions"/>
+    <display value="Implementation of planned interventions (procedure)"/>
+  </concept>
+  <concept id="225337009" display="Suicide risk assessment">
+    <display value="Suicide risk assessment"/>
+    <display value="Suicide risk assessment (procedure)"/>
+  </concept>
+  <concept id="225444004" display="At risk for suicide">
+    <display value="At risk for suicide"/>
+    <display value="At risk for suicide (finding)"/>
+    <display value="Suicide risk"/>
   </concept>
   <concept id="22549003" display="Hospital-based outpatient gynecology clinic">
     <display value="Hospital-based outpatient gynecology clinic"/>
@@ -10501,6 +11194,14 @@
     <display value="Community hospital"/>
     <display value="CH - Community hospital"/>
     <display value="Community hospital (environment)"/>
+  </concept>
+  <concept id="226208002" display="Fluid restricted diet">
+    <display value="Fluid restricted diet"/>
+    <display value="Fluid restricted diet (finding)"/>
+  </concept>
+  <concept id="226211001" display="Pureed diet">
+    <display value="Pureed diet"/>
+    <display value="Pureed diet (finding)"/>
   </concept>
   <concept id="226355009" display="Nutrients">
     <display value="Nutrients"/>
@@ -10520,6 +11221,11 @@
     <display value="Fats and oils (substance)"/>
     <display value="Dietary fats and oils"/>
   </concept>
+  <concept id="227037002" display="Fish - dietary">
+    <display value="Fish - dietary"/>
+    <display value="Fish - dietary (substance)"/>
+    <display value="Fish"/>
+  </concept>
   <concept id="22720009" display="Belgian horse">
     <display value="Belgian horse"/>
     <display value="Belgian horse (organism)"/>
@@ -10531,6 +11237,11 @@
   <concept id="227415002" display="Fruit nuts and seeds">
     <display value="Fruit nuts and seeds"/>
     <display value="Fruit nuts and seeds (substance)"/>
+  </concept>
+  <concept id="227493005" display="Cashew nuts">
+    <display value="Cashew nuts"/>
+    <display value="Cashew nut"/>
+    <display value="Cashew nut (substance)"/>
   </concept>
   <concept id="227518002" display="Sauces seasonings and soups">
     <display value="Sauces seasonings and soups"/>
@@ -10574,9 +11285,26 @@
     <display value="Vegetable"/>
     <display value="Vegetable (substance)"/>
   </concept>
+  <concept id="229115003" display="Bench press">
+    <display value="Bench press"/>
+    <display value="Bench press (regime/therapy)"/>
+  </concept>
   <concept id="229506003" display="Scar tissue massage">
     <display value="Scar tissue massage"/>
     <display value="Scar tissue massage (regime/therapy)"/>
+  </concept>
+  <concept id="229774002" display="Carer">
+    <display value="Carer"/>
+    <display value="Carer (occupation)"/>
+  </concept>
+  <concept id="230456007" display="Status epilepticus">
+    <display value="Status epilepticus"/>
+    <display value="Status epilepticus (disorder)"/>
+  </concept>
+  <concept id="2331003" display="Carbohydrate">
+    <display value="Carbohydrate"/>
+    <display value="Carbohydrate (substance)"/>
+    <display value="Saccharide"/>
   </concept>
   <concept id="2333000" display="Japanese chicken">
     <display value="Japanese chicken"/>
@@ -10591,14 +11319,28 @@
     <display value="Domestic goose"/>
     <display value="Domestic goose (organism)"/>
   </concept>
+  <concept id="235157009" display="Endoscopic brushings of GIT">
+    <display value="Endoscopic brushings of GIT"/>
+    <display value="Endoscopic brushings of gastrointestinal tract (procedure)"/>
+    <display value="Endoscopic brushings of gastrointestinal tract"/>
+  </concept>
   <concept id="23629009" display="Hays Converter cattle">
     <display value="Hays converter cattle breed (organism)"/>
     <display value="Hays Converter cattle"/>
     <display value="Hays converter cattle breed"/>
   </concept>
+  <concept id="237840007" display="Disorder of electrolytes">
+    <display value="Disorder of electrolytes"/>
+    <display value="Disorder of electrolytes (disorder)"/>
+  </concept>
   <concept id="23992007" display="Black-winged bronze turkey">
     <display value="Black-winged bronze turkey"/>
     <display value="Black-winged bronze turkey (organism)"/>
+  </concept>
+  <concept id="240977001" display="Biopsy of skin">
+    <display value="Biopsy of skin"/>
+    <display value="Skin biopsy"/>
+    <display value="Biopsy of skin (procedure)"/>
   </concept>
   <concept id="241031001" display="Removal of drain">
     <display value="Removal of drain"/>
@@ -10607,6 +11349,12 @@
   <concept id="24111007" display="FHC elite pig 3">
     <display value="FHC elite pig 3"/>
     <display value="FHC elite pig 3 (organism)"/>
+  </concept>
+  <concept id="241541005" display="High resolution CT of lungs">
+    <display value="High resolution CT of lungs"/>
+    <display value="HRCT - High resolution computed tomography"/>
+    <display value="High resolution computed tomography of lungs (procedure)"/>
+    <display value="High resolution computed tomography of lungs"/>
   </concept>
   <concept id="242990004" display="Drug not available for administration">
     <display value="Drug not available for administration"/>
@@ -10632,6 +11380,15 @@
     <display value="Psychiatry procedure or service"/>
     <display value="Psychiatry procedure or service (procedure)"/>
   </concept>
+  <concept id="247472004" display="Weal">
+    <display value="Weal"/>
+    <display value="Nettle rash"/>
+    <display value="Urticarial rash"/>
+    <display value="Hives"/>
+    <display value="Weal (disorder)"/>
+    <display value="Wheal"/>
+    <display value="Welt"/>
+  </concept>
   <concept id="248152002" display="Female">
     <display value="Female"/>
     <display value="Female (finding)"/>
@@ -10648,6 +11405,47 @@
     <display value="Penna palm turkey"/>
     <display value="Penna palm turkey (organism)"/>
   </concept>
+  <concept id="249223000" display="Apgar heart rate score">
+    <display value="Apgar heart rate score"/>
+    <display value="Apgar heart rate score (observable entity)"/>
+  </concept>
+  <concept id="249224006" display="Apgar respiratory effort score">
+    <display value="Apgar respiratory effort score"/>
+    <display value="Apgar respiratory effort score (observable entity)"/>
+  </concept>
+  <concept id="249225007" display="Apgar muscle tone score">
+    <display value="Apgar muscle tone score"/>
+    <display value="Apgar muscle tone score (observable entity)"/>
+  </concept>
+  <concept id="249226008" display="Apgar response to stimulus score">
+    <display value="Apgar response to stimulus score"/>
+    <display value="Apgar response to stimulus score (observable entity)"/>
+  </concept>
+  <concept id="249227004" display="Apgar color score">
+    <display value="Apgar color score"/>
+    <display value="Apgar colour score"/>
+    <display value="Apgar color score (observable entity)"/>
+  </concept>
+  <concept id="249943000:363698007=72098002,260868000=6934004" display="Weakness of distal arms and legs where Finding site = Left arm, and Permanence = Permanent"/>
+  <concept id="25062003" display="Feeding tube">
+    <display value="Feeding tube"/>
+    <display value="Feeding tube, device (physical object)"/>
+    <display value="Feeding tube, device"/>
+  </concept>
+  <concept id="252275004" display="Haematology test">
+    <display value="Haematology test"/>
+    <display value="Hematology test"/>
+    <display value="Hematology test (procedure)"/>
+    <display value="Haematology - general"/>
+    <display value="Hematology - general"/>
+  </concept>
+  <concept id="25267002" display="Insertion of intracardiac pacemaker">
+    <display value="Insertion of intracardiac pacemaker"/>
+    <display value="Insertion of cardiac pacemaker"/>
+    <display value="Insertion of electrode in heart"/>
+    <display value="Implantation of cardiac electrode"/>
+    <display value="Insertion of intracardiac pacemaker (procedure)"/>
+  </concept>
   <concept id="25327001" display="Dorset sheep">
     <display value="Dorset sheep"/>
     <display value="Dorset sheep superbreed (organism)"/>
@@ -10657,14 +11455,37 @@
     <display value="Westphalian horse"/>
     <display value="Westphalian horse (organism)"/>
   </concept>
+  <concept id="254637007" display="Non-small cell lung cancer">
+    <display value="Non-small cell lung cancer"/>
+    <display value="NSCLC - Non-small cell lung cancer"/>
+    <display value="Non-small cell lung cancer (disorder)"/>
+  </concept>
   <concept id="255551008" display="Posterior">
     <display value="Posterior"/>
     <display value="Posterior (qualifier value)"/>
     <display value="Back of"/>
   </concept>
+  <concept id="255559005" display="IM - Intramuscular">
+    <display value="IM - Intramuscular"/>
+    <display value="Intramuscular"/>
+    <display value="Intramuscular (qualifier value)"/>
+  </concept>
+  <concept id="255560000" display="Intravenous">
+    <display value="Intravenous"/>
+    <display value="IV - Intravenous"/>
+    <display value="Intravenous (qualifier value)"/>
+  </concept>
   <concept id="255561001" display="Medial">
     <display value="Medial"/>
     <display value="Medial (qualifier value)"/>
+  </concept>
+  <concept id="255587001" display="Peak">
+    <display value="Peak"/>
+    <display value="Peak (qualifier value)"/>
+  </concept>
+  <concept id="255588006" display="Trough">
+    <display value="Trough"/>
+    <display value="Trough (qualifier value)"/>
   </concept>
   <concept id="255604002" display="Mild">
     <display value="Mild"/>
@@ -10678,19 +11499,136 @@
     <display value="Barbados sheep"/>
     <display value="Barbados sheep (organism)"/>
   </concept>
+  <concept id="256674009" display="Fat">
+    <display value="Fat"/>
+    <display value="Fat (substance)"/>
+  </concept>
   <concept id="25681007" display="Sexually transmitted disease clinic">
     <display value="Sexually transmitted disease clinic"/>
     <display value="Venereal disease clinic"/>
     <display value="Sexually transmitted disease clinic (environment)"/>
+  </concept>
+  <concept id="257351008" display="Shunt">
+    <display value="Shunt"/>
+    <display value="Shunt (physical object)"/>
   </concept>
   <concept id="25813002" display="Holstein horse">
     <display value="Holstein horse"/>
     <display value="Holsteiner horse (organism)"/>
     <display value="Holsteiner horse"/>
   </concept>
+  <concept id="258219007" display="Stage 2">
+    <display value="Stage 2"/>
+    <display value="Stage II"/>
+    <display value="Second stage"/>
+    <display value="Stage 2 (qualifier value)"/>
+  </concept>
+  <concept id="258415003" display="Biopsy sample">
+    <display value="Biopsy sample"/>
+    <display value="Biopsy sample (specimen)"/>
+  </concept>
+  <concept id="258420003" display="Cyst tissue">
+    <display value="Cyst tissue"/>
+    <display value="Cyst tissue (specimen)"/>
+  </concept>
   <concept id="258431006" display="Scrapings">
     <display value="Scrapings"/>
     <display value="Scrapings (specimen)"/>
+  </concept>
+  <concept id="258435002" display="Tumour tissue">
+    <display value="Tumour tissue"/>
+    <display value="Tumour tissue sample"/>
+    <display value="Tumor tissue"/>
+    <display value="Tumor tissue sample"/>
+    <display value="Tumor tissue sample (specimen)"/>
+  </concept>
+  <concept id="258438000" display="Vitreous humor sample">
+    <display value="Vitreous humor sample"/>
+    <display value="Vitreous humour sample"/>
+    <display value="Vitreous humor sample (specimen)"/>
+    <display value="Vitreous fluid specimen"/>
+  </concept>
+  <concept id="258439008" display="Discharge">
+    <display value="Discharge"/>
+    <display value="Dx - Discharge"/>
+    <display value="Discharge specimen (specimen)"/>
+    <display value="Discharge specimen"/>
+  </concept>
+  <concept id="258440005" display="Effusion sample">
+    <display value="Effusion sample"/>
+    <display value="Effusion sample (specimen)"/>
+  </concept>
+  <concept id="258441009" display="Exudate sample">
+    <display value="Exudate sample"/>
+    <display value="Exudate sample (specimen)"/>
+  </concept>
+  <concept id="258442002" display="Fluid sample">
+    <display value="Fluid sample"/>
+    <display value="Fluid specimen"/>
+    <display value="Fluid sample (specimen)"/>
+  </concept>
+  <concept id="258450006" display="Cerebrospinal fluid sample">
+    <display value="Cerebrospinal fluid sample"/>
+    <display value="CSF - Cerebrospinal fluid sample"/>
+    <display value="Cerebrospinal fluid sample (specimen)"/>
+    <display value="Cerebrospinal fluid specimen"/>
+  </concept>
+  <concept id="258453008" display="Cyst fluid sample">
+    <display value="Cyst fluid sample"/>
+    <display value="Cyst fluid sample (specimen)"/>
+  </concept>
+  <concept id="258455001" display="Drainage fluid sample">
+    <display value="Drainage fluid sample"/>
+    <display value="Drainage fluid sample (specimen)"/>
+  </concept>
+  <concept id="258459007" display="Gastric fluid sample">
+    <display value="Gastric fluid sample"/>
+    <display value="Gastric juice sample"/>
+    <display value="Gastric fluid sample (specimen)"/>
+  </concept>
+  <concept id="258463000" display="Jejunal fluid sample">
+    <display value="Jejunal fluid sample"/>
+    <display value="Jejunal fluid sample (specimen)"/>
+  </concept>
+  <concept id="258474009" display="Sinus fluid sample">
+    <display value="Sinus fluid sample"/>
+    <display value="Sinus fluid sample (specimen)"/>
+  </concept>
+  <concept id="258480001" display="Transtracheal aspirate sample">
+    <display value="Transtracheal aspirate sample"/>
+    <display value="Transtracheal secretion sample"/>
+    <display value="Transtracheal aspirate"/>
+    <display value="Transtracheal fluid sample"/>
+    <display value="Transtracheal aspirate sample (specimen)"/>
+  </concept>
+  <concept id="258482009" display="Vesicle fluid sample">
+    <display value="Vesicle fluid sample"/>
+    <display value="Vesicle fluid sample (specimen)"/>
+    <display value="Blister fluid sample"/>
+  </concept>
+  <concept id="258483004" display="Mucus sample">
+    <display value="Mucus sample"/>
+    <display value="Mucus sample (specimen)"/>
+  </concept>
+  <concept id="258498002" display="Conjunctival swab">
+    <display value="Conjunctival swab"/>
+    <display value="Conjunctival swab (specimen)"/>
+  </concept>
+  <concept id="258505006" display="Skin ulcer swab">
+    <display value="Skin ulcer swab"/>
+    <display value="Skin ulcer swab (specimen)"/>
+  </concept>
+  <concept id="258507003" display="Swab of line insertion site">
+    <display value="Swab of line insertion site"/>
+    <display value="Swab of line insertion site (specimen)"/>
+  </concept>
+  <concept id="258536003" display="Incubator swab">
+    <display value="Incubator swab"/>
+    <display value="Incubator swab (specimen)"/>
+  </concept>
+  <concept id="258538002" display="Transudate sample">
+    <display value="Transudate sample"/>
+    <display value="Transudate sample (specimen)"/>
   </concept>
   <concept id="25854005" display="Small white turkey">
     <display value="Small white turkey"/>
@@ -10700,9 +11638,86 @@
     <display value="Boar power pig 929"/>
     <display value="Boar power pig 929 (organism)"/>
   </concept>
+  <concept id="258574006" display="Mid-stream urine sample">
+    <display value="Mid-stream urine sample"/>
+    <display value="MSU - Mid-stream urine sample"/>
+    <display value="Mid-stream urine sample (specimen)"/>
+  </concept>
+  <concept id="258603007" display="Respiratory sample">
+    <display value="Respiratory sample"/>
+    <display value="Respiratory sample (specimen)"/>
+  </concept>
+  <concept id="258607008" display="Bronchoalveolar lavage fluid sample">
+    <display value="Bronchoalveolar lavage fluid sample"/>
+    <display value="BALF - Bronchoalveolar lavage fluid"/>
+    <display value="Bronchoalveolar lavage fluid"/>
+    <display value="Bronchoalveolar lavage fluid sample (specimen)"/>
+  </concept>
+  <concept id="258609006" display="Sputum specimen obtained by aspiration from trachea">
+    <display value="Sputum specimen obtained by aspiration from trachea (specimen)"/>
+    <display value="Sputum specimen obtained by aspiration from trachea"/>
+  </concept>
+  <concept id="258610001" display="Sputum specimen obtained by sputum induction">
+    <display value="Sputum specimen obtained by sputum induction (specimen)"/>
+    <display value="Sputum specimen obtained by sputum induction"/>
+  </concept>
+  <concept id="258614005" display="Insect sample">
+    <display value="Insect sample"/>
+    <display value="Insect sample (specimen)"/>
+  </concept>
+  <concept id="258618008" display="Helminth sample">
+    <display value="Helminth sample"/>
+    <display value="Helminth sample (specimen)"/>
+  </concept>
+  <concept id="258649003" display="Intravenous infusion fluid sample">
+    <display value="Intravenous infusion fluid sample"/>
+    <display value="Intravenous infusion fluid sample (specimen)"/>
+  </concept>
+  <concept id="258710007" display="degrees C">
+    <display value="degrees C"/>
+    <display value="Degrees Celsius (qualifier value)"/>
+    <display value="Degrees Celsius"/>
+  </concept>
+  <concept id="258718000" display="millimole">
+    <display value="millimole"/>
+    <display value="mmol"/>
+    <display value="millimole (qualifier value)"/>
+  </concept>
+  <concept id="258813002" display="mM">
+    <display value="mM"/>
+    <display value="millimolar"/>
+    <display value="millimole/litre"/>
+    <display value="mmol/L"/>
+    <display value="Millimole/liter"/>
+    <display value="Millimole/liter (qualifier value)"/>
+  </concept>
+  <concept id="258814008" display="umol/L">
+    <display value="umol/L"/>
+    <display value="micromole/litre"/>
+    <display value="micromolar"/>
+    <display value="uM"/>
+    <display value="Micromole/liter (qualifier value)"/>
+    <display value="Micromole/liter"/>
+  </concept>
+  <concept id="25990002" display="Renal pelvis">
+    <display value="Renal pelvis"/>
+    <display value="Renal pelvis structure"/>
+    <display value="Renal pelvis structure (body structure)"/>
+  </concept>
+  <concept id="260385009" display="Negative">
+    <display value="Negative"/>
+    <display value="Negative for"/>
+    <display value="Ruled out"/>
+    <display value="Negative (qualifier value)"/>
+  </concept>
   <concept id="260419006" display="Projection">
     <display value="Projection"/>
     <display value="Projection (qualifier value)"/>
+  </concept>
+  <concept id="260548002" display="Oral">
+    <display value="Oral"/>
+    <display value="PO - Oral"/>
+    <display value="Oral (qualifier value)"/>
   </concept>
   <concept id="260787004" display="Physical object">
     <display value="Physical object"/>
@@ -10729,6 +11744,15 @@
     <display value="Upper"/>
     <display value="Upper (qualifier value)"/>
   </concept>
+  <concept id="263204007" display="Fracture of shaft of ulna">
+    <display value="Fracture of shaft of ulna"/>
+    <display value="Fracture of shaft of ulna (disorder)"/>
+  </concept>
+  <concept id="263887005" display="Subcutaneous">
+    <display value="Subcutaneous"/>
+    <display value="SC - Subcutaneous"/>
+    <display value="Subcutaneous (qualifier value)"/>
+  </concept>
   <concept id="264217000" display="Superior">
     <display value="Superior"/>
     <display value="Superior (qualifier value)"/>
@@ -10741,6 +11765,24 @@
     <display value="White Park cattle breed (organism)"/>
     <display value="White Park cattle"/>
     <display value="White Park cattle breed"/>
+  </concept>
+  <concept id="26643006" display="Oral route">
+    <display value="Oral route"/>
+    <display value="Per os"/>
+    <display value="Oral route (qualifier value)"/>
+    <display value="Oral use"/>
+    <display value="Per oral route"/>
+    <display value="PO - Per os"/>
+    <display value="By mouth"/>
+    <display value="A digestive tract route that begins in the mouth."/>
+  </concept>
+  <concept id="266599000" display="Period pain">
+    <display value="Period pain"/>
+    <display value="Menstrual cramps"/>
+    <display value="Dysmenorrhea"/>
+    <display value="Dysmenorrhoea"/>
+    <display value="Dysmenorrhea (disorder)"/>
+    <display value="Menorrhalgia"/>
   </concept>
   <concept id="266710000" display="Drugs not taken/completed">
     <display value="Drugs not taken/completed"/>
@@ -10765,9 +11807,33 @@
     <display value="American trotter horse"/>
     <display value="American trotter horse (organism)"/>
   </concept>
+  <concept id="270427003" display="Patient-initiated encounter">
+    <display value="Patient-initiated encounter"/>
+    <display value="Patient-initiated encounter (procedure)"/>
+  </concept>
+  <concept id="271057005" display="Serum anion gap measurement">
+    <display value="Serum anion gap measurement"/>
+    <display value="Serum anion gap level"/>
+    <display value="Serum anion gap measurement (procedure)"/>
+    <display value="Serum ion gap measurement"/>
+  </concept>
+  <concept id="27113001" display="Body weight">
+    <display value="Body weight"/>
+    <display value="Body weight (observable entity)"/>
+  </concept>
   <concept id="271336007" display="Examination / signs">
     <display value="Examination / signs"/>
     <display value="Examination / signs (situation)"/>
+  </concept>
+  <concept id="271649006" display="Systolic blood pressure">
+    <display value="Systolic blood pressure"/>
+    <display value="Systolic blood pressure (observable entity)"/>
+    <display value="SAP - Systolic arterial pressure"/>
+  </concept>
+  <concept id="27171005" display="Urinalysis">
+    <display value="Urinalysis"/>
+    <display value="Urinalysis procedure"/>
+    <display value="Urinalysis (procedure)"/>
   </concept>
   <concept id="272394005" display="Technique">
     <display value="Technique"/>
@@ -10776,6 +11842,15 @@
   <concept id="272501009" display="Sports facility">
     <display value="Sports facility"/>
     <display value="Sports facility (environment)"/>
+  </concept>
+  <concept id="272626006" display="Respiratory organ">
+    <display value="Respiratory organ"/>
+    <display value="Respiratory organ (body structure)"/>
+  </concept>
+  <concept id="272676008" display="Entire sphenoid bone">
+    <display value="Entire sphenoid bone"/>
+    <display value="Sphenoid bone"/>
+    <display value="Entire sphenoid bone (body structure)"/>
   </concept>
   <concept id="273384008" display="Consumer satisfaction questionnaire">
     <display value="Consumer satisfaction questionnaire"/>
@@ -10797,6 +11872,11 @@
     <display value="SSQ - Social support questionnaire"/>
     <display value="Social support questionnaire (assessment scale)"/>
   </concept>
+  <concept id="273967009" display="Serum urea level">
+    <display value="Serum urea level"/>
+    <display value="Serum urea measurement"/>
+    <display value="Serum urea measurement (procedure)"/>
+  </concept>
   <concept id="274441001" display="Suction drainage">
     <display value="Suction drainage"/>
     <display value="Suction drainage (procedure)"/>
@@ -10805,6 +11885,32 @@
     <display value="Elderly assessment clinic"/>
     <display value="Elderly assessment clinic (environment)"/>
     <display value="Geriatric clinic"/>
+  </concept>
+  <concept id="276026009" display="Fluid balance regulation">
+    <display value="Fluid balance regulation"/>
+    <display value="Fluid balance regulation (procedure)"/>
+    <display value="Fluid management"/>
+    <display value="Hydration balance regulation"/>
+    <display value="Fluid balance therapy"/>
+    <display value="Hydration control"/>
+  </concept>
+  <concept id="27658006" display="p-Hydroxyampicillin">
+    <display value="p-Hydroxyampicillin"/>
+    <display value="Amoxycillin"/>
+    <display value="Amoxicillin (product)"/>
+    <display value="Amoxicilline"/>
+    <display value="Amoxicillin"/>
+  </concept>
+  <concept id="278020009" display="Spot urine sample">
+    <display value="Spot urine sample"/>
+    <display value="Spot urine sample (specimen)"/>
+    <display value="Spot urine"/>
+  </concept>
+  <concept id="278110001" display="Radiographic imaging">
+    <display value="Radiographic imaging"/>
+    <display value="Radiology techniques"/>
+    <display value="Radiographic imaging - action (qualifier value)"/>
+    <display value="Radiographic imaging - action"/>
   </concept>
   <concept id="27836007" display="Pertussis">
     <display value="Pertussis"/>
@@ -10823,6 +11929,29 @@
     <display value="Finger puncture"/>
     <display value="Finger-prick sampling"/>
     <display value="Finger-prick sampling (procedure)"/>
+  </concept>
+  <concept id="279107003" display="Central nervous system space">
+    <display value="Central nervous system space"/>
+    <display value="Central nervous system space (body structure)"/>
+  </concept>
+  <concept id="27925004" display="Nodule">
+    <display value="Nodule"/>
+    <display value="Nodule (morphologic abnormality)"/>
+    <display value="A 1 to 5 cm firm lesion raised above the surface of the surrounding skin; differs from a papule only in size"/>
+  </concept>
+  <concept id="279572002" display="Testicular structure">
+    <display value="Testicular structure"/>
+    <display value="Testicular structure (body structure)"/>
+    <display value="Testicle structure"/>
+  </concept>
+  <concept id="280193007" display="Retropharyngeal space">
+    <display value="Retropharyngeal space"/>
+    <display value="Entire retropharyngeal area"/>
+    <display value="Entire retropharyngeal area (body structure)"/>
+  </concept>
+  <concept id="281158006" display="Pulmonary vascular structure">
+    <display value="Pulmonary vascular structure"/>
+    <display value="Pulmonary vascular structure (body structure)"/>
   </concept>
   <concept id="28138009" display="Slate turkey">
     <display value="Slate turkey"/>
@@ -10846,6 +11975,10 @@
     <display value="Route of administration value (qualifier value)"/>
     <display value="Route of administration value"/>
   </concept>
+  <concept id="284093001" display="Potassium supplementation">
+    <display value="Potassium supplementation"/>
+    <display value="Potassium supplementation (product)"/>
+  </concept>
   <concept id="284546000" display="Hospice">
     <display value="Hospice"/>
     <display value="Hospice (environment)"/>
@@ -10859,6 +11992,10 @@
     <display value="Hospital-based outpatient infectious disease clinic"/>
     <display value="Hospital-based outpatient infectious disease clinic (environment)"/>
   </concept>
+  <concept id="285570007" display="Taking of swab">
+    <display value="Taking of swab"/>
+    <display value="Taking of swab (procedure)"/>
+  </concept>
   <concept id="28647000" display="Meat">
     <display value="Meat"/>
     <display value="Meat (substance)"/>
@@ -10868,6 +12005,12 @@
     <display value="Black Welsh cattle"/>
     <display value="Welsh black cattle"/>
     <display value="Black Welsh cattle breed"/>
+  </concept>
+  <concept id="28995006" display="Treated with">
+    <display value="Treated with"/>
+    <display value="TW"/>
+    <display value="Treated by"/>
+    <display value="Treated with (attribute)"/>
   </concept>
   <concept id="29223008" display="Boar power pig 565">
     <display value="Boar power pig 565"/>
@@ -10891,6 +12034,10 @@
     <display value="La Fleche chicken"/>
     <display value="La Fleche chicken (organism)"/>
   </concept>
+  <concept id="297217002" display="Rib pain">
+    <display value="Rib pain"/>
+    <display value="Rib pain (finding)"/>
+  </concept>
   <concept id="29736007" display="Syndrome of carbohydrate intolerance">
     <display value="Syndrome of carbohydrate intolerance"/>
     <display value="Syndrome of carbohydrate intolerance (disorder)"/>
@@ -10907,14 +12054,53 @@
     <display value="Belgian bearded chicken"/>
     <display value="Belgian bearded chicken (organism)"/>
   </concept>
+  <concept id="30242009" display="Scarlet fever">
+    <display value="Scarlet fever"/>
+    <display value="Scarlatina"/>
+    <display value="Scarlet fever (disorder)"/>
+  </concept>
+  <concept id="302794003" display="Nasogastric aspirate">
+    <display value="Nasogastric aspirate"/>
+    <display value="Nasogastric tube aspirate"/>
+    <display value="NGT - Nasogastric tube aspirate"/>
+    <display value="Nasogastric aspirate (specimen)"/>
+  </concept>
+  <concept id="302795002" display="Lymph node aspirate">
+    <display value="Lymph node aspirate"/>
+    <display value="Lymph node aspirate (specimen)"/>
+  </concept>
+  <concept id="303112003" display="Fetal period">
+    <display value="Fetal period"/>
+    <display value="Fetal period (qualifier value)"/>
+    <display value="Foetal period"/>
+  </concept>
+  <concept id="303113008" display="Postmortem period">
+    <display value="Postmortem period"/>
+    <display value="Postmortem period (qualifier value)"/>
+  </concept>
+  <concept id="303653007" display="Head CT">
+    <display value="Head CT"/>
+    <display value="CT of head"/>
+    <display value="Computed tomography of head (procedure)"/>
+    <display value="Computed tomography of head"/>
+  </concept>
   <concept id="30384003" display="Brahma cattle">
     <display value="Brahma cattle breed (organism)"/>
     <display value="Brahma cattle"/>
     <display value="Brahma cattle breed"/>
   </concept>
+  <concept id="303949008" display="Lumbar spinal cerebrospinal fluid pathway">
+    <display value="Lumbar spinal cerebrospinal fluid pathway"/>
+    <display value="Lumbar spinal cerebrospinal fluid pathway (body structure)"/>
+  </concept>
   <concept id="30432005" display="Broad breasted bronze turkey">
     <display value="Broad breasted bronze turkey"/>
     <display value="Broad breasted bronze turkey (organism)"/>
+  </concept>
+  <concept id="304386008" display="O/E - itchy rash">
+    <display value="O/E - itchy rash"/>
+    <display value="On examination - itchy rash (disorder)"/>
+    <display value="On examination - itchy rash"/>
   </concept>
   <concept id="30448006" display="Lacombe pig">
     <display value="Lacombe pig"/>
@@ -10930,17 +12116,101 @@
     <display value="ROS - Removal of sutures"/>
     <display value="Removal of suture (procedure)"/>
   </concept>
+  <concept id="305956004" display="Referral from physician">
+    <display value="Referral from physician"/>
+    <display value="Referral by physician"/>
+    <display value="Referral by physician (procedure)"/>
+  </concept>
+  <concept id="305997006" display="Referral by radiologist">
+    <display value="Referral by radiologist"/>
+    <display value="Referral from radiologist"/>
+    <display value="Referral by radiologist (procedure)"/>
+  </concept>
+  <concept id="306005" display="Echography of kidney">
+    <display value="Echography of kidney"/>
+    <display value="Ultrasound of kidney"/>
+    <display value="Echography of kidney (procedure)"/>
+    <display value="US kidneys"/>
+  </concept>
+  <concept id="306206005" display="Referral to service">
+    <display value="Referral to service"/>
+    <display value="Referral for service"/>
+    <display value="Referral to service (procedure)"/>
+  </concept>
   <concept id="30634003" display="Tamworth pig">
     <display value="Tamworth pig"/>
     <display value="Tamworth pig (organism)"/>
+  </concept>
+  <concept id="306689006" display="Discharge to home">
+    <display value="Discharge to home (procedure)"/>
+    <display value="Discharge to home"/>
   </concept>
   <concept id="30720007" display="Boar power pig 84">
     <display value="Boar power pig 84"/>
     <display value="Boar power pig 84 (organism)"/>
   </concept>
+  <concept id="30820000" display="Phosphorus">
+    <display value="Phosphorus"/>
+    <display value="Phosphorus (substance)"/>
+  </concept>
   <concept id="308283009" display="Discharge from hospital">
     <display value="Discharge from hospital"/>
     <display value="Discharge from hospital (procedure)"/>
+  </concept>
+  <concept id="309049000" display="Lesion sample">
+    <display value="Lesion sample"/>
+    <display value="Lesion sample (specimen)"/>
+  </concept>
+  <concept id="309051001" display="Body fluid sample">
+    <display value="Body fluid sample"/>
+    <display value="Body fluid sample (specimen)"/>
+    <display value="Body fluid specimen"/>
+  </concept>
+  <concept id="309066003" display="Skin biopsy sample">
+    <display value="Skin biopsy sample"/>
+    <display value="Skin biopsy sample (specimen)"/>
+  </concept>
+  <concept id="309068002" display="Skin lesion sample">
+    <display value="Skin lesion sample"/>
+    <display value="Skin lesion sample (specimen)"/>
+  </concept>
+  <concept id="309075001" display="Skin cyst sample">
+    <display value="Skin cyst sample"/>
+    <display value="Skin cyst sample (specimen)"/>
+  </concept>
+  <concept id="309176002" display="Bronchial brushings sample">
+    <display value="Bronchial brushings sample"/>
+    <display value="Bronchial brushings sample (specimen)"/>
+  </concept>
+  <concept id="3092008" display="Staphylococcus aureus">
+    <display value="Staphylococcus aureus"/>
+    <display value="Micrococcus pyogenes var. aureus"/>
+    <display value="Staphylococcus pyogenes aureus"/>
+    <display value="Staphylococcus pyogenes citreus"/>
+    <display value="Staphylococcus aureus (organism)"/>
+  </concept>
+  <concept id="309210009" display="Oesophageal brushings sample">
+    <display value="Oesophageal brushings sample"/>
+    <display value="Esophageal brushings sample"/>
+    <display value="Esophageal brushings sample (specimen)"/>
+  </concept>
+  <concept id="309211008" display="Gastric biopsy sample">
+    <display value="Gastric biopsy sample"/>
+    <display value="Gastric biopsy sample (specimen)"/>
+    <display value="Specimen from stomach obtained by biopsy"/>
+  </concept>
+  <concept id="309213006" display="Gastric brushings sample">
+    <display value="Gastric brushings sample"/>
+    <display value="Gastric brushings sample (specimen)"/>
+  </concept>
+  <concept id="309343006" display="Physician">
+    <display value="Physician"/>
+    <display value="Physician (occupation)"/>
+  </concept>
+  <concept id="309502007" display="Fetus specimen">
+    <display value="Fetus specimen"/>
+    <display value="Fetus specimen (specimen)"/>
+    <display value="Foetus specimen"/>
   </concept>
   <concept id="309898008" display="Psychogeriatric day hospital">
     <display value="Psychogeriatric day hospital"/>
@@ -10954,14 +12224,57 @@
     <display value="Romney marsh sheep"/>
     <display value="Romney marsh sheep (organism)"/>
   </concept>
+  <concept id="309902002" display="Clinical oncology department">
+    <display value="Clinical oncology department"/>
+    <display value="Clinical oncology department (environment)"/>
+  </concept>
   <concept id="310205006" display="Private residential home">
     <display value="Private residential home"/>
     <display value="Private residential home (environment)"/>
+  </concept>
+  <concept id="310361003" display="Non-urgent cardiological admission">
+    <display value="Non-urgent cardiological admission"/>
+    <display value="Non-urgent cardiological admission (procedure)"/>
   </concept>
   <concept id="310376006" display="Immunization consent not given">
     <display value="Immunization consent not given"/>
     <display value="Immunisation consent not given"/>
     <display value="Immunization consent not given (finding)"/>
+  </concept>
+  <concept id="310512001" display="Medical oncologist">
+    <display value="Medical oncologist"/>
+    <display value="Medical oncologist (occupation)"/>
+  </concept>
+  <concept id="31113003" display="Diverticulum">
+    <display value="Diverticulum"/>
+    <display value="Diverticula"/>
+    <display value="Diverticulosis"/>
+    <display value="Diverticulum (morphologic abnormality)"/>
+  </concept>
+  <concept id="311504000" display="With or after food">
+    <display value="With or after food"/>
+    <display value="With or after food (qualifier value)"/>
+  </concept>
+  <concept id="3127006" display="Fluorouracil">
+    <display value="Fluorouracil"/>
+    <display value="5-Fluorouracil"/>
+    <display value="5-FU"/>
+    <display value="Fluorouracil (product)"/>
+    <display value="5FU - Fluorouracil"/>
+  </concept>
+  <concept id="312824007" display="Family history of cancer of colon">
+    <display value="Family history of cancer of colon"/>
+    <display value="Family history of cancer of colon (situation)"/>
+  </concept>
+  <concept id="314079002" display="Hyperlipidaemia screening test">
+    <display value="Hyperlipidaemia screening test"/>
+    <display value="Hyperlipidemia screening test"/>
+    <display value="Hyperlipidemia screening test (procedure)"/>
+  </concept>
+  <concept id="315619001" display="FH myocardial infarction male first degree age known">
+    <display value="FH myocardial infarction male first degree age known"/>
+    <display value="Family history of myocardial infarction in male relative of first degree, age known (situation)"/>
+    <display value="Family history of myocardial infarction in male relative of first degree, age known"/>
   </concept>
   <concept id="31628002" display="Hospital-based outpatient family medicine clinic">
     <display value="Hospital-based outpatient family medicine clinic"/>
@@ -10970,6 +12283,12 @@
   <concept id="31633003" display="Yorkshire coach horse">
     <display value="Yorkshire coach horse"/>
     <display value="Yorkshire coach horse (organism)"/>
+  </concept>
+  <concept id="317935006" display="Chlortalidone 50mg tablet">
+    <display value="Chlorthalidone 50mg tablet (product)"/>
+    <display value="Chlortalidone 50mg tablet"/>
+    <display value="Chlorthalidone 50mg tablet"/>
+    <display value="Chlorthalidone 50mg"/>
   </concept>
   <concept id="32074000" display="Long term care hospital">
     <display value="Long term care hospital"/>
@@ -10985,15 +12304,48 @@
     <display value="Lincoln red cattle"/>
     <display value="Lincoln red cattle breed"/>
   </concept>
+  <concept id="321667001" display="Respiratory tract structure">
+    <display value="Respiratory tract structure"/>
+    <display value="Respiratory tract"/>
+    <display value="Respiratory tract structure (body structure)"/>
+  </concept>
+  <concept id="322254008" display="Paracetamol 240mg suppository">
+    <display value="Paracetamol 240mg suppository (product)"/>
+    <display value="Paracetamol 240mg suppository"/>
+    <display value="Acetaminophen 240mg suppository"/>
+  </concept>
   <concept id="32297006" display="Boar power pig 48">
     <display value="Boar power pig 48"/>
     <display value="Boar power pig 48 (organism)"/>
+  </concept>
+  <concept id="32361000" display="Popliteal fossa">
+    <display value="Popliteal fossa"/>
+    <display value="Popliteal fossa structure"/>
+    <display value="Popliteal fossa structure (body structure)"/>
+  </concept>
+  <concept id="324252006" display="Azithromycin 250mg capsule">
+    <display value="Azithromycin 250mg capsule"/>
+    <display value="Azithromycin 250mg capsule (product)"/>
+    <display value="Azithromycin dihydrate 250mg capsule"/>
+  </concept>
+  <concept id="324337001" display="Vancomycin 500mg injection (pdr for recon)">
+    <display value="Vancomycin 500mg injection (pdr for recon)"/>
+    <display value="Vancomycin 500mg powder for infusion solution vial (product)"/>
+    <display value="Vancomycin 500mg powder for infusion solution vial"/>
+  </concept>
+  <concept id="324689003" display="Nystatin 100,000units/mL oral suspension">
+    <display value="Nystatin 100,000units/mL oral suspension"/>
+    <display value="Nystatin 100,000units/mL oral suspension (product)"/>
   </concept>
   <concept id="32485007" display="Hospital admission">
     <display value="Hospital admission"/>
     <display value="Hospital admission (procedure)"/>
     <display value="Admission to hospital"/>
     <display value="Performance of the steps necessary to admit a patient to a hospital"/>
+  </concept>
+  <concept id="325072002" display="Insulin aspart">
+    <display value="Insulin aspart"/>
+    <display value="Insulin aspart (substance)"/>
   </concept>
   <concept id="32509001" display="Black turkey">
     <display value="Black turkey"/>
@@ -11010,6 +12362,19 @@
   <concept id="32683006" display="FHC elite pig 7">
     <display value="FHC elite pig 7"/>
     <display value="FHC elite pig 7 (organism)"/>
+  </concept>
+  <concept id="32849002" display="Esophagus">
+    <display value="Esophagus"/>
+    <display value="Oesophagus"/>
+    <display value="Oesophageal structure"/>
+    <display value="Esophageal structure"/>
+    <display value="Esophageal structure (body structure)"/>
+  </concept>
+  <concept id="32914008" display="Restless legs">
+    <display value="Restless legs"/>
+    <display value="Restless legs syndrome"/>
+    <display value="Restless legs (disorder)"/>
+    <display value="Willis-Ekbom disease"/>
   </concept>
   <concept id="32938007" display="Gir cattle">
     <display value="Gir cattle breed (organism)"/>
@@ -11035,11 +12400,29 @@
     <display value="Phoenix chicken"/>
     <display value="Phoenix chicken (organism)"/>
   </concept>
+  <concept id="333346007" display="Silver nitrate 20% solution">
+    <display value="Silver nitrate 20% solution"/>
+    <display value="Silver nitrate 20% solution (product)"/>
+  </concept>
+  <concept id="333919005" display="Fentanyl 25micrograms/hour patch">
+    <display value="Fentanyl 25micrograms/hour patch"/>
+    <display value="Fentanyl 25micrograms/hour patch (product)"/>
+  </concept>
   <concept id="33463005" display="Fluid">
     <display value="Fluid"/>
     <display value="Liquid substance"/>
     <display value="Liquid"/>
     <display value="Liquid substance (substance)"/>
+  </concept>
+  <concept id="33489005" display="Renal disease diet">
+    <display value="Renal disease diet"/>
+    <display value="Renal diet"/>
+    <display value="Renal disease diet (finding)"/>
+  </concept>
+  <concept id="33526004" display="Laboratory reporting, electronic">
+    <display value="Laboratory reporting, electronic"/>
+    <display value="Laboratory reporting, computer"/>
+    <display value="Laboratory reporting, electronic (procedure)"/>
   </concept>
   <concept id="33551003" display="Kentucky red berkshire pig">
     <display value="Kentucky red berkshire pig"/>
@@ -11049,13 +12432,51 @@
     <display value="Buttercup chicken"/>
     <display value="Buttercup chicken (organism)"/>
   </concept>
+  <concept id="337915000" display="Homo sapiens">
+    <display value="Homo sapiens"/>
+    <display value="Homo sapiens (organism)"/>
+    <display value="Human"/>
+  </concept>
+  <concept id="339008" display="Blister">
+    <display value="Blister"/>
+    <display value="Bulla"/>
+    <display value="Bleb"/>
+    <display value="Blisters"/>
+    <display value="Blistering"/>
+    <display value="Blister (morphologic abnormality)"/>
+    <display value="A fluid-filled, raised, often translucent lesion, greater than 1 cm in diameter"/>
+  </concept>
   <concept id="340519003" display="Lysine intolerance">
     <display value="Lysine intolerance"/>
     <display value="Lysine intolerance (disorder)"/>
   </concept>
+  <concept id="34068001" display="Heart valve replacement">
+    <display value="Heart valve replacement"/>
+    <display value="Heart valve replacement (procedure)"/>
+  </concept>
   <concept id="34200004" display="Standardbred horse">
     <display value="Standardbred horse"/>
     <display value="Standardbred horse (organism)"/>
+  </concept>
+  <concept id="34206005" display="Subcutaneous route">
+    <display value="Subcutaneous route"/>
+    <display value="Subcutaneous route (qualifier value)"/>
+    <display value="SC use"/>
+    <display value="Subcutaneous use"/>
+    <display value="SC route"/>
+    <display value="A route that begins in subcutaneous tissue."/>
+  </concept>
+  <concept id="34402009" display="Rectum">
+    <display value="Rectum"/>
+    <display value="Rectum structure"/>
+    <display value="Rectum structure (body structure)"/>
+    <display value="Rectal structure"/>
+  </concept>
+  <concept id="34431008" display="Physiotherapy of chest">
+    <display value="Physiotherapy of chest"/>
+    <display value="Respiratory physiotherapy"/>
+    <display value="Physiotherapy of chest (regime/therapy)"/>
+    <display value="Chest physiotherapy"/>
   </concept>
   <concept id="3457005" display="Patient referral">
     <display value="Patient referral"/>
@@ -11066,6 +12487,14 @@
   <concept id="34595003" display="Boar power pig 828">
     <display value="Boar power pig 828"/>
     <display value="Boar power pig 828 (organism)"/>
+  </concept>
+  <concept id="34608000" display="Alanine aminotransferase measurement">
+    <display value="Alanine aminotransferase measurement"/>
+    <display value="ALT measurement"/>
+    <display value="SGPT measurement"/>
+    <display value="Glutamic pyruvate transaminase measurement"/>
+    <display value="GPT measurement"/>
+    <display value="Alanine aminotransferase measurement (procedure)"/>
   </concept>
   <concept id="34618005" display="Bos taurus">
     <display value="Bos taurus"/>
@@ -11101,9 +12530,23 @@
     <display value="Southdown sheep"/>
     <display value="Southdown sheep (organism)"/>
   </concept>
+  <concept id="357009" display="Closed fracture of trapezoidal bone of wrist">
+    <display value="Closed fracture of trapezoidal bone of wrist"/>
+    <display value="Closed fracture of small multangular bone of wrist"/>
+    <display value="Closed fracture of trapezoidal bone of wrist (disorder)"/>
+    <display value="Closed fracture trapezoid"/>
+  </concept>
   <concept id="35839008" display="Leghorn chicken">
     <display value="Leghorn chicken"/>
     <display value="Leghorn chicken (organism)"/>
+  </concept>
+  <concept id="359540000" display="Topical">
+    <display value="Topical"/>
+    <display value="Topical (qualifier value)"/>
+  </concept>
+  <concept id="359615001" display="Partial lobectomy of lung">
+    <display value="Partial lobectomy of lung"/>
+    <display value="Partial lobectomy of lung (procedure)"/>
   </concept>
   <concept id="35963001" display="Removal of staples">
     <display value="Removal of staples"/>
@@ -11121,9 +12564,17 @@
     <display value="Domestic fowl"/>
     <display value="Domestic fowl (organism)"/>
   </concept>
+  <concept id="359962006" display="Turning patient in bed">
+    <display value="Turning patient in bed"/>
+    <display value="Turning patient in bed (procedure)"/>
+  </concept>
   <concept id="360020006" display="Extirpation - action">
     <display value="Extirpation - action"/>
     <display value="Extirpation - action (qualifier value)"/>
+  </concept>
+  <concept id="36048009" display="Glucose measurement">
+    <display value="Glucose measurement"/>
+    <display value="Glucose measurement (procedure)"/>
   </concept>
   <concept id="360957003" display="Hospital-based outpatient allergy clinic">
     <display value="Hospital-based outpatient allergy clinic"/>
@@ -11142,13 +12593,43 @@
     <display value="Trauma centre"/>
     <display value="Trauma center (environment)"/>
   </concept>
+  <concept id="361355005" display="Entire head and neck">
+    <display value="Entire head and neck"/>
+    <display value="Head and neck"/>
+    <display value="Entire head and neck (body structure)"/>
+  </concept>
   <concept id="36187006" display="Spotted pig">
     <display value="Spotted pig"/>
     <display value="Spotted pig (organism)"/>
   </concept>
+  <concept id="36213007" display="Endoscopy and brush biopsy">
+    <display value="Endoscopy and brush biopsy"/>
+    <display value="Endoscopic brush biopsy"/>
+    <display value="Endoscopy and brush biopsy (procedure)"/>
+  </concept>
+  <concept id="36225005" display="Acute renal failure due to procedure">
+    <display value="Acute renal failure due to procedure"/>
+    <display value="Acute renal insufficiency due to procedure"/>
+    <display value="Acute renal failure due to procedure (disorder)"/>
+  </concept>
   <concept id="36293008" display="Hospital-based outpatient pain clinic">
     <display value="Hospital-based outpatient pain clinic"/>
     <display value="Hospital-based outpatient pain clinic (environment)"/>
+  </concept>
+  <concept id="363346000" display="Malignant tumour">
+    <display value="Malignant tumour"/>
+    <display value="Malignant tumor"/>
+    <display value="Malignant neoplastic disease (disorder)"/>
+    <display value="Malignant neoplastic disease"/>
+    <display value="Cancer"/>
+    <display value="CA - Cancer"/>
+    <display value="Malignant neoplasm"/>
+  </concept>
+  <concept id="363358000" display="Malignant tumor of lung">
+    <display value="Malignant tumor of lung"/>
+    <display value="Malignant tumour of lung"/>
+    <display value="Malignant tumor of lung (disorder)"/>
+    <display value="CA - Lung cancer"/>
   </concept>
   <concept id="363679005" display="Imaging">
     <display value="Imaging (procedure)"/>
@@ -11160,31 +12641,100 @@
     <display value="Dekalb hybrid pig line 31 (organism)"/>
     <display value="Dekalb hybrid pig line 31"/>
   </concept>
+  <concept id="365722008" display="Bicarbonate level - finding">
+    <display value="Bicarbonate level - finding"/>
+    <display value="Bicarbonate level"/>
+    <display value="Finding of bicarbonate level (finding)"/>
+    <display value="Finding of bicarbonate level"/>
+  </concept>
   <concept id="365858006" display="Prognosis/outlook finding">
     <display value="Prognosis/outlook finding"/>
     <display value="Prognosis/outlook finding (finding)"/>
+  </concept>
+  <concept id="36629006" display="Legal marriage">
+    <display value="Legal marriage"/>
+    <display value="Legal married state"/>
+    <display value="Legally married"/>
+    <display value="Legally married (finding)"/>
   </concept>
   <concept id="36653000" display="Rubella">
     <display value="Rubella"/>
     <display value="German measles"/>
     <display value="Rubella (disorder)"/>
   </concept>
+  <concept id="36682004" display="Physiotherapist">
+    <display value="Physiotherapist"/>
+    <display value="Physiotherapist (occupation)"/>
+    <display value="PT - Physiotherapist"/>
+    <display value="Physical therapist"/>
+  </concept>
+  <concept id="367336001" display="Chemotherapy">
+    <display value="Chemotherapy"/>
+    <display value="Chemotherapy (procedure)"/>
+    <display value="CT - Chemotherapy"/>
+    <display value="The treatment of disease using chemical agents or drugs that are selectively toxic to the causative agent of the disease, such as a virus, bacterium, or other microorganism."/>
+  </concept>
+  <concept id="368009" display="Heart valve disorder">
+    <display value="Heart valve disorder"/>
+    <display value="Valvular heart disease"/>
+    <display value="Heart valve disease"/>
+    <display value="Disorder of heart valve"/>
+    <display value="Heart valve disorder (disorder)"/>
+  </concept>
+  <concept id="368209003" display="Right upper arm">
+    <display value="Right upper arm"/>
+    <display value="Right arm"/>
+    <display value="Right upper arm structure"/>
+    <display value="Right upper arm structure (body structure)"/>
+  </concept>
+  <concept id="368225008" display="Entire left forearm">
+    <display value="Entire left forearm"/>
+    <display value="Left forearm"/>
+    <display value="Entire left forearm (body structure)"/>
+  </concept>
   <concept id="36989005" display="Mumps">
     <display value="Mumps"/>
     <display value="Mumps (disorder)"/>
   </concept>
+  <concept id="371041009" display="Embolic stroke">
+    <display value="Embolic stroke (disorder)"/>
+    <display value="Embolic stroke"/>
+  </concept>
   <concept id="371900001" display="Medication not administered">
     <display value="Medication not administered"/>
     <display value="Medication not administered (situation)"/>
+  </concept>
+  <concept id="371923003" display="Mild to moderate">
+    <display value="Mild to moderate (qualifier value)"/>
+    <display value="Mild to moderate"/>
+  </concept>
+  <concept id="371924009" display="Moderate to severe">
+    <display value="Moderate to severe (qualifier value)"/>
+    <display value="Moderate to severe"/>
+  </concept>
+  <concept id="372687004" display="Amoxicillin">
+    <display value="Amoxicillin (substance)"/>
+    <display value="Amoxicillin"/>
+    <display value="Amoxycillin"/>
   </concept>
   <concept id="3729002" display="Hospital-based outpatient pediatric clinic">
     <display value="Hospital-based outpatient pediatric clinic"/>
     <display value="Hospital-based outpatient paediatric clinic"/>
     <display value="Hospital-based outpatient pediatric clinic (environment)"/>
   </concept>
+  <concept id="373147003" display="Medication not administered because contraindicated">
+    <display value="Medication not administered because contraindicated"/>
+    <display value="Administration of medication not done due to contraindication (situation)"/>
+    <display value="Administration of medication not done due to contraindication"/>
+  </concept>
   <concept id="373873005" display="Pharmaceutical / biologic product">
     <display value="Pharmaceutical / biologic product (product)"/>
     <display value="Pharmaceutical / biologic product"/>
+  </concept>
+  <concept id="373994007" display="Prednisone 5mg tablet">
+    <display value="Prednisone 5mg tablet (product)"/>
+    <display value="Prednisone 5mg tablet"/>
+    <display value="Prednisone 5mg"/>
   </concept>
   <concept id="37546005" display="Hospital-based outpatient rehabilitation clinic">
     <display value="Hospital-based outpatient rehabilitation clinic"/>
@@ -11194,13 +12744,69 @@
     <display value="Hospital-based outpatient dermatology clinic"/>
     <display value="Hospital-based outpatient dermatology clinic (environment)"/>
   </concept>
+  <concept id="375860009" display="Ceftriaxone sodium 500mg powder for injection">
+    <display value="Ceftriaxone sodium 500mg powder for injection"/>
+    <display value="Ceftriaxone sodium 500mg powder for injection solution vial (product)"/>
+    <display value="Ceftriaxone sodium 500mg powder for injection solution vial"/>
+  </concept>
+  <concept id="376877002" display="Timolol maleate 0.5% ophthalmic solution">
+    <display value="Timolol maleate 0.5% ophthalmic solution (product)"/>
+    <display value="Timolol maleate 0.5% ophthalmic solution"/>
+  </concept>
+  <concept id="376988009" display="Levothyroxine sodium 75micrograms tablet">
+    <display value="Levothyroxine sodium 75micrograms tablet (product)"/>
+    <display value="Levothyroxine sodium 75micrograms tablet"/>
+    <display value="Laevothyroxine sodium 75micrograms tablet"/>
+  </concept>
   <concept id="37812004" display="Broad breasted white turkey">
     <display value="Broad breasted white turkey"/>
     <display value="Broad breasted white turkey (organism)"/>
   </concept>
+  <concept id="38048003" display="Uncle">
+    <display value="Uncle"/>
+    <display value="Uncle (person)"/>
+  </concept>
   <concept id="38238005" display="Hospital-based outpatient neurology clinic">
     <display value="Hospital-based outpatient neurology clinic"/>
     <display value="Hospital-based outpatient neurology clinic (environment)"/>
+  </concept>
+  <concept id="38266002" display="Body as a whole">
+    <display value="Body as a whole"/>
+    <display value="Total body"/>
+    <display value="Entire body as a whole"/>
+    <display value="Entire body as a whole (body structure)"/>
+  </concept>
+  <concept id="385055001" display="Tablet">
+    <display value="Tablet"/>
+    <display value="Tablets"/>
+    <display value="Tablet dose form (qualifier value)"/>
+    <display value="Tablet dose form"/>
+  </concept>
+  <concept id="385057009" display="Film-coated tablet">
+    <display value="Film-coated tablet"/>
+    <display value="Film-coated tablet (qualifier value)"/>
+  </concept>
+  <concept id="385093006" display="Community acquired pneumonia">
+    <display value="Community acquired pneumonia (disorder)"/>
+    <display value="Community acquired pneumonia"/>
+  </concept>
+  <concept id="385101003" display="Ointment">
+    <display value="Ointment"/>
+    <display value="Ointment (qualifier value)"/>
+  </concept>
+  <concept id="385157007" display="Nasal spray">
+    <display value="Nasal spray"/>
+    <display value="Nasal spray (qualifier value)"/>
+  </concept>
+  <concept id="385219001" display="Injection solution">
+    <display value="Injection solution"/>
+    <display value="Solution for injection"/>
+    <display value="Injection solution (qualifier value)"/>
+  </concept>
+  <concept id="385221006" display="Injection emulsion">
+    <display value="Injection emulsion"/>
+    <display value="Emulsion for injection"/>
+    <display value="Injection emulsion (qualifier value)"/>
   </concept>
   <concept id="385356007" display="Tumour stage finding">
     <display value="Tumor stage finding (finding)"/>
@@ -11229,6 +12835,10 @@
     <display value="Clinical evaluation"/>
     <display value="Determination of a value, conclusion, or inference by evaluating evidence"/>
   </concept>
+  <concept id="386144009" display="Line insertion site">
+    <display value="Line insertion site (morphologic abnormality)"/>
+    <display value="Line insertion site"/>
+  </concept>
   <concept id="386147002" display="Smear procedure">
     <display value="Smear procedure (procedure)"/>
     <display value="Smear procedure"/>
@@ -11241,9 +12851,60 @@
     <display value="Pregnancy delivered"/>
     <display value="Delivery"/>
   </concept>
+  <concept id="386619000" display="Low sodium diet">
+    <display value="Low sodium diet (finding)"/>
+    <display value="Low sodium diet"/>
+    <display value="Restricted salt diet"/>
+    <display value="Reduced sodium diet"/>
+    <display value="Restricted sodium diet"/>
+    <display value="Na - Low sodium diet"/>
+    <display value="Low salt diet"/>
+    <display value="Reduced salt diet"/>
+  </concept>
+  <concept id="386661006" display="Fever">
+    <display value="Fever (finding)"/>
+    <display value="Fever"/>
+    <display value="Pyrexial"/>
+    <display value="Pyrexia"/>
+    <display value="Febrile"/>
+  </concept>
+  <concept id="386906001" display="Capecitabine">
+    <display value="Capecitabine (substance)"/>
+    <display value="Capecitabine"/>
+  </concept>
+  <concept id="386983007" display="Alprazolam">
+    <display value="Alprazolam (substance)"/>
+    <display value="Alprazolam"/>
+  </concept>
+  <concept id="387048002" display="Nystatin">
+    <display value="Nystatin (substance)"/>
+    <display value="Nystatin"/>
+  </concept>
+  <concept id="387106007" display="Lorazepam">
+    <display value="Lorazepam (substance)"/>
+    <display value="Lorazepam"/>
+  </concept>
+  <concept id="387138002" display="Busulphan">
+    <display value="Busulfan (substance)"/>
+    <display value="Busulphan"/>
+    <display value="Busulfan"/>
+  </concept>
   <concept id="3872000" display="Beltsville white turkey">
     <display value="Beltsville white turkey"/>
     <display value="Beltsville white turkey (organism)"/>
+  </concept>
+  <concept id="387253001" display="Salicylic acid">
+    <display value="Salicylic acid (substance)"/>
+    <display value="Salicylic acid"/>
+  </concept>
+  <concept id="387324004" display="Chlorthalidone">
+    <display value="Chlorthalidone (substance)"/>
+    <display value="Chlorthalidone"/>
+    <display value="Chlortalidone"/>
+  </concept>
+  <concept id="387531004" display="Azithromycin">
+    <display value="Azithromycin (substance)"/>
+    <display value="Azithromycin"/>
   </concept>
   <concept id="387713003" display="Surgical procedure">
     <display value="Surgical procedure (procedure)"/>
@@ -11264,6 +12925,21 @@
     <display value="Genus Equus"/>
     <display value="Horse"/>
     <display value="Horse, donkey, mule genus"/>
+  </concept>
+  <concept id="39065001" display="Burn of ear">
+    <display value="Burn of ear"/>
+    <display value="Burn of ear (disorder)"/>
+    <display value="Burn of ear structure"/>
+  </concept>
+  <concept id="391040000" display="At risk of osteoporotic fracture">
+    <display value="At risk of osteoporotic fracture (finding)"/>
+    <display value="At risk of osteoporotic fracture"/>
+  </concept>
+  <concept id="392259005" display="Co-amoxiclav 875mg/125mg tablet">
+    <display value="Co-amoxiclav 875mg/125mg tablet"/>
+    <display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)"/>
+    <display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet"/>
+    <display value="Amoxicillin + clavulanic acid 875mg/125mg tablet"/>
   </concept>
   <concept id="39350007" display="Private physicians&#39; group office">
     <display value="Private physicians&#39; group office"/>
@@ -11432,6 +13108,10 @@
     <display value="Nuclear medicine - specialty"/>
     <display value="Nuclear medicine"/>
   </concept>
+  <concept id="394687007" display="Low suicide risk">
+    <display value="Low suicide risk (finding)"/>
+    <display value="Low suicide risk"/>
+  </concept>
   <concept id="394725008" display="Diabetes medication review">
     <display value="Diabetes medication review (procedure)"/>
     <display value="Diabetes medication review"/>
@@ -11521,9 +13201,18 @@
     <display value="Occupational medicine (qualifier value)"/>
     <display value="Occupational medicine"/>
   </concept>
+  <concept id="394849002" display="High priority">
+    <display value="High priority (qualifier value)"/>
+    <display value="High priority"/>
+  </concept>
   <concept id="394882004" display="Pain management (specialty)">
     <display value="Pain management (specialty) (qualifier value)"/>
     <display value="Pain management (specialty)"/>
+  </concept>
+  <concept id="394899003" display="Oral administration of treatment">
+    <display value="Oral administration of treatment"/>
+    <display value="Treatment administered orally"/>
+    <display value="Oral administration of treatment (navigational concept)"/>
   </concept>
   <concept id="394908001" display="Procedure stopped">
     <display value="Procedure stopped"/>
@@ -11559,6 +13248,31 @@
     <display value="Buckeye chicken"/>
     <display value="Buckeye chicken (organism)"/>
   </concept>
+  <concept id="39579001" display="Anaphylaxis">
+    <display value="Anaphylaxis"/>
+    <display value="Anaphylactic reaction"/>
+    <display value="Generalized anaphylaxis"/>
+    <display value="Generalised anaphylaxis"/>
+    <display value="Anaphylactic shock"/>
+    <display value="Allergic shock"/>
+    <display value="Systemic anaphylaxis"/>
+    <display value="Anaphylaxis (disorder)"/>
+  </concept>
+  <concept id="395938000" display="Clavulanate potassium">
+    <display value="Clavulanate potassium (substance)"/>
+    <display value="Clavulanate potassium"/>
+    <display value="Potassium clavulanate"/>
+  </concept>
+  <concept id="39607008" display="Lung">
+    <display value="Lung"/>
+    <display value="Lung structure"/>
+    <display value="Lung structure (body structure)"/>
+  </concept>
+  <concept id="396458002" display="Hydrocortisone">
+    <display value="Hydrocortisone (substance)"/>
+    <display value="Hydrocortisone"/>
+    <display value="Cortisol"/>
+  </concept>
   <concept id="396488006" display="Ari?geois pony breed">
     <display value="Ari?geois pony breed (organism)"/>
     <display value="Ari?geois pony breed"/>
@@ -11571,10 +13285,30 @@
     <display value="Duck"/>
     <display value="Duck genus"/>
   </concept>
+  <concept id="39714003" display="Skeletal X-ray of wrist and hand">
+    <display value="Skeletal X-ray of wrist and hand"/>
+    <display value="Skeletal X-ray of wrist and hand (procedure)"/>
+  </concept>
+  <concept id="397158004" display="Perianal region structure">
+    <display value="Perianal region structure (body structure)"/>
+    <display value="Perianal region structure"/>
+    <display value="Perianal region"/>
+  </concept>
+  <concept id="397394009" display="Bronchoalveolar lavage">
+    <display value="Bronchoalveolar lavage (procedure)"/>
+    <display value="Bronchoalveolar lavage"/>
+    <display value="BAL procedure"/>
+    <display value="BAL - Bronchoalveolar lavage"/>
+  </concept>
   <concept id="397430003" display="Diphtheria due to Corynebacterium diphtheriae">
     <display value="Diphtheria due to Corynebacterium diphtheriae"/>
     <display value="Diphtheria caused by Corynebacterium diphtheriae (disorder)"/>
     <display value="Diphtheria caused by Corynebacterium diphtheriae"/>
+  </concept>
+  <concept id="39748002" display="Bilirubin, direct measurement">
+    <display value="Bilirubin, direct measurement"/>
+    <display value="Bilirubin, conjugated measurement"/>
+    <display value="Bilirubin, direct measurement (procedure)"/>
   </concept>
   <concept id="397640006" display="Healthcare knowledge finding">
     <display value="Healthcare knowledge finding (finding)"/>
@@ -11587,18 +13321,48 @@
     <display value="PM - Poliomyelitis"/>
     <display value="Poliomyelitis"/>
   </concept>
+  <concept id="398254007" display="Pre-eclampsia">
+    <display value="Pre-eclampsia (disorder)"/>
+    <display value="Pre-eclampsia"/>
+    <display value="EPH - Oedema, proteinuria and hypertension of pregnancy"/>
+    <display value="Pre-eclamptic toxaemia"/>
+    <display value="PET - Pre-eclamptic toxaemia"/>
+    <display value="EPH - Edema, proteinuria and hypertension of pregnancy"/>
+    <display value="PET - Pre-eclamptic toxemia"/>
+    <display value="Pre-eclamptic toxemia"/>
+    <display value="PE - Pre-eclampsia"/>
+    <display value="Proteinuric hypertension of pregnancy"/>
+    <display value="Preeclampsia"/>
+  </concept>
+  <concept id="39839004" display="Diaphragmatic hernia">
+    <display value="Diaphragmatic hernia"/>
+    <display value="Diaphragmatic hernia (disorder)"/>
+  </concept>
   <concept id="39855006" display="Wiltshire horn sheep">
     <display value="Wiltshire horn sheep"/>
     <display value="Wiltshire horn sheep (organism)"/>
+  </concept>
+  <concept id="399067008" display="Lateral projection">
+    <display value="Lateral projection (qualifier value)"/>
+    <display value="Lateral projection"/>
   </concept>
   <concept id="39913001" display="Residential school infirmary">
     <display value="Residential school infirmary"/>
     <display value="Residential school clinic"/>
     <display value="Residential school infirmary (environment)"/>
   </concept>
+  <concept id="39937001" display="Skin">
+    <display value="Skin"/>
+    <display value="Skin structure"/>
+    <display value="Skin structure (body structure)"/>
+  </concept>
   <concept id="3997000" display="Pony">
     <display value="Pony"/>
     <display value="Pony (organism)"/>
+  </concept>
+  <concept id="399713008" display="Specimen from uterine cervix obtained by cone biopsy">
+    <display value="Specimen from uterine cervix obtained by cone biopsy (specimen)"/>
+    <display value="Specimen from uterine cervix obtained by cone biopsy"/>
   </concept>
   <concept id="39972003" display="Sodium">
     <display value="Sodium"/>
@@ -11609,6 +13373,22 @@
     <display value="Pinzgauer cattle breed (organism)"/>
     <display value="Pinzgauer cattle"/>
     <display value="Pinzgauer cattle breed"/>
+  </concept>
+  <concept id="400621001" display="Lorazepam 2mg/mL injection solution 1mL vial">
+    <display value="Lorazepam 2mg/mL injection solution 1mL vial (product)"/>
+    <display value="Lorazepam 2mg/mL injection solution 1mL vial"/>
+    <display value="Lorazepam 2mg/mL injection"/>
+  </concept>
+  <concept id="40379007" display="Mild recurrent major depression">
+    <display value="Mild recurrent major depression"/>
+    <display value="Mild recurrent major depression (disorder)"/>
+  </concept>
+  <concept id="40468003" display="Viral hepatitis, type A">
+    <display value="Viral hepatitis, type A"/>
+    <display value="Infectious hepatitis"/>
+    <display value="Hepatitis A"/>
+    <display value="IH - Infectious hepatitis"/>
+    <display value="Viral hepatitis, type A (disorder)"/>
   </concept>
   <concept id="404684003" display="Clinical finding">
     <display value="Clinical finding (finding)"/>
@@ -11623,10 +13403,20 @@
     <display value="Outpatient surgery centre"/>
     <display value="Same day surgery centre"/>
   </concept>
+  <concept id="405608006" display="Academic medical centre">
+    <display value="Academic medical center (environment)"/>
+    <display value="Academic medical centre"/>
+    <display value="Academic medical center"/>
+    <display value="Teaching hospital"/>
+  </concept>
   <concept id="406149000" display="Medication refused">
     <display value="Medication refused"/>
     <display value="Refusal to take medication"/>
     <display value="Medication refused (situation)"/>
+  </concept>
+  <concept id="406466009" display="House dust allergen">
+    <display value="House dust allergen (substance)"/>
+    <display value="House dust allergen"/>
   </concept>
   <concept id="406660008" display="Galway sheep breed">
     <display value="Galway sheep breed (organism)"/>
@@ -11667,6 +13457,11 @@
   <concept id="407402001" display="Warmblood horse breed">
     <display value="Warmblood horse breed (organism)"/>
     <display value="Warmblood horse breed"/>
+  </concept>
+  <concept id="40768004" display="Left thorax">
+    <display value="Left thorax"/>
+    <display value="Left thorax structure"/>
+    <display value="Left thorax structure (body structure)"/>
   </concept>
   <concept id="408440000" display="Public health medicine">
     <display value="Public health medicine (qualifier value)"/>
@@ -11811,6 +13606,14 @@
     <display value="Clinical immunology (qualifier value)"/>
     <display value="Clinical immunology"/>
   </concept>
+  <concept id="408596005" display="Alemtuzumab 30mg/3mL infusion concentrate">
+    <display value="Alemtuzumab 30mg/3mL infusion concentrate (product)"/>
+    <display value="Alemtuzumab 30mg/3mL infusion concentrate"/>
+  </concept>
+  <concept id="408654003" display="Specimen obtained by amputation">
+    <display value="Specimen obtained by amputation (specimen)"/>
+    <display value="Specimen obtained by amputation"/>
+  </concept>
   <concept id="409063005" display="Counselling">
     <display value="Counselling"/>
     <display value="Counseling"/>
@@ -11826,6 +13629,11 @@
     <display value="Instruction"/>
     <display value="Teaching"/>
     <display value="Procedure that is synonymous with those activities such as teaching, demonstration, instruction, explanation, and advice that aim to increase knowledge and skills, change behaviors, assist coping and increase adherence to treatment."/>
+  </concept>
+  <concept id="40930008" display="Hypothyroidism">
+    <display value="Hypothyroidism"/>
+    <display value="Hypothyroid"/>
+    <display value="Hypothyroidism (disorder)"/>
   </concept>
   <concept id="409519008" display="Contained casualty setting">
     <display value="Contained casualty setting (environment)"/>
@@ -11876,6 +13684,11 @@
     <display value="Dive medicine (qualifier value)"/>
     <display value="Dive medicine"/>
   </concept>
+  <concept id="410158009" display="Physical therapy assessment">
+    <display value="Physical therapy assessment"/>
+    <display value="Assess physical therapist service"/>
+    <display value="Physical therapy assessment (procedure)"/>
+  </concept>
   <concept id="41092008" display="Cleveland bay horse">
     <display value="Cleveland bay horse"/>
     <display value="Cleveland bay horse (organism)"/>
@@ -11885,9 +13698,21 @@
     <display value="Drug or medicament"/>
     <display value="Drug"/>
   </concept>
+  <concept id="412414007" display="Infant formula + iron">
+    <display value="Infant formula + iron (product)"/>
+    <display value="Infant formula + iron"/>
+  </concept>
   <concept id="41290008" display="Plymouth Rock chicken">
     <display value="Plymouth Rock chicken"/>
     <display value="Plymouth Rock chicken (organism)"/>
+  </concept>
+  <concept id="413095006" display="Clinical management plan review">
+    <display value="Clinical management plan review (procedure)"/>
+    <display value="Clinical management plan review"/>
+  </concept>
+  <concept id="41329004" display="Polyp">
+    <display value="Polyp"/>
+    <display value="Polyp (morphologic abnormality)"/>
   </concept>
   <concept id="413427002" display="Acquired fructose intolerance">
     <display value="Acquired fructose intolerance (disorder)"/>
@@ -11911,11 +13736,36 @@
     <display value="Jungle fowl chicken"/>
     <display value="Jungle fowl chicken (organism)"/>
   </concept>
+  <concept id="4147007" display="Mass">
+    <display value="Mass"/>
+    <display value="Localized mass"/>
+    <display value="Lump"/>
+    <display value="Localised mass"/>
+    <display value="Mass (morphologic abnormality)"/>
+  </concept>
+  <concept id="414781009" display="Mucous membrane structure">
+    <display value="Mucous membrane structure (body structure)"/>
+    <display value="Mucous membrane structure"/>
+    <display value="MM - Mucous membrane"/>
+    <display value="Mucous membrane"/>
+    <display value="Tunica mucosa"/>
+  </concept>
   <concept id="41561001" display="DK pig 30">
     <display value="DK pig 30"/>
     <display value="Dekalb hybrid pig line 30 (organism)"/>
     <display value="Dekalb hybrid pig line 30"/>
     <display value="Dekalb pig 30"/>
+  </concept>
+  <concept id="41570003" display="Carbuncle">
+    <display value="Carbuncle"/>
+    <display value="Carbuncle (morphologic abnormality)"/>
+  </concept>
+  <concept id="415818006" display="Vial">
+    <display value="Vial"/>
+    <display value="Vials"/>
+    <display value="Vil"/>
+    <display value="Vial - unit of product usage (qualifier value)"/>
+    <display value="Vial - unit of product usage"/>
   </concept>
   <concept id="416064006" display="Procedure not offered">
     <display value="Procedure not offered"/>
@@ -11937,6 +13787,17 @@
   <concept id="416432009" display="Procedure not wanted">
     <display value="Procedure not wanted"/>
     <display value="Procedure not wanted (situation)"/>
+  </concept>
+  <concept id="41672002" display="Respiratory disease specialist">
+    <display value="Respiratory disease specialist"/>
+    <display value="Respiratory disease specialist (occupation)"/>
+    <display value="Respiratory physician"/>
+    <display value="Pulmonologist"/>
+  </concept>
+  <concept id="41695006" display="Scalp">
+    <display value="Scalp"/>
+    <display value="Scalp structure"/>
+    <display value="Scalp structure (body structure)"/>
   </concept>
   <concept id="417012009" display="Mixed breed pig">
     <display value="Mixed breed pig (organism)"/>
@@ -11991,6 +13852,10 @@
     <display value="Pediatric immunology"/>
     <display value="Paediatric immunology"/>
   </concept>
+  <concept id="418637003" display="Do not take with any other paracetamol products">
+    <display value="Do not take with any other paracetamol products (qualifier value)"/>
+    <display value="Do not take with any other paracetamol products"/>
+  </concept>
   <concept id="418652005" display="Pediatric hematology">
     <display value="Pediatric hematology (qualifier value)"/>
     <display value="Pediatric hematology"/>
@@ -12001,6 +13866,10 @@
     <display value="Pediatric infectious diseases"/>
     <display value="Paediatric infectious diseases"/>
   </concept>
+  <concept id="418914006" display="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink">
+    <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
+    <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink"/>
+  </concept>
   <concept id="418960008" display="Otolaryngology">
     <display value="Otolaryngology (qualifier value)"/>
     <display value="Otolaryngology"/>
@@ -12008,6 +13877,12 @@
   <concept id="419043006" display="Urological oncology">
     <display value="Urological oncology (qualifier value)"/>
     <display value="Urological oncology"/>
+  </concept>
+  <concept id="419099009" display="Dead">
+    <display value="Dead (finding)"/>
+    <display value="Dead"/>
+    <display value="Died"/>
+    <display value="Has died"/>
   </concept>
   <concept id="419161000" display="Unilateral left">
     <display value="Unilateral left (qualifier value)"/>
@@ -12051,6 +13926,12 @@
     <display value="Paediatric endocrinology"/>
     <display value="Pediatric endocrinology (qualifier value)"/>
   </concept>
+  <concept id="419672006" display="Bottle">
+    <display value="Bottle"/>
+    <display value="Bottles"/>
+    <display value="Bottle - unit of product usage (qualifier value)"/>
+    <display value="Bottle - unit of product usage"/>
+  </concept>
   <concept id="419772000" display="Family practice">
     <display value="Family practice (qualifier value)"/>
     <display value="Family practice"/>
@@ -12061,6 +13942,11 @@
     <display value="Radiation oncology"/>
     <display value="Radiotherapy"/>
     <display value="Therapeutic radiology"/>
+  </concept>
+  <concept id="419954003" display="Ileostomy route">
+    <display value="Ileostomy route (qualifier value)"/>
+    <display value="Ileostomy route"/>
+    <display value="An intraileal and gastro-intestinal stoma route that begins through a surgically created opening into the ileum."/>
   </concept>
   <concept id="419955002" display="Residential institution">
     <display value="Residential institution (environment)"/>
@@ -12081,6 +13967,35 @@
     <display value="Paediatric genetics"/>
     <display value="Pediatric genetics (qualifier value)"/>
   </concept>
+  <concept id="420548004" display="Specimen from mass">
+    <display value="Specimen from mass lesion (specimen)"/>
+    <display value="Specimen from mass"/>
+    <display value="Specimen from mass lesion"/>
+  </concept>
+  <concept id="420620005" display="Push">
+    <display value="Push - dosing instruction imperative (qualifier value)"/>
+    <display value="Push"/>
+    <display value="Push - dosing instruction imperative"/>
+  </concept>
+  <concept id="421026006" display="Oral tablet">
+    <display value="Oral tablet"/>
+    <display value="Oral tablet (qualifier value)"/>
+  </concept>
+  <concept id="421521009" display="Swallow">
+    <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+    <display value="Swallow"/>
+    <display value="Swallow - dosing instruction imperative"/>
+  </concept>
+  <concept id="421538008" display="Instill">
+    <display value="Instill - dosing instruction imperative (qualifier value)"/>
+    <display value="Instill"/>
+    <display value="Instill - dosing instruction imperative"/>
+  </concept>
+  <concept id="421637006" display="Lyophilised powder for injectable solution">
+    <display value="Lyophilised powder for injectable solution"/>
+    <display value="Lyophilized powder for injectable solution"/>
+    <display value="Lyophilized powder for injectable solution (qualifier value)"/>
+  </concept>
   <concept id="421661004" display="Blood banking and transfusion medicine (specialty)">
     <display value="Blood banking and transfusion medicine (specialty) (qualifier value)"/>
     <display value="Blood banking and transfusion medicine (specialty)"/>
@@ -12089,15 +14004,30 @@
     <display value="Drug dose form"/>
     <display value="Drug dose form (qualifier value)"/>
   </concept>
+  <concept id="421984009" display="Until finished">
+    <display value="Until finished - dosing instruction fragment (qualifier value)"/>
+    <display value="Until finished"/>
+    <display value="Until finished - dosing instruction fragment"/>
+  </concept>
   <concept id="422096002" display="Dosing instruction fragment">
     <display value="Dosing instruction fragment (qualifier value)"/>
     <display value="Dosing instruction fragment"/>
+  </concept>
+  <concept id="422145002" display="Inject">
+    <display value="Inject - dosing instruction imperative (qualifier value)"/>
+    <display value="Inject"/>
+    <display value="Inject - dosing instruction imperative"/>
   </concept>
   <concept id="422191005" display="Ophthalmic surgery">
     <display value="Ophthalmic surgery (qualifier value)"/>
     <display value="Ophthalmic surgery"/>
     <display value="Ocular surgery"/>
     <display value="Eye surgery"/>
+  </concept>
+  <concept id="422504002" display="Ischemic stroke">
+    <display value="Ischemic stroke (disorder)"/>
+    <display value="Ischemic stroke"/>
+    <display value="Ischaemic stroke"/>
   </concept>
   <concept id="424705003" display="Bison bison X Simmental hybrid cattle breed">
     <display value="Bison bison X Simmental hybrid cattle breed (organism)"/>
@@ -12114,9 +14044,17 @@
     <display value="Bison bison X Bos taurus hybrid (organism)"/>
     <display value="Bison bison X Bos taurus hybrid"/>
   </concept>
+  <concept id="425268008" display="Review of care plan">
+    <display value="Review of care plan (procedure)"/>
+    <display value="Review of care plan"/>
+  </concept>
   <concept id="42602001" display="Minorca chicken">
     <display value="Minorca chicken"/>
     <display value="Minorca chicken (organism)"/>
+  </concept>
+  <concept id="426396005" display="Cardiac chest pain">
+    <display value="Cardiac chest pain (finding)"/>
+    <display value="Cardiac chest pain"/>
   </concept>
   <concept id="42665001" display="Nursing home">
     <display value="Nursing home"/>
@@ -12156,6 +14094,15 @@
     <display value="Jersey giant chicken"/>
     <display value="Jersey giant chicken (organism)"/>
   </concept>
+  <concept id="428763004" display="Bacteremia due to Staphylococcus aureus">
+    <display value="Bacteremia due to Staphylococcus aureus"/>
+    <display value="Staphylococcus aureus bacteraemia"/>
+    <display value="Staphylococcus aureus bacteremia"/>
+    <display value="Bacteraemia due to Staphylococcus aureus"/>
+    <display value="Bacteremia caused by Staphylococcus aureus"/>
+    <display value="Bacteremia caused by Staphylococcus aureus (finding)"/>
+    <display value="Bacteraemia caused by Staphylococcus aureus"/>
+  </concept>
   <concept id="4288003" display="Thoroughbred horse">
     <display value="Thoroughbred horse"/>
     <display value="Thoroughbred horse (organism)"/>
@@ -12168,13 +14115,36 @@
     <display value="Norwegian landrace pig"/>
     <display value="Norwegian landrace pig (organism)"/>
   </concept>
+  <concept id="42950004" display="Iron measurement">
+    <display value="Iron measurement"/>
+    <display value="Iron measurement (procedure)"/>
+    <display value="Iron level"/>
+  </concept>
+  <concept id="429858000" display="Computed tomography (CT) of head and neck">
+    <display value="Computed tomography of head and neck (procedure)"/>
+    <display value="Computed tomography (CT) of head and neck"/>
+    <display value="Computed tomography of head and neck"/>
+    <display value="CT of head and neck"/>
+  </concept>
   <concept id="429951000124103" display="Bacterial isolate specimen (specimen)">
     <display value="Bacterial isolate specimen (specimen)"/>
     <display value="Bacterial isolate specimen"/>
   </concept>
+  <concept id="430127000" display="Oral form oxycodone">
+    <display value="Oral form oxycodone (product)"/>
+    <display value="Oral form oxycodone"/>
+  </concept>
+  <concept id="430268003" display="Specimen from bone">
+    <display value="Specimen from bone (specimen)"/>
+    <display value="Specimen from bone"/>
+  </concept>
   <concept id="430823004" display="Examination of midstream urine specimen">
     <display value="Examination of midstream urine specimen (procedure)"/>
     <display value="Examination of midstream urine specimen"/>
+  </concept>
+  <concept id="431938005" display="Structure of urinary tract proper">
+    <display value="Structure of urinary tract proper (body structure)"/>
+    <display value="Structure of urinary tract proper"/>
   </concept>
   <concept id="4322002" display="Military field hospital">
     <display value="Military field hospital"/>
@@ -12183,6 +14153,16 @@
   <concept id="43223009" display="Yokohama chicken">
     <display value="Yokohama chicken"/>
     <display value="Yokohama chicken (organism)"/>
+  </concept>
+  <concept id="432825001" display="Body secretion specimen">
+    <display value="Body secretion specimen (specimen)"/>
+    <display value="Body secretion specimen"/>
+  </concept>
+  <concept id="4335006" display="Upper jaw">
+    <display value="Upper jaw"/>
+    <display value="Upper jaw region"/>
+    <display value="Upper jaw region structure"/>
+    <display value="Upper jaw region structure (body structure)"/>
   </concept>
   <concept id="434711009" display="Specimen container">
     <display value="Specimen container (physical object)"/>
@@ -12196,6 +14176,10 @@
     <display value="Texture modified diet (regime/therapy)"/>
     <display value="Texture modified diet"/>
     <display value="Alter the consistency of foods to optimize chewing and swallowing. (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."/>
+  </concept>
+  <concept id="438660002" display="Specimen from prosthetic device">
+    <display value="Specimen from prosthetic device (specimen)"/>
+    <display value="Specimen from prosthetic device"/>
   </concept>
   <concept id="43869002" display="Rouen duck">
     <display value="Rouen duck"/>
@@ -12226,14 +14210,55 @@
     <display value="Easy to chew food (substance)"/>
     <display value="Easy to chew food"/>
   </concept>
+  <concept id="439336003" display="Brush biopsy">
+    <display value="Brush biopsy (procedure)"/>
+    <display value="Brush biopsy"/>
+  </concept>
+  <concept id="439401001" display="Diagnosis">
+    <display value="Diagnosis (observable entity)"/>
+    <display value="Diagnosis"/>
+  </concept>
+  <concept id="439961009" display="Implant submitted as specimen">
+    <display value="Implant submitted as specimen (specimen)"/>
+    <display value="Implant submitted as specimen"/>
+  </concept>
   <concept id="440034003" display="Polled dorset sheep">
     <display value="Polled dorset sheep breed (organism)"/>
     <display value="Polled dorset sheep"/>
     <display value="Polled dorset sheep breed"/>
   </concept>
+  <concept id="440137008" display="Specimen obtained by peritoneal lavage">
+    <display value="Specimen obtained by peritoneal lavage (specimen)"/>
+    <display value="Specimen obtained by peritoneal lavage"/>
+  </concept>
   <concept id="44027008" display="Seafood">
     <display value="Seafood"/>
     <display value="Seafood (substance)"/>
+  </concept>
+  <concept id="440473005" display="Contact lens submitted as specimen">
+    <display value="Contact lens submitted as specimen (specimen)"/>
+    <display value="Contact lens submitted as specimen"/>
+  </concept>
+  <concept id="440493002" display="Graft sample">
+    <display value="Graft specimen from patient (specimen)"/>
+    <display value="Graft sample"/>
+    <display value="Graft specimen from patient"/>
+  </concept>
+  <concept id="44054006" display="Diabetes mellitus type II">
+    <display value="Diabetes mellitus type II"/>
+    <display value="Type 2 diabetes mellitus"/>
+    <display value="Diabetes mellitus type 2"/>
+    <display value="Type II diabetes mellitus"/>
+    <display value="Diabetes mellitus type 2 (disorder)"/>
+  </concept>
+  <concept id="440655000" display="Outpatient environment">
+    <display value="Outpatient environment (environment)"/>
+    <display value="Outpatient environment"/>
+  </concept>
+  <concept id="440674008" display="Wash out specimen">
+    <display value="Specimen obtained by lavage (specimen)"/>
+    <display value="Wash out specimen"/>
+    <display value="Specimen obtained by lavage"/>
   </concept>
   <concept id="441531000124102" display="Standard enteral formula (product)">
     <display value="Standard enteral formula"/>
@@ -12469,6 +14494,10 @@
     <display value="Hydrolyzed protein formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to provide protein hydrolyzed into peptides."/>
   </concept>
+  <concept id="443849008" display="Apgar score at 20 minutes">
+    <display value="Apgar score at 20 minutes (observable entity)"/>
+    <display value="Apgar score at 20 minutes"/>
+  </concept>
   <concept id="444321000124108" display="Standard pudding oral supplement (product)">
     <display value="Standard pudding oral supplement (product)"/>
     <display value="Standard pudding oral supplement"/>
@@ -12499,10 +14528,50 @@
     <display value="Pediatric reduced calorie formula"/>
     <display value="Liquid formula intended for enteral and/or oral method of delivery, formulated to meet the nutritional needs of children and provide reduced calories relative to a standard formula."/>
   </concept>
+  <concept id="445085009" display="Tunneled central venous catheter">
+    <display value="Tunneled central venous catheter (physical object)"/>
+    <display value="Tunneled central venous catheter"/>
+  </concept>
+  <concept id="445295009" display="Blood specimen with EDTA">
+    <display value="Blood specimen with edetic acid (specimen)"/>
+    <display value="Blood specimen with EDTA"/>
+    <display value="Blood specimen with edetic acid"/>
+    <display value="Blood specimen with ethylenediamine tetraacetic acid"/>
+  </concept>
+  <concept id="44567001" display="Trachea">
+    <display value="Trachea"/>
+    <display value="Windpipe"/>
+    <display value="Tracheal structure"/>
+    <display value="Tracheal structure (body structure)"/>
+  </concept>
   <concept id="445729005" display="Tarpan horse breed">
     <display value="Tarpan horse breed (organism)"/>
     <display value="Tarpan horse breed"/>
     <display value="Tarpan"/>
+  </concept>
+  <concept id="446277003" display="Urine specimen obtained from nephrostomy tube after percutaneous insertion">
+    <display value="Urine specimen obtained from nephrostomy tube after percutaneous insertion (specimen)"/>
+    <display value="Urine specimen obtained from nephrostomy tube after percutaneous insertion"/>
+  </concept>
+  <concept id="446302006" display="Air sample">
+    <display value="Air sample (specimen)"/>
+    <display value="Air sample"/>
+  </concept>
+  <concept id="446562005" display="Body fluid specimen obtained via sump drain">
+    <display value="Body fluid specimen obtained via sump drain (specimen)"/>
+    <display value="Body fluid specimen obtained via sump drain"/>
+  </concept>
+  <concept id="446846006" display="Urine specimen obtained via indwelling urinary catheter">
+    <display value="Urine specimen obtained via indwelling urinary catheter (specimen)"/>
+    <display value="Urine specimen obtained via indwelling urinary catheter"/>
+  </concept>
+  <concept id="446860008" display="Collection of cerebrospinal fluid via ventriculoperitoneal shunt">
+    <display value="Collection of cerebrospinal fluid via ventriculoperitoneal shunt (procedure)"/>
+    <display value="Collection of cerebrospinal fluid via ventriculoperitoneal shunt"/>
+  </concept>
+  <concept id="446861007" display="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt">
+    <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt (specimen)"/>
+    <display value="Cerebrospinal fluid specimen obtained via ventriculoperitoneal shunt"/>
   </concept>
   <concept id="447346005" display="Cardiopulmonary exercise test">
     <display value="Cardiopulmonary exercise test (procedure)"/>
@@ -12511,6 +14580,11 @@
   <concept id="44835005" display="Debouillet sheep">
     <display value="Debouillet sheep"/>
     <display value="Debouillet sheep (organism)"/>
+  </concept>
+  <concept id="45036003" display="Ultrasonography of abdomen">
+    <display value="Ultrasonography of abdomen"/>
+    <display value="Ultrasonography of abdomen (procedure)"/>
+    <display value="US abdominal scan"/>
   </concept>
   <concept id="45284002" display="Maine Anjou cattle breed">
     <display value="Maine Anjou cattle breed (organism)"/>
@@ -12524,6 +14598,12 @@
   <concept id="45635003" display="FHC elite pig 1">
     <display value="FHC elite pig 1"/>
     <display value="FHC elite pig 1 (organism)"/>
+  </concept>
+  <concept id="45647009" display="Granuloma">
+    <display value="Granuloma"/>
+    <display value="Histiocytic granuloma"/>
+    <display value="Epithelioid granuloma"/>
+    <display value="Granuloma (morphologic abnormality)"/>
   </concept>
   <concept id="45690005" display="Mouflon sheep">
     <display value="Mouflon sheep"/>
@@ -12542,6 +14622,14 @@
     <display value="American Albino horse"/>
     <display value="American Albino horse (organism)"/>
   </concept>
+  <concept id="45896001" display="Aspartate aminotransferase measurement">
+    <display value="Aspartate aminotransferase measurement"/>
+    <display value="AST measurement"/>
+    <display value="Glutamic oxaloacetic transaminase measurement"/>
+    <display value="GOT measurement"/>
+    <display value="SGOT measurement"/>
+    <display value="Aspartate aminotransferase measurement (procedure)"/>
+  </concept>
   <concept id="45899008" display="Free-standing laboratory facility">
     <display value="Free-standing laboratory facility"/>
     <display value="Free-standing laboratory facility (environment)"/>
@@ -12558,6 +14646,14 @@
     <display value="American pony"/>
     <display value="American pony (organism)"/>
   </concept>
+  <concept id="46511006" display="Chloride measurement">
+    <display value="Chloride measurement"/>
+    <display value="Chloride measurement (procedure)"/>
+  </concept>
+  <concept id="468063009" display="Coated femoral stem prosthesis, modular">
+    <display value="Coated femoral stem prosthesis, modular (physical object)"/>
+    <display value="Coated femoral stem prosthesis, modular"/>
+  </concept>
   <concept id="46830002" display="Midget white turkey">
     <display value="Midget white turkey"/>
     <display value="Midget white turkey (organism)"/>
@@ -12566,6 +14662,15 @@
     <display value="Chiropractic manipulation"/>
     <display value="Chiropractic manipulation (procedure)"/>
     <display value="A manipulation done by a chiropractor"/>
+  </concept>
+  <concept id="47002008" display="Pustule">
+    <display value="Pustule"/>
+    <display value="Pustule (morphologic abnormality)"/>
+    <display value="A vesicle filled with leukocytes"/>
+  </concept>
+  <concept id="470037004" display="Intravenous fluid container, single-use">
+    <display value="Intravenous fluid container, single-use"/>
+    <display value="Intravenous fluid container, single-use (physical object)"/>
   </concept>
   <concept id="47290002" display="Gallus gallus">
     <display value="Gallus gallus"/>
@@ -12577,6 +14682,26 @@
   <concept id="47314009" display="Dark brown turkey">
     <display value="Dark brown turkey"/>
     <display value="Dark brown turkey (organism)"/>
+  </concept>
+  <concept id="473189005" display="On subcutaneous insulin for diabetes mellitus">
+    <display value="On subcutaneous insulin for diabetes mellitus"/>
+    <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
+  </concept>
+  <concept id="47505003" display="Posttraumatic stress disorder">
+    <display value="Posttraumatic stress disorder"/>
+    <display value="Traumatic neurosis"/>
+    <display value="PTSD - Post-traumatic stress disorder"/>
+    <display value="Post-traumatic stress syndrome"/>
+    <display value="Post-traumatic stress disorder"/>
+    <display value="Posttraumatic stress disorder (disorder)"/>
+  </concept>
+  <concept id="47625008" display="Intravenous route">
+    <display value="Intravenous route"/>
+    <display value="Intravenous route (qualifier value)"/>
+    <display value="Intravenous use"/>
+    <display value="IV use"/>
+    <display value="IV route"/>
+    <display value="An intravascular route that begins within a vein."/>
   </concept>
   <concept id="47745005" display="Java chicken">
     <display value="Java chicken"/>
@@ -12598,6 +14723,14 @@
     <display value="Veteran&#39;s administration hospital"/>
     <display value="V.A. hospital"/>
     <display value="Veteran&#39;s administration hospital (environment)"/>
+  </concept>
+  <concept id="48387007" display="Incision of trachea">
+    <display value="Incision of trachea"/>
+    <display value="Tracheostomy"/>
+    <display value="Tracheotomy"/>
+    <display value="Incision of trachea (procedure)"/>
+    <display value="Trachy"/>
+    <display value="Surgical tracheostomy"/>
   </concept>
   <concept id="48394005" display="Beltsville pig">
     <display value="Beltsville pig"/>
@@ -12641,9 +14774,19 @@
     <display value="FHC elite pig 6"/>
     <display value="FHC elite pig 6 (organism)"/>
   </concept>
+  <concept id="49521004" display="Left external ear">
+    <display value="Left external ear"/>
+    <display value="Left external ear structure"/>
+    <display value="Left external ear structure (body structure)"/>
+  </concept>
   <concept id="4960000" display="Peruvian Paso horse">
     <display value="Peruvian Paso horse"/>
     <display value="Peruvian Paso horse (organism)"/>
+  </concept>
+  <concept id="49852007" display="Median cubital vein">
+    <display value="Median cubital vein"/>
+    <display value="Structure of median cubital vein"/>
+    <display value="Structure of median cubital vein (body structure)"/>
   </concept>
   <concept id="50569004" display="Hospital-based outpatient urology clinic">
     <display value="Hospital-based outpatient urology clinic"/>
@@ -12669,6 +14812,12 @@
   <concept id="5114005" display="Fayoumi chicken">
     <display value="Fayoumi chicken"/>
     <display value="Fayoumi chicken (organism)"/>
+  </concept>
+  <concept id="51185008" display="Thorax">
+    <display value="Thorax"/>
+    <display value="Chest"/>
+    <display value="Thoracic structure"/>
+    <display value="Thoracic structure (body structure)"/>
   </concept>
   <concept id="51440002" display="Right and left">
     <display value="Right and left"/>
@@ -12754,6 +14903,18 @@
     <display value="Haflinger horse"/>
     <display value="Haflinger horse (organism)"/>
   </concept>
+  <concept id="54485002" display="Ophthalmic route">
+    <display value="Ophthalmic route"/>
+    <display value="Ophthalmic route (qualifier value)"/>
+    <display value="Ophthalmic use"/>
+    <display value="A route that begins in the eye region."/>
+  </concept>
+  <concept id="54535009" display="Cone biopsy of cervix">
+    <display value="Cone biopsy of cervix"/>
+    <display value="Conization of uterine cervix"/>
+    <display value="Conisation of uterine cervix"/>
+    <display value="Cone biopsy of cervix (procedure)"/>
+  </concept>
   <concept id="54604007" display="Gray turkey">
     <display value="Gray turkey"/>
     <display value="Gray turkey (organism)"/>
@@ -12770,9 +14931,30 @@
     <display value="Appaloosa horse"/>
     <display value="Appaloosa horse (organism)"/>
   </concept>
+  <concept id="55235003" display="C-reactive protein measurement">
+    <display value="C-reactive protein measurement"/>
+    <display value="CRP - C-reactive protein level"/>
+    <display value="C-reactive protein measurement (procedure)"/>
+    <display value="C-reactive protein level"/>
+  </concept>
+  <concept id="55434001" display="Hydrocele">
+    <display value="Hydrocele"/>
+    <display value="Hydrocele (disorder)"/>
+    <display value="Hydrocoele"/>
+  </concept>
+  <concept id="55452001" display="Oxycodone">
+    <display value="Oxycodone"/>
+    <display value="14-Hydroxydihydrocodeinone"/>
+    <display value="Dihydrohydroxycodeinone"/>
+    <display value="Oxycodone (substance)"/>
+  </concept>
   <concept id="55530007" display="La Mancha goat">
     <display value="La Mancha goat"/>
     <display value="La Mancha goat (organism)"/>
+  </concept>
+  <concept id="55607006" display="Problem">
+    <display value="Problem"/>
+    <display value="Problem (finding)"/>
   </concept>
   <concept id="5584006" display="Hospital-based outpatient peripheral vascular clinic">
     <display value="Hospital-based outpatient peripheral vascular clinic"/>
@@ -12795,9 +14977,34 @@
     <display value="Hospital-based outpatient haematology clinic"/>
     <display value="Hospital-based outpatient hematology clinic (environment)"/>
   </concept>
+  <concept id="56342008" display="Temperature taking">
+    <display value="Temperature taking"/>
+    <display value="Temperature taking (procedure)"/>
+  </concept>
   <concept id="56764001" display="Holland chicken">
     <display value="Holland chicken"/>
     <display value="Holland chicken (organism)"/>
+  </concept>
+  <concept id="57066004" display="Cisplatin">
+    <display value="Cisplatin"/>
+    <display value="DDP"/>
+    <display value="cis-Diaminedichloroplatinum"/>
+    <display value="cis-Platinum II"/>
+    <display value="cis-DDP"/>
+    <display value="cis-Platinum compound"/>
+    <display value="Cisplatin (product)"/>
+    <display value="Cisplatin product"/>
+    <display value="CDDP - Cisplatin"/>
+  </concept>
+  <concept id="5713008" display="Submandibular triangle">
+    <display value="Submandibular triangle"/>
+    <display value="Submandibular area"/>
+    <display value="Trigone submandibulare"/>
+    <display value="Submaxillary region"/>
+    <display value="Submandibular trigone"/>
+    <display value="Regio submaxillaris"/>
+    <display value="Submandibular triangle structure"/>
+    <display value="Submandibular triangle structure (body structure)"/>
   </concept>
   <concept id="57159002" display="Hospital-based outpatient respiratory disease clinic">
     <display value="Hospital-based outpatient respiratory disease clinic"/>
@@ -12815,6 +15022,16 @@
   <concept id="57950004" display="Spitzhauben chicken">
     <display value="Spitzhauben chicken"/>
     <display value="Spitzhauben chicken (organism)"/>
+  </concept>
+  <concept id="58088002" display="Urine specimen collection, suprapubic">
+    <display value="Urine specimen collection, suprapubic"/>
+    <display value="SPA - Collection of suprapubic aspirate"/>
+    <display value="Collection of suprapubic aspirate"/>
+    <display value="Urine specimen collection, suprapubic (procedure)"/>
+  </concept>
+  <concept id="58108001" display="Golden retriever">
+    <display value="Golden retriever"/>
+    <display value="Golden retriever (organism)"/>
   </concept>
   <concept id="58264006" display="Pinto">
     <display value="Pinto"/>
@@ -12836,14 +15053,38 @@
     <display value="Traveler&#39;s aid clinic"/>
     <display value="Traveler&#39;s aid clinic (environment)"/>
   </concept>
+  <concept id="59573005" display="Potassium measurement">
+    <display value="Potassium measurement"/>
+    <display value="Potassium measurement (procedure)"/>
+  </concept>
+  <concept id="59621000" display="Essential hypertension">
+    <display value="Essential hypertension"/>
+    <display value="Idiopathic hypertension"/>
+    <display value="Systemic primary arterial hypertension"/>
+    <display value="Primary hypertension"/>
+    <display value="Essential hypertension (disorder)"/>
+  </concept>
   <concept id="59667000" display="FHC elite pig 2">
     <display value="FHC elite pig 2"/>
     <display value="FHC elite pig 2 (organism)"/>
+  </concept>
+  <concept id="59843005" display="Furuncle">
+    <display value="Furuncle"/>
+    <display value="Boil"/>
+    <display value="Furunculus"/>
+    <display value="Furuncle (morphologic abnormality)"/>
   </concept>
   <concept id="6053007" display="DK pig 33">
     <display value="DK pig 33"/>
     <display value="Dekalb hybrid pig line 33 (organism)"/>
     <display value="Dekalb hybrid pig line 33"/>
+  </concept>
+  <concept id="6073002" display="Ligament of left superior vena cava">
+    <display value="Ligament of left superior vena cava"/>
+    <display value="Fold of Marshall"/>
+    <display value="Fold of left superior vena cava"/>
+    <display value="Structure of ligament of left superior vena cava"/>
+    <display value="Structure of ligament of left superior vena cava (body structure)"/>
   </concept>
   <concept id="60786005" display="Lilac buff turkey">
     <display value="Lilac buff turkey"/>
@@ -12883,6 +15124,10 @@
     <display value="Dekalb hybrid pig line 61 (organism)"/>
     <display value="Dekalb hybrid pig line 61"/>
   </concept>
+  <concept id="62013009" display="Ambulating patient">
+    <display value="Ambulating patient"/>
+    <display value="Ambulating patient (procedure)"/>
+  </concept>
   <concept id="62124009" display="Royal palm turkey">
     <display value="Royal palm turkey"/>
     <display value="Royal palm turkey (organism)"/>
@@ -12904,9 +15149,24 @@
     <display value="Chantecler chicken"/>
     <display value="Chantecler chicken (organism)"/>
   </concept>
+  <concept id="64033007" display="Kidney">
+    <display value="Kidney"/>
+    <display value="Kidney structure"/>
+    <display value="Kidney structure (body structure)"/>
+    <display value="Renal structure"/>
+  </concept>
   <concept id="64158000" display="Angora goat">
     <display value="Angora goat"/>
     <display value="Angora goat (organism)"/>
+  </concept>
+  <concept id="64305001" display="Urticaria">
+    <display value="Urticaria"/>
+    <display value="Wheal"/>
+    <display value="Welt"/>
+    <display value="Hive"/>
+    <display value="Nettle rash"/>
+    <display value="Urticaria (morphologic abnormality)"/>
+    <display value="A raised, erythematous papule or cutaneous plaque, usually representing short-lived dermal edema"/>
   </concept>
   <concept id="6431001" display="Leicester sheep">
     <display value="Leicester sheep"/>
@@ -12915,6 +15175,12 @@
   <concept id="64591001" display="Karakul sheep">
     <display value="Karakul sheep"/>
     <display value="Karakul sheep (organism)"/>
+  </concept>
+  <concept id="64915003" display="Operative procedure on heart">
+    <display value="Operative procedure on heart"/>
+    <display value="Cardiac surgery procedure"/>
+    <display value="Operation on heart"/>
+    <display value="Operation on heart (procedure)"/>
   </concept>
   <concept id="65136005" display="Light brown turkey">
     <display value="Light brown turkey"/>
@@ -12931,6 +15197,11 @@
     <display value="Marchigiana cattle"/>
     <display value="Marchigiana cattle breed"/>
   </concept>
+  <concept id="65363002" display="Otitis media">
+    <display value="Otitis media"/>
+    <display value="Otitis media (disorder)"/>
+    <display value="OM - Otitis media"/>
+  </concept>
   <concept id="65492002" display="Lincoln sheep">
     <display value="Lincoln sheep"/>
     <display value="Lincoln sheep (organism)"/>
@@ -12938,6 +15209,13 @@
   <concept id="65873005" display="Barnevelder chicken">
     <display value="Barnevelder chicken"/>
     <display value="Barnevelder chicken (organism)"/>
+  </concept>
+  <concept id="66051006" display="Pyloric antrum">
+    <display value="Pyloric antrum"/>
+    <display value="Antrum of stomach"/>
+    <display value="Gastric antrum"/>
+    <display value="Pyloric antrum structure"/>
+    <display value="Pyloric antrum structure (body structure)"/>
   </concept>
   <concept id="66168008" display="Hanoverian horse">
     <display value="Hanoverian horse"/>
@@ -12947,6 +15225,15 @@
     <display value="Longhorn cattle breed (organism)"/>
     <display value="Longhorn cattle"/>
     <display value="Longhorn cattle breed"/>
+  </concept>
+  <concept id="66493003" display="Theophylline">
+    <display value="Theophylline"/>
+    <display value="Theophylline product"/>
+    <display value="Theophylline (product)"/>
+  </concept>
+  <concept id="66862007" display="Radiologist">
+    <display value="Radiologist"/>
+    <display value="Radiologist (occupation)"/>
   </concept>
   <concept id="66911005" display="Galloway cattle">
     <display value="Galloway cattle breed (organism)"/>
@@ -12984,6 +15271,17 @@
     <display value="FHC elite pig 5"/>
     <display value="FHC elite pig 5 (organism)"/>
   </concept>
+  <concept id="67734004" display="Upper trunk">
+    <display value="Upper trunk"/>
+    <display value="Upper trunk structure"/>
+    <display value="Upper trunk structure (body structure)"/>
+    <display value="Structure of thoracic segment of trunk"/>
+  </concept>
+  <concept id="67750007" display="Ineffective airway clearance">
+    <display value="Ineffective airway clearance"/>
+    <display value="Airway clearance impairment"/>
+    <display value="Ineffective airway clearance (finding)"/>
+  </concept>
   <concept id="67889009" display="Irrigation">
     <display value="Irrigation"/>
     <display value="Lavage"/>
@@ -13007,6 +15305,18 @@
     <display value="Boar power pig 141"/>
     <display value="Boar power pig 141 (organism)"/>
   </concept>
+  <concept id="6853008" display="Nasogastric tube aspiration">
+    <display value="Nasogastric tube aspiration"/>
+    <display value="Nasogastric tube aspiration (procedure)"/>
+    <display value="Aspirating nasogastric tube"/>
+    <display value="Suction of nasogastric tube"/>
+  </concept>
+  <concept id="6902008" display="Popliteal region">
+    <display value="Popliteal region"/>
+    <display value="Poples"/>
+    <display value="Popliteal region structure"/>
+    <display value="Popliteal region structure (body structure)"/>
+  </concept>
   <concept id="69067004" display="Shetland pony">
     <display value="Shetland pony"/>
     <display value="Shetland pony (organism)"/>
@@ -13019,6 +15329,15 @@
     <display value="Chester white pig"/>
     <display value="Chester white pig (organism)"/>
   </concept>
+  <concept id="69480007" display="Gamma glutamyl transferase measurement">
+    <display value="Gamma glutamyl transferase measurement"/>
+    <display value="Gamma glutamyl transpeptidase measurement"/>
+    <display value="GTP measurement"/>
+    <display value="GGT measurement"/>
+    <display value="GGTP measurement"/>
+    <display value="Gamma glutamyl transferase measurement (procedure)"/>
+    <display value="Gamma-glutamyl transferase level"/>
+  </concept>
   <concept id="69575001" display="Ancona chicken">
     <display value="Ancona chicken"/>
     <display value="Ancona chicken (organism)"/>
@@ -13026,6 +15345,12 @@
   <concept id="69602006" display="Kleen leen pig">
     <display value="Kleen leen pig"/>
     <display value="Kleen leen pig (organism)"/>
+  </concept>
+  <concept id="69695003" display="Stomach">
+    <display value="Stomach"/>
+    <display value="Ventriculus"/>
+    <display value="Stomach structure"/>
+    <display value="Stomach structure (body structure)"/>
   </concept>
   <concept id="70210006" display="Orloff chicken">
     <display value="Orloff chicken"/>
@@ -13057,6 +15382,10 @@
     <display value="Anser anser anser (organism)"/>
     <display value="Greylag goose subspecies"/>
   </concept>
+  <concept id="70901006" display="Creatinine measurement">
+    <display value="Creatinine measurement"/>
+    <display value="Creatinine measurement (procedure)"/>
+  </concept>
   <concept id="709410003" display="Haemophilus influenzae type b infection">
     <display value="Haemophilus influenzae type b infection"/>
     <display value="Haemophilus influenzae type b infection (disorder)"/>
@@ -13065,6 +15394,15 @@
     <display value="Commercial brown egg layer type chicken (organism)"/>
     <display value="Commercial brown egg layer type chicken"/>
   </concept>
+  <concept id="71252005" display="Uterine cervix">
+    <display value="Uterine cervix"/>
+    <display value="Cervix uteri including exocervix and endocervix"/>
+    <display value="Cervix uteri"/>
+    <display value="Cervix"/>
+    <display value="Cervix uteri structure"/>
+    <display value="Cervix uteri structure (body structure)"/>
+  </concept>
+  <concept id="71341001:272741003=7771000" display="Femur where Laterality = Left"/>
   <concept id="71388002" display="Procedure">
     <display value="Procedure"/>
     <display value="Procedure (procedure)"/>
@@ -13074,9 +15412,19 @@
     <display value="No known allergy"/>
     <display value="NKA - No known allergy"/>
   </concept>
+  <concept id="71878006" display="Calcium measurement">
+    <display value="Calcium measurement"/>
+    <display value="Calcium measurement (procedure)"/>
+    <display value="Calcium level"/>
+  </concept>
   <concept id="71923001" display="Italian landrace pig">
     <display value="Italian landrace pig"/>
     <display value="Italian landrace pig (organism)"/>
+  </concept>
+  <concept id="72098002" display="Left arm">
+    <display value="Left arm"/>
+    <display value="Entire left upper arm"/>
+    <display value="Entire left upper arm (body structure)"/>
   </concept>
   <concept id="72311000" display="Health maintenance organization">
     <display value="Health maintenance organization"/>
@@ -13102,6 +15450,11 @@
     <display value="Suffolk sheep"/>
     <display value="Suffolk sheep (organism)"/>
   </concept>
+  <concept id="72705000" display="Mother">
+    <display value="Mother"/>
+    <display value="Maternal"/>
+    <display value="Mother (person)"/>
+  </concept>
   <concept id="73005003" display="FHC elite pig 8">
     <display value="FHC elite pig 8"/>
     <display value="FHC elite pig 8 (organism)"/>
@@ -13114,6 +15467,11 @@
     <display value="American merino sheep"/>
     <display value="American merino sheep (organism)"/>
   </concept>
+  <concept id="73211009" display="Diabetes mellitus">
+    <display value="Diabetes mellitus"/>
+    <display value="DM - Diabetes mellitus"/>
+    <display value="Diabetes mellitus (disorder)"/>
+  </concept>
   <concept id="73644007" display="Hospital-based outpatient endocrinology clinic">
     <display value="Hospital-based outpatient endocrinology clinic"/>
     <display value="Hospital-based outpatient endocrinology clinic (environment)"/>
@@ -13121,6 +15479,12 @@
   <concept id="73648005" display="Wessex saddleback pig">
     <display value="Wessex saddleback pig"/>
     <display value="Wessex saddleback pig (organism)"/>
+  </concept>
+  <concept id="73761001" display="Colonoscopy">
+    <display value="Colonoscopy"/>
+    <display value="Endoscopy of colon"/>
+    <display value="Endoscopic examination of colon"/>
+    <display value="Colonoscopy (procedure)"/>
   </concept>
   <concept id="73770003" display="Hospital-based outpatient emergency care center">
     <display value="Hospital-based outpatient emergency care center"/>
@@ -13132,9 +15496,20 @@
     <display value="Minnesota pig #1"/>
     <display value="Minnesota pig #1 (organism)"/>
   </concept>
+  <concept id="74040009" display="Protein measurement">
+    <display value="Protein measurement"/>
+    <display value="Protein measurement (procedure)"/>
+  </concept>
   <concept id="74242007" display="Food starch">
     <display value="Food starch"/>
     <display value="Food starch (substance)"/>
+  </concept>
+  <concept id="74262004" display="Oral cavity">
+    <display value="Oral cavity"/>
+    <display value="Buccal cavity"/>
+    <display value="Cavitas oris"/>
+    <display value="Oral cavity structure"/>
+    <display value="Oral cavity structure (body structure)"/>
   </concept>
   <concept id="74517004" display="Montana pig">
     <display value="Montana pig"/>
@@ -13162,6 +15537,10 @@
     <display value="Boar power pig 161"/>
     <display value="Boar power pig 161 (organism)"/>
   </concept>
+  <concept id="75359005" display="Timolol maleate">
+    <display value="Timolol maleate"/>
+    <display value="Timolol maleate (substance)"/>
+  </concept>
   <concept id="75709004" display="Pic pig">
     <display value="Pic pig"/>
     <display value="Pic pig (organism)"/>
@@ -13169,6 +15548,10 @@
   <concept id="7598004" display="Wyandotte chicken">
     <display value="Wyandotte chicken"/>
     <display value="Wyandotte chicken (organism)"/>
+  </concept>
+  <concept id="76164006" display="Biopsy of colon">
+    <display value="Biopsy of colon"/>
+    <display value="Biopsy of colon (procedure)"/>
   </concept>
   <concept id="7623008" display="American paint horse">
     <display value="American paint horse"/>
@@ -13208,6 +15591,10 @@
     <display value="Nebraskan spotted turkey"/>
     <display value="Nebraska Royales turkey"/>
     <display value="Nebraskan spotted turkey (organism)"/>
+  </concept>
+  <concept id="77068002" display="Cholesterol measurement">
+    <display value="Cholesterol measurement"/>
+    <display value="Cholesterol measurement (procedure)"/>
   </concept>
   <concept id="77236002" display="Large white pig">
     <display value="Large white pig"/>
@@ -13261,6 +15648,12 @@
     <display value="Horned Hereford"/>
     <display value="Horned Hereford (organism)"/>
   </concept>
+  <concept id="78533007" display="Irrigation of urinary bladder">
+    <display value="Irrigation of urinary bladder"/>
+    <display value="Simple bladder irrigation"/>
+    <display value="Irrigation of urinary bladder (procedure)"/>
+    <display value="Bladder irrigation"/>
+  </concept>
   <concept id="78541007" display="Milking Shorthorn cattle breed">
     <display value="Milking Shorthorn cattle breed (organism)"/>
     <display value="Milking Shorthorn cattle breed"/>
@@ -13275,9 +15668,24 @@
     <display value="Feral pig"/>
     <display value="Domestic pig subspecies"/>
   </concept>
+  <concept id="78961009" display="Spleen">
+    <display value="Spleen"/>
+    <display value="Splenic structure"/>
+    <display value="Splenic structure (body structure)"/>
+  </concept>
   <concept id="78994007" display="British landrace pig">
     <display value="British landrace pig"/>
     <display value="British landrace pig (organism)"/>
+  </concept>
+  <concept id="79068005" display="Needle">
+    <display value="Needle"/>
+    <display value="Needle, device (physical object)"/>
+    <display value="Needle, device"/>
+  </concept>
+  <concept id="79121003" display="Biopsy of stomach">
+    <display value="Biopsy of stomach"/>
+    <display value="Gastric biopsy"/>
+    <display value="Biopsy of stomach (procedure)"/>
   </concept>
   <concept id="79491001" display="Hospital-based radiology facility">
     <display value="Hospital-based radiology facility"/>
@@ -13286,6 +15694,13 @@
   <concept id="79603002" display="Romedale sheep">
     <display value="Romedale sheep"/>
     <display value="Romedale sheep (organism)"/>
+  </concept>
+  <concept id="7970006" display="Allograft">
+    <display value="Allograft"/>
+    <display value="Homologous graft"/>
+    <display value="Allogeneic graft"/>
+    <display value="Homograft"/>
+    <display value="Allograft (substance)"/>
   </concept>
   <concept id="79814001" display="Poland China pig">
     <display value="Poland China pig"/>
@@ -13303,6 +15718,12 @@
     <display value="Landrace pig"/>
     <display value="Landrace pig (organism)"/>
   </concept>
+  <concept id="80146002" display="Appendectomy">
+    <display value="Appendectomy"/>
+    <display value="Excision of appendix"/>
+    <display value="Appendicectomy"/>
+    <display value="Appendectomy (procedure)"/>
+  </concept>
   <concept id="80204002" display="Hungarian chicken">
     <display value="Hungarian chicken"/>
     <display value="Hungarian chicken (organism)"/>
@@ -13314,6 +15735,11 @@
   <concept id="80610007" display="Narragansett turkey">
     <display value="Narragansett turkey"/>
     <display value="Narragansett turkey (organism)"/>
+  </concept>
+  <concept id="80657008" display="Bronchoscopy with brush biopsy">
+    <display value="Bronchoscopy with brush biopsy"/>
+    <display value="Bronchoscopy with bronchial brushings"/>
+    <display value="Bronchoscopy with brush biopsy (procedure)"/>
   </concept>
   <concept id="80777007" display="Andalusian horse">
     <display value="Andalusian horse"/>
@@ -13350,6 +15776,11 @@
     <display value="Normande cattle breed"/>
     <display value="Normande cattle breed (organism)"/>
   </concept>
+  <concept id="81723002" display="Amputation">
+    <display value="Amputation"/>
+    <display value="Amputation (procedure)"/>
+    <display value="Excision of normal topography"/>
+  </concept>
   <concept id="82242000" display="Children&#39;s hospital">
     <display value="Children&#39;s hospital"/>
     <display value="Children&#39;s hospital (environment)"/>
@@ -13370,6 +15801,12 @@
     <display value="Middle white pig"/>
     <display value="Middle white pig (organism)"/>
   </concept>
+  <concept id="83030008" display="Retropharyngeal area">
+    <display value="Retropharyngeal area"/>
+    <display value="Retropharyngeal space"/>
+    <display value="Structure of retropharyngeal area"/>
+    <display value="Structure of retropharyngeal area (body structure)"/>
+  </concept>
   <concept id="83173002" display="Scottish Highland cattle">
     <display value="Scottish Highland cattle breed (organism)"/>
     <display value="Scottish Highland cattle"/>
@@ -13381,6 +15818,12 @@
     <display value="Entire fetus"/>
     <display value="Entire fetus (body structure)"/>
     <display value="Foetus"/>
+  </concept>
+  <concept id="83670000" display="Peritoneal cavity">
+    <display value="Peritoneal cavity"/>
+    <display value="Greater peritoneal cavity"/>
+    <display value="Peritoneal cavity structure"/>
+    <display value="Peritoneal cavity structure (body structure)"/>
   </concept>
   <concept id="83842004" display="Hungarian goose">
     <display value="Hungarian goose"/>
@@ -13412,6 +15855,18 @@
     <display value="Danish landrace pig"/>
     <display value="Danish landrace pig (organism)"/>
   </concept>
+  <concept id="84757009" display="Epilepsy">
+    <display value="Epilepsy"/>
+    <display value="Epileptic fits"/>
+    <display value="Epileptic seizures"/>
+    <display value="Epileptic attack"/>
+    <display value="Epileptic disorder"/>
+    <display value="Epileptic convulsions"/>
+    <display value="Epileptic"/>
+    <display value="EP - Epilepsy"/>
+    <display value="Epilepsy (disorder)"/>
+    <display value="A disorder characterized by recurrent seizures"/>
+  </concept>
   <concept id="84839000" display="Guernsey cattle">
     <display value="Guernsey cattle breed (organism)"/>
     <display value="Guernsey cattle"/>
@@ -13428,6 +15883,11 @@
     <display value="Dekalb hybrid pig line 51 (organism)"/>
     <display value="Dekalb hybrid pig line 51"/>
   </concept>
+  <concept id="8517006" display="Ex-smoker">
+    <display value="Ex-smoker"/>
+    <display value="Cessation of smoking"/>
+    <display value="Ex-smoker (finding)"/>
+  </concept>
   <concept id="85315007" display="Yorkshire pig">
     <display value="Yorkshire pig"/>
     <display value="Yorkshire pig (organism)"/>
@@ -13438,6 +15898,22 @@
     <display value="Ass"/>
     <display value="Burro"/>
     <display value="Donkey"/>
+  </concept>
+  <concept id="86184003" display="Electrocardiographic monitor and recorder">
+    <display value="Electrocardiographic monitor and recorder"/>
+    <display value="Holter monitor"/>
+    <display value="Electrocardiographic monitor and recorder, device (physical object)"/>
+    <display value="Electrocardiographic monitor and recorder, device"/>
+  </concept>
+  <concept id="86228006" display="Uric acid measurement">
+    <display value="Uric acid measurement"/>
+    <display value="Urate measurement"/>
+    <display value="Uric acid measurement (procedure)"/>
+  </concept>
+  <concept id="86273004" display="Biopsy">
+    <display value="Biopsy"/>
+    <display value="Biopsy (procedure)"/>
+    <display value="Removal of tissue for diagnostic examination."/>
   </concept>
   <concept id="86440008" display="Pic line pig 24">
     <display value="Pic line pig 24"/>
@@ -13456,9 +15932,20 @@
     <display value="Boar power pig 282"/>
     <display value="Boar power pig 282 (organism)"/>
   </concept>
+  <concept id="87512008" display="Mild major depression">
+    <display value="Mild major depression"/>
+    <display value="Mild major depression (disorder)"/>
+  </concept>
   <concept id="87530001" display="Welsummer chicken">
     <display value="Welsummer chicken"/>
     <display value="Welsummer chicken (organism)"/>
+  </concept>
+  <concept id="87628006" display="Bacterial infectious disease">
+    <display value="Bacterial infectious disease"/>
+    <display value="Disease caused by bacteria"/>
+    <display value="Bacterial infection"/>
+    <display value="Bacterial disease"/>
+    <display value="Bacterial infectious disease (disorder)"/>
   </concept>
   <concept id="8763002" display="German landrace pig">
     <display value="German landrace pig"/>
@@ -13477,10 +15964,23 @@
     <display value="Potassium (substance)"/>
     <display value="K - Potassium"/>
   </concept>
+  <concept id="88645003" display="Bicarbonate measurement">
+    <display value="Bicarbonate measurement"/>
+    <display value="HC0&gt;3&lt;- measurement"/>
+    <display value="Bicarbonate measurement (procedure)"/>
+  </concept>
   <concept id="88807001" display="Red Poll cattle">
     <display value="Red Poll cattle breed (organism)"/>
     <display value="Red Poll cattle"/>
     <display value="Red Poll cattle breed"/>
+  </concept>
+  <concept id="88810008" display="Alkaline phosphatase measurement">
+    <display value="Alkaline phosphatase measurement"/>
+    <display value="Alkaline phosphatase measurement (procedure)"/>
+  </concept>
+  <concept id="89003005" display="Oral temperature taking">
+    <display value="Oral temperature taking"/>
+    <display value="Oral temperature taking (procedure)"/>
   </concept>
   <concept id="89648005" display="Fjord horse">
     <display value="Fjord horse"/>
@@ -13497,6 +15997,13 @@
   <concept id="89708009" display="Chamoisee goat">
     <display value="Chamoisee goat"/>
     <display value="Chamoisee goat (organism)"/>
+  </concept>
+  <concept id="89837001" display="Urinary bladder">
+    <display value="Urinary bladder"/>
+    <display value="Bladder"/>
+    <display value="Urinary bladder structure"/>
+    <display value="Urinary bladder structure (body structure)"/>
+    <display value="Bladder structure"/>
   </concept>
   <concept id="8989009" display="Ayrshire cattle">
     <display value="Ayrshire cattle breed (organism)"/>
@@ -13522,6 +16029,10 @@
   <concept id="901005" display="Helicopter-based care">
     <display value="Helicopter-based care"/>
     <display value="Helicopter-based care (environment)"/>
+  </concept>
+  <concept id="90105005" display="Biopsy of soft tissue of forearm, superficial">
+    <display value="Biopsy of soft tissue of forearm, superficial"/>
+    <display value="Biopsy of soft tissue of forearm, superficial (procedure)"/>
   </concept>
   <concept id="90484001" display="Hospital-based outpatient general surgery clinic">
     <display value="Hospital-based outpatient general surgery clinic"/>
@@ -13569,10 +16080,42 @@
     <display value="Polled Hereford"/>
     <display value="Polled Hereford (organism)"/>
   </concept>
+  <concept id="92814006" display="Chronic lymphoid leukemia">
+    <display value="Chronic lymphoid leukemia"/>
+    <display value="Chronic lymphoid leukaemia"/>
+    <display value="Chronic lymphoid leukemia, disease"/>
+    <display value="Chronic lymphoid leukemia, disease (disorder)"/>
+    <display value="Chronic lymphoid leukaemia, disease"/>
+    <display value="CLL - Chronic lymphocytic leukaemia"/>
+    <display value="CLL - Chronic lymphocytic leukemia"/>
+  </concept>
+  <concept id="92818009" display="Chronic myeloid leukemia">
+    <display value="Chronic myeloid leukemia"/>
+    <display value="Chronic myeloid leukaemia"/>
+    <display value="Chronic myeloid leukemia, disease (disorder)"/>
+    <display value="CML - Chronic myeloid leukaemia"/>
+    <display value="CGL - Chronic granulocytic leukaemia"/>
+    <display value="CGL - Chronic granulocytic leukemia"/>
+    <display value="CML - Chronic myeloid leukemia"/>
+    <display value="Chronic myeloid leukaemia, disease"/>
+    <display value="Chronic myeloid leukemia, disease"/>
+    <display value="Chronic myelocytic leukaemia"/>
+    <display value="Chronic myelocytic leukemia"/>
+  </concept>
   <concept id="944009" display="Brown Welsh cattle">
     <display value="Brown Welsh cattle breed (organism)"/>
     <display value="Brown Welsh cattle"/>
     <display value="Welsh brown cattle"/>
     <display value="Brown Welsh cattle breed"/>
+  </concept>
+  <concept id="9454009" display="Subclavian vein">
+    <display value="Subclavian vein"/>
+    <display value="Structure of subclavian vein"/>
+    <display value="Structure of subclavian vein (body structure)"/>
+  </concept>
+  <concept id="9632001" display="Nursing procedure">
+    <display value="Nursing procedure"/>
+    <display value="Nursing procedure (procedure)"/>
+    <display value="Nursing care treatments and procedures"/>
   </concept>
 </snomed>
