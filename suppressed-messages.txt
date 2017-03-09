@@ -5,10 +5,11 @@ INFORMATION: EpisodeOfCare.careManager: Name of child (careManager) overlaps wit
 INFORMATION: ImmunizationRecommendation.recommendation: Name of child (recommendation) overlaps with name of parent (ImmunizationRecommendation)
 INFORMATION: Reference.reference: Name of child (reference) overlaps with name of parent (Reference)
 INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
-WARNING: Attachment.contentType Unable to resolve value set on 'code' Binding
-WARNING: CapabilityStatement.format Unable to resolve value set on 'code' Binding
-WARNING: CapabilityStatement.patchFormat Unable to resolve value set on 'code' Binding
-WARNING: CapabilityStatement.rest.security.certificate.type Unable to resolve value set on 'code' Binding
+WARNING: Attachment.contentType: Unable to resolve value set on 'code' Binding
+WARNING: AuditEvent: Resource elements are out of order. The correct order is '[type(=what), subtype(=what), action(=what), outcome(=what), outcomeDesc(=what), entity(=what), recorded(=when.recorded), source(=who.witness), agent(=who), purposeOfEvent(=why)]' but the actual order is '[type(=what), subtype(=what), action(=what), recorded(=when.recorded), outcome(=what), outcomeDesc(=what), purposeOfEvent(=why), agent(=who), source(=who.witness), entity(=what)]'
+WARNING: CapabilityStatement.format: Unable to resolve value set on 'code' Binding
+WARNING: CapabilityStatement.patchFormat: Unable to resolve value set on 'code' Binding
+WARNING: CapabilityStatement.rest.security.certificate.type: Unable to resolve value set on 'code' Binding
 WARNING: CompartmentDefinition: All resources should have an identifier
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
@@ -17,6 +18,7 @@ WARNING: DiagnosticReport.image.comment: MnM must have confirmed this should not
 WARNING: ElementDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ElementDefinition.comment: The type of 'comment' must be 'string'
 WARNING: ElementDefinition.mapping.language: Unable to resolve value set on 'code' Binding
+WARNING: Endpoint.payloadMimeType: Unable to resolve value set on 'code' Binding
 WARNING: ImplementationGuide.page.format: Unable to resolve value set on 'code' Binding
 WARNING: Linkage: All resources should have an identifier
 WARNING: Measure.supplementalData Element names should be singular
@@ -26,7 +28,8 @@ WARNING: Observation.comment: MnM must have confirmed this should not be an Anno
 WARNING: OperationDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: OperationDefinition.overload.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Parameters: All resources should have an identifier
-WARNING: Signature.contentType Unable to resolve value set on 'code' Binding
+WARNING: Provenance: Resource elements are out of order. The correct order is '[target(=what), period(=when.done), recorded(=when.recorded), agent(=who), location(=where), reason(=why), activity(=why)]' but the actual order is '[target(=what), period(=when.done), recorded(=when.recorded), location(=where), reason(=why), activity(=why), agent(=who)]'
+WARNING: Signature.contentType: Unable to resolve value set on 'code' Binding
 WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0267/index.html (v2 Days of the Week) & valueset-days-of-week.html (DaysOfWeek) (name: [weeks, days] / [weeks, days]))
