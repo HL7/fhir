@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Schlichting, Stefan</LastAuthor>
+  <LastAuthor>Chris Courville</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2014-11-13T22:25:48Z</LastSaved>
+  <LastSaved>2017-03-09T10:09:36Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>674</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -445,6 +445,14 @@
     <Cell><Data ss:Type="String">Describes a measurement, calculation or setting capability of a medical device.</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s74"><Data ss:Type="String">For the initial scope, this DeviceMetric resource is only applicable to describe a single metric node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">DeviceMetric.identifier</Data></Cell>
+    <Cell><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">id</Data></Cell>
+    <Cell><Data ss:Type="String">Unique identifier of this DeviceMetric</Data></Cell>
+    <Cell><Data ss:Type="String">Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">DeviceMetric.type</Data></Cell>
     <Cell><Data ss:Type="String">1..1</Data></Cell>
@@ -454,14 +462,6 @@
     <Cell><Data ss:Type="String">Identity of metric, for example Heart Rate or PEEP Setting</Data></Cell>
     <Cell><Data ss:Type="String">Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">DeviceMetric.type can be referred to either GDMN (nomenclature system supported by FDA Global UDI Database) or preferable RTMMS coding system.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">DeviceMetric.identifier</Data></Cell>
-    <Cell><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Identifier</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">id</Data></Cell>
-    <Cell><Data ss:Type="String">Unique identifier of this DeviceMetric</Data></Cell>
-    <Cell><Data ss:Type="String">Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">DeviceMetric.unit</Data></Cell>
@@ -492,7 +492,7 @@
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6" ss:StyleID="s75"><Data ss:Type="String">code</Data></Cell>
     <Cell><Data ss:Type="String">DeviceMetricOperationalStatus</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">on | off | standby</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">on | off | standby | entered-in-error</Data></Cell>
     <Cell><Data ss:Type="String">Indicates current operational state of the device. For example: On, Off, Standby, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="101.25" ss:StyleID="s75">
@@ -564,13 +564,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -578,15 +577,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -961,10 +959,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1173,12 +1173,12 @@
     <Cell ss:StyleID="s105"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s102"/>
-    <Cell ss:StyleID="s104"/>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s110"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Entered In Error</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">The DeviceMetric was entered in error.</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"/>
@@ -1228,7 +1228,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1368,6 +1369,7 @@
  <Worksheet ss:Name="metric-calibration-type">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="105"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Code</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -1403,7 +1405,7 @@
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Unspecified</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Metric calibration method has not been identified.</Data></Cell>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s86"/>
     <Cell ss:StyleID="s101"/>
@@ -1414,7 +1416,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Offset</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Offset metric calibration method</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"/>
@@ -1425,7 +1427,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s110"/>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Gain</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Gain metric calibration method</Data></Cell>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s105"/>
@@ -1434,7 +1436,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">two-point</Data></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s110"><Data ss:Type="String">Two Point</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">TODO</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Two-point metric calibration method</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1448,8 +1450,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1459,7 +1461,7 @@
  <Worksheet ss:Name="metric-calibration-state">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
-   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="230.25"/>
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="257.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Code</Data><Comment
       ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font

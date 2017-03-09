@@ -72,6 +72,12 @@
   Display = Standby
   Definition = The DeviceMetric is operating, but will not generate any DeviceObservations.
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The DeviceMetric was entered in error.
+
 === Sheet metric-category =====================================
 
  -- Row 1 -----------------------------------
@@ -104,25 +110,25 @@
   Id = 1
   Code = unspecified
   Display = Unspecified
-  Definition = TODO
+  Definition = Metric calibration method has not been identified.
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = offset
   Display = Offset
-  Definition = TODO
+  Definition = Offset metric calibration method
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = gain
   Display = Gain
-  Definition = TODO
+  Definition = Gain metric calibration method
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = two-point
   Display = Two Point
-  Definition = TODO
+  Definition = Two-point metric calibration method
 
 === Sheet metric-calibration-state =====================================
 
@@ -213,6 +219,14 @@
   w5 = administrative.device
 
  -- Row 2 -----------------------------------
+  Element = DeviceMetric.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = Unique identifier of this DeviceMetric
+  Definition = Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.
+  w5 = id
+
+ -- Row 3 -----------------------------------
   Element = DeviceMetric.type
   Card. = 1..1
   Type = CodeableConcept
@@ -221,14 +235,6 @@
   Definition = Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
   Comments = DeviceMetric.type can be referred to either GDMN (nomenclature system supported by FDA Global UDI Database) or preferable RTMMS coding system.
   w5 = class
-
- -- Row 3 -----------------------------------
-  Element = DeviceMetric.identifier
-  Card. = 1..1
-  Type = Identifier
-  Short Name = Unique identifier of this DeviceMetric
-  Definition = Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = DeviceMetric.unit
@@ -258,7 +264,7 @@
   Card. = 0..1
   Type = code
   Binding = DeviceMetricOperationalStatus
-  Short Name = on | off | standby
+  Short Name = on | off | standby | entered-in-error
   Definition = Indicates current operational state of the device. For example: On, Off, Standby, etc.
 
  -- Row 8 -----------------------------------

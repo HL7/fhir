@@ -1007,7 +1007,7 @@
  -- Row 11 -----------------------------------
   Name = OptionsExample
   Identity = options-example
-  Description = Plan Definition Illustrating Related Actions
+  Description = Plan Definition Illistrating Related Actions
   Filename = plandefinition-options-example.xml
 
 === Sheet Examples =====================================
