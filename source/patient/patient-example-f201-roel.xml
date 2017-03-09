@@ -86,8 +86,12 @@
       </coding>
       <coding>
         <system value="http://hl7.org/fhir/patient-contact-relationship"/>
-        <code value="partner"/>
+        <code value="N"/>
       </coding>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/RoleCode" />
+        <code value="WIFE" />
+      </coding>    
     </relationship>
     <name>
     <!-- The name of the contact -->

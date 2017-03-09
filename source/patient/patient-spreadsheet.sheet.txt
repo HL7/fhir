@@ -576,12 +576,14 @@
   Type = token
   Description = A value in a phone contact
   Path = Patient.telecom(system=phone)
+  Expression = Patient.telecom.where(system=\'phone\')
 
  -- Row 8 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
   Path = Patient.telecom(system=email)
+  Expression = Patient.telecom.where(system=\'email\')
 
  -- Row 9 -----------------------------------
   Name = address
@@ -678,6 +680,7 @@
   Type = token
   Description = This patient has been marked as deceased, or as a death date entered
   Path = Patient.deceased[x]
+  Expression = Patient.deceased.exists()
 
  -- Row 25 -----------------------------------
   Name = death-date

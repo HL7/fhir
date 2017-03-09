@@ -118,7 +118,7 @@ PeasantVille, Rainbow, Vic  3999"/>
 		<relationship>
 			<coding>
 				<system value="http://hl7.org/fhir/patient-contact-relationship"/>
-				<code value="partner"/>
+				<code value="N"/>
 			</coding>
 		</relationship>
 		<name>

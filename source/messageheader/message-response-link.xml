@@ -103,7 +103,7 @@
           <relationship>
             <coding>
               <system value="http://hl7.org/fhir/patient-contact-relationship"/>
-              <code value="owner"/>
+              <code value="E"/>
             </coding>
           </relationship>
           <organization>
