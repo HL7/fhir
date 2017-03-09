@@ -1,16 +1,4 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/observation-codes",
-  "outcomes": [
-    {
-      "hash": "|http://loinc.org|null|46098-0|Sex",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Sex"
-      }
-    }
-  ]
+  "outcomes": []
 }

@@ -384,9 +384,9 @@
  -- Row 3 -----------------------------------
   Name = depends-on
   Type = reference
-  Path = ActivityDefinition.relatedArtifact.resource
-  Expression = ActivityDefinition.relatedArtifact.where(type=\'depends-on\').resource
-  XPath = f:ActivityDefinition/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource
+  Path = ActivityDefinition.relatedArtifact.resource | ActivityDefinition.library
+  Expression = ActivityDefinition.relatedArtifact.where(type=\'depends-on\').resource | ActivityDefinition.library
+  XPath = f:ActivityDefinition/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource | f:ActivityDefinition/f:library
 
  -- Row 4 -----------------------------------
   Name = derived-from

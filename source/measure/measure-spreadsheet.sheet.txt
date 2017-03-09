@@ -582,9 +582,9 @@
  -- Row 3 -----------------------------------
   Name = depends-on
   Type = reference
-  Path = Measure.relatedArtifact.resource
-  Expression = Measure.relatedArtifact.where(type=\'depends-on\').resource
-  XPath = f:Measure/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource
+  Path = Measure.relatedArtifact.resource | Measure.library
+  Expression = Measure.relatedArtifact.where(type=\'depends-on\').resource | Measure.library
+  XPath = f:Measure/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource | f:Measure/f:library
 
  -- Row 4 -----------------------------------
   Name = derived-from

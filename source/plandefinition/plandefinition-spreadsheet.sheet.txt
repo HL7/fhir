@@ -908,9 +908,9 @@
  -- Row 3 -----------------------------------
   Name = depends-on
   Type = reference
-  Path = PlanDefinition.relatedArtifact.resource
-  Expression = PlanDefinition.relatedArtifact.where(type=\'depends-on\').resource
-  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource
+  Path = PlanDefinition.relatedArtifact.resource | PlanDefinition.library
+  Expression = PlanDefinition.relatedArtifact.where(type=\'depends-on\').resource | PlanDefinition.library
+  XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'depends-on\']/f:resource | f:PlanDefinition/f:library
 
  -- Row 4 -----------------------------------
   Name = derived-from
