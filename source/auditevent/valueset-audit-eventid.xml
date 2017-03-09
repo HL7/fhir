@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <url value="http://nema.org/dicom/dicm/400"/>
+  <url value="http://dicom.nema.org/resources/ontology/DCM/400"/>
   <version value="20100826"/>
   <name value="Audit Event ID"/>
   <status value="active"/>
@@ -11,7 +11,7 @@
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
         <code value="110100"/>
       </concept>

@@ -7,12 +7,12 @@
   </text>
 
     <type>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110100"/>
         <display value="Application Activity"/>
     </type>
     <subtype>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110120"/>
         <display value="Application Start"/>
     </subtype>
@@ -33,7 +33,7 @@
     </network>
   </agent>
   <agent> <!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
-    <role> <coding> <system value="http://nema.org/dicom/dicm"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </role> 
+    <role> <coding> <system value="http://dicom.nema.org/resources/ontology/DCM"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </role> 
     <userId> <value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/> </userId> 
     <altId value="6580"/> 
     <requestor value="false"/> 
@@ -45,7 +45,7 @@
 		<value value="Grahame's Laptop"/>
 	</identifier>
     <type>
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="110122"/>
       <display value="Login"/>
     </type>

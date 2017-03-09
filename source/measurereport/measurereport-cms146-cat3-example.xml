@@ -965,18 +965,18 @@
       <name value="Good Health Hospital"/>
     </Organization>
   </contained>
+  <status value="complete"/>
+  <type value="summary"/>
   <measure>
     <reference value="Measure/CMS146"/>
   </measure>
-  <type value="summary"/>
+  <reportingOrganization>
+    <reference value="#reporter"/>
+  </reportingOrganization>
   <period>
       <start value="2014-01-01" />
       <end value="2014-03-31" />
   </period>
-  <status value="complete"/>
-  <reportingOrganization>
-    <reference value="#reporter"/>
-  </reportingOrganization>
   <group>
     <identifier><value value="CMS146-group-1"/></identifier>
     <population>

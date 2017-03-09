@@ -14,102 +14,102 @@
 === Sheet kos-title =====================================
 
  -- Row 1 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113000
   Definition = Of Interest
 
  -- Row 2 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113002
   Definition = For Referring Provider
 
  -- Row 3 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113003
   Definition = For Surgery
 
  -- Row 4 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113004
   Definition = For Teaching
 
  -- Row 5 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113005
   Definition = For Conference
 
  -- Row 6 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113006
   Definition = For Therapy
 
  -- Row 7 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113007
   Definition = For Patient
 
  -- Row 8 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113008
   Definition = For Peer Review
 
  -- Row 9 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113009
   Definition = For Research
 
  -- Row 10 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113013
   Definition = Best In Set
 
  -- Row 11 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113018
   Definition = For Printing
 
  -- Row 12 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113020
   Definition = For Report Attachment
 
  -- Row 13 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113021
   Definition = For Litigation
 
  -- Row 14 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113030
   Definition = Manifest
 
  -- Row 15 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113031
   Definition = Signed Manifest
 
  -- Row 16 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113032
   Definition = Complete Study Content
 
  -- Row 17 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113033
   Definition = Signed Complete Study Content
 
  -- Row 18 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113034
   Definition = Complete Acquisition Content
 
  -- Row 19 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113035
   Definition = Signed Complete Acquisition Content
 
  -- Row 20 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = 113036
   Definition = Group of Frames for Display
 

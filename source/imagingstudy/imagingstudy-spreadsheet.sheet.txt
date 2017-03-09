@@ -49,22 +49,22 @@
 === Sheet instance-availability =====================================
 
  -- Row 1 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = ONLINE
   Definition = Resources are immediately available.
 
  -- Row 2 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = OFFLINE
   Definition = Resources need to be retrieved by manual intervention.
 
  -- Row 3 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = NEARLINE
   Definition = Resources need to be retrieved from relatively slow media.
 
  -- Row 4 -----------------------------------
-  System = http://nema.org/dicom/dicm
+  System = http://dicom.nema.org/resources/ontology/DCM
   Code = UNAVAILABLE
   Definition = Resources cannot be retrieved.
 
@@ -644,7 +644,7 @@
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = imagingstudy-extensions
+  Name = !imagingstudy-extensions
   IG Name = core
   Filename = imagingstudy-extensions.xml
   Type = spreadsheet

@@ -165,7 +165,7 @@
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
   </library>
-  <actionDefinition>
+  <action>
     <title value="Mother should be administered a breastfeeding readiness assessment."/>
     <triggerDefinition>
       <type value="named-event"/>
@@ -187,7 +187,7 @@
       <kind value="applicability"/>
       <expression value="Should Notify Nurse to Perform Assessment"/>
     </condition>
-    <actionDefinition>
+    <action>
       <title value="Notify the charge nurse to perform the assessment."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
       <type>
@@ -197,8 +197,8 @@
         <path value="/"/>
         <expression value="Communication Request to Charge Nurse"/>
       </dynamicValue>
-    </actionDefinition>
-    <actionDefinition>
+    </action>
+    <action>
       <title value="Notify the bedside nurse to perform the assessment."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
       <type>
@@ -208,6 +208,6 @@
         <path value="/"/>
         <expression value="Communication Request to Bedside Nurse"/>
       </dynamicValue>
-    </actionDefinition>
-  </actionDefinition>
+    </action>
+  </action>
 </PlanDefinition>

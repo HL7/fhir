@@ -3603,7 +3603,7 @@ The direction to use for assertions."/>
         <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
         <compose>
           <include>
-            <system value="http://nema.org/dicom/dicm"/>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
             <concept>
               <code value="ONLINE"/>
             </concept>
@@ -3630,22 +3630,22 @@ The direction to use for assertions."/>
             <valueUri value="http://hl7.org/fhir/ValueSet/dicom-dcim?version=01"/>
           </parameter>
           <contains>
-            <system value="http://nema.org/dicom/dicm"/>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
             <code value="ONLINE"/>
             <display value="Online"/>
           </contains>
           <contains>
-            <system value="http://nema.org/dicom/dicm"/>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
             <code value="OFFLINE"/>
             <display value="Offline"/>
           </contains>
           <contains>
-            <system value="http://nema.org/dicom/dicm"/>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
             <code value="NEARLINE"/>
             <display value="Nearline"/>
           </contains>
           <contains>
-            <system value="http://nema.org/dicom/dicm"/>
+            <system value="http://dicom.nema.org/resources/ontology/DCM"/>
             <code value="UNAVAILABLE"/>
             <display value="Unavailable"/>
           </contains>

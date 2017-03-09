@@ -57,7 +57,7 @@
 
   <subtype>
     <coding>
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="US"/>
     </coding>
   </subtype>

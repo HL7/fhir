@@ -385,7 +385,7 @@
   <library>
     <reference value="Library/zika-virus-intervention-logic"/>
   </library>
-  <actionDefinition>
+  <action>
     <title value="Zika Virus Assessment"/>
     <triggerDefinition>
       <type value="named-event"/>
@@ -395,7 +395,7 @@
       <kind value="applicability"/>
       <expression value="Is Patient Pregnant"/>
     </condition>
-    <actionDefinition>
+    <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Administer Zika Virus Exposure Assessment"/>
@@ -403,8 +403,8 @@
 		<definition>
 			<reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
 		</definition>
-    </actionDefinition>
-    <actionDefinition>
+    </action>
+    <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Order Serum + Urine rRT-PCR Test"/>
@@ -412,8 +412,8 @@
 		<definition>
 			<reference value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
 		</definition>
-    </actionDefinition>
-    <actionDefinition>
+    </action>
+    <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
@@ -421,8 +421,8 @@
 		<definition>
 			<reference value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
 		</definition>
-    </actionDefinition>
-    <actionDefinition>
+    </action>
+    <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Consider IgM Antibody Testing"/>
@@ -430,22 +430,22 @@
 		<definition>
 			<reference value="ActivityDefinition/consider-igm-antibody-testing"/>
 		</definition>
-    </actionDefinition>
-    <actionDefinition>
+    </action>
+    <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Provide Mosquito Prevention and Contraception Advice"/>
 		</condition>
-		<actionDefinition>
+		<action>
 			<definition>
 				<reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
 			</definition>
-		</actionDefinition>
-		<actionDefinition>
+		</action>
+		<action>
 			<definition>
 				<reference value="ActivityDefinition/provide-contraception-advice"/>
 			</definition>
-		</actionDefinition>
-    </actionDefinition>
-  </actionDefinition>
+		</action>
+    </action>
+  </action>
 </PlanDefinition>

@@ -7238,7 +7238,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"><Data ss:Type="String">AR</Data></Cell>
     <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
@@ -7249,7 +7249,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">AU</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7260,7 +7260,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">BDUS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7271,7 +7271,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">BI</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7282,7 +7282,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">BMD</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7293,7 +7293,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">CR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7304,7 +7304,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">CT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7315,7 +7315,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">DG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7326,7 +7326,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">DX</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7337,7 +7337,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">ECG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7348,7 +7348,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">EPS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7359,7 +7359,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">ES</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7370,7 +7370,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">GM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7381,7 +7381,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">HC</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7392,7 +7392,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">HD</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7403,7 +7403,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">IO</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7414,7 +7414,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">IVOCT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7425,7 +7425,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">IVUS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7436,7 +7436,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">KER</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7447,7 +7447,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">KO</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7458,7 +7458,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">LEN</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7469,7 +7469,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">LS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7480,7 +7480,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">MG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7491,7 +7491,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">MR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7502,7 +7502,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">NM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7513,7 +7513,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OAM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7524,7 +7524,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OCT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7535,7 +7535,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OP</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7546,7 +7546,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7557,7 +7557,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7568,7 +7568,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPV</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7579,7 +7579,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7590,7 +7590,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">PR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7601,7 +7601,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">PT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7612,7 +7612,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">PX</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7623,7 +7623,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">REG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7634,7 +7634,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RF</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7645,7 +7645,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7656,7 +7656,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RTDOSE</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7667,7 +7667,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RTIMAGE</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7678,7 +7678,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RTPLAN</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7689,7 +7689,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RTRECORD</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7700,7 +7700,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RTSTRUCT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7711,7 +7711,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SEG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7722,7 +7722,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7733,7 +7733,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SMR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7744,7 +7744,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7755,7 +7755,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SRF</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -7766,7 +7766,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s154"><Data ss:Type="String">TG</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s164"/>
     <Cell ss:StyleID="s164"/>
     <Cell ss:StyleID="s164"/>
@@ -7776,19 +7776,19 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">VA</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">XA</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">XC</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7890,7 +7890,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"><Data ss:Type="String">ONLINE</Data></Cell>
     <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"><Data ss:Type="String">Resources are immediately available.</Data></Cell>
@@ -7901,7 +7901,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OFFLINE</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Resources need to be retrieved by manual intervention.</Data></Cell>
@@ -7912,7 +7912,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s152"><Data ss:Type="String">NEARLINE</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Resources need to be retrieved from relatively slow media.</Data></Cell>
@@ -7923,7 +7923,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">UNAVAILABLE</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Resources cannot be retrieved.</Data></Cell>
@@ -8521,7 +8521,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"><Data ss:Type="String">AR</Data></Cell>
     <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
@@ -8532,7 +8532,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">BMD </Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8543,7 +8543,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">BDUS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8554,7 +8554,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">EPS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8565,7 +8565,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">CR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8576,7 +8576,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">CT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8587,7 +8587,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">DX</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8598,7 +8598,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">ECG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8609,7 +8609,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">ES</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8620,7 +8620,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">XC</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8631,7 +8631,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">GM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8642,7 +8642,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">HD</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8653,7 +8653,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">IO</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8664,7 +8664,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">IVOCT </Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8675,7 +8675,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">IVUS</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8686,7 +8686,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">KER</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8697,7 +8697,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">LEN</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8708,7 +8708,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">MR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8719,7 +8719,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">MG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8730,7 +8730,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">NM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8741,7 +8741,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OAM </Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8752,7 +8752,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OCT </Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8763,7 +8763,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8774,7 +8774,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OP</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8785,7 +8785,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPR</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8796,7 +8796,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPT</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8807,7 +8807,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">OPV </Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8818,7 +8818,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">PX</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8829,7 +8829,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">PT </Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8840,7 +8840,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RF</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8851,7 +8851,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">RG</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8862,7 +8862,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SM</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8873,7 +8873,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">SRF</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8884,7 +8884,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">US</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8895,7 +8895,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">VA</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
@@ -8906,7 +8906,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"><Data ss:Type="String">XA</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">http://nema.org/dicom/dicm</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s163"/>

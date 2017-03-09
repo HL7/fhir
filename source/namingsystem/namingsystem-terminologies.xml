@@ -627,7 +627,7 @@
         <description value="The meanings of codes defined in DICOM, either explicitly or by reference to another part of DICOM or an external reference document or standard"/>
         <uniqueId>
           <type value="uri"/>
-          <value value="http://nema.org/dicom/dicm"/>
+          <value value="http://dicom.nema.org/resources/ontology/DCM"/>
           <preferred value="true"/>
         </uniqueId>
         <uniqueId>

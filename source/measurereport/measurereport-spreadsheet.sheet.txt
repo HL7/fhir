@@ -77,16 +77,28 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = MeasureReport.measure
-  Card. = 1..1
+  Element = MeasureReport.identity
+  Card. = 0..1
   Summary = Y
-  Type = Reference(Measure)
-  Short Name = Measure that was evaluated
-  Definition = A reference to the Measure that was evaluated to produce this report
-  Workflow Mapping = Event.definition
-  w5 = what
+  Type = Identifier
+  Short Name = Additional identifier for the Report
+  Definition = A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.
+  Requirements = Allows externally provided and/or useable business identifiers to be easily associated with the module
+  Comments = Typically, this is used for identifiers that can go in an HL7 v3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use
+  w5 = id
 
  -- Row 3 -----------------------------------
+  Element = MeasureReport.status
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = MeasureReportStatus
+  Short Name = complete | pending | error
+  Definition = The report status. No data will be available until the report status is complete
+  Workflow Mapping = Event.status
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = MeasureReport.type
   Card. = 1..1
   Summary = Y
@@ -97,7 +109,17 @@
   Workflow Mapping = Event.code
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
+  Element = MeasureReport.measure
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Measure)
+  Short Name = Measure that was evaluated
+  Definition = A reference to the Measure that was evaluated to produce this report
+  Workflow Mapping = Event.definition
+  w5 = what
+
+ -- Row 6 -----------------------------------
   Element = MeasureReport.patient
   Card. = 0..1
   Summary = Y
@@ -106,25 +128,6 @@
   Definition = Optional Patient if the report was requested for a single patient.
   Workflow Mapping = Event.subject
   w5 = who.focus
-
- -- Row 5 -----------------------------------
-  Element = MeasureReport.period
-  Card. = 1..1
-  Summary = Y
-  Type = Period
-  Short Name = Reporting period
-  Definition = The reporting period for which the report was calculated
-
- -- Row 6 -----------------------------------
-  Element = MeasureReport.status
-  Card. = 1..1
-  Summary = Y
-  Type = code
-  Binding = MeasureReportStatus
-  Short Name = complete | pending | error
-  Definition = The report status. No data will be available until the report status is complete
-  Workflow Mapping = Event.status
-  w5 = status
 
  -- Row 7 -----------------------------------
   Element = MeasureReport.date
@@ -146,6 +149,14 @@
   w5 = who.source
 
  -- Row 9 -----------------------------------
+  Element = MeasureReport.period
+  Card. = 1..1
+  Summary = Y
+  Type = Period
+  Short Name = Reporting period
+  Definition = The reporting period for which the report was calculated
+
+ -- Row 10 -----------------------------------
   Element = MeasureReport.group
   Card. = 0..*
   Summary = N
@@ -153,7 +164,7 @@
   Short Name = Measure results for each group
   Definition = The results of the calculation, one for each population group in the measure
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MeasureReport.group.identifier
   Card. = 1..1
   Summary = N
@@ -161,14 +172,14 @@
   Short Name = Identifier of the population group being reported
   Definition = The identifier of the population group as defined in the measure definition
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MeasureReport.group.population
   Card. = 0..*
   Summary = N
   Short Name = The populations in the group
   Definition = The populations that make up the population group, one for each type of population appropriate for the measure
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MeasureReport.group.population.identifier
   Card. = 0..1
   Summary = Y
@@ -176,7 +187,7 @@
   Short Name = Identifier of the population being reported
   Definition = The identifier of the population being reported, as defined by the population element of the measure
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MeasureReport.group.population.code
   Card. = 0..1
   Summary = Y
@@ -185,7 +196,7 @@
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of the population
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MeasureReport.group.population.count
   Card. = 0..1
   Summary = N
@@ -193,7 +204,7 @@
   Short Name = Size of the population
   Definition = The number of members of the population
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MeasureReport.group.population.patients
   Card. = 0..1
   Summary = N
@@ -201,7 +212,7 @@
   Short Name = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MeasureReport.group.measureScore
   Card. = 0..1
   Summary = N
@@ -209,7 +220,7 @@
   Short Name = The measure score
   Definition = The measure score
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MeasureReport.group.stratifier
   Card. = 0..*
   Summary = N
@@ -217,7 +228,7 @@
   Short Name = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MeasureReport.group.stratifier.identifier
   Card. = 0..1
   Summary = N
@@ -225,7 +236,7 @@
   Short Name = Identifier of the stratifier
   Definition = The identifier of this stratifier, as defined in the measure definition
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum
   Card. = 0..*
   Summary = N
@@ -234,7 +245,7 @@
   Short Name = Stratum results, one for each unique value in the stratifier
   Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.value
   Card. = 1..1
   Summary = N
@@ -242,7 +253,7 @@
   Short Name = The stratum value, e.g. male
   Definition = The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population
   Card. = 0..*
   Summary = N
@@ -251,7 +262,7 @@
   Short Name = Population results in this stratum
   Definition = The populations that make up the stratum, one for each type of population appropriate to the measure
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.identifier
   Card. = 0..1
   Summary = Y
@@ -259,7 +270,7 @@
   Short Name = Identifier of the population
   Definition = The identifier of the population being reported, as defined by the population element of the measure
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.code
   Card. = 0..1
   Summary = Y
@@ -268,7 +279,7 @@
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of the population
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.count
   Card. = 0..1
   Summary = N
@@ -276,7 +287,7 @@
   Short Name = Size of the population
   Definition = The number of members of the population in this stratum
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.patients
   Card. = 0..1
   Summary = N
@@ -284,7 +295,7 @@
   Short Name = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.measureScore
   Card. = 0..1
   Summary = N
@@ -292,7 +303,7 @@
   Short Name = Score for this stratum
   Definition = The measure score for this stratum
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MeasureReport.evaluatedResources
   Card. = 0..1
   Summary = N

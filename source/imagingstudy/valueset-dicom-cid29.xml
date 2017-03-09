@@ -17,7 +17,7 @@
   <extensible value="true"/>
   <compose>
     <include>
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
         <code value="AR"/>
         <display value="Autorefraction"/>

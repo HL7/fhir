@@ -476,7 +476,7 @@
   Element = CarePlan.activity.reference
   Card. = 0..1
   Inv. = 3
-  Type = Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ProcessRequest|ReferralRequest|VisionPrescription|RequestGroup)
+  Type = Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ProcedureRequest|ReferralRequest|VisionPrescription|RequestGroup)
   Short Name = Activity details defined in specific resource
   Definition = The details of the proposed activity represented in a specific resource
   Requirements = Details in a form consistent with other applications and contexts of use

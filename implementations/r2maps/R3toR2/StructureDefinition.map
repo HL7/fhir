@@ -43,7 +43,7 @@ group for type+types  StructureDefinition extends DomainResource
     "StructureDefinition.mapping-identity" : for vs0.identity make vt0.identity
     "StructureDefinition.mapping-uri" : for vs0.uri make vt0.uri
     "StructureDefinition.mapping-name" : for vs0.name make vt0.name
-    "StructureDefinition.mapping-comments" : for vs0.comments make vt0.comments
+    "StructureDefinition.mapping-comments" : for vs0.comment make vt0.comments
   }
 
   "StructureDefinition-kind" : for src.kind as v make tgt.kind = translate(v, "#StructureDefinitionKind", "code")

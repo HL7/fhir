@@ -339,8 +339,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
-//  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+//  public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
+  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
 
   public final static String WEB_PUB_NAME = "DSTU2";
   public final static String CI_PUB_NAME = "Current Build";
@@ -3820,7 +3820,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (uri != null) {
           if ("http://snomed.info/sct".equals(uri)) n = "SNOMED CT";
           if ("http://loinc.org".equals(uri)) n = "LOINC";
-          if ("http://nema.org/dicom/dicm".equals(uri)) n = "DICOM";
+          if ("http://dicom.nema.org/resources/ontology/DCM".equals(uri)) n = "DICOM";
           if ("http://hl7.org/fhir/resource-types".equals(uri)) n = "FHIR";
           if ("http://hl7.org/fhir/restful-interaction".equals(uri)) n = "FHIR";
           if ("http://unitsofmeasure.org".equals(uri)) n = "FHIR";

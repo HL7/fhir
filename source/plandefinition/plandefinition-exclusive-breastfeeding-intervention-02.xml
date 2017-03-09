@@ -150,7 +150,7 @@
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
   </library>
-  <actionDefinition>
+  <action>
     <title value="Mother should be administered a breastfeeding readiness assessment."/>
     <triggerDefinition>
       <type value="named-event"/>
@@ -172,7 +172,7 @@
 	  <kind value="applicability"/>
       <expression value="Should Notify Provider to Sign Assessment Order"/>
     </condition>
-    <actionDefinition>
+    <action>
       <title value="Notify the provider to sign the order."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
       <type>
@@ -182,6 +182,6 @@
         <path value="/"/>
         <expression value="Communication Request to Provider"/>
       </dynamicValue>
-    </actionDefinition>
-  </actionDefinition>
+    </action>
+  </action>
 </PlanDefinition>

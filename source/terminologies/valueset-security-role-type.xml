@@ -286,7 +286,7 @@
 
     <include>
 	<!-- DICOM codes for AuditEvent agent role -->
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
         <code value="110150"/>
       </concept>

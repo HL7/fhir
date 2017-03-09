@@ -151,7 +151,7 @@
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
   </library>
-  <actionDefinition>
+  <action>
     <title value="Mother should be referred to a lactation specialist for consultation."/>
     <triggerDefinition>
       <type value="named-event"/>
@@ -173,7 +173,7 @@
       <kind value="applicability"/>
       <expression value="Should Create Lactation Consult"/>
     </condition>
-    <actionDefinition>
+    <action>
       <title value="Create a lactation consult request."/>
       <textEquivalent value="Create a lactation consult request"/>
       <type>
@@ -183,6 +183,6 @@
         <path value="/"/>
         <expression value="Create Lactation Consult Request"/>
       </dynamicValue>
-    </actionDefinition>
-  </actionDefinition>
+    </action>
+  </action>
 </PlanDefinition>

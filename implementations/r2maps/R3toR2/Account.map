@@ -14,9 +14,8 @@ group for type+types  Account extends DomainResource
   "Account-type" : for src.type make tgt.type
   "Account-status" : for src.status make tgt.status
   "Account-activePeriod" : for src.active make tgt.activePeriod
-  "Account-currency" : for src.currency make tgt.currency
   "Account-balance" : for src.balance make tgt.balance
-  "Account-coveragePeriod" : for src.coveragePeriod make tgt.coveragePeriod
+//  "Account-coveragePeriod" : for src.coveragePeriod make tgt.coveragePeriod - moved into coverage resource
   "Account-subject" : for src.subject make tgt.subject
   "Account-owner" : for src.owner make tgt.owner
   "Account-description" : for src.description make tgt.description

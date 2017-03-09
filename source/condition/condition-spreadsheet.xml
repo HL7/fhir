@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13350</WindowHeight>
-  <WindowWidth>28740</WindowWidth>
+  <WindowHeight>11610</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
@@ -4475,7 +4475,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">quantity</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">Condition.onset[x]</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Condition.onset.as(Quantity) | Condition.onset.as(Range)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Condition.onset.as(Age) | Condition.onset.as(Range)</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">f:Condition/f:onsetAge | f:Condition/f:onsetRange</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Onsets as age or age range</Data></Cell>
    </Row>
@@ -4502,7 +4502,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">quantity</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">Condition.abatement[x]</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Condition.abatement.as(Quantity) | Condition.abatement.as(Range) | Condition.abatement.as(Age)</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Condition.abatement.as(Age) | Condition.abatement.as(Range) | Condition.abatement.as(Age)</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">f:Condition/f:abatementAge | f:Condition/f:abatementRange</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Abatement as age or age range</Data></Cell>
    </Row>
@@ -4663,7 +4663,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

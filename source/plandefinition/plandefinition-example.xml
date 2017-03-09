@@ -911,13 +911,13 @@
     <display value="SuicideRiskLogic"/>
   </library>
   <!-- Actions -->
-  <actionDefinition>
+  <action>
     <title value="Suicide Risk Assessment and Outpatient Management"/>
-    <actionDefinition>
+    <action>
       <title value="Consults and Referrals"/>
       <groupingBehavior value="logical-group"/>
       <selectionBehavior value="any"/>
-      <actionDefinition>
+      <action>
         <textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
         <definition>
           <reference value="#referralToMentalHealthCare"/>
@@ -953,13 +953,13 @@
           <path value="reasonReference"/>
           <expression value="SuicideRiskLogic.RiskAssessment"/>
         </dynamicValue>
-      </actionDefinition>
-    </actionDefinition>
-    <actionDefinition>
+      </action>
+    </action>
+    <action>
       <title value="Medications"/>
       <groupingBehavior value="logical-group"/>
       <selectionBehavior value="at-most-one"/>
-      <actionDefinition>
+      <action>
         <title value="First-Line Antidepressants"/>
         <documentation>
           <type value="justification"/>
@@ -980,7 +980,7 @@
         </documentation>
         <groupingBehavior value="logical-group"/>
         <selectionBehavior value="at-most-one"/>
-        <actionDefinition>
+        <action>
           <title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
           <documentation>
             <type value="citation"/>
@@ -992,7 +992,7 @@
           </documentation>
           <groupingBehavior value="logical-group"/>
           <selectionBehavior value="at-most-one"/>
-          <actionDefinition>
+          <action>
             <textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
             <definition>
               <reference value="#citalopramPrescription"/>
@@ -1017,37 +1017,37 @@
               <path value="reasonReference"/>
               <expression value="SuicideRiskLogic.RiskAssessment"/>
             </dynamicValue>
-          </actionDefinition>
-          <actionDefinition>
+          </action>
+          <action>
             <textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
-          </actionDefinition>
-          <actionDefinition>
+          </action>
+          <action>
             <textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
-          </actionDefinition>
-          <actionDefinition>
+          </action>
+          <action>
             <textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
-          </actionDefinition>
-          <actionDefinition>
+          </action>
+          <action>
             <textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
-          </actionDefinition>
-        </actionDefinition>
-        <actionDefinition>
+          </action>
+        </action>
+        <action>
           <textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>
           <!-- Follows pattern established above -->
-        </actionDefinition>
-        <actionDefinition>
+        </action>
+        <action>
           <textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>
           <!-- Follows pattern established above -->
-        </actionDefinition>
-        <actionDefinition>
+        </action>
+        <action>
           <textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>
           <!-- Follows pattern established above -->
-        </actionDefinition>
-      </actionDefinition>
-    </actionDefinition>
-  </actionDefinition>
+        </action>
+      </action>
+    </action>
+  </action>
 </PlanDefinition>

@@ -96,10 +96,10 @@ public class ImagingStudy extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case ONLINE: return "http://nema.org/dicom/dicm";
-            case OFFLINE: return "http://nema.org/dicom/dicm";
-            case NEARLINE: return "http://nema.org/dicom/dicm";
-            case UNAVAILABLE: return "http://nema.org/dicom/dicm";
+            case ONLINE: return "http://dicom.nema.org/resources/ontology/DCM";
+            case OFFLINE: return "http://dicom.nema.org/resources/ontology/DCM";
+            case NEARLINE: return "http://dicom.nema.org/resources/ontology/DCM";
+            case UNAVAILABLE: return "http://dicom.nema.org/resources/ontology/DCM";
             default: return "?";
           }
         }

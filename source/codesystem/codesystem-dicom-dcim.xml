@@ -2,7 +2,7 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="dicom-dcim"/>
-  <url value="http://nema.org/dicom/dicm"/>
+  <url value="http://dicom.nema.org/resources/ontology/DCM"/>
   <version value="01"/>
   <name value="DICOM Controlled Terminology Definitions"/>
   <status value="active"/>
@@ -74,7 +74,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="US"/>
         <display value="Ultrasound"/>
       </valueCoding>
@@ -89,7 +89,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="RF"/>
         <display value="Radiofluoroscopy"/>
       </valueCoding>
@@ -135,7 +135,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="US"/>
         <display value="Ultrasound"/>
       </valueCoding>
@@ -150,7 +150,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="RF"/>
         <display value="Radiofluoroscopy"/>
       </valueCoding>
@@ -183,7 +183,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="XA"/>
         <display value="X-Ray Angiography"/>
       </valueCoding>
@@ -208,7 +208,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="US"/>
         <display value="Ultrasound"/>
       </valueCoding>
@@ -243,7 +243,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="OP"/>
         <display value="Ophthalmic photography"/>
       </valueCoding>
@@ -354,7 +354,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="MR"/>
         <display value="Magnetic resonance"/>
       </valueCoding>
@@ -399,7 +399,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="MR"/>
         <display value="Magnetic resonance"/>
       </valueCoding>
@@ -569,7 +569,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="NM"/>
         <display value="Nuclear Medicine"/>
       </valueCoding>
@@ -609,7 +609,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="RF"/>
         <display value="Radiofluoroscopy"/>
       </valueCoding>
@@ -2833,7 +2833,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="112031"/>
         <display value="Attenuation Coefficient"/>
       </valueCoding>
@@ -5261,7 +5261,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="111123"/>
         <display value="Marker placement"/>
       </valueCoding>
@@ -9886,7 +9886,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="113824"/>
         <display value="Exposure Time"/>
       </valueCoding>
@@ -11152,7 +11152,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="111700"/>
         <display value="Specimen Container Identifier"/>
       </valueCoding>
@@ -12099,7 +12099,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="121056"/>
         <display value="Area Outline"/>
       </valueCoding>
@@ -12142,7 +12142,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="121055"/>
         <display value="Path"/>
       </valueCoding>
@@ -12161,7 +12161,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="121057"/>
         <display value="Perimeter Outline"/>
       </valueCoding>
@@ -13120,7 +13120,7 @@
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110501"/>
         <display value="Equipment failure"/>
       </valueCoding>

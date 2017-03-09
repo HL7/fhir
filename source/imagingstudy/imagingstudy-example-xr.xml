@@ -27,7 +27,7 @@
 	</identifier>
 	<availability value="ONLINE"/>
 	<modalityList>
-		<system value="http://nema.org/dicom/dicm"/>
+		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="DX"/>
 	</modalityList>
 	<patient>
@@ -74,7 +74,7 @@
 		<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
 		<number value="3"/>
 		<modality>
-			<system value="http://nema.org/dicom/dicm"/>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 			<code value="DX"/>
 		</modality>
 		<description value="XR Wrist 3+ Views"/>

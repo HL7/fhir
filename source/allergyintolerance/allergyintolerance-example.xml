@@ -20,13 +20,8 @@
     than using terminology based reasoning -->
 
   
-  <category>
-     <coding>
-       <system value="http://hl7.org/fhir/allergy-intolerance-category"/>
-       <code value="food"/>
-     </coding>
-  </category>
-  
+  <category value="food"/>
+     
   <!-- there is no question that the allergy is real and serious --> 
   <criticality value="high"/>
   

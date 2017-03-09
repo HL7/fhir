@@ -25,7 +25,7 @@ group for type+types  ElementDefinition
 
   "ElementDefinition-short" : for src.short make tgt.short
   "ElementDefinition-definition" : for src.definition make tgt.definition
-  "ElementDefinition-comments" : for src.comments make tgt.comments
+  "ElementDefinition-comments" : for src.comment make tgt.comments
   "ElementDefinition-requirements" : for src.requirements make tgt.requirements
   "ElementDefinition-alias" : for src.alias make tgt.alias
   "ElementDefinition-min" : for src.min make tgt.min

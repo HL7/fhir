@@ -3,7 +3,7 @@
  <id value="example-pixQuery"/>
   
     <type>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110112"/>
         <display value="Query"/>
     </type>
@@ -24,7 +24,7 @@
   -->
     <role>
       <coding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110153"/>
         <display value="Source Role ID"/>
       </coding>

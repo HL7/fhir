@@ -6,7 +6,7 @@
   </text>    
 
   <type>
-    <system value="http://nema.org/dicom/dicm"/>
+    <system value="http://dicom.nema.org/resources/ontology/DCM"/>
     <code value="110106"/>
     <display value="Export"/>
   </type>
@@ -30,7 +30,7 @@
     <!-- who disclosed the data -->
     <role>
       <coding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110153"/>
         <display value="Source Role ID"/>
       </coding>
@@ -54,7 +54,7 @@
     <!-- who received the data -->
     <role>
       <coding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110152"/>
         <display value="Destination Role ID"/>
       </coding>

@@ -111,7 +111,7 @@
   </type>
   <status value="active"/>
   <purpose value="Defines the execution of study AD-4833PNFP-341"/>
-  <actionDefinition>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose1"/>
     </extension>
@@ -130,8 +130,8 @@
     <!--exit>
       <description value="Screening assessments complete"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose1"/>
     </extension>
@@ -158,8 +158,8 @@
     <!--exit>
       <description value="1 week after start of Element"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose1"/>
     </extension>
@@ -183,8 +183,8 @@
     <!--exit>
       <description value="30 weeks after start of Element"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose1"/>
     </extension>
@@ -203,8 +203,8 @@
     <!--exit>
       <description value="2 weeks after start of Element"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose2"/>
     </extension>
@@ -223,8 +223,8 @@
     <!--exit>
       <description value="Screening assessments complete"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose2"/>
     </extension>
@@ -251,8 +251,8 @@
     <!--exit>
       <description value="1 week after start of Element"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-dose2"/>
     </extension>
@@ -276,8 +276,8 @@
     <!--exit>
       <description value="30 weeks after start of Element"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
       <valueUri value="#arm-pio45mgs"/>
     </extension>
@@ -296,8 +296,8 @@
     <!--exit>
       <description value="2 weeks after start of Element"/>
     </exit-->
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="1"/>
     </extension>
@@ -309,8 +309,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="2"/>
     </extension>
@@ -322,8 +322,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="3"/>
     </extension>
@@ -335,8 +335,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="4"/>
     </extension>
@@ -348,8 +348,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="5"/>
     </extension>
@@ -361,8 +361,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="6"/>
     </extension>
@@ -374,8 +374,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="7"/>
     </extension>
@@ -387,8 +387,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="8"/>
     </extension>
@@ -400,8 +400,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="9"/>
     </extension>
@@ -413,8 +413,8 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
-  <actionDefinition>
+  </action>
+  <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="10"/>
     </extension>
@@ -426,5 +426,5 @@
     <definition>
       <reference value="#encounter"/>
     </definition>
-  </actionDefinition>
+  </action>
 </PlanDefinition>

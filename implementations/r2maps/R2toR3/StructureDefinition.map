@@ -34,7 +34,7 @@ group for type+types  StructureDefinition extends DomainResource
     "StructureDefinition.mapping-identity" : for vs0.identity make vt0.identity
     "StructureDefinition.mapping-uri" : for vs0.uri make vt0.uri
     "StructureDefinition.mapping-name" : for vs0.name make vt0.name
-    "StructureDefinition.mapping-comments" : for vs0.comments make vt0.comments
+    "StructureDefinition.mapping-comments" : for vs0.comments make vt0.comment
   }
 
   "StructureDefinition-derivation-1" : for src where constrainedType.empty() make tgt.derivation = "specialization"

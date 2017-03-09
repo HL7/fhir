@@ -1605,7 +1605,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return "RxNorm";
     if (system.equals("http://hl7.org/fhir/sid/icd-9"))
       return "ICD-9";
-    if (system.equals("http://nema.org/dicom/dicm"))
+    if (system.equals("http://dicom.nema.org/resources/ontology/DCM"))
       return "DICOM";
     if (system.equals("http://unitsofmeasure.org"))
       return "UCUM";

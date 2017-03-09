@@ -548,7 +548,7 @@
  -- Row 23 -----------------------------------
   Element = ElementDefinition.base.min
   Card. = 1..1
-  Type = integer
+  Type = unsignedInt
   Short Name = Min cardinality of the base element
   Definition = Minimum cardinality of the base element identified by the path
   Comments = This is provided for consistency with max, and may affect code generation of mandatory elements of the base resource are generated differently (some reference implementations have done this)
@@ -965,3 +965,11 @@
   Comments = For most mappings, the syntax is undefined.  Syntax will be provided for mappings to the RIM.  Multiple mappings may be possible and may include constraints on other resource elements that identify when a particular mapping applies
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = ObjectClass, Property (this is one possible data model that can be mapped to - the uri would identify the data model  mappingSpecification.mappingScript
+
+ -- Row 64 -----------------------------------
+  Element = ElementDefinition.mapping.comment
+  Card. = 0..1
+  Type = string
+  Short Name = Comments about the mapping or it\'s use
+  Definition = Comments that provide information about the mapping or it\'s use
+  RIM Mapping = N/A (MIF territory)

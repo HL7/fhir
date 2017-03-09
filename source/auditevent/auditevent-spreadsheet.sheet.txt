@@ -16,7 +16,7 @@
   Definition = Indicator for type of action performed during the event that generated the audit.
   Description = DICOM Audit Event Action
   Conformance = required
-  Uri = http://nema.org/dicom/dicm
+  Uri = http://dicom.nema.org/resources/ontology/DCM
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 3 -----------------------------------
@@ -26,7 +26,7 @@
   Definition = Indicates whether the event succeeded or failed
   Description = DICOM Audit Event Outcome
   Conformance = required
-  Uri = http://nema.org/dicom/dicm
+  Uri = http://dicom.nema.org/resources/ontology/DCM
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 4 -----------------------------------
@@ -36,7 +36,7 @@
   Definition = The type of network access point of this agent in the audit event
   Description = DICOM Audit Event Network Type
   Conformance = required
-  Uri = http://nema.org/dicom/dicm
+  Uri = http://dicom.nema.org/resources/ontology/DCM
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 5 -----------------------------------
@@ -46,7 +46,7 @@
   Definition = Code for the entity type involved audited.
   Description = DICOM Audit Event Entity Type
   Conformance = extensible
-  Uri = http://nema.org/dicom/dicm
+  Uri = http://dicom.nema.org/resources/ontology/DCM
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 6 -----------------------------------
@@ -56,7 +56,7 @@
   Definition = Code representing the role the entity played in the event.
   Description = DICOM Audit Event Entity Role
   Conformance = extensible
-  Uri = http://nema.org/dicom/dicm
+  Uri = http://dicom.nema.org/resources/ontology/DCM
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 7 -----------------------------------

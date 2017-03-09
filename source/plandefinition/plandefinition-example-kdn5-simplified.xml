@@ -256,17 +256,17 @@
     <url value="http://www.ncbi.nlm.nih.gov/pubmed/17437788" />
   </relatedArtifact>
 
-  <actionDefinition>
+  <action>
     <!-- list of regimen options. in this case only one -->
     <selectionBehavior value="exactly-one"/>
-    <actionDefinition>
+    <action>
       <!-- list of regimen parts. in this case only one -->
       <selectionBehavior value="all"/>
-      <actionDefinition>
+      <action>
         <!-- list of cycle definitions. in this case only one -->
         <groupingBehavior value="sentence-group" />
         <selectionBehavior value="exactly-one"/>
-        <actionDefinition id="cycle-definition-1">
+        <action id="cycle-definition-1">
           <textEquivalent value="21-day cycle for 6 cycles" />
 
           <timingTiming>
@@ -280,20 +280,20 @@
           <!-- list of regimen entry references for this regimen part -->
           <!-- references would duplicated in each cycle definition option
           (see http://build.fhir.org/codesystem-action-grouping-behavior.html#sentence-group)-->
-          <actionDefinition>
+          <action>
             <textEquivalent value="Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" />
             <definition>
               <reference value="#1111"/>
             </definition>
-          </actionDefinition>
-          <actionDefinition>
+          </action>
+          <action>
             <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
             <definition>
               <reference value="#2222"/>
             </definition>
-          </actionDefinition> <!-- end of regimen entries -->
-        </actionDefinition> <!-- end of cycle definitions -->
-      </actionDefinition> <!-- end of regimen parts -->
-    </actionDefinition> <!-- end of regimen options -->
-  </actionDefinition>
+          </action> <!-- end of regimen entries -->
+        </action> <!-- end of cycle definitions -->
+      </action> <!-- end of regimen parts -->
+    </action> <!-- end of regimen options -->
+  </action>
 </PlanDefinition>

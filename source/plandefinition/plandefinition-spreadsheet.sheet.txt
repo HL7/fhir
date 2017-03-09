@@ -513,15 +513,15 @@
   Definition = A reference to a Library resource containing any formal logic used by the plan definition
 
  -- Row 26 -----------------------------------
-  Element = PlanDefinition.goalDefinition
+  Element = PlanDefinition.goal
   Card. = 0..*
   Short Name = What the plan is trying to accomplish
   Definition = Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc
   Requirements = Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders
-  Committee Notes = Goal resource is not appropriate because it represents an instance of a goal with respect to a particular patient or group, and is very much concerned with tracking the state of the goal, rather than its definition. The Goal resource can point to a goalDefinition with an extension by virtue of the fact that it is a Request resource
+  Committee Notes = Goal resource is not appropriate because it represents an instance of a goal with respect to a particular patient or group, and is very much concerned with tracking the state of the goal, rather than its definition. The Goal resource can point to a goal with an extension by virtue of the fact that it is a Request resource
 
  -- Row 27 -----------------------------------
-  Element = PlanDefinition.goalDefinition.category
+  Element = PlanDefinition.goal.category
   Card. = 0..1
   Type = CodeableConcept
   Binding = GoalCategory
@@ -529,7 +529,7 @@
   Definition = Indicates a category the goal falls within
 
  -- Row 28 -----------------------------------
-  Element = PlanDefinition.goalDefinition.description
+  Element = PlanDefinition.goal.description
   Card. = 1..1
   Type = CodeableConcept
   Binding = GoalDescription
@@ -538,7 +538,7 @@
   Comments = If no code is available, use CodeableConcept.text
 
  -- Row 29 -----------------------------------
-  Element = PlanDefinition.goalDefinition.priority
+  Element = PlanDefinition.goal.priority
   Card. = 0..1
   Type = CodeableConcept
   Binding = GoalPriority
@@ -546,7 +546,7 @@
   Definition = Identifies the expected level of importance associated with reaching/sustaining the defined goal
 
  -- Row 30 -----------------------------------
-  Element = PlanDefinition.goalDefinition.start
+  Element = PlanDefinition.goal.start
   Card. = 0..1
   Type = CodeableConcept
   Binding = GoalStartEvent
@@ -554,7 +554,7 @@
   Definition = The event after which the goal should begin being pursued
 
  -- Row 31 -----------------------------------
-  Element = PlanDefinition.goalDefinition.addresses
+  Element = PlanDefinition.goal.addresses
   Card. = 0..*
   Type = CodeableConcept
   Binding = GoalAddresses
@@ -562,20 +562,20 @@
   Definition = Identifies problems, conditions, issues, or concerns the goal is intended to address
 
  -- Row 32 -----------------------------------
-  Element = PlanDefinition.goalDefinition.documentation
+  Element = PlanDefinition.goal.documentation
   Card. = 0..*
   Type = RelatedArtifact
   Short Name = Supporting documentation for the goal
   Definition = Didactic or other informational resources associated with the goal that provide further supporting information about the goal. Information resources can include inline text commentary and links to web resources
 
  -- Row 33 -----------------------------------
-  Element = PlanDefinition.goalDefinition.target
+  Element = PlanDefinition.goal.target
   Card. = 0..*
   Short Name = Target outcome for the goal
   Definition = Indicates what should be done and within what timeframe
 
  -- Row 34 -----------------------------------
-  Element = PlanDefinition.goalDefinition.target.measure
+  Element = PlanDefinition.goal.target.measure
   Card. = 0..1
   Type = CodeableConcept
   Binding = GoalTargetMeasure
@@ -583,21 +583,21 @@
   Definition = The parameter whose value is to be tracked, e.g. body weigth, blood pressure, or hemoglobin A1c level
 
  -- Row 35 -----------------------------------
-  Element = PlanDefinition.goalDefinition.target.detail[x]
+  Element = PlanDefinition.goal.target.detail[x]
   Card. = 0..1
   Type = Quantity|Range|CodeableConcept
   Short Name = The target value to be achieved
   Definition = The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%. Either the high or low or both values of the range can be specified. Whan a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value
 
  -- Row 36 -----------------------------------
-  Element = PlanDefinition.goalDefinition.target.due
+  Element = PlanDefinition.goal.target.due
   Card. = 0..1
   Type = Duration
   Short Name = Reach goal within
   Definition = Indicates the timeframe after the start of the goal in which the goal should be met
 
  -- Row 37 -----------------------------------
-  Element = PlanDefinition.actionDefinition
+  Element = PlanDefinition.action
   Card. = 0..*
   UML = 310;0
   Short Name = Action defined by the plan
@@ -605,14 +605,14 @@
   Workflow Mapping = Is a contained Definition
 
  -- Row 38 -----------------------------------
-  Element = PlanDefinition.actionDefinition.label
+  Element = PlanDefinition.action.label
   Card. = 0..1
   Type = string
   Short Name = User-visible label for the action (e.g. 1. or A.)
   Definition = A user-visible label for the action
 
  -- Row 39 -----------------------------------
-  Element = PlanDefinition.actionDefinition.title
+  Element = PlanDefinition.action.title
   Card. = 0..1
   Type = string
   Short Name = User-visible title
@@ -620,7 +620,7 @@
   Workflow Mapping = Definition.title
 
  -- Row 40 -----------------------------------
-  Element = PlanDefinition.actionDefinition.description
+  Element = PlanDefinition.action.description
   Card. = 0..1
   Type = string
   Short Name = Short description of the action
@@ -628,7 +628,7 @@
   Workflow Mapping = Definition.description
 
  -- Row 41 -----------------------------------
-  Element = PlanDefinition.actionDefinition.textEquivalent
+  Element = PlanDefinition.action.textEquivalent
   Card. = 0..1
   Type = string
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
@@ -636,14 +636,14 @@
   Workflow Mapping = Definition.description
 
  -- Row 42 -----------------------------------
-  Element = PlanDefinition.actionDefinition.code
+  Element = PlanDefinition.action.code
   Card. = 0..*
   Type = CodeableConcept
   Short Name = Code representing the meaning of the action or sub-actions
   Definition = A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template
 
  -- Row 43 -----------------------------------
-  Element = PlanDefinition.actionDefinition.reason
+  Element = PlanDefinition.action.reason
   Card. = 0..*
   Type = CodeableConcept
   Short Name = Why the action should be performed
@@ -651,28 +651,28 @@
   Comments = This is different than the clinical evidence documentation, it\'s an actual business description of the reason for performing the action
 
  -- Row 44 -----------------------------------
-  Element = PlanDefinition.actionDefinition.documentation
+  Element = PlanDefinition.action.documentation
   Card. = 0..*
   Type = RelatedArtifact
   Short Name = Supporting documentation for the intended performer of the action
   Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
 
  -- Row 45 -----------------------------------
-  Element = PlanDefinition.actionDefinition.goalId
+  Element = PlanDefinition.action.goalId
   Card. = 0..*
   Type = id
   Short Name = What goals this action supports
-  Definition = Identifies goals that this action supports. The reference must be to a goalDefinition element defined within this plan definition
+  Definition = Identifies goals that this action supports. The reference must be to a goal element defined within this plan definition
 
  -- Row 46 -----------------------------------
-  Element = PlanDefinition.actionDefinition.triggerDefinition
+  Element = PlanDefinition.action.triggerDefinition
   Card. = 0..*
   Type = TriggerDefinition
   Short Name = When the action should be triggered
   Definition = A description of when the action should be triggered
 
  -- Row 47 -----------------------------------
-  Element = PlanDefinition.actionDefinition.condition
+  Element = PlanDefinition.action.condition
   Card. = 0..*
   UML = 650;0
   Type = string
@@ -680,7 +680,7 @@
   Definition = An expression that describes applicability criteria, or start/stop conditions for the action
 
  -- Row 48 -----------------------------------
-  Element = PlanDefinition.actionDefinition.condition.kind
+  Element = PlanDefinition.action.condition.kind
   Card. = 1..1
   Type = code
   Binding = ActionConditionKind
@@ -689,21 +689,21 @@
   Comments = Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe when enter/exit criteria for an action
 
  -- Row 49 -----------------------------------
-  Element = PlanDefinition.actionDefinition.condition.description
+  Element = PlanDefinition.action.condition.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the condition
   Definition = A brief, natural language description of the condition that effectively communicates the intended semantics
 
  -- Row 50 -----------------------------------
-  Element = PlanDefinition.actionDefinition.condition.language
+  Element = PlanDefinition.action.condition.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
  -- Row 51 -----------------------------------
-  Element = PlanDefinition.actionDefinition.condition.expression
+  Element = PlanDefinition.action.condition.expression
   Card. = 0..1
   Type = string
   Short Name = Boolean-valued expression
@@ -711,21 +711,21 @@
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
  -- Row 52 -----------------------------------
-  Element = PlanDefinition.actionDefinition.input
+  Element = PlanDefinition.action.input
   Card. = 0..*
   Type = DataRequirement
   Short Name = Input data requirements
   Definition = Defines input data requirements for the action
 
  -- Row 53 -----------------------------------
-  Element = PlanDefinition.actionDefinition.output
+  Element = PlanDefinition.action.output
   Card. = 0..*
   Type = DataRequirement
   Short Name = Output data definition
   Definition = Defines the outputs of the action, if any
 
  -- Row 54 -----------------------------------
-  Element = PlanDefinition.actionDefinition.relatedAction
+  Element = PlanDefinition.action.relatedAction
   Card. = 0..*
   UML = down
   Short Name = Relationship to another action
@@ -733,14 +733,14 @@
   Comments = When an action depends on multiple actions, the meaning is that all actions are dependencies, rather than that any of the actions are a dependency
 
  -- Row 55 -----------------------------------
-  Element = PlanDefinition.actionDefinition.relatedAction.actionId
+  Element = PlanDefinition.action.relatedAction.actionId
   Card. = 1..1
   Type = id
   Short Name = What action is this related to
   Definition = The element id of the related action
 
  -- Row 56 -----------------------------------
-  Element = PlanDefinition.actionDefinition.relatedAction.relationship
+  Element = PlanDefinition.action.relatedAction.relationship
   Card. = 1..1
   Type = code
   Binding = ActionRelationshipType
@@ -748,27 +748,27 @@
   Definition = The relationship of this action to the related action
 
  -- Row 57 -----------------------------------
-  Element = PlanDefinition.actionDefinition.relatedAction.offset[x]
+  Element = PlanDefinition.action.relatedAction.offset[x]
   Card. = 0..1
   Type = Duration|Range
   Short Name = Time offset for the relationship
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
  -- Row 58 -----------------------------------
-  Element = PlanDefinition.actionDefinition.timing[x]
+  Element = PlanDefinition.action.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
 
  -- Row 59 -----------------------------------
-  Element = PlanDefinition.actionDefinition.participant
+  Element = PlanDefinition.action.participant
   Card. = 0..*
   Short Name = Who should participate in the action
   Definition = Indicates who should participate in performing the action described
 
  -- Row 60 -----------------------------------
-  Element = PlanDefinition.actionDefinition.participant.type
+  Element = PlanDefinition.action.participant.type
   Card. = 1..1
   Type = code
   Binding = ActionParticipantType
@@ -776,7 +776,7 @@
   Definition = The type of participant in the action
 
  -- Row 61 -----------------------------------
-  Element = PlanDefinition.actionDefinition.participant.role
+  Element = PlanDefinition.action.participant.role
   Card. = 0..1
   Type = CodeableConcept
   Binding = ActionParticipantRole
@@ -784,7 +784,7 @@
   Definition = The role the participant should play in performing the described action
 
  -- Row 62 -----------------------------------
-  Element = PlanDefinition.actionDefinition.type
+  Element = PlanDefinition.action.type
   Card. = 0..1
   Type = Coding
   Binding = ActionType
@@ -792,7 +792,7 @@
   Definition = The type of action to perform (create, update, remove)
 
  -- Row 63 -----------------------------------
-  Element = PlanDefinition.actionDefinition.groupingBehavior
+  Element = PlanDefinition.action.groupingBehavior
   Card. = 0..1
   Type = code
   Binding = ActionGroupingBehavior
@@ -800,7 +800,7 @@
   Definition = Defines the grouping behavior for the action and its children
 
  -- Row 64 -----------------------------------
-  Element = PlanDefinition.actionDefinition.selectionBehavior
+  Element = PlanDefinition.action.selectionBehavior
   Card. = 0..1
   Type = code
   Binding = ActionSelectionBehavior
@@ -808,7 +808,7 @@
   Definition = Defines the selection behavior for the action and its children
 
  -- Row 65 -----------------------------------
-  Element = PlanDefinition.actionDefinition.requiredBehavior
+  Element = PlanDefinition.action.requiredBehavior
   Card. = 0..1
   Type = code
   Binding = ActionRequiredBehavior
@@ -816,7 +816,7 @@
   Definition = Defines the requiredness behavior for the action
 
  -- Row 66 -----------------------------------
-  Element = PlanDefinition.actionDefinition.precheckBehavior
+  Element = PlanDefinition.action.precheckBehavior
   Card. = 0..1
   Type = code
   Binding = ActionPrecheckBehavior
@@ -824,7 +824,7 @@
   Definition = Defines whether the action should usually be preselected
 
  -- Row 67 -----------------------------------
-  Element = PlanDefinition.actionDefinition.cardinalityBehavior
+  Element = PlanDefinition.action.cardinalityBehavior
   Card. = 0..1
   Type = code
   Binding = ActionCardinalityBehavior
@@ -832,7 +832,7 @@
   Definition = Defines whether the action can be selected multiple times
 
  -- Row 68 -----------------------------------
-  Element = PlanDefinition.actionDefinition.definition
+  Element = PlanDefinition.action.definition
   Card. = 0..1
   Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Description of the activity to be performed
@@ -841,42 +841,42 @@
   Workflow Mapping = Definition.definition
 
  -- Row 69 -----------------------------------
-  Element = PlanDefinition.actionDefinition.transform
+  Element = PlanDefinition.action.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
  -- Row 70 -----------------------------------
-  Element = PlanDefinition.actionDefinition.dynamicValue
+  Element = PlanDefinition.action.dynamicValue
   Card. = 0..*
   UML = 650;200
   Short Name = Dynamic aspects of the definition
   Definition = Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result
 
  -- Row 71 -----------------------------------
-  Element = PlanDefinition.actionDefinition.dynamicValue.description
+  Element = PlanDefinition.action.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
  -- Row 72 -----------------------------------
-  Element = PlanDefinition.actionDefinition.dynamicValue.path
+  Element = PlanDefinition.action.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
  -- Row 73 -----------------------------------
-  Element = PlanDefinition.actionDefinition.dynamicValue.language
+  Element = PlanDefinition.action.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
  -- Row 74 -----------------------------------
-  Element = PlanDefinition.actionDefinition.dynamicValue.expression
+  Element = PlanDefinition.action.dynamicValue.expression
   Card. = 0..1
   Type = string
   Short Name = An expression that provides the dynamic value for the customization
@@ -884,208 +884,9 @@
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
  -- Row 75 -----------------------------------
-  Element = PlanDefinition.actionDefinition.actionDefinition
+  Element = PlanDefinition.action.action
   Card. = 0..*
-  Type = @PlanDefinition.actionDefinition
+  Type = @PlanDefinition.action
   Short Name = A sub-action
   Definition = Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition
   Workflow Mapping = InverseRelationship of Definition.partOf
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = topic
-  Type = token
-  Description = Topics associated with the module
-  Path = PlanDefinition.topic
-
- -- Row 2 -----------------------------------
-  Name = !minScore
-  Type = number
-  Description = The minimum relevance score of any match that will be returned
-  Path = Bundle/entry/search/score
-
-=== Sheet Profiles =====================================
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = OrderSetExample
-  Identity = low-suicide-risk-order-set
-  Description = Low Suicide Risk Order Set
-  Filename = plandefinition-example.xml
-
- -- Row 2 -----------------------------------
-  Name = CSExample
-  Identity = chlamydia-screening-intervention
-  Description = Chlamydia Screening CDS example
-  Filename = plandefinition-chlamydia-screening-intervention.xml
-
- -- Row 3 -----------------------------------
-  Name = CMS9CDS01
-  Identity = exclusive-breastfeeding-intervention-01
-  Description = Exclusive Breastfeeding Intervention 01
-  Filename = plandefinition-exclusive-breastfeeding-intervention-01.xml
-
- -- Row 4 -----------------------------------
-  Name = CMS9CDS02
-  Identity = exclusive-breastfeeding-intervention-02
-  Description = Exclusive Breastfeeding Intervention 02
-  Filename = plandefinition-exclusive-breastfeeding-intervention-02.xml
-
- -- Row 5 -----------------------------------
-  Name = CMS9CDS03
-  Identity = exclusive-breastfeeding-intervention-03
-  Description = Exclusive Breastfeeding Intervention 03
-  Filename = plandefinition-exclusive-breastfeeding-intervention-03.xml
-
- -- Row 6 -----------------------------------
-  Name = CMS9CDS04
-  Identity = exclusive-breastfeeding-intervention-04
-  Description = Exclusive Breastfeeding Intervention 04
-  Filename = plandefinition-exclusive-breastfeeding-intervention-04.xml
-
- -- Row 7 -----------------------------------
-  Name = ProtocolExample
-  Identity = protocol-example
-  Description = Obesity Assessment Protocol
-  Filename = plandefinition-protocol-example.xml
-
- -- Row 8 -----------------------------------
-  Name = !StudyExample
-  Identity = protocol-study-example
-  Description = Study Protocol
-  Filename = plandefinition-protocol-study-example.xml
-
- -- Row 9 -----------------------------------
-  Name = KDN5
-  Identity = KDN5
-  Description = Chemotherapy Regimen
-  Filename = plandefinition-example-kdn5-simplified.xml
-
- -- Row 10 -----------------------------------
-  Name = ZikaVirusInfection
-  Identity = zika-virus-intervention
-  Description = Zika Virus Infection Management Process
-  Filename = plandefinition-zika-virus-intervention.xml
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = apply
-  Use = Instance
-  Documentation = The apply operation applies a PlanDefinition to a given context
-  Type = operation
-  Example.Request = $apply-request.txt
-  Example.Response = $apply-response.txt
-  Title = Apply
-  Footer = The result of this operation is a CarePlan resource, with activities for each of the applicable actions based on evaluating the applicability condition in context. For each applicable action, the activitydefinition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an activity to the CarePlan. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation
-
- -- Row 2 -----------------------------------
-  Name = apply.patient
-  Use = in
-  Documentation = The patient that is the target of the plan to be applied
-  Type = Reference(Patient)
-  Title = Patient
-  Min = 1
-  Max = 1
-
- -- Row 3 -----------------------------------
-  Name = apply.encounter
-  Use = in
-  Documentation = The encounter in context, if any
-  Type = Reference(Encounter)
-  Title = Encounter
-  Min = 0
-  Max = 1
-
- -- Row 4 -----------------------------------
-  Name = apply.practitioner
-  Use = in
-  Documentation = The practitioner applying the plan definition
-  Type = Reference(Practitioner)
-  Title = Practitioner
-  Min = 0
-  Max = 1
-
- -- Row 5 -----------------------------------
-  Name = apply.organization
-  Use = in
-  Documentation = The organization applying the plan definition
-  Type = Reference(Organization)
-  Title = Organization
-  Min = 0
-  Max = 1
-
- -- Row 6 -----------------------------------
-  Name = apply.userType
-  Use = in
-  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
-  Type = CodeableConcept
-  Title = User Type
-  Min = 0
-  Max = 1
-
- -- Row 7 -----------------------------------
-  Name = apply.userLanguage
-  Use = in
-  Documentation = Preferred language of the person using the system
-  Type = CodeableConcept
-  Title = User Language
-  Min = 0
-  Max = 1
-
- -- Row 8 -----------------------------------
-  Name = apply.userTaskContext
-  Use = in
-  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
-  Type = CodeableConcept
-  Title = User Task Context
-  Min = 0
-  Max = 1
-
- -- Row 9 -----------------------------------
-  Name = apply.setting
-  Use = in
-  Documentation = The current setting of the request (inpatient, outpatient, etc)
-  Type = CodeableConcept
-  Title = Setting
-  Min = 0
-  Max = 1
-
- -- Row 10 -----------------------------------
-  Name = apply.settingContext
-  Use = in
-  Documentation = Additional detail about the setting of the request, if any
-  Type = CodeableConcept
-  Title = Setting Context
-  Min = 0
-  Max = 1
-
- -- Row 11 -----------------------------------
-  Name = apply.return
-  Use = out
-  Documentation = The CarePlan that is the result of applying the plan definition
-  Type = CarePlan
-  Title = Return
-  Min = 1
-  Max = 1
-
- -- Row 12 -----------------------------------
-  Name = data-requirements
-  Use = Instance
-  Documentation = The data-requirements operation aggregates and returns the parameters and data requirements for the plan definition and all its dependencies as a single module definition library
-  Type = operation
-  Example.Request = $data-requirements-request.txt
-  Example.Response = $data-requirements-response.txt
-  Title = Data Requirements
-  Footer = The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the plan definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the plan definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)
-
- -- Row 13 -----------------------------------
-  Name = data-requirements.return
-  Use = out
-  Documentation = The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the plan definition
-  Type = Library
-  Title = Return
-  Min = 1
-  Max = 1

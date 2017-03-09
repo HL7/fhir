@@ -222,7 +222,7 @@ public class ValueSetValidator extends BaseValidator {
         
         if (inc.hasSystem() && canValidate(inc.getSystem())) {
           for (ConceptReferenceComponent cc : inc.getConcept()) {
-            if (inc.getSystem().equals("http://nema.org/dicom/dicm"))
+            if (inc.getSystem().equals("http://dicom.nema.org/resources/ontology/DCM"))
               warning(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isValidCode(cc.getCode(), inc.getSystem()), 
                   "The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1)",
                   "<a href=\""+vs.getUserString("path")+"\">Value set "+nameForErrors+" ("+vs.getName()+")</a>: The code '"+cc.getCode()+"' is not valid in the system "+inc.getSystem()+" (1a)");             
@@ -265,7 +265,7 @@ public class ValueSetValidator extends BaseValidator {
   private boolean exemptFromCodeRules(String system) {
     if (system.equals("http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"))
       return true;
-    if (system.equals("http://nema.org/dicom/dicm"))
+    if (system.equals("http://dicom.nema.org/resources/ontology/DCM"))
       return true;
     return false;
     
@@ -350,7 +350,7 @@ public class ValueSetValidator extends BaseValidator {
     // todo: why do these need to be listed here?
     if (system.equals("http://hl7.org/fhir/data-types") ||
         system.equals("http://hl7.org/fhir/restful-interaction") ||
-        system.equals("http://nema.org/dicom/dicm") ||
+        system.equals("http://dicom.nema.org/resources/ontology/DCM") ||
         system.equals("http://unstats.un.org/unsd/methods/m49/m49.htm") ||
         system.equals("http://www.cms.gov/Medicare/Coding/ICD9ProviderDiagnosticCodes/codes.html") ||
         system.equals("http://www.cms.gov/Medicare/Coding/ICD10/index.html") ||

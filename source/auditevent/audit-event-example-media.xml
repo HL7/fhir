@@ -3,7 +3,7 @@
   <id value="example-media"/>
   
   <type>
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="110106"/>
       <display value="Export"/>
   </type>
@@ -24,7 +24,7 @@
   -->
     <role>
       <coding>
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110153"/>
         <display value="Source Role ID"/>
       </coding>
@@ -49,7 +49,7 @@
     <requestor value="false"/>
     <media>
    
-        <system value="http://nema.org/dicom/dicm"/>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110033"/>
         <display value="DVD"/>
    

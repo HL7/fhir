@@ -17,7 +17,7 @@ group for type+types  BodySite extends DomainResource
   "BodySite-patient" : for src.patient make tgt.patient
   "BodySite-identifier" : for src.identifier make tgt.identifier
   "BodySite-code" : for src.code make tgt.code
-  "BodySite-modifier" : for src.modifier make tgt.modifier
+  "BodySite-modifier" : for src.qualifier make tgt.modifier
   "BodySite-description" : for src.description make tgt.description
   "BodySite-image" : for src.image make tgt.image
 

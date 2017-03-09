@@ -501,8 +501,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (!triedServer || serverOk) {
       triedServer = true;
       HttpClient httpclient = new DefaultHttpClient();
-       HttpGet httpget = new HttpGet("http://fhir3.healthintersections.com.au/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
-//      HttpGet httpget = new HttpGet("http://local.healthintersections.com.au:960/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
+//       HttpGet httpget = new HttpGet("http://fhir3.healthintersections.com.au/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
+      HttpGet httpget = new HttpGet("http://local.healthintersections.com.au:960/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
       HttpResponse response = httpclient.execute(httpget);
       HttpEntity entity = response.getEntity();
       InputStream instream = entity.getContent();

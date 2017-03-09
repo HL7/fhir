@@ -79,7 +79,7 @@
     <name value="National Heart, Lung, and Blood Institute http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm"/>
   </contributor>
   <!--	The meat of the protocol - a series of steps-->
-  <actionDefinition>
+  <action>
     <!--step label-->
     <label value="Measure BMI"/>
     <title value="Measure, Weight, Height, Waist, Circumference; Calculate BMI"/>
@@ -101,5 +101,5 @@ For those who have not been overweight, a 2 year interval is appropriate for the
     <definition>
       <reference value="#procedure"/>
     </definition>
-  </actionDefinition>
+  </action>
 </PlanDefinition>

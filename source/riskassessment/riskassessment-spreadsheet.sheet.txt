@@ -264,7 +264,7 @@
   RIM Mapping = .outboundRelationship[typeCode=MTGT].target[classCode=ACT, moodCode=EVN].text
 
  -- Row 23 -----------------------------------
-  Element = RiskAssessment.note
+  Element = RiskAssessment.comment
   Card. = 0..1
   Type = Annotation
   Short Name = Comments on the risk assessment

@@ -290,7 +290,7 @@
   Card. = 0..*
   Aliases = Category; Type; Reaction Type; Class
   Summary = Y
-  Type = CodeableConcept
+  Type = code
   Binding = AllergyIntoleranceCategory
   Short Name = food | medication | environment | biologic
   Definition = Category of the identified substance

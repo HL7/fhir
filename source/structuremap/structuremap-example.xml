@@ -28,8 +28,8 @@
   </jurisdiction>
   <group>
     <name value="Examples"/>
-    <documentation value="test -&gt; testValue"/>
     <typeMode value="none"/>
+    <documentation value="test -&gt; testValue"/>
     <input>
       <name value="test"/>
       <mode value="source"/>
@@ -44,6 +44,7 @@
       </source>
       <target>
         <context value="Destination"/>
+        <contextType value="variable"/>
         <element value="testValue"/>
         <transform value="copy"/>
       </target>

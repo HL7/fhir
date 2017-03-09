@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://nema.org/dicom/dicm/400"/>
+  <url value="http://dicom.nema.org/resources/ontology/DCM/400"/>
   <version value="20150326"/>
   <name value="Audit Event ID"/>
   <status value="active"/>
@@ -14,7 +14,7 @@
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>
-      <system value="http://nema.org/dicom/dicm"/>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
         <code value="110100"/>
       </concept>
