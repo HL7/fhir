@@ -110,7 +110,7 @@
     <url value="http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm"/>
   </relatedArtifact>
   <!--What does the protocol want to achieve-->
-  <goalDefinition id="reduce-bmi-ratio">
+  <goal id="reduce-bmi-ratio">
     <category>
       <text value="Treatment"/>
     </category>
@@ -154,7 +154,7 @@
 	    <unit value="a"/>
 	  </due>
 	</target>
-  </goalDefinition>
+  </goal>
   <!--	The meat of the protocol - a series of steps-->
   <action>
     <!--step label-->
