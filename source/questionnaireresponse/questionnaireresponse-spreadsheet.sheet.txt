@@ -87,7 +87,7 @@
   Card. = 0..*
   Aliases = order
   Summary = Y
-  Type = Reference(ReferralRequest | CarePlan)
+  Type = Reference(ReferralRequest | CarePlan | ProcedureRequest)
   Short Name = Request fulfilled by this QuestionnaireResponse
   Definition = Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.
   Requirements = Supports traceability of authorization and confirmation of action on recommendations

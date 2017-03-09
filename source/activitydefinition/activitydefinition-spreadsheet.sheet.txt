@@ -30,34 +30,27 @@
   Conformance = example
 
  -- Row 5 -----------------------------------
-  Binding Name = ActivityTiming
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/timing-abbreviation
-  Definition = Code describing the timing of an activity; e.g. BID, QD
-  Conformance = example
-
- -- Row 6 -----------------------------------
   Binding Name = ActivityProduct
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/medication-codes
   Definition = Code describing the type of substance or medication
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
   Definition = A code that identifies the anatomical location.
   Conformance = example
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = DefinitionTopic
   Binding = code list
   Reference = #definition-topic
   Definition = High-level categorization of the definition, used for searching, sorting, and filtering
   Conformance = example
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = ActivityParticipantRole
   Binding = value set
   Reference = valueset-action-participant-role
@@ -253,7 +246,6 @@
   Element = ActivityDefinition.timing[x]
   Card. = 0..1
   Type = Timing | dateTime | Period |Range
-  Binding = ActivityTiming
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
