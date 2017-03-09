@@ -59,7 +59,7 @@
     </Medication>
   </contained>
   <definition>
-    <reference value="PlanDefinition/example"></reference>
+    <reference value="PlanDefinition/KDN5"></reference>
   </definition>
   <partOf>
     <reference value="Procedure/biopsy"></reference>

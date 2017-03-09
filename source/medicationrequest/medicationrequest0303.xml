@@ -21,7 +21,7 @@
         <value value="12345689"/>
     </identifier>
     <definition>
-        <reference value="ActivityDefinition/example"></reference>
+        <reference value="ActivityDefinition/heart-valve-replacement"></reference>
     </definition>
     <basedOn>
         <reference value="CarePlan/gpvisit"></reference>
