@@ -1004,6 +1004,12 @@
   Description = Zika Virus Infection Management Process
   Filename = plandefinition-zika-virus-intervention.xml
 
+ -- Row 11 -----------------------------------
+  Name = OptionsExample
+  Identity = options-example
+  Description = Plan Definition Illustrating Related Actions
+  Filename = plandefinition-options-example.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

@@ -181,7 +181,7 @@
                      <span>
                         <span style="padding-left: 25px;">
                            <b>reference: </b>
-                           <span>CodeSystem/npi-taxonomy</span>
+                           <span>http://nucc.org/provider-taxonomy</span>
                         </span>
                      </span>
                   </p>
@@ -537,7 +537,7 @@
   <relatedArtifact>
     <type value="depends-on"/>
     <resource>
-      <reference value="CodeSystem/npi-taxonomy"/>
+      <reference value="http://nucc.org/provider-taxonomy"/>
     </resource>
   </relatedArtifact>
 

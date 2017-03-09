@@ -47,6 +47,13 @@
       <!--Who should do this-->
       <participant>
         <type value="practitioner"/>
+        <role>
+          <coding>
+            <system value="http://hl7.org/fhir/practitioner-role"/>
+            <code value="doctor"/>
+            <display value="Doctor"/>
+          </coding>
+        </role>
       </participant>
       <!-- To specify context-specific information, use dynamicValue elements -->
       <!--performer>
@@ -73,11 +80,81 @@
   <status value="draft"/>
   <!--When is the protocol to be used-->
   <purpose value="Example of A medical algorithm for assessment and treatment of overweight and obesity"/>
+  <useContext>
+	<code>
+	  <code value="focus"/>
+	</code>
+	<valueCodeableConcept>
+	  <coding>
+	    <system value="http://snomed.info/sct"/>
+	    <code value="414916001"/>
+	    <display value="Obesity (disorder)"/>
+	  </coding>
+	</valueCodeableConcept>
+  </useContext>
   <!--Who wrote the Protocol-->
   <contributor>
     <type value="author"/>
-    <name value="National Heart, Lung, and Blood Institute http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm"/>
+    <name value="National Heart, Lung, and Blood Institute"/>
+    <contact>
+	  <telecom>
+	    <system value="url"/>
+	    <value value="https://www.nhlbi.nih.gov/health-pro/guidelines"/>
+	  </telecom>
+    </contact>
   </contributor>
+  <!--Where is the Protocol-->
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <display value="Overweight and Obesity Treatment Guidelines"/>
+    <url value="http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm"/>
+  </relatedArtifact>
+  <!--What does the protocol want to achieve-->
+  <goalDefinition id="reduce-bmi-ratio">
+    <category>
+      <text value="Treatment"/>
+    </category>
+	<description>
+	  <text value="Reduce BMI to below 25"/>
+	</description>
+	<priority>
+	  <text value="medium-priority"/>
+	</priority>
+	<start>
+	  <text value="When the patient's BMI Ratio is at or above 25"/>
+	</start>
+	<addresses>
+	  <coding>
+	    <system value="http://snomed.info/sct"/>
+	    <code value="414916001"/>
+	    <display value="Obesity (disorder)"/>
+	  </coding>
+	</addresses>
+	<documentation>
+		<type value="justification"/>
+		<display value="Evaluation and Treatment Strategy"/>
+		<url value="https://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/42.htm"/>
+	</documentation>
+	<target>
+	  <measure>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="39156-5"/>
+          <display value="Body mass index (BMI) [Ratio]"/>
+        </coding>
+	  </measure>
+	  <detailRange>
+	    <high>
+	      <value value="24.9"/>
+	      <unit value="kg/m2"/>
+	    </high>
+	  </detailRange>
+	  <due>
+	    <value value="1"/>
+	    <unit value="a"/>
+	  </due>
+	</target>
+  </goalDefinition>
   <!--	The meat of the protocol - a series of steps-->
   <action>
     <!--step label-->
@@ -88,15 +165,18 @@
     <!--How long does each step last
 <duration></duration>
 -->
+    <goalId value="reduce-bmi-ratio"/>
     <!--Rules prior to execution-->
     <condition>
       <kind value="applicability"/>
       <description value="The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
 
 For those who have not been overweight, a 2 year interval is appropriate for the reassessment of BMI. While this time span is not evidence-based, it is believed to be a reasonable compromise between the need to identify weight gain at an early stage and the need to limit the time, effort, and cost of repeated measurements."/>
-      <expression value="Observation of Obesity or BMI Measured in Past 2 Years"/>
-      <!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) -->
+      <language value="text/cql"/>
+      <expression value="exists ([Condition: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today())"/>
     </condition>
+    <requiredBehavior value="must-unless-documented"/>
+    <cardinalityBehavior value="single"/>
     <!--	Activities that occur within timepoint-->
     <definition>
       <reference value="#procedure"/>

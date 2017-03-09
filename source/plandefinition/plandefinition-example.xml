@@ -961,9 +961,9 @@
       <selectionBehavior value="at-most-one"/>
       <action>
         <title value="First-Line Antidepressants"/>
-        <documentation>
-          <type value="justification"/>
-          <document>
+          <documentation>
+            <type value="citation"/>
+            <document>
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
 			  <valueCodeableConcept>
 			    <coding>

@@ -65,7 +65,7 @@
 	<type value="practitioner"/>
 	<role>
 	  <coding>
-	    <system value="http://npidb.org/taxonomy"/>
+	    <system value="http://nucc.org/provider-taxonomy"/>
 	    <code value="207RI0011X"/>
 	    <display value="Interventional Cardiology"/>
 	  </coding>

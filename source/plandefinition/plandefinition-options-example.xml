@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+  <id value="options-example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>
+  <contained>
+    <ActivityDefinition>
+      <id value="activitydefinition-medicationrequest-1"/>
+      <status value="draft"/>
+      <kind value="MedicationRequest"/>
+      <productCodeableConcept>
+        <text value="Medication 1"/>
+      </productCodeableConcept>
+    </ActivityDefinition>
+  </contained>
+  <contained>
+    <ActivityDefinition>
+      <id value="activitydefinition-medicationrequest-2"/>
+      <status value="draft"/>
+      <kind value="MedicationRequest"/>
+      <productCodeableConcept>
+        <text value="Medication 2"/>
+      </productCodeableConcept>
+    </ActivityDefinition>
+  </contained>
+  <title value="This example illustrates relationships between actions."/>
+  <status value="draft"/>
+  <actionDefinition>
+    <groupingBehavior value="logical-group"/>
+    <selectionBehavior value="all"/>
+    <actionDefinition id="medication-action-1">
+      <title value="Administer Medication 1"/>
+      <definition>
+        <reference value="#activitydefinition-medicationrequest-1"/>
+      </definition>
+    </actionDefinition>
+    <actionDefinition id="medication-action-2">
+      <title value="Administer Medication 2"/>
+      <relatedAction>
+        <actionId value="medication-action-1"/>
+        <relationship value="after-end"/>
+        <offsetDuration>
+          <value value="1"/>
+          <unit value="h"/>
+        </offsetDuration>
+      </relatedAction>
+      <definition>
+        <reference value="#activitydefinition-medicationrequest-2"/>
+      </definition>
+    </actionDefinition>
+  </actionDefinition>
+</PlanDefinition>

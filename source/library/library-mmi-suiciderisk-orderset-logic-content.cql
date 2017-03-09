@@ -4,7 +4,7 @@ using FHIR
 
 include FHIRHelpers called FHIRHelpers
 
-codesystem "NPI Taxonomy": 'CodeSystem/npi-taxonomy'
+codesystem "NPI Taxonomy": 'http://nucc.org/provider-taxonomy'
 
 valueset "Suicide Risk Assessment": 'urn:oid:1.2.3.4.5' // Value set oid for suicide risk assessments
 
