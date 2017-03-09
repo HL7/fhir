@@ -358,7 +358,7 @@
   Path = OperationDefinition.instance
 
  -- Row 7 -----------------------------------
-  Name = paramprofile
+  Name = param-profile
   Type = reference
   Path = OperationDefinition.parameter.profile
 

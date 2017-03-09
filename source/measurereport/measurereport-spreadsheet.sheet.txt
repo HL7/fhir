@@ -77,7 +77,7 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = MeasureReport.identity
+  Element = MeasureReport.identifier
   Card. = 0..1
   Summary = Y
   Type = Identifier

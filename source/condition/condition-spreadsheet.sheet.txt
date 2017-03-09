@@ -445,7 +445,7 @@
   Type = quantity
   Description = Onsets as age or age range
   Path = Condition.onset[x]
-  Expression = Condition.onset.as(Quantity) | Condition.onset.as(Range)
+  Expression = Condition.onset.as(Age) | Condition.onset.as(Range)
   XPath = f:Condition/f:onsetAge | f:Condition/f:onsetRange
 
  -- Row 7 -----------------------------------
@@ -469,7 +469,7 @@
   Type = quantity
   Description = Abatement as age or age range
   Path = Condition.abatement[x]
-  Expression = Condition.abatement.as(Quantity) | Condition.abatement.as(Range) | Condition.abatement.as(Age)
+  Expression = Condition.abatement.as(Age) | Condition.abatement.as(Range) | Condition.abatement.as(Age)
   XPath = f:Condition/f:abatementAge | f:Condition/f:abatementRange
 
  -- Row 10 -----------------------------------

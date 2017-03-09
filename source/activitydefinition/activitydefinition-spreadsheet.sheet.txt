@@ -252,7 +252,7 @@
  -- Row 27 -----------------------------------
   Element = ActivityDefinition.timing[x]
   Card. = 0..1
-  Type = CodeableConcept | Timing
+  Type = Timing | dateTime | Period |Range
   Binding = ActivityTiming
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.

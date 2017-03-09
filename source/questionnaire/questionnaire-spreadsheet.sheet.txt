@@ -638,6 +638,11 @@
   Description = A use context assigned to the questionnaire
   Path = Questionnaire.useContext
 
+ -- Row 9 -----------------------------------
+  Name = url
+  Type = uri
+  Path = Questionnaire.url
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
