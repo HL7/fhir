@@ -85,12 +85,13 @@ in order to support consistent definitions for schema and UML derived code.
 	<tbody>
 		<tr><td><a href="activitydefinition.html">ActivityDefinition</a></td><td>A resource to represent definitional resources.</td></tr>
 		<tr><td><a href="metadatatypes.html#datarequirement.html">DataRequirement</a></td><td>A data type that represents a general data requirement for a knowledge asset such as a decision support rule or quality measure.</td></tr>
-		<tr><td><a href="plandefinition.html">PlanDefinition</a></td><td>Represents the description of a plan for accomplishing a particular goal. This resource is used to represent a broad variety of clinical knowledge artifacts including decision support rules, order sets, and protocols.</td></tr>
-		<tr><td><a href="library.html">Library</a></td><td>Provides a container for knowledge artifacts that includes logic libraries, model definitions, and asset collections.</td></tr>
-		<tr><td><a href="servicedefinition.html">ServiceDefinition</a></td><td>Describes a specific clinical decision support service and supports evaluation using the $evaluate operation.</td></tr>
 		<tr><td><a href="guidanceresponse.html">GuidanceResponse</a></td><td>Represents the response to a specific guidance request returned by the $evaluate operation.</td></tr>
+		<tr><td><a href="library.html">Library</a></td><td>Provides a container for knowledge artifacts that includes logic libraries, model definitions, and asset collections.</td></tr>
 		<tr><td><a href="measure.html">Measure</a></td><td>Represents a clinical quality measure and provides evaluation through the $evaluate-measure operation.</td></tr>
 		<tr><td><a href="measurereport.html">MeasureReport</a></td><td>Represents the response to a specific measure evaluation request returned by the $evaluate-measure operation.</td></tr>
+		<tr><td><a href="plandefinition.html">PlanDefinition</a></td><td>Represents the description of a plan for accomplishing a particular goal. This resource is used to represent a broad variety of clinical knowledge artifacts including decision support rules, order sets, and protocols.</td></tr>
+		<tr><td><a href="requestgroup.html">RequestGroup</a></td><td>Represents a group of options for a particular subject that can be used to accomplish a particular goal. This resource is often, but not always, the result of applying a PlanDefinition to a particular patient.</td></tr>
+		<tr><td><a href="servicedefinition.html">ServiceDefinition</a></td><td>Describes a specific clinical decision support service and supports evaluation using the $evaluate operation.</td></tr>
 	</tbody>
 </table>
 
@@ -109,6 +110,7 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="cqif/extension-cqif-strengthofrecommendation.html">strengthOfRecommendation</a></td><td>An extension that can be applied to Attachments to indicate the strength of a recommendation.</td></tr>
 		<tr><td><a href="cqif/extension-cqif-optioncode.html">optionCode</a></td><td>An extension that can be applied to questionnaire response options to provide meaning to the given option.</td></tr>
 		<tr><td><a href="cqif/extension-cqif-sourcevalueset.html">sourceValueSet</a></td><td>An extension that can be applied to coding elements to indicate the intended or actual source value set for the coding.</td></tr>
+		<tr><td><a href="cqif/extension-cqif-measureinfo.html">measureInfo</a></td><td>An extension that can be applied to resources to indicate the measure criteria they satisfy. Used in evaluated resource bundles as part of reporting measure results for a patient to identify resources that contributed to the patient's membership in a particular population criteria.</td></tr>
 	</tbody>
 </table>
 
@@ -182,8 +184,8 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="cqif/cqif-cds-on-fhir.html#guidance-request">Obtaining guidance from a Decision Support Service</a></td><td>Using the $evaluate operation to request and process guidance from a decision support service.</td></tr>
 		<tr><td><a href="cqif/cqif-quality-reporting.html#representing-quality-measures">Defining a Measure</a></td><td>Using the Measure resource to represent a clinical quality measure.</td></tr>
 		<tr><td><a href="cqif/cqif-quality-reporting.html#invoking-measures">Evaluating a Measure</a></td><td>Using the $evaluate-measure operation to request calculation of a clinical quality measure.</td></tr>
-		<tr><td>Applying an ActivityDefinition</td><td>Using the $apply operation to realize the intent resource defined by an ActivityDefinition.</td></tr>
-		<tr><td>Applying a PlanDefinition</td><td>Using the $apply operation to realize a plan definition for a specific context.</td></tr>
+		<tr><td><a href="activitydefinition-operations.html#12.13.10.1.1">Applying an ActivityDefinition</a></td><td>Using the $apply operation to realize the intent resource defined by an ActivityDefinition.</td></tr>
+		<tr><td><a href="plandefinition-operations.html#12.14.10.1.1">Applying a PlanDefinition</a></td><td>Using the $apply operation to realize a plan definition for a specific context.</td></tr>
 		<tr><td><a href="cqif/cqif-topics-supporting-documentation.html">Representing Quality of Evidence/Strength of Recommendation</a></td><td>Using the <code>qualityOfEvidence</code> and <code>strengthOfRecommendation</code> extensions to indicate ratings associated with evidence for a particular artifact or recommendation.</td></tr>
 	</tbody>
 </table>
@@ -251,11 +253,11 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by the College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
 
-<p>This material contains content from Logical Observation Identifiers Names and Codes (LOINC&reg;) (<a href="http://loinc.org">http://loinc.org</a>). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright &copy; 1995-2016, Regenstrief Institute, Inc. and the LOINC Committee and available at no cost under the license at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.</p>
+<p>This material contains content from Logical Observation Identifiers Names and Codes (LOINC&reg;) (<a href="http://loinc.org">http://loinc.org</a>). The LOINC table, LOINC codes, and LOINC panels and forms file are copyright &copy; 1995-2017, Regenstrief Institute, Inc. and the LOINC Committee and available at no cost under the license at <a href="http://loinc.org/terms-of-use">http://loinc.org/terms-of-use</a>.</p>
 
-<p>This material contains content from the Unified Code for Units of Measure (UCUM) (<a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a>). The UCUM specification is copyright &copy; 1999-2014, Regenstrief Institute, Inc. and available at no cost under the license at <a href="http://unitsofmeasure.org/trac/wiki/TermsOfUse">http://unitsofmeasure.org/trac/wiki/TermsOfUse</a>.</p>
+<p>This material contains content from the Unified Code for Units of Measure (UCUM) (<a href="http://unitsofmeasure.org">http://unitsofmeasure.org</a>). The UCUM specification is copyright &copy; 1999-2017, Regenstrief Institute, Inc. and available at no cost under the license at <a href="http://unitsofmeasure.org/trac/wiki/TermsOfUse">http://unitsofmeasure.org/trac/wiki/TermsOfUse</a>.</p>
 
-<p>This material contains quality measure content developed by the National Committee for Quality Assurance (NCQA). The measure content is copyright (c) 2008-2013 National Committee for Quality Assurance and used in accordance with the NCQA license terms for non-commercial use.</p>
+<p>This material contains quality measure content developed by the National Committee for Quality Assurance (NCQA). The measure content is copyright (c) 2008-2017 National Committee for Quality Assurance and used in accordance with the NCQA license terms for non-commercial use.</p>
 
 <a name="acknowledgements"> </a>
 <h3>Acknowledgements</h3>

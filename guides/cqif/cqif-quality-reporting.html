@@ -96,23 +96,39 @@
 <pre><code>&lt;group&gt;
   &lt;identifier&gt;&lt;value value=&quot;CMS146-group-1&quot;/&gt;&lt;/identifier&gt;
   &lt;population&gt;
-    &lt;type value=&quot;initial-population&quot;/&gt;
     &lt;identifier&gt;&lt;value value=&quot;initial-population-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;code&gt;
+      &lt;coding&gt;
+        &lt;code value=&quot;initial-population&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/code&gt;
     &lt;criteria value=&quot;CMS146.InInitialPopulation&quot;/&gt;
   &lt;/population&gt;
   &lt;population&gt;
-    &lt;type value=&quot;numerator&quot;/&gt;
     &lt;identifier&gt;&lt;value value=&quot;numerator-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;code&gt;
+      &lt;coding&gt;
+        &lt;code value=&quot;numerator&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/code&gt;
     &lt;criteria value=&quot;CMS146.InNumerator&quot;/&gt;
   &lt;/population&gt;
   &lt;population&gt;
-    &lt;type value=&quot;denominator&quot;/&gt;
     &lt;identifier&gt;&lt;value value=&quot;denominator-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;code&gt;
+      &lt;coding&gt;
+        &lt;code value=&quot;denominator&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/code&gt;
     &lt;criteria value=&quot;CMS146.InDenominator&quot;/&gt;
   &lt;/population&gt;
   &lt;population&gt;
-    &lt;type value=&quot;denominator-exclusion&quot;/&gt;
     &lt;identifier&gt;&lt;value value=&quot;denominator-exclusions-identifier&quot;/&gt;&lt;/identifier&gt;
+    &lt;code&gt;
+      &lt;coding&gt;
+        &lt;code value=&quot;denominator-exclusion&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/code&gt;
     &lt;criteria value=&quot;CMS146.InDenominatorExclusions&quot;/&gt;
   &lt;/population&gt;
 &lt;/group&gt;
@@ -133,7 +149,7 @@
 
 <p>Stratifiers and supplemental data are specified using the <code>stratifier</code> and <code>supplementalData</code> elements of the <a href="[%fhir-path%]measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.gender</code>). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path. For example, specifying Patient.gender will yield four stratification groups since FHIR has four gender codes: male, female, other, and unknown.</p>
 
-<p>Supplemental data elements are also specified using FHIR resource paths, and the number of resulting groups for supplemental data is determined in the same way.</p>
+<p>Supplemental data elements are also specified using FHIR resource paths, however, supplemental data does not result in groups in the measure report, rather supplemental data elements are reported as Observation resources and included in the evaluateResources bundle for the patient-level report.</p>
 
 <a name="Data Criteria"> </a>
 <h6>Data Criteria</h6>
@@ -148,11 +164,11 @@
 	<li>Limited backwards compatbility with existing implementations of previous eCQM IGs.</li>
 </ul>
 
-<p>Data criteria can be specified statically, or they can be <i>inferred</i> from the expressions referenced by the measure. The <code>$dataRequirements</code> operation can be invoked to retrieve the aggregate data requirements for the measure. This approach has two advantages:</p>
+<p>Data criteria can be specified statically, or they can be <i>inferred</i> from the expressions referenced by the measure. The <code>$data-requirements</code> operation can be invoked to retrieve the aggregate data requirements for the measure. This approach has two advantages:</p>
 
 <ul>
 	<li>When the data requirements for the expression contain dynamic criteria (such as date ranges relative to today), the results returned are based on the evaluation request time.</li>
-	<li>When the expressions involve multiple libraries, rather than having to retrieve and deal with the requirements for each library, the $dataRequirements operation can aggregate the requirements and return them as a single <code>module-definition</code> library.</li>
+	<li>When the expressions involve multiple libraries, rather than having to retrieve and deal with the requirements for each library, the $data-requirements operation can aggregate the requirements and return them as a single <code>module-definition</code> library.</li>
 </ul>
 
 <a name="invoking-measures"> </a>
@@ -184,7 +200,7 @@
 <pre><code>GET [base]/Measure/CMS146/$evaluate-measure?periodStart=2014&amp;periodEnd=2014</code></pre>
 
 <p>
-The above examples show how to obtain the results of evaluating the eMeasure with identifier "CMS146" for all patients over a measurement period that consists of all of 2014. Some items of note:
+The above examples show how to obtain the results of evaluating the eMeasure with id "CMS146" for all patients over a measurement period that consists of all of 2014. Some items of note:
 </p>
 
 <ul>
@@ -192,12 +208,11 @@ The above examples show how to obtain the results of evaluating the eMeasure wit
 <li>the second variant evaluates the operation on <code>[base]/Measure/CMS146</code> which is the Measure instance that represents that measure so there's no need to also include a reference to the eMeasure in the operation parameters</li>
 <li>the <code>HTTP GET</code> method is used since the <code>$evaluate-measure</code> operation is idempotent</li>
 <li><code>[base]</code> is used as a shortcut for the base URI of the FHIR server</li> 
-<li>the type of the resource is Basic in the URI since FHIR does not allow use of alternate paths for profiles of resources </li>
 <li>the period start and end values are both specified to a granularity of a year, the description of the parameters above explains why this results in a measure period that spans the entire year</li>
 </ul>
 
 <p>
-The next example demonstrates how to obtain the results of evaluating the eMeasure with identifier "CMS146" for the patient with identifier "124" over a measurement period that consists of the first three months of 2014.</p>
+The next example demonstrates how to obtain the results of evaluating the eMeasure with id "CMS146" for the patient with id "124" over a measurement period that consists of the first three months of 2014.</p>
 
 <pre><code>GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&amp;periodEnd=2014-03</code></pre>
 
@@ -215,7 +230,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <img alt="Population Measure Report" src="cqif-measure-report-population.png"/>
 
-<p>In addition, each group will contain stratifiers with a value stratum for each value defined by the stratifier criteria, for each criteria defined in the measure, as well as supplemental data value groups for each supplemental data element.</p>
+<p>In addition, each group will contain stratifiers with a value stratum for each value defined by the stratifier criteria, for each criteria defined in the measure.</p>
 
 <a name="reporting-individual-data"> </a>
 <h5>Reporting Individual Data</h5>

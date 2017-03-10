@@ -19,7 +19,7 @@
 
 <p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]library.html">Library</a>, <a href="[%fhir-path%]activitydefinition.html">ActivityDefinition</a>, <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a>, <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>, and <a href="[%fhir-path%]measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
 
-<p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the useContext attribute to indicate semantic usage context for an example suicide risk order set:</p>
+<p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the <code>useContext</code> element to indicate semantic usage context for an example suicide risk order set:</p>
 
 <pre><code>  &lt;coverage&gt;
     &lt;patientAgeGroup&gt;
@@ -62,7 +62,7 @@
 
 <p>The <code>useContext</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that the base resource does not communicate the intended semantics when multiple useContext elements are present. To accomplish this, a core extension is defined, <a href="[%fhir-path%]extension-usagecontext-group.html">usagecontext-group</a>. All use contexts within a group apply, while groups of use contexts indicate that any group applies.</p>
 
-<p>In addition, the <code>coverage</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, while the <code>topic</code> element is intended to convey <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> search parameter.</p>
+<p>In addition, the <code>useContext</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, while the <code>topic</code> element is intended to convey <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> search parameter.</p>
 
 <p>The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
 
@@ -96,7 +96,11 @@
 
 <p>Support for exclusion criteria as described in the DSS is provided by the :not search parameter modifier of FHIR.</p>
 
-<p>Implementing at least the FHIR search and get interactions for the clinical reasoning resources (Library, ActivityDefinition, PlanDefinition, and Measure) is then a basic implementation of a Knowledge Artifact Repository. More sophisticated management functionality including semantic indexing, change management and dependency tracking can be provided on top of this basic functionality using the same resource structures.</p>
+<p>Implementing at least the FHIR search and get interactions for the clinical reasoning resources (Library, ActivityDefinition, PlanDefinition, and Measure) is then a basic implementation of a Knowledge Artifact Repository. For example, the following GET retrieves all measures that reference a specific value set:</p>
+
+<pre><code>GET [base]/ValueSet/zika-affected-areas?_revinclude=Library:depends-on&amp;_revinclude:recurse=Measure:depends-on</code></pre>
+
+<p>More sophisticated management functionality including semantic indexing, change management, and dependency tracking can be provided on top of this basic functionality using the same resource structures.</p>
 
 </div>
 [%file newfooter%]

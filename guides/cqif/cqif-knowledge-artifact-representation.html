@@ -43,8 +43,8 @@
 
 <pre><code>&lt;identifier&gt;
   &lt;use value=&quot;official&quot;/&gt;
-  &lt;system value=&quot;mmi&quot;/&gt;
-  &lt;value value=&quot;low-suicide-risk-order-set&quot;/&gt;
+  &lt;system value=&quot;http://motivemi.com/artifacts&quot;/&gt;
+  &lt;value value=&quot;mmi:low-suicide-risk-order-set&quot;/&gt;
 &lt;/identifier&gt;
 &lt;version value=&quot;1.0.0&quot;/&gt;
 </code></pre>
@@ -340,7 +340,7 @@
 
 <p>Note that the "activity" to be performed may be to document a patient-specific assessment performed by a clinical decision support service (e.g. patient has a 37% chance of a heart attack in the next 5 years), not just recommendations/recommended actions. In this case, the action would be to "create" a RiskAssessment.</p>
 
-<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the actionDefinition element. A single, top-level actionDefinition represents the overall rule, with the triggerDefinition element used to specify the triggering event(s), the condition element used to specify the applicable condition for the rule, and the actionDefinition itself describing the action to be performed.</p>
+<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the <code>action</code> element. A single, top-level <code>action</code> represents the overall rule, with the <code>triggerDefinition</code> element used to specify the triggering event(s), the <code>condition</code> element used to specify the applicable condition for the rule, and the <code>action</code> element describing the action to be performed.</p>
 
 <p>For example, the following fragment illustrates a simple use of PlanDefinition to expose a Chlamydia Screening ECA rule:</p>
 
@@ -361,7 +361,7 @@
   &lt;library&gt;
     &lt;reference value=&quot;Library/ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
   &lt;/library&gt;
-  &lt;actionDefinition&gt;
+  &lt;action&gt;
     &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
     &lt;triggerDefinition&gt;
       &lt;type value=&quot;scheduled-event&quot;/&gt;
@@ -374,7 +374,7 @@
       &lt;path value=&quot;~&quot;/&gt;
       &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
     &lt;/dynamicValue&gt;
-  &lt;/actionDefinition&gt;
+  &lt;/action&gt;
 &lt;/PlanDefinition&gt;
 </code></pre>
 
@@ -395,25 +395,25 @@
 &lt;actionDefinition&gt;
   &lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
   &lt;!-- Consults and Referrals --&gt;
-  &lt;actionDefinition&gt;
+  &lt;action&gt;
     &lt;title value=&quot;Consults and Referrals&quot;/&gt;
     &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
     &lt;selectionBehavior value=&quot;any&quot;/&gt;
-    &lt;actionDefinition&gt;
+    &lt;action&gt;
       &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
       &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-      &lt;activityDefinition&gt;
+      &lt;definition&gt;
         &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-      &lt;/activityDefinition&gt;
+      &lt;/definition&gt;
       &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
-    &lt;/actionDefinition&gt;
-  &lt;/actionDefinition&gt;
+    &lt;/action&gt;
+  &lt;/action&gt;
   &lt;!-- Medications --&gt;
-  &lt;actionDefinition&gt;
+  &lt;action&gt;
     &lt;title value=&quot;Medications&quot;/&gt;
     &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
     &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-    &lt;actionDefinition&gt;
+    &lt;action&gt;
       &lt;!-- First-Line Antidepressants --&gt;
       &lt;title value=&quot;First-Line Antidepressants&quot;/&gt;
       &lt;documentation&gt;
@@ -426,7 +426,7 @@
       &lt;/documentation&gt;
       &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
       &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-      &lt;actionDefinition&gt;
+      &lt;action&gt;
         &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
         &lt;title value=&quot;Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)&quot;/&gt;
         &lt;documentation&gt;
@@ -439,53 +439,53 @@
         &lt;/documentation&gt;
         &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
         &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
-        &lt;actionDefinition&gt;
+        &lt;action&gt;
           &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)&quot;/&gt;
-          &lt;activityDefinition&gt;
+          &lt;definition&gt;
             &lt;reference value=&quot;#citalopramPrescription&quot;/&gt;
-          &lt;/activityDefinition&gt;
+          &lt;/definition&gt;
           &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
-        &lt;/actionDefinition&gt;
-        &lt;actionDefinition&gt;
+        &lt;/action&gt;
+        &lt;action&gt;
           &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
-        &lt;/actionDefinition&gt;
-        &lt;actionDefinition&gt;
+        &lt;/action&gt;
+        &lt;action&gt;
           &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
-        &lt;/actionDefinition&gt;
-        &lt;actionDefinition&gt;
+        &lt;/action&gt;
+        &lt;action&gt;
           &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
-        &lt;/actionDefinition&gt;
-        &lt;actionDefinition&gt;
+        &lt;/action&gt;
+        &lt;action&gt;
           &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
           &lt;!-- Follows pattern established above --&gt;
-        &lt;/actionDefinition&gt;
-      &lt;/actionDefinition&gt;
-      &lt;actionDefinition&gt;
+        &lt;/action&gt;
+      &lt;/action&gt;
+      &lt;action&gt;
         &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
         &lt;textEquivalent value=&quot;Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)&quot;/&gt;
         &lt;!-- Follows pattern established above --&gt;
-      &lt;/actionDefinition&gt;
-      &lt;actionDefinition&gt;
+      &lt;/action&gt;
+      &lt;action&gt;
         &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
         &lt;textEquivalent value=&quot;Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)&quot;/&gt;
         &lt;!-- Follows pattern established above --&gt;
-      &lt;/actionDefinition&gt;
-      &lt;actionDefinition&gt;
+      &lt;/action&gt;
+      &lt;action&gt;
         &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
         &lt;textEquivalent value=&quot;Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)&quot;/&gt;
         &lt;!-- Follows pattern established above --&gt;
-      &lt;/actionDefinition&gt;
-    &lt;/actionDefinition&gt;
-  &lt;/actionDefinition&gt;
-&lt;/actionDefinition&gt;
+      &lt;/action&gt;
+    &lt;/action&gt;
+  &lt;/action&gt;
+&lt;/action&gt;
 </code></pre>
 
 <p>In this example, the order set structure consists of:</p>
@@ -513,11 +513,11 @@
 
 <p>A protocol is a pre-defined procedural method for standardizing a set of activities. As examples, protocols can be used within laboratory settings to standardize handling of specimens for specific tests; standardize the treatment steps for a particular condition; or standardize the steps to be taken in a particular research trial.</p>
 
-<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action definition elements within the PlanDefinition.</p>
+<p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can be used to represent a Protocol, using the action definitions to define the steps of the protocol and the relationships between them. Triggering events for each action, as well as applicable conditions can all be specified using the appropriate action elements within the PlanDefinition.</p>
 
 <p>As a simple example, the following fragment shows a portion of a BMI Assessment protocol:</p>
 
-<pre><code>&lt;actionDefinition&gt;
+<pre><code>&lt;action&gt;
   &lt;!--step label--&gt;
   &lt;label value=&quot;Measure BMI&quot;/&gt;
   &lt;title value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
@@ -533,10 +533,10 @@ For those who have not been overweight, a 2 year interval is appropriate for the
     &lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
   &lt;/condition&gt;
   &lt;!--  Activities that occur within timepoint--&gt;
-  &lt;activityDefinition&gt;
+  &lt;definition&gt;
     &lt;reference value=&quot;#procedure&quot;/&gt;
-  &lt;/activityDefinition&gt;
-&lt;/actionDefinition&gt;
+  &lt;/definition&gt;
+&lt;/action&gt;
 </code></pre>
 
 <a name="documentation-template"> </a>
@@ -565,7 +565,8 @@ For those who have not been overweight, a 2 year interval is appropriate for the
   &lt;type value=&quot;choice&quot;/&gt;
   &lt;required value=&quot;true&quot;/&gt;
   &lt;options&gt;
-    &lt;reference value=&quot;ValueSet/LOINCDepressionAnswersList&quot;/&gt;
+    &lt;reference value=&quot;ValueSet/http://loinc.org/vs/LL358-3&quot;/&gt;
+    &lt;display value=&quot;Patient Health Questionnaire (PHQ-9) Not at all/Several days/More than half the days/Nearly every day&quot;/&gt;
   &lt;/options&gt;
 &lt;/item&gt;
 </code></pre>
