@@ -43,9 +43,10 @@ public class SchematronGenerator {
       if (exd.getSnapshot().getElement().get(0).hasConstraint() && !processed.contains(exd)) {
         processed.add(exd);
         Section s = sch.section("Extension: "+exd.getName());
-        Rule r = s.rule("//f:extension[@url='"+exd.getUrl()+"']");
+        Rule r = s.rule("f:"+(exd.getSnapshot().getElementFirstRep().getIsModifier() ? "modifierExtension" : "extension")+"[@url='"+exd.getUrl()+"']");
         for (ElementDefinitionConstraintComponent inv : exd.getSnapshot().getElement().get(0).getConstraint()) {
-          r.assrt(inv.getXpath().replace("\"", "'"), inv.getKey()+": "+inv.getHuman());
+          if (!isGlobal(inv.getKey()))
+            r.assrt(inv.getXpath().replace("\"", "'"), inv.getKey()+": "+inv.getHuman());
         }
       }
     }
@@ -53,9 +54,15 @@ public class SchematronGenerator {
     sch.close();
 	}
 
+  private boolean isGlobal(String key) {
+    return Utilities.existsInList(key, "ele-1", "ext-1");
+  }
+
   private void insertGlobalRules(SchematronWriter sch) throws IOException {
     Section s = sch.section("Global");
-    s.rule("//f:*").assrt("@value|f:*|h:div", "global-1: All FHIR elements must have a @value or children");
+    s.rule("f:*").assrt("@value|f:*|h:div", "global-1: All FHIR elements must have a @value or children");
+    s.rule("f:extension").assrt("exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])", "ext-1: Must have either extensions or value[x], not both");
+    s.rule("f:modifierExtension").assrt("exists(f:extension)!=exists(f:*[starts-with(local-name(.), 'value')])", "ext-1: Must have either extensions or value[x], not both");
 	}
 
   public void generate(OutputStream out, ResourceDefn root, Definitions definitions) throws Exception {
@@ -144,12 +151,14 @@ public class SchematronGenerator {
         c++;
     }
     if (c > 0) {
-      Rule r = section.rule("//"+path);
+      Rule r = section.rule(path);
 	    for (Invariant inv : ed.getInvariants().values()) {
 	      if (inv.getFixedName() == null || path.endsWith(inv.getFixedName())) {
-	        if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
-	          throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
-	        r.assrt(inv.getXpath().replace("\"", "'"), inv.getId()+": "+inv.getEnglish());
+	        if (!isGlobal(inv.getId())) {
+	          if (inv.getXpath().contains("&lt;") || inv.getXpath().contains("&gt;"))
+	            throw new Exception("error in xpath - do not escape xml characters in the xpath in the excel spreadsheet");
+	          r.assrt(inv.getXpath().replace("\"", "'"), inv.getId()+": "+inv.getEnglish());
+	        }
 	      }
 	    }
 	  }
