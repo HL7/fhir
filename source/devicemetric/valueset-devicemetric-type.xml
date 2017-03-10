@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-	<identifier> 
-    <system value="urn:iso:std:iso:11073:10101"/> 
-    <value value="urn:oid:2.16.840.1.113883.6.24"/> 
-    </identifier> 
 	<name value="Device Metric and Component Types"/>
 	<status value="draft"/>
-	<publisher value="HL7 Health Care Devices Workgroup"/>
+	<publisher value="FHIR Project team"/>
 	<contact>
 		<telecom>
 			<system value="url"/>
