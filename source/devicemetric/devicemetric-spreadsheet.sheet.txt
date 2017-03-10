@@ -3,16 +3,16 @@
 
  -- Row 1 -----------------------------------
   Binding Name = MetricType
-  Binding = reference
-  Reference = https://rtmms.nist.gov/rtmms/index.htm#!hrosetta
+  Binding = value set
+  Reference = valueset-devicemetric-type
   Definition = Describes the metric type.
   Description = IEEE 11073-10101
   Conformance = preferred
 
  -- Row 2 -----------------------------------
   Binding Name = MetricUnit
-  Binding = reference
-  Reference = https://rtmms.nist.gov/rtmms/index.htm#!units
+  Binding = value set
+  Reference = valueset-devicemetric-type
   Definition = Describes the unit of the metric.
   Description = IEEE 11073-10101
   Conformance = preferred

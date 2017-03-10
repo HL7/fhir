@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Chris Courville</LastAuthor>
   <Created>2012-03-19T11:15:30Z</Created>
-  <LastSaved>2017-03-09T10:09:36Z</LastSaved>
+  <LastSaved>2017-03-09T16:09:21Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -22,7 +22,6 @@
   <WindowTopY>0</WindowTopY>
   <TabRatio>674</TabRatio>
   <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -34,10 +33,6 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s62" ss:Name="Hyperlink">
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0066CC"
-    ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63" ss:Name="Hyperlink 2">
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0000FF"
@@ -763,7 +758,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R6C1:R6C4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -868,8 +863,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -896,19 +891,17 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MetricType</Data></Cell>
     <Cell><Data ss:Type="String">Describes the metric type.</Data></Cell>
-    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="https://rtmms.nist.gov/rtmms/index.htm#!hrosetta"><Data
-      ss:Type="String">https://rtmms.nist.gov/rtmms/index.htm#!hrosetta</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">valueset-devicemetric-type</Data></Cell>
     <Cell><Data ss:Type="String">IEEE 11073-10101</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MetricUnit</Data></Cell>
     <Cell><Data ss:Type="String">Describes the unit of the metric.</Data></Cell>
-    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="https://rtmms.nist.gov/rtmms/index.htm#!units"><Data
-      ss:Type="String">https://rtmms.nist.gov/rtmms/index.htm#!units</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">valueset-devicemetric-type</Data></Cell>
     <Cell><Data ss:Type="String">IEEE 11073-10101</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -963,7 +956,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -1228,8 +1221,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <RangeSelection>R1C1:R1C9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1359,7 +1351,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
