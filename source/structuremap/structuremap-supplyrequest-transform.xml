@@ -6,8 +6,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
 map "http://hl7.org/fhir/StructureMap/supplyrequest-transform" = supplyRequestTransform
 
-uses "http://hl7.org/fhir/StructureDefinition/activitydefinition" as source
-uses "http://hl7.org/fhir/StructureDefinition/supplyrequest" as target
+uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" as source
+uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" as target
 
 group main
   input "source": ActivityDefinition as source

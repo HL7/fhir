@@ -346,7 +346,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         else
           return null;      
       } else if (class_ == OperationDefinition.class) {
-        return (T) operations.get(uri);
+        OperationDefinition od = operations.get(uri);
+        if (od == null)
+          System.out.println("Unable to resolve OperationDefinition "+uri);
+        return (T) od;
       } else if (class_ == SearchParameter.class) {
         SearchParameter res = searchParameters.get(uri);
         if (res == null) {
