@@ -14,7 +14,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 <div class="col-12">
-<table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg its%]">[%wgt its%]</a><a _target="blank" href="[%wg pher%]">[%wgt pher%]</a> </td><td id="ballot"><a href="timelines.html#levels">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
+<table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg its%]">[%wgt its%]</a><a _target="blank" href="[%wg pher%]">[%wgt pher%]</a> </td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
 
 <a name="root"> </a>
 <h2>FHIR Linked Data Module</h2>
@@ -25,42 +25,47 @@ in order to support consistent definitions for schema and UML derived code.
 This module describes the RDF representation for FHIR resources (FHIR/RDF) and related assets, including an OWL ontology for FHIR/RDF and a ShEx grammar to validate FHIR/RDF.  
 <i>Linked Data</i> is structured data that is represented in an RDF format
 to facilitate inference and data linkage across datasets.
-Materials in this module are created and maintained by a collaboration between HL7 and W3C.  Editor: David Booth
+</p>
+<p>
+Materials in this module are created and maintained by a collaboration between HL7 and <a href="https://www.w3.org/">W3C</a>.  Editor: David Booth
 </p>
 
 <a name="motivation"> </a>
-<h4>Motivation for FHIR/RDF</h4>
+<h4>Motivation and Design of FHIR/RDF</h4>
 <p>
-The purpose of defining an RDF representation of FHIR is not only to enable FHIR to be exchanged in an RDF format such as Turtle, it is also to ground the semantics of FHIR data in RDF, for use with ontologies and other RDF data.  Since FHIR data is losslessly round-trippable between XML, JSON and RDF formats, any FHIR data can be used in conjunction with RDF.  The semantics are the same regardless of source format.
+Although RDF formats can be used to exchange FHIR data, 
+the primary purpose of FHIR/RDF is to ground FHIR data semantics in 
+RDF, as a universal information representation.
+This enables FHIR data to be used with RDF applications, to support
+inference, shared semantics across multiple standards and data formats,
+data integration, semantic data validation, 
+compliance enforcement, SPARQL queries and other uses.
 </p>
 
 <p>
-Reasons for using RDF and ontologies with FHIR data include:
+FHIR/RDF is based on the same abstract FHIR information model
+as FHIR/XML and FHIR/JSON, and carries the same FHIR
+information content.
+FHIR data is losslessly round-trippable between XML, JSON and
+RDF formats.  
+For this reason, data expressed in FHIR/RDF corresponds 
+closely to FHIR/XML and FHIR/JSON
+in its look and feel.  However, there are a few additional terms
+that appear in FHIR/RDF, which are explained on 
+<a href="rdf.html">the RDF page</a>: 
+fhir:nodeRole, fhir:treeRoot, fhir:value, fhir:index and fhir:concept.
 </p>
 
-<ul>
-<li><b>Shared semantics.</b>  RDF's use of URIs as universal identifiers facilitates shared semantics across independently authored data.</li>
-<li><b>Inference.</b>  An ontology specifies relationships between concepts, which can be used to perform computer-based inference and formal reasoning over FHIR data.  For example, using inference a query for heart valve surgeries could automatically include results that were documented as mitral valve surgeries, because a mitral valve is a kind of heart valve.  </li>
-<li><b>Data integration.</b>  FHIR/RDF data can be integrated with other data, using RDF as a common semantic and representation layer -- including data that does not originate in an RDF format.  For example, clinical trials data in XML (see https://clinicaltrials.gov/ ) can be translated to RDF and then combined with FHIR/RDF data.</li>
-<li><b>Data validation.</b>  An ontology provides a vocabulary of uniquely identified concepts, which facilitates data validation. </li>
-<li><b>Error detection.</b>  Computer-based reasoning can be used to help detect errors and inconsistencies in data and ontologies, and potential help repair them.</li>
-<li><b>Compliance.</b>  RDF and ontologies can be used to express compliance constraints, for example to control data projected between two privacy contexts or to encode access restrictions for queries.</li>
-<li><b>Modularity.</b>  RDF was designed to support modularity, such that a specialized ontology can be freely composed of a subset of concepts from a larger ontology.</li>
-<li><b>Combining ontologies.</b>  The FHIR ontology can be linked to other ontologies, through bridge ontologies, and used together to support ontology-enabled applications in overlapping domains.</li>
-<li><b>Query.</b>  SPARQL queries can be performed on FHIR/RDF data, without need for a FHIR-specific query language.  SPARQL is a W3C standard query language for RDF data.  It can be used uniformly to query over both FHIR data and other data -- even in the same query.</li>
-</ul>
-
-<a name="design"> </a>
-<h4>Design of FHIR/RDF</h4>
 <p>
-FHIR/RDF was designed to correspond very closely to FHIR/XML and FHIR/JSON in its look and feel, though there are some apparent differences that are necessary to ensure full-fidelity round tripping between all FHIR formats, or to accommodate FHIR's extensibility.  For example, fhir:index is used to retain information about ordering within a FHIR list, and fhir:value is used to indicate the value of an element, while still allowing FHIR extensions to be attached.
-</p>
-
-<a name="using"> </a>
-<h4>Using FHIR/RDF with Other Ontologies</h4>
-<p>
-Ontologies that were designed independently almost always have some impedance mismatch when attempting to use them together, and the FHIR ontology is no exception.  
-Many of the ontologies in the medical and life sciences domain are designed to capture facts about the world for research, such as the fact that the mitral valve is a kind of heart valve.  But FHIR was designed to support the day-to-day operations of healthcare providers exchanging electronic health records (EHRs), and in this context the orientation has historically been different.  When using FHIR/RDF with other ontologies this difference is likely to show up in two main ways:
+Ontologies that were designed independently almost always have some impedance mismatch when attempting to use them together.  
+Many of the ontologies in the medical and life sciences domain are
+designed to capture facts about the world for research, such as the fact
+that the mitral valve is a kind of heart valve.  But FHIR was designed
+to support the day-to-day operations of healthcare providers exchanging
+electronic health records (EHRs), and in this context the orientation has
+historically been different.  
+When using FHIR/RDF with other ontologies,
+impedence differences are likely to show up in two main ways:
 </p>
 
 <ul>
@@ -68,70 +73,174 @@ Many of the ontologies in the medical and life sciences domain are designed to c
 <b>Records versus facts.</b>  FHIR is oriented toward recording who did what ("Dr. Jones diagnosed patient x with viral pneumonia") rather than stating absolute medical facts ("patient x has viral pneumonia").  
 </li>
 <li>
-<b>Non-monotonicity.</b>  RDF was designed to be monotonic, whereas FHIR has a few design aspects that are would be non-monotonic if they were interpreted directly in RDF.  (Monotonicity means that new data cannot invalidate previous conclusions; non-monotonicity means that previous conclusions can be invalidated by new data.)  For example, a modifier extension indicates that the surrounding element's meaning may be misunderstood if the modifier extension is not understood.  Another example: an entered-in-error status on a FHIR resource means that the resource was created accidentally, and should be ignored.  
+<b>Non-monotonicity.</b>  RDF was designed to be monotonic, whereas FHIR has a few design aspects that are would be non-monotonic if they were interpreted directly in RDF.  (Monotonicity means that new data cannot invalidate previous conclusions; non-monotonicity means that previous conclusions can be invalidated by new data.)  For example, a modifier extension indicates that the surrounding element's meaning will likely be misunderstood if the modifier extension is not understood.  
 </li>
 </ul>
 
 <p>
-For both of these reasons, to maintain monotonicity in RDF, FHIR/RDF should not be directly interpreted as stating facts, at least until any potentially non-monotonic elements have been removed or isolated.  This could be done with a pre-processing step.
+For both of these reasons, to maintain monotonicity in RDF, FHIR/RDF
+should not be directly interpreted as stating facts, at least until
+any potentially non-monotonic elements have been removed or isolated
+through pre-processing.
+</p>
+
+<p>
+Application developers should also be aware that some FHIR data attributes
+have a major impact on the interpretation of the enclosing data element:
+the meaning of the enclosing element cannot be determined in isolation.
+For example, a status of 'entered-in-error' means that the resource was 
+created accidentally, and should be ignored.  
 </p>
 
 <a name="formats"> </a>
 <h4>FHIR/RDF Data Formats</h4>
 <p>
-FHIR/RDF examples are provided for all FHIR resources in Turtle and JSON-LD formats.   <!-- However, other RDF serializations may be used for FHIR/RDF also. GG: I Don't think this is true. At the least, we need to  discuss the ramifications, and we say something elsewhere. -->
+FHIR/RDF examples are provided for all FHIR resources in both Turtle and JSON-LD formats.   
+<!-- However, other RDF serializations may be used for FHIR/RDF also. GG: I Don't think this is true. At the least, we need to  discuss the ramifications, and we say something elsewhere. DBooth: Ok, we can just omit that sentence.  It
+is not important.  -->
+To access a JSON-LD example, first navigate to that example in Turtle format,
+and then click the "JSON-LD" link above the Turtle example.
 </p>
 <p>
-The mime type for the Turtle format is <code>text/turtle</code>.
+The mime type for the Turtle format is <a href="https://www.w3.org/TR/turtle/#sec-mediaReg"><code>text/turtle</code></a>. <br />
+The mime type for the JSON-LD format is <a href="https://www.w3.org/TR/json-ld/#application-ld-json"><code>application/ld+json</code></a>.
 </p>
+
+<a name="using"> </a>
+<h3>Using FHIR/RDF</h3>
 <p>
-TODO: What is the status of the JSON-LD examples?
+Application developers wishing to use FHIR/RDF will often need to perform
+the following rough steps, though exact steps will depend on your application:
+<ol>
+<li>Convert FHIR/XML or FHIR/JSON data to/from FHIR/RDF.
+Open source implementations that can perform this conversion include:
+
+<ul>
+<li>(Windows) <a href="http://github.com/grahamegrieve/fhirserver">reference implementation</a> by Grahame Grieve, using delphi / windows / mssql.
+</li>
+<li>(Windows, Linux and Mac?) <a href="https://github.com/mvdzel/fhir-net-api">fhir-net-api</a>, a .NET implementation by Michael van der Zel and Ewout Kramer.
+So far this has only been tested on Windows.  However,
+in theory it should also work on Linux (and Mac?) running under
+<a href="http://www.mono-project.com/">Mono</a>, an open source .NET framework.
+<i>Please notify <a href="mailto:david@dbooth.org">David Booth</a>
+if you confirm that it works on Linux or Mac, so that this page can be updated.</i>
+</li>
+
+<li>Check the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 Open Source FHIR Implementations page,</a>
+in case new implementations have become available.
+</li>
+</ul>
+</li>
+
+<li><a href="http://build.fhir.org/linked-data-module.html">Download</a> the FHIR ontology.
+</li>
+
+<li> Download other ontologies that you wish to use with your application,
+such as the SNOMED-CT ontology.  (Because of license restrictions,
+the process of obtaining the SNOMED-CT ontology is more complex than
+a simple download.  Some <a href="http://owl.cs.manchester.ac.uk/research/snomed/">guidance is provided here</a>.)
+</li>
+
+<li> Create or obtain a bridge ontology that relates terms in the FHIR
+ontology to terms in your other ontologies.
+</li>
+
+<li> Load your FHIR/RDF instance data and your ontologies into
+a reasoner and/or a triplestore, and perform SPARQL queries and/or
+reasoning.
+</li>
+
+<li> If you are creating FHIR/RDF then you might also wish to validate
+it, using <a href="http://shex.io/">ShEx</a>.
+If so, you can <a href="http://build.fhir.org/fhir.shex">download the ShEx schema</a> for FHIR/RDF.
+</li>
+</ol>
+</p>
+
+<p>
+<a href="https://www.w3.org/2016/Talks/1205-swat4ls-egp/reasoning">Slides by Eric Prud'hommeaux</a> illustrate how inference can be used on FHIR/RDF data
+to perform a query for FHIR Observations of rheumatoid arthritis,
+using the <a href="https://www.nlm.nih.gov/healthit/snomedct/international.html">SNOMED-CT ontology</a>.
+<i>Caveat: those slides show some terms in the fhir: namespace that
+do not actually exist in the fhir: namespace, such as
+fhir:Observation-of-Rheumatoid_arthritis-disorder and
+fhir:Coding-of-Rheumatoid_arthritis-disorder.  A different namespace
+should have been used in the example.</i>
 </p>
 
 <a name="index"> </a>
 <h3>Index</h3>
 <p>
-Link to key content pages in this module:
+Other content in this module:
 </p>
 <ul>
 <li><a href="rdf.html">FHIR/RDF Introduction</a>  See also:
 <a href="http://w3c.github.io/hcls-fhir-rdf/spec/">Additional FHIR/RDF Introductory materials, not yet edited or merged</a></li>
+
 <li><a href="http://w3c.github.io/hcls-fhir-rdf/spec/">
-  FHIR/RDF formal specification (at W3C)</a></li>
-<li>ShEx Validation Schema for FHIR RDF  (TODO: add link)</li>
-<li><a href="ontology.html">FHIR Ontology</a>  See also: 
+  (Draft) FHIR/RDF formal specification (at W3C)</a></li>
+
+<li><a href="http://build.fhir.org/fhir.shex">Downloadable ShEx Validation Schema for FHIR RDF</a></li>
+
+<li><a href="ontology.html">FHIR Ontology introduction</a>  See also: 
   <a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">
 Additional FHIR Ontology materials, not yet edited or merged</a></li>
-<li><a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">
-  Example of AllergyIntolerance inference using FHIR/RDF with SNOMED CT.  (Rough draft)</a> </li>
+
+<li><a href="fhir.ttl">Downloadable FHIR Ontology</a> </li>
+
 </ul>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-TODO: In this section: description of key security and privacy issues, or references to pages that deal with this. 
-For the security / privcay module itself, this section does not exist. For other modules, the paragraph/section can end with this boilerplate:
+The use of RDF does not raise any known security or privacy issues beyond
+those already existing for FHIR/XML or FHIR/JSON.
 For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
 
 <p>
+RDF can also be used to help enforce security and privacy policies.
 See also
-<a href="http://wiki.hl7.org/index.php?title=Security_and_Privacy_Ontology">
-HL7 Security and Privacy Ontology</a>
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=348">
+HL7 Security and Privacy Ontology.</a>
 </p>
 
 
 <a name="uses"> </a>
 <h3>Common use Cases</h3>
 <p>
-In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based linkes
+<i>In this section: common problems in the space of the module, ways to go about solving them, or references to additional problem based links.</i>
+</p>
+<p>
+TODO
 </p>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are
+<i>In this section: what the current overall state is, what work is in train, what the goals over the next 18 months or so are.</i>
 </p>
+<p>
+Most of the major pieces of FHIR/RDF are now available in a complete
+enough form for developers to start trying them and providing feedback.
+Work still needed:
+</p>
+
+<ul>
+<li> Further editing of FHIR Linked Data module pages. </li>
+
+<li> <a href="https://hl7-fhir.github.io/ontology">FHIR Ontology Introductory Page</a>.  This still needs to be drafted, perhaps based the
+<a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">FHIR Ontology draft on W3C github</a>. </li>
+
+<li> Tutorial on using FHIR/RDF with other ontologies (such as
+the SNOMED-CT ontology) and performing inference.
+<a href="https://www.w3.org/2016/Talks/1205-swat4ls-egp/reasoning">Eric Prud'hommeaux's slides</a>
+or <a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">Tony Mallia's AllergyIntolerance example</a>
+may be a good starting point. </li>
+
+<li> Tutorial on using <a href="http://shex.io/extensions/Map/">ShExMap</a> to translate other RDF data (non-FHIR) to/from FHIR/RDF. </li>
+
+</ul>
 
 </div>
 
