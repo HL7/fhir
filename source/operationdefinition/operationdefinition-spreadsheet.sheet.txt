@@ -422,4 +422,25 @@
   Filename = patient-mpi-search.xml
   Type = xml
 
+ -- Row 9 -----------------------------------
+  Name = lib-data-req
+  Identity = Library-data-requirements
+  Description = Library data requirements
+  Filename = operation-library-data-requirements.xml
+  Type = tool
+
+ -- Row 10 -----------------------------------
+  Name = meas-date-req
+  Identity = Measure-data-requirements
+  Description = Measure data requirements
+  Filename = operation-measure-data-requirements.xml
+  Type = tool
+
+ -- Row 11 -----------------------------------
+  Name = meas-eval
+  Identity = Measure-evaluate-measure
+  Description = Measure evaluate measure
+  Filename = operation-measure-evaluate-measure.xml
+  Type = tool
+
 === Sheet Examples =====================================
