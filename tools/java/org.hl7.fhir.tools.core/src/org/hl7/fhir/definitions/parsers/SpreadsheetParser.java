@@ -2233,6 +2233,7 @@ public class SpreadsheetParser {
       ElementDefn child = new ElementDefn();
       p.getElements().add(child);
       child.setName(n.substring(n.lastIndexOf(".")+1));
+      child.setProfileName(child.getName());
       parseExtensionElement(sheet, row, definitions, child, true);
       if (invariants != null) {
         for (Invariant inv : invariants.values()) {

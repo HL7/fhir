@@ -338,7 +338,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       throw new Error("type on first differential element!");
 
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
-    processPaths(derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, 
+    processPaths("", derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, 
         derived.getDifferential().getElement().size()-1, url, derived.getId(), null, null, false, base.getUrl(), null, false);
     if (!derived.getSnapshot().getElementFirstRep().getType().isEmpty())
       throw new Error("type on first snapshot element for "+derived.getSnapshot().getElementFirstRep().getPath()+" in "+derived.getUrl()+" from "+base.getUrl());
@@ -362,14 +362,16 @@ public class ProfileUtilities extends TranslatingUtilities {
    * @throws DefinitionException, FHIRException 
    * @throws Exception
    */
-  private void processPaths(StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
+  private void processPaths(String indent, StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
       int diffLimit, String url, String profileName, String contextPathSrc, String contextPathDst, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingDone) throws DefinitionException, FHIRException {
 
+//    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
       ElementDefinition currentBase = base.getElement().get(baseCursor);
       String cpath = fixedPath(contextPathSrc, currentBase.getPath());
+//      System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
       List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit, profileName, url); // get a list of matching elements in scope
 
       // in the simple case, source is not sliced.
@@ -386,7 +388,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             throw new DefinitionException("Adding wrong path");
           result.getElement().add(outcome);
           baseCursor++;
-        } else if (diffMatches.size() == 1 && (slicingDone || (!diffMatches.get(0).hasSlicing() && !(isExtension(diffMatches.get(0)) && !diffMatches.get(0).hasSliceName())))) {// one matching element in the differential
+        } else if (diffMatches.size() == 1 && (slicingDone || (!diffMatches.get(0).hasSlicing() /* ice&& !(isExtension(diffMatches.get(0)) && !diffMatches.get(0).hasSliceName())*/))) {// one matching element in the differential
           ElementDefinition template = null;
           if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
             String p = diffMatches.get(0).getType().get(0).getProfile();
@@ -444,7 +446,7 @@ public class ProfileUtilities extends TranslatingUtilities {
               int start = diffCursor;
               while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
                 diffCursor++;
-              processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
+              processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
                   diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
             }
           }
@@ -499,7 +501,7 @@ public class ProfileUtilities extends TranslatingUtilities {
                 continue;
             }*/
             // now we process the base scope repeatedly for each instance of the item in the differential list
-            processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, i), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true);
+            processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, i), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true);
           }
           // ok, done with that - next in the base list
           baseCursor = nbl+1;
@@ -547,17 +549,15 @@ public class ProfileUtilities extends TranslatingUtilities {
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
           updateFromBase(outcome, currentBase);
-          if (diffMatches.get(0).hasSlicing() && !isExtension) {
+          if (diffMatches.get(0).hasSlicing() /*&& !isExtension*/) {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
             updateFromDefinition(outcome, diffMatches.get(0), profileName, closed, url); // if there's no slice, we don't want to update the unsliced description
           }
-          if (diffMatches.get(0).hasSlicing() && !diffMatches.get(0).hasSliceName()) {
-            if (isExtension)
-              diffpos++;
-//            throw new Error("fhir diffpos++ at "+diffpos);
-          }
-            
           result.getElement().add(outcome);
+
+          if (!diffMatches.get(0).hasSliceName()) { // it's not real content, just the slice
+              diffpos++;
+          }
 
           // now, we have two lists, base and diff. we're going to work through base, looking for matches in diff.
           List<ElementDefinition> baseMatches = getSiblings(base.getElement(), currentBase);
@@ -577,7 +577,7 @@ public class ProfileUtilities extends TranslatingUtilities {
               int ndc = differential.getElement().indexOf(diffMatches.get(diffpos));
               int ndl = findEndOfElement(differential, ndc);
               // now we process the base scope repeatedly for each instance of the item in the differential list
-              processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, diffpos), contextPathSrc, contextPathDst, closed, contextName, resultPathBase, true);
+              processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, diffpos), contextPathSrc, contextPathDst, closed, contextName, resultPathBase, true);
               // ok, done with that - now set the cursors for if this is the end
               baseCursor = nbl+1;
               diffCursor = ndl+1;
@@ -599,61 +599,66 @@ public class ProfileUtilities extends TranslatingUtilities {
           // finally, we process any remaining entries in diff, which are new (and which are only allowed if the base wasn't closed
           if (closed && diffpos < diffMatches.size())
             throw new DefinitionException("The base snapshot marks a slicing as closed, but the differential tries to extend it in "+profileName+" at "+path+" ("+cpath+")");
-          while (diffpos < diffMatches.size()) {
-            ElementDefinition diffItem = diffMatches.get(diffpos);
-            for (ElementDefinition baseItem : baseMatches)
-              if (baseItem.getSliceName().equals(diffItem.getSliceName()))
-                throw new DefinitionException("Named items are out of order in the slice");
-            outcome = updateURLs(url, currentBase.copy());
-//            outcome = updateURLs(url, diffItem.copy());
-            outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
-            updateFromBase(outcome, currentBase);
-            outcome.setSlicing(null);
-            if (!outcome.getPath().startsWith(resultPathBase))
-              throw new DefinitionException("Adding wrong path");
-            result.getElement().add(outcome);
-            updateFromDefinition(outcome, diffItem, profileName, trimDifferential, url);
-            // --- LM Added this
-            diffCursor = differential.getElement().indexOf(diffItem)+1;
-            if (!outcome.getType().isEmpty() && (outcome.getType().get(0).getCode().equals("Extension") || differential.getElement().size() > diffCursor) && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
-              if (!baseWalksInto(base.getElement(), baseCursor)) {
-                if (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
-                if (outcome.getType().size() > 1)
-                  for (TypeRefComponent t : outcome.getType()) {
-                    if (!t.getCode().equals("Reference"))
-                      throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
+          if (diffpos == diffMatches.size()) {
+            diffCursor++;
+            baseCursor++;
+          } else {
+            while (diffpos < diffMatches.size()) {
+              ElementDefinition diffItem = diffMatches.get(diffpos);
+              for (ElementDefinition baseItem : baseMatches)
+                if (baseItem.getSliceName().equals(diffItem.getSliceName()))
+                  throw new DefinitionException("Named items are out of order in the slice");
+              outcome = updateURLs(url, currentBase.copy());
+              //            outcome = updateURLs(url, diffItem.copy());
+              outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
+              updateFromBase(outcome, currentBase);
+              outcome.setSlicing(null);
+              if (!outcome.getPath().startsWith(resultPathBase))
+                throw new DefinitionException("Adding wrong path");
+              result.getElement().add(outcome);
+              updateFromDefinition(outcome, diffItem, profileName, trimDifferential, url);
+              // --- LM Added this
+              diffCursor = differential.getElement().indexOf(diffItem)+1;
+              if (!outcome.getType().isEmpty() && (/*outcome.getType().get(0).getCode().equals("Extension") || */differential.getElement().size() > diffCursor) && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
+                if (!baseWalksInto(base.getElement(), baseCursor)) {
+                  if (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".")) {
+                    if (outcome.getType().size() > 1)
+                      for (TypeRefComponent t : outcome.getType()) {
+                        if (!t.getCode().equals("Reference"))
+                          throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
+                      }
+                    TypeRefComponent t = outcome.getType().get(0);
+                    StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+                    //                if (t.getCode().equals("Extension") && t.hasProfile() && !t.getProfile().contains(":")) {
+                    // lloydfix                  dt = 
+                    //                }
+                    if (dt == null)
+                      throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
+                    contextName = dt.getUrl();
+                    int start = diffCursor;
+                    while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
+                      diffCursor++;
+                    processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
+                        diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
+                  } else if (outcome.getType().get(0).getCode().equals("Extension")) {
+                    // Force URL to appear if we're dealing with an extension.  (This is a kludge - may need to drill down in other cases where we're slicing and the type has a profile declaration that could be setting the fixed value)
+                    StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+                    for (ElementDefinition extEd : dt.getSnapshot().getElement()) {
+                      // We only want the children that aren't the root
+                      if (extEd.getPath().contains(".")) {
+                        ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
+                        extUrlEd.setPath(fixedPath(outcome.getPath(), extUrlEd.getPath()));
+                        //                      updateFromBase(extUrlEd, currentBase);
+                        markDerived(extUrlEd);
+                        result.getElement().add(extUrlEd);
+                      }
+                    }                  
                   }
-                TypeRefComponent t = outcome.getType().get(0);
-                StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
-//                if (t.getCode().equals("Extension") && t.hasProfile() && !t.getProfile().contains(":")) {
-// lloydfix                  dt = 
-//                }
-                if (dt == null)
-                  throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
-                contextName = dt.getUrl();
-                int start = diffCursor;
-                while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
-                  diffCursor++;
-                processPaths(result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
-                    diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
-                } else if (outcome.getType().get(0).getCode().equals("Extension")) {
-                  // Force URL to appear if we're dealing with an extension.  (This is a kludge - may need to drill down in other cases where we're slicing and the type has a profile declaration that could be setting the fixed value)
-                  StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
-                  for (ElementDefinition extEd : dt.getSnapshot().getElement()) {
-                    // We only want the children that aren't the root
-                    if (extEd.getPath().contains(".")) {
-                      ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
-                      extUrlEd.setPath(fixedPath(outcome.getPath(), extUrlEd.getPath()));
-//                      updateFromBase(extUrlEd, currentBase);
-                      markDerived(extUrlEd);
-                      result.getElement().add(extUrlEd);
-                    }
-                  }                  
                 }
               }
+              // ---
+              diffpos++;
             }
-            // ---
-            diffpos++;
           }
         }
       }
@@ -2414,6 +2419,8 @@ public class ProfileUtilities extends TranslatingUtilities {
 
 
   private String describe(SlicingRules rules) {
+    if (rules == null)
+      return translate("sd.table", "Unspecified");
     switch (rules) {
     case CLOSED : return translate("sd.table", "Closed");
     case OPEN : return translate("sd.table", "Open");

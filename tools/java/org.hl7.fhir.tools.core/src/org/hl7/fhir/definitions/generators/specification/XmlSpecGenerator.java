@@ -636,7 +636,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) {
       csv.append(d.getType().toCode()+":"+d.getPath());
     }
-    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + slicing.getRules().getDisplay();
+    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + (slicing.hasRules() ? slicing.getRules().getDisplay() : "");
     return " sliced by "+csv.toString()+" "+s;
   }
 

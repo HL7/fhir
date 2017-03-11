@@ -1500,6 +1500,8 @@ public class ProfileGenerator {
         ed.getBase().setMin(child.getMinCardinality());
       if (child.getMaxCardinality() != null)
         ed.getBase().setMax(child.getMaxCardinality() == Integer.MAX_VALUE ? "*" : child.getMaxCardinality().toString());
+      if (snapshot == SnapShotMode.DataType && ed.getPath().endsWith(".extension") && !ed.hasSlicing())
+        ed.getSlicing().setDescription("Extensions are always sliced by (at least) url").setRules(SlicingRules.OPEN).addDiscriminator().setType(DiscriminatorType.VALUE).setPath("url");
     }
   }
 
@@ -1631,8 +1633,8 @@ public class ProfileGenerator {
     String thisPath = path == null ? "Extension" : path;
     dst.setId(thisPath);
     dst.setPath(thisPath);
-    if (dst.getPath().endsWith(".extension"))
-      dst.setSliceName(src.getName());
+    if (!Utilities.noString(src.getProfileName()))
+      dst.setSliceName(src.getProfileName());
 
     dst.setShort(src.getShortDefn());
     dst.setDefinition(preProcessMarkdown(src.getDefinition(), "Element Definition"));
@@ -1728,23 +1730,25 @@ public class ProfileGenerator {
       if (!url.getName().equals("url"))
         throw new Exception("first child of extension should be 'url', not "+url.getName()+" for structure definition "+ed.getUrl());
       convertElements(url, ed, thisPath+".url");
+      // this pair might leave elements out of order, but we're going to sort them later
       if (!hasValue(src)) {
         ElementDefn value = new ElementDefn();
         value.setName("value[x]");
         value.setMinCardinality(0);
         value.setMaxCardinality(0);
-        src.getElements().add(value);
-      } 
+        convertElements(value, ed, thisPath+".value[x]");        
+      } else {
+        ElementDefn ext = new ElementDefn();
+        ext.setName("extension"); // can't have an extension if you have a value
+        ext.setMaxCardinality(0);
+        convertElements(ext, ed, thisPath+".extension");        
+      }
       if (src.getElements().size() == 2 && 
           src.getElements().get(0).getName().equals("url") &&
           src.getElements().get(1).getName().equals("value[x]")) {
         ElementDefn value = src.getElements().get(1);
         value.setMinCardinality(1);
         convertElements(value, ed, thisPath+".value[x]");
-        ElementDefn ext = new ElementDefn();
-        ext.setName("extension"); // can't have an extension if you have a value
-        ext.setMaxCardinality(0);
-        convertElements(ext, ed, thisPath+".extension");
       } else {
         for (ElementDefn child : src.getElements()) {
           if (child != url) {
