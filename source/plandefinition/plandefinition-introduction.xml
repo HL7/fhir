@@ -40,7 +40,7 @@
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
-<p><i>Note to implementers: There is some overlap between the content that can be specified in PlanDefinition.actionDefinition and the ActivityDefinition resource. Part of the work for STU4 will be to resolve the overlap and this will likely result in some minor changes to the structures.</i></p>
+<p><i>Note to implementers: There is some overlap between the content that can be specified in PlanDefinition.actionDefinition and the ActivityDefinition resource. Part of the work for FHIR Release 4 will be to resolve the overlap and this will likely result in some minor changes to the structures.</i></p>
 
 </div>
 
