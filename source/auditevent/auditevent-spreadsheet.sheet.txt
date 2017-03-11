@@ -13,7 +13,7 @@
   Binding Name = AuditEventAction
   Binding = code list
   Reference = #audit-event-action
-  Definition = Indicator for type of action performed during the event that generated the audit.
+  Definition = Indicator for type of action performed during the event that generated the event
   Description = DICOM Audit Event Action
   Conformance = required
   Uri = http://dicom.nema.org/resources/ontology/DCM
@@ -43,7 +43,7 @@
   Binding Name = AuditEventEntityType
   Binding = value set
   Reference = valueset-audit-entity-type
-  Definition = Code for the entity type involved audited.
+  Definition = Code for the entity type involved the audit event
   Description = DICOM Audit Event Entity Type
   Conformance = extensible
   Uri = http://dicom.nema.org/resources/ontology/DCM
@@ -53,7 +53,7 @@
   Binding Name = AuditEventEntityRole
   Binding = code list
   Reference = #object-role
-  Definition = Code representing the role the entity played in the event.
+  Definition = Code representing the role the entity played in the audit event
   Description = DICOM Audit Event Entity Role
   Conformance = extensible
   Uri = http://dicom.nema.org/resources/ontology/DCM
@@ -63,7 +63,7 @@
   Binding Name = AuditEventEntityLifecycle
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/object-lifecycle-events
-  Definition = Identifier for the data life-cycle stage for the entity.
+  Definition = Identifier for the data life-cycle stage for the entity
   Conformance = extensible
 
  -- Row 8 -----------------------------------
@@ -497,7 +497,7 @@
   Binding = AuditPurposeOfUse
   Short Name = The purposeOfUse of the event
   Definition = The purposeOfUse (reason) that was used during the event being recorded.
-  Comments = Use AuditEvent.agent.purposeOfUse when you know that is specific to the agent, otherwise use AuditEvent.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
+  Comments = Use AuditEvent.agent.purposeOfUse when you know that it is specific to the agent, otherwise use AuditEvent.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
   RIM Mapping = * .reasonCode [ControlActReason when Act.class = CACT Control Act]\n*.outboundRelationship[typeCode=RSON].target
   DICOM Mapping = EventPurposeOfUse
   Prov Mapping = Activity.Activity
@@ -539,7 +539,7 @@
   Short Name = Agent role in the event
   Definition = The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context
   Requirements = This value ties an audited event to a user\'s role(s). It is an optional value that might be used to group events for analysis by user functional role categories
-  Comments = should be roles relevant to the event. Should  not be an exhaustive list of roles.
+  Comments = Should be roles relevant to the event. Should  not be an exhaustive list of roles.
   RIM Mapping = .role and/or .typeCode and/or .functionCode
   DICOM Mapping = RoleIdCode
   Prov Mapping = Agent.Attribution
@@ -567,7 +567,7 @@
   Short Name = Unique identifier for the user
   Definition = Unique identifier for the user actively participating in the event
   Requirements = This field ties an audit event to a specific user
-  Comments = a unique value within the Audit Source ID. For node-based authentication -- where only the system hardware or process, but not a human user, is identified -- User ID would be the node name
+  Comments = A unique value within the Audit Source ID. For node-based authentication -- where only the system hardware or process, but not a human user, is identified -- User ID would be the node name
   RIM Mapping = .id
   DICOM Mapping = UserId
   Prov Mapping = Agent.Identity
@@ -580,7 +580,7 @@
   Type = string
   Short Name = Alternative User id e.g. authentication
   Definition = Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available
-  Requirements = In some situations a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some \"single sign on\" implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application
+  Requirements = In some situations, a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some \"single sign on\" implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application
   RIM Mapping = .id (distinguish id type by root)
   DICOM Mapping = AlternativeUserId
   Prov Mapping = Agent.Identity
@@ -845,9 +845,9 @@
   Type = Coding
   Binding = SecurityLabels
   Short Name = Security labels on the entity
-  Definition = Denotes security labels for the identified entity.
+  Definition = Security labels for the identified entity.
   Requirements = This field identifies the security labels for a specific instance of an object, such as a patient, to detect/track privacy and security issues
-  Comments = copied from entity meta security tags
+  Comments = Copied from entity meta security tags
   RIM Mapping = .confidentialityCode
   DICOM Mapping = ParticipantObjectSensitivity
   w5 = context
@@ -861,7 +861,7 @@
   Short Name = Descriptor for entity
   Definition = A name of the entity in the audit event.
   Requirements = Use only where entity can\'t be identified with an identifier.
-  Comments = This field may be used in a query/report to identify audit events for a specific person.  For example, where multiple synonymous entity identifers (patient number, medical record number, encounter number, etc.) have been used
+  Comments = This field may be used in a query/report to identify audit events for a specific person.  For example, where multiple synonymous entity identifiers (patient number, medical record number, encounter number, etc.) have been used
   RIM Mapping = .title
   DICOM Mapping = ParticipantObjectName
   Prov Mapping = Entity.Label
@@ -886,7 +886,7 @@
   Type = base64Binary
   Short Name = Query parameters
   Definition = The query parameters for a query-type entities
-  Requirements = For query events it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing
+  Requirements = For query events, it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing
   RIM Mapping = No mapping
   DICOM Mapping = ParticipantObjectQuery
   w5 = context
@@ -896,6 +896,8 @@
   Card. = 0..*
   UML = down
   Short Name = Additional Information about the entity
+  Definition = Tagged value pairs for conveying additional information about the entity
+  Requirements = Implementation-defined data about specific details of the object accessed or used.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
   DICOM Mapping = ParticipantObjectDetail
   w5 = context
@@ -905,6 +907,7 @@
   Card. = 1..1
   Type = string
   Short Name = Name of the property
+  Definition = The type of extra detail provided in the value
   RIM Mapping = .code
   DICOM Mapping = ParticipantObjectDetail.type
   w5 = context
@@ -914,6 +917,9 @@
   Card. = 1..1
   Type = base64Binary
   Short Name = Property value
+  Definition = The details, base64 encoded. Used to carry bulk information.
+  Requirements = Should not duplicate the entity value unless absolutely necessary
+  Comments = The value is base64 encoded to enable various encodings or binary content.
   RIM Mapping = .value
   DICOM Mapping = ParticipantObjectDetail.value
   w5 = context

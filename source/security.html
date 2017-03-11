@@ -42,7 +42,7 @@ list</a> for prompt consideration.
 </p>
 
 <p>
-Implementers should track the developing IHE IUA Profile for additional security considerations.
+Implementers should track the developing IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> for additional security considerations.
 </p>
 
 <a name="general"> </a>
@@ -193,7 +193,7 @@ For example, a tag (or attribute) may specify that the identified Resource (obje
 further disclosed without explicit consent from the patient.
 </p>
 <p>
-The rules behind the access control decision are often very complex, and potentially depends on information sourced from:
+The rules behind the access control decision are often very complex, and potentially depend on information sourced from:
 </p>
 <ul>
  <li>Client, such as user identity, user role, location, level of assurance</li>
@@ -218,7 +218,7 @@ The FHIR RESTful API provides a number of ways that a client may request or crea
 When designing a system to authorize access to information, all potential access methods must be considered. 
 They include the following:
 <ul>
-<li>The basic CRUD methods on resources. A security implementation must evaluate whether a client can read, update create or delete a given resource.</li>
+<li>The basic CRUD methods on resources. A security implementation must evaluate whether a client is allowed to read, update create or delete a given resource.</li>
 <li>Chained search provides the ability to disclose information on related resources. A security implementation must consider whether a client has the permission to access the resource being searched on, as well as the chained resource(s)</li>
 <li>_include and _revinclude search parameters allow client to request related resources. A security implementation must determine if the client has access to the included resources.</li>
 <li><a href="security-labels.html">security labels</a></li>

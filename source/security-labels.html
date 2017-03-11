@@ -22,7 +22,7 @@ uses the security label together with any provenance resources associated with
 the resource and other metadata (e.g. the resource type, resource contents, etc.) to</p>
 <ul>
   <li>approve read, change, and other operations</li>
-  <li>determine what level of the resource can be returned</li>
+  <li>determine what resources can be returned</li>
   <li>determine what handling caveats must be conveyed with the data</li>
 </ul>
 <p>
@@ -80,15 +80,15 @@ following important properties:
 
 <div class="example">
 <p>
-An XML patient resource with a "celebrity" tag associated with it, as represented in an HTTP response:
+An example XML Patient Resource with a "Restricted" tag associated with it, as represented in an HTTP response:
 </p>
 <pre>
 &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;meta&gt;
     &lt;security&gt;
-      &lt;system value=&quot;http://hl7.org/fhir/v3/ActCode&quot;/&gt;
-      &lt;code value=&quot;CEL&quot;/&gt;
-      &lt;display value=&quot;Celebrity&quot;/&gt;
+      &lt;system value=&quot;http://hl7.org/fhir/v3/Confidentiality&quot;/&gt;
+      &lt;code value=&quot;R&quot;/&gt;
+      &lt;display value=&quot;Restricted&quot;/&gt;
     &lt;/security&gt;
   &lt;/meta&gt;
 ...  [snip] ...
@@ -166,6 +166,23 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
    <td colspan="2" style="background-color: #EFEFEF"><b>Context of Use</b></td>
  </tr>
  <tr>
+   <td>Purpose Of Use</td>
+   <td>
+     These <a href="v3/PurposeOfUse/vs.html">Purpose Of Use</a> (system = http://hl7.org/fhir/v3/PurposeOfUse) is an indication of a reason for performing one or more operations on information.
+	which may be permitted by source system's security policy in accordance with one or more privacy policies and consent directives. 
+	Such as collecting personal health information for research or public health purposes.
+	<br/> Notes may be used as:
+     <ul>
+      <li>The rationale or purpose for a request for data</li>
+      <li>The use limitation on a data Bundle</li>
+     </ul>
+	See discussion on HCS below
+   </td>
+ </tr>
+ <tr>
+   <td colspan="2" style="background-color: #EFEFEF"><b>Data Sensitivity</b></td>
+ </tr>
+ <tr>
    <td>Confidentiality codes</td>
    <td>
      These <a href="v3/ConfidentialityClassification/vs.html">confidentiality class</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource,
@@ -173,72 +190,10 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
       <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by its definition and content; e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, whereas a routine electrolytes is rarely particularly confidential</li>
-      <li>A few resources have a confidentiality code in the resource itself. This should always be understood as the original intended confidentiality, whereas a confidentiality tag is the current confidentiality of the content; e.g. the confidentiality may change in response to patient concern <!-- Todo: See if we can drop these confidentiality elements and replace with the tagging structure --></li>
       <li>The confidentiality of a bundle is always as confidential as the most confidential resource in the bundle</li>
      </ul>
-     The additional more specific labels below are defined to support very specific fine-grained access control, and should
-     always be used in association with an appropriate confidentiality label.
-   </td>
- </tr>
- <tr>
-   <td>Celebrity / VIP: ActCode.<a href="v3/ActCode/cs.html#CEL">CEL</a></td>
-   <td>
-    Use on any resource to indicate that the subject/patient is a celebrity or well known to the staff in the institution.
-    <br/>Notes:
-    <ul>
-     <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="compartmentdefinition.html">entire patient compartment</a>, or it may be applied to individual resources</li>
-     <li>Resources affected by this label are more likely to be the subject of active audit maintenance or additional security policy</li>
-    </ul>
-   </td>
- </tr>
- <tr>
-   <td>Staff: ActCode.<a href="v3/ActCode/cs.html#EMP">EMP</a></td>
-   <td>
-    Use on a <a href="patient.html">Patient</a> resource and resources with a subject of that patient to indicate that the patient is a staff member of the institution. This is a variation on
-    being a celebrity.
-    <br/>Notes:
-    <ul>
-     <li>This may be applied to the <a href="patient.html">Patient</a> resource, with implied behavior for the <a href="compartmentdefinition.html">entire patient compartment</a>, or it may be applied to individual resources</li>
-     <li>Resources affected by this label are (even) more likely to be the subject of active audit maintenance or additional security policy</li>
-    </ul>
-   </td>
- </tr>
- <tr>
-   <td>Keep information from patient: ActCode.<a href="v3/ActCode/cs.html#TBOO">TBOO</a></td>
-   <td>
-    Used on <a href="resourcelist.html">any</a> resource to indicate that information is not to be made available to the patient or their relatives/carers, except by the personal decision of a physician assigned to the patient.
-    <br/>Notes:
-    <ul>
-     <li>A common use for this is with <a href="flag.html">Flag</a> resources, when the alert records information on patient abuse or non-compliance</li>
-     <li>This label might also be used temporarily on laboratory or other test results where policy is for the results to be initially disclosed by direct discussion with the patient's physician</li>
-    </ul>
-   </td>
- </tr>
- <tr>
-   <td>Contact/Employment Details Confidential: ActCode.<a href="v3/ActCode/cs.html#DEMO">DEMO</a></td>
-   <td>
-    Used on a <a href="patient.html">Patient</a> resource to indicate that the patient's address and contact details (phone numbers, email addresses) - including employment information - are sensitive
-    and shouldn't be shared with the patient's family or others without specific authorization
-   </td>
- </tr>
- <tr>
-   <td>Diagnosis-related confidentiality: ActCode.<a href="v3/ActCode/cs.html#DIA">DIA</a></td>
-   <td>
-    Used on <a href="resourcelist.html">any</a> resource to indicate that the resource relates to a diagnosis (or potential diagnosis) which is generally
-    associated with confidentiality requirements - or is for this particular patient.
-    This may be associated for diagnoses including STDs, psychiatric conditions, adolescent related issues, drug abuse, genetics conditions and others.
-     <br/> Notes:
-     <ul>
-      <li>Generally, this security label cascades logically; e.g. any <a href="diagnosticreport.html">Diagnostic Reports</a> produced because of a <a href="procedurerequest.html">Procedure Request</a> with this security label should also have the same security label. </li>
-      <li>There may be additional labels classifying the diagnosis; such labels SHOULD always be accompanied by this label so that more systems will know that restrictions apply</li>
-    </ul>
-   </td>
- </tr>
- <tr>
-   <td>Author Consent needed: ActCode.<a href="v3/ActCode/cs.html#ORCON">ORCON</a></td>
-   <td>
-    The author's consent is needed for disclosure. Typically, this is used by a treating practitioner to label portions of their own record confidential.
-    Any such resource is only shared with the author or with other parties as arranged.
+     The additional security lables are more specific to support very specific fine-grained access control, and should
+     always be used in association with an appropriate confidentiality label. See discussion on HCS below
    </td>
  </tr>
  <tr>
@@ -247,7 +202,7 @@ http://hl7.org/fhir/v3/Confidentiality, and http://hl7.org/fhir/v3/ActCode,
  <tr>
    <td>Delete After Use: ActCode.<a href="v3/ActCode/cs.html#DELAU">DELAU</a></td>
    <td>
-     An application receiving a resource with this label must delete all copies after the immediate use for which the resource/feed was exchanged is complete. <br/> Notes:
+     An application receiving a resource with this label must delete all copies after the immediate use for which the data was exchanged, is complete. <br/> Notes:
      <ul>
       <li>This may imply a prohibition not storing the resource in any audit trail as well</li>
       <li>Additional security labels are allowed to make exceptions to the blanket restriction this implies. This allows a resource to be exchanged with a blanket rule not to retain copies unless the exact rules for retaining it can be followed</li>
@@ -316,8 +271,8 @@ Category: http://hl7.org/fhir/security-label#break-the-glass; scheme="http://hl7
 
 <p>
 The security labels described above are a subset of the full set of security labels defined by the
-HL7 Healthcare Privacy and Security Classification System (HCS; ref todo). The HCS defines 5 categories of security
-labels that may be applied to a resource:
+HL7 <a ref="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=345">Healthcare Privacy and Security Classification System</a>. 
+The HCS defines 5 categories of security labels that may be applied to a resource:
 </p>
 
 <table class="grid">

@@ -129,7 +129,7 @@
   Type = code
   Binding = InstanceAvailability
   Short Name = ONLINE | OFFLINE | NEARLINE | UNAVAILABLE
-  Definition = Availability of study (online, offline or nearline)
+  Definition = Availability of study (online, offline, or nearline)
   RIM Mapping = Not supported
   w5 = status
 
@@ -164,7 +164,7 @@
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Originating context
-  Definition = The encounter at which the request is initiated
+  Definition = The encounter or episode at which the request is initiated
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
@@ -175,7 +175,7 @@
   Summary = Y
   Type = dateTime
   Short Name = When the study was started
-  Definition = Date and Time the study started
+  Definition = Date and time the study started
   RIM Mapping = .effectiveTime
   DICOM Mapping = (0008,0020)+(0008,0030)
   Example = 2011-01-01T11:01:20+03:00
@@ -223,8 +223,8 @@
   Type = Reference(Endpoint)
   Short Name = Study access endpoint
   Definition = The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type
-  Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
-  Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invokation of an imaging web viewer.
+  Requirements = Access methods for viewing (e.g., IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
+  Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invocation of an imaging web viewer.
   RIM Mapping = Not supported
 
  -- Row 14 -----------------------------------
@@ -275,7 +275,7 @@
   Summary = Y
   Type = unsignedInt
   Short Name = Number of Study Related Instances
-  Definition = Number of SOP Instances in Study. This value given may be larger than the number of instance elements this Resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present
+  Definition = Number of SOP Instances in Study. This value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1208)
 
@@ -284,7 +284,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Procedure)
-  Short Name = The performed Procedure Reference
+  Short Name = The performed Procedure reference
   Definition = A reference to the performed Procedure
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]
   DICOM Mapping = (0008,1032)
@@ -307,7 +307,7 @@
   Type = CodeableConcept
   Binding = ImagingReason
   Short Name = Why the study was requested
-  Definition = Description of clinical codition indicating why the ImagingStudy was requested.
+  Definition = Description of clinical condition indicating why the ImagingStudy was requested.
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -350,7 +350,7 @@
   Summary = Y
   Type = unsignedInt
   Short Name = Numeric identifier of this series
-  Definition = The Numeric identifier of this series in the study.
+  Definition = The numeric identifier of this series in the study.
   RIM Mapping = .inboundRelationship[type=COMP, source[classCode=COMPOSITION, moodCode=EVN]].sequenceNumber
   DICOM Mapping = (0020,0011)
   Example = 3
@@ -386,7 +386,7 @@
   Summary = Y
   Type = unsignedInt
   Short Name = Number of Series Related Instances
-  Definition = Number of SOP Instances in Study. This value given may be larger than the number of instance elements this Resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present
+  Definition = Number of SOP Instances in the Study. The value given may be larger than the number of instance elements this resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1209)
 
@@ -410,7 +410,7 @@
   Short Name = Series access endpoint
   Definition = The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
-  Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances.
+  Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances.
   RIM Mapping = Not supported
 
  -- Row 31 -----------------------------------
@@ -451,7 +451,7 @@
   Type = Coding
   Binding = BodySite
   Short Name = Body part examined
-  Definition = Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT
+  Definition = The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite may indicate the laterality of body part imaged; If so, it shall be consistent with any content of ImagingStudy.series.laterality.
   RIM Mapping = .targetSiteCode
   DICOM Mapping = (0018,0015)
 
@@ -462,7 +462,7 @@
   Type = Coding
   Binding = Laterality
   Short Name = Body part laterality
-  Definition = Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.
+  Definition = The laterality of the (possibly paired) anatomic structures examined. E.g., the left knee, both lungs, or unpaired abdomen. If present, shall be consistent with any laterality information indicated in ImagingStudy.series.bodySite.
   RIM Mapping = .targetSiteCode
   DICOM Mapping = (0020,0060)
 
@@ -479,7 +479,7 @@
  -- Row 37 -----------------------------------
   Element = ImagingStudy.series.performer
   Card. = 0..*
-  Aliases = PerformingPysiciansName, OperatorsName
+  Aliases = PerformingPhysicianName, OperatorName
   Summary = Y
   Type = Reference(Practitioner)
   Short Name = Who performed the series
@@ -493,7 +493,7 @@
   Card. = 0..*
   UML = 620;70
   Short Name = A single SOP instance from the series
-  Definition = A single SOP Instance within the series, e.g. an image, or presentation state.
+  Definition = A single SOP instance within the series, e.g. an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]
 
  -- Row 39 -----------------------------------

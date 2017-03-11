@@ -77,15 +77,16 @@ FHIR Datatypes:
 <a name="security"> </a>
 <h3>Security</h3>
 <p>
-Security in FHIR includes the set of considerations required to ensure that
+FHIR is focused on the data access methods and encoding leveraging existing Security solutions.
+Security in FHIR needs to focus on the set of considerations required to ensure that
 data can be discovered, accessed, or altered only in accordance with
-expectations and policies. FHIR includes implementation guidance to ensure
-that:
+expectations and policies.  
+Implementation should leverage existing security standards and implementations to ensure that:
 </p>
 
 <ul>
 <li>
-All communications can be encrypted to prevent unauthorized access
+All communications can be encrypted to prevent unauthorized access. 
 </li>
 <li>
 No information leaks when errors occur
@@ -95,18 +96,20 @@ No active script content can be injected into narrative resources
 </li>
 <li>
 Full audit trails can be constructed and used to detect anomalous access patterns
-</li>
-<li>
-  For general considerations and principles, see <a href="security.html">Security</a>.
-</li>
-</ul>
-
+</li></ul>
+<p>
+For general security considerations and principles, see <a href="security.html">Security</a>.
+Please leverage mature Security Frameworks cover device security, cloud security, big-data security, service-to-service security, etc.
+See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security</a>
+and <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">OWASP Mobile Secuity</a>. 
+These security frameworks include priortized lists of most important concerns.
+</p>
 <a name="privacy"> </a>
 <h3>Privacy</h3>
 <p>
 
 Privacy in FHIR includes the set of considerations required to ensure that
-individual data are treated according to an individual's preferences. FHIR
+individual data are treated according to an individual's Privacy Principles. FHIR
 includes implementation guidance to ensure that:
 
 </p>
@@ -146,10 +149,12 @@ institution-internal subsystems vs. sharing data with trusted partners vs.
 sharing data with third-party user-facing apps). In general, FHIR enables a
 separation of concerns between the FHIR REST API and standards-based
 authorization protocols like OAuth. For the use case of user-facing third-party
-app authorization, we recommend the OAuth-based SMART protocol (ref) as an
+app authorization, we recommend the OAuth-based SMART protocol 
+see <a href="security.html#authentication">Security: Authentication</a> as an
 externally-reviewed authorization mechanism with a real-world deployment base —
 but we note that community efforts are underway to explore a variety of
-approaches to authorization. For details, see <a href="security.html#binding">Security: Binding</a>.
+approaches to authorization. 
+For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
 
@@ -169,9 +174,11 @@ all API access and other security- and privacy-relevant events".
 <em>Approach:</em> Approach: FHIR provides an AuditEvent resource suitable for
 use by FHIR clients and servers to record when a security or privacy relevant
 event has occurred. This form of audit logging records as much detail as
-reasonable at the time the event happened. For details, see
-<a href="security.html#audit">Security: Audit</a> + add reference to ATNA for
-conseptual background (GG).
+reasonable at the time the event happened. 
+The FHIR AuditEvent is aligned and cross-referenced with IHE Audit Trail and Node Authentication (ATNA) Profile.
+
+For details, see
+<a href="security.html#audit">Security: Audit</a>.
 
 </p>
 
@@ -185,23 +192,25 @@ technical approach to security and privacy.
 </p>
 
 <p>
- In future releases, we are anticipate including:
+ In future releases, we are anticipate including guidance on:
 </p>
 
 <ul>
 <li>
-More specific implementation guidance for particular Authorization scenarios
-(for example, we may incorporate the SMART on FHIR authorization specification
-for user-authorized apps).
+incorporate the SMART on FHIR authorization specification,
+for user-authorized apps, 
 </li>
 <li>
-More details about how to use digital Signatures for data integrity and
+methods for organization-to-organization authorization,
+</li>
+<li>
+more details about how to use digital Signatures for data integrity and
 non-repudiation, including an approach that supports some level of manipulation
 of resources (e.g. separating the entries in a bundle, or conversion between
-XML and JSON during processing)
+XML and JSON during processing),
 </li>
 <li>
-More detailed Consent management, including support for specific consent use cases.
+more detailed Consent management, including support for specific consent use cases.
 </li>
 </ul>
 
