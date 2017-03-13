@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd"
  xmlns="http://hl7.org/fhir">
 
   <id value="father"/>
@@ -92,7 +92,7 @@
             <reference value="urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81"/>
           </entry>
         </section>
-      <!--   Points to the list that groups the medications on discharge   -->
+      <!--   Points to the  medications on discharge   -->
         <section>
           <title value="Medications on Discharge"/>
           <code>
@@ -158,7 +158,7 @@
             <reference value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
           </entry>
         </section>
-      <!--   Points to the list that groups the allergies   -->
+      <!--   Points to the  allergies   -->
         <section>
           <title value="Known allergies"/>
           <code>
