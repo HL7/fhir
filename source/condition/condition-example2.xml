@@ -27,5 +27,5 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <onsetDateTime value="2012-11-12"/>
+  <onsetString value="approximately November 2012"/>
 </Condition>
