@@ -335,6 +335,13 @@
           </coding>
           <text value="Reason for admission"/>
         </code>
+        <subject>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
+          <display value="Eve Everywoman"/>
+        </subject>
+        <context>
+          <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
+        </context>
         <valueString value="Acute Asthmatic attack. Was wheezing for days prior to admission."/>
       </Observation>
     </resource>
