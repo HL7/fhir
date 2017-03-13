@@ -23,16 +23,16 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/Questionnaire/bb"/>
+  <title value="NSW Government My Personal Health Record"/>
   <status value="draft"/>
   <date value="2013-02-19"/>
   <publisher value="New South Wales Department of Health"/>
-  <useContext>
+  <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="AU"/>
     </coding>
-  </useContext>
-  <title value="NSW Government My Personal Health Record"/>
+  </jurisdiction>
   <subjectType value="Patient"/>
   <item>
     <linkId value="birthDetails"/>

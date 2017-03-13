@@ -246,7 +246,7 @@
  -- Row 1 -----------------------------------
   Element = Questionnaire
   Aliases = Form, CRF, Survey
-  Type = DomainResource
+  Type = MetadataResource
   Short Name = A structured set of questions
   Definition = A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions
   Requirements = To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.
@@ -255,104 +255,60 @@
 
  -- Row 2 -----------------------------------
   Element = Questionnaire.url
-  Card. = 0..1
-  Summary = y
-  Type = uri
-  Short Name = Globally unique logical identifier for  questionnaire
-  Definition = An absolute URL that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this questionnaire is (or will be) published
-  RIM Mapping = .id[use=BUSN, reliability=ISS, extension is a URI]
-  w5 = id
 
  -- Row 3 -----------------------------------
   Element = Questionnaire.identifier
-  Card. = 0..*
-  Summary = y
-  Type = Identifier
-  Short Name = External identifiers for this questionnaire
-  Definition = This records identifiers associated with this question set that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
-  Requirements = Need to allow connection to a wider workflow
-  RIM Mapping = .id[use=BUSN]
   Committee Notes = Is this 80%?
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = Questionnaire.version
-  Card. = 0..1
-  Aliases = N/A - MIF rather than RIM level
-  Summary = y
-  Type = string
-  Short Name = Logical identifier for this version of Questionnaire
-  Definition = The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated
-  Requirements = In some cases, separate resource instances might be created for each version (if an older version can be maintained once a new version exists)
-  RIM Mapping = .id[use=VER]
-  w5 = id.version
 
  -- Row 5 -----------------------------------
-  Element = Questionnaire.status
-  Card. = 1..1
-  Is Modifier = y
-  Summary = y
-  Type = code
-  Binding = QuestionnaireStatus
-  Short Name = draft | published | retired
-  Definition = The lifecycle status of the questionnaire as a whole.
-  RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
-  w5 = status
+  Element = Questionnaire.name
 
  -- Row 6 -----------------------------------
-  Element = Questionnaire.date
-  Card. = 0..1
-  Aliases = Revision Date
-  Summary = y
-  Type = dateTime
-  Short Name = Date this version was authored
-  Definition = The date that this questionnaire was last changed
-  Comments = Upon creation Questionnaire.date will be the creation date and upon transition to \"active\", Questionnaire.date will be the publication date.  However, the date will change with any significant modification of the Questionnaire, so to reliably find this information, Provenance or extensions must be used.
-  RIM Mapping = .participation[typeCode=AUT].time
-  w5 = when.recorded
+  Element = Questionnaire.title
 
  -- Row 7 -----------------------------------
-  Element = Questionnaire.publisher
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Name = Organization/individual who designed the questionnaire
-  Definition = Organization or person responsible for developing and maintaining the questionnaire
-  Requirements = Conveys responsibility for the questions and their organization and also helps evaluate the questionnaire\'s \"authority\"
-  RIM Mapping = .participation[typeCode=AUT].role
-  w5 = who.witness
+  Element = Questionnaire.status
 
  -- Row 8 -----------------------------------
-  Element = Questionnaire.telecom
-  Card. = 0..*
-  Summary = Y
-  Type = ContactPoint
-  Short Name = Contact information of the publisher
-  Definition = Contact details to assist a user in finding and communicating with the publisher
-  RIM Mapping = .participation[typeCode=AUT].role.telecom
+  Element = Questionnaire.experimental
 
  -- Row 9 -----------------------------------
-  Element = Questionnaire.useContext
-  Card. = 0..*
-  Summary = y
-  Type = CodeableConcept
-  Binding = ConformanceUseContext
-  Short Name = Questionnaire intends to support these contexts
-  Definition = A code that identifies the questionnaire as falling into a particular group of like questionnaires; e.g. \"Pediatric\", \"Admissions\", \"Research\", \"Demographic\", \"Opinion Survey\", etc.
-  Requirements = Allows discovery of questionnaires.  Also allows organization of lists of questionnaires into groups for presentation
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]
+  Element = Questionnaire.date
 
  -- Row 10 -----------------------------------
-  Element = Questionnaire.title
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Name for the questionnaire
-  Definition = The name or label associated with this questionnaire
-  Requirements = Used for display, searching
-  RIM Mapping = .title
+  Element = Questionnaire.publisher
 
  -- Row 11 -----------------------------------
+  Element = Questionnaire.description
+
+ -- Row 12 -----------------------------------
+  Element = Questionnaire.purpose
+
+ -- Row 13 -----------------------------------
+  Element = Questionnaire.approvalDate
+
+ -- Row 14 -----------------------------------
+  Element = Questionnaire.lastReviewDate
+
+ -- Row 15 -----------------------------------
+  Element = Questionnaire.effectivePeriod
+
+ -- Row 16 -----------------------------------
+  Element = Questionnaire.useContext
+
+ -- Row 17 -----------------------------------
+  Element = Questionnaire.jurisdiction
+
+ -- Row 18 -----------------------------------
+  Element = Questionnaire.contact
+
+ -- Row 19 -----------------------------------
+  Element = Questionnaire.copyright
+
+ -- Row 20 -----------------------------------
   Element = Questionnaire.code
   Card. = 0..*
   Summary = Y
@@ -363,7 +319,7 @@
   Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"pannels\" of questions to be identified by a code.
   RIM Mapping = .code
 
- -- Row 12 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Questionnaire.subjectType
   Card. = 0..*
   Summary = y
@@ -374,7 +330,7 @@
   Comments = If none are specified, then the subject is unlimited
   RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
 
- -- Row 13 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Questionnaire.item
   Card. = 0..*
   UML = right
@@ -383,7 +339,7 @@
   Definition = The questions and groupings of questions that make up the questionnaire
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]
 
- -- Row 14 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Questionnaire.item.linkId
   Card. = 1..1
   Type = string
@@ -393,7 +349,7 @@
   Comments = This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
- -- Row 15 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Questionnaire.item.definition
   Card. = 0..1
   Inv. = 11
@@ -404,7 +360,7 @@
   Comments = The url refers to a an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources
   RIM Mapping = Not supported
 
- -- Row 16 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Questionnaire.item.code
   Card. = 0..*
   Summary = Y
@@ -417,7 +373,7 @@
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole. Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = .code
 
- -- Row 17 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Questionnaire.item.prefix
   Card. = 0..1
   Aliases = label
@@ -428,7 +384,7 @@
   Comments = These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.\n\nTypically these won\'t be used for \"text\" items, though such use is not prohibited.\n\nSystems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.
   RIM Mapping = Not supported
 
- -- Row 18 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Questionnaire.item.text
   Card. = 0..1
   Summary = Y
@@ -437,7 +393,7 @@
   Definition = The name of a section, the text of a question or text content for a text item
   RIM Mapping = .text
 
- -- Row 19 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Questionnaire.item.type
   Card. = 1..1
   Inv. = 11
@@ -449,7 +405,7 @@
   Comments = Additional constraints on the type of answer can be conveyed by extensions. Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 20 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Questionnaire.item.enableWhen
   Card. = 0..*
   Is Modifier = Y
@@ -461,7 +417,7 @@
   Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. Treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 21 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Questionnaire.item.enableWhen.question
   Card. = 1..1
   Type = string
@@ -470,7 +426,7 @@
   Comments = If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the \"ancestor\" axis and then the \"preceding\" axis and then the \"following\" axis
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 22 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Questionnaire.item.enableWhen.hasAnswer
   Card. = 0..1
   Inv. = 7
@@ -480,7 +436,7 @@
   Comments = If answered=false and answer values are also provided, then they are treated as \"or\".  I.e. \"Enable if the question is unanswered or the answer is one of the specified values\".  If answered=true and answers are present, one of the specified answers must be met. (So there\'s little reason to specify answered=true if answers are present.)
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 23 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Questionnaire.item.enableWhen.answer[x]
   Card. = 0..1
   Inv. = 7
@@ -491,7 +447,7 @@
   Comments = Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it\'s ok if the answer has a \"display\" element.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 24 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Questionnaire.item.required
   Card. = 0..1
   Inv. = 6
@@ -502,7 +458,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 25 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Questionnaire.item.repeats
   Card. = 0..1
   Inv. = 6
@@ -514,7 +470,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 26 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Questionnaire.item.readOnly
   Card. = 0..1
   Inv. = 9
@@ -525,7 +481,7 @@
   Comments = The value of readOnly elements can be established by asserting  extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 27 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Questionnaire.item.maxLength
   Card. = 0..1
   Inv. = 10
@@ -536,7 +492,7 @@
   v2 Mapping = N/A
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 28 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Questionnaire.item.options
   Card. = 0..1
   Inv. = 4,5
@@ -546,7 +502,7 @@
   Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist). Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 29 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Questionnaire.item.option
   Card. = 0..*
   UML = 100;400
@@ -556,7 +512,7 @@
   Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 30 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Questionnaire.item.option.value[x]
   Card. = 1..1
   Type = integer | date | time | string | Coding
@@ -565,7 +521,7 @@
   Definition = Identifies a specific answer that\'s allowed as the answer to a question
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 31 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Questionnaire.item.initial[x]
   Card. = 0..1
   Inv. = 8
@@ -578,7 +534,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Committee Notes = GF#11003
 
- -- Row 32 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Questionnaire.item.item
   Card. = 0..*
   Inv. = 1
@@ -591,57 +547,10 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = status
-  Type = token
-  Description = The status of the questionnaire
-  Path = Questionnaire.status
-
- -- Row 2 -----------------------------------
-  Name = date
-  Type = date
-  Description = When the questionnaire was last changed
-  Path = Questionnaire.date
-
- -- Row 3 -----------------------------------
-  Name = publisher
-  Type = string
-  Description = The author of the questionnaire
-  Path = Questionnaire.publisher
-
- -- Row 4 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = An identifier for the questionnaire
-  Path = Questionnaire.identifier
-
- -- Row 5 -----------------------------------
-  Name = version
-  Type = string
-  Description = The business version of the questionnaire
-  Path = Questionnaire.version
-
- -- Row 6 -----------------------------------
   Name = code
   Type = token
   Description = A code that corresponds to the questionnaire or one of its groups
   Path = Questionnaire.item.code
-
- -- Row 7 -----------------------------------
-  Name = title
-  Type = string
-  Description = All or part of the name of the questionnaire
-  Path = Questionnaire.title
-
- -- Row 8 -----------------------------------
-  Name = context
-  Type = token
-  Description = A use context assigned to the questionnaire
-  Path = Questionnaire.useContext
-
- -- Row 9 -----------------------------------
-  Name = url
-  Type = uri
-  Path = Questionnaire.url
 
 === Sheet Profiles =====================================
 

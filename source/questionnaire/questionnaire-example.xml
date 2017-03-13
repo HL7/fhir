@@ -19,9 +19,9 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/Questionnaire/3141"/>
+  <title value="Cancer Quality Forum Questionnaire 2012"/>
   <status value="draft"/>
   <date value="2012-01"/>
-  <title value="Cancer Quality Forum Questionnaire 2012"/>
   <subjectType value="Patient"/>
   <item>
     <linkId value="1"/>

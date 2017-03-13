@@ -7,11 +7,12 @@
     <use value="official"/>
     <value value="0938-070"/>
   </identifier>
-  <status value="published"/>
+  <title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
+  <status value="active"/>
   <date value="2009-08"/>
   <publisher value="Centers for Medicare &amp; Medicaid Services"/>
-  <title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
   <item>
+    <linkId value="ROOT"/>
     <type value="group"/>
     <item>
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
@@ -22,6 +23,7 @@
           </coding>
         </valueCodeableConcept>
       </extension>
+      <linkId value="INSTR"/>
       <text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
       <type value="display"/>
     </item>
@@ -42,6 +44,7 @@
       <text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
       <type value="string"/>
       <item>
+        <linkId value="M0018.1"/>
         <type value="choice"/>
         <required value="true"/>
         <option>
@@ -76,6 +79,7 @@
       <type value="date"/>
       <required value="true"/>
       <item>
+        <linkId value="M0030.1"/>
         <type value="choice"/>
         <required value="true"/>
         <option>
@@ -115,6 +119,7 @@
       <text value="Medicare Number"/>
       <type value="string"/>
       <item>
+        <linkId value="M0063.1"/>
         <type value="choice"/>
         <required value="true"/>
         <option>
@@ -133,6 +138,7 @@
       <text value="Social Security Number"/>
       <type value="string"/>
       <item>
+        <linkId value="M0064.1"/>
         <type value="choice"/>
         <required value="true"/>
         <option>
@@ -148,6 +154,7 @@
       <text value="Medicaid Number"/>
       <type value="string"/>
       <item>
+        <linkId value="M0065.1"/>
         <type value="choice"/>
         <required value="true"/>
         <option>
@@ -313,6 +320,7 @@
         </valueCoding>
       </option>
       <item>
+        <linkId value="M0140.1"/>
         <type value="string"/>
         <enableWhen>
           <question value="M0150"/>
@@ -322,6 +330,7 @@
     </item>
   </item>
   <item>
+    <linkId value="timing"/>
     <text value="Items to be Used at Specific Time Points"/>
     <type value="group"/>
     <item>
@@ -333,6 +342,7 @@
           </coding>
         </valueCodeableConcept>
       </extension>
+      <linkId value="footer"/>
       <text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
       <type value="display"/>
     </item>

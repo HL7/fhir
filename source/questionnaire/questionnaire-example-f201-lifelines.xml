@@ -17,7 +17,7 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/Questionnaire/f201"/>
-  <status value="published"/>
+  <status value="active"/>
   <date value="2010"/>
   <code>
     <system value="http://example.org/system/code/lifelines/nl"/>

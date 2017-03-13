@@ -113,10 +113,10 @@
     </ValueSet>
   </contained>
   <url value="http://hl7.org/fhir/Questionnaire/gcs"/>
+  <title value="Glasgow Coma Score"/>
   <status value="draft"/>
   <date value="2015-08-03"/>
   <publisher value="FHIR Project team"/>
-  <title value="Glasgow Coma Score"/>
   <code>
     <system value="http://loinc.org"/>
     <code value="9269-2"/>
