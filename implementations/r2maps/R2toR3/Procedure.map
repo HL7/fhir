@@ -14,21 +14,21 @@ group for type+types  Procedure extends DomainResource
   "Procedure-status" : for src.status make tgt.status
   "Procedure-category" : for src.category make tgt.category
   "Procedure-code" : for src.code make tgt.code
-  "Procedure-notPerformed" : for src.notPerformed make tgt.notPerformed
-  "Procedure-reasonNotPerformed" : for src.reasonNotPerformed make tgt.reasonNotPerformed
+  "Procedure-notPerformed" : for src.notPerformed make tgt.notDone
+  "Procedure-reasonNotPerformed" : for src.reasonNotPerformed make tgt.notDoneReason
   "Procedure-bodySite" : for src.bodySite make tgt.bodySite
   "Procedure-reasonCode" : for src.reason where $this is CodeableConcept make tgt.reasonCode
   "Procedure-reasonReference" : for src.reason where $this is Reference make tgt.reasonReference
   "Procedure-performed" : for src.performed make tgt.performed 
   "Procedure-performer" : for src.performer as vs0 make tgt.performer as vt0 then prcPerformer(vs0, vt0)
-  "Procedure-encounter" : for src.encounter make tgt.encounter
+  "Procedure-encounter" : for src.encounter make tgt.context
   "Procedure-location" : for src.location make tgt.location
   "Procedure-outcome" : for src.outcome make tgt.outcome
   "Procedure-report" : for src.report make tgt.report
   "Procedure-complication" : for src.complication make tgt.complication
   "Procedure-followUp" : for src.followUp make tgt.followUp
-  "Procedure-request" : for src.request make tgt.request
-  "Procedure-notes" : for src.notes make tgt.notes
+  "Procedure-request" : for src.request make tgt.basedOn
+  "Procedure-notes" : for src.notes make tgt.note
   "Procedure-focalDevice" : for src.focalDevice as vs0 make tgt.focalDevice as vt0 then prcFocalDevice(vs0, vt0)
   "Procedure-used" : for src.used make tgt.usedReference
 endgroup

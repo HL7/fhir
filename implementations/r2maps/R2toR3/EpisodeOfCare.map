@@ -13,7 +13,7 @@ group for type+types  EpisodeOfCare extends DomainResource
   "EpisodeOfCare-status" : for src.status make tgt.status
   "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then epcStatusHistory(vs0, vt0)
   "EpisodeOfCare-type" : for src.type make tgt.type
-  "EpisodeOfCare-condition" : for src.condition make tgt.condition
+  "EpisodeOfCare-condition" : for src.condition as v make tgt.diagnosis as d, d.condition = v
   "EpisodeOfCare-patient" : for src.patient make tgt.patient
   "EpisodeOfCare-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
   "EpisodeOfCare-period" : for src.period make tgt.period

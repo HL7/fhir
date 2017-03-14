@@ -20,7 +20,7 @@ group for type+types  MessageHeader extends DomainResource
   "MessageHeader-receiver" : for src.receiver make tgt.receiver
   "MessageHeader-responsible" : for src.responsible make tgt.responsible
   "MessageHeader-reason" : for src.reason make tgt.reason
-  "MessageHeader-data" : for src.data make tgt.data
+  "MessageHeader-data" : for src.focus make tgt.data
 
 endgroup
 

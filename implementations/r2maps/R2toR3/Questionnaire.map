@@ -1,5 +1,14 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Questionnaire2to3" = "R2 to R3 Conversions for Questionnaire"
 
+conceptmap "QuestionnaireStatus" {
+  prefix s = "http://hl7.org/fhir/allergy-intolerance-status"
+  prefix t = "http://hl7.org/fhir/allergy-verification-status"
+
+  s:published = t:active
+  s:draft = t:draft
+  s:retired = t:retired
+}
+
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Questionnaire" alias QuestionnaireR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as target
 
@@ -11,10 +20,10 @@ group for type+types  Questionnaire extends DomainResource
 
   "Questionnaire-identifier" : for src.identifier make tgt.identifier
   "Questionnaire-version" : for src.version make tgt.version
-  "Questionnaire-status" : for src.status make tgt.status
+  "Questionnaire-status" : for src.status as v make tgt.status = translate(v, "#QuestionnaireStatus", "code")
   "Questionnaire-date" : for src.date make tgt.date
   "Questionnaire-publisher" : for src.publisher make tgt.publisher
-  "Questionnaire-telecom" : for src.telecom make tgt.telecom
+  "Questionnaire-telecom" : for src.telecom as v make tgt.contact as d, d.telecom as v
   "Questionnaire-subjectType" : for src.subjectType make tgt.subjectType
 
   "Questionnaire-group" : for src.group as vs0 make tgt.item as vt0 then qstGroup(vs0, vt0)  
@@ -27,7 +36,7 @@ group qstGroup extends BackboneElement
   "Questionnaire.group-type" : for src make tgt.type = 'group'
   "Questionnaire.group-linkId" : for src.linkId make tgt.linkId
   "Questionnaire.group-title" : for src.title make tgt.text
-  "Questionnaire.group-concept" : for src.concept make tgt.concept
+  "Questionnaire.group-concept" : for src.concept make tgt.code
   "Questionnaire.group-text" : for src.text as t where src.title.exists() and src.linkId.exists() make tgt.item as i, i.linkId = (src.linkId + '-'+'display'), i.text = t
   "Questionnaire.group-text" : for src.text where src.title.empty() make tgt.text
   "Questionnaire.group-required" : for src.required make tgt.required
@@ -42,11 +51,11 @@ group qstQuestion extends BackboneElement
 
   "Questionnaire.group.question-type" : for src.type make tgt.type 
   "Questionnaire.group.question-linkId" : for src.linkId make tgt.linkId
-  "Questionnaire.group.question-concept" : for src.concept make tgt.concept
+  "Questionnaire.group.question-concept" : for src.concept make tgt.code
   "Questionnaire.group.question-text" : for src.text make tgt.text
   "Questionnaire.group.question-required" : for src.required make tgt.required
   "Questionnaire.group.question-repeats" : for src.repeats make tgt.repeats
   "Questionnaire.group.question-options" : for src.options make tgt.options
-  "Questionnaire.group.question-option" : for src.option make tgt.option
+  "Questionnaire.group.question-option" : for src.option as v make tgt.option as o, o.value as v
   "Questionnaire.group.question-group" : for src.group as vs0 make tgt.item as vt0 then qstGroup(vs0, vt0)  
 endgroup

@@ -14,10 +14,14 @@ group for type+types  Immunization extends DomainResource
   "Immunization-date" : for src.date make tgt.date
   "Immunization-vaccineCode" : for src.vaccineCode make tgt.vaccineCode
   "Immunization-patient" : for src.patient make tgt.patient
-  "Immunization-wasNotGiven" : for src.wasNotGiven make tgt.wasNotGiven
+  "Immunization-wasNotGiven" : for src.notGiven make tgt.wasNotGiven
   // can't translate reported
-  "Immunization-performer" : for src.performer make tgt.performer
-  "Immunization-requester" : for src.requester make tgt.requester
+  "Immunization-performer" : for src.practitioner as v where v.role.coding.code.contains("AP") then {
+    "Immunization-performer-inner" : for v.actor make tgt.performer 
+  }
+  "Immunization-requester" : for src.practitioner as v where v.role.coding.code.contains("OP") then {
+    "Immunization-requester-inner" : for v.actor make tgt.requester 
+  }
   "Immunization-encounter" : for src.encounter make tgt.encounter
   "Immunization-manufacturer" : for src.manufacturer make tgt.manufacturer
   "Immunization-location" : for src.location make tgt.location

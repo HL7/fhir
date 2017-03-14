@@ -11,10 +11,10 @@ group for type+types HealthcareService extends DomainResource
 
   "HealthcareService-identifier" : for src.identifier make tgt.identifier
   "HealthcareService-providedBy" : for src.providedBy make tgt.providedBy
-  "HealthcareService-serviceCategory" : for src.serviceCategory make tgt.serviceCategory
+  "HealthcareService-serviceCategory" : for src.serviceCategory make tgt.category
   "HealthcareService-serviceType" : for src.serviceType as v then hsvcType(v, tgt)
   "HealthcareService-location" : for src.location make tgt.location
-  "HealthcareService-serviceName" : for src.serviceName make tgt.serviceName
+  "HealthcareService-serviceName" : for src.serviceName make tgt.name
   "HealthcareService-comment" : for src.comment make tgt.comment
   "HealthcareService-extraDetails" : for src.extraDetails make tgt.extraDetails
   "HealthcareService-photo" : for src.photo make tgt.photo
@@ -26,7 +26,6 @@ group for type+types HealthcareService extends DomainResource
   "HealthcareService-programName" : for src.programName make tgt.programName
   "HealthcareService-characteristic" : for src.characteristic make tgt.characteristic
   "HealthcareService-referralMethod" : for src.referralMethod make tgt.referralMethod
-  "HealthcareService-publicKey" : for src.publicKey make tgt.publicKey
   "HealthcareService-appointmentRequired" : for src.appointmentRequired make tgt.appointmentRequired
   "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then hsvcAvailable(vs0, vt0)
   "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then hsvcNotAvailable(vs0, vt0)
@@ -55,6 +54,6 @@ group hsvcType extends BackboneElement
   input src as source
   input tgt as target
 
-  "HealthcareService.serviceType-type" : for src.type make tgt.serviceType
+  "HealthcareService.serviceType-type" : for src.type make tgt.type
   "HealthcareService.serviceType-speciality" : for src.specialty make tgt.specialty
 endgroup

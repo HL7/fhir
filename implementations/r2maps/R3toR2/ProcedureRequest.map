@@ -13,15 +13,18 @@ group for type+types  ProcedureRequest extends DomainResource
   "ProcedureRequest-subject" : for src.subject make tgt.subject
   "ProcedureRequest-code" : for src.code make tgt.code
   "ProcedureRequest-bodySite" : for src.bodySite make tgt.bodySite
-  "ProcedureRequest-reason" : for src.reason make tgt.reason
-  "ProcedureRequest-scheduled" : for src.scheduled make tgt.scheduled
-  "ProcedureRequest-encounter" : for src.encounter make tgt.encounter
+  "ProcedureRequest-reason1" : for src.reasonCode make tgt.reason
+  "ProcedureRequest-reason2" : for src.reasonReference make tgt.reason
+  "ProcedureRequest-scheduled" : for src.occurrence make tgt.scheduled
+  "ProcedureRequest-encounter" : for src.context make tgt.encounter
   "ProcedureRequest-performer" : for src.performer make tgt.performer
   "ProcedureRequest-status" : for src.status make tgt.status
-  "ProcedureRequest-notes" : for src.notes make tgt.notes
+  "ProcedureRequest-notes" : for src.note make tgt.notes
   "ProcedureRequest-asNeeded" : for src.asNeeded make tgt.asNeeded
-  "ProcedureRequest-orderedOn" : for src.orderedOn make tgt.orderedOn
-  "ProcedureRequest-orderer" : for src.orderer make tgt.orderer
+  "ProcedureRequest-orderedOn" : for src.authoredOn make tgt.orderedOn
+  "ProcedureRequest-orderer" : for src.requester as v then {
+    "ProcedureRequest-orderer-inner" : for v.agent make tgt.orderer
+  }
   "ProcedureRequest-priority" : for src.priority make tgt.priority
 
 endgroup

@@ -11,11 +11,11 @@ group for type+types  HealthcareService extends DomainResource
 
   "HealthcareService-identifier" : for src.identifier make tgt.identifier
   "HealthcareService-providedBy" : for src.providedBy make tgt.providedBy
-  "HealthcareService-serviceCategory" : for src.serviceCategory make tgt.serviceCategory
-  "HealthcareService-serviceType" : for src.serviceType as vs make tgt.serviceType as vt, vt.type as vt then CodeableConcept(vs, vt)
+  "HealthcareService-serviceCategory" : for src.category make tgt.serviceCategory
+  "HealthcareService-serviceType" : for src.type as vs make tgt.serviceType as vt, vt.type as vt then CodeableConcept(vs, vt)
   "HealthcareService-speciality" : for src.specialty as vs make tgt.serviceType as vt first, vt.specialty as vt then CodeableConcept(vs, vt) // put all the specialties on the first type
   "HealthcareService-location" : for src.location make tgt.location
-  "HealthcareService-serviceName" : for src.serviceName make tgt.serviceName
+  "HealthcareService-serviceName" : for src.name make tgt.serviceName
   "HealthcareService-comment" : for src.comment make tgt.comment
   "HealthcareService-extraDetails" : for src.extraDetails make tgt.extraDetails
   "HealthcareService-photo" : for src.photo make tgt.photo
@@ -27,7 +27,6 @@ group for type+types  HealthcareService extends DomainResource
   "HealthcareService-programName" : for src.programName make tgt.programName
   "HealthcareService-characteristic" : for src.characteristic make tgt.characteristic
   "HealthcareService-referralMethod" : for src.referralMethod make tgt.referralMethod
-  "HealthcareService-publicKey" : for src.publicKey make tgt.publicKey
   "HealthcareService-appointmentRequired" : for src.appointmentRequired make tgt.appointmentRequired
   "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then hsvcAvailable(vs0, vt0)
   "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then hsvcNotAvailable(vs0, vt0)

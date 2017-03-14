@@ -13,7 +13,7 @@ group for type+types  EpisodeOfCare extends DomainResource
   "EpisodeOfCare-status" : for src.status make tgt.status
   "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then epcStatusHistory(vs0, vt0)
   "EpisodeOfCare-type" : for src.type make tgt.type
-  "EpisodeOfCare-condition" : for src.condition make tgt.condition
+  "EpisodeOfCare-condition" : for src.diagnosis as d then epcDiagnosis(d, tgt)
   "EpisodeOfCare-patient" : for src.patient make tgt.patient
   "EpisodeOfCare-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
   "EpisodeOfCare-period" : for src.period make tgt.period
@@ -22,6 +22,14 @@ group for type+types  EpisodeOfCare extends DomainResource
   "EpisodeOfCare-careTeam" : for src.team as vs where reference.resolve().exists() make (src.team.reference.resolve()) as ct then epiCareTeam(ct, tgt)
 
 endgroup
+
+group epcDiagnosis extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "EpisodeOfCare.indication-condition1" : for src.condition as v where src.role.coding.code.contains("AD").not() and role.coding.code.contains("DD").not() make tgt.condition = v
+endgroup
+
 
 group epcStatusHistory extends BackboneElement
   input src as source

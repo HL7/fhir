@@ -37,6 +37,4 @@ group for types stringToCodeableConcept extends Element
   input tgt : CodeableConcept as target
 
   "stringToCodeableConcept-text" : for src make tgt.text as vt then string(src, vt)
-
 endgroup
-

@@ -14,9 +14,9 @@ group for type+types  Immunization extends DomainResource
   "Immunization-date" : for src.date make tgt.date
   "Immunization-vaccineCode" : for src.vaccineCode make tgt.vaccineCode
   "Immunization-patient" : for src.patient make tgt.patient
-  "Immunization-wasNotGiven" : for src.wasNotGiven make tgt.wasNotGiven
-  "Immunization-performer" : for src.performer make tgt.performer
-  "Immunization-requester" : for src.requester make tgt.requester
+  "Immunization-wasNotGiven" : for src.wasNotGiven make tgt.notGiven
+  "Immunization-performer" : for src.performer as v make tgt.practitioner as p, p.role = cc("http://hl7.org/fhir/v2/0443", "AP"), p.actor = v
+  "Immunization-requester" : for src.requester as v make tgt.practitioner as p, p.role = cc("http://hl7.org/fhir/v2/0443", "OP"), p.actor = v
   "Immunization-encounter" : for src.encounter make tgt.encounter
   "Immunization-manufacturer" : for src.manufacturer make tgt.manufacturer
   "Immunization-location" : for src.location make tgt.location

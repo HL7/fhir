@@ -20,7 +20,9 @@ group for type+types  Media extends DomainResource
   "Media-view" : for src.view make tgt.view
   "Media-subject" : for src.subject make tgt.subject
   "Media-operator" : for src.operator make tgt.operator
-  "Media-deviceName" : for src.deviceName make tgt.deviceName
+  "Media-deviceName" : for src.device as v then {
+    "Media-deviceName-inner" : for v.display make tgt.deviceName
+  }
   "Media-height" : for src.height make tgt.height
   "Media-width" : for src.width make tgt.width
   "Media-frames" : for src.frames make tgt.frames

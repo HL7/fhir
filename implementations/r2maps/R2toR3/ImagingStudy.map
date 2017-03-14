@@ -18,10 +18,10 @@ group for type+types  ImagingStudy extends DomainResource
   "ImagingStudy-modalityList" : for src.modalityList make tgt.modalityList
   "ImagingStudy-referrer" : for src.referrer make tgt.referrer
   "ImagingStudy-availability" : for src.availability make tgt.availability
-  "ImagingStudy-url" : for src.url as u make tgt.baseLocation as bl, bl.type = c("http://hl7.org/fhir/dWebType", "WADO-RS"), bl.url = u
+  "ImagingStudy-url" : for src.url as v make tgt.extension as t, t.url = 'http://hl7.org/fhir/ImagingStudy-r2-url', t.value = v
   "ImagingStudy-numberOfSeries" : for src.numberOfSeries make tgt.numberOfSeries
   "ImagingStudy-numberOfInstances" : for src.numberOfInstances make tgt.numberOfInstances
-  "ImagingStudy-procedure" : for src.procedure make tgt.procedure
+  "ImagingStudy-procedure" : for src.procedure make tgt.procedureReference
   "ImagingStudy-interpreter" : for src.interpreter make tgt.interpreter
   "ImagingStudy-description" : for src.description make tgt.description
   "ImagingStudy-series" : for src.series as vs0 make tgt.series as vt0 then imgSeries(vs0, vt0) 
@@ -37,7 +37,7 @@ group imgSeries extends BackboneElement
   "ImagingStudy.series-description" : for src.description make tgt.description
   "ImagingStudy.series-numberOfInstances" : for src.numberOfInstances make tgt.numberOfInstances
   "ImagingStudy.series-availability" : for src.availability make tgt.availability
-  "ImagingStudy.series-url" : for src.url as u make tgt.baseLocation as bl, bl.type = c("http://hl7.org/fhir/dWebType", "WADO-RS"), bl.url = u
+  "ImagingStudy.series-url" : for src.url as v make tgt.extension as t, t.url = 'http://hl7.org/fhir/ImagingStudy-r2-url', t.value = v
   "ImagingStudy.series-bodySite" : for src.bodySite make tgt.bodySite
   "ImagingStudy.series-laterality" : for src.laterality make tgt.laterality
   "ImagingStudy.series-started" : for src.started make tgt.started

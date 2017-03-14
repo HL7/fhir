@@ -25,18 +25,22 @@ group for type+types  ReferralRequest extends DomainResource
 
   "ReferralRequest-status" : for src.status as v make tgt.status = translate(v, "#status", "code")
   "ReferralRequest-identifier" : for src.identifier make tgt.identifier
-  "ReferralRequest-date" : for src.date make tgt.authored
+  "ReferralRequest-date" : for src.date make tgt.authoredOn
   "ReferralRequest-type" : for src.type make tgt.type
   "ReferralRequest-specialty" : for src.specialty make tgt.specialty
-  "ReferralRequest-priority" : for src.priority make tgt.priority
-  "ReferralRequest-patient" : for src.patient make tgt.patient
-  "ReferralRequest-requester" : for src.requester make tgt.requester
+  "ReferralRequest-priority" : for src.priority as v then {
+    "test" : for v.coding as v1 where v1.system = 'http://hl7.org/fhir/diagnostic-order-priority' then { 
+      "t2" : for v1.code make tgt.priority 
+    }
+  }
+  "ReferralRequest-patient" : for src.patient make tgt.subject
+  "ReferralRequest-requester" : for src.requester as v make tgt.requester as t, t.agent = v
   "ReferralRequest-recipient" : for src.recipient make tgt.recipient
   "ReferralRequest-encounter" : for src.encounter make tgt.context
   // drop dateSent
-  "ReferralRequest-reason" : for src.reason make tgt.reason
+  "ReferralRequest-reason" : for src.reason make tgt.reasonCode
   "ReferralRequest-description" : for src.description make tgt.description
   "ReferralRequest-serviceRequested" : for src.serviceRequested make tgt.serviceRequested
-  "ReferralRequest-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
-  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.fulfillmentTime
+  "ReferralRequest-supportingInformation" : for src.supportingInformation make tgt.supportingInfo
+  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.occurrence
 endgroup

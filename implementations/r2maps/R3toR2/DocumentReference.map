@@ -20,7 +20,7 @@ group for type+types  DocumentReference extends DomainResource
   "DocumentReference-created" : for src.created make tgt.created
   "DocumentReference-indexed" : for src.indexed make tgt.indexed
   "DocumentReference-status" : for src.status make tgt.status
-  "DocumentReference-docStatus" : for src.docStatus make tgt.docStatus
+  "DocumentReference-docStatus" : for src.docStatus as v make tgt.docStatus = cc("http://hl7.org/fhir/composition-status", c)
   "DocumentReference-relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then drRelatesTo(vs0, vt0)
   "DocumentReference-description" : for src.description make tgt.description
   "DocumentReference-securityLabel" : for src.securityLabel make tgt.securityLabel
