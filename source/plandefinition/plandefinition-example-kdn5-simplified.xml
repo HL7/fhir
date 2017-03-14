@@ -81,16 +81,8 @@
         <text value="gemcitabine" />
       </productCodeableConcept>
       <dosage>
-        <text value="1250 mg/m² IV over 30 minutes on days 1 and 8" />
+        <text value="1250 mg/m² IV over 30 minutes" />
         <timing>
-          <extension url="http://example.org/fhir/daysOfCycle">
-            <extension url="day">
-              <valueInteger value="1" />
-            </extension>
-            <extension url="day">
-              <valueInteger value="8" />
-            </extension>
-          </extension>
           <repeat>
             <duration value="30" />
             <durationUnit value="min" />
@@ -119,13 +111,8 @@
         <text value="CARBOplatin" />
       </productCodeableConcept>
       <dosage>
-        <text value="AUC 5 IV over 30 minutes on Day 1" />
+        <text value="AUC 5 IV over 30 minutes" />
         <timing>
-          <extension url="http://example.org/fhir/daysOfCycle">
-            <extension url="day">
-              <valueInteger value="1" />
-            </extension>
-          </extension>
           <repeat>
             <duration value="30" />
             <durationUnit value="min" />
@@ -281,12 +268,25 @@
           <!-- references would duplicated in each cycle definition option
           (see http://build.fhir.org/codesystem-action-grouping-behavior.html#sentence-group)-->
           <action>
+            <extension url="http://example.org/fhir/daysOfCycle">
+              <extension url="day">
+                <valueInteger value="1" />
+              </extension>
+              <extension url="day">
+                <valueInteger value="8" />
+              </extension>
+            </extension>
             <textEquivalent value="Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" />
             <definition>
               <reference value="#1111"/>
             </definition>
           </action>
           <action>
+            <extension url="http://example.org/fhir/daysOfCycle">
+              <extension url="day">
+                <valueInteger value="1" />
+              </extension>
+            </extension>
             <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
             <definition>
               <reference value="#2222"/>
