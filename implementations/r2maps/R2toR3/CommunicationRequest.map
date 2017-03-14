@@ -1,9 +1,28 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest2to3" = "R2 to R3 Conversions for CommunicationRequest"
 
+
+conceptmap "CommunicationRequestStatus" {
+  prefix s = "http://hl7.org/fhir/communication-request-status"
+  prefix t = "http://hl7.org/fhir/communication-request-status"
+
+  s:proposed = t:draft
+  s:planned = t:draft
+  s:requested = t:active
+  s:received = t:active
+  s:accepted = t:active
+  s:"in-progress" = t:active
+  s:completed = t:completed
+  s:suspended = t:suspended	
+  s:rejected = t:cancelled
+  s:failed = t:cancelled
+}
+
+
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CommunicationRequest" alias CommunicationRequestR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*2to3"
+
 
 group for type+types CommunicationRequest extends DomainResource
   input src : CommunicationRequestR2 as source
@@ -16,11 +35,11 @@ group for type+types CommunicationRequest extends DomainResource
   "CommunicationRequest-payload" : for src.payload as vs0 make tgt.payload as vt0 then cmrPayload(vs0, vt0)
   "CommunicationRequest-medium" : for src.medium make tgt.medium
   "CommunicationRequest-requester" : for src.requester make tgt.requester
-  "CommunicationRequest-status" : for src.status make tgt.status
+  "CommunicationRequest-status" : for src.status as v make tgt.status = translate(v, "#CommunicationRequestStatus", "code")
   "CommunicationRequest-context" : for src.encounter make tgt.context
-  "CommunicationRequest-scheduled" : for src.scheduled make tgt.scheduled 
-  "CommunicationRequest-reason" : for src.reason make tgt.reason
-  "CommunicationRequest-requestedOn" : for src.requestedOn make tgt.requestedOn
+  "CommunicationRequest-scheduled" : for src.scheduled make tgt.occurrence 
+  "CommunicationRequest-reason" : for src.reason make tgt.reasonCode
+  "CommunicationRequest-requestedOn" : for src.requestedOn make tgt.authoredOn
   "CommunicationRequest-subject" : for src.subject make tgt.subject
   "CommunicationRequest-priority" : for src.priority make tgt.priority
 endgroup

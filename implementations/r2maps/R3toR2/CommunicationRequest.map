@@ -18,9 +18,9 @@ group for type+types  CommunicationRequest extends DomainResource
   "CommunicationRequest-requester" : for src.requester make tgt.requester
   "CommunicationRequest-status" : for src.status make tgt.status
   "CommunicationRequest-context" : for src.context make tgt.encounter
-  "CommunicationRequest-scheduled" : for src.scheduled make tgt.scheduled 
-  "CommunicationRequest-reason" : for src.reason make tgt.reason
-  "CommunicationRequest-requestedOn" : for src.requestedOn make tgt.requestedOn
+  "CommunicationRequest-scheduled" : for src.occurrence make tgt.scheduled 
+  "CommunicationRequest-reason" : for src.reasonCode make tgt.reason
+  "CommunicationRequest-requestedOn" : for src.authoredOn make tgt.requestedOn
   "CommunicationRequest-subject" : for src.subject make tgt.subject
   "CommunicationRequest-priority" : for src.priority make tgt.priority
 endgroup

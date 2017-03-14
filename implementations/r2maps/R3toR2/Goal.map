@@ -22,12 +22,7 @@ group for type+types  Goal extends DomainResource
   "Goal-priority" : for src.priority make tgt.priority
   "Goal-addresses" : for src.addresses make tgt.addresses
   "Goal-note" : for src.note make tgt.note
-  "Goal-outcome" : for src.outcome as vs0 make tgt.outcome as vt0 then golOutcome(vs0, vt0)
+  "Goal-outcome" : for src.outcomeCode as vs0 make tgt.outcome as vt0, vt0.result = vs0
+  "Goal-outcome" : for src.outcomeReference as vs0 make tgt.outcome as vt0, vt0.result = vs0
 endgroup
 
-group golOutcome extends BackboneElement
-  input src as source
-  input tgt as target
-
-  "Goal.outcome-result" : for src.result make tgt.result
-endgroup

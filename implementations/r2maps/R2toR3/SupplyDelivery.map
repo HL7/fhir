@@ -13,11 +13,11 @@ group for type+types  SupplyDelivery extends DomainResource
   "SupplyDelivery-status" : for src.status make tgt.status
   "SupplyDelivery-patient" : for src.patient make tgt.patient
   "SupplyDelivery-type" : for src.type make tgt.type
-  "SupplyDelivery-quantity" : for src.quantity make tgt.quantity
-  "SupplyDelivery-suppliedItem" : for src.suppliedItem make tgt.suppliedItem
+  "SupplyDelivery-quantity" : for src.quantity as v make tgt.suppliedItem as si, si.quantity = v
+  "SupplyDelivery-suppliedItem" : for src.suppliedItem as v make tgt.suppliedItem as si, si.item = v
   "SupplyDelivery-supplier" : for src.supplier make tgt.supplier
-  "SupplyDelivery-whenPrepared" : for src.whenPrepared make tgt.whenPrepared
-  "SupplyDelivery-time" : for src.time make tgt.time
+  "SupplyDelivery-whenPrepared" : for src.whenPrepared as v make tgt.extension as t, t.url = 'http://hl7.org/fhir/SupplyDelivery-r2-whenPrepared', t.value = v
+  "SupplyDelivery-time" : for src.time make tgt.occurrence
   "SupplyDelivery-destination" : for src.destination make tgt.destination
   "SupplyDelivery-receiver" : for src.receiver make tgt.receiver
 

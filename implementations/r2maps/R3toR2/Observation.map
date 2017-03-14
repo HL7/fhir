@@ -14,7 +14,7 @@ group for type+types  Observation extends DomainResource
   "Observation-category" : for src.category make tgt.category
   "Observation-code" : for src.code make tgt.code
   "Observation-subject" : for src.subject make tgt.subject
-  "Observation-encounter" : for src.encounter make tgt.encounter
+  "Observation-encounter" : for src.context make tgt.encounter
   "Observation-effective" : for src.effective make tgt.effective
   "Observation-issued" : for src.issued make tgt.issued
   "Observation-performer" : for src.performer make tgt.performer
@@ -37,7 +37,7 @@ group obsReferenceRange extends BackboneElement
 
   "Observation.referenceRange-low" : for src.low make tgt.low
   "Observation.referenceRange-high" : for src.high make tgt.high
-  "Observation.referenceRange-meaning" : for src.meaning make tgt.meaning
+  "Observation.referenceRange-meaning" : for src.appliesTo make tgt.meaning
   "Observation.referenceRange-age" : for src.age make tgt.age
   "Observation.referenceRange-text" : for src.text make tgt.text
 endgroup

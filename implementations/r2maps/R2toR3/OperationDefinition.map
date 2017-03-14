@@ -66,5 +66,5 @@ group opPart extends BackboneElement
   "OperationDefinition.parameter-part-documentation" : for src.documentation make tgt.documentation
   "OperationDefinition.parameter-part-type" : for src.type make tgt.type
   "OperationDefinition.parameter-part-profile" : for src.profile make tgt.profile
-  "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then part(psrc, ptgt)
+  "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then opPart(psrc, ptgt)
 endgroup

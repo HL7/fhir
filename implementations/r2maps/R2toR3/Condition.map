@@ -1,14 +1,14 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition2to3" = "R2 to R3 Conversions for Condition"
 
 conceptmap "ConditionClinicalStatus" {
-  prefix s = "http://hl7.org/fhir/condition-clinical"
-  prefix t = "http://hl7.org/fhir/condition-clinical"
+  prefix s = "http://hl7.org/fhir/devicestatus"
+  prefix t = "http://hl7.org/fhir/devicestatus"
 
-  s:active = t:active
-  s:relapse = t:recurrence
-  s:remission = t:remission
-  s:resolved = t:resolved
+  s:available	 = t:active 
+  s:inactive = t:"not-available"
+  s:"entered-in-error" = t:"entered-in-error"
 }
+
 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Condition" alias ConditionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as target

@@ -31,7 +31,7 @@ group for type+types  Encounter extends DomainResource
   "Encounter-class" : for src.class as v make tgt.class = translate(v, "#ActEncounterCode", "Coding")
   "Encounter-type" : for src.type make tgt.type
   "Encounter-priority" : for src.priority make tgt.priority
-  "Encounter-patient" : for src.patient make tgt.patient
+  "Encounter-patient" : for src.patient make tgt.subject
   "Encounter-episodeOfCare" : for src.episodeOfCare make tgt.episodeOfCare
   "Encounter-incomingReferral" : for src.incomingReferral make tgt.incomingReferral
   "Encounter-participant" : for src.participant as vs0 make tgt.participant as vt0 then encParticipant(vs0, vt0)
@@ -39,8 +39,8 @@ group for type+types  Encounter extends DomainResource
   "Encounter-period" : for src.period make tgt.period
   "Encounter-length" : for src.length as vs make tgt.length as vt then QuantityToDuration(vs, vt)
   "Encounter-reason" : for src.reason make tgt.reason
-  "Encounter-indication" : for src.indication make tgt.indication
-  "Encounter-hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then encHospitaization(vs0, vt0) 
+  "Encounter-indication" : for src.indication as v make tgt.diagnosis as d, d.condition = v
+  "Encounter-hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then encHospitaization(vs0, vt0, tgt) 
   "Encounter-location" : for src.location as vs0 make tgt.location as vt0 then encLocation(vs0, vt0)
   "Encounter-serviceProvider" : for src.serviceProvider make tgt.serviceProvider
   "Encounter-partOf" : for src.partOf make tgt.partOf
@@ -66,18 +66,19 @@ endgroup
 group encHospitaization extends BackboneElement
   input src as source
   input tgt as target
+  input res as target
 
   "Encounter.hospitalization-preAdmissionIdentifier" : for src.preAdmissionIdentifier make tgt.preAdmissionIdentifier
   "Encounter.hospitalization-origin" : for src.origin make tgt.origin
   "Encounter.hospitalization-admitSource" : for src.admitSource make tgt.admitSource
-  "Encounter.hospitalization-admittingDiagnosis" : for src.admittingDiagnosis make tgt.admittingDiagnosis
+  "Encounter.hospitalization-admittingDiagnosis" : for src.admittingDiagnosis as v make tgt.diagnosis as d, d.role = cc("http://hl7.org/fhir/diagnosis-role", "AD"), d.condition = v
   "Encounter.hospitalization-reAdmission" : for src.reAdmission make tgt.reAdmission
   "Encounter.hospitalization-dietPreference" : for src.dietPreference make tgt.dietPreference
   "Encounter.hospitalization-specialCourtesy" : for src.specialCourtesy make tgt.specialCourtesy
   "Encounter.hospitalization-specialArrangement" : for src.specialArrangement make tgt.specialArrangement
   "Encounter.hospitalization-destination" : for src.destination make tgt.destination
   "Encounter.hospitalization-dischargeDisposition" : for src.dischargeDisposition make tgt.dischargeDisposition
-  "Encounter.hospitalization-dischargeDiagnosis" : for src.dischargeDiagnosis make tgt.dischargeDiagnosis
+  "Encounter.hospitalization-dischargeDiagnosis" : for src.dischargeDiagnosis as v make tgt.diagnosis as d, d.role = cc("http://hl7.org/fhir/diagnosis-role", "DD"), d.condition = v
 
 endgroup
 

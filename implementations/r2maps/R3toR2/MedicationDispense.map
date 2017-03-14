@@ -11,8 +11,8 @@ group for type+types  MedicationDispense extends DomainResource
 
   "MedicationDispense-identifier" : for src.identifier make tgt.identifier
   "MedicationDispense-status" : for src.status make tgt.status
-  "MedicationDispense-patient" : for src.patient make tgt.patient
-  "MedicationDispense-dispenser" : for src.dispenser make tgt.dispenser
+  "MedicationDispense-patient" : for src.subject make tgt.patient
+  "MedicationDispense-dispenser" : for src.performer as vs0 then mddPerformer(vs0, tgt)
   "MedicationDispense-authorizingPrescription" : for src.authorizingPrescription make tgt.authorizingPrescription
   "MedicationDispense-type" : for src.type make tgt.type
   "MedicationDispense-quantity" : for src.quantity make tgt.quantity
@@ -26,6 +26,13 @@ group for type+types  MedicationDispense extends DomainResource
   
   "MedicationDispense-dosageInstruction" : for src.dosageInstruction as vs0 make tgt.dosageInstruction as vt0 then mddDosage(vs0, vt0)
   "MedicationDispense-substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then mddSubstitution(vs0, vt0)
+endgroup
+
+group mddPerformer extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MedicationDispense.performer-actor" : for src.actor make tgt.dispenser
 endgroup
 
 group mddSubstitution extends BackboneElement
@@ -42,7 +49,7 @@ group mddDosage extends Element // ? BackboneElement
   input tgt as target
 
   "MedicationDispense.dosage-text" : for src.text make tgt.text
-  "MedicationDispense.dosage-additionalInstructions" : for src.additionalInstructions	only_one make tgt.additionalInstructions
+  "MedicationDispense.dosage-additionalInstructions" : for src.additionalInstruction	only_one make tgt.additionalInstructions
   "MedicationDispense.dosage-timing" : for src.timing make tgt.timing
   "MedicationDispense.dosage-asNeeded" : for src.asNeeded make tgt.asNeeded
   "MedicationDispense.dosage-site" : for src.site make tgt.site  

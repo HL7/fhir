@@ -1,5 +1,15 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition3to2" = "R3 to R2 Conversion for Condition"
 
+conceptmap "ConditionClinicalStatus" {
+  prefix s = "http://hl7.org/fhir/devicestatus"
+  prefix t = "http://hl7.org/fhir/devicestatus"
+
+  s:available	 = t:active 
+  s:"not-available" = t:inactive
+  s:"entered-in-error" = t:"entered-in-error"
+}
+
+
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Condition" alias ConditionR2 as target
 
@@ -16,7 +26,7 @@ group for type+types  Condition extends DomainResource
   "Condition-dateRecorded" : for src.assertedDate make tgt.dateRecorded
   "Condition-code" : for src.code make tgt.code
   "Condition-category" : for src.category make tgt.category
-  "Condition-clinicalStatus" : for src.clinicalStatus check $this != 'inactive' make tgt.clinicalStatus 
+  "Condition-clinicalStatus" : for src.clinicalStatus as v check $this != 'inactive' make tgt.clinicalStatus = translate(v, "#ConditionClinicalStatus", "code")
   "Condition-verificationStatus" : for src.verificationStatus make tgt.verificationStatus
   "Condition-severity" : for src.severity make tgt.severity
   "Condition-onset" : for src.onset make tgt.onset

@@ -11,8 +11,8 @@ group for type+types  MedicationDispense extends DomainResource
 
   "MedicationDispense-identifier" : for src.identifier make tgt.identifier
   "MedicationDispense-status" : for src.status make tgt.status
-  "MedicationDispense-patient" : for src.patient make tgt.patient
-  "MedicationDispense-dispenser" : for src.dispenser make tgt.dispenser
+  "MedicationDispense-patient" : for src.patient make tgt.subject
+  "MedicationDispense-dispenser" : for src.dispenser as v make tgt.performer as d, d.actor as v
   "MedicationDispense-authorizingPrescription" : for src.authorizingPrescription make tgt.authorizingPrescription
   "MedicationDispense-type" : for src.type make tgt.type
   "MedicationDispense-quantity" : for src.quantity make tgt.quantity
@@ -43,7 +43,7 @@ group mddDosage extends Element // ? BackboneElement
   input tgt as target
 
   "MedicationDispense.dosage-text" : for src.text make tgt.text
-  "MedicationDispense.dosage-additionalInstructions" : for src.additionalInstructions	make tgt.additionalInstructions
+  "MedicationDispense.dosage-additionalInstructions" : for src.additionalInstructions	make tgt.additionalInstruction
   "MedicationDispense.dosage-timing" : for src.timing make tgt.timing
   "MedicationDispense.dosage-asNeeded" : for src.asNeeded make tgt.asNeeded
   "MedicationDispense.dosage-site" : for src.site where $this is CodeableConcept make tgt.site  

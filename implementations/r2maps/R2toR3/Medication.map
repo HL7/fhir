@@ -13,7 +13,7 @@ group for type+types  Medication extends DomainResource
   "Medication-isBrand" : for src.isBrand make tgt.isBrand
   "Medication-manufacturer" : for src.manufacturer make tgt.manufacturer
   
-  "Medication-product" : for src.product as vs0 make tgt.product as vt0 then medProduct(vs0, vt0)
+  "Medication-product" : for src.product as vs0 then medProduct(vs0, tgt)
   "Medication-package" : for src.package as vs0 make tgt.package as vt0 then medPackage(vs0, vt0)
 endgroup
 
@@ -23,7 +23,7 @@ group medProduct extends BackboneElement
 
   "Medication.product-form" : for src.form make tgt.form
   "Medication.product-ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then medIngredient(vs0, vt0)
-  "Medication.product-batch" : for src.batch as vs0 make tgt.batch as vt0 then medBatch(vs0, vt0)
+  "Medication.product-batch" : for src.batch as vs0 make tgt.package as pkg, pkg.batch as vt0 then medBatch(vs0, vt0)
 endgroup
 
 group medIngredient extends BackboneElement

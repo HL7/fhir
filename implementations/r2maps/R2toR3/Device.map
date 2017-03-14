@@ -1,5 +1,15 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Device2to3" = "R2 to R3 Conversions for Device"
 
+conceptmap "DeviceStatus" {
+  prefix s = "http://hl7.org/fhir/devicestatus"
+  prefix t = "http://hl7.org/fhir/devicestatus"
+
+  s:available	 = t:active 
+  s:inactive = t:"not-available"
+  s:"entered-in-error" = t:"entered-in-error"
+}
+
+
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Device" alias DeviceR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as target
 
@@ -12,13 +22,13 @@ group for type+types  Device extends DomainResource
   "Device-identifier" : for src.identifier make tgt.identifier
   "Device-type" : for src.type make tgt.type
   "Device-note" : for src.note make tgt.note
-  "Device-status" : for src.status make tgt.status
+  "Device-status" : for src.status as v make tgt.status = translate(v, "#DeviceStatus", "code")
   "Device-manufacturer" : for src.manufacturer make tgt.manufacturer
   "Device-model" : for src.model make tgt.model
   "Device-version" : for src.version make tgt.version
   "Device-manufactureDate" : for src.manufactureDate make tgt.manufactureDate
   "Device-expirationDate" : for src.expiry make tgt.expirationDate
-  "Device-udi" : for src.udi as u make tgt.udiCarrier as t, t.value = u, t.type = cc("http://hl7.org/fhir/identifier-type", "UDI")  
+  "Device-udi" : for src.udi as u make tgt.udi as t, t.deviceIdentifier = u
   "Device-lotNumber" : for src.lotNumber make tgt.lotNumber
   "Device-owner" : for src.owner make tgt.owner
   "Device-location" : for src.location make tgt.location

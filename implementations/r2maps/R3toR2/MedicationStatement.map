@@ -14,11 +14,11 @@ group for type+types  MedicationStatement extends DomainResource
   "MedicationStatement-informationSource" : for src.informationSource make tgt.informationSource
   "MedicationStatement-dateAsserted" : for src.dateAsserted make tgt.dateAsserted
   "MedicationStatement-status" : for src.status check src.status != 'stopped' and status != 'on-hold' make tgt.status
-  "MedicationStatement-wasNotTaken" : for src.notTaken as vt where $this = 'y' make tgt.wasNotTaken = true
-  "MedicationStatement-wasNotTaken" : for src.notTaken as vt where $this = 'n' make tgt.wasNotTaken = false
+  "MedicationStatement-wasNotTaken" : for src.taken as vt where $this = 'n' make tgt.wasNotTaken = true
+  "MedicationStatement-wasNotTaken" : for src.taken as vt where $this = 'y' make tgt.wasNotTaken = false
   "MedicationStatement-reasonNotTaken" : for src.reasonNotTaken make tgt.reasonNotTaken
-  "MedicationStatement-reasonForUse" : for src.reasonForUseCodeableConcept make tgt.reasonForUse
-  "MedicationStatement-reasonForUse" : for src.reasonForUseReference make tgt.reasonForUse
+  "MedicationStatement-reasonForUse1" : for src.reasonCode make tgt.reasonForUse
+  "MedicationStatement-reasonForUse2" : for src.reasonReference make tgt.reasonForUse
   "MedicationStatement-effective" : for src.effective make tgt.effective
   "MedicationStatement-note" : for src.note make tgt.note
   "MedicationStatement-supportingInformation" : for src.derivedFrom make tgt.supportingInformation

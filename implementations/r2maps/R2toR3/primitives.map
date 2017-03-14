@@ -229,3 +229,17 @@ group for types integerToUnsignedInt extends Element
   "integerToUnsignedInt-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types dateToDateTime extends Element
+  input src : dateR2 as source
+  input tgt : dateTime as target
+
+  "dateToDateTime-value" : for src.value as v make tgt.value = v
+endgroup
+
+group for types dateTimeToDate extends Element
+  input src : dateTimeR2 as source
+  input tgt : date as target
+
+  "dateTimeToDate-value" : for src.value as v make tgt.value = (v.substring(0, 8))
+endgroup
+

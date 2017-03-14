@@ -50,10 +50,10 @@ group opdParameter extends BackboneElement
   "OperationDefinition.parameter-type" : for src.type where src.searchType.empty() make tgt.type
   "OperationDefinition.parameter-type" : for src.searchType make tgt.type
   "OperationDefinition.parameter-profile" : for src.profile make tgt.profile
-  "OperationDefinition.parameter-part" : for src.part as ps0 make tgt.part as pt0 then part(ps0, pt0)
+  "OperationDefinition.parameter-part" : for src.part as ps0 make tgt.part as pt0 then opdPart(ps0, pt0)
 endgroup  
   
-group part extends BackboneElement
+group opdPart extends BackboneElement
   input src as source
   input tgt as target
 
@@ -64,6 +64,6 @@ group part extends BackboneElement
   "OperationDefinition.parameter-part-documentation" : for src.documentation make tgt.documentation
   "OperationDefinition.parameter-part-type" : for src.type make tgt.type
   "OperationDefinition.parameter-part-profile" : for src.profile make tgt.profile
-  "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then part(psrc, ptgt)
+  "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then opdPart(psrc, ptgt)
 endgroup
 

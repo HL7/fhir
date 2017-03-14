@@ -48,7 +48,7 @@ group algReaction extends BackboneElement
   input tgt as target
 
   "AllergyIntolerance.reaction-substance" : for src.substance make tgt.substance
-  "AllergyIntolerance.reaction-certainty" : for src.certainty make tgt.certainty
+  "AllergyIntolerance.reaction-certainty" : for src.extension as e where e.url = 'http://hl7.org/fhir/AllergyIntolerance-r2-certainty' make tgt.certainty = (e.value)
   "AllergyIntolerance.reaction-manifestation" : for src.manifestation make tgt.manifestation
   "AllergyIntolerance.reaction-description" : for src.description make tgt.description
   "AllergyIntolerance.reaction-onset" : for src.onset make tgt.onset

@@ -28,5 +28,4 @@ group DurationToQuantity extends Element
   "Duration-unit" : for src.unit make tgt.unit
   "Duration-system" : for src.system make tgt.system
   "Duration-code" : for src.code make tgt.code
-
 endgroup

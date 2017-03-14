@@ -14,8 +14,15 @@ group for type+types  DeviceUseStatement extends DomainResource
   "DeviceUseStatement-device" : for src.device make tgt.device
   "DeviceUseStatement-identifier" : for src.identifier make tgt.identifier
   "DeviceUseStatement-indication" : for src.indication make tgt.indication
-  "DeviceUseStatement-notes" : for src.notes make tgt.notes
+  "DeviceUseStatement-notes" : for src.note as n then dusNote(n, tgt)
   "DeviceUseStatement-recordedOn" : for src.recordedOn make tgt.recordedOn
   "DeviceUseStatement-subject" : for src.subject make tgt.subject
   "DeviceUseStatement-timing" : for src.timing make tgt.timing
+endgroup
+
+group dusNote extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DeviceUseStatement.note-notes" : for src.text make tgt.notes
 endgroup

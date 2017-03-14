@@ -1,0 +1,32 @@
+﻿map "http://hl7.org/fhir/StructureMap/DeviceUseRequest3to2" = "R3 to R2 Conversion for DeviceUseRequest"
+
+conceptmap "RequestStatus" {
+  prefix s = "http://hl7.org/fhir/device-use-request-status"
+  prefix t = "http://hl7.org/fhir/request-status"
+
+  s:draft = t:proposed
+  s:active = t:"in-progress"
+  s:suspended = t:suspended
+  s:completed = t:completed
+  s:cancelled = t:rejected
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to2"
+
+group for type+types  DeviceRequest extends DomainResource
+  input src : DeviceRequest as source
+  input tgt : DeviceUseRequestR2 as target
+
+  "DeviceRequest-status" : for src.status as v check src.status != 'entered-in-error' make tgt.status = translate(v, "#RequestStatus", "code")
+  "DeviceRequest-device" : for src.device make tgt.device
+  "DeviceRequest-context" : for src.context make tgt.encounter
+  "DeviceRequest-identifier" : for src.identifier make tgt.identifier
+  "DeviceRequest-reasonCode" : for src.reasonCode make tgt.indication
+  "DeviceRequest-notes" : for src.note make tgt.notes
+  "DeviceRequest-authored" : for src.authored make tgt.orderedOn
+  "DeviceRequest-subject" : for src.subject make tgt.subject
+  "DeviceRequest-Timing" : for src.occurrence make tgt.timing
+endgroup

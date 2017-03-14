@@ -24,7 +24,7 @@ group for type+types  Communication extends DomainResource
   "Communication-encounter" : for src.context make tgt.encounter
   "Communication-sent" : for src.sent make tgt.sent
   "Communication-received" : for src.received make tgt.received
-  "Communication-reason" : for src.reason make tgt.reason
+  "Communication-reason" : for src.reasonCode make tgt.reason
   "Communication-subject" : for src.subject make tgt.subject
   "Communication-requestDetail" : for src.basedOn make tgt.requestDetail
 endgroup

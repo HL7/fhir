@@ -12,9 +12,9 @@ group for type+types  MedicationAdministration extends DomainResource
 
   "MedicationAdministration-identifier" : for src.identifier make tgt.identifier
   "MedicationAdministration-status" : for src.status make tgt.status
-  "MedicationAdministration-patient" : for src.patient make tgt.patient
-  "MedicationAdministration-practitioner" : for src.practitioner make tgt.performer
-  "MedicationAdministration-encounter" : for src.encounter make tgt.encounter
+  "MedicationAdministration-patient" : for src.patient make tgt.subject
+  "MedicationAdministration-practitioner" : for src.practitioner as v make tgt.performer as vd, vd.actor = v
+  "MedicationAdministration-encounter" : for src.encounter make tgt.context
   "MedicationAdministration-prescription" : for src.prescription make tgt.prescription
   "MedicationAdministration-notGiven" : for src.wasNotGiven make tgt.notGiven
   "MedicationAdministration-reasonNotGiven" : for src.reasonNotGiven make tgt.reasonNotGiven

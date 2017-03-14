@@ -15,12 +15,12 @@ group for type+types  CarePlan extends DomainResource
   "CarePlan-context" : for src.context make tgt.context
   "CarePlan-period" : for src.period make tgt.period
   "CarePlan-author" : for src.author make tgt.author
-  "CarePlan-modified" : for src.modified make tgt.modified
+  "CarePlan-modified" : for src.extension as e where e.url = 'http://hl7.org/fhir/CarePlan-r2-modified' make tgt.modified = (e.value)
   "CarePlan-category" : for src.category make tgt.category
   "CarePlan-description" : for src.description make tgt.description
   "CarePlan-addresses" : for src.addresses make tgt.addresses
-  "CarePlan-support" : for src.support make tgt.support
-  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then plnRelated(vs0, vt0)
+  "CarePlan-support" : for src.supportingInfo make tgt.support
+//  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then plnRelated(vs0, vt0)
   "CarePlan-participant" : for src.careTeam as vs where reference.resolve().exists() make (src.careTeam.reference.resolve()) as ct then plnParticipant(ct, tgt)
   "CarePlan-goal" : for src.goal make tgt.goal
   "CarePlan-activity" : for src.activity as vs0 make tgt.activity as vt0 then plnActivity(vs0, vt0)
@@ -39,7 +39,7 @@ group plnActivity extends BackboneElement
   input src as source
   input tgt as target
 
-  "CarePlan.activity-actionResulting" : for src.actionResulting make tgt.actionResulting
+  "CarePlan.activity-actionResulting" : for src.outcomeReference make tgt.actionResulting
   "CarePlan.activity-progress" : for src.progress make tgt.progress
   "CarePlan.activity-reference" : for src.reference make tgt.reference
   "CarePlan.activity-detail" : for src.detail as vs0 make tgt.detail as vt0 then plnDetail(vs0, vt0)

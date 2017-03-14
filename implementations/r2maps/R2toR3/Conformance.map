@@ -80,7 +80,7 @@ group security extends BackboneElement
   "conf-cors" : for src.cors make tgt.cors
   "conf-service" : for src.service make tgt.service
   "conf-description" : for src.description make tgt.description
-  "conf-certificate*" : for src.certificate make tgt.certificate
+  "conf-certificate" : for src.certificate as vs make tgt.certificate as vt then certificate(vs, vt)
 endgroup
 
 group certificate extends BackboneElement
@@ -95,8 +95,8 @@ group resource extends BackboneElement
   input src as source
   input tgt as target
 
-  "conf-type" : for src.type where $this != 'Conformance' make tgt.type
-  "conf-type" : for src.type where $this = 'Conformance' make tgt.type = 'CapabilityStatement'
+  "conf-type2" : for src.type where $this != 'Conformance' make tgt.type
+  "conf-type3b" : for src.type where $this = 'Conformance' make tgt.type = 'CapabilityStatement'
   "conf-profile" : for src.profile make tgt.profile
   "conf-documentation" : for src.documentation make tgt.documentation
   "conf-interaction" : for src.interaction as vs where code != 'validate' make tgt.interaction as vt then interaction(vs, vt)
@@ -126,7 +126,7 @@ group searchParam extends BackboneElement
 
   "conf-name" : for src.name make tgt.name
   "conf-definition" : for src.definition make tgt.definition
-  "conf-type" : for src.type make tgt.type
+  "conf-type4" : for src.type make tgt.type
   "conf-documentation" : for src.documentation make tgt.documentation
 //?  target
 //?  modifier

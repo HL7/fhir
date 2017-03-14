@@ -46,7 +46,7 @@ group for type+types  ConceptMap extends DomainResource
         "ConceptMap-target-codeSystem":  for grp.target make tgtT.codeSystem
         "ConceptMap-target-code":  for srcT.code make tgtT.code
         "ConceptMap-target-equivalence":  for srcT.equivalence make tgtT.equivalence
-        "ConceptMap-target-comments":  for srcT.comments make tgtT.comments
+        "ConceptMap-target-comments":  for srcT.comment make tgtT.comments
         "ConceptMap-target-dependsOn":  for srcT.dependsOn as vs make tgtT.dependsOn as vt then {
           "ConceptMap-target-dependsOn-element": for vs.property make vt.element
           "ConceptMap-target-dependsOn-codeSystem": for vs.system make vt.codeSystem

@@ -9,22 +9,22 @@ group for type+types  SupplyRequest extends DomainResource
   input src : SupplyRequest as source
   input tgt : SupplyRequestR2 as target
 
-  "SupplyRequest-patient" : for src.patient make tgt.patient
-  "SupplyRequest-source" : for src.source make tgt.source
-  "SupplyRequest-date" : for src.date make tgt.date
+  "SupplyRequest-patient" : for src.extension as e where e.url = 'http://hl7.org/fhir/SupplyRequest-r2-patient' make tgt.patient = (e.value)
+  "SupplyRequest-source" : for src.requester as v then sprRequest(v, tgt)
+  "SupplyRequest-date" : for src.authoredOn make tgt.date
   "SupplyRequest-identifier" : for src.identifier make tgt.identifier
   "SupplyRequest-status" : for src.status make tgt.status
-  "SupplyRequest-kind" : for src.kind make tgt.kind
+  "SupplyRequest-kind" : for src.category make tgt.kind
   "SupplyRequest-orderedItem" : for src.orderedItem make tgt.orderedItem
   "SupplyRequest-supplier" : for src.supplier make tgt.supplier
   "SupplyRequest-reason" : for src.reason make tgt.reason
-  "SupplyRequest-when" : for src.when as vs0 make tgt.when as vt0 then srWhen(vs0, vt0)
+  "SupplyRequest-when" : for src.occurrence as vs0 make tgt.when as vt0, vt0.schedule = vs0
 endgroup
 
-group srWhen extends BackboneElement
+group sprRequest extends BackboneElement
   input src as source
   input tgt as target
 
-  "SupplyRequest.when-code" : for src.code make tgt.code
-  "SupplyRequest.when-schedule" : for src.schedule make tgt.schedule
+  "SupplyRequest.source-agent" : for src.avent make tgt.source
 endgroup
+

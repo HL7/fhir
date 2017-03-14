@@ -17,7 +17,7 @@ group for type+types  Specimen extends DomainResource
   "Specimen-receivedTime" : for src.receivedTime make tgt.receivedTime
   "Specimen-parent" : for src.parent make tgt.parent
   "Specimen-collection" : for src.collection as vs0 make tgt.collection as vt0 then spmCollection(vs0, vt0, tgt)
-  "Specimen-treatment" : for src.treatment as vs0 make tgt.treatment as vt0 then spmTreatment(vs0, vt0)
+  "Specimen-treatment" : for src.treatment as vs0 make tgt.processing as vt0 then spmTreatment(vs0, vt0)
   "Specimen-container" : for src.container as vs0 make tgt.container as vt0 then spmContainer(vs0, vt0)
 endgroup
 

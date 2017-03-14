@@ -19,7 +19,7 @@ group for type+types  ElementDefinition
   "ElementDefinition-label" : for src.label make tgt.label
   "ElementDefinition-code" : for src.code make tgt.code
   "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
-    "ElementDefinition.slicing-discriminator" : for vs0.discriminator make vt0.discriminator
+    "ElementDefinition.slicing-discriminator" : for vs0.discriminator as vs1 make vt0.discriminator as vd1, vd1.type = "value", vd1.path = vs1
     "ElementDefinition.slicing-description" : for vs0.description make vt0.description
     "ElementDefinition.slicing-ordered" : for vs0.ordered make vt0.ordered
     "ElementDefinition.slicing-rules" : for vs0.rules make vt0.rules

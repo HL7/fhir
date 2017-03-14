@@ -17,13 +17,13 @@ conceptmap "RequestStatus" {
 }
 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as source
-uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" alias DeviceUseRequest as target
+uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  DeviceUseRequest extends DomainResource
   input src : DeviceUseRequestR2 as source
-  input tgt : DeviceUseRequest as target
+  input tgt : DeviceRequest as target
 
   // drop bodySite
   "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#RequestStatus", "code")

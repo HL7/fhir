@@ -14,11 +14,11 @@ group for type+types  DiagnosticReport extends DomainResource
   "DiagnosticReport-category" : for src.category make tgt.category
   "DiagnosticReport-code" : for src.code make tgt.code
   "DiagnosticReport-subject" : for src.subject make tgt.subject
-  "DiagnosticReport-encounter" : for src.encounter make tgt.encounter
+  "DiagnosticReport-encounter" : for src.context make tgt.encounter
   "DiagnosticReport-effective" : for src.effective make tgt.effective 
   "DiagnosticReport-issued" : for src.issued make tgt.issued
-  "DiagnosticReport-performer" : for src.performer make tgt.performer
-  "DiagnosticReport-request" : for src.request make tgt.request
+  "DiagnosticReport-performer" : for src.performer as v then drpPerformer(v, tgt)
+  "DiagnosticReport-request" : for src.basedOn make tgt.request
   "DiagnosticReport-specimen" : for src.specimen make tgt.specimen
   "DiagnosticReport-result" : for src.result make tgt.result
   "DiagnosticReport-imagingStudy" : for src.imagingStudy make tgt.imagingStudy
@@ -26,6 +26,14 @@ group for type+types  DiagnosticReport extends DomainResource
   "DiagnosticReport-conclusion" : for src.conclusion make tgt.conclusion
   "DiagnosticReport-codedDiagnosis" : for src.codedDiagnosis make tgt.codedDiagnosis
   "DiagnosticReport-presentedForm" : for src.presentedForm make tgt.presentedForm
+endgroup
+
+group drpPerformer extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "DiagnosticReport.performer-actor" : for src.actor make tgt.performer
+  
 endgroup
 
 group drpImage extends BackboneElement

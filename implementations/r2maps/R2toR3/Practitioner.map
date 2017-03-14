@@ -17,15 +17,18 @@ group for type+types  Practitioner extends DomainResource
   "Practitioner-gender" : for src.gender make tgt.gender
   "Practitioner-birthDate" : for src.birthDate make tgt.birthDate
   "Practitioner-photo" : for src.photo make tgt.photo
-  "Practitioner-role" : for src.practitionerRole as vs0 make tgt.role as vt0 then prcRole(vs0, vt0)
+  "Practitioner-role" : for src.practitionerRole as vs0 make create("PractitionerRole") as vt0 then prcRole(src, tgt, vs0, vt0)
   "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then prcQualification(vs0, vt0) 
   "Practitioner-communication" : for src.communication make tgt.communication
 endgroup
 
 group prcRole extends BackboneElement
-  input src as source
-  input tgt as target
+  input pr as source // the source r2 practitioner resource
+  input prtgt as target // the target r3 practitioner resource
+  input src as source // the source practitioner role
+  input tgt as target // the target PractitionerRole resource
 
+  "Practitioner.role-id" : for src make tgt.practitioner = create("Reference") as p, p.reference = ('Practitioner/'+pr.id) 
   "Practitioner.role-organization" : for src.managingOrganization make tgt.organization
   "Practitioner.role-code" : for src.role make tgt.code
   "Practitioner.role-specialty" : for src.specialty make tgt.specialty

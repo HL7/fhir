@@ -13,11 +13,19 @@ group for type+types  SupplyDelivery extends DomainResource
   "SupplyDelivery-status" : for src.status make tgt.status
   "SupplyDelivery-patient" : for src.patient make tgt.patient
   "SupplyDelivery-type" : for src.type make tgt.type
-  "SupplyDelivery-quantity" : for src.quantity make tgt.quantity
+  "SupplyDelivery-suppliedItem" : for src.suppliedItem as v then sdvItem(v, tgt)
   "SupplyDelivery-supplier" : for src.supplier make tgt.supplier
-  "SupplyDelivery-whenPrepared" : for src.whenPrepared make tgt.whenPrepared
-  "SupplyDelivery-time" : for src.time make tgt.time
+  "SupplyDelivery-whenPrepared" : for src.extension as e where e.url = 'http://hl7.org/fhir/SupplyDelivery-r2-whenPrepared' make tgt.whenPrepared = (e.value)
+  "SupplyDelivery-time" : for src.occurrence as v where v.is(dateTime) make tgt.time = v
   "SupplyDelivery-destination" : for src.destination make tgt.destination
   "SupplyDelivery-receiver" : for src.receiver make tgt.receiver
 
+endgroup
+
+group sdvItem extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "SupplyDelivery.item-quantity" : for src.quantity make tgt.quantity
+  "SupplyDelivery.item-quantity" : for src.item make tgt.suppliedItem
 endgroup

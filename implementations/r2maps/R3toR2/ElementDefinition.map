@@ -17,7 +17,7 @@ group for type+types  ElementDefinition
   "ElementDefinition-label" : for src.label make tgt.label
   "ElementDefinition-code" : for src.code make tgt.code
   "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
-    "ElementDefinition.slicing-discriminator" : for vs0.discriminator make vt0.discriminator
+    "ElementDefinition.slicing-discriminator" : for vs0.discriminator as vd1 then edDiscriminator(vd1, vt0)
     "ElementDefinition.slicing-description" : for vs0.description make vt0.description
     "ElementDefinition.slicing-ordered" : for vs0.ordered make vt0.ordered
     "ElementDefinition.slicing-rules" : for vs0.rules make vt0.rules
@@ -38,7 +38,7 @@ group for type+types  ElementDefinition
 
   "ElementDefinition-type" : for src.type as vs0 make tgt.type as vt0 then type(vs0, vt0)
 
-  "ElementDefinition-type-1st" : for src where path.contains('.').not() and src.type.empty() and src.contentReference.empty() make tgt.type as vt0 then {
+  "ElementDefinition-type-1st" : for src where path.contains('.').not() and src.type.empty() and src.contentReference.empty() and srcR.is(StructureDefinition) make tgt.type as vt0 then {
     "ElementDefinition.type-code" : for srcR.baseDefinition as base make vt0.code = (base.substring(40))
   }
 
@@ -60,6 +60,13 @@ group for type+types  ElementDefinition
   "ElementDefinition-isSummary" : for src.isSummary make tgt.isSummary
   "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
   "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then mapping(vs0, vt0)
+endgroup
+
+group edDiscriminator extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.binding-strength" : for src.path where type = 'value' make tgt.discriminator
 endgroup
 
 group binding extends Element

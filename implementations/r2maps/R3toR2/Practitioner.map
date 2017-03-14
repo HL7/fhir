@@ -17,7 +17,7 @@ group for type+types  Practitioner extends DomainResource
   "Practitioner-gender" : for src.gender make tgt.gender
   "Practitioner-birthDate" : for src.birthDate make tgt.birthDate
   "Practitioner-photo" : for src.photo make tgt.photo
-  "Practitioner-role" : for src.role as vs0 make tgt.practitionerRole as vt0 then prcRole(vs0, vt0)
+  "Practitioner-role" : for search('/PractitionerRole?practitioner='+src.id) : PractitionerRole as vs0 make tgt.practitionerRole as vt0 then prcRole(vs0, vt0)
   "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then prcQualification(vs0, vt0) 
   "Practitioner-communication" : for src.communication make tgt.communication
 endgroup

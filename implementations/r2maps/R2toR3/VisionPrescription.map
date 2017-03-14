@@ -22,13 +22,13 @@ group vspDispense extends BackboneElement
   input src as source
   input tgt as target
   
-  "VisionPrescription.dispense-product" : for src.product make tgt.product
-  "VisionPrescription.dispense-eye" : for src.eye as c make tgt.eye = cc("http://hl7.org/fhir/vision-eye-codes", c)
+  "VisionPrescription.dispense-product" : for src.product as v make tgt.product as d, d.coding as v
+  "VisionPrescription.dispense-eye" : for src.eye make tgt.eye
   "VisionPrescription.dispense-sphere" : for src.sphere make tgt.sphere
   "VisionPrescription.dispense-cylinder" : for src.cylinder make tgt.cylinder
   "VisionPrescription.dispense-axis" : for src.axis make tgt.axis
   "VisionPrescription.dispense-prism" : for src.prism make tgt.prism
-  "VisionPrescription.dispense-base" : for src.base as c make tgt.base = cc("http://hl7.org/fhir/vision-base-codes", c)
+  "VisionPrescription.dispense-base" : for src.base make tgt.base
   "VisionPrescription.dispense-add" : for src.add make tgt.add
   "VisionPrescription.dispense-power" : for src.power make tgt.power
   "VisionPrescription.dispense-backCurve" : for src.backCurve make tgt.backCurve
@@ -36,5 +36,5 @@ group vspDispense extends BackboneElement
   "VisionPrescription.dispense-duration" : for src.duration make tgt.duration
   "VisionPrescription.dispense-color" : for src.color make tgt.color
   "VisionPrescription.dispense-brand" : for src.brand make tgt.brand
-  "VisionPrescription.dispense-note" : for src.notes make tgt.note
+  "VisionPrescription.dispense-note" : for src.notes as v make tgt.note as n, n.text = v
 endgroup

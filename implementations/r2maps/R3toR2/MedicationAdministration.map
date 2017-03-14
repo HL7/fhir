@@ -11,9 +11,9 @@ group for type+types  MedicationAdministration extends DomainResource
 
   "MedicationAdministration-identifier" : for src.identifier make tgt.identifier
   "MedicationAdministration-status" : for src.status make tgt.status
-  "MedicationAdministration-patient" : for src.patient make tgt.patient
-  "MedicationAdministration-practitioner" : for src.performer make tgt.practitioner
-  "MedicationAdministration-encounter" : for src.encounter make tgt.encounter
+  "MedicationAdministration-patient" : for src.subject make tgt.patient
+  "MedicationAdministration-performer" : for src.performer as vs0 then mAdPerformer(vs0, tgt)
+  "MedicationAdministration-encounter" : for src.context make tgt.encounter
   "MedicationAdministration-prescription" : for src.prescription make tgt.prescription
   "MedicationAdministration-notGiven" : for src.notGiven make tgt.wasNotGiven
   "MedicationAdministration-reasonNotGiven" : for src.reasonNotGiven make tgt.reasonNotGiven
@@ -22,6 +22,13 @@ group for type+types  MedicationAdministration extends DomainResource
   "MedicationAdministration-device" : for src.device make tgt.device
   "MedicationAdministration-note" : for src.note only_one make tgt.note
   "MedicationAdministration-dosage" : for src.dosage as vs0 make tgt.dosage as vt0 then mAdDosage(vs0, vt0) 
+endgroup
+
+group mAdPerformer extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MedicationAdministration-performer-actor" : for src.actor make tgt.practitioner 
 endgroup
 
 group mAdDosage extends BackboneElement

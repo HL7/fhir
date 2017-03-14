@@ -33,7 +33,7 @@ group medDosageInstruction extends Element //? BackboneElement
   input tgt as target
 
   "MedicationOrder.dosage-text" : for src.text make tgt.text
-  "MedicationOrder.dosage-additionalInstructions" : for src.additionalInstructions	only_one make tgt.additionalInstructions
+  "MedicationOrder.dosage-additionalInstructions" : for src.additionalInstruction only_one make tgt.additionalInstructions
   "MedicationOrder.dosage-timing" : for src.timing make tgt.timing
   "MedicationOrder.dosage-asNeeded" : for src.asNeeded make tgt.asNeeded
   "MedicationOrder.dosage-site" : for src.site make tgt.site  
@@ -52,7 +52,7 @@ group medDispenseRequest extends BackboneElement
   "MedicationOrder.dispenseRequest-validityPeriod" : for src.validityPeriod make tgt.validityPeriod
   "MedicationOrder.dispenseRequest-numberOfRepeatsAllowed" : for src.numberOfRepeatsAllowed make tgt.numberOfRepeatsAllowed
   "MedicationOrder.dispenseRequest-quantity" : for src.quantity make tgt.quantity
-  "MedicationOrder.dispenseRequest-expectedSupplyDuration" : for src.expectedSupplyDuration make tgt.expectedSupplyDuration
+  "MedicationOrder.dispenseRequest-expectedSupplyDuration" : for src.expectedSupplyDuration as v make tgt.expectedSupplyDuration as d then DurationToQuantity(v, d)
 endgroup
 
 group medSubstitution extends BackboneElement
