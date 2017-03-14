@@ -118,8 +118,8 @@ each original document (unique masterIdentifiers), but doing so will require som
 claims around the document metadata from different submitters.
 </p>
 <p>
-In order to implement the XDS profile, a server SHALL keep a full version history of DocumentReference, 
-DocumentManifest, Patient, and Practitioner resources. This allows for audit investigations, and also
+To implement the XDS profile, a server SHALL keep a full version history of DocumentReference, 
+DocumentManifest, Patient, and Practitioner resources. This allows for audit investigations as well as
 replication using standard pub/sub arrangements.
 </p>
 </div>

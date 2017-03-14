@@ -55,13 +55,13 @@ Using this format:
 	</ul>
  </li>
  <li>FHIR elements are never empty. If an element is present in the resource, it SHALL have either a value attribute, child elements as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
- <li>Attributes can never be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
+ <li>Attributes canno be empty. Either they are absent, or they are present with at least one character of non-whitespace content</li>
  <li>Implementers SHOULD trim leading and trailing whitespace before writing and SHOULD trim leading and trailing whitespace when reading attribute values</li>
  <li>The lock icon (<img alt="??" src="lock.png"/>) denotes that an element defines or is affected by <a href="conformance-rules.html#constraints">additional rules</a> that control its presence and/or content</li>
  <li>XML comments, processing instructions and formatting are not part of the contents of a resource</li>
- <li>There SHALL be no DTD references in FHIR resources (because of <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE security exploit</a>)</li>
+ <li>There SHALL be no DTD references in FHIR resources (because of the <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE security exploit</a>)</li>
  <li>XML resources SHALL be exchanged using UTF-8 encoding. Specifying the character encoding using a <code>&lt;?xml encoding="UTF-8" ?&gt;</code> processing instruction is optional but recommended</li>
- <li>Other processing instructions SHOULD not be included, and SHALL NOT be required in order to properly understand and/or present the data or narrative of the resource. 
+ <li>Other processing instructions SHOULD not be included, and SHALL NOT be required to properly understand and/or present the data or narrative of the resource. 
   Applications MAY preserve processing instructions when handling resources, but are not required to do so</li>
  <li>The MIME-type for this format is <code>application/fhir+xml</code>.</li>
 </ul>
@@ -69,10 +69,10 @@ Using this format:
 <a name="schema"> </a>
 <h3>XML Schema and Schematron</h3>
 <p>
-This specification provides schema definitions for all of the content models it describes. 
+This specification provides schema definitions for all the content models it describes. 
 </p>
 <p>
-The base schema is called "<a href="fhir-base.xsd">fhir-base.xsd</a>" and defines all of the 
+The base schema is called "<a href="fhir-base.xsd">fhir-base.xsd</a>" and defines all the 
 datatypes and base infrastructure types. In addition, there 
 is a schema for each resource and a common schema <a href="fhir-all.xsd">fhir-all.xsd</a> 
 that includes all the resource schemas. For schema processors that do not like circular
@@ -93,12 +93,12 @@ instance namespace in the resource itself.
 </p>
 <p>
 Given the way <a href="extensibility.html">extensions</a> work, applications reading
-XML resources will never encounter unknown elements. However once an application 
-starts trading with other appplications that conform to later versions of this specification,
+XML resources will never encounter unknown elements. However, once an application 
+starts trading with other applications that conform to later versions of this specification,
 unknown XML elements may be encountered. Applications MAY choose to ignore unknown elements
-in order to foster forwards compatibility in this regard, but may also choose not to - which 
+to foster forwards compatibility in this regard, but may also choose not to - which 
 would be the normal behavior for schema generated applications. Applications declare 
-their behavior with regard to unknown elements using <a href="capabilitystatement-definitions.html#CapabilityStatement.acceptUnknown">CapabilityStatement.acceptUnknown</a>.
+their unknown elements behavior using <a href="capabilitystatement-definitions.html#CapabilityStatement.acceptUnknown">CapabilityStatement.acceptUnknown</a>.
 </p>
 
 <a name="schema-gen"> </a>
@@ -106,9 +106,9 @@ their behavior with regard to unknown elements using <a href="capabilitystatemen
 
 <p>
 In addition to the validation schema, this specification provides a
-set of schema suitable for code generation. These schema describe
-the same XML syntax, but apply less validation in order to create a 
-schema that works with more code generation tooling. 
+set of schemas suitable for code generation. These schemas describe
+the same XML syntax, but apply less validation to create 
+schemas that work with more code generation tooling. 
 </p>
 <p>
 Specifically, these schemas are generated without any <code>xsd:choice</code> elements, 
@@ -122,11 +122,11 @@ Implementers making use of schema driven code generation tooling need
 to consider how to handle the <a href="datatypes.html#decimal">decimal</a>
 data type. The decimal data type is defined to be precision aware - that 
 is, that implementers need to preserve the difference between "2.0" and
-"2.00" - this is ubiquitiously considered important in handling observed
+"2.00" - this is ubiquitously considered important in handling observed
 data in healthcare. Both schemas map this data type to <code>xsd:decimal</code>, but
 the base <a href="http://www.w3.org/TR/xmlschema-2/#decimal">W3C schema decimal type</a> is specified not to be precision aware. Schema
-driven implementations vary as to how precision is handled, and implementers
-will need to determine how their generated code handles decimals, and 
+driven implementations vary as to how precision is handled. Implementers
+will need to determine how their generated code handles decimals and 
 consider changing the type for decimal in the schema from <code>xsd:decimal</code>
 to <code>xsd:string</code>. Specifically, implementers may wish to change 
 </p>
@@ -168,7 +168,7 @@ This specification defines the following method for canonicalizing FHIR resource
 xml:
 </p>
 <ul>
- <li>No whitespace other than single spaces in attribute values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
+ <li>No whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>
  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
  <li>Omit all elements that have a default value, if a default value is defined</li>
  <li>Omit all comments</li>
@@ -191,7 +191,7 @@ following additional canonicalization URLS are also defined:
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/xml#narrative</td>
-  <td>The method only covers the <code>Resource.id</code> and Narrative is retained</td>
+  <td>The method only retains the <code>Resource.id</code> and Narrative (<code>Resource.text</code></td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/xml#document</td>
@@ -199,7 +199,7 @@ following additional canonicalization URLS are also defined:
  </tr>
 </table>
 <p>
-These canonicalization methods allow system the flexibility to sign the various portions of 
+These canonicalization methods allow systems the flexibility to sign the various portions of 
 the resource that matter for the workflow the signature serves.
 </p>
 

@@ -4,16 +4,16 @@
 <p>
 The AuditEvent resource and the ATNA Audit record are used in many contexts throughout healthcare. 
 The coded values defined in the "extensible" bindings above are those widely used and/or defined by
-DICOM, IHE or ISO, who all defined these codes to meet very specific use cases. These codes should be 
-used when they are suitable, or other codes can be defined. 
+DICOM, IHE or ISO, who defined these codes to meet very specific use cases. These codes should be 
+used when they are suitable.  When needed, other codes can be defined. 
 </p>
 <p>
-Note when using codes from a vocabulary, the displayName can be left off so as to keep the 
+Note: When using codes from a vocabulary, the displayName can be left off to keep the 
 AuditEvent size small and minimize impact of a large audit log of similar entries.
 </p>
 <p>
 The set of codes defined for this resource is expected to grow over time, and 
-additional codes may be proposed / requested using the community input link above.
+additional codes may be proposed / requested using the "Propose a change" link above below.
 </p>
 
 <h3>Event codes for Common Scenarios</h3>
@@ -24,9 +24,9 @@ This table summarizes common event scenarios, and the codes that should be used 
 <table class="grid">
   <tr><td><b>Scenario</b></td><td><b>type</b></td><td><b>subtype</b></td><td><b>action</b></td><td><b></b>Other</td></tr>
   <tr><td>User Login (<a href="auditevent-examples.html">example</a>)</td><td><a href="codesystem-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="codesystem-dicom-dcim.html#110122">110122</a> User Authentication</td>
-     <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged in user.</td></tr>
+     <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged-in user.</td></tr>
   <tr><td>User Logout (<a href="auditevent-examples.html">example</a>)</td><td><a href="codesystem-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="codesystem-dicom-dcim.html#110123">110123</a> User Logout</td>
-     <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged out user.</td></tr>
+     <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged-out user.</td></tr>
   <tr><td>REST operation logged on server (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
      <td><a href="valueset-audit-event-action.html">*</a> (see below)</td><td>Participant for logged in user, if available, and one object with a reference, if at least the type is known as part of the operation. Reference.url should be provided to the granularity known.</td></tr>
   <tr><td>Search operation logged on server (<a href="audit-event-example-search.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
@@ -46,30 +46,36 @@ Audit Event Actions for RESTful operations:
 
 <h3>PurposeOfEvent and PurposeOfUse </h3>
 <p>
-The audit event provides the element purposeOfEvent to convey the purpose of the event and purposeOfUse 
+The audit event provides the element <code>purposeOfEvent</code> to convey the purpose of the event and <code>purposeOfUse</code>
 to convey the reason that a particular actor (machine, person, software) was involved in the event. 
-</p><p>
-PurposeOfEvent is an element at the level of AuditEvent and can convey the purpose of the activity 
+</p>
+<p>
+<code>purposeOfEvent</code> is an element at the level of AuditEvent and can convey the purpose of the activity 
 that resulted in the event.  This will occur when the system that is reporting the event is be aware 
 of the purpose of the event.  A specific example would be a radiology reporting system where a 
 radiologist has created and is sending a finished report.  This system likely knows the purpose, 
-e.g., “treatment”.  It is multi-valued because the one event may be related to multiple purposes. 
-</p><p>
+e.g., "treatment".  It is multi-valued because the one event may be related to multiple purposes. 
+</p>
+<p>
 It is also commonplace that the reporting system does not have information about the purpose of 
 the event.  In these cases, the event report would not have a purposeOfEvent.   
-</p><p>
+</p>
+<p>
 It is also likely that the same event will be reported from different perspectives, e.g., by both the 
 sender and recipient of a communication.  These two different perspectives can have different 
-knowledge regarding the purposeOfEvent.
-</p><p>
-PurposeOfUse is an element at the level of agent within AuditEvent.  This describes the reason that this 
-particular person, machine, or software is participating in the activity that resulted in the event.  For 
+knowledge regarding the <code>purposeOfEvent</code>.
+</p>
+<p>
+<code>purposeOfUse</code> is an element at the level of <code>agent</code> within AuditEvent.  This describes the reason that this 
+person, machine, or software is participating in the activity that resulted in the event.  For 
 example, an individual person participating in the event may assert a purpose of use from their perspective.   
 It is also possible that they are participating for multiple reasons, and report multiple purposeOfUse.
-</p><p>
+</p>
+<p>
 The reporting system might not have knowledge regarding why a particular machine or person was involved, 
 and would omit this element in those cases. 
-</p><p>
+</p>
+<p>
 When the same event is reported from multiple perspectives, the reports can have different knowledge regarding the purpose. 
 </p>
 

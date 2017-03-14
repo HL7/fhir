@@ -47,13 +47,13 @@ in order to support consistent definitions for schema and UML derived code.
                 Who succeeds is determined by local policies and procedures.</li>
             <li>Fulfiller system uses either polling or pub/sub to become aware of the existence of the task
                 <ol style="list-style:lower-alpha">
-                    <li>A common case may be the conveyance of the Task id to a fullfiller by other means. For example, a lab test is ordered, and the patient takes a requisition to the lab of his choice. The requisition contains the Task id (as a bar code,
-                        or stored in the patient's healthcre smart card), and the lab system can execute a direct GET for the Task, thus eliminating the need for subscription or polliing.</li>
+                    <li>A common case may be the conveyance of the Task id to a fulfiller by other means. For example, a lab test is ordered, and the patient takes a requisition to the lab of his choice. The requisition contains the Task id (as a bar code,
+                        or stored in the patient's healthcare smart card), and the lab system can execute a direct GET for the Task, thus eliminating the need for subscription or polling.</li>
                 </ol>
             </li>
-            <li>Fulfiller system queries to retrieve the referenced request, and updates the Task to indicate "acceptance" and agreement to fulfill </li>
+            <li>Fulfiller system queries to retrieve the referenced request and updates the Task to indicate "acceptance" and agreement to fulfill </li>
             <li>Fulfiller may update the Task to indicate interim progress notes</li>
-            <li>Placer is aware of the acceptance of and changes to the Task either through the ownership of the resource, or using polling or a subscription to a queue server system to determine the same</li>
+            <li>Placer is madeaware of the acceptance of the Task and any changes to the Task either through its ownership of the resource or using polling or a subscription to a queue server system to determine the same</li>
             <li>Fulfiller creates an event resource in its own system via POST or internal action, or POSTs it to a queue server system</li>
             <li>Fulfiller PUTs an update to the Task resource to change its status to completed and to point to the event resource</li>
             <li>Placer is aware of the completion of the Task either through the ownership of the resource, or via polling or subscription to a queue server system, and retrieves the referenced event resource</li>
@@ -71,7 +71,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Additional complexity of using Task</li>
             <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
-            <li>Placer and fulfiller must have a FHIR server, and placer's FHIR server pust allow "write" updates to the Task resource</li>
+            <li>Placer and fulfiller must have a FHIR server, and placer's FHIR server must allow "write" updates to the Task resource</li>
             <li>
                 <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)</p>
                 <ul>
@@ -99,8 +99,8 @@ in order to support consistent definitions for schema and UML derived code.
         <p>A provider orders a bilirubin test for a patient, to be done at the provider's facility lab....</p>
         <p><b>"Open" lab order</b></p>
         <p>
-            A patient is scheduled for their physical, and the provider sends her a secure message to have a fasting blood test performed before the office visit. The message has a link to a requisition, and a list of possible lab loacations where the test can be
-            done. The patient chooses a lab location near her place of employment, and a test is scheduled. The lab gets the requisition from the patient, and using the information on how to retrieve the Task from the provider's system, claims the test
+            A patient is scheduled for their physical, and the provider sends her a secure message to have a fasting blood test performed before the office visit. The message has a link to a requisition, and a list of possible lab locations where the test can be
+            done. The patient chooses a lab location near her place of employment and a test is scheduled. The lab gets the requisition from the patient and, using the information on how to retrieve the Task from the provider's system, claims the test
             to be performed...
         </p>
 
@@ -114,7 +114,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Fulfiller system GETs the referenced request</li>
             <li>Fulfiller updates the Task to indicate acceptance of the task</li>
             <li>Placer either polls the Task to note acceptance or uses a subscription to determine the same</li>
-            <li>Fulfiller may further update the Task to reflect the progeess made. Using the same method as in step 5, the placer becomes aware of these updates</li>
+            <li>Fulfiller may further update the Task to reflect the progress made. Using the same method as in step 5, the placer becomes aware of these updates</li>
             <li>Fulfiller creates an event resource in its own system via POST or an internal action, or POSTs it to a queue server system </li>
             <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
             <li>Placer either polls the Task to note completion and changes or uses a subscription to determine the same</li>
@@ -134,7 +134,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Additional complexity of using Task</li>
             <li>Additional complexity of using subscription or polling</li>
-            <li>Placer and fulfiller must have a FHIR server, and fulfiller's FHIR server must allow "write" creation of the Task resource by the placer</li>
+            <li>Placer and fulfiller must have a FHIR server and fulfiller's FHIR server must allow "write" creation of the Task resource by the placer</li>
             <li>
                 Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
                 <ul>
@@ -158,10 +158,10 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Usage Examples</h4>
         <p><b>Outpatient prescription</b></p>
         <p>
-            A patient is suffering from a poison ivy rash, and he is prescribed a steroid medication to manage the reaction. The provider asks the patient for his preferred pharmacy and creates the Task at the specified pharmacy's system. The patient is running late
-            and by the time he arrives at the pharmacy, it is closed. He calls the clinic where the provider practices, and requests that the pharmacy where the order is to be fulfilled is changed to one that is open around the clock. The staff at the
-            clinic cancels the Task at the original pharmacy, and creeates a new Task at the requested new one. By the time the patient arrives at the new pharmacy, the medicatin is ready for pickup. Once the request is fulfilled, the clinic receives
-            the notification that the Task is complete, and the prescription is also marked as complete.
+            A patient is suffering from a poison ivy rash and is prescribed a steroid medication to manage the reaction. The provider asks the patient for his preferred pharmacy and creates the Task at the specified pharmacy's system. The patient is running late
+            and by the time he arrives at the pharmacy, it is closed. He calls the clinic where the provider practices and requests that the pharmacy where the order is to be fulfilled is changed to one that is open around the clock. The staff at the
+            clinic cancels the Task at the original pharmacy and creates a new Task at the requested new one. By the time the patient arrives at the new pharmacy, the medication is ready for pickup. Once the request is fulfilled, the clinic receives
+            the notification that the Task is complete and the prescription is also marked as complete.
         </p>
 
         <a name="optionh"> </a>
@@ -204,11 +204,11 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Placer POSTs a Task resource to the filler system, pointing to the request resource and seeking fulfillment</li>
             <li>Fulfiller system GETs the referenced request</li>
             <li>Fulfiller updates the Task to indicate acceptance of the task</li>
-            <li>Fulfiller POSTs a Task, which also points to the request resource, and also uses the <a href="task-definitions.html#Task.partOf">Task.partOf</a> attribute to point to the Task from step 2 (indicating it is a sub-Task)</li>
-            <li>Fulfiller may further update both Tasks to reflect the progeess made. Since the sub-Task is on the placer's system, the placer is aware of these updates</li>
+            <li>Fulfiller POSTs a Task, which also points to the request resource and uses the <a href="task-definitions.html#Task.partOf">Task.partOf</a> attribute to point to the Task from step 2 (indicating it is a sub-Task)</li>
+            <li>Fulfiller may further update both Tasks to reflect the progress made. Since the sub-Task is on the placer's system, the placer is aware of these updates</li>
             <li>Fulfiller creates an event resource in its own system via POST or an internal action</li>
             <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
-            <li>Fullfiler updates the sub-Task resource as completed, and points to the event resource. Since the sub-Task is on the palcer's system, the placer is aware of the completion and changes</li>.
+            <li>Fulfiller updates the sub-Task resource as completed and points to the event resource. Since the sub-Task is on the placer's system, the placer is aware of the completion and changes.</li>
             <li>Placer system queries to retrieve the referenced event resource</li>
             <li>Placer updates the request resource to indicate completion via PUT or an internal action</li>
         </ol>
@@ -225,7 +225,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Additional complexity of using Task</li>
             <li>Need to keep the two Task states in sync</li>
-            <li>Placer and fulfiller must each have a FHIR server, and give the other side "write" access to create and update Task resources.</li>
+            <li>Placer and fulfiller must each have a FHIR server and give the other side "write" access to create and update Task resources.</li>
             <li>
                 Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
                 <ul>
@@ -251,16 +251,16 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Usage Examples</h4>
         <p><b>Outpatient referral</b></p>
         <p>
-            A patient is seen by her PCP for shortness of breath, and is the provider decides to refer her to a cardiologist. As a result of the referral, the provider's system creates ReferralRequest resource, and POSTs a Task resource at a cardiologist's practice
-            system, requesting a referral. THis places the referral request on a referral coordinator's work list to review. Upon accepting the referral, the Task is updated as accepted, and a new sub-Task, referencing both the ReferralRequest and the
-            Task created by the provider's system, is created on the provider's system. The patient gets an appointment with the cardiologist, and the sub-Task is updated with that information, allowing the provider's system to inform the provider of
+            A patient is seen by her Primary Care Provider (PCP) for shortness of breath and the provider decides to refer her to a cardiologist. Because of the referral, the provider's system creates ReferralRequest resource and POSTs a Task resource to a cardiologist's practice
+            system, requesting a referral. This places the referral request on a referral coordinator's work list to review. Upon accepting the referral, the Task is updated as accepted and a new sub-Task, referencing both the ReferralRequest and the
+            Task created by the provider's system, is created on the provider's system. The patient gets an appointment with the cardiologist and the sub-Task is updated with that information, allowing the provider's system to inform the provider of
             the change.
         </p>
         <p>
-            The patient misplaces the information about the appointment, and misses the visit with the cardiologist. The cardiologist's system updates the sub-Task to indicate the no-show, and the PCP is alerted of the missed appointment. The provider's staff gets
-            a hold of the patient, and schedules another appointment for her with the cardiologist. As a result of the cardiologist's system scheduling the appointment, the sub-Task is updated with that information. The patient is seen, and the sub-Task
-            is updated accordingly. The cardiologists documents the findings about the patient, and updates the sub-Task as complete, adding references to the resources representing the findings. The PCP is alerted of the updates, and marks the referral
-            as complete, which updates the original Task, and the ReferralRequest as complete as well.
+            The patient misplaces the information about the appointment and misses the visit with the cardiologist. The cardiologist's system updates the sub-Task to indicate the no-show and the PCP is alerted of the missed appointment. The provider's staff gets
+            hold of the patient and schedules another appointment for her with the cardiologist. Because of the cardiologist's system scheduling the appointment, the sub-Task is updated with that information. The patient is seen and the sub-Task
+            is updated accordingly. The cardiologist documents the findings about the patient and updates the sub-Task as complete, adding references to the resources representing the findings. The PCP is alerted of the updates and marks the referral
+            as complete, which updates the original Task and the ReferralRequest as complete as well.
         </p>
 
         <a name="optionj"> </a>
@@ -270,11 +270,11 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <h4>Steps</h4>
         <ol>
-            <li>Placer sends message to filler with a MessageHeader, where the "data" element points to the Taks resource, also contained in the message. The massage may or may not contain any other relevant resources (e.g the actual request resource), or
+            <li>Placer sends message to filler with a MessageHeader, where the "data" element points to the Task resource, also contained in the message. The message may or may not contain any other relevant resources (e.g. the actual request resource), or
                 an "event" code saying "please fulfill"</li>
-            <li>Filler system sends a response containing the same Task resource, indicating receipt of the message and, optionally an indication of their intention to fulfill the request</li>
+            <li>Filler system sends a response containing the same Task resource, indicating receipt of the message and, optionally, an indication of their intention to fulfill the request</li>
             <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results) by including an updated Task resource</li>
-            <li>Placer system may also send messages to the fulfiller conatining the Task resource and updatingh the state of the workflow</li>
+            <li>Placer system may also send messages to the fulfiller containing the Task resource and updating the state of the workflow</li>
         </ol>
         <h4>Benefits</h4>
         <ul>
@@ -300,7 +300,7 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
         </p>
         <a name="optionk"> </a>
-        <h3>Option K: Service request referencing Task from placer to fullfiller</h3>
+        <h3>Option K: Service request referencing Task from placer to fulfiller</h3>
         <p>
             <i>TODO: This scenario needs work - there's not a lot of experience using FHIR services to manage the fulfillment process</i>
         </p>

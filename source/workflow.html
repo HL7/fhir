@@ -41,15 +41,15 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <p><b>Workflow state &amp; relationships</b></p>
         <p>
-            FHIR does not need to be used for the execution of workflow. Orders, care plans, lab results, hospital admissions, claim payments and other records can all be shared using FHIR roesources without the process to actually solicit fulfillment of those orders
-            or requesting payment of those claims being driven by a FHIR transaction. Interoperable support for workflow execution is actually a more advanced FHIR activity because it requires a higher degree of standardization. Rather than merely standardizing
-            the data to exchange, interoperable workflow execution requires standardization of the processes, roles and activities of the different systems. However, even without using FHIR for workflow execution, there's still a need to standardize the
+            FHIR does not need to be used for the execution of workflow. Orders, care plans, lab results, hospital admissions, claim payments and other records can all be shared using FHIR resources without the process to solicit fulfillment of those orders
+            or requesting payment of those claims being driven by a FHIR transaction. Interoperable support for workflow execution is a more advanced FHIR activity because it requires a higher degree of standardization. Rather than merely standardizing
+            the data to exchange, interoperable workflow execution requires standardization of the processes, roles and activities across the different systems. However, even without using FHIR for workflow execution, there's still a need to standardize the
             data elements related to workflow: how does an event or a result point to the order that authorized it? How do parent steps and child steps get linked together? How does a care plan identify what protocol it's adhering to?
         </p>
         <p>
             FHIR defines three categories of resources that are involved in activities - <a href="#request">requests</a>, <a href="#event">events</a> and
-            <a href="#definition">definitions</a>. Each of these different types has a "pattern" associated with it.  Resources that fall into that type are encouraged to adhere to their respective pattern. These patterns provide standard elements that
-            are typical for most resources of each type. Strict adherence is not required as work groups are expected to align with typical domain behavior and requirements as more authoritative than "desired" architectural patterns. In some cases, capabilities
+            <a href="#definition">definitions</a>. Each of these categories has a "pattern" associated with it.  Resources that fall into that category are encouraged to adhere to their respective pattern. These patterns provide standard elements that
+            are typical for most resources of each category. Strict adherence is not required as work groups are expected to align with typical domain behavior and requirements as more authoritative than "desired" architectural patterns. In some cases, capabilities
             might be supported with extensions rather than core elements where a pattern capability is deemed to be "not common, but still relevant" for a given resource.
         </p>
         <p>
@@ -62,7 +62,7 @@ in order to support consistent definitions for schema and UML derived code.
             <a href="messaging.html">Messaging</a> and <a href="services.html">Services</a>) provide support for driving workflow execution. (The <a href="documents.html">Document</a> paradigm does not directly support driving behavior, though it can
             be combined with one of the other patterns to do so.) In addition, several of these paradigms allow multiple approaches to supporting workflow, depending on the context and needs of the workflow process.
         </p>
-        <p>The <a href="workflow-communications.html">Workflow Execution and Communication Patterns</a> section describes a number of options for workflow execution, summarizes their respective pros and cons and makes recommendations for the circumstances
+        <p>The <a href="workflow-communications.html">Workflow Execution and Communication Patterns</a> section describes many options for workflow execution, summarizes their respective pros and cons and makes recommendations for the circumstances
             in which they might best be used.</p>
         <p><b>Workflow definition</b></p>
         <p>
@@ -74,7 +74,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li><a href="activitydefinition.html">ActivityDefinition</a> defines an activity to be performed as a single step</li>
         </ul>
         <p>
-            The use of these two artifacts is documented TODO.
+            The use of these two artifacts is discussed <a href="cqif/cqif-topics-definitional-resources.html">here</a>.
         </p>
 
         <a name="respatterns"> </a>
@@ -88,7 +88,7 @@ in order to support consistent definitions for schema and UML derived code.
         <table style="grid">
             <tbody>
                 <tr>
-                    <th>Requests</th>
+                    <th><a href="request.html">Requests</a></th>
                     <td colspan="3">Resources that ask for or express a desire/intention for something to be done</td>
                 </tr>
                 <tr>
@@ -126,8 +126,8 @@ in order to support consistent definitions for schema and UML derived code.
                     </td>
                 </tr>
                 <tr>
-                    <th>Events</th>
-                    <td colspan="3">Resources that express that something has been done and which can potentially be done as a result of a request</td>
+                    <th><a href="event.html">Events</a></th>
+                    <td colspan="3">Resources that express that something has been done and which can potentially be done because of a request</td>
                 </tr>
                 <tr>
                     <td>
@@ -184,7 +184,7 @@ in order to support consistent definitions for schema and UML derived code.
                     </td>
                 </tr>
                 <tr>
-                    <th>Definitions</th>
+                    <th><a href="definition.html">Definitions</a></th>
                     <td colspan="3">Resources that define something that can potentially happen in a patient and time-independent manner</td>
                 </tr>
                 <tr>
@@ -253,13 +253,13 @@ in order to support consistent definitions for schema and UML derived code.
             Specifically:
         </p>
         <ul>
-            <li>both requests and events can point to their respective definitions</li>
+            <li>requests, events and definitions can point to their respective definitions</li>
             <li>events and requests can point to the proposals, plans or orders they are based on</li>
             <li>events and definitions can be organized into parent-child relationships of parents and components</li>
             <li>definitions and requests can both replace prior versions of the same type of artifact</li>
         </ul>
         <p>
-            This list of relationships is not exhaustive, but covers those that are "standardized" as part of the patterns. Further description and guidance on these relationships can be found in the <a href="request.html">Request</a>, <a href="event.html">Event</a>            and <a href="definition.html">Definition</a> logical models.
+            This list of relationships is not exhaustive, but covers those that are "standardized" as part of the patterns. Further description and guidance on these relationships can be found in the <a href="request.html">Request</a>, <a href="event.html">Event</a>            and <a href="definition.html">Definition</a> logical patterns.
         </p>
 
         <a name="request"> </a>
@@ -269,16 +269,16 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <p>
             The amount of information needed for a Request to be actionable can vary by circumstance. Some request instances may not be "fully specified" - additional information from protocol, patient preference and/or professional decision-making may be necessary
-            before the authorized action can occur. For example, a MedicationOrder might be specified without indicating a strength or route in situations where the pharmacy (or even nursing information) has the authority to determine those parameters.
-            A VisionPrescription might not be actionable until frames have been chosen and the necessary measurements of the patient's face have been taken to allow the lenses to be positioned appropriately within the frames.
+            before the authorized action can occur. For example, a <a href="medicationrequest.html">MedicationRequest</a> might be specified without indicating a strength or route in situations where the pharmacy (or even nursing station) has the authority to determine those parameters.
+            A <a href="visionprescription.html">VisionPrescription</a> might not be actionable until frames have been chosen and the necessary measurements of the patient's face have been taken to allow the lenses to be positioned appropriately within the frames.
         </p>
         <p>
             All requests with an intent of "order" authorize something. Whether what is authorized is sufficient to be immediately actionable depends on who is fulfilling the order and the context in which the fulfillment request is made. The determination of whether
             a given "request" is actionable may be made by the systems involved or the humans being asked to act.
         </p>
         <p>
-            As well, the existence of a "Request" instance doesn't necessarily imply that fufillment will be requested immediately - or even ever. The decision to request fulfillment may be delegated to the patient or to down-stream practitioners. Such fufilling
-            practitioners may need to capture additional information prior to executing the fufillment.
+            As well, the existence of a "Request" instance doesn't necessarily imply that fulfillment will be requested immediately - or even ever. The decision to request fulfillment may be delegated to the patient or to down-stream practitioners. Such fulfilling
+            practitioners may need to capture additional information prior to executing the fulfillment.
         </p>
 
         <a name="event"> </a>
@@ -305,7 +305,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <li>It is possible to replace some portions of the <a href="messageheader.html">MessageHeader</a> with a reference to the <a href="task.html">Task</a> resource. Doing so would mean consistency in how asynchronous requests are represented using
                     REST and messaging. However, it introduces an additional layer of complexity and formality into the messaging paradigm that may be unwelcome, particularly for those systems that do not currently foresee a need to support both RESTful
                     and messaging invocations of workflow</li>
-                <li>The <a href="operationdefinition.html">OperationDefinition</a> resource could be used to define types of tasks and the sets of parameters that are allowed to go with them. Is this an appropriate use of the OperationDefinition resource?</li>
+                <li>The <a href="operationdefinition.html">OperationDefinition</a> resource could be used to define types of tasks and the sets of parameters that can go with them. Is this an appropriate use of the OperationDefinition resource?</li>
                 <li>The <a href="supplyrequest.html">SupplyRequest</a>, <a href="devicerequest.html">DeviceRequest</a> and <a href="visionprescription.html">VisionPrescription</a> resources have a significant degree of overlap. Should they remain distinct
                     resources?
                 </li>
