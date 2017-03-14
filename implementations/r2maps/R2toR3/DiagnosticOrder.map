@@ -21,7 +21,7 @@ conceptmap "intent" {
 
 conceptmap "status" {
   prefix s = "http://hl7.org/fhir/diagnostic-order-status"
-  prefix t = "http://hl7.org/fhir/diagnostic-order-status"
+  prefix t = "http://hl7.org/fhir/request-status"
 
   s:proposed = t:draft  
   s:draft = t:draft 
@@ -40,20 +40,27 @@ conceptmap "status" {
 
   
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DiagnosticOrder" alias DiagnosticOrderR2 as source
-uses "http://hl7.org/fhir/StructureDefinition/DiagnosticRequest" alias DiagnosticRequest as target
+uses "http://hl7.org/fhir/StructureDefinition/ProcedureRequest" alias DiagnosticRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*2to3"
 
-group for type+types  DiagnosticOrder extends DomainResource
-  input src : DiagnosticOrderR2 as source
-  input tgt : DiagnosticRequest as target
+// in R3, DiagnosticOrder is folded into ProcedureRequest, and there's no easy 
+// way to tell them apart. it requires special knowledge to decide to convert
+// a procedure request back to a DiagnosticOrder, but we mark them with an 
+// extension in case this helps
 
+group for type+types DiagnosticOrder extends DomainResource
+  input src : DiagnosticOrderR2 as source
+  input tgt : ProcedureRequest as target
+
+  "DiagnosticOrder-mark" : for src make tgt.extension as ex, ex.url = 'http://hl7.org/fhir/diagnosticorder-r2-marker', ex.value = true 
   "DiagnosticOrder-subject" : for src.subject make tgt.subject
-  "DiagnosticOrder-orderer" : for src.orderer make tgt.requester
+  "DiagnosticOrder-orderer" : for src.orderer as v make tgt.requester as t, t.agent = v
   "DiagnosticOrder-identifier" : for src.identifier make tgt.identifier
   "DiagnosticOrder-encounter" : for src.encounter make tgt.context
   "DiagnosticOrder-reason" : for src.reason make tgt.reasonCode
-  "DiagnosticOrder-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
+  "DiagnosticOrder-supportingInformation" : for src.supportingInformation make tgt.supportingInfo
+  "DiagnosticOrder-reason" : for src.specimen make tgt.specimen
   "DiagnosticOrder-status" : for src.status as v make tgt.status = translate(v, "#status", "code")
   "DiagnosticOrder-intent" : for src.status as v make tgt.intent = translate(v, "#intent", "code")
   "DiagnosticOrder-priority" : for src.priority make tgt.priority

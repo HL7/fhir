@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -4799,10 +4799,10 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "DeviceMetric", name, element, index);
-    if (element.hasType())
-      composeCodeableConcept(t, "DeviceMetric", "type", element.getType(), -1);
     if (element.hasIdentifier())
       composeIdentifier(t, "DeviceMetric", "identifier", element.getIdentifier(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "DeviceMetric", "type", element.getType(), -1);
     if (element.hasUnit())
       composeCodeableConcept(t, "DeviceMetric", "unit", element.getUnit(), -1);
     if (element.hasSource())
@@ -10209,18 +10209,36 @@ public class RdfParser extends RdfParserBase {
       composeIdentifier(t, "Questionnaire", "identifier", element.getIdentifier().get(i), i);
     if (element.hasVersionElement())
       composeString(t, "Questionnaire", "version", element.getVersionElement(), -1);
+    if (element.hasNameElement())
+      composeString(t, "Questionnaire", "name", element.getNameElement(), -1);
+    if (element.hasTitleElement())
+      composeString(t, "Questionnaire", "title", element.getTitleElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "Questionnaire", "status", element.getStatusElement(), -1);
+    if (element.hasExperimentalElement())
+      composeBoolean(t, "Questionnaire", "experimental", element.getExperimentalElement(), -1);
     if (element.hasDateElement())
       composeDateTime(t, "Questionnaire", "date", element.getDateElement(), -1);
     if (element.hasPublisherElement())
       composeString(t, "Questionnaire", "publisher", element.getPublisherElement(), -1);
-    for (int i = 0; i < element.getTelecom().size(); i++)
-      composeContactPoint(t, "Questionnaire", "telecom", element.getTelecom().get(i), i);
+    if (element.hasDescriptionElement())
+      composeMarkdown(t, "Questionnaire", "description", element.getDescriptionElement(), -1);
+    if (element.hasPurposeElement())
+      composeMarkdown(t, "Questionnaire", "purpose", element.getPurposeElement(), -1);
+    if (element.hasApprovalDateElement())
+      composeDate(t, "Questionnaire", "approvalDate", element.getApprovalDateElement(), -1);
+    if (element.hasLastReviewDateElement())
+      composeDate(t, "Questionnaire", "lastReviewDate", element.getLastReviewDateElement(), -1);
+    if (element.hasEffectivePeriod())
+      composePeriod(t, "Questionnaire", "effectivePeriod", element.getEffectivePeriod(), -1);
     for (int i = 0; i < element.getUseContext().size(); i++)
-      composeCodeableConcept(t, "Questionnaire", "useContext", element.getUseContext().get(i), i);
-    if (element.hasTitleElement())
-      composeString(t, "Questionnaire", "title", element.getTitleElement(), -1);
+      composeUsageContext(t, "Questionnaire", "useContext", element.getUseContext().get(i), i);
+    for (int i = 0; i < element.getJurisdiction().size(); i++)
+      composeCodeableConcept(t, "Questionnaire", "jurisdiction", element.getJurisdiction().get(i), i);
+    for (int i = 0; i < element.getContact().size(); i++)
+      composeContactDetail(t, "Questionnaire", "contact", element.getContact().get(i), i);
+    if (element.hasCopyrightElement())
+      composeMarkdown(t, "Questionnaire", "copyright", element.getCopyrightElement(), -1);
     for (int i = 0; i < element.getCode().size(); i++)
       composeCoding(t, "Questionnaire", "code", element.getCode().get(i), i);
     for (int i = 0; i < element.getSubjectType().size(); i++)

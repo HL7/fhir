@@ -20,6 +20,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Base;
@@ -33,16 +34,21 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.test.support.TestingUtilities;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.MetadataResource;
+import org.hl7.fhir.dstu3.model.PractitionerRole;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.utils.IResourceValidator;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.TransformContext;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.InstanceValidatorFactory;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -61,9 +67,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
 @RunWith(Parameterized.class)
-public class R2R3ConversionTests implements ITransformerServices {
+public class R2R3ConversionTests implements ITransformerServices, IValidatorResourceFetcher {
 
-  private static final boolean SAVING = false;
+  private static final boolean SAVING = true;
 
   @Parameters(name = "{index}: id {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
@@ -167,12 +173,13 @@ public class R2R3ConversionTests implements ITransformerServices {
         // validate against R3
         IResourceValidator validator = contextR3.newValidator();
         validator.setNoTerminologyChecks(true);
+        validator.setFetcher(this);
         validator.validate(null, r3validationErrors, r3);
 
         // load the R3 to R2 map
         //      mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r2.fhirType()+".map");
         //      s = sm.parse(TextFile.fileToString(mapFile));
-        mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r3.fhirType()+".map");
+        mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", getMapFor(r3.fhirType(), r2.fhirType())+".map");
         sm = smu2.parse(TextFile.fileToString(mapFile));
 
         // convert to R2
@@ -198,6 +205,13 @@ public class R2R3ConversionTests implements ITransformerServices {
       updateOutcomes(tn, workingid, executionError, r3validationErrors, roundTripError);
     if (executionError != null)
       throw executionError;
+  }
+
+  private String getMapFor(String r3, String r2) {
+    if (r2.equals("DiagnosticOrder"))
+      return "ProcedureRequestDO";
+    else
+      return r3;
   }
 
   private void updateOutcomes(String tn, String id, Exception executionError, List<ValidationMessage> r3validationErrors, String roundTripError) throws IOException {
@@ -352,7 +366,7 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @Override
   public Base createResource(Object appInfo, Base res) {
-    if (res instanceof Resource && (res.fhirType().equals("CodeSystem") || res.fhirType().equals("CareTeam"))) {
+    if (res instanceof Resource && (res.fhirType().equals("CodeSystem") || res.fhirType().equals("CareTeam")) || res.fhirType().equals("PractitionerRole")) {
       Resource r = (Resource) res;
       extras.add(r);
       r.setId(workingid+"-"+extras.size());
@@ -390,6 +404,37 @@ public class R2R3ConversionTests implements ITransformerServices {
     }
     
     return null;
+  }
+
+  @Override
+  public List<Base> performSearch(Object appContext, String url) {
+    List<Base> results = new ArrayList<Base>();
+    String[] parts = url.split("\\?");
+    if (parts.length == 2 && parts[0].substring(1).equals("PractitionerRole")) {
+      String[] vals = parts[1].split("\\=");
+      if (vals.length == 2 && vals[0].equals("practitioner"))
+      for (Resource r : extras) {
+        if (r instanceof PractitionerRole && ((PractitionerRole) r).getPractitioner().getReference().equals("Practitioner/"+vals[1])) {
+          results.add(r);
+        }
+      }
+    }
+    return results;
+  }
+
+  @Override
+  public Element fetch(Object appContext, String url) throws FHIRFormatError, DefinitionException, IOException, FHIRException {
+    return null;
+  }
+
+  @Override
+  public ReferenceValidationPolicy validationPolicy(Object appContext, String path, String url) {
+    return ReferenceValidationPolicy.IGNORE;
+  }
+
+  @Override
+  public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
+    return true;
   }
 
 }

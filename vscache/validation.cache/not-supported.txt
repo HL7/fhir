@@ -9,6 +9,7 @@ http://hl7.org/fhir/sid/icd-10-cm
 http://goodhealthhospital.org/supplement-type-codes
 http://npidb.org/taxonomy
 http://acme.org/lab/codes/organisms
+http://www.ebi.ac.uk/ipd/imgt/hla/
 http://orionhealth.com/fhir/apps/specialties
 http://hl7.org/fhir/pharmacy-refill
 http://org.mdhhs.fhir.consent-actor-type
@@ -69,12 +70,14 @@ http://build.fhir.org/codesystem-usage-context-type
 https://rtmms.nist.gov
 http://www.ncbi.nlm.nih.gov/nuccore
 http://loinc.org/la
-http:hl7.org/fhir
+http://www.ncbi.nlm.nih.gov/gtr/
 http://www.genenames.org
+http:hl7.org/fhir
 http://hl7.org/fhir/claim-careteamrole
 http://org.mdhhs.fhir.consent-signer-type
 http://ihe.net/connectathon/classCodes
 http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
+http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/
 http:/acme.ec/gcsverbal
 http://snomed.info.sct
 https://github.com/common-workflow-language/workflows

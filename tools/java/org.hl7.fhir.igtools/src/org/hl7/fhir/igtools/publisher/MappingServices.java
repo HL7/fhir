@@ -1,6 +1,7 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
@@ -73,6 +74,11 @@ public class MappingServices implements ITransformerServices {
   @Override
   public Base resolveReference(Object appContext, String url) {
     throw new Error("Not done yet");
+  }
+
+  @Override
+  public List<Base> performSearch(Object appContext, String url) {
+    throw new Error("Not supported yet");
   }
 
 }

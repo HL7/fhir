@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3196,6 +3196,26 @@ public class MedicationRequest extends DomainResource {
    * the path value of "<b>MedicationRequest:requester</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTER = new ca.uhn.fhir.model.api.Include("MedicationRequest:requester").toLocked();
+
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Returns medication request to be administered on a specific date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationRequest.dosageInstruction.timing.event</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="MedicationRequest.dosageInstruction.timing.event", description="Returns medication request to be administered on a specific date", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Returns medication request to be administered on a specific date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>MedicationRequest.dosageInstruction.timing.event</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
    * Search parameter: <b>identifier</b>

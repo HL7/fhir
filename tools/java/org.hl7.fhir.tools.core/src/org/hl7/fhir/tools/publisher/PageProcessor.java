@@ -1144,10 +1144,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public String r2nameForResource(String name) {
     if ("CapabilityStatement".equals(name))
       return "Conformance";
-    if ("DiagnosticRequest".equals(name))
-      return "DiagnosticOrder";
     if ("MedicationRequest".equals(name))
       return "MedicationOrder";
+    if ("DeviceRequest".equals(name))
+      return "DeviceUseRequest";
     return name;
   }
 
@@ -8632,6 +8632,43 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (definitions.hasResource(typeName))
       return typeName.toLowerCase()+".html#"+typeName;
     return null;
+  }
+
+  public String getR2R3ValidationErrors(String name) {
+    StringBuilder b = new StringBuilder();
+    JsonObject r = r2r3Outcomes.getAsJsonObject(name);
+    if (r != null) {
+      boolean first = true;
+      for (Entry<String, JsonElement> e : r.entrySet()) {
+        JsonObject el = (JsonObject) e.getValue();
+        if (el.has("r3.errors")) {
+          if (first) {
+            first = false;
+            b.append("<table class=\"grid\">\r\n");
+          }
+          b.append(" <tr>\r\n");
+          b.append("  <td>");
+          b.append(e.getKey());
+          b.append("</td>\r\n");
+          JsonArray arr = el.getAsJsonArray("r3.errors");
+          b.append("  <td>");
+          b.append("   <ul>");
+          for (JsonElement n : arr) {
+            b.append("    <li>");
+            b.append(n.getAsString());
+            b.append("</li>\r\n");
+          }
+          b.append("   </ul>\r\n");
+          b.append("  </td>\r\n");
+          b.append(" </tr>\r\n");
+        }
+      }
+      if (!first) {
+        b.append("</table>\r\n");        
+      }
+    } else
+      b.append("<p>n/a</p>\r\n");
+    return b.toString();
   }
 
 }

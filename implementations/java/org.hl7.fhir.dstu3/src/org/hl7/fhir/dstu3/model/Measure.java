@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -4463,17 +4463,17 @@ public class Measure extends MetadataResource {
    * <p>
    * Description: <b>The related resource</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Measure.relatedArtifact.resource</b><br>
+   * Path: <b>Measure.relatedArtifact.resource, Measure.library</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="Measure.relatedArtifact.where(type='depends-on').resource", description="The related resource", type="reference" )
+  @SearchParamDefinition(name="depends-on", path="Measure.relatedArtifact.where(type='depends-on').resource | Measure.library", description="The related resource", type="reference" )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
    * <p>
    * Description: <b>The related resource</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Measure.relatedArtifact.resource</b><br>
+   * Path: <b>Measure.relatedArtifact.resource, Measure.library</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEPENDS_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEPENDS_ON);

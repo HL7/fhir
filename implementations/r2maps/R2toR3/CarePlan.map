@@ -20,7 +20,9 @@ group for type+types  CarePlan extends DomainResource
   "CarePlan-description" : for src.description make tgt.description
   "CarePlan-addresses" : for src.addresses make tgt.addresses
   "CarePlan-support" : for src.support make tgt.supportingInfo
-//  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then plnRelated(vs0, vt0)
+  // "CarePlan-relatedPlan1" : for src.relatedPlan as vs0 where vs0.code = 'includes' make tgt.basedOn = (vs0.plan) this relationship is inverted to partOf, and that's beyond the scope of the transforms to do
+  "CarePlan-relatedPlan2" : for src.relatedPlan as vs0 where vs0.code = 'replaces' make tgt.basedOn = (vs0.plan)
+  "CarePlan-relatedPlan3" : for src.relatedPlan as vs0 where vs0.code = 'fulfills' make tgt.replaces = (vs0.plan)
   "CarePlan-participant" : for src where src.participant.exists() make create("CareTeam") as vt0 then plnParticipant(src, vt0, tgt)
   "CarePlan-goal" : for src.goal make tgt.goal
   "CarePlan-activity" : for src.activity as vs0 make tgt.activity as vt0 then plnActivity(vs0, vt0)

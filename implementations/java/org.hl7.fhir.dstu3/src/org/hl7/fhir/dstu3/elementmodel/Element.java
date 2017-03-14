@@ -293,8 +293,12 @@ public class Element extends Base {
       return this;
     }
     
-    if (!value.isPrimitive() && !(value instanceof Element))
-      throw new FHIRException("Cannot set property "+name+" on "+this.name+" - value is not a primitive type ("+value.fhirType()+") or an ElementModel type");
+    if (!value.isPrimitive() && !(value instanceof Element)) {
+      if (isDataType(value)) 
+        value = convertToElement(property.getChild(name), value);
+      else
+        throw new FHIRException("Cannot set property "+name+" on "+this.name+" - value is not a primitive type ("+value.fhirType()+") or an ElementModel type");
+    }
     
     if (children == null)
       children = new ArrayList<Element>();
@@ -352,6 +356,14 @@ public class Element extends Base {
       }
     }
     return childForValue;
+  }
+
+  private Base convertToElement(Property prop, Base v) throws FHIRException {
+    return new ObjectConverter(property.getContext()).convert(prop, (Type) v);
+  }
+
+  private boolean isDataType(Base v) {
+    return v instanceof Type &&  property.getContext().getTypeNames().contains(v.fhirType());
   }
 
   @Override

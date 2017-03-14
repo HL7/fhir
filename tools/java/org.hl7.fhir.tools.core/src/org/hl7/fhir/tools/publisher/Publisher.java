@@ -2628,10 +2628,11 @@ public class Publisher implements URIResolver, SectionNumberer {
     String n = name.toLowerCase();
     Map<String, String> values = new HashMap<String, String>();
     values.put("conv-status", page.r2r3StatusForResource(name));
-    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3",  page.r2nameForResource(name)+".map")));
+    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3", page.r2nameForResource(name)+".map")));
     values.put("bcks", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", name+".map")));
     values.put("fwds-status", "");
     values.put("bcks-status", "");
+    values.put("r3errs", page.getR2R3ValidationErrors(name));
     try {
       new StructureMapUtilities(page.getWorkerContext()).parse(values.get("fwds"));
     } catch (FHIRException e) {

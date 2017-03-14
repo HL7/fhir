@@ -22,6 +22,17 @@
       "message": "The code provided (http://acme.com/labs/reports#bchem2) is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
+      "hash": "#|http://loinc.org|null|13303-3|HLA-A+​B+​C (class I) [Type]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "HLA-A+B+C (class I) [Type]"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|18769-0|Microbial susceptibility tests Set",
       "severity": null,
       "message": null,

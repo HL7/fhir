@@ -43,9 +43,11 @@ import org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Timing.EventTiming;
+import org.hl7.fhir.dstu3.model.UsageContext;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class VersionConvertor_14_20 {
@@ -4952,12 +4954,12 @@ public class VersionConvertor_14_20 {
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2016may.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
+      tgt.addContact(convertQuestionnaireContactComponent(t));
     for (org.hl7.fhir.dstu2016may.model.CodeableConcept t : src.getUseContext())
-//      if (isJurisdiction(t))
-//        tgt.addJurisdiction(convertCodeableConcept(t));
-//      else
-        tgt.addUseContext(convertCodeableConcept(t));
+      if (isJurisdiction(t))
+        tgt.addJurisdiction(convertCodeableConcept(t));
+      else
+        tgt.addUseContext(convertCodeableConceptToUsageContext(t));
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getConcept())
@@ -4985,12 +4987,13 @@ public class VersionConvertor_14_20 {
       tgt.setDate(src.getDate());
     if (src.hasPublisher())
       tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getUseContext())
+    for (ContactDetail t : src.getContact())
+      for (org.hl7.fhir.dstu3.model.ContactPoint t1 : t.getTelecom())
+        tgt.addTelecom(convertContactPoint(t1));
+    for (UsageContext t : src.getUseContext())
+      tgt.addUseContext(convertCodeableConcept(t.getValueCodeableConcept()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
       tgt.addUseContext(convertCodeableConcept(t));
-//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
-//      tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
@@ -5002,23 +5005,33 @@ public class VersionConvertor_14_20 {
     return tgt;
   }
 
-  private static org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus convertQuestionnaireStatus(org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ContactDetail convertQuestionnaireContactComponent(org.hl7.fhir.dstu2016may.model.ContactPoint src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
+    copyElement(src, tgt);
+    tgt.addTelecom(convertContactPoint(src));
+    return tgt;
+  }
+
+
+  private static org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus convertQuestionnaireStatus(org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.DRAFT;
-    case PUBLISHED: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.PUBLISHED;
-    case RETIRED: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.RETIRED;
-    default: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.NULL;
+    case DRAFT: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.DRAFT;
+    case PUBLISHED: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.ACTIVE;
+    case RETIRED: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.RETIRED;
+    default: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.NULL;
     }
   }
 
-  private static org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus convertQuestionnaireStatus(org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus convertQuestionnaireStatus(org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
     case DRAFT: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus.DRAFT;
-    case PUBLISHED: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus.PUBLISHED;
+    case ACTIVE: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus.PUBLISHED;
     case RETIRED: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus.RETIRED;
     default: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireStatus.NULL;
     }

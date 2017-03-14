@@ -16,9 +16,9 @@
 In addition to a <a href="diff.html">list of all differences between DSTU 2 and STU 3</a>,
 this specification also provides transforms between DSTU and STU 3 for most resources
 that were in DSTU 2. These transforms are expressed using the 
-<a href="mapping-language.html">FHIR Mapping Language</a>, and serve as both 
-formal documentation of the relationship between the designs in R2 and R3, and 
-can also be used to convert between the formats automatically. 
+<a href="mapping-language.html">FHIR Mapping Language</a>, and both serve as
+formal documentation of the relationship between the resource structures in R2 and R3, 
+and can also be used to convert between the formats automatically. 
 </p>
 <p>
 The following table summarizes the state of the R2:R3 maps for each resource type.
@@ -48,9 +48,13 @@ Note the following:
    For some resources, the information available in the R2 examples is not enough to generate valid R3 resources, and so the resources generate
    R3 validation errors. (e.g. R2 resources missing an element that is required in R3)
  </li>
- <li>For all these reasons, the maps provided in the specification are not authoritative; they are provided to help implementers 
-   who need to convert between R2 and R3 forma, but additional revision may be required in an implementation specific context</li> 
+ <li>
+   The transform scripts are only tested to the degree that R2 provided example data
+ </li>
  <li>The Bundle tests include the large distribution files (all valuesets, structure definitions, etc) and so generate large numbers of validation errors</li>
+ <li style="background: gold">For all these reasons, the maps provided in the specification are not authoritative; they are provided to help implementers 
+   who need to convert between the R2 and R3 format, but additional revision may be required in an implementation specific context. The 
+   <a href="http://wiki.hl7.org/index.php?title=FHIR_R2/R3_Transformation_page">FHIR Wiki</a> tracks ongoing work to provide improved transforms, and other transformation options</li> 
 </ul>
 
 <table class="grid">

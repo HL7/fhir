@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -8039,7 +8039,7 @@ public class Enumerations {
 
     public enum PublicationStatus {
         /**
-         * This resource is still under development.
+         * This resource is still under development and is not yet considered to be ready for normal use.
          */
         DRAFT, 
         /**
@@ -8050,6 +8050,10 @@ public class Enumerations {
          * This resource has been withdrawn or superseded and should no longer be used.
          */
         RETIRED, 
+        /**
+         * The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         */
+        UNKNOWN, 
         /**
          * added to help the parsers
          */
@@ -8063,6 +8067,8 @@ public class Enumerations {
           return ACTIVE;
         if ("retired".equals(codeString))
           return RETIRED;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         throw new FHIRException("Unknown PublicationStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -8070,6 +8076,7 @@ public class Enumerations {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
             case RETIRED: return "retired";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -8078,14 +8085,16 @@ public class Enumerations {
             case DRAFT: return "http://hl7.org/fhir/publication-status";
             case ACTIVE: return "http://hl7.org/fhir/publication-status";
             case RETIRED: return "http://hl7.org/fhir/publication-status";
+            case UNKNOWN: return "http://hl7.org/fhir/publication-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case DRAFT: return "This resource is still under development.";
+            case DRAFT: return "This resource is still under development and is not yet considered to be ready for normal use.";
             case ACTIVE: return "This resource is ready for normal use.";
             case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used.";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -8094,6 +8103,7 @@ public class Enumerations {
             case DRAFT: return "Draft";
             case ACTIVE: return "Active";
             case RETIRED: return "Retired";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -8110,6 +8120,8 @@ public class Enumerations {
           return PublicationStatus.ACTIVE;
         if ("retired".equals(codeString))
           return PublicationStatus.RETIRED;
+        if ("unknown".equals(codeString))
+          return PublicationStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown PublicationStatus code '"+codeString+"'");
         }
         public Enumeration<PublicationStatus> fromType(Base code) throws FHIRException {
@@ -8126,6 +8138,8 @@ public class Enumerations {
           return new Enumeration<PublicationStatus>(this, PublicationStatus.ACTIVE);
         if ("retired".equals(codeString))
           return new Enumeration<PublicationStatus>(this, PublicationStatus.RETIRED);
+        if ("unknown".equals(codeString))
+          return new Enumeration<PublicationStatus>(this, PublicationStatus.UNKNOWN);
         throw new FHIRException("Unknown PublicationStatus code '"+codeString+"'");
         }
     public String toCode(PublicationStatus code) {
@@ -8135,6 +8149,8 @@ public class Enumerations {
         return "active";
       if (code == PublicationStatus.RETIRED)
         return "retired";
+      if (code == PublicationStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(PublicationStatus code) {

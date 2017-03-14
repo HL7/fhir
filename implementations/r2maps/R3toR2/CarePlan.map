@@ -20,19 +20,12 @@ group for type+types  CarePlan extends DomainResource
   "CarePlan-description" : for src.description make tgt.description
   "CarePlan-addresses" : for src.addresses make tgt.addresses
   "CarePlan-support" : for src.supportingInfo make tgt.support
-//  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then plnRelated(vs0, vt0)
+  "CarePlan-relatedPlan2" : for src.basedOn as vs0 make tgt.relatedPlan as rp, rp.code = 'fulfills', rp.plan = v
+  "CarePlan-relatedPlan3" : for src.replaces as vs0 make tgt.relatedPlan as rp, rp.code = 'replaces', rp.plan = v
   "CarePlan-participant" : for src.careTeam as vs where reference.resolve().exists() make (src.careTeam.reference.resolve()) as ct then plnParticipant(ct, tgt)
   "CarePlan-goal" : for src.goal make tgt.goal
   "CarePlan-activity" : for src.activity as vs0 make tgt.activity as vt0 then plnActivity(vs0, vt0)
   "CarePlan-note" : for src.note make tgt.note
-endgroup
-
-group plnRelated extends BackboneElement
-  input src as source
-  input tgt as target
-
-  "CarePlan.relatedPlan-code" : for src.code make tgt.code
-  "CarePlan.relatedPlan-plan" : for src.plan make tgt.plan
 endgroup
 
 group plnActivity extends BackboneElement

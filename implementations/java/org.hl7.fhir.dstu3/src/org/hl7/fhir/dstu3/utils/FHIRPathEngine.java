@@ -320,7 +320,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(null, base.isResource() ? base : null, base, base), list, ExpressionNode, true);
+    return execute(new ExecutionContext(null, base != null && base.isResource() ? base : null, base, base), list, ExpressionNode, true);
   }
 
   /**
@@ -455,8 +455,12 @@ public class FHIRPathEngine {
 	 * @throws FHIRException 
    * @
    */
-	public String evaluateToString(Base base, String path) throws FHIRException {
+  public String evaluateToString(Base base, String path) throws FHIRException {
     return convertToString(evaluate(base, path));
+  }
+
+  public String evaluateToString(Object appInfo, Base resource, Base base, ExpressionNode node) throws FHIRException {
+    return convertToString(evaluate(appInfo, resource, base, node));
   }
 
   /**

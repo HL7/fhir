@@ -17,6 +17,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.DocumentReference.ReferredDocumentStatus;
@@ -10318,7 +10319,7 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setPublisher(src.getPublisher());
     for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
+      tgt.addContact(convertQuestionnaireContactComponent(t));
     org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent root = src.getGroup();
     tgt.setTitle(root.getTitle());
     for (org.hl7.fhir.dstu2.model.Coding t : root.getConcept())
@@ -10341,8 +10342,9 @@ public class VersionConvertor_10_20 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
+    for (ContactDetail t : src.getContact())
+      for (org.hl7.fhir.dstu3.model.ContactPoint t1 : t.getTelecom())
+        tgt.addTelecom(convertContactPoint(t1));
     org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent root = tgt.getGroup();
     root.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu3.model.Coding t : src.getCode()) {
@@ -10358,28 +10360,37 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus convertQuestionnaireStatus(org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.ContactDetail convertQuestionnaireContactComponent(org.hl7.fhir.dstu2.model.ContactPoint src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.ContactDetail tgt = new org.hl7.fhir.dstu3.model.ContactDetail();
+    copyElement(src, tgt);
+    tgt.addTelecom(convertContactPoint(src));
+    return tgt;
+  }
+  
+  private static org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus convertQuestionnaireStatus(org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.DRAFT;
-    case PUBLISHED: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.PUBLISHED;
-    case RETIRED: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.RETIRED;
-    default: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus.NULL;
+    case DRAFT: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.DRAFT;
+    case PUBLISHED: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.ACTIVE;
+    case RETIRED: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.RETIRED;
+    default: return org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus convertQuestionnaireStatus(org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus convertQuestionnaireStatus(org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
     case DRAFT: return org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus.DRAFT;
-    case PUBLISHED: return org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus.PUBLISHED;
+    case ACTIVE: return org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus.PUBLISHED;
     case RETIRED: return org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus.RETIRED;
     default: return org.hl7.fhir.dstu2.model.Questionnaire.QuestionnaireStatus.NULL;
     }
   }
-
+  
   public org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent convertQuestionnaireQuestionComponent(org.hl7.fhir.dstu2.model.Questionnaire.QuestionComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;

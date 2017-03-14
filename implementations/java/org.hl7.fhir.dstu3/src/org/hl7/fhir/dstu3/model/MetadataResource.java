@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 9, 2017 14:11+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -80,7 +80,7 @@ public abstract class MetadataResource extends DomainResource {
      * The status of this metadata resource. Enables tracking the life-cycle of the content.
      */
     @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this metadata resource. Enables tracking the life-cycle of the content." )
+    @Description(shortDefinition="draft | active | retired | unknown", formalDefinition="The status of this metadata resource. Enables tracking the life-cycle of the content." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/publication-status")
     protected Enumeration<PublicationStatus> status;
 

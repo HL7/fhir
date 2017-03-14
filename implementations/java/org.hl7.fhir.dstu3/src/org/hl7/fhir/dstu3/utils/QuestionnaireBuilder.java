@@ -28,7 +28,6 @@ import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType;
-import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireStatus;
 import org.hl7.fhir.dstu3.model.QuestionnaireResponse;
 import org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent;
 import org.hl7.fhir.dstu3.model.QuestionnaireResponse.QuestionnaireResponseStatus;
@@ -218,7 +217,7 @@ public class QuestionnaireBuilder {
     if (prebuiltQuestionnaire == null) {
       questionnaire.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue(questionnaireId);
       questionnaire.setVersion(profile.getVersion());
-      questionnaire.setStatus(convertStatus(profile.getStatus()));
+      questionnaire.setStatus(profile.getStatus());
       questionnaire.setDate(profile.getDate());
       questionnaire.setPublisher(profile.getPublisher());
       Questionnaire.QuestionnaireItemComponent item = new Questionnaire.QuestionnaireItemComponent();
@@ -237,16 +236,6 @@ public class QuestionnaireBuilder {
       item.setUserData("object", resource);
     }
 
-  }
-
-  private QuestionnaireStatus convertStatus(PublicationStatus status) {
-    switch (status) {
-		case ACTIVE: return QuestionnaireStatus.PUBLISHED;
-		case DRAFT: return QuestionnaireStatus.DRAFT;
-		case RETIRED : return QuestionnaireStatus.RETIRED;
-    default: 
-      return QuestionnaireStatus.NULL;
-    }
   }
 
   private String nextId(String prefix) {
