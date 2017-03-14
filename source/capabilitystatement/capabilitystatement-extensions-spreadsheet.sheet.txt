@@ -5,7 +5,7 @@
   Binding Name = ConformanceExpectation
   Binding = code list
   Reference = #conformance-expectation
-  Definition = Indicates the degree of adherence to a specified behavior or capability expected in order for a system to be deemed conformant with a specification.
+  Definition = Indicates the degree of adherence to a specified behavior or capability expected for a system to be deemed conformant with a specification.
   Conformance = required
 
 === Sheet conformance-expectation =====================================

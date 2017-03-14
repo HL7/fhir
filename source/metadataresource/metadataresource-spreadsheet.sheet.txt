@@ -72,7 +72,7 @@
   Summary = y
   Type = code
   Binding = PublicationStatus
-  Short Name = draft | active | retired
+  Short Name = draft | active | retired | unknown
   Definition = The status of this {{title}}. Enables tracking the life-cycle of the content
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not
   w5 = status
@@ -92,11 +92,12 @@
  -- Row 9 -----------------------------------
   Element = MetadataResource.date
   Card. = 0..1
+  Aliases = Revision Date
   Summary = y
   Type = dateTime
   Short Name = Date this was last changed
   Definition = The date  (and optionally time) when the {{title}} was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes
-  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions
+  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
   w5 = when.recorded
 
  -- Row 10 -----------------------------------

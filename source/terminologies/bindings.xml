@@ -239,11 +239,12 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>8712</WindowHeight>
-  <WindowWidth>14208</WindowWidth>
+  <WindowHeight>9672</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1057,7 +1058,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -1328,10 +1328,11 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="publication-status">
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="54" ss:DefaultRowHeight="15">
    <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="429"/>
-   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="174"/>
+   <Column ss:Index="8" ss:Width="99.6"/>
+   <Column ss:AutoFitWidth="0" ss:Width="174"/>
    <Column ss:AutoFitWidth="0" ss:Width="218.39999999999998"/>
    <Column ss:AutoFitWidth="0" ss:Width="183.6"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
@@ -1353,9 +1354,9 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Draft</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">This resource is still under development.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">This resource is still under development and is not yet considered to be ready for normal use.</Data></Cell>
     <Cell ss:StyleID="s97"/>
-    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String" x:Ticked="1">=ActStatus.new</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">черновик</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">ontwerp</Data></Cell>
@@ -1368,12 +1369,12 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">Active</Data></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">This resource is ready for normal use.</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String" x:Ticked="1">=ActStatus.active</Data></Cell>
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s101"><Data ss:Type="String">активный</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">actief</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="129.6">
     <Cell ss:StyleID="s102"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s73"/>
@@ -1381,10 +1382,17 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">Retired</Data></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">This resource has been withdrawn or superseded and should no longer be used.</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s103"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Marking a resource as &quot;retired&quot; is an assertion by the resource author/maintainer that a resource should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the resource, but best practice would be to phase its use out</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">удалён</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">verouderd</Data></Cell>
+   </Row>
+   <Row ss:Height="43.199999999999996">
+    <Cell ss:StyleID="s102"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s104"><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s68"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1394,6 +1402,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
