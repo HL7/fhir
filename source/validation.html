@@ -237,32 +237,32 @@ Here is an example windows batch file that demonstrates the process (using the c
 @ECHO OFF
 
  ECHO get the validator and unzip it 
- wget <%baseURLn%>/validator.zip
+ wget <%baseURLn%>validator.zip
  7z.exe x validator.zip
 
  ECHO Get the validation source file (dictionary)
- wget <%baseURLn%>/igpack.zip
+ wget <%baseURLn%>definitions.xml.zip
 
  ECHO 1. First example shows how to validate against the base spec:
  ECHO   a. get an example to validate
- wget <%baseURLn%>/patient-example.xml -O pat-ex.xml
+ wget <%baseURLn%>patient-example.xml -O pat-ex.xml
 
  ECHO   b. validate it
- java -jar org.hl7.fhir.validator.jar pat-ex.xml -defn igpack.zip 
+ java -jar org.hl7.fhir.validator.jar pat-ex.xml -defn definitions.xml.zip 
 
  ECHO 2. Second example shows how to validate against a profile in the spec:
  ECHO   a. get an example to validate
- wget <%baseURLn%>/observation-example-heart-rate.xml -O obs-ex.xml
+ wget <%baseURLn%>observation-example-heart-rate.xml -O obs-ex.xml
 
  ECHO   b. validate it
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn igpack.zip -profile http://hl7.org/fhir/StructureDefinition/heartrate
+ java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn definitions.xml.zip -profile http://hl7.org/fhir/StructureDefinition/heartrate
 
  ECHO 3. Third example shows how to validate against a profile in an implementation guide:
  ECHO   a. get an example to validate
- wget <%baseURLn%>/observation-example-heart-rate.xml -O obs-ex.xml
+ wget <%baseURLn%>observation-example-heart-rate.xml -O obs-ex.xml
 
  ECHO   b. validate it. note that you have to tell the validator where to get the implementation guide information
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn igpack.zip -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+ java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn definitions.xml.zip -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 
  ECHO Press Any Key to Close
  pause

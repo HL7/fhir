@@ -978,7 +978,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
-        src = s1 + baseURL + s3;
+        src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
       else if (com[0].equals("profilelist"))
         src = s1 + genProfilelist() + s3;
       else if (com[0].equals("igprofileslist"))
@@ -4804,7 +4804,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
       else if (com[0].equals("baseURLn"))
-        src = s1 + baseURL+s3;
+        src = s1 + Utilities.appendForwardSlash(baseURL)+s3;
       else if (com[0].equals("ig.title"))
         src = s1+ig.getName()+s3;
       else if (com[0].equals("ig.wglink"))
@@ -5271,7 +5271,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
-        src = s1 + baseURL + s3;
+        src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
       else if (com[0].equals("operations"))
         src = s1 + genOperations(resource.getOperations(), resource.getName(), resource.getName().toLowerCase(), "") + s3;
       else if (com[0].equals("operations-summary"))
@@ -6512,7 +6512,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
-        src = s1 + baseURL + s3;
+        src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
       else if (com[0].equals("base-link"))
         src = s1 + baseLink(profile.getResource(), genlevel(level)) + s3;
       else if (com[0].equals("profile-structure-table-diff"))
@@ -7005,7 +7005,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("baseURL"))
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
-        src = s1 + baseURL + s3;
+        src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
       else if (com[0].equals("mappings"))
         src = s1+mappingsExtension(ed)+s3;
       else if (com[0].equals("definitions"))
