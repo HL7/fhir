@@ -702,6 +702,7 @@
   Example.Response = $document-response.txt
   Title = Generate a Document
   Footer = Note: this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = document.persist

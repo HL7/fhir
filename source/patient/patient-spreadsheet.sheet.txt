@@ -830,6 +830,7 @@
   Example.Response = $match-response.txt
   Title = Find patient matches using MPI based logic
   Footer = The response from an \"mpi\" query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension \"[match-grade](extension-match-grade.html)\" that indicates the MPI\'s position on the match quality.
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = match.resource
@@ -975,6 +976,7 @@
   Example.Response = $everything-response.txt
   Title = Fetch Patient Record
   Footer = The key differences between this operation and simply searching the patient compartment are:  \n\n* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) \n* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for\n\nIt is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
+  Idempotent = True
 
  -- Row 17 -----------------------------------
   Name = everything.start

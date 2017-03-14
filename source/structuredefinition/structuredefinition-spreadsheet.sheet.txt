@@ -627,6 +627,7 @@
   Example.Response = $questionnaire-response.txt
   Title = Build Questionnaire
   Footer = **Open Issue**: Ideally, extensions should be populated in the generated [[[Questionnaire]]] that will support taking [[[QuestionnaireResponse]]] resources generated from the Questionnaire and turning them back into the appropriate resources.
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = questionnaire.identifier

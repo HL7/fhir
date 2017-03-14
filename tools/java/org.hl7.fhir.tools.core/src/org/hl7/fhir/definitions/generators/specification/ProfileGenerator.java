@@ -1810,6 +1810,8 @@ public class ProfileGenerator {
     opd.addResource(resourceName);
     opd.setType(op.isType()); 
     opd.setInstance(op.isInstance());
+    if (op.getIdempotent() == null)
+      throw new Error("Operation "+opd.getId()+" is not marked as Idempotent or not");
     for (OperationParameter p : op.getParameters()) {
       produceOpParam(op.getName(), opd.getParameter(), p, null);
     }

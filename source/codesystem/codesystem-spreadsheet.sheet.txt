@@ -518,6 +518,7 @@
   Example.Response = $lookup-response.txt
   Title = Concept Look Up & Decomposition
   Footer = Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions.
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = lookup.code
@@ -693,6 +694,7 @@
   Example.Request = $subsumes-request.txt
   Example.Response = $subsumes-response.txt
   Title = Subsumption Testing
+  Idempotent = True
 
  -- Row 25 -----------------------------------
   Name = subsumes.codeA
@@ -758,6 +760,7 @@
   Example.Request = $compose-request.txt
   Example.Response = $compose-response.txt
   Title = Code Composition based on supplied properties
+  Idempotent = True
 
  -- Row 33 -----------------------------------
   Name = compose.system

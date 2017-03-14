@@ -865,6 +865,7 @@
   Example.Response = $everything-response.txt
   Title = Fetch Encounter Record
   Footer = The key differences between this operation and simply searching the encounter compartment are:  * unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) * the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones)
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = everything.return

@@ -1952,13 +1952,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ResourceDefn r = definitions.getResourceByName(n);
       genOperationDetails(b, n, r.getOperations(), false);
     }
-    b.append(" <tr><td colspan=\"2\"><b>Operations Defined by Implementation Guides</b></td></tr>\r\n");
-    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
-      for (Profile p : ig.getProfiles()) {
-        if (!p.getOperations().isEmpty())
-          genOperationDetails(b, ig.getCode()+File.separator+p.getId(), p.getOperations(), false);
-      }
-    }
+//    b.append(" <tr><td colspan=\"2\"><b>Operations Defined by Implementation Guides</b></td></tr>\r\n");
+//    for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
+//      for (Profile p : ig.getProfiles()) {
+//        if (!p.getOperations().isEmpty())
+//          genOperationDetails(b, ig.getCode()+File.separator+p.getId(), p.getOperations(), false);
+//      }
+//    }
     b.append("</table>");
     return b.toString();
   }
@@ -5392,6 +5392,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append("<p>URL: [base]/").append(checkWrap(n)).append("/$").append(op.getName()).append("</p>\r\n");
       if (op.isInstance())
         b.append("<p>URL: [base]/").append(checkWrap(n)).append("/[id]/$").append(op.getName()).append("</p>\r\n");
+      if (op.getIdempotent())
+        b.append("<p>This is an idempotent operation</p>\r\n");
+      else
+        b.append("<p>This is <b>not</b> an idempotent operation</p>\r\n");
       if (!op.getParameters().isEmpty()) {
         b.append("<table class=\"grid\">\r\n");
         if (hasParameters(op.getParameters(), "In")) {

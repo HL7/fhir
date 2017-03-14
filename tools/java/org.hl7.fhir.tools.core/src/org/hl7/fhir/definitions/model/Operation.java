@@ -36,9 +36,10 @@ public class Operation {
   private List<OperationParameter> parameters = new ArrayList<OperationParameter>();
   private String title;
   private String footer;
+  private Boolean idempotent;
   private List<OperationExample> examples = new ArrayList<Operation.OperationExample>();
 
-  public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer, List<OperationExample> examples) {
+  public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer, List<OperationExample> examples, boolean idempotent) {
     this.name = name;
     this.title = title;
     this.system = system;
@@ -47,6 +48,7 @@ public class Operation {
     this.kind = kind;
     this.doco = doco;
     this.footer = footer;
+    this.idempotent = idempotent;
     this.examples.addAll(examples);
   }
 
@@ -129,6 +131,14 @@ public class Operation {
         return p;
     }
     return null;
+  }
+
+  public Boolean getIdempotent() {
+    return idempotent;
+  }
+
+  public void setIdempotent(Boolean idempotent) {
+    this.idempotent = idempotent;
   }
 
 }

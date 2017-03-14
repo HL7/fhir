@@ -432,6 +432,7 @@
   Example.Response = $find-response.txt
   Title = Find a functional list
   Footer = Note that servers may support searching by a functional list, and not support this operation that allows clients to find the list directly
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = find.patient

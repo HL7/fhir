@@ -479,6 +479,7 @@ public class SpreadsheetParser {
       tabfmt.column("Min");
       tabfmt.column("Max");
       tabfmt.column("Binding");
+      tabfmt.column("Idempotent");
 
       for (int row = 0; row < sheet.rows.size(); row++) {
         tabfmt.row();
@@ -495,6 +496,7 @@ public class SpreadsheetParser {
         tabfmt.cell(sheet.getColumn(row, "Min"));
         tabfmt.cell(sheet.getColumn(row, "Max"));
         tabfmt.cell(sheet.getColumn(row, "Binding"));
+        tabfmt.cell(sheet.getColumn(row, "Idempotent"));
 
         String name = sheet.getColumn(row, "Name");
 
@@ -526,7 +528,7 @@ public class SpreadsheetParser {
 	            else
 	              throw new Exception("unknown operation use code "+c+" at "+getLocation(row));
 	          }
-	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"), examples);
+	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"), examples, parseBoolean(sheet.getColumn(row, "Idempotent"), row,  false));
             oplist.add(op);
             ops.put(name, op);
 	        } else {

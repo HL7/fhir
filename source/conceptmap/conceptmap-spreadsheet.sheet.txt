@@ -423,6 +423,7 @@
   Example.Request = $translate-request.txt
   Example.Response = $translate-response.txt
   Title = Concept Translation
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = translate.code
@@ -592,6 +593,7 @@
   Example.Request = $closure-request.txt
   Example.Response = $closure-response.txt
   Title = Closure Table Maintenance
+  Idempotent = False
 
  -- Row 24 -----------------------------------
   Name = closure.name

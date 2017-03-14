@@ -7,7 +7,6 @@ http://hl7.org/fhir/provider-qualification
 http://acme.org/lab/codes/tests
 http://hl7.org/fhir/sid/icd-10-cm
 http://goodhealthhospital.org/supplement-type-codes
-http://npidb.org/taxonomy
 http://acme.org/lab/codes/organisms
 http://www.ebi.ac.uk/ipd/imgt/hla/
 http://orionhealth.com/fhir/apps/specialties

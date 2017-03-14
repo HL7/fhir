@@ -133,6 +133,7 @@
   Example.Response = $validate-response.txt
   Title = Validate a resource
   Footer = This operation may be used during design and development to validate application design. It can also be used at run-time. One possible use might be that a client asks the server whether a proposed update is valid as the user is editing a dialog and displays an updated error to the user. The operation can be used as part of a light-weight two phase commit protocol but there is no expectation that the server will hold the content of the resource after this operation is used, or that the server guarantees to successfully perform an actual create, update or delete after the validation operation completes.\n\nThis operation returns a 200 OK whether or not the resource is valid. A 4xx or 5xx error means that the validation itself could not be performed, and it is unknown whether the resource is valid or not.
+  Idempotent = True
 
  -- Row 2 -----------------------------------
   Name = validate.resource
@@ -180,6 +181,7 @@
   Example.Response = $meta-response.txt
   Title = Access a list of profiles, tags, and security labels
   Footer = At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principle use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don\'t). At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons
+  Idempotent = True
 
  -- Row 7 -----------------------------------
   Name = meta.return
