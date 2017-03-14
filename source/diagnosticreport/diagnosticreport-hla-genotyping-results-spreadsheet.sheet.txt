@@ -5,37 +5,37 @@
 
  -- Row 1 -----------------------------------
   Element = DiagnosticReport
-  Profile Name = HLAResult
+  Profile Name = hla-result
 
  -- Row 2 -----------------------------------
   Element = DiagnosticReport.extension
-  Profile Name = AlleleDatabase
+  Profile Name = allele-database
   Card. = 0..1
-  Type = Extension{#AlleleDatabase}
+  Type = Extension{#allele-database}
   Short Name = Allele Database
   Definition = Allele Database
 
  -- Row 3 -----------------------------------
   Element = DiagnosticReport.extension
-  Profile Name = Glstring
+  Profile Name = glstring
   Card. = 0..1
-  Type = Extension{#Glstring}
+  Type = Extension{#glstring}
   Short Name = Glstring
   Definition = Glstring
 
  -- Row 4 -----------------------------------
   Element = DiagnosticReport.extension
-  Profile Name = Haploid
+  Profile Name = haploid
   Card. = 0..*
-  Type = Extension{#Haploid}
+  Type = Extension{#haploid}
   Short Name = Haploid
   Definition = Haploid
 
  -- Row 5 -----------------------------------
   Element = DiagnosticReport.extension
-  Profile Name = Method
+  Profile Name = method
   Card. = 0..1
-  Type = Extension{#Method}
+  Type = Extension{#method}
   Short Name = The platform, methodology and software applied at the time of the\rgenotyping
   Definition = The platform, methodology and software applied at the time of the\rgenotyping
 

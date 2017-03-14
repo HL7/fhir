@@ -1031,7 +1031,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">published.structure</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">HLAResult</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">hla-result</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s75"><Data ss:Type="String">version</Data></Cell>
@@ -1091,9 +1091,9 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="HLAResult">
+ <Worksheet ss:Name="hla-result">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=HLAResult!R1C1:R54C25"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=hla-result!R1C1:R54C25"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="56" x:FullColumns="1"
@@ -1241,7 +1241,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s94"><Data ss:Type="String">HLAResult</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">hla-result</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1270,7 +1270,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">AlleleDatabase</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">allele-database</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1280,7 +1280,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{#AlleleDatabase}</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Extension{#allele-database}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16" ss:StyleID="s105"><Data ss:Type="String">Allele Database</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6149,7 +6149,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">AlleleDatabase</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">allele-database</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

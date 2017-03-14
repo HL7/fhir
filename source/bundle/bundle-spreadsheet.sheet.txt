@@ -420,6 +420,7 @@
   Type = reference
   Description = The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents
   Path = Bundle.entry(0).resource
+  Expression = Bundle.entry[0].resource
   Target Types = MessageHeader
 
  -- Row 3 -----------------------------------
@@ -427,12 +428,14 @@
   Type = reference
   Description = The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents
   Path = Bundle.entry(0).resource
+  Expression = Bundle.entry[0].resource
   Target Types = Composition
 
  -- Row 4 -----------------------------------
   Name = identifier
   Type = token
   Path = Bundle.identifier
+  Expression = Bundle.identifier
 
 === Sheet Profiles =====================================
 

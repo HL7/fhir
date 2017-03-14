@@ -353,12 +353,14 @@
   Type = token
   Description = A value in a phone contact
   Path = Practitioner.telecom(system=phone)
+  Expression = Practitioner.telecom.where(system=\'phone\')
 
  -- Row 8 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
   Path = Practitioner.telecom(system=email)
+  Expression = Practitioner.telecom.where(system=\'email\')
 
  -- Row 9 -----------------------------------
   Name = active

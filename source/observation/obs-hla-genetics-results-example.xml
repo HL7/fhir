@@ -7,13 +7,13 @@
           <reference value="consensus-sequence-block-example-1"/>
       </valueReference>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database">
       <text value="GRCh38.p1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignment-date">
       <date value="2014-10-22"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring">
       <ValueText value="HLA-A*01:01:01+HLA-A*24:02:01"/>
   </extension>
 

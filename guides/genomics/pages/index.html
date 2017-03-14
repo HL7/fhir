@@ -525,19 +525,19 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
 
 <h2>Structure Diagram of HLA genotyping results Profile</h2>
 
-{% include StructureDefinition-hla-genotyping-resultsHaploid-diff.xhtml %}
+{% include StructureDefinition-hla-genotyping-results-haploid-diff.xhtml %}
 
 <p>
-  Both hla-genotyping-resultsGlstring and hla-genotyping-resultsHaploid are complex extensions.
+  Both hla-genotyping-results-glstring and hla-genotyping-results-haploid are complex extensions.
 </p>
 <p>
-  The development of these extensions were informed from the allele-assignment structure found in HML. While allele assignment for individual loci can be reported in an Observation, here they are used to summarize the assignments at a report level. Two methods may be used for reporting HLA allele-assignments: Haploid and GL String.
+  The development of these extensions were informed from the allele-assignment structure found in HML. While allele assignment for individual loci can be reported in an Observation, here they are used to summarize the assignments at a report level. Two methods may be used for reporting HLA allele-assignments: haploid and GL String.
 </p>
 <p>
-  Structure of hla-genotyping-resultsHaploid:
+  Structure of hla-genotyping-results-haploid:
 </p>
 
-{% include StructureDefinition-hla-genotyping-resultsHaploid-diff.xhtml %}
+{% include StructureDefinition-hla-genotyping-results-haploid-diff.xhtml %}
 
 <p>
   Haploid reporting is a method that is used to report an individual allele, or a list of possible alleles if the results are ambiguous, using NMDP Multiple Allele Codes (MAC) which is a shorthand for describing allele ambiguity (https://bioinformatics.bethematchclinical.org/hla-resources/allele-codes/). MACs are widely used for reporting HLA typing results because they are able to report long allele lists in a small amount of space, but the system has a number of shortcomings (<a href="http://www.ncbi.nlm.nih.gov/pubmed/23849068">Tissue Antigens. 2013 Aug;82(2):106-12</a>). When reporting data using haploid, typical use is one or two haploid elements for a particular locus, but possibly more if multiple loci are covered (ex: two HLA-DRB1 haploids + one HLA-DRB3 haploid).
@@ -546,11 +546,11 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
   Within Haploid, Method indicates whether the general methodology is DNA based typing (e.g., Sequence Specific Primers (SSP), Sequence Specific Oligonucleotide Probes (SSOP), or Sequence Based Typing (SBT)), or SER which indicates serology based methods.
 </p>
 <p>
-  Example of using two hla-genotyping-resultsHaploid extensions to report a HLA-A genotype of HLA-A*01:AB and HLA-A*02:MN which expands to HLA-A*01:01/HLA-A*01:02 and HLA-A:02:01/HLA-A:02:02/HLA-A:02:03
+  Example of using two hla-genotyping-results-haploid extensions to report a HLA-A genotype of HLA-A*01:AB and HLA-A*02:MN which expands to HLA-A*01:01/HLA-A*01:02 and HLA-A:02:01/HLA-A:02:02/HLA-A:02:03
 </p>
 
 <textarea rows="55" cols="110" style="border:none;">
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsHaploid" >
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid" >
     <extension url=”locus”>
         <valueCodeableConcept>
             <coding>
@@ -577,7 +577,7 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
         </valueCodeableConcept>
     </extension>
 </extension>
-<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsHaploid" >
+<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid" >
     <extension url=”locus”>
         <valueCodeableConcept>
             <coding>
@@ -610,20 +610,20 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
   Because of limitations with MAC, another method called GL Strings was developed that encodes the results in a text string with hierarchical set of operators to describe the relationships between alleles, lists of possible alleles, phased alleles, genotypes, lists of possible genotypes, and multilocus unphased genotypes, without losing typing information or increasing typing ambiguity. (<a href="http://www.ncbi.nlm.nih.gov/pubmed/23849068">Tissue Antigens. 2013 Aug;82(2):106-12</a>).
 </p>
 <p>
-  The structure of HLA-genotyping-resultsGlstring:
+  The structure of HLA-genotyping-results-glstring:
 </p>
 
-{% include StructureDefinition-hla-genotyping-resultsGlstring-diff.xhtml %}
+{% include StructureDefinition-hla-genotyping-results-glstring-diff.xhtml %}
 
 <p>
   While the string format is easily parsed into separate components to be rendered for user viewing, GL Strings by themselves are potentially quite long and difficult to read. It often advantageous to point to a URI which may return the GL String on demand to avoid manual data entry. This is available through the URI element in this extension.
 </p>
 <p>
-  Example of using the hla-genotyping-resultsGlstring to report a GL String in both text and URI formats
+  Example of using the hla-genotyping-results-glstring to report a GL String in both text and URI formats
 </p>
 
 <textarea rows="9" cols="110" style="border:none;">
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring">
     <extension url=”text”>
         <valueString value="HLA-A*01:01:01:01/HLA-A*01:02+HLA-A*02:01:02/HLA-A*02:02:02/HLA-A*02:03:01"/>
     </extension>
@@ -637,17 +637,17 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
   Whether reporting in Haploid or GL String formats, it is important to identify the version of the IMGT/HLA allele database, as new HLA alleles are constantly being discovered and allele assignment is based on the known alleles at the time, and so results may need to be reinterpreted later. This is done through the Allele Database element.
 </p>
 <p>
-  Structure of hla-genotyping-resultsAlleleDatabase
+  Structure of hla-genotyping-results-allele-database
 </p>
 
-{% include StructureDefinition-hla-genotyping-resultsAlleleDatabase-diff.xhtml %}
+{% include StructureDefinition-hla-genotyping-results-allele-database-diff.xhtml %}
 
 <p>
-  Example of using hla-genotyping-resultsAlleleDatabase to report using the IMGT/HLA database, version 3.23
+  Example of using hla-genotyping-results-allele-database to report using the IMGT/HLA database, version 3.23
 </p>
 
 <textarea rows="10" cols="110" style="border:none;">
-  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database">
     <valueCodeableConcept>
         <coding>
             <system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
@@ -659,20 +659,20 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
 </textarea>
 
 <p>
-  Overall methodology may be reported using hla-genotyping-resultsMethod. Here a codeable concept may be used to refer to method entered into a public registry, such as the NCBI Genetic Test Registry, or a local private registry.
+  Overall methodology may be reported using hla-genotyping-results-method. Here a codeable concept may be used to refer to method entered into a public registry, such as the NCBI Genetic Test Registry, or a local private registry.
 </p>
 <p>
-  Structure of hla-genotyping-resultsMethod
+  Structure of hla-genotyping-results-method
 </p>
 
-{% include StructureDefinition-hla-genotyping-resultsMethod-diff.xhtml %}
+{% include StructureDefinition-hla-genotyping-results-method-diff.xhtml %}
 
 <p>
-  Example of hla-genotyping-resultsMethod to report a lab test registered in the NCBI Genetic Test Registry
+  Example of hla-genotyping-results-method to report a lab test registered in the NCBI Genetic Test Registry
 </p>
 
 <textarea rows="10" cols="110" style="border:none;">
-  <extension  uri="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod">
+  <extension  uri="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method">
     <valueCodeableConcept>
           <coding>
               <system value="http://www.ncbi.nlm.nih.gov/gtr/"/>
@@ -748,7 +748,7 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
         <valueDate value="2014-05-16T10:28:00+01:00"/>
     </extension>
     <extension xmlns="http://hl7.org/fhir"
-         url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
+         url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database">
         <valueCodeableConcept>
             <coding>
                 <system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
@@ -758,7 +758,7 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
         </valueCodeableConcept>
     </extension>
     <extension xmlns="http://hl7.org/fhir"
-        url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring" >
+        url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring" >
         <extension url="text">
             <valueString value="HLA-A*01:01:01:01+HLA-A*01:02^HLA-B*15:01:01:01+HLA-B*57:01:01^HLA-C*01:02:01+HLA-C*03:04:01:01"/>
         </extension>
@@ -767,7 +767,7 @@ Source: <a href="DiagnosticReport-dg2.xml.html">XML</a>, <a href="DiagnosticRepo
         </extension>
     </extension>
     <extension  xmlns="http://hl7.org/fhir"
-        url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod">
+        url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method">
         <valueCodeableConcept>
             <coding>
                 <system value="http://www.ncbi.nlm.nih.gov/gtr/"/>

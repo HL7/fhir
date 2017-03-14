@@ -8,8 +8,8 @@ Transaction bundle that creates and links:
 + Observations for each allele
 + Sequences for exons 2 and 3 for HLA-A,-B, -C
 
-The endpoints of the following resources are hardcoded into this transaction bundle 
-because these are presumed to already exist when developing the DiagnosticRequest 
+The endpoints of the following resources are hardcoded into this transaction bundle
+because these are presumed to already exist when developing the DiagnosticRequest
 which was to generate this report bundle:
 
 Patient/119 (potential donor)
@@ -30,7 +30,7 @@ ProcedureRequest/123  (report is based on this request)
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml">
                 <h3>HLA-A,-B,-C genotyping report for Mary Chalmers (MRN:12345)</h3>
-                
+
                 <pre>
   LOCUS   ALLELE 1            ALLELE 2
   HLA-A   HLA-A:01:01G        HLA-A*01:02
@@ -54,8 +54,8 @@ ProcedureRequest/123  (report is based on this request)
   + Observations for each allele
   + Sequences for exons 2 and 3 for HLA-A,-B, -C
 
-  The endpoints of the following resources are hardcoded into this transaction bundle 
-  because these are presumed to already exist when developing the DiagnosticRequest 
+  The endpoints of the following resources are hardcoded into this transaction bundle
+  because these are presumed to already exist when developing the DiagnosticRequest
   which was to generate this report bundle:
 
   Patient/119 (potential donor)
@@ -66,8 +66,8 @@ ProcedureRequest/123  (report is based on this request)
                     </div>
                 </text>
 
-        
-        <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
+
+        <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database">
                     <valueCodeableConcept>
                         <coding>
                             <system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
@@ -76,15 +76,15 @@ ProcedureRequest/123  (report is based on this request)
                         <text value="IMGT/HLA 3.23"/>
                     </valueCodeableConcept>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+                <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring">
                     <extension url="text">
                       <valueString value="HLA-A:01:01G+HLA-A*01:02^HLA-B*15:01:01:01+HLA-B*57:01:01^HLA-C*01:02:01+HLA-C*03:04:01:01"/>
-                    </extension>         
+                    </extension>
                     <extension url="uri">
                 <valueUri value="https://gl.nmdp.org/imgt-hla/3.23.0/multilocus-unphased-genotype/i" />
-              </extension>  
+              </extension>
                 </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod">
+                <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method">
                     <valueCodeableConcept>
                       <coding>
                             <system value="http://www.ncbi.nlm.nih.gov/gtr/"/>
@@ -92,15 +92,15 @@ ProcedureRequest/123  (report is based on this request)
                         </coding>
                         <text value="Next Generation Sequencing of exons 2 and 3 of HLA Class I genes"/>
                     </valueCodeableConcept>
-                    
+
                 </extension>
 
         <!--
           Latest specification no longer contains DiagnosticRequest resources
-          The SPEC uses ProcedureRequest instead to provide a record of a request 
+          The SPEC uses ProcedureRequest instead to provide a record of a request
           for a diagnostic investigation.
 
-          Although I only change the link here, there are lots of things that need to 
+          Although I only change the link here, there are lots of things that need to
           change in the original example of the original DiagnosticRequest (TODO)
         -->
                 <basedOn>
@@ -135,7 +135,7 @@ ProcedureRequest/123  (report is based on this request)
                       <display value="aTypingLab Inc"/>
                     </actor>
                 </performer>
-        
+
 
 
                 <specimen>
@@ -144,20 +144,20 @@ ProcedureRequest/123  (report is based on this request)
                 </specimen>
 
 
-                <result> 
+                <result>
                     <reference value="urn:uuid:49a86246-4004-42eb-9bdc-f542f93f9228"/>
                     <display value="HLA-A: HLA-A:01:01G+HLA-A*01:02"/>
-                </result> 
+                </result>
 
                 <result>
                     <reference value="urn:uuid:60613a43-c4cb-4502-b3e2-cf9215feaa70"/>
                     <display value="HLA-B: HLA-B*15:01:01G+HLA-B*57:01:01G"/>
-                </result> 
-                
+                </result>
+
                 <result>
                     <reference value="urn:uuid:0e0a780e-4486-4cd0-bfae-7243c579f208"/>
                     <display value="HLA-C: HLA-C*01:02:01G+HLA-C*03:04:01G"/>
-                </result> 
+                </result>
             </DiagnosticReport>
         </resource>
     <!--    transaction details    -->
@@ -794,7 +794,7 @@ ProcedureRequest/123  (report is based on this request)
                     <reference value="Specimen/120"/>
                     <display value="buccal swab from Mary Chalmers"/>
                 </specimen>
-                
+
                 <related>
                     <type value="derived-from"/>
                     <target>
@@ -1044,7 +1044,7 @@ ProcedureRequest/123  (report is based on this request)
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml"><pre>HLA-B*15:01:01G+HLA-B*57:01:01G</pre></div>
                 </text>
-                
+
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
                     <valueCodeableConcept>
                         <coding>
@@ -1063,7 +1063,7 @@ ProcedureRequest/123  (report is based on this request)
                         </coding>
                     </valueCodeableConcept>
                 </extension>
-            
+
                 <status value="final"/>
                 <code>
                     <coding>
@@ -1111,7 +1111,7 @@ ProcedureRequest/123  (report is based on this request)
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml"><pre>HLA-C*01:02:01</pre></div>
                 </text>
-                
+
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
                     <valueCodeableConcept>
                         <coding>
@@ -1141,8 +1141,8 @@ ProcedureRequest/123  (report is based on this request)
                 </extension>
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
                     <valueUri value="urn:uuid:79383455-4f55-4126-bcc2-03385cad7944"/>
-                </extension>    
-                          
+                </extension>
+
                 <status value="final"/>
                 <code>
                     <coding>
@@ -1190,7 +1190,7 @@ ProcedureRequest/123  (report is based on this request)
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml"><pre>HLA-C*03:04:01:01</pre></div>
                 </text>
-                
+
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
                     <valueCodeableConcept>
                         <coding>
@@ -1221,7 +1221,7 @@ ProcedureRequest/123  (report is based on this request)
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
                     <valueUri value="urn:uuid:a220b7a5-2d7a-4cec-a5b1-bfcf5890e391"/>
                 </extension>
-            
+
                 <status value="final"/>
                 <code>
                     <coding>
@@ -1269,7 +1269,7 @@ ProcedureRequest/123  (report is based on this request)
                     <status value="generated"/>
                     <div xmlns="http://www.w3.org/1999/xhtml"><pre>HLA-C*01:02:01G+HLA-C*03:04:01G</pre></div>
                 </text>
-                
+
                 <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
                     <valueCodeableConcept>
                         <coding>
@@ -1288,7 +1288,7 @@ ProcedureRequest/123  (report is based on this request)
                         </coding>
                     </valueCodeableConcept>
                 </extension>
-            
+
                 <status value="final"/>
                 <code>
                     <coding>
@@ -1330,4 +1330,3 @@ ProcedureRequest/123  (report is based on this request)
     </entry>
 
 </Bundle>
-

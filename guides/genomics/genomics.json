@@ -15,7 +15,7 @@
       "template-base" : "instance-template-base.html"
     }
   },
-	"canonicalBase": "http://hl7.org/fhir/genomics",  
+	"canonicalBase": "http://hl7.org/fhir/genomics",
 	"source": "genomics.xml",
   "regenerate" : [
     "http://hl7.org/fhir/StructureDefinition/Sequence",
@@ -23,10 +23,10 @@
     "http://hl7.org/fhir/StructureDefinition/reportforgenetics",
     "http://hl7.org/fhir/StructureDefinition/orderforgenetics",
     "http://hl7.org/fhir/StructureDefinition/hlaresult",
-    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsHaploid",
-    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring",
-    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase",
-    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod"
+    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-haploid",
+    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring",
+    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database",
+    "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-method"
   ],
 	"resources": {
 		"StructureDefinition/Sequence": {

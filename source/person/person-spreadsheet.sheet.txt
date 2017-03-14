@@ -279,12 +279,14 @@
   Type = token
   Description = A value in a phone contact
   Path = Person.telecom(system=phone)
+  Expression = Person.telecom.where(system=\'phone\')
 
  -- Row 6 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
   Path = Person.telecom(system=email)
+  Expression = Person.telecom.where(system=\'email\')
 
  -- Row 7 -----------------------------------
   Name = address
