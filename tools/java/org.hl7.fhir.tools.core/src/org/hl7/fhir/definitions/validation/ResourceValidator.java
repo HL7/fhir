@@ -98,10 +98,11 @@ public class ResourceValidator extends BaseValidator {
   private SpellChecker speller;
   private int maxElementLength;
   private List<FHIRPathUsage> fpUsages;
+  private List<String> suppressedMessages;
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages) throws IOException {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
@@ -121,6 +122,7 @@ public class ResourceValidator extends BaseValidator {
     for (String n : definitions.getInfrastructure().keySet())
       l = Math.max(l, n.length());
 		maxElementLength = (60 - 7) - l;
+		this.suppressedMessages = suppressedMessages;
 	}
 
   // public void setConceptDomains(List<ConceptDomain> conceptDomains) {
@@ -334,12 +336,20 @@ public class ResourceValidator extends BaseValidator {
     // last check: if maturity level is 
     int warnings = 0;
     for (ValidationMessage em : errors) {
-      if (em.getLevel() == IssueSeverity.WARNING)
+      if (em.getLevel() == IssueSeverity.WARNING && !isSuppressedMessage(em.getDisplay()))
         warnings++;
     }
-    if (rule(errors, IssueType.STRUCTURE, rd.getName(), warnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
+    boolean ok = warnings == 0 || "0".equals(rd.getFmmLevel());
+    if (rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
+
+  private boolean isSuppressedMessage(String message) {
+    for (String s : suppressedMessages)
+      if (s.contains(message))
+        return true;
+    return false;
+  }
 
   private boolean hasPatient(ResourceDefn rd) {
     for (ElementDefn child : rd.getRoot().getElements()) {
@@ -897,7 +907,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
     if (!isComplex && !externalException(path)) {
       ValueSet vs = cd.getValueSet();
-      if (warning(errors, IssueType.REQUIRED, path, vs != null, "Unable to resolve value set on 'code' Binding")) {
+      if (warning(errors, IssueType.REQUIRED, path, vs != null || cd.hasReference(), "Unable to resolve value set on 'code' Binding")) {
 // Comment out for now.  Reactivate in STU 4
 //        hint(errors, IssueType.REQUIRED, path, noExternals(vs), "Bindings for code data types should only use internally defined codes");
       }
