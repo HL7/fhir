@@ -4,7 +4,7 @@
  -- Row 1 -----------------------------------
   Binding Name = ComponentType
   Binding = reference
-  Reference = https://rtmms.nist.gov/rtmms/index.htm#!hrosetta
+  Reference = http://hl7.org/fhir/ValueSet/device-kind
   Definition = Describes the type of the component.
   Description = IEEE 11073-10101
   Conformance = preferred
@@ -18,18 +18,24 @@
 
  -- Row 3 -----------------------------------
   Binding Name = DeviceComponentOperationalStatus
-  Binding = unbound
+  Binding = code list
+  Reference = #operational-status
   Definition = Codes representing the current status of the device - on, off, suspended, etc.
+  Conformance = extensible
 
  -- Row 4 -----------------------------------
   Binding Name = DeviceSpecificationSpecType
-  Binding = unbound
+  Binding = code list
+  Reference = #specification-type
   Definition = Codes for device specification types such as serial number, part number, hardware revision, software revision, etc.
+  Conformance = extensible
 
  -- Row 5 -----------------------------------
   Binding Name = DeviceComponentParameterGroup
-  Binding = unbound
+  Binding = code list
+  Reference = #parameter-group
   Definition = Codes identifying groupings of parameters; e.g. Cardiovascular.
+  Conformance = extensible
 
 === Sheet measurement-principle =====================================
 
@@ -99,6 +105,156 @@
   Display = MSP Manual
   Definition = Measurement is done using the manual principle.
 
+=== Sheet operational-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = on
+  Display = On
+  Definition = The DeviceComponent is operating and will generate DeviceObservations.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = off
+  Display = Off
+  Definition = The DeviceComponent is not operating.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = not-ready
+  Display = Not Ready
+  Definition = The DeviceComponent is not ready.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = standby
+  Display = Standby
+  Definition = The DeviceComponent is operating, but will not generate any DeviceObservations.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = transduc-discon
+  Display = Transducer Diconnected
+  Definition = The DeviceComponent transducer is diconnected.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = hw-discon
+  Display = Hardware Disconnectd
+  Definition = The DeviceComponent hardware is disconnected.
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The DeviceComponent was entered in error.
+
+=== Sheet specification-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 531971
+  Code = unspecified
+  Display = MDC_ID_PROD_SPEC_UNSPECIFIED
+  Definition = Unspecified Production Specification
+
+ -- Row 2 -----------------------------------
+  Id = 531972
+  Code = serial-number
+  Display = MDC_ID_PROD_SPEC_SERIAL
+  Definition = Serial Number
+
+ -- Row 3 -----------------------------------
+  Id = 531973
+  Code = part-number
+  Display = MDC_ID_PROD_SPEC_PART
+  Definition = Part Number
+
+ -- Row 4 -----------------------------------
+  Id = 531974
+  Code = hardware-revision
+  Display = MDC_ID_PROD_SPEC_HW
+  Definition = Hardware Revision
+
+ -- Row 5 -----------------------------------
+  Id = 531975
+  Code = software-revision
+  Display = MDC_ID_PROD_SPEC_SW
+  Definition = Software Revision
+
+ -- Row 6 -----------------------------------
+  Id = 531976
+  Code = firmware-revision
+  Display = MDC_ID_PROD_SPEC_FW
+  Definition = Firmware Revision
+
+ -- Row 7 -----------------------------------
+  Id = 531977
+  Code = protocol-revision
+  Display = MDC_ID_PROD_SPEC_PROTOCOL
+  Definition = Protocol Revision
+
+ -- Row 8 -----------------------------------
+  Id = 531978
+  Code = gmdn
+  Display = MDC_ID_PROD_SPEC_GMDN
+  Definition = GMDN
+
+=== Sheet parameter-group =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 393729
+  Code = haemodynamic
+  Display = MDC_PGRP_HEMO
+  Definition = Haemodynamic Parameter Group
+
+ -- Row 2 -----------------------------------
+  Id = 393730
+  Code = ecg
+  Display = MDC_PGRP_ECG
+  Definition = ECG Parameter Group
+
+ -- Row 3 -----------------------------------
+  Id = 393731
+  Code = respiratory
+  Display = MDC_PGRP_RESP
+  Definition = Respiratory Parameter Group
+
+ -- Row 4 -----------------------------------
+  Id = 393732
+  Code = ventilation
+  Display = MDC_PGRP_VENT
+  Definition = Ventilation Parameter Group
+
+ -- Row 5 -----------------------------------
+  Id = 393733
+  Code = neurological
+  Display = MDC_PGRP_NEURO
+  Definition = Neurological Parameter Group
+
+ -- Row 6 -----------------------------------
+  Id = 393734
+  Code = drug-delivery
+  Display = MDC_PGRP_DRUG
+  Definition = Drug Delivery Parameter Group
+
+ -- Row 7 -----------------------------------
+  Id = 393735
+  Code = fluid-chemistry
+  Display = MDC_PGRP_FLUID
+  Definition = Fluid Chemistry Parameter Group
+
+ -- Row 8 -----------------------------------
+  Id = 393736
+  Code = blood-chemistry
+  Display = MDC_PGRP_BLOOD_CHEM
+  Definition = Blood Chemistry Parameter Group
+
+ -- Row 9 -----------------------------------
+  Id = 393737
+  Code = miscellaneous
+  Display = MDC_PGRP_MISC
+  Definition = Miscellaneous Parameter Group
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -113,6 +269,14 @@
   w5 = administrative.device
 
  -- Row 2 -----------------------------------
+  Element = DeviceComponent.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = Instance id assigned by the software stack
+  Definition = The locally assigned unique identification by the software. For example: handle ID.
+  w5 = id
+
+ -- Row 3 -----------------------------------
   Element = DeviceComponent.type
   Card. = 1..1
   Type = CodeableConcept
@@ -122,17 +286,9 @@
   Comments = DeviceComponent.type can be referred to either GDMN (nomenclature system supported by FDA Global UDI Database) or preferable RTMMS coding system.
   w5 = class
 
- -- Row 3 -----------------------------------
-  Element = DeviceComponent.identifier
-  Card. = 1..1
-  Type = Identifier
-  Short Name = Instance id assigned by the software stack
-  Definition = The locally assigned unique identification by the software. For example: handle ID.
-  w5 = id
-
  -- Row 4 -----------------------------------
   Element = DeviceComponent.lastSystemChange
-  Card. = 1..1
+  Card. = 0..1
   Type = instant
   Short Name = Recent system change timestamp
   Definition = The timestamp for the most recent system change which includes device configuration or setting change.
@@ -172,7 +328,7 @@
  -- Row 9 -----------------------------------
   Element = DeviceComponent.measurementPrinciple
   Card. = 0..1
-  Type = code
+  Type = CodeableConcept
   Binding = MeasmntPrinciple
   Short Name = other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+
   Definition = The physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
@@ -233,6 +389,12 @@
   Type = reference
   Description = The device source
   Path = DeviceComponent.source
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The identifier of the component
+  Path = DeviceComponent.identifier
 
 === Sheet Profiles =====================================
 

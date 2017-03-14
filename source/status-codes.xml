@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9672</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>5688</WindowHeight>
+  <WindowWidth>15864</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -311,10 +311,10 @@
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R102C30"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R103C30"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="102" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="103" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="25.95">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
@@ -355,6 +355,9 @@
     <Cell><Data ss:Type="String">c26</Data></Cell>
     <Cell><Data ss:Type="String">c27</Data></Cell>
     <Cell><Data ss:Type="String">c28</Data></Cell>
+    <Cell><Data ss:Type="String">c29</Data></Cell>
+    <Cell><Data ss:Type="String">c30</Data></Cell>
+    <Cell><Data ss:Type="String">c31</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
@@ -387,6 +390,9 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">on-target</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">behind-target</Data></Cell>
+    <Cell><Data ss:Type="String">not-ready</Data></Cell>
+    <Cell><Data ss:Type="String">transduc-disconnected</Data></Cell>
+    <Cell><Data ss:Type="String">hardware-disconnected</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data><NamedCell
@@ -449,6 +455,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">behind-target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">not-ready</Data></Cell>
+    <Cell><Data ss:Type="String">transduc-discon</Data></Cell>
+    <Cell><Data ss:Type="String">hw-discon</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data><NamedCell
@@ -1456,6 +1465,34 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="26" ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceComponent.operationalStatus</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">on</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">standby</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">off</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="26" ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="31"><Data ss:Type="String">not-ready</Data></Cell>
+    <Cell><Data ss:Type="String">transduc-discon</Data></Cell>
+    <Cell><Data ss:Type="String">hw-discon</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceMetric.operationalStatus</Data><NamedCell
@@ -4081,7 +4118,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4094,18 +4131,16 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>4</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R3C1:R102C30"
+  <AutoFilter x:Range="R3C1:R103C30"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>

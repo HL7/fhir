@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <id value="ob"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Vaginal delivery of healthy male infant on June 2, 2012</div>
+  </text>
+  <status value="completed"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="386637004"/>
+      <display value="Obstetric procedure (procedure)"/>
+    </coding>
+    <text value="OB"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="22633006"/>
+      <display value="Vaginal delivery, medical personnel present (procedure)"/>
+    </coding>
+    <text value="Vaginal delivery"/>
+  </code>
+  <subject>
+	<display value="Jane Doe"/>
+  </subject>
+  <performedDateTime value="2012-06-02"/>
+  <performer>
+    <actor>
+      <display value="Martha Midwife, RNP"/>
+    </actor>
+  </performer> 
+  <location>
+    <display value="Women’s Hospital"/>
+  </location>    
+  <reasonCode>
+      <text value="term pregnancy, active labor"/>
+  </reasonCode> 
+  <outcome>
+      <text value="delivery of healthy male infant"/>
+  </outcome> 
+</Procedure>

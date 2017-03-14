@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <id value="physical-therapy"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Assessment of passive range of motion for both knees on Sept 27, 2016 due to osteoarthritis</div>
+  </text>
+  <status value="completed"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="386053000"/>
+      <display value="Evaluation procedure (procedure)"/>
+    </coding>
+    <text value="Evaluation"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="710830005"/>
+      <display value="Assessment of passive range of motion (procedure)"/>
+    </coding>
+    <text value="Assessment of passive range of motion"/>
+  </code>
+  <subject>
+	<reference value="Patient/example"/>
+  </subject>
+  <performedDateTime value="2016-09-27"/>
+  <performer>
+    <actor>
+      <display value="Paul Therapist, PT"/>
+    </actor>
+  </performer> 
+  <location>
+    <display value="Sawbones Orthopedic Clinic"/>
+  </location>    
+  <reasonCode>
+      <text value="assessment of mobility limitations due to osteoarthritis"/>
+  </reasonCode>  
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="36701003"/>
+      <display value="Both knees (body structure)"/>
+    </coding>
+    <text value="Both knees"/>
+  </bodySite>
+</Procedure>

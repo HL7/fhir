@@ -635,4 +635,22 @@
   Description = Example of an appendectomy procedure that is primarily narrative
   Filename = procedure-example-appendectomy-narrative.xml
 
+ -- Row 13 -----------------------------------
+  Name = OB
+  Identity = ob
+  Description = Example of an obstetric procedure
+  Filename = procedure-example-ob.xml
+
+ -- Row 14 -----------------------------------
+  Name = Physical Therapy
+  Identity = physical-therapy
+  Description = Example of a physical therapy evaluation procedure
+  Filename = procedure-example-physical-therapy.xml
+
+ -- Row 15 -----------------------------------
+  Name = Education
+  Identity = education
+  Description = Example of patient education
+  Filename = procedure-example-education.xml
+
 === Sheet Examples =====================================

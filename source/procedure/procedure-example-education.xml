@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <id value="education"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Health education - breast examination for early detection of breast mass</div>
+  </text>
+  <status value="completed"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="311401005"/>
+      <display value="Patient education (procedure)"/>
+    </coding>
+    <text value="Education"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="48023004"/>
+      <display value="Breast self-examination technique education (procedure)"/>
+    </coding>
+    <text value="Health education - breast examination"/>
+  </code>
+  <subject>
+	<display value="Jane Doe"/>
+  </subject>
+  <performedDateTime value="2014-08-16"/>
+  <performer>
+    <actor>
+      <display value="Pamela Educator, RN"/>
+    </actor>
+  </performer> 
+  <location>
+    <display value="Southside Community Health Center"/>
+  </location>    
+  <reasonCode>
+      <text value="early detection of breast mass"/>
+  </reasonCode>  
+</Procedure>
