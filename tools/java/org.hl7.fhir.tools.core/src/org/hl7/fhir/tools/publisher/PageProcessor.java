@@ -8276,6 +8276,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return true;
   }
 
+  
   private String genModifierList() {
     StringBuilder b = new StringBuilder();
     for (String s : sorted(definitions.getTypes().keySet()))
@@ -8292,11 +8293,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private void checkForModifiers(StringBuilder b, String path, ElementDefn e) {
-    if (e.isModifier()) {
+    if (e.isModifier() && !isFromMetadataResource(path, e)) {
       b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a></li>\r\n");
     }
     for (ElementDefn c : e.getElements())
       checkForModifiers(b, path+"."+c.getName(), c);
+  }
+
+  private boolean isFromMetadataResource(String path, ElementDefn e) {
+    return Utilities.existsInList(path.contains(".") ? path.split("\\.")[0] : path,
+        "ActivityDefinition", "CapabilityStatement", "CodeSystem", "CompartmentDefinition", "ConceptMap", "DataElement", "ExpansionProfile", "GraphDefinition", "ImplementationGuide", "Library", "Measure", "MessageDefinition", "OperationDefinition", "PlanDefinition", "Questionnaire", "SearchParameter", 
+        "ServiceDefinition", "StructureDefinition", "StructureMap", "TestScript", "ValueSet")
+        && Utilities.existsInList(e.getName(), "status", "experimental");
   }
 
   private List<String> sorted(Set<String> keySet) {

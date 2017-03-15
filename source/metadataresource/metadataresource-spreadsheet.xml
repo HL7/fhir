@@ -11,7 +11,7 @@
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-03-11T00:10:36Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">ec9ce4ab-ba76-4458-8142-c9b076765cd6</WorkbookGuid>
@@ -20,12 +20,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9675</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
-  <WindowTopX>15</WindowTopX>
-  <WindowTopY>1485</WindowTopY>
+  <WindowHeight>21330</WindowHeight>
+  <WindowWidth>-19456</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>715</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1229,7 +1230,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">The status of this {{title}}. Enables tracking the life-cycle of the content</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Allows filtering of {{title}} that are appropriate for use vs. not</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Allows filtering of {{title}} that are appropriate for use vs. not.  &#10;This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1266,7 +1267,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Enables experimental content to be developed following the same lifecycle as a production-level {{title}} would</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Allows filtering of {{title}} that are appropriate for use vs. not</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Allows filtering of {{title}} that are appropriate for use vs. not. This is labeled as &quot;Is Modifier&quot; because applications should not use an experimental {{title}} in production</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4526,7 +4527,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4544,7 +4545,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

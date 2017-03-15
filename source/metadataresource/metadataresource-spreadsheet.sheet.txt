@@ -74,7 +74,7 @@
   Binding = PublicationStatus
   Short Name = draft | active | retired | unknown
   Definition = The status of this {{title}}. Enables tracking the life-cycle of the content
-  Comments = Allows filtering of {{title}} that are appropriate for use vs. not
+  Comments = Allows filtering of {{title}} that are appropriate for use vs. not.  \nThis is labeled as \"Is Modifier\" because applications should not use a retired {{title}} without due consideration
   w5 = status
 
  -- Row 8 -----------------------------------
@@ -86,7 +86,7 @@
   Short Name = If for testing purposes, not real usage
   Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
   Requirements = Enables experimental content to be developed following the same lifecycle as a production-level {{title}} would
-  Comments = Allows filtering of {{title}} that are appropriate for use vs. not
+  Comments = Allows filtering of {{title}} that are appropriate for use vs. not. This is labeled as \"Is Modifier\" because applications should not use an experimental {{title}} in production
   w5 = class
 
  -- Row 9 -----------------------------------
