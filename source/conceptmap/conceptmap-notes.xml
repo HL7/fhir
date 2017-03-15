@@ -18,7 +18,7 @@ may contain more than one group with the same source and target - this would be 
 but may be useful in order to maintain a fixed order for the concepts that are mapped. 
 </p>
 <p>
-Concepts that are labelled as 'unmatched' are considered to be unmatched in the target value set, 
+Concepts that are labeled as 'unmatched' are considered to be unmatched in the target value set, 
 irrespective of whether they are contained in a group with a stated target system or not. Groups
 that contain no target system may only contained 'unmatched' concepts. There is no difference in 
 the meaning of an <code>unmatched</code> target whether or not there is a stated target system.

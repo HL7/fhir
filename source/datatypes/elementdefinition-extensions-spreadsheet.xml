@@ -1993,7 +1993,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Mark that an invariant represents 'best practice' rule - a rule that implementers may choose to enforce at error level in some or all circumstances</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Validators may/should offer implementers the choice to enforce invariants labelled as 'best practice' as errors not warnings</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Validators may/should offer implementers the choice to enforce invariants labeled as 'best practice' as errors not warnings</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell

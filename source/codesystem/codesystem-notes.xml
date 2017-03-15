@@ -110,7 +110,7 @@ as:
 There is wide variation in the life cycles supported by the different code systems, the words
 they use to describe the various status values they use, and some code systems have additional 
 status values. HL7 uses Active and Retired. In addition to these status codes, concepts may be 
-also be labelled as "Abstract' (not to be used in some circumstances), and have dates associated 
+also be labeled as "Abstract' (not to be used in some circumstances), and have dates associated 
 with their retirement or deprecation. All this information is represented as properties of 
 the concepts. In order to assist with consistency between code systems, the following 
 basic property URIs are defined:

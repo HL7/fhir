@@ -39,7 +39,7 @@ in these areas may be useful, but it is outside of FHIR's scope.
 <p>
 Because of FHIR's focus on implementation, many aspects of the specification deal with the technical underpinnings of the
 exchange of clinical information between electronic systems.  This section provides an introduction to 
-what FHIR provides and tries to highlight those portions of the specification
+what FHIR provides, and tries to highlight those portions of the specification
 that are likely to be of most interest to the clinical community while skipping over some of the technical
 minutiae of interoperability.  However, clinical readers are welcome to explore some of the more
 technical areas if they find them of interest.
@@ -57,8 +57,8 @@ allergies, one for prescriptions, one for referrals, etc.
 FHIR data consists of repositories containing completed "forms" (resource instances).  The resource instances describe patient-related information (such as
 demographics, health conditions and procedures) as well as administrative information (such as practitioners, organizations and locations).  Some resources are infrastructure components used to 
 support the technical exchange of information by describing what systems are able to do, defining allowed sets
-of codes, etc.  FHIR repositories might be elecronic health record (EHR) systems, pharmacy systems,
-hospital information systems (HISs), etc.  Some systems, such as clinical decision support engines, may
+of codes, etc.  FHIR repositories might be electronic health record (EHR) systems, pharmacy systems,
+hospital information systems (HIS), etc.  Some systems, such as clinical decision support engines, may
 expose FHIR interfaces even though they don't actually store any patient or administrative information themselves.
 </p>
 <p>
@@ -72,19 +72,19 @@ note in their history, etc.) to operations on the relevant resources.
 The paper forms (Resources) in FHIR are somewhat generic.  They have to be usable in different countries and by different types of clinicians
 in different contexts (human care, veterinary care, public health, research, etc.).  Recognizing that
 a <i>one size fits all</i> approach is not appropriate in the healthcare space, FHIR provides the ability to adjust the
-forms (Resources) to be able to handle the needs of different implementation spaces by defining"extensions"
+forms (Resources) to be able to handle the needs of different implementation spaces by defining "extensions"
 as well as enforcing constraints.  For example, a "prescription" form might have extension elements
 added to support tracking of restricted medications while also constraining the codes that can be used
 to communicate types of drugs to a particular national standard.  Forms are designed in such
-a way that these changes can be made without changing how systems pass forms around enabling any system to
-consume completed forms even if they have additional elements added whether or not those additional elements
+a way that these changes can be made without changing how systems pass forms around, enabling any system to
+consume completed forms even if they have additional elements added, whether or not those additional elements
 are used by the receiving system.
 </p>
 <p>
 To keep the base forms that everyone uses from being overly complex, FHIR has a rule that, in most cases, a
 resource will only include data elements if there's an expectation that most implementations will use that particular
 data element.  That doesn't mean the data must always exist.  For example, most systems in the world are capable
-of tracking "deceased date" for patient, even though that element will be blank for many patient records.  On
+of tracking "deceased date" for a patient, even though that element will be blank for many patient records.  On
 the other hand, not as many systems track hair color, so hair color would be omitted from the base form and those
 systems that need it (perhaps in a specialty clinical or research setting) can use a FHIR extension to
 capture it if needed.
@@ -128,7 +128,7 @@ might look like this:
 </table>
 
 <p>
-In other cases, the narrative might be free-form text commentary entered directly by a practitioner such as
+In other cases, the narrative might be free-form text commentary entered directly by a practitioner, such as
 referral letters, pathology reports, etc.  Certain parts of the narrative content could also later be exposed as
 discrete data.
 </p>
@@ -144,7 +144,7 @@ or "paradigms" of exchange supported by FHIR: via a REST interface, by exchangin
 <p>
 REST is the simplest exchange mechanism.  Continuing with the "form" metaphor, a RESTful server can be thought
 of as a room full of filing cabinets.  Within the room is a cabinet for each "type" of form (or Resource) it supports.  The cabinet contains
-folders where each folder has a unique number and represents one particular real-world thing: one Patient, one Encounter
+folders where each folder has a unique number and represents one particular real-world thing: one Patient, one Encounter,
 one Medication, etc.  Each folder (which represents a single Resource <i>instance</i>) contains multiple pieces of paper, with each piece of paper representing a specific "version"
 of that instance.  Every time someone updates a record, a new piece of paper is added to the top of the
 file folder.  To see the history of a resource, you simply have to flip through the pieces of paper in the folder.
@@ -153,9 +153,9 @@ file folder.  To see the history of a resource, you simply have to flip through 
 Note that a typical medical record is generally a big "folder-of-folders" with many different
 types of 'forms' or 'reports' gathered together. This is convenient for someone who wants to review
 the whole record, but inconvenient for someone updating bits of it.  There's always contention for access
-to it to update the right part. In the computer application, the record will be decomposed to its smallest components
-for management purposes, and a computer will (or should), assemble the correct bits as required, by 
-following references that exist from one piece of information and the next. 
+to it to update the right part. In the computer application the record will be decomposed to its smallest components
+for management purposes, and a computer will (or should) assemble the correct bits as required, by 
+following references that exist from one piece of information to the next. 
 </p>
 <p>
 Now picture a clerk at the front door of that room.  You can pass the clerk a requisition to have them do something with
@@ -169,7 +169,7 @@ you can do the following:
 <li><i>update</i>: Add a new page (version) to the contents of a specific folder</li>
 <li><i>delete</i>: Remove a folder from the cabinet (or more accurately, virtually remove it by putting a sticker on it saying "do not open")</li>
 <li><i>history</i>: Look at all the pages in a single folder, in a particular file cabinet or possibly in the whole room.  Such a broad request would be used primarily for administrative purposes rather than clinical purposes</li>
-<li><i>transaction</i>: Give the clerk a multiple pieces of paper to place in distinct folders at the same time</li>
+<li><i>transaction</i>: Give the clerk multiple pieces of paper to place in distinct folders at the same time</li>
 <li><i>operation</i>: Ask the clerk to perform an action or procedure on papers from one or more of the folders - for example, averaging numbers across patients, producing a summary record, or perform a complex search just by ticking a box on a requisition saying "do that one"</li>
 </ul>
 <p>
@@ -229,7 +229,7 @@ A FHIR-based system's capabilities are defined by what the Resources can say and
 </ul>
 <p>
 This information can all be found in the resource definition pages.  The resources most likely to be of interest can be
-found on the following modules:
+found in the following modules:
 </p>
 <ul>
  <li><a href="clinicalsummary-module.html">Clinical Summary &amp; Care provision</a></li>

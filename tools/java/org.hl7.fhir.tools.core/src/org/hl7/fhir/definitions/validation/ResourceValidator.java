@@ -782,7 +782,7 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, path, path.contains("."), "Must have a type on a base element");
       rule(errors, IssueType.STRUCTURE, path, e.getName().equals("extension") || e.getElements().size() > 0, "Must have a type unless sub-elements exist");
     } else {
-      rule(errors, IssueType.STRUCTURE, path, e.getTypes().size() == 1 || e.getName().endsWith("[x]"), "If an element has a choice of data types, it's name must end with [x]");
+      rule(errors, IssueType.STRUCTURE, path, e.getTypes().size() == 1 || e.getName().endsWith("[x]"), "If an element has a choice of data types, its name must end with [x]");
       if (definitions.dataTypeIsSharedInfo(e.typeCode())) {
         try {
           e.getElements().addAll(definitions.getElementDefn(e.typeCode()).getElements());

@@ -1717,7 +1717,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates how the medication is/was or should be taken by the patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, &quot;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&quot;  It is expected that this specificity may only be populated where the patient brings in their labelled container or where the Medication Statement is derived from a MedicationRequest.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, &quot;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&quot;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Statement is derived from a MedicationRequest.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">refer dosageInstruction mapping</Data><NamedCell

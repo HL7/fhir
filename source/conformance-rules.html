@@ -24,7 +24,7 @@ specification are generally fairly loose. As a consequence, this specification
 allows that different applications may not be able to be interoperate because of
 how they use optional features. As a consequence, applications claiming
 conformance to this specification make the claim in respect of a specific
-exchange framework, and in regard to a specific details about their usage of
+exchange framework, and in regard to specific details about their usage of
 those frameworks and resource contents.
 </p>
 <p>
@@ -127,7 +127,7 @@ rules about this selection process.
 <p>
 Clients should not depend on servers maintaining ordering of elements, unless the retrieved 
 resource conforms to a profile which mandates maintenance of ordering. If a server cannot 
-maintain ordering, it must must strip off known profile tags which require maintenance of 
+maintain ordering, it must strip off known profile tags which require maintenance of 
 ordering, and strip off unknown profiles (since they might require maintenance of ordering).
 </p>
 
@@ -161,7 +161,7 @@ instance, in the following fragment of a resource definition:
 <p>
 The value of the 'verificationStatus' element affects the entire meaning of the resource - if it is set to refuted, the
 entire resource must be understood differently, and so it is not safe for implementations to ignore it.
-As a consequence, it is labelled as 'is modifier = true'. In this tabular representation of the resource,
+As a consequence, it is labeled as 'is modifier = true'. In this tabular representation of the resource,
 this shows as the flag '?!'. The <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations
 of a resource definition have their own representation of 'is modifier = true' status, and
 it is defined directly in a <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">ElementDefinition</a>.

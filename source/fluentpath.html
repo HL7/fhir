@@ -56,7 +56,7 @@ classes as defined by a MOF-equivalent type system.
 </p>
 
 <p>
-Data is represented as a tree of labelled nodes, where each node may optionally 
+Data is represented as a tree of labeled nodes, where each node may optionally 
 carry a primitive value and have child nodes. Nodes need not have a unique label, 
 and leaf nodes must carry a primitive value. For example, a (partial) 
 representation of a FHIR Patient resource in this model looks like this:
@@ -70,7 +70,7 @@ representation of a FHIR Patient resource in this model looks like this:
 The diagram shows a tree with a repeating <code>identifier</code> node, which represents 
 repeating members of the FHIR object model. Leaf nodes such as <code>use</code> and 
 <code>family</code> carry a (string) value. It is also possible for internal nodes 
-to carry a value, as is the case for the node labelled <code>active</code>: this 
+to carry a value, as is the case for the node labeled <code>active</code>: this 
 allows the tree to represent FHIR "primitives", which may still have child extension data.
 </p>
 
