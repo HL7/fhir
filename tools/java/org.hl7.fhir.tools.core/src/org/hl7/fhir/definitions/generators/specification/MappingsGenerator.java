@@ -200,9 +200,9 @@ public class MappingsGenerator {
 			if (pre != null)
 			  s.append(new XhtmlComposer().compose(pre));
 			s.append("<table class=\"grid\">\r\n");
-      genElement(s, 0, resource.getRoot(), m, ROOT_ONLY);
+      genElement(s, 0, resource.getRoot(), m, ROOT_ONLY, true);
 			genInherited(s, resource, m);
-			genElement(s, 0, resource.getRoot(), m, CHILDREN_ONLY);
+			genElement(s, 0, resource.getRoot(), m, CHILDREN_ONLY, true);
 			s.append("</table>\r\n");
 		}
 	  mappings = s.toString();
@@ -235,7 +235,7 @@ public class MappingsGenerator {
 			s.append("<table class=\"grid\">\r\n");
 			for (ElementDefn e : elements) 
 				if (elementHasMapping(e, m)) {
-				  genElement(s, 0, e, m, ALL);
+				  genElement(s, 0, e, m, ALL, true);
 				}
 			s.append("</table>\r\n");
 		}
@@ -258,7 +258,7 @@ public class MappingsGenerator {
 		return false;
 	}
 
-	private void genElement(StringBuilder s, int indent, ElementDefn elem, String m, int children) {
+	private void genElement(StringBuilder s, int indent, ElementDefn elem, String m, int children, boolean isRoot) {
 	  if (children == ROOT_ONLY || children == ALL) {
 		s.append(" <tr><td>");
 		if (indent == 0) {
@@ -277,16 +277,18 @@ public class MappingsGenerator {
 		  s.append(elem.getName());
 		s.append("</td><td>"+Utilities.escapeXml(elem.getMappings().get(m)).replace("\n", "<br/>\n")+"</td></tr>\r\n");
 	  }
-    if (children == CHILDREN_ONLY || children == ALL) {
-	  for (ElementDefn child :elem.getElements()) {
-			genElement(s, indent+1, child, m, ALL);
-		}
-    }
+	  if (!isRoot || !"N/A".equalsIgnoreCase(elem.getMappings().get(m))) {	    
+	    if (children == CHILDREN_ONLY || children == ALL) {
+	      for (ElementDefn child :elem.getElements()) {
+	        genElement(s, indent+1, child, m, ALL, false);
+	      }
+	    }
+	  }
 	}
 
 	private void listKnownMappings(ElementDefn e, List<String> maps) {
 		for (String s : e.getMappings().keySet())
-			if (!maps.contains(s))
+			if (!maps.contains(s) && definitions.getMapTypes().get(s).isPublish())
 				maps.add(s);
 		for (ElementDefn c : e.getElements())
 			listKnownMappings(c,  maps);		
@@ -294,7 +296,7 @@ public class MappingsGenerator {
 
   private void listKnownMappings(StructureDefinition profile, List<String> maps) {
     for (StructureDefinitionMappingComponent map : profile.getMapping())
-      if (!maps.contains(map.getIdentity()))
+      if (!maps.contains(map.getIdentity()) && definitions.getMapTypes().get(map.getIdentity()).isPublish())
         maps.add(map.getIdentity());
   }
 
