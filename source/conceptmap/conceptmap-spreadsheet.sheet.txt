@@ -270,7 +270,7 @@
   Definition = Identity (code or path) or the element/item/ValueSet that the map depends on / refers to
 
  -- Row 36 -----------------------------------
-  Element = ConceptMap.group.element.target.dependsOndisplay
+  Element = ConceptMap.group.element.target.dependsOn.display
   Card. = 0..1
   Type = string
   Short Name = Display for the code

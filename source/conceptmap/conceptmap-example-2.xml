@@ -35,6 +35,7 @@
           <property value="http://example.org/fhir/DataElement/example"/>
           <system value="http://example.org/fhir/example3"/>
           <code value="some-code"/>
+          <display value="Something Coded"/>
         </dependsOn>
       </target>
 

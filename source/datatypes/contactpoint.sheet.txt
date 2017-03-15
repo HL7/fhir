@@ -181,5 +181,5 @@
   Short Name = Time period when the contact point was/is in use
   Definition = Time period when the contact point was/is in use
   v2 Mapping = N/A
-  RIM Mapping = ./useablePeriod[type=\"IVL<TS>\"]
+  RIM Mapping = ./usablePeriod[type=\"IVL<TS>\"]
   ServD Mapping = ./StartDate and ./EndDate

@@ -76,7 +76,7 @@
   Type = code
   Binding = AccountStatus
   Short Name = active | inactive | entered-in-error
-  Definition = Indicates whether the account is presently used/useable or not
+  Definition = Indicates whether the account is presently used/usable or not
   RIM Mapping = .statusCode
   w5 = status
 

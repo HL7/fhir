@@ -64,6 +64,7 @@
   Type = MetadataResource
   Short Name = Defines behaviour and contraints on the ValueSet Expansion operation
   Definition = Resource to define constraints on the Expansion of a FHIR ValueSet.
+  RIM Mapping = N/A
   w5 = conformance.terminology
 
  -- Row 2 -----------------------------------

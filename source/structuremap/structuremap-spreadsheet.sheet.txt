@@ -313,7 +313,7 @@
   Type = MetadataResource
   Short Name = A Map of relationships between 2 structures that can be used to transform data
   Definition = A Map of relationships between 2 structures that can be used to transform data
-  v2 Mapping = n/a
+  RIM Mapping = n/a
   Committee Notes = 0;0
   w5 = conformance.content
 

@@ -83,7 +83,7 @@
   Type = Identifier
   Short Name = Additional identifier for the Report
   Definition = A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.
-  Requirements = Allows externally provided and/or useable business identifiers to be easily associated with the module
+  Requirements = Allows externally provided and/or usable business identifiers to be easily associated with the module
   Comments = Typically, this is used for identifiers that can go in an HL7 v3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use
   w5 = id
 
