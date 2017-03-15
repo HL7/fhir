@@ -52,9 +52,9 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Name for this {{title}} (Computer friendly)
+  Short Name = Name for this {{title}} (computer friendly)
   Definition = A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation
-  Requirements = Support human navigation & code generation
+  Requirements = Support human navigation and code generation
   Comments = The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure it is computable friendly
 
  -- Row 6 -----------------------------------
@@ -62,7 +62,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Name for this {{title}} (Human friendly)
+  Short Name = Name for this {{title}} (human friendly)
   Definition = A short, descriptive, user-friendly title for the {{title}}
 
  -- Row 7 -----------------------------------
@@ -85,7 +85,7 @@
   Type = boolean
   Short Name = If for testing purposes, not real usage
   Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level {{title}} would
+  Requirements = Enables experimental content to be developed following the same lifecycle as a production-level {{title}} would
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not
   w5 = class
 
@@ -105,7 +105,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Name of the publisher (Organization or individual)
+  Short Name = Name of the publisher (organization or individual)
   Definition = The name of the individual or organization that published the {{title}}
   Requirements = Helps establish the \"authority/credibility\" of the {{title}}.  May also allow for contact
   Comments = Usually an organization, but may be an individual. The publisher (or steward) of the {{title}} is the organization or individual primarily responsible for the maintenance and upkeep of the {{title}}. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the {{title}}. This item SHOULD be populated unless the information is available from context.
@@ -128,7 +128,7 @@
   Short Name = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
-  Comments = When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply
+  Comments = When multiple useContexts are specified, there is no expectation for whether all or any of the contexts apply
 
  -- Row 13 -----------------------------------
   Element = MetadataResource.jurisdiction
