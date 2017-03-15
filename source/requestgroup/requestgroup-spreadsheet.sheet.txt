@@ -154,6 +154,7 @@
  -- Row 12 -----------------------------------
   Element = RequestGroup.action.description
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Name = Short description of the action
   Definition = A short description of the action used to provide a summary to display to the user
@@ -161,6 +162,7 @@
  -- Row 13 -----------------------------------
   Element = RequestGroup.action.textEquivalent
   Card. = 0..1
+  Summary = Y
   Type = string
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically

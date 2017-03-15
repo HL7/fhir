@@ -437,6 +437,7 @@
 
  -- Row 12 -----------------------------------
   Element = PlanDefinition.description
+  Summary = Y
   Workflow Mapping = Definition.description
 
  -- Row 13 -----------------------------------

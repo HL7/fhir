@@ -248,6 +248,7 @@
 
  -- Row 11 -----------------------------------
   Element = Measure.description
+  Summary = Y
   Workflow Mapping = Definition.description
 
  -- Row 12 -----------------------------------

@@ -60,6 +60,7 @@
  -- Row 2 -----------------------------------
   Element = GuidanceResponse.requestId
   Card. = 0..1
+  Summary = Y
   Type = id
   Short Name = The id of the request associated with this response, if any
   Definition = The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario
@@ -76,7 +77,6 @@
  -- Row 4 -----------------------------------
   Element = GuidanceResponse.module
   Card. = 1..1
-  Is Modifier = Y
   Summary = Y
   Type = Reference(ServiceDefinition)
   Short Name = A reference to a knowledge module

@@ -90,6 +90,7 @@
  -- Row 3 -----------------------------------
   Element = MeasureReport.status
   Card. = 1..1
+  Is Modifier = Y
   Summary = Y
   Type = code
   Binding = MeasureReportStatus
@@ -215,7 +216,7 @@
  -- Row 17 -----------------------------------
   Element = MeasureReport.group.measureScore
   Card. = 0..1
-  Summary = N
+  Summary = Y
   Type = decimal
   Short Name = What score this group achieved
   Definition = The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group
@@ -298,7 +299,7 @@
  -- Row 27 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.measureScore
   Card. = 0..1
-  Summary = N
+  Summary = Y
   Type = decimal
   Short Name = What score this stratum achieved
   Definition = The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum

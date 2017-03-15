@@ -79,7 +79,6 @@
  -- Row 9 -----------------------------------
   Element = Library.type
   Card. = 1..1
-  Is Modifier = Y
   Summary = Y
   Type = CodeableConcept
   Binding = LibraryType
@@ -95,6 +94,7 @@
 
  -- Row 12 -----------------------------------
   Element = Library.description
+  Summary = Y
 
  -- Row 13 -----------------------------------
   Element = Library.purpose

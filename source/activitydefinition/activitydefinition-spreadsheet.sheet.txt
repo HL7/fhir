@@ -148,6 +148,7 @@
 
  -- Row 11 -----------------------------------
   Element = ActivityDefinition.description
+  Summary = Y
   Workflow Mapping = Definition.description
 
  -- Row 12 -----------------------------------
