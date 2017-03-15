@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -261,21 +261,21 @@ public class RelatedArtifact extends Type implements ICompositeType {
      * A url for the artifact that can be followed to access the actual content.
      */
     @Child(name = "url", type = {UriType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Url for the related artifact", formalDefinition="A url for the artifact that can be followed to access the actual content." )
+    @Description(shortDefinition="Where the artifact can be accessed", formalDefinition="A url for the artifact that can be followed to access the actual content." )
     protected UriType url;
 
     /**
      * The document being referenced, represented as an attachment. This is exclusive with the resource element.
      */
     @Child(name = "document", type = {Attachment.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The related document", formalDefinition="The document being referenced, represented as an attachment. This is exclusive with the resource element." )
+    @Description(shortDefinition="What document is being referenced", formalDefinition="The document being referenced, represented as an attachment. This is exclusive with the resource element." )
     protected Attachment document;
 
     /**
      * The related resource, such as a library, value set, profile, or other knowledge resource.
      */
     @Child(name = "resource", type = {Reference.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The related resource", formalDefinition="The related resource, such as a library, value set, profile, or other knowledge resource." )
+    @Description(shortDefinition="What resource is being referenced", formalDefinition="The related resource, such as a library, value set, profile, or other knowledge resource." )
     protected Reference resource;
 
     /**

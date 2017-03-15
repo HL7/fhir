@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -3947,8 +3947,6 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ConceptMap", "comment", element.getCommentElement(), -1);
     for (int i = 0; i < element.getDependsOn().size(); i++)
       composeConceptMapOtherElementComponent(t, "ConceptMap", "dependsOn", element.getDependsOn().get(i), i);
-    if (element.hasDependsOndisplayElement())
-      composeString(t, "ConceptMap", "dependsOndisplay", element.getDependsOndisplayElement(), -1);
     for (int i = 0; i < element.getProduct().size(); i++)
       composeConceptMapOtherElementComponent(t, "ConceptMap", "product", element.getProduct().get(i), i);
   }
@@ -3969,6 +3967,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "ConceptMap", "system", element.getSystemElement(), -1);
     if (element.hasCodeElement())
       composeString(t, "ConceptMap", "code", element.getCodeElement(), -1);
+    if (element.hasDisplayElement())
+      composeString(t, "ConceptMap", "display", element.getDisplayElement(), -1);
   }
 
   protected void composeConceptMapConceptMapGroupUnmappedComponent(Complex parent, String parentType, String name, ConceptMap.ConceptMapGroupUnmappedComponent element, int index) {
@@ -4749,10 +4749,10 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "DeviceComponent", name, element, index);
-    if (element.hasType())
-      composeCodeableConcept(t, "DeviceComponent", "type", element.getType(), -1);
     if (element.hasIdentifier())
       composeIdentifier(t, "DeviceComponent", "identifier", element.getIdentifier(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "DeviceComponent", "type", element.getType(), -1);
     if (element.hasLastSystemChangeElement())
       composeInstant(t, "DeviceComponent", "lastSystemChange", element.getLastSystemChangeElement(), -1);
     if (element.hasSource())

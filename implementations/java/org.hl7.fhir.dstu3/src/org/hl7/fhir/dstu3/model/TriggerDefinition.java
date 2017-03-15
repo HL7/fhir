@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -231,7 +231,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
      * The name of the event (if this is a named-event trigger).
      */
     @Child(name = "eventName", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name of the event", formalDefinition="The name of the event (if this is a named-event trigger)." )
+    @Description(shortDefinition="Triggering event name", formalDefinition="The name of the event (if this is a named-event trigger)." )
     protected StringType eventName;
 
     /**

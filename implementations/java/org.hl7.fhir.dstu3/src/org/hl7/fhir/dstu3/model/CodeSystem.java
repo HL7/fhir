@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -56,7 +56,7 @@ public class CodeSystem extends MetadataResource {
          */
         GROUPEDBY, 
         /**
-         * A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it's child concepts
+         * A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts
          */
         ISA, 
         /**
@@ -108,7 +108,7 @@ public class CodeSystem extends MetadataResource {
         public String getDefinition() {
           switch (this) {
             case GROUPEDBY: return "No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the heirarchy have different meanings)";
-            case ISA: return "A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it's child concepts";
+            case ISA: return "A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts";
             case PARTOF: return "Child elements list the individual parts of a composite whole (e.g. bodysite)";
             case CLASSIFIEDWITH: return "Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise clasified.\"";
             default: return "?";
@@ -1071,10 +1071,10 @@ public class CodeSystem extends MetadataResource {
         protected UriType uri;
 
         /**
-         * A description of the property- why it is defined, and how it's value might be used.
+         * A description of the property- why it is defined, and how its value might be used.
          */
         @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Why the property is defined, and/or what it conveys", formalDefinition="A description of the property- why it is defined, and how it's value might be used." )
+        @Description(shortDefinition="Why the property is defined, and/or what it conveys", formalDefinition="A description of the property- why it is defined, and how its value might be used." )
         protected StringType description;
 
         /**
@@ -1198,7 +1198,7 @@ public class CodeSystem extends MetadataResource {
         }
 
         /**
-         * @return {@link #description} (A description of the property- why it is defined, and how it's value might be used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @return {@link #description} (A description of the property- why it is defined, and how its value might be used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
           if (this.description == null)
@@ -1218,7 +1218,7 @@ public class CodeSystem extends MetadataResource {
         }
 
         /**
-         * @param value {@link #description} (A description of the property- why it is defined, and how it's value might be used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @param value {@link #description} (A description of the property- why it is defined, and how its value might be used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public PropertyComponent setDescriptionElement(StringType value) { 
           this.description = value;
@@ -1226,14 +1226,14 @@ public class CodeSystem extends MetadataResource {
         }
 
         /**
-         * @return A description of the property- why it is defined, and how it's value might be used.
+         * @return A description of the property- why it is defined, and how its value might be used.
          */
         public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
-         * @param value A description of the property- why it is defined, and how it's value might be used.
+         * @param value A description of the property- why it is defined, and how its value might be used.
          */
         public PropertyComponent setDescription(String value) { 
           if (Utilities.noString(value))
@@ -1295,7 +1295,7 @@ public class CodeSystem extends MetadataResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("uri", "uri", "Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system.", 0, java.lang.Integer.MAX_VALUE, uri));
-          childrenList.add(new Property("description", "string", "A description of the property- why it is defined, and how it's value might be used.", 0, java.lang.Integer.MAX_VALUE, description));
+          childrenList.add(new Property("description", "string", "A description of the property- why it is defined, and how its value might be used.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("type", "code", "The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to anotherr defined concept).", 0, java.lang.Integer.MAX_VALUE, type));
         }
 

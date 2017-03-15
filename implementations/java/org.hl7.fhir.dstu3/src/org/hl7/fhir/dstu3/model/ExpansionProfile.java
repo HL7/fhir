@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -164,7 +164,7 @@ public class ExpansionProfile extends MetadataResource {
          * The specific system for which to fix the version.
          */
         @Child(name = "system", type = {UriType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="System to have it's version fixed", formalDefinition="The specific system for which to fix the version." )
+        @Description(shortDefinition="System to have its version fixed", formalDefinition="The specific system for which to fix the version." )
         protected UriType system;
 
         /**

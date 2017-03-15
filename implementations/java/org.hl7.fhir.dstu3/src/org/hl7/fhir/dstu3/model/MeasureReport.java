@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -271,7 +271,7 @@ public class MeasureReport extends DomainResource {
          * The identifier of the population group as defined in the measure definition.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Identifier of the population group being reported", formalDefinition="The identifier of the population group as defined in the measure definition." )
+        @Description(shortDefinition="What group of the measure", formalDefinition="The identifier of the population group as defined in the measure definition." )
         protected Identifier identifier;
 
         /**
@@ -282,10 +282,10 @@ public class MeasureReport extends DomainResource {
         protected List<MeasureReportGroupPopulationComponent> population;
 
         /**
-         * The measure score.
+         * The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
          */
         @Child(name = "measureScore", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The measure score", formalDefinition="The measure score." )
+        @Description(shortDefinition="What score this group achieved", formalDefinition="The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group." )
         protected DecimalType measureScore;
 
         /**
@@ -390,7 +390,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #measureScore} (The measure score.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
+         * @return {@link #measureScore} (The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
          */
         public DecimalType getMeasureScoreElement() { 
           if (this.measureScore == null)
@@ -410,7 +410,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value {@link #measureScore} (The measure score.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
+         * @param value {@link #measureScore} (The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
          */
         public MeasureReportGroupComponent setMeasureScoreElement(DecimalType value) { 
           this.measureScore = value;
@@ -418,14 +418,14 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return The measure score.
+         * @return The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
          */
         public BigDecimal getMeasureScore() { 
           return this.measureScore == null ? null : this.measureScore.getValue();
         }
 
         /**
-         * @param value The measure score.
+         * @param value The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
          */
         public MeasureReportGroupComponent setMeasureScore(BigDecimal value) { 
           if (value == null)
@@ -439,7 +439,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value The measure score.
+         * @param value The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
          */
         public MeasureReportGroupComponent setMeasureScore(long value) { 
               this.measureScore = new DecimalType();
@@ -448,7 +448,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value The measure score.
+         * @param value The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.
          */
         public MeasureReportGroupComponent setMeasureScore(double value) { 
               this.measureScore = new DecimalType();
@@ -513,7 +513,7 @@ public class MeasureReport extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("identifier", "Identifier", "The identifier of the population group as defined in the measure definition.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("population", "", "The populations that make up the population group, one for each type of population appropriate for the measure.", 0, java.lang.Integer.MAX_VALUE, population));
-          childrenList.add(new Property("measureScore", "decimal", "The measure score.", 0, java.lang.Integer.MAX_VALUE, measureScore));
+          childrenList.add(new Property("measureScore", "decimal", "The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group.", 0, java.lang.Integer.MAX_VALUE, measureScore));
           childrenList.add(new Property("stratifier", "", "When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.", 0, java.lang.Integer.MAX_VALUE, stratifier));
         }
 
@@ -665,7 +665,7 @@ public class MeasureReport extends DomainResource {
          * The identifier of the population being reported, as defined by the population element of the measure.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Identifier of the population being reported", formalDefinition="The identifier of the population being reported, as defined by the population element of the measure." )
+        @Description(shortDefinition="Population identifier as defined in the measure", formalDefinition="The identifier of the population being reported, as defined by the population element of the measure." )
         protected Identifier identifier;
 
         /**
@@ -990,7 +990,7 @@ public class MeasureReport extends DomainResource {
          * The identifier of this stratifier, as defined in the measure definition.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Identifier of the stratifier", formalDefinition="The identifier of this stratifier, as defined in the measure definition." )
+        @Description(shortDefinition="What stratifier of the group", formalDefinition="The identifier of this stratifier, as defined in the measure definition." )
         protected Identifier identifier;
 
         /**
@@ -1220,10 +1220,10 @@ public class MeasureReport extends DomainResource {
         protected List<StratifierGroupPopulationComponent> population;
 
         /**
-         * The measure score for this stratum.
+         * The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
          */
         @Child(name = "measureScore", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Score for this stratum", formalDefinition="The measure score for this stratum." )
+        @Description(shortDefinition="What score this stratum achieved", formalDefinition="The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum." )
         protected DecimalType measureScore;
 
         private static final long serialVersionUID = -772356228L;
@@ -1342,7 +1342,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #measureScore} (The measure score for this stratum.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
+         * @return {@link #measureScore} (The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
          */
         public DecimalType getMeasureScoreElement() { 
           if (this.measureScore == null)
@@ -1362,7 +1362,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value {@link #measureScore} (The measure score for this stratum.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
+         * @param value {@link #measureScore} (The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
          */
         public StratifierGroupComponent setMeasureScoreElement(DecimalType value) { 
           this.measureScore = value;
@@ -1370,14 +1370,14 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return The measure score for this stratum.
+         * @return The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
          */
         public BigDecimal getMeasureScore() { 
           return this.measureScore == null ? null : this.measureScore.getValue();
         }
 
         /**
-         * @param value The measure score for this stratum.
+         * @param value The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
          */
         public StratifierGroupComponent setMeasureScore(BigDecimal value) { 
           if (value == null)
@@ -1391,7 +1391,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value The measure score for this stratum.
+         * @param value The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
          */
         public StratifierGroupComponent setMeasureScore(long value) { 
               this.measureScore = new DecimalType();
@@ -1400,7 +1400,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value The measure score for this stratum.
+         * @param value The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.
          */
         public StratifierGroupComponent setMeasureScore(double value) { 
               this.measureScore = new DecimalType();
@@ -1412,7 +1412,7 @@ public class MeasureReport extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("value", "string", "The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("population", "", "The populations that make up the stratum, one for each type of population appropriate to the measure.", 0, java.lang.Integer.MAX_VALUE, population));
-          childrenList.add(new Property("measureScore", "decimal", "The measure score for this stratum.", 0, java.lang.Integer.MAX_VALUE, measureScore));
+          childrenList.add(new Property("measureScore", "decimal", "The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum.", 0, java.lang.Integer.MAX_VALUE, measureScore));
         }
 
       @Override
@@ -1545,7 +1545,7 @@ public class MeasureReport extends DomainResource {
          * The identifier of the population being reported, as defined by the population element of the measure.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Identifier of the population", formalDefinition="The identifier of the population being reported, as defined by the population element of the measure." )
+        @Description(shortDefinition="Population identifier as defined in the measure", formalDefinition="The identifier of the population being reported, as defined by the population element of the measure." )
         protected Identifier identifier;
 
         /**
@@ -1891,7 +1891,7 @@ public class MeasureReport extends DomainResource {
      * A reference to the Measure that was evaluated to produce this report.
      */
     @Child(name = "measure", type = {Measure.class}, order=3, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Measure that was evaluated", formalDefinition="A reference to the Measure that was evaluated to produce this report." )
+    @Description(shortDefinition="What measure was evaluated", formalDefinition="A reference to the Measure that was evaluated to produce this report." )
     protected Reference measure;
 
     /**
@@ -1903,7 +1903,7 @@ public class MeasureReport extends DomainResource {
      * Optional Patient if the report was requested for a single patient.
      */
     @Child(name = "patient", type = {Patient.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Optional Patient", formalDefinition="Optional Patient if the report was requested for a single patient." )
+    @Description(shortDefinition="What patient the report is for", formalDefinition="Optional Patient if the report was requested for a single patient." )
     protected Reference patient;
 
     /**
@@ -1915,14 +1915,14 @@ public class MeasureReport extends DomainResource {
      * The date this measure report was generated.
      */
     @Child(name = "date", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date the report was generated", formalDefinition="The date this measure report was generated." )
+    @Description(shortDefinition="When the report was generated", formalDefinition="The date this measure report was generated." )
     protected DateTimeType date;
 
     /**
      * Reporting Organization.
      */
     @Child(name = "reportingOrganization", type = {Organization.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reporting Organization", formalDefinition="Reporting Organization." )
+    @Description(shortDefinition="Who is reporting the data", formalDefinition="Reporting Organization." )
     protected Reference reportingOrganization;
 
     /**
@@ -1934,7 +1934,7 @@ public class MeasureReport extends DomainResource {
      * The reporting period for which the report was calculated.
      */
     @Child(name = "period", type = {Period.class}, order=7, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reporting period", formalDefinition="The reporting period for which the report was calculated." )
+    @Description(shortDefinition="What period the report covers", formalDefinition="The reporting period for which the report was calculated." )
     protected Period period;
 
     /**
@@ -2637,6 +2637,26 @@ public class MeasureReport extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External identifier of the measure report to be returned</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MeasureReport.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="MeasureReport.identifier", description="External identifier of the measure report to be returned", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External identifier of the measure report to be returned</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MeasureReport.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>The identity of a patient to search for individual measure report results for</b><br>
@@ -2661,6 +2681,26 @@ public class MeasureReport extends DomainResource {
    * the path value of "<b>MeasureReport:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MeasureReport:patient").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the measure report</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MeasureReport.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="MeasureReport.status", description="The status of the measure report", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the measure report</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MeasureReport.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

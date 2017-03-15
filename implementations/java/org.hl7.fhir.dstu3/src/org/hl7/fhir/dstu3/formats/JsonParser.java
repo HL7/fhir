@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5972,10 +5972,6 @@ public class JsonParser extends JsonParserBase {
         res.getDependsOn().add(parseConceptMapOtherElementComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    if (json.has("dependsOndisplay"))
-      res.setDependsOndisplayElement(parseString(json.get("dependsOndisplay").getAsString()));
-    if (json.has("_dependsOndisplay"))
-      parseElementProperties(json.getAsJsonObject("_dependsOndisplay"), res.getDependsOndisplayElement());
     if (json.has("product")) {
       JsonArray array = json.getAsJsonArray("product");
       for (int i = 0; i < array.size(); i++) {
@@ -6004,6 +6000,10 @@ public class JsonParser extends JsonParserBase {
       res.setCodeElement(parseString(json.get("code").getAsString()));
     if (json.has("_code"))
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
+    if (json.has("display"))
+      res.setDisplayElement(parseString(json.get("display").getAsString()));
+    if (json.has("_display"))
+      parseElementProperties(json.getAsJsonObject("_display"), res.getDisplayElement());
   }
 
   protected ConceptMap.ConceptMapGroupUnmappedComponent parseConceptMapConceptMapGroupUnmappedComponent(JsonObject json, ConceptMap owner) throws IOException, FHIRFormatError {
@@ -7149,10 +7149,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseDeviceComponentProperties(JsonObject json, DeviceComponent res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("identifier"))
       res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("lastSystemChange"))
       res.setLastSystemChangeElement(parseInstant(json.get("lastSystemChange").getAsString()));
     if (json.has("_lastSystemChange"))
@@ -26859,10 +26859,6 @@ public class JsonParser extends JsonParserBase {
           composeConceptMapOtherElementComponent(null, e);
         closeArray();
       };
-      if (element.hasDependsOndisplayElement()) {
-        composeStringCore("dependsOndisplay", element.getDependsOndisplayElement(), false);
-        composeStringExtras("dependsOndisplay", element.getDependsOndisplayElement(), false);
-      }
       if (element.hasProduct()) {
         openArray("product");
         for (ConceptMap.OtherElementComponent e : element.getProduct()) 
@@ -26892,6 +26888,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasCodeElement()) {
         composeStringCore("code", element.getCodeElement(), false);
         composeStringExtras("code", element.getCodeElement(), false);
+      }
+      if (element.hasDisplayElement()) {
+        composeStringCore("display", element.getDisplayElement(), false);
+        composeStringExtras("display", element.getDisplayElement(), false);
       }
   }
 
@@ -28148,11 +28148,11 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeDeviceComponentInner(DeviceComponent element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
       }
       if (element.hasLastSystemChangeElement()) {
         composeInstantCore("lastSystemChange", element.getLastSystemChangeElement(), false);

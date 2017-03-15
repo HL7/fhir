@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1009,20 +1009,13 @@ public class ConceptMap extends MetadataResource {
         protected List<OtherElementComponent> dependsOn;
 
         /**
-         * The display for the code. The display is only provided to help editors when editing the concept map.
-         */
-        @Child(name = "dependsOndisplay", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Display for the code", formalDefinition="The display for the code. The display is only provided to help editors when editing the concept map." )
-        protected StringType dependsOndisplay;
-
-        /**
          * A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.
          */
-        @Child(name = "product", type = {OtherElementComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "product", type = {OtherElementComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Other concepts that this mapping also produces", formalDefinition="A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on." )
         protected List<OtherElementComponent> product;
 
-        private static final long serialVersionUID = 1014141460L;
+        private static final long serialVersionUID = -2008997477L;
 
     /**
      * Constructor
@@ -1281,55 +1274,6 @@ public class ConceptMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #dependsOndisplay} (The display for the code. The display is only provided to help editors when editing the concept map.). This is the underlying object with id, value and extensions. The accessor "getDependsOndisplay" gives direct access to the value
-         */
-        public StringType getDependsOndisplayElement() { 
-          if (this.dependsOndisplay == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TargetElementComponent.dependsOndisplay");
-            else if (Configuration.doAutoCreate())
-              this.dependsOndisplay = new StringType(); // bb
-          return this.dependsOndisplay;
-        }
-
-        public boolean hasDependsOndisplayElement() { 
-          return this.dependsOndisplay != null && !this.dependsOndisplay.isEmpty();
-        }
-
-        public boolean hasDependsOndisplay() { 
-          return this.dependsOndisplay != null && !this.dependsOndisplay.isEmpty();
-        }
-
-        /**
-         * @param value {@link #dependsOndisplay} (The display for the code. The display is only provided to help editors when editing the concept map.). This is the underlying object with id, value and extensions. The accessor "getDependsOndisplay" gives direct access to the value
-         */
-        public TargetElementComponent setDependsOndisplayElement(StringType value) { 
-          this.dependsOndisplay = value;
-          return this;
-        }
-
-        /**
-         * @return The display for the code. The display is only provided to help editors when editing the concept map.
-         */
-        public String getDependsOndisplay() { 
-          return this.dependsOndisplay == null ? null : this.dependsOndisplay.getValue();
-        }
-
-        /**
-         * @param value The display for the code. The display is only provided to help editors when editing the concept map.
-         */
-        public TargetElementComponent setDependsOndisplay(String value) { 
-          if (Utilities.noString(value))
-            this.dependsOndisplay = null;
-          else {
-            if (this.dependsOndisplay == null)
-              this.dependsOndisplay = new StringType();
-            this.dependsOndisplay.setValue(value);
-          }
-          return this;
-        }
-
-        /**
          * @return {@link #product} (A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
          */
         public List<OtherElementComponent> getProduct() { 
@@ -1389,7 +1333,6 @@ public class ConceptMap extends MetadataResource {
           childrenList.add(new Property("equivalence", "code", "The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comment", "string", "A description of status/issues in mapping that conveys additional information not represented in  the structured data.", 0, java.lang.Integer.MAX_VALUE, comment));
           childrenList.add(new Property("dependsOn", "", "A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.", 0, java.lang.Integer.MAX_VALUE, dependsOn));
-          childrenList.add(new Property("dependsOndisplay", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, java.lang.Integer.MAX_VALUE, dependsOndisplay));
           childrenList.add(new Property("product", "@ConceptMap.group.element.target.dependsOn", "A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.", 0, java.lang.Integer.MAX_VALUE, product));
         }
 
@@ -1401,7 +1344,6 @@ public class ConceptMap extends MetadataResource {
         case -15828692: /*equivalence*/ return this.equivalence == null ? new Base[0] : new Base[] {this.equivalence}; // Enumeration<ConceptMapEquivalence>
         case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         case -1109214266: /*dependsOn*/ return this.dependsOn == null ? new Base[0] : this.dependsOn.toArray(new Base[this.dependsOn.size()]); // OtherElementComponent
-        case 2004005436: /*dependsOndisplay*/ return this.dependsOndisplay == null ? new Base[0] : new Base[] {this.dependsOndisplay}; // StringType
         case -309474065: /*product*/ return this.product == null ? new Base[0] : this.product.toArray(new Base[this.product.size()]); // OtherElementComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1427,9 +1369,6 @@ public class ConceptMap extends MetadataResource {
         case -1109214266: // dependsOn
           this.getDependsOn().add((OtherElementComponent) value); // OtherElementComponent
           return value;
-        case 2004005436: // dependsOndisplay
-          this.dependsOndisplay = castToString(value); // StringType
-          return value;
         case -309474065: // product
           this.getProduct().add((OtherElementComponent) value); // OtherElementComponent
           return value;
@@ -1451,8 +1390,6 @@ public class ConceptMap extends MetadataResource {
           this.comment = castToString(value); // StringType
         } else if (name.equals("dependsOn")) {
           this.getDependsOn().add((OtherElementComponent) value);
-        } else if (name.equals("dependsOndisplay")) {
-          this.dependsOndisplay = castToString(value); // StringType
         } else if (name.equals("product")) {
           this.getProduct().add((OtherElementComponent) value);
         } else
@@ -1468,7 +1405,6 @@ public class ConceptMap extends MetadataResource {
         case -15828692:  return getEquivalenceElement();
         case 950398559:  return getCommentElement();
         case -1109214266:  return addDependsOn(); 
-        case 2004005436:  return getDependsOndisplayElement();
         case -309474065:  return addProduct(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1483,7 +1419,6 @@ public class ConceptMap extends MetadataResource {
         case -15828692: /*equivalence*/ return new String[] {"code"};
         case 950398559: /*comment*/ return new String[] {"string"};
         case -1109214266: /*dependsOn*/ return new String[] {};
-        case 2004005436: /*dependsOndisplay*/ return new String[] {"string"};
         case -309474065: /*product*/ return new String[] {"@ConceptMap.group.element.target.dependsOn"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1507,9 +1442,6 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("dependsOn")) {
           return addDependsOn();
         }
-        else if (name.equals("dependsOndisplay")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.dependsOndisplay");
-        }
         else if (name.equals("product")) {
           return addProduct();
         }
@@ -1529,7 +1461,6 @@ public class ConceptMap extends MetadataResource {
           for (OtherElementComponent i : dependsOn)
             dst.dependsOn.add(i.copy());
         };
-        dst.dependsOndisplay = dependsOndisplay == null ? null : dependsOndisplay.copy();
         if (product != null) {
           dst.product = new ArrayList<OtherElementComponent>();
           for (OtherElementComponent i : product)
@@ -1546,8 +1477,8 @@ public class ConceptMap extends MetadataResource {
           return false;
         TargetElementComponent o = (TargetElementComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(equivalence, o.equivalence, true)
-           && compareDeep(comment, o.comment, true) && compareDeep(dependsOn, o.dependsOn, true) && compareDeep(dependsOndisplay, o.dependsOndisplay, true)
-           && compareDeep(product, o.product, true);
+           && compareDeep(comment, o.comment, true) && compareDeep(dependsOn, o.dependsOn, true) && compareDeep(product, o.product, true)
+          ;
       }
 
       @Override
@@ -1558,13 +1489,12 @@ public class ConceptMap extends MetadataResource {
           return false;
         TargetElementComponent o = (TargetElementComponent) other;
         return compareValues(code, o.code, true) && compareValues(display, o.display, true) && compareValues(equivalence, o.equivalence, true)
-           && compareValues(comment, o.comment, true) && compareValues(dependsOndisplay, o.dependsOndisplay, true)
-          ;
+           && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, equivalence
-          , comment, dependsOn, dependsOndisplay, product);
+          , comment, dependsOn, product);
       }
 
   public String fhirType() {
@@ -1597,7 +1527,14 @@ public class ConceptMap extends MetadataResource {
         @Description(shortDefinition="Value of the referenced element", formalDefinition="Identity (code or path) or the element/item/ValueSet that the map depends on / refers to." )
         protected StringType code;
 
-        private static final long serialVersionUID = 1055992750L;
+        /**
+         * The display for the code. The display is only provided to help editors when editing the concept map.
+         */
+        @Child(name = "display", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Display for the code", formalDefinition="The display for the code. The display is only provided to help editors when editing the concept map." )
+        protected StringType display;
+
+        private static final long serialVersionUID = 678887659L;
 
     /**
      * Constructor
@@ -1754,11 +1691,61 @@ public class ConceptMap extends MetadataResource {
           return this;
         }
 
+        /**
+         * @return {@link #display} (The display for the code. The display is only provided to help editors when editing the concept map.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
+         */
+        public StringType getDisplayElement() { 
+          if (this.display == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OtherElementComponent.display");
+            else if (Configuration.doAutoCreate())
+              this.display = new StringType(); // bb
+          return this.display;
+        }
+
+        public boolean hasDisplayElement() { 
+          return this.display != null && !this.display.isEmpty();
+        }
+
+        public boolean hasDisplay() { 
+          return this.display != null && !this.display.isEmpty();
+        }
+
+        /**
+         * @param value {@link #display} (The display for the code. The display is only provided to help editors when editing the concept map.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
+         */
+        public OtherElementComponent setDisplayElement(StringType value) { 
+          this.display = value;
+          return this;
+        }
+
+        /**
+         * @return The display for the code. The display is only provided to help editors when editing the concept map.
+         */
+        public String getDisplay() { 
+          return this.display == null ? null : this.display.getValue();
+        }
+
+        /**
+         * @param value The display for the code. The display is only provided to help editors when editing the concept map.
+         */
+        public OtherElementComponent setDisplay(String value) { 
+          if (Utilities.noString(value))
+            this.display = null;
+          else {
+            if (this.display == null)
+              this.display = new StringType();
+            this.display.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("property", "uri", "A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property.", 0, java.lang.Integer.MAX_VALUE, property));
           childrenList.add(new Property("system", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("display", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, java.lang.Integer.MAX_VALUE, display));
         }
 
       @Override
@@ -1767,6 +1754,7 @@ public class ConceptMap extends MetadataResource {
         case -993141291: /*property*/ return this.property == null ? new Base[0] : new Base[] {this.property}; // UriType
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // UriType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // StringType
+        case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1784,6 +1772,9 @@ public class ConceptMap extends MetadataResource {
         case 3059181: // code
           this.code = castToString(value); // StringType
           return value;
+        case 1671764162: // display
+          this.display = castToString(value); // StringType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1797,6 +1788,8 @@ public class ConceptMap extends MetadataResource {
           this.system = castToUri(value); // UriType
         } else if (name.equals("code")) {
           this.code = castToString(value); // StringType
+        } else if (name.equals("display")) {
+          this.display = castToString(value); // StringType
         } else
           return super.setProperty(name, value);
         return value;
@@ -1808,6 +1801,7 @@ public class ConceptMap extends MetadataResource {
         case -993141291:  return getPropertyElement();
         case -887328209:  return getSystemElement();
         case 3059181:  return getCodeElement();
+        case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1819,6 +1813,7 @@ public class ConceptMap extends MetadataResource {
         case -993141291: /*property*/ return new String[] {"uri"};
         case -887328209: /*system*/ return new String[] {"uri"};
         case 3059181: /*code*/ return new String[] {"string"};
+        case 1671764162: /*display*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1835,6 +1830,9 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.code");
         }
+        else if (name.equals("display")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.display");
+        }
         else
           return super.addChild(name);
       }
@@ -1845,6 +1843,7 @@ public class ConceptMap extends MetadataResource {
         dst.property = property == null ? null : property.copy();
         dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
+        dst.display = display == null ? null : display.copy();
         return dst;
       }
 
@@ -1856,7 +1855,7 @@ public class ConceptMap extends MetadataResource {
           return false;
         OtherElementComponent o = (OtherElementComponent) other;
         return compareDeep(property, o.property, true) && compareDeep(system, o.system, true) && compareDeep(code, o.code, true)
-          ;
+           && compareDeep(display, o.display, true);
       }
 
       @Override
@@ -1867,11 +1866,12 @@ public class ConceptMap extends MetadataResource {
           return false;
         OtherElementComponent o = (OtherElementComponent) other;
         return compareValues(property, o.property, true) && compareValues(system, o.system, true) && compareValues(code, o.code, true)
-          ;
+           && compareValues(display, o.display, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, code);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, code, display
+          );
       }
 
   public String fhirType() {

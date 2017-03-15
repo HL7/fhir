@@ -5430,7 +5430,7 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case OTHER: return org.hl7.fhir.dstu3.model.DeviceComponent.MeasmntPrinciple.OTHER;
+    case OTHER: return org.hl7.fhir.dstu3.model.DeviceComponent.MeasmntPrinciple.OTHER; 
     case CHEMICAL: return org.hl7.fhir.dstu3.model.DeviceComponent.MeasmntPrinciple.CHEMICAL;
     case ELECTRICAL: return org.hl7.fhir.dstu3.model.DeviceComponent.MeasmntPrinciple.ELECTRICAL;
     case IMPEDANCE: return org.hl7.fhir.dstu3.model.DeviceComponent.MeasmntPrinciple.IMPEDANCE;

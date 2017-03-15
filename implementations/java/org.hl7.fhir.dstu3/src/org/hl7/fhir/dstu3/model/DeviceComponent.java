@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -292,6 +292,7 @@ public class DeviceComponent extends DomainResource {
          */
         @Child(name = "specType", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type or kind of production specification, for example serial number or software revision", formalDefinition="The specification type, such as, serial number, part number, hardware revision, software revision, etc." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/specification-type")
         protected CodeableConcept specType;
 
         /**
@@ -544,23 +545,24 @@ public class DeviceComponent extends DomainResource {
   }
 
     /**
-     * The component type as defined in the object-oriented or metric nomenclature partition.
-     */
-    @Child(name = "type", type = {CodeableConcept.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="What kind of component it is", formalDefinition="The component type as defined in the object-oriented or metric nomenclature partition." )
-    protected CodeableConcept type;
-
-    /**
      * The locally assigned unique identification by the software. For example: handle ID.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Instance id assigned by the software stack", formalDefinition="The locally assigned unique identification by the software. For example: handle ID." )
     protected Identifier identifier;
 
     /**
+     * The component type as defined in the object-oriented or metric nomenclature partition.
+     */
+    @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="What kind of component it is", formalDefinition="The component type as defined in the object-oriented or metric nomenclature partition." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-kind")
+    protected CodeableConcept type;
+
+    /**
      * The timestamp for the most recent system change which includes device configuration or setting change.
      */
-    @Child(name = "lastSystemChange", type = {InstantType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "lastSystemChange", type = {InstantType.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Recent system change timestamp", formalDefinition="The timestamp for the most recent system change which includes device configuration or setting change." )
     protected InstantType lastSystemChange;
 
@@ -593,6 +595,7 @@ public class DeviceComponent extends DomainResource {
      */
     @Child(name = "operationalStatus", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Current operational status of the component, for example On, Off or Standby", formalDefinition="The current operational status of the device. For example: On, Off, Standby, etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/operational-status")
     protected List<CodeableConcept> operationalStatus;
 
     /**
@@ -600,6 +603,7 @@ public class DeviceComponent extends DomainResource {
      */
     @Child(name = "parameterGroup", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Current supported parameter group", formalDefinition="The parameter group supported by the current device component that is based on some nomenclature, e.g. cardiovascular." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/parameter-group")
     protected CodeableConcept parameterGroup;
 
     /**
@@ -625,7 +629,7 @@ public class DeviceComponent extends DomainResource {
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/languages")
     protected CodeableConcept languageCode;
 
-    private static final long serialVersionUID = -1742890034L;
+    private static final long serialVersionUID = 32987426L;
 
   /**
    * Constructor
@@ -637,35 +641,10 @@ public class DeviceComponent extends DomainResource {
   /**
    * Constructor
    */
-    public DeviceComponent(CodeableConcept type, Identifier identifier, InstantType lastSystemChange) {
+    public DeviceComponent(Identifier identifier, CodeableConcept type) {
       super();
-      this.type = type;
       this.identifier = identifier;
-      this.lastSystemChange = lastSystemChange;
-    }
-
-    /**
-     * @return {@link #type} (The component type as defined in the object-oriented or metric nomenclature partition.)
-     */
-    public CodeableConcept getType() { 
-      if (this.type == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DeviceComponent.type");
-        else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept(); // cc
-      return this.type;
-    }
-
-    public boolean hasType() { 
-      return this.type != null && !this.type.isEmpty();
-    }
-
-    /**
-     * @param value {@link #type} (The component type as defined in the object-oriented or metric nomenclature partition.)
-     */
-    public DeviceComponent setType(CodeableConcept value) { 
-      this.type = value;
-      return this;
+      this.type = type;
     }
 
     /**
@@ -689,6 +668,30 @@ public class DeviceComponent extends DomainResource {
      */
     public DeviceComponent setIdentifier(Identifier value) { 
       this.identifier = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #type} (The component type as defined in the object-oriented or metric nomenclature partition.)
+     */
+    public CodeableConcept getType() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DeviceComponent.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new CodeableConcept(); // cc
+      return this.type;
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    /**
+     * @param value {@link #type} (The component type as defined in the object-oriented or metric nomenclature partition.)
+     */
+    public DeviceComponent setType(CodeableConcept value) { 
+      this.type = value;
       return this;
     }
 
@@ -731,9 +734,13 @@ public class DeviceComponent extends DomainResource {
      * @param value The timestamp for the most recent system change which includes device configuration or setting change.
      */
     public DeviceComponent setLastSystemChange(Date value) { 
+      if (value == null)
+        this.lastSystemChange = null;
+      else {
         if (this.lastSystemChange == null)
           this.lastSystemChange = new InstantType();
         this.lastSystemChange.setValue(value);
+      }
       return this;
     }
 
@@ -1030,8 +1037,8 @@ public class DeviceComponent extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("type", "CodeableConcept", "The component type as defined in the object-oriented or metric nomenclature partition.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("identifier", "Identifier", "The locally assigned unique identification by the software. For example: handle ID.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("type", "CodeableConcept", "The component type as defined in the object-oriented or metric nomenclature partition.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("lastSystemChange", "instant", "The timestamp for the most recent system change which includes device configuration or setting change.", 0, java.lang.Integer.MAX_VALUE, lastSystemChange));
         childrenList.add(new Property("source", "Reference(Device)", "The link to the source Device that contains administrative device information such as manufacture, serial number, etc.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("parent", "Reference(DeviceComponent)", "The link to the parent resource. For example: Channel is linked to its VMD parent.", 0, java.lang.Integer.MAX_VALUE, parent));
@@ -1045,8 +1052,8 @@ public class DeviceComponent extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -2072475531: /*lastSystemChange*/ return this.lastSystemChange == null ? new Base[0] : new Base[] {this.lastSystemChange}; // InstantType
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // Reference
         case -995424086: /*parent*/ return this.parent == null ? new Base[0] : new Base[] {this.parent}; // Reference
@@ -1063,11 +1070,11 @@ public class DeviceComponent extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3575610: // type
-          this.type = castToCodeableConcept(value); // CodeableConcept
-          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
+          return value;
+        case 3575610: // type
+          this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -2072475531: // lastSystemChange
           this.lastSystemChange = castToInstant(value); // InstantType
@@ -1101,10 +1108,10 @@ public class DeviceComponent extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type")) {
-          this.type = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("identifier")) {
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
+        } else if (name.equals("type")) {
+          this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("lastSystemChange")) {
           this.lastSystemChange = castToInstant(value); // InstantType
         } else if (name.equals("source")) {
@@ -1130,8 +1137,8 @@ public class DeviceComponent extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getType(); 
         case -1618432855:  return getIdentifier(); 
+        case 3575610:  return getType(); 
         case -2072475531:  return getLastSystemChangeElement();
         case -896505829:  return getSource(); 
         case -995424086:  return getParent(); 
@@ -1148,8 +1155,8 @@ public class DeviceComponent extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case -2072475531: /*lastSystemChange*/ return new String[] {"instant"};
         case -896505829: /*source*/ return new String[] {"Reference"};
         case -995424086: /*parent*/ return new String[] {"Reference"};
@@ -1165,13 +1172,13 @@ public class DeviceComponent extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("type")) {
-          this.type = new CodeableConcept();
-          return this.type;
-        }
-        else if (name.equals("identifier")) {
+        if (name.equals("identifier")) {
           this.identifier = new Identifier();
           return this.identifier;
+        }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
         }
         else if (name.equals("lastSystemChange")) {
           throw new FHIRException("Cannot call addChild on a primitive type DeviceComponent.lastSystemChange");
@@ -1213,8 +1220,8 @@ public class DeviceComponent extends DomainResource {
       public DeviceComponent copy() {
         DeviceComponent dst = new DeviceComponent();
         copyValues(dst);
-        dst.type = type == null ? null : type.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
+        dst.type = type == null ? null : type.copy();
         dst.lastSystemChange = lastSystemChange == null ? null : lastSystemChange.copy();
         dst.source = source == null ? null : source.copy();
         dst.parent = parent == null ? null : parent.copy();
@@ -1245,7 +1252,7 @@ public class DeviceComponent extends DomainResource {
         if (!(other instanceof DeviceComponent))
           return false;
         DeviceComponent o = (DeviceComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(lastSystemChange, o.lastSystemChange, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(lastSystemChange, o.lastSystemChange, true)
            && compareDeep(source, o.source, true) && compareDeep(parent, o.parent, true) && compareDeep(operationalStatus, o.operationalStatus, true)
            && compareDeep(parameterGroup, o.parameterGroup, true) && compareDeep(measurementPrinciple, o.measurementPrinciple, true)
            && compareDeep(productionSpecification, o.productionSpecification, true) && compareDeep(languageCode, o.languageCode, true)
@@ -1264,7 +1271,7 @@ public class DeviceComponent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, lastSystemChange
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, lastSystemChange
           , source, parent, operationalStatus, parameterGroup, measurementPrinciple, productionSpecification
           , languageCode);
       }
@@ -1299,6 +1306,26 @@ public class DeviceComponent extends DomainResource {
    * the path value of "<b>DeviceComponent:parent</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("DeviceComponent:parent").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the component</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DeviceComponent.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="DeviceComponent.identifier", description="The identifier of the component", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The identifier of the component</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DeviceComponent.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>source</b>

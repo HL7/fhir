@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1951,17 +1951,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>successor</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="successor", path="Library.relatedArtifact.where(type='successor').resource", description="The related resource", type="reference" )
+  @SearchParamDefinition(name="successor", path="Library.relatedArtifact.where(type='successor').resource", description="What resource is being referenced", type="reference" )
   public static final String SP_SUCCESSOR = "successor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>successor</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
@@ -2017,17 +2017,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>derived-from</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="derived-from", path="Library.relatedArtifact.where(type='derived-from').resource", description="The related resource", type="reference" )
+  @SearchParamDefinition(name="derived-from", path="Library.relatedArtifact.where(type='derived-from').resource", description="What resource is being referenced", type="reference" )
   public static final String SP_DERIVED_FROM = "derived-from";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>derived-from</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
@@ -2043,17 +2043,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>predecessor</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="predecessor", path="Library.relatedArtifact.where(type='predecessor').resource", description="The related resource", type="reference" )
+  @SearchParamDefinition(name="predecessor", path="Library.relatedArtifact.where(type='predecessor').resource", description="What resource is being referenced", type="reference" )
   public static final String SP_PREDECESSOR = "predecessor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>predecessor</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
@@ -2089,17 +2089,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>composed-of</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="composed-of", path="Library.relatedArtifact.where(type='composed-of').resource", description="The related resource", type="reference" )
+  @SearchParamDefinition(name="composed-of", path="Library.relatedArtifact.where(type='composed-of').resource", description="What resource is being referenced", type="reference" )
   public static final String SP_COMPOSED_OF = "composed-of";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>composed-of</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
@@ -2175,17 +2175,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>depends-on</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="Library.relatedArtifact.where(type='depends-on').resource", description="The related resource", type="reference" )
+  @SearchParamDefinition(name="depends-on", path="Library.relatedArtifact.where(type='depends-on').resource", description="What resource is being referenced", type="reference" )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
    * <p>
-   * Description: <b>The related resource</b><br>
+   * Description: <b>What resource is being referenced</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Library.relatedArtifact.resource</b><br>
    * </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3411,10 +3411,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected StringType map;
 
         /**
-         * Comments that provide information about the mapping or it's use.
+         * Comments that provide information about the mapping or its use.
          */
         @Child(name = "comment", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Comments about the mapping or it's use", formalDefinition="Comments that provide information about the mapping or it's use." )
+        @Description(shortDefinition="Comments about the mapping or its use", formalDefinition="Comments that provide information about the mapping or its use." )
         protected StringType comment;
 
         private static final long serialVersionUID = 1386816887L;
@@ -3575,7 +3575,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #comment} (Comments that provide information about the mapping or it's use.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         * @return {@link #comment} (Comments that provide information about the mapping or its use.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
         public StringType getCommentElement() { 
           if (this.comment == null)
@@ -3595,7 +3595,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #comment} (Comments that provide information about the mapping or it's use.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+         * @param value {@link #comment} (Comments that provide information about the mapping or its use.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
         public ElementDefinitionMappingComponent setCommentElement(StringType value) { 
           this.comment = value;
@@ -3603,14 +3603,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return Comments that provide information about the mapping or it's use.
+         * @return Comments that provide information about the mapping or its use.
          */
         public String getComment() { 
           return this.comment == null ? null : this.comment.getValue();
         }
 
         /**
-         * @param value Comments that provide information about the mapping or it's use.
+         * @param value Comments that provide information about the mapping or its use.
          */
         public ElementDefinitionMappingComponent setComment(String value) { 
           if (Utilities.noString(value))
@@ -3628,7 +3628,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("identity", "id", "An internal reference to the definition of a mapping.", 0, java.lang.Integer.MAX_VALUE, identity));
           childrenList.add(new Property("language", "code", "Identifies the computable language in which mapping.map is expressed.", 0, java.lang.Integer.MAX_VALUE, language));
           childrenList.add(new Property("map", "string", "Expresses what part of the target specification corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, map));
-          childrenList.add(new Property("comment", "string", "Comments that provide information about the mapping or it's use.", 0, java.lang.Integer.MAX_VALUE, comment));
+          childrenList.add(new Property("comment", "string", "Comments that provide information about the mapping or its use.", 0, java.lang.Integer.MAX_VALUE, comment));
         }
 
       @Override

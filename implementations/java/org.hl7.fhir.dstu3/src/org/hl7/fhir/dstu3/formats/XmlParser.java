@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 15, 2017 06:07+1100 for FHIR v1.9.0
+// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -5419,8 +5419,6 @@ public class XmlParser extends XmlParserBase {
         res.setCommentElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dependsOn")) {
         res.getDependsOn().add(parseConceptMapOtherElementComponent(xpp, owner));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dependsOndisplay")) {
-        res.setDependsOndisplayElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("product")) {
         res.getProduct().add(parseConceptMapOtherElementComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -5450,6 +5448,8 @@ public class XmlParser extends XmlParserBase {
         res.setSystemElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCodeElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("display")) {
+        res.setDisplayElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -6500,10 +6500,10 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseDeviceComponentContent(int eventType, XmlPullParser xpp, DeviceComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
-        res.setType(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
         res.setIdentifier(parseIdentifier(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setType(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("lastSystemChange")) {
         res.setLastSystemChangeElement(parseInstant(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("source")) {
@@ -24103,9 +24103,6 @@ public class XmlParser extends XmlParserBase {
         for (ConceptMap.OtherElementComponent e : element.getDependsOn()) 
           composeConceptMapOtherElementComponent("dependsOn", e);
       }
-      if (element.hasDependsOndisplayElement()) {
-        composeString("dependsOndisplay", element.getDependsOndisplayElement());
-      }
       if (element.hasProduct()) { 
         for (ConceptMap.OtherElementComponent e : element.getProduct()) 
           composeConceptMapOtherElementComponent("product", e);
@@ -24132,6 +24129,9 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasCodeElement()) {
         composeString("code", element.getCodeElement());
+      }
+      if (element.hasDisplayElement()) {
+        composeString("display", element.getDisplayElement());
       }
   }
 
@@ -25224,11 +25224,11 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeDeviceComponentElements(DeviceComponent element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
       if (element.hasIdentifier()) {
         composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
       }
       if (element.hasLastSystemChangeElement()) {
         composeInstant("lastSystemChange", element.getLastSystemChangeElement());
