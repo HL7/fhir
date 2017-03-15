@@ -14,7 +14,7 @@ ExpansionProfiles are used for the following operations:
 <li><a href="valueset-operations.html#validate-code">Value Set based Validation</a></li>
 </ul>
 <p>
-The ExpansionProfile can be passed either directly, or as a reference by it's canonical URL.
+The ExpansionProfile can be passed either directly, or as a reference by its canonical URL.
 </p>
 </div>
 

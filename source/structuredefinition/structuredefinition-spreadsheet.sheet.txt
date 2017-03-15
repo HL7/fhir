@@ -26,7 +26,7 @@
   Binding Name = TypeDerivationRule
   Binding = code list
   Reference = #type-derivation-rule
-  Definition = How a type relates to it\'s baseDefinition.
+  Definition = How a type relates to its baseDefinition.
   Conformance = required
 
  -- Row 5 -----------------------------------

@@ -6959,7 +6959,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">TypeDerivationRule</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">How a type relates to it's baseDefinition.</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">How a type relates to its baseDefinition.</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#type-derivation-rule</Data></Cell>

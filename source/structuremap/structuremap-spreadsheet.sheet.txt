@@ -375,7 +375,7 @@
   UML = right
   Short Name = Structure Definition used by this map
   Definition = A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced
-  Comments = It is not necessary for a structure map to identify any dependent structures, though not losting them may restrict it\'s usefulness
+  Comments = It is not necessary for a structure map to identify any dependent structures, though not losting them may restrict its usefulness
 
  -- Row 18 -----------------------------------
   Element = StructureMap.structure.url

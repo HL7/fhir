@@ -589,7 +589,7 @@ status codes when no <code>If-Match</code> header is found.
 <h3>patch</h3>
 <p>
 As an alternative to updating an entire resource, clients can perform a patch operation.
-This can be useful when a client is seeking to minimise it's bandwidth utilization, or
+This can be useful when a client is seeking to minimise its bandwidth utilization, or
 in scenarios where a client has only partial access or support for a resource. The <code>patch</code>
 interaction is performed by an HTTP <code>PATCH</code> command as shown:
 </p>
@@ -605,7 +605,7 @@ The body of a PATCH operation SHALL be either:
  <li>a <a href="fhirpatch.html">FHIRPath Patch</a> parameters resource with <a href="#mime-type">FHIR Content Type</a></li>
 </ul>
 <p>
-In either case, the server SHALL process it's own copy of the resource in the format indicated, applying
+In either case, the server SHALL process its own copy of the resource in the format indicated, applying
 the operations specified in the document, following the relevant PATCH specification. When the operations
 have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
 operation; all the version and error handling etc applies as specified, as does the <a href="#prefer">Prefer Header</a>.
@@ -1273,7 +1273,7 @@ Additional Notes about maintaining a history of resources:
  <li>Accordingly, there is no way to update or delete past versions of the record, except that the <a href="resource-operations.html">metadata can be modified</a> (mainly for access control purposes)</li>
  <li>All past versions of a resource are considered to be superceded, and no longer active, but retained for audit/integrity purposes</li>
  <li>In the case that a past version of a resource needs to be explicitly documented as <a href="lifecycle.html#error">'entered-in-error'</a>, use as provenance resource pointing to the past version of the resource</li>
- <li>When tracing the history of a specific resource, applications should retrieve any provenance resources relating to the resource or it's past versions</li>
+ <li>When tracing the history of a specific resource, applications should retrieve any provenance resources relating to the resource or its past versions</li>
  <li>If a request is made for a history that is not available (e.g. the system does not keep a history for the type, or the particular instance), the server should return a 404 Not Found along with an <a href="operationoutcome.html">OperationOutcome</a> explaining the problem</li>
 </ul>
 
@@ -1292,7 +1292,7 @@ several reasons:
  <li>The server does not fully support all the features or possible values of the resource</li>
 </ul>
 <p>
-Note that there is no general purpose method to make merging with existing content or
+Note that there is no general-purpose method to make merging with existing content or
 altering the content by business rules safe or predictable - what is possible,
 safe and/or required is highly context dependent. These kinds of behaviors may
 be driven by security considerations. With regard to incomplete support, clients can consult the server's

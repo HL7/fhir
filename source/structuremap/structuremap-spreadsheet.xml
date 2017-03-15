@@ -1307,7 +1307,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">It is not necessary for a structure map to identify any dependent structures, though not losting them may restrict it's usefulness</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">It is not necessary for a structure map to identify any dependent structures, though not losting them may restrict its usefulness</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>

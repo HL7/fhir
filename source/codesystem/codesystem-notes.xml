@@ -75,7 +75,7 @@ Properties are defined using the following elements:
  <tr>
   <td>description</td>
   <td>optional <a href="datatypes.html#code">string</a></td>
-  <td>A description of the property- why it is defined, and how it's value might be used</td>
+  <td>A description of the property- why it is defined, and how its value might be used</td>
  </tr>
  <tr>
   <td>type</td>
@@ -146,7 +146,7 @@ The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in ter
 Concept A is considered to be subsumed by Concept B if it comes under Concept B in the heirarchy, or if subsumption is declared explicitly using the <a href="extension-codesystem-subsumes.html">subsumes extension</a>). 
 </p>
 <p>
-Where a CodeSystem does not declare it's hierarchy meaning directly, then 
+Where a CodeSystem does not declare its hierarchy meaning directly, then 
 the code system documentation must be consulted manually to determinw how subsumption is determined. If there is no definition, none of the 
 subsumption based features can be used with the code system.
 </p>

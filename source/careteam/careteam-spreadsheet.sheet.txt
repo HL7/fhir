@@ -157,7 +157,7 @@
   Type = string
   Short Name = Name of the team, such as crisis assessment team
   Definition = A label for human use intended to distinguish like teams.  E.g. the \"red\" vs. \"green\" trauma teams
-  Comments = The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. \"Red trauma team\"), but it\'s primary purpose is to distinguish between identical teams in a human-friendly way.  (\"Team 18735\" isn\'t as friendly . )
+  Comments = The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. \"Red trauma team\"), but its primary purpose is to distinguish between identical teams in a human-friendly way.  (\"Team 18735\" isn\'t as friendly . )
   Committee Notes = GF#11176
 
  -- Row 6 -----------------------------------

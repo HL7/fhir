@@ -118,7 +118,7 @@
   Summary = y
   UML = up
   Type = uri
-  Short Name = System to have it\'s version fixed
+  Short Name = System to have its version fixed
   Definition = The specific system for which to fix the version
   Comments = See \'\'Coding.system\'\' for further documentation
 

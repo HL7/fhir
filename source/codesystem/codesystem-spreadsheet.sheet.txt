@@ -112,7 +112,7 @@
   Id = 2
   Code = is-a
   Display = Is-A
-  Definition = A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for it\'s child concepts
+  Definition = A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -337,7 +337,7 @@
   Summary = y
   Type = string
   Short Name = Why the property is defined, and/or what it conveys
-  Definition = A description of the property- why it is defined, and how it\'s value might be used
+  Definition = A description of the property- why it is defined, and how its value might be used
 
  -- Row 33 -----------------------------------
   Element = CodeSystem.property.type

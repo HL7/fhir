@@ -127,8 +127,8 @@ code system in value set composition statements.
 </p>
 <p>
 For implementer convenience, some of the property filters are documented in terms
-of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_CT_Query_Specification_-__v0.08_-_20121213.doc">SNOMED CT Query Language</a>, but this does not imply that its use is required.
-<i>To Do: what's the correct link for this></i>
+of the <a href="http://snomed.org/ecl">SNOMED CT Query Language</a>, but this does not imply that its use is required.
+
 </p>
 
 
@@ -140,7 +140,7 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Operations Allowed</td><td>is-a</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
  <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value (including the concept itself)</td></tr>
- <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administation Methods</a></td></tr>
+ <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administration Methods</a></td></tr>
  <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (or the long form: descendantOrSelfOf [concept])</pre></td></tr>
 </table>
 
@@ -194,7 +194,7 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
  <tr><td>Operations Allowed</td><td>=</td></tr>
  <tr><td>Values Allowed</td><td>true or false</td></tr>
  <tr><td>Comments</td><td>Expressions, if allowed, are subject to the same rules as pre-coordinated concepts. Note: simple reference sets do not include expressions, but Query specification reference sets might).</td></tr>
- <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administation Methods</a></td></tr>
+ <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administration Methods</a></td></tr>
  <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>n/a</pre></td></tr>
 </table>
 
@@ -227,7 +227,7 @@ A SNOMED CT implicit value set URL has two parts:
 <p>
 "http://snomed.info/sct" should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
 actual membership will depend on the particular edition used when it is expanded. If no version or edition is specified, the terminology
-service SHALL use the latest version available for it's default edition (or the international edition, if no other edition is the default).
+service SHALL use the latest version available for its default edition (or the international edition, if no other edition is the default).
 </p>
 <p>
 For the second part of the URL (the query part), the 4 possible values are:
@@ -352,7 +352,7 @@ are part of the core SNOMED CT distribution. The following standard Association 
 Concept Maps:
 </p>
 <table class="grid">
- <tr><td><b>Name</b></td><td><b>Concept Id</b></td><td><b>Relatioship</b></td></tr>
+ <tr><td><b>Name</b></td><td><b>Concept Id</b></td><td><b>Relationship</b></td></tr>
  <tr><td>POSSIBLY EQUIVALENT TO</td><td>900000000000523009</td><td>inexact</td></tr>
  <tr><td>REPLACED BY</td><td>900000000000526001</td><td>equivalent</td></tr>
  <tr><td>SAME AS</td><td>900000000000527005</td><td>equal</td></tr>
@@ -373,7 +373,7 @@ A SNOMED CT implicit concept map URL has two parts:
 <p>
 "http://snomed.info/sct" should be understood to mean an unspecified edition/version. This defines an incomplete concept map whose
 actual membership will depend on the particular edition used when it is expanded. If no version or edition is specified, the terminology
-service SHALL use the latest version available for it's default edition (or the international edition, if no other edition is the default).
+service SHALL use the latest version available for its default edition (or the international edition, if no other edition is the default).
 </p>
 <p>
 For the second part of the URL (the query part), there is only one possible value:
@@ -422,9 +422,9 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
 
 <p>
 <a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/4.2.8.+Simple+Map+Reference+Set">Simple Map Reference Sets</a> 
-(reference sets which are descendants of 900000000000496009 "Simple map") also define an implicit concept map. However
+(reference sets which are descendants of 900000000000496009 "Simple map") also define an implicit concept map. However,
 at this time, these cannot be converted to Concept Maps because there is no source for the target code system. Another
-reference set has been proposed to IHTSDO, and this section will be revisited sonce it is adopted.
+reference set has been proposed to IHTSDO, and this section will be revisited once it is adopted.
 </p>
 
 

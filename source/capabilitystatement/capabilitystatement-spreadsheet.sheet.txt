@@ -952,7 +952,7 @@
   Type = uri
   Short Name = Source of definition for parameter
   Definition = An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])
-  Comments = This SHOULD be present, and matches refers to a SearchParameter by it\'s canonical url. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource
+  Comments = This SHOULD be present, and matches refers to a SearchParameter by its canonical url. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource
 
  -- Row 61 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam.type
@@ -1041,7 +1041,7 @@
   Card. = 0..*
   Type = uri
   Short Name = Compartments served/used by system
-  Definition = An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it\'s canonical URL
+  Definition = An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL
   Comments = At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)
 
  -- Row 72 -----------------------------------
@@ -1373,7 +1373,7 @@
  -- Row 5 -----------------------------------
   Name = implements
   Use = Resource | Instance
-  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it\'s capability statement. The client provides it\'s capability statement inline, or by referring the server to the canonical URL of it\'s capability statement
+  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides its capability statement inline, or by referring the server to the canonical URL of its capability statement
   Type = operation
   Example.Request = $implements-request.txt
   Example.Response = $implements-response.txt
@@ -1416,7 +1416,7 @@
  -- Row 10 -----------------------------------
   Name = conforms
   Use = Resource
-  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it\'s capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server
+  Documentation = This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server
   Type = operation
   Example.Request = $conforms-request.txt
   Example.Response = $conforms-response.txt

@@ -11,7 +11,7 @@ Defines a specific code system or identifier system, so that it can be noted in 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The <code>CodeSystem</code> resource defines the content of a code system, and also it's preferred identifier.
+The <code>CodeSystem</code> resource defines the content of a code system, and also its preferred identifier.
 The <code>NamingSystem</code> resource identifies the existence of a code or identifier system, and its possible and preferred identifiers. 
 The key difference between the resources is who creates and manages them - <code>CodeSystem</code> resources are managed
 by the owner of the code system resource, who can properly define the features and content of the code system.

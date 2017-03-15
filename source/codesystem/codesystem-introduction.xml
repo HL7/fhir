@@ -15,7 +15,7 @@ Code systems define which codes (symbols and/or expressions) exist, and how they
 select a set of codes from one or more code systems to specify which codes can be used in a particular context.
 </p>
 <p>
-The CodeSystem resource is used to declare the existence of a code system, and it's key properties:
+The CodeSystem resource is used to declare the existence of a code system, and its key properties:
 </p>
 <ul>
  <li>Identifying URL and version</li>
@@ -50,7 +50,7 @@ ubiqutiously encountered through out the healthcare process.
 </ul>
 
 <p>
-The <code>CodeSystem</code> resource defines the content of a code system, and also it's preferred identifier.
+The <code>CodeSystem</code> resource defines the content of a code system, and also its preferred identifier.
 The <code>NamingSystem</code> resource identifies the existence of a code or identifier system, and its possible and preferred identifiers. 
 The key difference between the resources is who creates and manages them - <code>CodeSystem</code> resources are managed
 by the owner of the code system resource, who can properly define the features and content of the code system.

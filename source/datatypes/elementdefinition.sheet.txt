@@ -969,6 +969,6 @@
   Element = ElementDefinition.mapping.comment
   Card. = 0..1
   Type = string
-  Short Name = Comments about the mapping or it\'s use
-  Definition = Comments that provide information about the mapping or it\'s use
+  Short Name = Comments about the mapping or its use
+  Definition = Comments that provide information about the mapping or its use
   RIM Mapping = N/A (MIF territory)

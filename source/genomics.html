@@ -63,12 +63,12 @@ table th {
     care, but will require standards and effective user interfaces.
    </p>
   <p>
-    A current technical challenge exists in interoperability, or allowing the
-    ability to access and share clinical and genetics data. This
+    A current technical challenge exists in interoperability, the
+    ability to access and share clinical and genetics data. The challenges of 
     interoperability includes collection, coding, and retrieval to scale. An
     individual's genetic data set is large, complex and requires curation.
     Unfortunately, incompatible systems and nomenclatures are already in use.
-    A standards based ontology that could be adopted to integrate both genetic
+    A standards-based ontology that could be adopted to integrate both genetic
     data and clinical information systems will be crucial to accelerating the
     integration of precision medicine and to make sense of genetic testing
     results in a complete clinical context.</p>
@@ -81,22 +81,24 @@ table th {
     researchers.
   </p>
   <p>
-    A second approach is evolving from <a href="http://hl7.org">Health Level 7</a> (<abbr title="Health Level 7">HL7</abbr>) through its standards family called <a href="http://hl7.org/fhir/">Fast Healthcare Interoperability Resources</a> (<abbr title="Fast Healthcare Interoperability Resources">FHIR</abbr>). FHIR focuses on clinical needs and systems and has principally focused on standardizing traditional clinical data of the sort in EMR systems using very modern web technology-based ideas. FHIR is attractive because it is relatively easy to implement because it is comprised of a set of modular components called resources, which can be easily and incrementally assembled into working systems. The clinical requirements for genetics data is, relative to genomics research needs, utilitarian and reductive because it is about distilling and extracting particular genetics data produced by ever more sophisticated testing for use at the point-of-care. This has made FHIR a very functional framework to initiate an interoperable clinical genetics data standardization to which multiple stakeholders have contributed to this guide.
+    A second approach is evolving from <a href="http://hl7.org">HL7</a> through <b>FHIR</b>. FHIR is attractive because it is relatively easy to implement because it is comprised of a set of modular components called resources, which can be easily and incrementally assembled into working systems. The clinical requirements for genetics data is, relative to genomics research needs, utilitarian and reductive because it is about distilling and extracting particular genetics data produced by ever more sophisticated testing for use at the point-of-care. This has made FHIR a very functional framework to initiate an interoperable clinical genetics data standardization to which multiple stakeholders have contributed to this guide.
   </p>
   <p>
-    Starting in 2014, the HL7 Clinical Genomics Working Group (CGWG) has been drafting the FHIR framework for clinical genetics testing for general adoption. This effort reached its first major milestone on September 23, 2015, when HL7 released its second FHIR Draft Standard for Trial Use (DSTU2). DSTU2 introduced a Standard genetics profile that applies to the FHIR Observation resource. The profile was created according to the FHIR Clinical Genomics Project Scope Statement that authorized its community development. Using this profile, Observation payloads can return genetic testing results in a standardized manner.
+    FHIR DSTU2 introduced a standard genetics profile that applies to the FHIR Observation resource. Using this profile, Observation payloads can return genetic testing results in a standardized manner.
   </p>
   <p>
-    Extending Observations rather than creating a new, dedicated FHIR genetics data resource is consistent with the FHIR community mandate because it only adds new resources to an existing resource library when there is a compelling case to do so. We provide the case to add a Sequence resource in this document.
+    Extending Observations rather than creating a new, dedicated FHIR genetics data resource is consistent with the FHIR community mandate because it only adds new resources to an existing resource library when there is a compelling case to do so. We provide the case to add a Sequence resource in this specification.
   </p>
 
 <a name="overview"> </a>
   <h2>Overview</h2>
   <p>
-    Given the clinical significance of genetic sequence data and the wealth of information that may be retrieved for an individual's health and with metadata for the betterment of public health, we propose to move beyond FHIR DSTU2 Standard Genetics profile on Observation and allow increased granularity and less ambiguity by creating a new resource to be called <strong>Sequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   Sequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
+    STU3 moves beyond FHIR DSTU2 Standard Genetics profile on Observation allowing increased granularity and less ambiguity by creating a new resource to be called <strong>Sequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   Sequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
   </p>
   <p>
-    The FHIR Clinical Genomics Working Group (CGWG) began discussing such a dedicated resource in 2014. The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases, which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a second Project Scope Statement in May 2015 (approved by HL7 DESD/OO/FMG) to develop a Sequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
+    The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases, 
+    which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a 
+    second Project to develop a Sequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
   </p>
   <p>
     Sequence is designed to hold genetic sequences in blocks relevant to actionable clinical decision-making. Extensions to Sequence address complex cases and can associate it with repositories for retrieving a patient’s full sequence data, such as those defined by GA4GH. Other changes include a suite of genetics profiles for other FHIR resources. In addition, the Observation-genetics profile adds new references so that an Observation can report genetics test results to be integrated into the EHR. There are also new genetics-extension profiles for DiagnosticReport, ProcedureRequest and FamilyMemberHistory, respectively, to extend them to report genetics results. We have given all of these FHIR genetics profiles the suffix “-genetics” (e.g. “DiagnosticReport-genetics profile”). New profiles on top of DiagnosticReport have been created for reporting HLA genotyping results.

@@ -27,7 +27,7 @@
 		at which it's posted. Alternatively, We could have used an OID, or a UUID.
  
     Mote that this isn't the identifier for the LOINC codes themeselves - they belong to LOINC, and 
-		it has it's own identifier. This is the identifier for this set of codes, and that doesn't 
+		it has its own identifier. This is the identifier for this set of codes, and that doesn't 
 		change the codes.
     -->
 	<url value="http://hl7.org/fhir/ValueSet/example-extensional"/>

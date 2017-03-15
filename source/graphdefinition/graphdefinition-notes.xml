@@ -67,7 +67,7 @@ approach is to do a search, and _include the required resources:
     &amp;_include=MedicationDispense.subject
 </pre>
 <p>
-But scaling up this approach to fetch a full package with it's dependencies
+But scaling up this approach to fetch a full package with its dependencies
 becomes increasingly difficult as the package gets deeper. A graph definition
 can be used instead of inform the server what to return as part of the search:
 </p>

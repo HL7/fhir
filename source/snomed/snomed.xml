@@ -11203,6 +11203,10 @@
     <display value="Pureed diet"/>
     <display value="Pureed diet (finding)"/>
   </concept>
+  <concept id="22633006" display="Vaginal delivery, medical personnel present">
+    <display value="Vaginal delivery, medical personnel present"/>
+    <display value="Vaginal delivery, medical personnel present (procedure)"/>
+  </concept>
   <concept id="226355009" display="Nutrients">
     <display value="Nutrients"/>
     <display value="Nutrients (substance)"/>
@@ -12251,6 +12255,10 @@
     <display value="Diverticulosis"/>
     <display value="Diverticulum (morphologic abnormality)"/>
   </concept>
+  <concept id="311401005" display="Patient education">
+    <display value="Patient education"/>
+    <display value="Patient education (procedure)"/>
+  </concept>
   <concept id="311504000" display="With or after food">
     <display value="With or after food"/>
     <display value="With or after food (qualifier value)"/>
@@ -12672,6 +12680,10 @@
     <display value="PT - Physiotherapist"/>
     <display value="Physical therapist"/>
   </concept>
+  <concept id="36701003" display="Both knees">
+    <display value="Both knees"/>
+    <display value="Both knees (body structure)"/>
+  </concept>
   <concept id="367336001" display="Chemotherapy">
     <display value="Chemotherapy"/>
     <display value="Chemotherapy (procedure)"/>
@@ -12864,6 +12876,10 @@
     <display value="Na - Low sodium diet"/>
     <display value="Low salt diet"/>
     <display value="Reduced salt diet"/>
+  </concept>
+  <concept id="386637004" display="Obstetric procedure">
+    <display value="Obstetric procedure (procedure)"/>
+    <display value="Obstetric procedure"/>
   </concept>
   <concept id="386661006" display="Fever">
     <display value="Fever (finding)"/>
@@ -14725,6 +14741,12 @@
     <display value="Canadian horse"/>
     <display value="Canadian horse (organism)"/>
   </concept>
+  <concept id="48023004" display="Breast self-examination technique education">
+    <display value="Breast self-examination technique education"/>
+    <display value="Breast self-examination instruction"/>
+    <display value="Breast self-examination technique education (procedure)"/>
+    <display value="Health education - breast examination"/>
+  </concept>
   <concept id="48255007" display="Silkie chicken">
     <display value="Silkie chicken"/>
     <display value="Silkie chicken (organism)"/>
@@ -15399,6 +15421,10 @@
   <concept id="709410003" display="Haemophilus influenzae type b infection">
     <display value="Haemophilus influenzae type b infection"/>
     <display value="Haemophilus influenzae type b infection (disorder)"/>
+  </concept>
+  <concept id="710830005" display="Assessment of passive range of motion">
+    <display value="Assessment of passive range of motion (procedure)"/>
+    <display value="Assessment of passive range of motion"/>
   </concept>
   <concept id="71238008" display="Commercial brown egg layer type chicken">
     <display value="Commercial brown egg layer type chicken (organism)"/>

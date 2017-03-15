@@ -1440,7 +1440,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">System to have it's version fixed</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">System to have its version fixed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">The specific system for which to fix the version</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

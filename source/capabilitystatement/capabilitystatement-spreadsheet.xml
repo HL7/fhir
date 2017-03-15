@@ -2876,7 +2876,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This SHOULD be present, and matches refers to a SearchParameter by it's canonical url. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This SHOULD be present, and matches refers to a SearchParameter by its canonical url. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3227,7 +3227,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Compartments served/used by system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)</Data><NamedCell
@@ -5517,7 +5517,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's capability statement. The client provides it's capability statement inline, or by referring the server to the canonical URL of it's capability statement</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides its capability statement inline, or by referring the server to the canonical URL of its capability statement</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided&#10;&#10;Technically, this operation is implemented as follows:&#10; * The server's capability statement must have an entry for each resource in the client's capability statement &#10; * The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude&#10; * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)&#10; * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement&#10; * The server must have an operation definitions with a matching reference for any operations in the client capability statement&#10;&#10;If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
     <Cell><Data ss:Type="String">$implements-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$implements-response.txt</Data></Cell>
@@ -5579,7 +5579,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps. &#10;&#10;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate&#10;&#10;If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
     <Cell><Data ss:Type="String">$conforms-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$conforms-response.txt</Data></Cell>
