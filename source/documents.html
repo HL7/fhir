@@ -23,8 +23,7 @@ Outstanding issues:
 
 <p>
 FHIR resources can be used to build documents that represent a composition:
-a set of coherent information that is a statement of healthcare information,
-particularly including clinical observations and services.
+a set of coherent information that is a statement of healthcare information, including clinical observations and services.
 A document is an immutable set of resources with a fixed presentation
 that is authored and/or attested by humans, organizations and devices.
 </p>
@@ -64,7 +63,7 @@ All documents have the same structure: a <a href="bundle.html">Bundle</a>
 of resources of <a href="bundle-definitions.html#Bundle.type">type</a> "document"
 that has a <a href="composition.html">Composition</a> resource as the first resource
 in the bundle, followed by a series of other resources, referenced from the <code>Composition</code>
-resource that provide supporting evidence for the document. The bundle gathers all the content
+resource, that provide supporting evidence for the document. The bundle gathers all the content
 of the document into a single XML or JSON document which may be signed and managed as required.
 The resources include both human readable and computer processable portions. In addition, the bundle
 may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a>,
@@ -74,7 +73,7 @@ may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS styleshee
 The composition resource is the foundation of the clinical document. It:
 </p>
 <ul>
- <li>provides identity and its purpose, sets the context of the document</li>
+ <li>provides identity and its purpose, and sets the context of the document</li>
  <li>carries key information such as the subject and author, and who attests to the document</li>
  <li>divides the document up into a series of sections, each with their own narrative</li>
 </ul>
@@ -99,10 +98,10 @@ The document bundle SHALL include only:
  <li>Provenance Resources that have a target which is a resource included in item #1</li>
 </ol>
 <p>
-There are two key identifiers on the document:
+There are two key identifiers in the document:
 </p>
 <ul>
- <li>The document identifier (mandatory). This is found in <i>Bundle.identifier</i> and is globally unique for this instance of the document, and is never re-used anywhere, including for other documents derived from the same composition</li>
+ <li>The document identifier (mandatory). This is found in <i>Bundle.identifier</i> and is globally unique for this instance of the document, and is never re-used, including for other documents derived from the same composition</li>
  <li>The Composition identifier (optional). This is found in <i>Composition.identifier</i>, and is the same for all documents that are derived from this composition</li>
 </ul>
 
@@ -157,7 +156,7 @@ together. <!-- todo: title -->
 <p>
 If the document is presented in a different order from that given above, 
 it may not represent the original attested content. Implementation Guides may 
-restrict docuemnt narrative and document display behaviour further.
+restrict document narrative and display behaviour further.
 </p>
 <p>
 The <a href="downloads.html#refimpl">XML Tools reference implementation</a> includes a
@@ -249,7 +248,7 @@ They also have the following responsibilities:
 
 <h3>Processor Obligations</h3>
 <p>
-A document processor is an application and/or human user that receives documents, and extracts data from them,
+A document processor is an application and/or human user that receives documents and extracts data from them,
 or makes decisions because of them. The documents may be received directly from a document constructor, accessed
 via a document management system or forwarded by a third party. The document processor is responsible for
 ensuring that received documents are processed and/or rendered in accordance to this specification. A
@@ -284,7 +283,7 @@ of posting to them:
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end-point
    for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, 
    an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed 
-   using a <a href="http.html#create">create</a> interaction</td> the Bundle.id will change, but the Bundle.identifier will not</tr>
+   using a <a href="http.html#create">create</a> interaction the Bundle.id will change, but the Bundle.identifier will not</td></tr>
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end-point for managing
    composition resources. This can be used while building a document or after breaking a document up into
    its constituent resources or when using compositions separately from documents</td> </tr>
