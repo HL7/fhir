@@ -3,7 +3,7 @@
 <Device xmlns="http://hl7.org/fhir">
 	<id value="example-udi3"/>
 	<identifier>
-		<!--The serial number which is a component of the the production identifier (PI), a conditional, variable portion of a UDI. The identifier.type code should be set to “SNO”(Serial Number) and the system left empty. -->
+		<!--The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI. The identifier.type code should be set to “SNO”(Serial Number) and the system left empty. -->
 		<type>
 			<coding>
 				<system value="http://hl7.org/fhir/identifier-type"/>

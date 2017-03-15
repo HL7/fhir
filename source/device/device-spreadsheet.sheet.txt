@@ -71,13 +71,13 @@
   Id = 1
   Code = barcode
   Display = BarCode
-  Definition = A Barcode scanner captured the the data from the device label
+  Definition = A Barcode scanner captured the data from the device label
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = rfid
   Display = RFID
-  Definition = An RFID chip reader captured the the data from the device label
+  Definition = An RFID chip reader captured the data from the device label
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -125,7 +125,7 @@
   Short Name = Instance identifier
   Definition = Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
   Comments = The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used.  For [UDI](device.html#5.11.3.2.2),  this element corresponds to the variable portion of the UDI that identifies the serial number of a specific device. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
-  UDI Mapping = The serial number which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty.
+  UDI Mapping = The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty.
   RIM Mapping = .id
   Committee Notes = 7662
   w5 = id
@@ -260,7 +260,7 @@
   Type = string
   Short Name = Lot number of manufacture
   Definition = Lot number assigned by the manufacturer
-  UDI Mapping = The lot or batch number within which a device was manufactured - which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.
+  UDI Mapping = The lot or batch number within which a device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI.
   RIM Mapping = .lotNumberText
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -281,7 +281,7 @@
   Type = dateTime
   Short Name = Date when the device was made
   Definition = The date and time when the device was manufactured.
-  UDI Mapping = The date a specific device was manufactured - which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
+  UDI Mapping = The date a specific device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
   RIM Mapping = .existenceTime.low
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -292,7 +292,7 @@
   Type = dateTime
   Short Name = Date and time of expiry of this device (if applicable)
   Definition = The date and time beyond which this device is no longer valid or should not be used (if applicable)
-  UDI Mapping = the expiration date of a specific device -  which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
+  UDI Mapping = the expiration date of a specific device -  which is a component of the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
   RIM Mapping = .expirationTime
   Committee Notes = W5 note what = what.productidentification
   w5 = what

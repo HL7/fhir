@@ -119,7 +119,7 @@
  -- Row 3 -----------------------------------
   Element = Media.basedOn
   Card. = 0..*
-  Aliases = fufills
+  Aliases = fulfills
   Summary = Y
   Type = Reference(ProcedureRequest)
   Short Name = Procedure that caused this media to be created
@@ -307,7 +307,7 @@
   Type = unsignedInt
   Short Name = Length in seconds (audio / video)
   Definition = The duration of the recording in seconds - for audio and video
-  Comments = The duration might differ from occurencePeriod if recording was paused
+  Comments = The duration might differ from occurrencePeriod if recording was paused
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = ~0028,0002
 

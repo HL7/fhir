@@ -4296,7 +4296,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Focal Subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">The focus of an observation when not the patient of record  (i.e different from Observation.subject).   For example, the focal subject may be a fetus, or a donor.</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">The focus of an observation when not the patient of record  (i.e. different from Observation.subject).   For example, the focal subject may be a fetus, or a donor.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Use Observation.specimen element to describe the specimen.  Only used if not implicit in code found in Observation.code</Data><NamedCell
@@ -4401,7 +4401,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Approximate time of observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Regular life events the observation is tied to. This is useful for recording imprecise or &quot;fuzzy&quot; times when the observation occurred.  For example, a blood glucose measurement &quot;after breakfast&quot;.  It is interpreted as relative to the `effectiveTime` element or the `issued` element if `effectiveTime` is absent.  For example the blood glucose measurement could be reported that same day (&quot;today after breakfast&quot; ) or some other day (&quot;yesterday after breakfast&quot;).  </Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">Regular life events the observation is tied to. This is useful for recording imprecise or &quot;fuzzy&quot; times when the observation occurred.  For example, a blood glucose measurement &quot;after breakfast&quot;.  It is interpreted as relative to the `effectiveTime` element or the `issued` element if `effectiveTime` is absent.  For example the blood glucose measurement could be reported that same day (&quot;today after breakfast&quot;) or some other day (&quot;yesterday after breakfast&quot;).  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4438,7 +4438,7 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">Real world event that coincides with the effective time of the observation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">For text only time  the `.text` element can be used.  (e.g. &quot;right before I walked the dog&quot; )</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">For text only time  the `.text` element can be used.  (e.g. &quot;right before I walked the dog&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5704,7 +5704,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"><Data ss:Type="String">FocalSubject</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">codes for observation targets.  Derived from both HL7 v3 and SNOMED CT code systems</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Codes for observation targets.  Derived from both HL7 v3 and SNOMED CT code systems</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s135"/>

@@ -5,7 +5,7 @@
   Binding Name = FocalSubject
   Binding = value set
   Reference = valueset-focal-subject
-  Definition = codes for observation targets.  Derived from both HL7 v3 and SNOMED CT code systems
+  Definition = Codes for observation targets.  Derived from both HL7 v3 and SNOMED CT code systems
   Description = Derived from both HL7 v3 and SNOMED CT code systems
   Conformance = example
 

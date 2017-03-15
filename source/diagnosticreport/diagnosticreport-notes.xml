@@ -6,7 +6,7 @@
 Notes:
 </h2>
 <h3>Identifiers</h3>
-The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type</code> element that may be used to distinguish the identifiers assigned by the requester and the performer of the request (known as the the 'Placer' and 'Filler' in the HL7 Version 2 Messaging Standard).  Use the identifier type code "PLAC" for the Placer Identifier and  "FILL" for the Filler identifier as is shown in the example below:
+The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type</code> element that may be used to distinguish the identifiers assigned by the requester and the performer of the request (known as the 'Placer' and 'Filler' in the HL7 Version 2 Messaging Standard).  Use the identifier type code "PLAC" for the Placer Identifier and  "FILL" for the Filler identifier as is shown in the example below:
 <pre class="xml">
 
 &lt;!-- Placer identifier--&gt;

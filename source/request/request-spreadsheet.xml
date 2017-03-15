@@ -1142,7 +1142,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Business Identifer for request/order</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Business Identifier for request/order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Identifiers assigned to this request by the requester, performer and other systems</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1197,7 +1197,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Request.basedOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">fufills</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">fulfills</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

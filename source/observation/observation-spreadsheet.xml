@@ -1465,7 +1465,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.basedOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">fufills</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Fulfills</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1573,7 +1573,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String"> A code that classifies the general type of observation being made.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Used for filtering what observations are retreived and displayed.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Used for filtering what observations are retrieved and displayed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set. &#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1617,7 +1617,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">name</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1734,7 +1734,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">encounter</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1782,7 +1782,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.effective[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">occurance</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Occurrence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1932,7 +1932,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The information determined as a result of making the observation, if the information has a simple value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or it represents a group of observations</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueBoolean, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).&#13;&#13;&#13;If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.&#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1985,7 +1985,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For many results it is necessary to handle exceptional values in measurements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;specimen unsatisfactory&quot;.   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed. Note that an observation may only reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;specimen unsatisfactory&quot;.   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value.nullFlavor</Data><NamedCell
@@ -2154,7 +2154,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates the site on the subject's body where the observation was made (i.e. the target site).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-site-instance](extension-body-site-instance.html).</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ body-site-instance](extension-body-site-instance.html).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">targetSiteCode</Data><NamedCell
@@ -2281,7 +2281,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The device used to generate the observation data.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either extension or through the Observation.related element.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either an extension or through the Observation.related element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">participation[typeCode=DEV]</Data><NamedCell
@@ -2478,9 +2478,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reference range qualifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc,  - for proper interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2521,7 +2521,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reference range population</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to identify the target population for proper interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2677,7 +2677,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes a QuestionnaireResponse from which the measure is derived.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2720,7 +2720,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A relationship type SHOULD be provided.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String"> &quot;derived-from&quot; is only logical choice when referencing QuestionnaireAnswer resource.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String"> The &quot;derived-from&quot; type is the only logical choice when referencing the QuestionnaireAnswer resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.typeCode</Data><NamedCell
@@ -2797,7 +2797,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together see [Notes](observation.html#notes) below.</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outBoundRelationship[typeCode=COMP]</Data><NamedCell
@@ -2902,9 +2902,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The information determined as a result of making the observation, if the information has a simple value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or it represents a group of observations</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/ValueSet/v2-0136&gt; (These &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from &lt;http://hl7.org/fhir/ValueSet/v2-0136&gt; (these &quot;yes/no&quot; concepts can be mapped to the display name &quot;true/false&quot; or other mutually exclusive terms that may be needed&quot;).  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (the name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value</Data><NamedCell
@@ -2996,7 +2996,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The component interpretation is applies only to the individual component value.  For an overall interpretation all components together use Observation.interpretation element.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The component interpretation applies only to the individual component value.  For an overall interpretation all components together use thes Observation.interpretation element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">interpretationCode</Data><NamedCell
@@ -6319,7 +6319,7 @@
     <Cell ss:StyleID="s166"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Observation Statistics</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s168"><Data ss:Type="String">The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.&#10;&#10;The set of Observations is defined by 4 parameters:&#10;&#10;*  the subject of the observations for which the statistics are being generated (`subject`)&#10;* which observations to generate statistics for (`code` and `system`, or `coding`)&#10;* the time period over which to generate statistics `'duration` or `period`)&#10;* the set of statistical analyses to return (`statistic`)&#10;&#10;Possible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):&#10;&#10;[[[valueset:observation-statistics]]]&#10;&#10;If successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.&#10;&#10;The client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server's discretion if count &gt; limit. This functionality is included with the intent of supporting graphical presentation&#10;&#10;</Data><NamedCell
+    <Cell ss:StyleID="s168"><Data ss:Type="String">The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.&#10;&#10;The set of Observations is defined by 4 parameters:&#10;&#10;*  the subject of the observations for which the statistics are being generated (`subject`)&#10;* which observations to generate statistics for (`code` and `system`, or `coding`)&#10;* the time period over which to generate statistics `'duration` or `period`)&#10;* the set of statistical analyses to return (`statistic`)&#10;&#10;Possible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):&#10;&#10;[[[valueset:observation-statistics]]]&#10;&#10;If successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.&#10;&#10;The client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server's discretion if count &gt; limit. This functionality is included with the intent of supporting graphical presentation&#10;&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s169"><Data ss:Type="String">This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6430,7 +6430,7 @@
     <Cell ss:StyleID="s156"><Data ss:Type="String">positiveInt</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s171"><Data ss:Type="String">If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the the include paramter is absent or equal to &quot;false&quot; the limit parameter SHALL be ignored by the server</Data></Cell>
+    <Cell ss:StyleID="s171"><Data ss:Type="String">If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the include paramter is absent or equal to &quot;false&quot; the limit parameter SHALL be ignored by the server</Data></Cell>
     <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.0625">
@@ -6467,7 +6467,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Last N Observations Query</Data></Cell>
     <Cell ss:StyleID="s176"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* queryuses the [normal search parameters](observation.html#search) defined for the Observation resource. However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#10;&#10;The response from an lastn query is a set of observations: &#10;&#10;*  filtered by additional parameters&#10;* 'GROUP BY' `Observation.code`&#10;* sorted from most recent to the oldest&#10;* limited to the number of requested responses per group specified by the optional max query parameter&#10;* If no maximum number is given then only the most recent Observation in each group is returned. &#10;&#10;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.</Data></Cell>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the the total mathches so you may need to page through several &quot;A&quot; Observations  before getting to Observation &quot;B&quot;.&#10;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#10;&#10;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#10;&#10;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the total mathches so you may need to page through several &quot;A&quot; Observations  before getting to Observation &quot;B&quot;.&#10;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#10;&#10;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-response.txt</Data></Cell>
    </Row>
@@ -8216,7 +8216,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s193"><Data ss:Type="String">ObservationCategory</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for high level observation categories .</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for high level observation categories.</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">valueset-observation-category</Data></Cell>

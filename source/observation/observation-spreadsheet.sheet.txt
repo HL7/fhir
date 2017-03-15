@@ -55,7 +55,7 @@
   Binding Name = ObservationCategory
   Binding = value set
   Reference = valueset-observation-category
-  Definition = Codes for high level observation categories .
+  Definition = Codes for high level observation categories.
   Conformance = preferred
 
  -- Row 9 -----------------------------------
@@ -358,7 +358,7 @@
  -- Row 3 -----------------------------------
   Element = Observation.basedOn
   Card. = 0..*
-  Aliases = fufills
+  Aliases = Fulfills
   Summary = Y
   Type = Reference(CarePlan | DeviceRequest | ImmunizationRecommendation| MedicationRequest | NutritionOrder | ProcedureRequest | ReferralRequest)
   Short Name = Fulfills plan, proposal or order
@@ -393,7 +393,7 @@
   Binding = ObservationCategory
   Short Name = Classification of  type of observation
   Definition = A code that classifies the general type of observation being made.
-  Requirements = Used for filtering what observations are retreived and displayed.
+  Requirements = Used for filtering what observations are retrieved and displayed.
   Comments = In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   Committee Notes = #7879
@@ -402,7 +402,7 @@
  -- Row 6 -----------------------------------
   Element = Observation.code
   Card. = 1..1
-  Aliases = name
+  Aliases = Name
   Summary = Y
   Type = CodeableConcept
   Binding = ObservationCode
@@ -434,7 +434,7 @@
  -- Row 8 -----------------------------------
   Element = Observation.context
   Card. = 0..1
-  Aliases = encounter
+  Aliases = Encounter
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Healthcare event during which this observation is made
   Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made
@@ -449,7 +449,7 @@
  -- Row 9 -----------------------------------
   Element = Observation.effective[x]
   Card. = 0..1
-  Aliases = occurance
+  Aliases = Occurrence
   Summary = Y
   Type = dateTime | Period
   Short Name = Clinically relevant time/time-period for observation
@@ -495,7 +495,7 @@
   Type = Quantity|CodeableConcept|string|boolean|Range|Ratio|SampledData|Attachment|time|dateTime|Period
   Short Name = Actual result
   Definition = The information determined as a result of making the observation, if the information has a simple value
-  Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
+  Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
   Comments = Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueBoolean, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
   Workflow Mapping = Event.notDone, Event.notDoneReason  (maps to valeu[x] or dataAbsentReason)
   SNOMED CT Concept Domain = < 441742003 |Evaluation finding|
@@ -513,7 +513,7 @@
   Short Name = Why the result is missing
   Definition = Provides a reason why the expected value in the element Observation.value[x] is missing.
   Requirements = For many results it is necessary to handle exceptional values in measurements.
-  Comments = Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  \"detected\", \"not detected\", \"inconclusive\", or  \"specimen unsatisfactory\".   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code \"error\" could be used when the measurement was not completed. Note that an observation may only reported if there are values to report. For example differential cell counts values may be reported only when > 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.
+  Comments = Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  \"detected\", \"not detected\", \"inconclusive\", or  \"specimen unsatisfactory\".   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code \"error\" could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when > 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.
   Workflow Mapping = Event.notDone, Event.notDoneReason  (maps to valeu[x] or dataAbsentReason)
   v2 Mapping = N/A
   RIM Mapping = value.nullFlavor
@@ -566,7 +566,7 @@
   Binding = BodySite
   Short Name = Observed body part
   Definition = Indicates the site on the subject\'s body where the observation was made (i.e. the target site).
-  Comments = Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-site-instance](extension-body-site-instance.html).
+  Comments = Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ body-site-instance](extension-body-site-instance.html).
   SNOMED CT Concept Domain = < 123037004 |Body structure|
   v2 Mapping = OBX-20
   RIM Mapping = targetSiteCode
@@ -605,7 +605,7 @@
   Type = Reference(Device|DeviceMetric)
   Short Name = (Measurement) Device
   Definition = The device used to generate the observation data.
-  Comments = An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either extension or through the Observation.related element.
+  Comments = An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either an extension or through the Observation.related element.
   SNOMED CT Concept Domain = < 49062001 |Device|
   v2 Mapping = OBX-17 / PRT -10
   RIM Mapping = participation[typeCode=DEV]
@@ -659,8 +659,8 @@
   Type = CodeableConcept
   Binding = ObservationRangeMeaning
   Short Name = Reference range qualifier
-  Definition = Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.
-  Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.
+  Definition = Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.
+  Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc,  - for proper interpretation.
   Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed.
   SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \r< 365860008 |General clinical state finding| \rOR \r< 250171008 |Clinical history or observation findings| OR  \r< 415229000 |Racial group| OR \r< 365400002 |Finding of puberty stage| OR\r< 443938003 |Procedure carried out on subject|
   v2 Mapping = OBX-10
@@ -673,7 +673,7 @@
   Type = CodeableConcept
   Binding = ObservationRangeType
   Short Name = Reference range population
-  Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
+  Definition = Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
   Requirements = Need to be able to identify the target population for proper interpretation.
   Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed.
   SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \r< 365860008 |General clinical state finding| \rOR \r< 250171008 |Clinical history or observation findings| OR  \r< 415229000 |Racial group| OR \r< 365400002 |Finding of puberty stage| OR\r< 443938003 |Procedure carried out on subject|
@@ -716,7 +716,7 @@
   UML = 400;310
   Short Name = Resource related to this observation
   Definition = A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.
-  Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes QuestionnaireResponse  from which the measure is derived.
+  Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes a QuestionnaireResponse from which the measure is derived.
   Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = outBoundRelationship
@@ -729,7 +729,7 @@
   Short Name = has-member | derived-from | sequel-to | replaces | qualified-by | interfered-by
   Definition = A code specifying the kind of relationship that exists with the target resource
   Requirements = A relationship type SHOULD be provided.
-  Comments = \"derived-from\" is only logical choice when referencing QuestionnaireAnswer resource.
+  Comments = The \"derived-from\" type is the only logical choice when referencing the QuestionnaireAnswer resource.
   v2 Mapping = N/A
   RIM Mapping = .typeCode
   Committee Notes = [#7639]
@@ -751,7 +751,7 @@
   Short Name = Component results
   Definition = Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
   Requirements = Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.
-  Comments = For a discussion on the ways Observations can assembled in groups together see [Notes](observation.html#notes) below.
+  Comments = For a discussion on the ways Observations can be assembled in groups together see [Notes](observation.html#notes) below.
   v2 Mapping = containment by OBX-4?
   RIM Mapping = outBoundRelationship[typeCode=COMP]
   Committee Notes = 5/15/2015:#7517
@@ -777,8 +777,8 @@
   Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
   Short Name = Actual component result
   Definition = The information determined as a result of making the observation, if the information has a simple value
-  Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
-  Comments = Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
+  Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
+  Comments = Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (these \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (the name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
   SNOMED CT Concept Domain = 363714003 |Interprets| < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
@@ -808,7 +808,7 @@
   Short Name = High, low, normal, etc.
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
-  Comments = The component interpretation is applies only to the individual component value.  For an overall interpretation all components together use Observation.interpretation element.
+  Comments = The component interpretation applies only to the individual component value.  For an overall interpretation all components together use thes Observation.interpretation element.
   SNOMED CT Concept Domain = < 260245000 |Findings values|
   v2 Mapping = OBX-8
   RIM Mapping = interpretationCode
@@ -1514,7 +1514,7 @@
  -- Row 1 -----------------------------------
   Name = stats
   Use = Resource
-  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.\n\nThe set of Observations is defined by 4 parameters:\n\n*  the subject of the observations for which the statistics are being generated (`subject`)\n* which observations to generate statistics for (`code` and `system`, or `coding`)\n* the time period over which to generate statistics `\'duration` or `period`)\n* the set of statistical analyses to return (`statistic`)\n\nPossible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):\n\n[[[valueset:observation-statistics]]]\n\nIf successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.\n\nThe client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server\'s discretion if count > limit. This functionality is included with the intent of supporting graphical presentation
+  Documentation = The Statistics operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server.  This operation is focused on [Observation](observation.html) resources with valueQuantity elements that have UCUM unit codes.\n\nThe set of Observations is defined by 4 parameters:\n\n*  the subject of the observations for which the statistics are being generated (`subject`)\n* which observations to generate statistics for (`code` and `system`, or `coding`)\n* the time period over which to generate statistics `\'duration` or `period`)\n* the set of statistical analyses to return (`statistic`)\n\nPossible statistical analyses (see [StatisticsCode](valueset-observation-statistics.html)):\n\n[[[valueset:observation-statistics]]]\n\nIf successful, the operation returns an Observation resource for each code with the results of the statistical calculations as component value pairs where the component code = the statistical code. The Observation also contains the input parameters `patient`,`code` and `duration` parameters. If unsuccessful, an [OperationOutcome](operationoutcome.html) with an error message will be returned.\n\nThe client can request that all the observations on which the statistics are based be returned as well, using the include parameter. If an include parameter is specified, a limit may also be specified; the sources observations are subsetted at the server\'s discretion if count > limit. This functionality is included with the intent of supporting graphical presentation
   Type = operation
   Example.Request = $stats-request.txt
   Example.Response = $stats-response.txt
@@ -1589,7 +1589,7 @@
  -- Row 10 -----------------------------------
   Name = stats.limit
   Use = in
-  Documentation = If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the the include paramter is absent or equal to \"false\" the limit parameter SHALL be ignored by the server
+  Documentation = If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the include paramter is absent or equal to \"false\" the limit parameter SHALL be ignored by the server
   Type = positiveInt
   Min = 0
   Max = 1
@@ -1618,7 +1618,7 @@
   Example.Request = $lastn-request.txt
   Example.Response = $lastn-response.txt
   Title = Last N Observations Query
-  Footer = The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:\n\n* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn\'t restrict the the total mathches so you may need to page through several \"A\" Observations  before getting to Observation \"B\".\n* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.\n\nThis operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
+  Footer = The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:\n\n* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn\'t restrict the total mathches so you may need to page through several \"A\" Observations  before getting to Observation \"B\".\n* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.\n\nThis operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.
   Idempotent = True
 
  -- Row 14 -----------------------------------

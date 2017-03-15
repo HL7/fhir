@@ -5,7 +5,7 @@
   Binding Name = AdjunctDiagnosis
   Binding = value set
   Reference = valueset-clinical-findings
-  Definition = Diagnoses codes provided as adjuncts to the report.
+  Definition = Diagnosis codes provided as adjuncts to the report.
   Description = SNOMED CT Clinical Findings
   Conformance = example
 
@@ -78,20 +78,20 @@
   Id = 11
   Code = amended
   Display = Amended
-  Definition = Subsequent to being Final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a report that has been issued.
+  Definition = Subsequent to being final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a report that has been issued.
 
  -- Row 6 -----------------------------------
   Id = 4
   Code = corrected
   Display = Corrected
-  Definition = Subsequent to being Final, the report has been modified  to correct an error in the report or referenced results.
+  Definition = Subsequent to being final, the report has been modified  to correct an error in the report or referenced results.
   Parent = #11
 
  -- Row 7 -----------------------------------
   Id = 6
   Code = appended
   Display = Appended
-  Definition = Subsequent to being Final, the report has been modified by adding new content. The existing content is unchanged.
+  Definition = Subsequent to being final, the report has been modified by adding new content. The existing content is unchanged.
   Parent = #11
 
  -- Row 8 -----------------------------------
@@ -136,8 +136,8 @@
   Aliases = ReportID, Filler ID, Placer ID
   Summary = y
   Type = Identifier
-  Short Name = Business Identifer for report
-  Definition = Identifiers assigned to this reprot by the performer or other systems
+  Short Name = Business identifier for report
+  Definition = Identifiers assigned to this report by the performer or other systems
   Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
   Comments = Usually assigned by the Information System of the diagnostic service provider (filler id)
   Workflow Mapping = Event.identifier
@@ -148,7 +148,7 @@
  -- Row 3 -----------------------------------
   Element = DiagnosticReport.basedOn
   Card. = 0..*
-  Aliases = request
+  Aliases = Request
   Type = Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest | ReferralRequest)
   Short Name = What was requested
   Definition = Details concerning a test or procedure requested.
@@ -178,7 +178,7 @@
  -- Row 5 -----------------------------------
   Element = DiagnosticReport.category
   Card. = 0..1
-  Aliases = Department, Sub-department, service, discipline
+  Aliases = Department, Sub-department, Service, Discipline
   Summary = y
   Type = CodeableConcept
   Binding = DiagnosticServiceSection
@@ -193,7 +193,7 @@
  -- Row 6 -----------------------------------
   Element = DiagnosticReport.code
   Card. = 1..1
-  Aliases = type
+  Aliases = Type
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticReportCodes
@@ -211,7 +211,7 @@
   Aliases = Patient
   Summary = y
   Type = Reference(Patient|Group|Device|Location)
-  Short Name = The subject of the report, usually, but not always, the patient
+  Short Name = The subject of the report - usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
   Requirements = SHALL know the subject context
   Workflow Mapping = Event.subject
@@ -222,7 +222,7 @@
  -- Row 8 -----------------------------------
   Element = DiagnosticReport.context
   Card. = 0..1
-  Aliases = encounter
+  Aliases = Encounter
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Health care event when test ordered
@@ -241,7 +241,7 @@
   Aliases = Observation time, Effective Time, Occurrence
   Summary = y
   Type = dateTime|Period
-  Short Name = Clinically Relevant time/time-period for report
+  Short Name = Clinically relevant time/time-period for report
   Definition = The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
   Requirements = Need to know where in the patient history to file/present this report
   Comments = If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
@@ -310,7 +310,7 @@
   Short Name = Specimens this report is based on
   Definition = Details about the specimens on which this diagnostic report is based
   Requirements = Need to be able to report information about the collected specimens on which the report is based
-  Comments = If the specimen is sufficiently specified with a code in the test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per Observation or group.
+  Comments = If the specimen is sufficiently specified with a code in the test result name, then this additional data may be redundant. If there are multiple specimens, these may be represented per observation or group.
   v2 Mapping = SPM
   RIM Mapping = participation[typeCode=SBJ]
 
@@ -391,7 +391,7 @@
   Type = Attachment
   Short Name = Entire report as issued
   Definition = Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
-  Requirements = Gives Laboratory the ability to provide its own fully formatted report for clinical fidelity
+  Requirements = Gives laboratory the ability to provide its own fully formatted report for clinical fidelity
   Comments = \"application/pdf\" is recommended as the most reliable and interoperable in this context.
   v2 Mapping = OBX
   RIM Mapping = text (type=ED)

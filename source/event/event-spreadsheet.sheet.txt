@@ -100,7 +100,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifer for event
+  Short Name = Business Identifier for event
   Definition = Identifiers assigned to this event performer or other systems
   Requirements = Allows identification of the event as it is known by various participating systems and in a way that remains consistent across servers
   v2 Mapping = Varies by domain
@@ -121,7 +121,7 @@
  -- Row 4 -----------------------------------
   Element = Event.basedOn
   Card. = 0..*
-  Aliases = fufills
+  Aliases = fulfills
   Summary = Y
   Type = Reference(Request)
   Short Name = Fulfills plan, proposal or order

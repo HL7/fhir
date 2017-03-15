@@ -6,9 +6,9 @@
 The media resource contains several date/times:
 </p>
 <ul>
- <li><code>Media.occurence[x]</code> - The date(/time) of collection, or the period over which collection occured</li>
- <li><code>Media.duration</code> - The duration of the media. The duration might differ from occurencePeriod if recording was paused</li>
- <li><code><a href="datatypes-definitions.html#Attachment.creation">Media.content.creation</a></code> - This should be consistent with the Media.occurence[x] but might be different due to partial / edited recordings</li>
+ <li><code>Media.occurrence[x]</code> - The date(/time) of collection, or the period over which collection occured</li>
+ <li><code>Media.duration</code> - The duration of the media. The duration might differ from occurrencePeriod if recording was paused</li>
+ <li><code><a href="datatypes-definitions.html#Attachment.creation">Media.content.creation</a></code> - This should be consistent with the Media.occurrence[x] but might be different due to partial / edited recordings</li>
 </ul>
 
 <p>

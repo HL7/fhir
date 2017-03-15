@@ -199,7 +199,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifer for request/order
+  Short Name = Business Identifier for request/order
   Definition = Identifiers assigned to this request by the requester, performer and other systems
   Requirements = Allows identification of the request as it is known by various participating systems and in a way that remains consistent across servers
   Comments = The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.
@@ -221,7 +221,7 @@
  -- Row 4 -----------------------------------
   Element = Request.basedOn
   Card. = 0..*
-  Aliases = fufills
+  Aliases = fulfills
   Summary = Y
   Type = Reference(Request)
   Short Name = Fulfills plan, proposal or order

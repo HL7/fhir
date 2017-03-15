@@ -170,7 +170,7 @@
   Type = Identifier
   Short Name = Identifiers assigned to this order
   Definition = Identifiers assigned to this order by the order sender or by the order receiver
-  Comments = The Identifier.type element can be to indicate filler vs placer if needed.  This is explained in further detail [here](procedurerequest.html#notes)
+  Comments = The Identifier.type element can be to indicate filler vs. placer if needed.  This is explained in further detail [here](procedurerequest.html#notes)
   Workflow Mapping = Request.identifier
   RIM Mapping = .id
   w5 = id
@@ -240,7 +240,7 @@
   Type = Reference(AllergyIntolerance)
   Short Name = List of the patient\'s food and nutrition-related allergies and intolerances
   Definition = A link to a record of allergies or intolerances  which should be included in the nutrition order.
-  Comments = Information on a patient\'s food allergies and intolerances, inform healthcare personnel about the type of foods that the patient should receive or consume.
+  Comments = Information on a patient\'s food allergies and intolerances to inform healthcare personnel about the type of foods that the patient shouldn\'t receive or consume.
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
   Committee Notes = resource reference
 
@@ -261,8 +261,8 @@
   Type = CodeableConcept
   Binding = FoodType
   Short Name = Order-specific modifier about the type of food that should not be given
-  Definition = This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced allergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
-  Comments = Information on a patient\'s food allergies and intolerances, and preferences inform healthcare personnel about the type  of foods that the patient should receive or consume.
+  Definition = This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
+  Comments = Information on a patient\'s food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn\'t receive or consume.
   RIM Mapping = N/A
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
@@ -277,7 +277,7 @@
  -- Row 12 -----------------------------------
   Element = !NutritionOrder.item.scheduled[x]
   Card. = 0..1
-  Aliases = frequency
+  Aliases = Frequency
   Type = Timing|Period
   Short Name = Frequency to offer nutrition item
   Definition = The frequency at which the diet, oral supplement or enteral formula should be given
@@ -315,7 +315,7 @@
  -- Row 16 -----------------------------------
   Element = NutritionOrder.oralDiet.schedule
   Card. = 0..*
-  Aliases = frequency
+  Aliases = Frequency
   Type = Timing
   Short Name = Scheduled frequency of diet
   Definition = The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present.
@@ -428,7 +428,7 @@
  -- Row 28 -----------------------------------
   Element = NutritionOrder.supplement.schedule
   Card. = 0..*
-  Aliases = frequency
+  Aliases = Frequency
   Type = Timing
   Short Name = Scheduled frequency of supplement
   Definition = The time period and frequency at which the supplement(s) should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present.
@@ -507,7 +507,7 @@
   Card. = 0..1
   Type = SimpleQuantity
   Short Name = Amount of energy per specified volume that is required
-  Definition = The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.
+  Definition = The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL.
   RIM Mapping = .quantity (caloricDensity)
 
  -- Row 37 -----------------------------------
@@ -532,7 +532,7 @@
  -- Row 39 -----------------------------------
   Element = NutritionOrder.enteralFormula.administration.schedule
   Card. = 0..1
-  Aliases = frequency
+  Aliases = Frequency
   Type = Timing
   Short Name = Scheduled frequency of enteral feeding
   Definition = The time period and frequency at which the enteral formula should be delivered to the patient

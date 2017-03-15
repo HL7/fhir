@@ -75,7 +75,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifer for {{title}}
+  Short Name = Business Identifier for {{title}}
   Definition = Identifier assigned to this {{title}} request by the requester, performer and other systems
   Requirements = Allows identification of the {{title}} as it is known by various participating systems and in a way that remains consistent across servers
   RIM Mapping = .identifier
