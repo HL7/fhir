@@ -242,7 +242,7 @@
   Aliases = Prescription; Order
   Type = DomainResource
   Short Name = Ordering of medication for patient or group
-  Definition = An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+  Definition = An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings, including care plans, etc and to harmonize with workflow patterns.
   Workflow Mapping = ..Request
   SCRIPT 10.6 Mapping = Message/Body/NewRx
   RIM Mapping = CombinedMedicationRequest
@@ -253,7 +253,7 @@
   Card. = 0..*
   Type = Identifier
   Short Name = External ids for this request
-  Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
+  Definition = This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.
   Workflow Mapping = …identifer
   SCRIPT 10.6 Mapping = Message/Header/PrescriberOrderNumber
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
@@ -286,7 +286,7 @@
   Summary = y
   Type = Identifier
   Short Name = Composite request this is part of
-  Definition = A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifer of the requisition or prescription.
+  Definition = A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.
   Requirements = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
   Workflow Mapping = …groupIdentifier
   RIM Mapping = .outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id
@@ -350,8 +350,8 @@
   Type = CodeableConcept|Reference(Medication)
   Binding = MedicationCode
   Short Name = Medication to be taken
-  Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource. 
+  Definition = Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource. 
   Workflow Mapping = …code
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\r\rMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\r\rMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\r\rMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
@@ -363,9 +363,9 @@
   Card. = 1..1
   Summary = y
   Type = Reference(Patient | Group)
-  Short Name = Who or group prescription is for
+  Short Name = Who or group medication request is for
   Definition = A link to a resource representing the person or set of individuals to whom the medication will be given
-  Comments = The subject on a medicationRequest is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymyzed subject specified.
+  Comments = The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified.
   Workflow Mapping = …subject
   SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\r\r(need detail to link to specific patient … Patient.Identification in SCRIPT)
   v2 Mapping = PID-3-Patient ID List
@@ -377,7 +377,7 @@
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Created during encounter/admission/stay
-  Definition = A link to a resource that identifies the particular occurrence or set occurrences of contact between patient and health care provider
+  Definition = A link to an encounter, or episode of care, that identifies the particular occurrence or set occurrences of contact between patient and health care provider.
   Comments = SubstanceAdministration->component->EncounterEvent
   Workflow Mapping = …context
   SCRIPT 10.6 Mapping = no mapping
@@ -472,7 +472,7 @@
   Type = Reference(Condition |Observation)
   Short Name = Condition or Observation that supports why the prescription is being written
   Definition = Condition or observation that supports why the medication was ordered
-  Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
+  Comments = This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode.
   Workflow Mapping = …reasonReference
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = reason.observation[code=ASSERTION].value
@@ -503,7 +503,7 @@
   Card. = 0..1
   UML = 300;400
   Short Name = Medication supply authorization
-  Definition = Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
+  Definition = Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
   RIM Mapping = component.supplyEvent
 
@@ -523,7 +523,7 @@
   Card. = 0..1
   Type = positiveInt
   Short Name = Number of refills authorized
-  Definition = An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
+  Definition = An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus \"3 repeats\", then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.
   Comments = If displaying \"number of authorized fills\", add 1 to this number.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Quantity
   v2 Mapping = RXE-12-Number of Refills
@@ -563,7 +563,7 @@
   Card. = 0..1
   UML = -60;400
   Short Name = Any restrictions on medication substitution
-  Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
+  Definition = Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber\'s intent. If nothing is specified substitution may be done.
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = subjectOf.substitutionPersmission
 
@@ -614,7 +614,7 @@
   Type = Reference(Provenance)
   Short Name = A list of events of interest in the lifecycle
   Definition = Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
-  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)
   Workflow Mapping = …relevantHistory
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 

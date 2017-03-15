@@ -269,7 +269,8 @@
   Element = MedicationDispense.performer
   Card. = 0..*
   Short Name = Who performed event
-  Definition = Indicates who or what performed the event.
+  Definition = Indicates who or what performed the event.  It should be assumed that the performer is the dispenser of the medication
+  Comments = The performer will be reviewed as part of STU4
   Workflow Mapping = …performer
   RIM Mapping = .participation[typeCode=PRF]
 
@@ -278,7 +279,7 @@
   Card. = 1..1
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
   Short Name = Individual who was performing
-  Definition = The device, practitioner, etc. who performed the action.
+  Definition = The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication.
   Workflow Mapping = ….actor
   RIM Mapping = .role
 
@@ -442,7 +443,7 @@
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
   Type = Reference (DetectedIssue)
-  Short Name = Clinical Issue with action
+  Short Name = Clinical issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value
 
@@ -451,7 +452,7 @@
   Card. = 0..1
   Type = boolean
   Short Name = Whether the dispense was or was not performed
-  Definition = True if the dispense was not peformed for some reason
+  Definition = True if the dispense was not performed for some reason
   Workflow Mapping = …notDone
   RIM Mapping = .actionNegationInd
 
@@ -468,9 +469,9 @@
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
-  Short Name = A list of events of interest in the lifecycle
+  Short Name = A list of releveant lifecycle events
   Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
-  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================

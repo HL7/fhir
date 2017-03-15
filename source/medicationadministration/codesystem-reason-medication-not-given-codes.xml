@@ -5,7 +5,7 @@
   <name value="Reason Medication Not Given Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process."/>
+  <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

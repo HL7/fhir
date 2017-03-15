@@ -6,22 +6,22 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Microsoft Office User</LastAuthor>
+  <LastAuthor>Melva Peters</LastAuthor>
   <LastPrinted>2016-01-26T17:36:52Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-03-08T19:06:15Z</LastSaved>
+  <LastSaved>2017-03-15T01:08:33Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
+  <WindowHeight>16640</WindowHeight>
   <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowTopX>300</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>732</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1100,7 +1100,7 @@
         xmlns="http://www.w3.org/TR/REC-html40">Not published</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:Height="180">
     <Cell ss:StyleID="s78"><Data ss:Type="String">MedicationRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Prescription; Order</Data><NamedCell
@@ -1120,7 +1120,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Ordering of medication for patient or group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationRequest&quot; rather than &quot;MedicationPrescription&quot; or &quot;MedicationOrder&quot; to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationRequest&quot; rather than &quot;MedicationPrescription&quot; or &quot;MedicationOrder&quot; to generalize the use across inpatient and outpatient settings, including care plans, etc and to harmonize with workflow patterns.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1156,7 +1156,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">External ids for this request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1265,7 +1265,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Composite request this is part of</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifer of the requisition or prescription.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1455,10 +1455,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Medication to be taken</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.&#160; For example if&#160;you require&#160;form or&#160;lot number or if the medication is compounded or extemporaneously prepared, then you must&#160;reference the Medication resource.&#160;</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.&#160; For example, if&#160;you require&#160;form or&#160;lot number or if the medication is compounded or extemporaneously prepared, then you must&#160;reference the Medication resource.&#160;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">consumable.administrableMedication</Data><NamedCell
@@ -1492,12 +1492,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Who or group prescription is for</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Who or group medication request is for</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A link to a resource representing the person or set of individuals to whom the medication will be given</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The subject on a medicationRequest is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymyzed subject specified.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">.participation[typeCode=AUT].role</Data><NamedCell
@@ -1532,7 +1532,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Created during encounter/admission/stay</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A link to a resource that identifies the particular occurrence or set occurrences of contact between patient and health care provider</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A link to an encounter, or episode of care, that identifies the particular occurrence or set occurrences of contact between patient and health care provider. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">SubstanceAdministration-&gt;component-&gt;EncounterEvent</Data><NamedCell
@@ -1828,7 +1828,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Condition or observation that supports why the medication was ordered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">reason.observation[code=ASSERTION].value</Data><NamedCell
@@ -1930,7 +1930,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Medication supply authorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2001,7 +2001,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Number of refills authorized</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does NOT include the original order dispense. This means that if an order indicates dispense 30 tablets plus &quot;3 repeats&quot;, then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus &quot;3 repeats&quot;, then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If displaying &quot;number of authorized fills&quot;, add 1 to this number.</Data><NamedCell
@@ -2140,7 +2140,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Any restrictions on medication substitution</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2319,7 +2319,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">.inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]</Data><NamedCell
@@ -4043,14 +4043,15 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>85</Zoom>
-   <PageLayoutZoom>0</PageLayoutZoom>
+   <Zoom>124</Zoom>
+   <PageLayoutZoom>124</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>32</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4058,6 +4059,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4066,7 +4068,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>34</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4088,6 +4090,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -4650,39 +4654,39 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C3,R2C5:R2C7</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048549]C1=&quot;&quot;,Invariants!R[1048549]C&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048548]C1=&quot;&quot;,Invariants!R[1048548]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C2,R2C7,R2C5</Range>
    <Condition>
-    <Value1>(Invariants!R[1048549]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048549]C[16357]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>(Invariants!R[1048548]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048548]C[16356]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C7</Range>
    <Condition>
-    <Value1>LEFT(Invariants!R[1048549]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT(Invariants!R[1048548]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4</Range>
    <Condition>
-    <Value1>Invariants!R[1048549]C3=&quot;0..0&quot;</Value1>
+    <Value1>Invariants!R[1048548]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND(Invariants!R[1048549]C[16303]&lt;&gt;&quot;&quot;,Invariants!R[1048549]C1=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048548]C[16300]&lt;&gt;&quot;&quot;,Invariants!R[1048548]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1,R2C4</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048549]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048548]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -4933,7 +4937,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7229,6 +7232,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -7878,6 +7883,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -8678,6 +8684,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8801,6 +8808,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="medication-request-priority">
@@ -8887,6 +8895,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

@@ -1,84 +1,71 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h3>How to determine if the patient has taken the medication</h3>
-    <p>The MedicationStatement resource includes both a status and a "Taken" code.  In order to determine if the patient has actually consumed the medication systems need to use both MedicationStatement.status and MedicationStatement.taken.  The following table is intended to provide guidance on the interpretation of these two attributes with respect to the MedicationStatement.</p>
+    <p>The MedicationStatement resource includes both a status and a taken code. The taken code conveys whether the medication was taken by the patient from the perspective of the information source.  The status code reflects the current state of the practitioner’s instructions to the patient whether the consumption of the medication should continue or not.  </p>
+        <p>Note: Medication statements can be made about prescribed medications as well as non-prescribed (i.e. over the counter) medications. </p> 
+       <p> If you desire to perform a query for all medication statements that “imply” that a medication has been taken, you will need to use both MedicationStatement.status and MedicationStatement.taken in your query.  The following table is intended to provide guidance on the interpretation of these two attributes with respect to the MedicationStatement. </p>
+        <p>In the table below the “X” represents a valid status that can be present in combination with the Taken value. </p>
     <table border="1" cellpadding="1" cellspacing="2" frame="box">
         <tr>
             <th>Taken</th>
             <th> Information Source</th>
-            <th> Patient Reports </th>
             <th> Active </th>
             <th> Completed </th>
             <th>Stopped</th>
             <th> On Hold </th>
             <th> Entered in Error </th>
             <th> Intended </th>
-        </tr>
-            <tr>
-                <td>Y</td>
-                <td>Patient</td>
-                <td>Patient or related person states the medication is not currently being taken</td>
-                <td>X</td>
-                <td></td>
-                <td></td>
-                <td>X</td>
-                <td></td>
-                <td>X</td>
+            <th>Interpretation or Meaning</th>
         </tr>
             <tr>
                 <td>N</td>
-                <td>Patient</td>
-                <td>Patient or related person states the medication may be taken in the future</td>
+                <td>Exists (e.g. Patient or RelatedPerson)</td>
                 <td>X</td>
                 <td></td>
                 <td></td>
                 <td>X</td>
                 <td></td>
                 <td>X</td>
+                <td> Patient or related person states the medication is not currently being taken.  Taken must = N.  <br/>
+                    When status = Active, it means that although a statement was made that the patient isn’t taking the medication, the practitioner still expects and instructs the patient to take the medication. <br/> 
+                    When status = On Hold, it means that although a statement was made that the patient isn’t taking the medication, the practitioner has suspended the medication, but intends for the patient to take the medication in the future.  <br/>
+                    When status = Intended, it means that although a statement was made that the patient isn’t taking the medication, the practitioner intends for the patient to take the medication in the future.  </td>
+        </tr>
+            <tr>
+                <td>Y</td>
+                <td>Exists (e.g. Patient or RelatedPerson)</td>
+                <td>X</td>
+                <td></td>
+                <td></td>
+                <td>X</td>
+                <td></td>
+                <td>X</td>
+                <td>Patient or related person states the medication is or will be taken.  Taken must = Y.  The status values can be any of the following:  active, on hold, or intended.</td>
             </tr>
             <tr>
                 <td>UNK</td>
-                <td>Patient</td>
-                <td>Patient or related person states they may take this medication in the future</td>
+                <td>No information source exists</td>
                 <td>X</td>
                 <td></td>
                 <td></td>
                 <td>X</td>
                 <td></td>
                 <td>X</td>
+                <td>No assertion by patient or related person of whether the medication is being consumed.  <br/>
+                    The MedicationStatement still exists because it can be derived from a MedicationRequest, but it is unknown whether the Patient is taking the medication as prescribed in the MedicationRequest.</td>
             </tr>
             <tr>
                 <td>NA</td>
-                <td></td>
-                <td></td>
-                <td>X</td>
-                <td>X</td>
-                <td></td>
-                <td>X</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>UNK</td>
-                <td></td>
-                <td>No assertion by patient or related person of whether the medication is being consumed</td>
-                <td>X</td>
-                <td></td>
-                <td></td>
-                <td>X</td>
-                <td></td>
-                <td>X</td>
-            </tr>
-            <tr>
-                <td>NA</td>
-                <td></td>
-                <td>Patient admitted or outpatient administration (MAR)</td>
+                <td>No information source exists</td>
                 <td>X</td>
                 <td>X</td>
                 <td>X</td>
                 <td>X</td>
                 <td>X</td>
                 <td>X</td>
+                <td>Patient reporting does not apply.  <br/>
+                    For example, this can occur when MedicationStatements are derived from MedicationRequests that are administered by a practitioner.    In this example, there is no need to ask for input from the patient or related person since the practitioner was responsible for the administration.<br/>
+                    Another example might be a MedicationStatement derived from an end-stated (stopped, completed, entered in error) MedicationRequest.  In this example, there is no need to ask for input from the patient or related person since the MedicationRequest is no longer applicable.</td>
             </tr>
     </table>
     
