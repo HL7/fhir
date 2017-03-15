@@ -625,4 +625,10 @@
   Filename = diagnosticreport-example-pgx.xml
   Profile = Diagnostic Report-Genetics
 
+ -- Row 17 -----------------------------------
+  Name = Gingival Mass
+  Identity = gingival-mass
+  Description = An example of a presented form anatomic pathology report
+  Filename = diagnosticreport-example-gingival-mass.xml
+
 === Sheet Examples =====================================
