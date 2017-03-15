@@ -739,18 +739,36 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = Lipid Panel Task
+  Name = In Progress Lipid Panel Task 1
   Identity = example1
-  Description = Example task for actioning a lipid panel order
+  Description = Example of in-progress/awaiting specimen task for a lipid panel order
   Filename = task-example1.xml
 
  -- Row 2 -----------------------------------
-  Name = Specimen Collection Task
+  Name = Accepted Specimen Collection Task
   Identity = example2
-  Description = Example of a filler generated subtask to collect a specimen
+  Description = Example of an accepted, filler generated specimen collection subtask
   Filename = task-example2.xml
 
  -- Row 3 -----------------------------------
+  Name = Completed Specimen Collection Task
+  Identity = example4
+  Description = Example of a completed  filler generated specimen collection subtask
+  Filename = task-example4.xml
+
+ -- Row 4 -----------------------------------
+  Name = in Progress Lipid Panel Task 2
+  Identity = example5
+  Description = Example of in-progress/test results pending task for a lipid panel order
+  Filename = task-example5.xml
+
+ -- Row 5 -----------------------------------
+  Name = Completed Lipid Panel Task
+  Identity = example6
+  Description = Example of completed  task for a lipid panel order
+  Filename = task-example6.xml
+
+ -- Row 6 -----------------------------------
   Name = Prescription Task
   Identity = example3
   Description = Example of simple prescription task

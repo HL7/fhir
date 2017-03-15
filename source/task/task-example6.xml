@@ -1,43 +1,6 @@
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
-	<!--This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen 
-example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected => example 6 action lipid panel - completed with output DiagnosticReport -->
-	<id value="example1"/>
-	<contained>
-		<!-- using contained resource for the purpose of this example only typically this would be a separate independent resource -->
-		<Provenance>
-			<id value="signature"/>
-			<target>
-				<reference value="ProcedureRequest/physiotherapy/_history/1"/>
-			</target>
-			<recorded value="2016-10-31T08:25:05+10:00"/>
-			<agent>
-				<role>
-					<coding>
-						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
-						<code value="AUT"/>
-					</coding>
-				</role>
-				<whoReference>
-					<reference value="Practitioner/f202"/>
-					<display value="Luigi Maas"/>
-				</whoReference>
-			</agent>
-			<signature>
-				<type>
-					<system value="urn:iso-astm:E1762-95:2013"/>
-					<code value="1.2.840.10065.1.12.1.1"/>
-					<display value="Author's Signature"/>
-				</type>
-				<when value="2016-10-31T08:25:05+10:00"/>
-				<whoReference>
-					<reference value="Practitioner/example"/>
-					<display value="Dr Adam Careful"/>
-				</whoReference>
-				<contentType value="application/signature+xml"/>
-				<blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
-			</signature>
-		</Provenance>
-	</contained>
+	<!--This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements this is the first in a series of related Task examples:  example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected with output Specimen => example 6 action lipid panel - completed with output Specimen and DiagnosticReport -->
+	<id value="example6"/>
 	<identifier>
 		<use value="official"/>
 		<system value="http:/goodhealth.org/identifiers"/>
@@ -51,10 +14,10 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<system value="http:/goodhealth.org/accession/identifiers"/>
 		<value value="G20170201-001"/>
 	</groupIdentifier>
-	<status value="in-progress"/>
+	<status value="completed"/>
 	<!--fictive business status populated for this example -->
 	<businessStatus>
-		<text value="waiting for specimen"/>
+		<text value="test completed and posted"/>
 	</businessStatus>
 	<intent value="order"/>
 	<priority value="routine"/>
@@ -81,9 +44,12 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<!--	Lots of dates -->
 	<executionPeriod>
 		<start value="2016-10-31T08:25:05+10:00"/>
+		<!--added completion date-->
+		<end value="2016-10-31T18:45:05+10:00"/>
 	</executionPeriod>
 	<authoredOn value="2016-10-31T08:25:05+10:00"/>
-	<lastModified value="2016-10-31T09:45:05+10:00"/>
+	<!--	updated last modified date to track task activity-->
+	<lastModified value="2016-10-31T18:45:05+10:00"/>
 	<requester>
 		<agent>
 			<reference value="Practitioner/example"/>
@@ -117,10 +83,6 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<!--	add the link to the signature on the task to show how this element is usedemonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource
 
 -->
-	<relevantHistory>
-		<reference value="#signature"/>
-		<display value="Author's Signature"/>
-	</relevantHistory>
 	<!--	complete the request within 48 hrs
 -->
 	<restriction>
@@ -129,5 +91,22 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 			<end value="2016-11-02T09:45:05+10:00"/>
 		</period>
 	</restriction>
-	<!--The expected output of this task is a DiagnosticRequest and will generated once the task is near completion -->
+	<!--The expected output of this task is a DiagnosticReport and Specimen-->
+	<output>
+		<type>
+			<text value="DiagnosticReport generated"/>
+		</type>
+		<valueReference>
+			<reference value="DiagnosticReport/lipids"/>
+		</valueReference>
+	</output>
+		<output>
+		<type>
+			<text value="collected specimen"/>
+		</type>
+		<valueReference>
+			<reference value="Specimen/101"/>
+		</valueReference>
+	</output>
+
 </Task>

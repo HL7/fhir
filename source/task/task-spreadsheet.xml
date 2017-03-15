@@ -18,11 +18,10 @@
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>10125</WindowHeight>
   <WindowWidth>21810</WindowWidth>
-  <WindowTopX>2910</WindowTopX>
-  <WindowTopY>285</WindowTopY>
+  <WindowTopX>-2280</WindowTopX>
+  <WindowTopY>255</WindowTopY>
   <TabRatio>670</TabRatio>
   <ActiveSheet>7</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -6530,10 +6529,10 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="44" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s139" ss:Width="89.25"/>
+   <Column ss:StyleID="s139" ss:Width="181.5"/>
    <Column ss:StyleID="s139" ss:Width="27.75"/>
    <Column ss:StyleID="s139" ss:Width="327.75"/>
    <Column ss:StyleID="s139" ss:Width="57"/>
@@ -6570,10 +6569,10 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">Lipid Panel Task</Data><NamedCell
+    <Cell ss:StyleID="s144"><Data ss:Type="String">In Progress Lipid Panel Task 1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s145"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example task for actioning a lipid panel order</Data><NamedCell
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of in-progress/awaiting specimen task for a lipid panel order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">example1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6584,11 +6583,38 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">Specimen Collection Task</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">Accepted Specimen Collection Task</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a filler generated subtask to collect a specimen</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of an accepted, filler generated specimen collection subtask </Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">example2</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="String">task-example2.xml</Data></Cell>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s144"><Data ss:Type="String">Completed Specimen Collection Task</Data></Cell>
+    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of a completed  filler generated specimen collection subtask </Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">example4</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">task-example4.xml</Data></Cell>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s144"><Data ss:Type="String">in Progress Lipid Panel Task 2</Data></Cell>
+    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of in-progress/test results pending task for a lipid panel order</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">example5</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">task-example5.xml</Data></Cell>
+    <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s144"><Data ss:Type="String">Completed Lipid Panel Task</Data></Cell>
+    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">Example of completed  task for a lipid panel order</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">example6</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">task-example6.xml</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -6959,8 +6985,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

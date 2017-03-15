@@ -1,7 +1,7 @@
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
-	<!--This is an example to demonstrate using task for actioning a filler generated procedurerequest and to illustrate how to populate many of the task elements - this is the child task from task example1 to grab the specimen 
+	<!--This example show an updated status and output - a generated task to collect a specimen 
 example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected with output Specimen => example 6 action lipid panel - completed with output Specimen and DiagnosticReport -->
-	<id value="example2"/>
+	<id value="example4"/>
 	<identifier>
 		<use value="official"/>
 		<system value="http:/goodhealth.org/identifiers"/>
@@ -18,11 +18,8 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<reference value="Task/example1"/>
 		<display value="Lipid Panel"/>
 	</partOf>
-	<status value="accepted"/>
+	<status value="completed"/>
 	<!--fictive business status populated for this example-->
-	<businessStatus>
-		<text value="waiting for patient"/>
-	</businessStatus>
 	<intent value="filler-order"/>
 	<priority value="routine"/>
 	<!--fictive code and description elements populated for this example -->
@@ -46,6 +43,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<!--	Lots of dates -->
 	<executionPeriod>
 		<start value="2016-10-31T08:45:05+10:00"/>
+		<end value="2016-10-31T14:45:05+10:00"/>
 	</executionPeriod>
 	<authoredOn value="2016-10-31T08:45:05+10:00"/>
 	<lastModified value="2016-10-31T09:45:05+10:00"/>
@@ -66,8 +64,8 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	</performerType>
 	<!--assume at draw station-->
 	<owner>
-		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-		<display value="Clinical Laboratory @ Acme Hospital"/>
+		<reference value="Practitioner/f202"/>
+		<display value="Luigi Maas"/>
 	</owner>
 	<restriction>
 		<repetitions value="1"/>
@@ -76,4 +74,12 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		</period>
 	</restriction>
 	<!--The expected output of this task is a Specimen and will generated once the task is completed -->
+	<output>
+		<type>
+			<text value="collected specimen"/>
+		</type>
+		<valueReference>
+			<reference value="Specimen/101"/>
+		</valueReference>
+	</output>
 </Task>
