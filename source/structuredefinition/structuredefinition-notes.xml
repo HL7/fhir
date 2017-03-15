@@ -159,8 +159,14 @@ The same definition structure can also be used to define any arbitrary structure
 with typed nodes, where the primitive types are those defined by the FHIR specification.
 </p>
 <p>
-This can be useful when
+This technique has many uses:
 </p>
+<ul>
+ <li>Describing any arbitrary content model</li>
+ <li>Describing existing HL7 content models (e.g. v2, CDA) using FHIR</li>
+ <li>Describing common design patterns used in FHIR</li>
+ <li>Defining a content model to support the mapping language</li>
+</ul>
 <!--
 <h2>Profiled FHIR</h2>
 <p>
