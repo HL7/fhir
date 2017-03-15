@@ -671,4 +671,52 @@
   Description = Part of an exercise plan
   Filename = procedurerequest-example4.xml
 
+ -- Row 12 -----------------------------------
+  Name = Device Example
+  Identity = example-implant
+  Description = Example of an order for an implant
+  Filename = procedurerequest-example-implant.xml
+
+ -- Row 13 -----------------------------------
+  Name = Ambulation
+  Identity = ambulation
+  Description = Example of an order for anambulation procedure
+  Filename = procedurerequest-example-ambulation.xml
+
+ -- Row 14 -----------------------------------
+  Name = Colon Biopsy
+  Identity = colon-biopsy
+  Description = Example of an order for a biopsy procedure that was part of a colonoscopy
+  Filename = procedurerequest-example-colonoscopy-bx.xml
+
+ -- Row 15 -----------------------------------
+  Name = Colonoscopy
+  Identity = colonoscopy
+  Description = Example of an order for a colonoscopy procedure with complication
+  Filename = procedurerequest-example-colonoscopy.xml
+
+ -- Row 16 -----------------------------------
+  Name = Appendectomy
+  Identity = appendectomy-narrative
+  Description = Example of an order for an appendectomy procedure that is primarily narrative
+  Filename = procedurerequest-example-appendectomy.xml
+
+ -- Row 17 -----------------------------------
+  Name = OB
+  Identity = ob
+  Description = Example of an order for an obstetric procedure
+  Filename = procedurerequest-example-ob.xml
+
+ -- Row 18 -----------------------------------
+  Name = Physical Therapy
+  Identity = physical-therapy
+  Description = Example of an order for an physical therapy evaluation procedure
+  Filename = procedurerequest-example-pt.xml
+
+ -- Row 19 -----------------------------------
+  Name = Patient Education
+  Identity = education
+  Description = Example of an order for patient education
+  Filename = procedurerequest-example-edu.xml
+
 === Sheet Examples =====================================

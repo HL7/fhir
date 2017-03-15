@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedurerequest.xsd">
+	<id value="colon-biopsy"/>
+	<identifier>
+		<value value="12345"/>
+	</identifier>
+	<!-- Example of biopsy procedure request that is part of a colonoscopy-->
+	<requisition>
+		<system value="http://bumc.org/requisitions"/>
+		<value value="req12345"/>
+	</requisition>
+	<status value="completed"/>
+	<intent value="order"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="76164006"/>
+			<display value="Biopsy of colon (procedure)"/>
+		</coding>
+		<text value="Biopsy of colon"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<authoredOn value="2017-03-05"/>
+	<requester>
+		<agent>
+			<reference value="Practitioner/3ad0687e-f477-468c-afd5-fcc2bf897809"/>
+			<display value="Dr. Beverly Crusher"/>
+		</agent>
+	</requester>
+	<performer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</performer>
+</ProcedureRequest>

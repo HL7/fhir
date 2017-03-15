@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedurerequest.xsd">
+	<id value="example-implant"/>
+	<!-- Example of a device manipulation procedure request-->
+	<status value="completed"/>
+	<intent value="order"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="25267002"/>
+			<display value="Insertion of intracardiac pacemaker (procedure)"/>
+		</coding>
+		<text value="Implant Pacemaker"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<authoredOn value="2015-03-30"/>
+	<requester>
+		<agent>
+			<reference value="Practitioner/3ad0687e-f477-468c-afd5-fcc2bf897809"/>
+			<display value="Dr. Beverly Crusher"/>
+		</agent>
+	</requester>
+	<performer>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Cecil Surgeon"/>
+	</performer>
+	<reasonCode>
+		<text value="Bradycardia"/>
+	</reasonCode>
+</ProcedureRequest>
