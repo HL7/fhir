@@ -20,7 +20,7 @@
 <p>
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> was HL7's first information exchange standard and is one of its most 
 widely adopted, being prominent in in-patient settings throughout the world, though also 
-used in a variety of other contexts as well.  HL7 v2 uses messages composed of re-useable 
+used in a variety of other contexts as well.  HL7 v2 uses messages composed of re-usable 
 segments to communicate healthcare-related information between a sending and receiving
 system as well as to invoke particular behavior (patient transfers, lab orders, etc.)  
 It also supports one-way communication through notifications, provides support for queries and other workflow.
@@ -32,7 +32,7 @@ messaging structure (though unlike HL7 v2, FHIR supports other paradigms as well
 documents, REST and other service models).  Refer to the <a href="messageheader.html">Message Header</a> resource.
 </p>
 <p>
-<b>Granularity:</b> HL7 v2's "Segment" structure provides re-useable chunks of data that 
+<b>Granularity:</b> HL7 v2's "Segment" structure provides re-usable chunks of data that 
 roughly correspond to FHIR's idea of <a href="resource.html">resources</a>.  However, HL7 v2 
 segments can't be independently manipulated.  Additionally, not all segments have the characteristics 
 of independent identity held by FHIR resources.  Due to differences in scope and approach to 

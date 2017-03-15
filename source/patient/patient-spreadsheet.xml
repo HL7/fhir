@@ -2105,7 +2105,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A code that describes how well the language is expressed or understood</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Depending on proficiency level, a common language that is useable to both the patient and the care provider can be chosen.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Depending on proficiency level, a common language that is usable to both the patient and the care provider can be chosen.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">See comments for Person.language.modeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

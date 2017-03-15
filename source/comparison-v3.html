@@ -83,8 +83,8 @@ The idea is that all data needed for any sort of healthcare communication is rep
 All other data models simply constrain the RIM to reflect the needs of particular domain spaces.
 This starts at the international level with further refinement happening in individual countries, projects
 and finally specific implementations.  As models become closer to the implementer, they become less abstract.
-The result is a tendency for v3 models to be extremely broad in their coverage and capability and also
-somewhat abstract.  They need to be this way in order to ensure that all possible implementations in the space
+The result is a tendency for v3 models to be extremely broad in their coverage and capability and 
+somewhat abstract.  They need to be this way to ensure that all possible implementations in the space
 covered by that model can be properly constrained.  As well, each model produces its own schema and,
 in most cases, constrained schemas are not strictly wire-compatible with the schemas of the model being
 constrained.
@@ -118,7 +118,7 @@ concept of "null flavor" on almost every attribute and data type property in its
 could be sent in place of or in addition to the data that would typically be sent for the attribute, association or
 data type property.  Examples include the ideas of "Unknown", "Not asked", "Positive infinity", "Trace amount",
 "Masked", "Other", etc.  Unless an element was explicitly marked as "mandatory" - meaning no null flavors were
-permitted, these null flavors could appear absolutely anywhere.
+permitted, these null flavors could appear anywhere.
 </p>
 <p>
 FHIR approaches the problem differently.  Null flavors are only introduced in the core specification in those
@@ -134,12 +134,12 @@ mappings serve two purposes.  They help to define FHIR semantics in terms of HL7
 ensure that the Work Groups defining the data elements have a good and consistent understanding of the meaning of
 every element.  They also provide guidance for implementers of v3 specifications that may be looking to migrate
 to or map between v3 and FHIR.  However, for the latter use it's important to understand some limitations on
-the RIM mappings.  The RIM is a language which allows the same "idea" to be conveyed in a number of different ways
-with varying granularity and expressiveness.  Thus it's entirely possible for a RIM element to map to a core FHIR
+the RIM mappings.  The RIM is a language which allows the same "idea" to be conveyed in a several ways
+with varying granularity and expressiveness.  Thus, it's entirely possible for a RIM element to map to a core FHIR
 element even though its RIM representation is somewhat different than described in the mapping.  In addition, not all
 v3 models adhere to good modeling practices, so some data elements that would appear to map to a FHIR element might
-not map if the information has not been well represented.  Therefore RIM mappings should be taken as a guide,
-not an absolute, and mappings must be done in the context of the v3 specification being mapped.  (Also
+not map if the information has not been well represented.  Therefore, RIM mappings should be taken as a guide,
+not an absolute, and mappings must be done in the context of the v3 specification being mapped.  (Also,
 see <a href="#v3-abstractModels">Abstract models</a> below.)
 </p>
 <p>
@@ -170,7 +170,7 @@ the v3 methodology does support the introduction of an "updateMode" property to 
 for all or part of an instance.  Each element repetition is flagged with an updateMode to indicate whether the
 element is to be added, removed, updated, etc.  Additional updateModes allow further control over updates.  As
 with the <a href="comparison-v2.html#V2-updateMode">V2 discussion</a> above, implementers will need to generate a full snapshot of
-each resource or or consider using the <a href="http.html#patch">Patch Operation</a> instead.
+each resource or consider using the <a href="http.html#patch">Patch Operation</a> instead.
 </p>
 <p>
 <b>Additional considerations:</b> Most of the implementation considerations for interoperating between FHIR and
