@@ -52,6 +52,12 @@
   Display = Clinical Venue
   Definition = The venue in which an artifact could be used. For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounter (OID: 2.16.840.1.113883.1.11.13955) or NUCC non-individual provider codes OID: 2.16.840.1.113883.1.11.19465.
 
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = species
+  Display = Species
+  Definition = The species to which an artifact applies. For example, SNOMED - 387961004 | Kingdom Animalia (organism).
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
