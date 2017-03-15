@@ -109,151 +109,151 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = on
-  Display = On
-  Definition = The DeviceComponent is operating and will generate DeviceObservations.
+  Code = off
+  Display = Off
+  Definition = The device is off.
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = off
-  Display = Off
-  Definition = The DeviceComponent is not operating.
+  Code = on
+  Display = On
+  Definition = The device is fully operational.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = not-ready
   Display = Not Ready
-  Definition = The DeviceComponent is not ready.
+  Definition = The device is not ready.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = standby
   Display = Standby
-  Definition = The DeviceComponent is operating, but will not generate any DeviceObservations.
+  Definition = The device is ready but not actively operating.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = transduc-discon
   Display = Transducer Diconnected
-  Definition = The DeviceComponent transducer is diconnected.
+  Definition = The device transducer is diconnected.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = hw-discon
   Display = Hardware Disconnectd
-  Definition = The DeviceComponent hardware is disconnected.
+  Definition = The device hardware is disconnected.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = entered-in-error
   Display = Entered In Error
-  Definition = The DeviceComponent was entered in error.
+  Definition = The device was entered in error.
 
 === Sheet specification-type =====================================
 
  -- Row 1 -----------------------------------
   Id = 531971
   Code = unspecified
-  Display = MDC_ID_PROD_SPEC_UNSPECIFIED
-  Definition = Unspecified Production Specification
+  Display = Unspecified Production Specification
+  Definition = Unspecified Production Specification - MDC_ID_PROD_SPEC_UNSPECIFIED
 
  -- Row 2 -----------------------------------
   Id = 531972
   Code = serial-number
-  Display = MDC_ID_PROD_SPEC_SERIAL
-  Definition = Serial Number
+  Display = Serial Number
+  Definition = Serial Number - MDC_ID_PROD_SPEC_SERIAL
 
  -- Row 3 -----------------------------------
   Id = 531973
   Code = part-number
-  Display = MDC_ID_PROD_SPEC_PART
-  Definition = Part Number
+  Display = Part Number
+  Definition = Part Number - MDC_ID_PROD_SPEC_PART
 
  -- Row 4 -----------------------------------
   Id = 531974
   Code = hardware-revision
-  Display = MDC_ID_PROD_SPEC_HW
-  Definition = Hardware Revision
+  Display = Hardware Revision
+  Definition = Hardware Revision - MDC_ID_PROD_SPEC_HW
 
  -- Row 5 -----------------------------------
   Id = 531975
   Code = software-revision
-  Display = MDC_ID_PROD_SPEC_SW
-  Definition = Software Revision
+  Display = Software Revision
+  Definition = Software Revision - MDC_ID_PROD_SPEC_SW
 
  -- Row 6 -----------------------------------
   Id = 531976
   Code = firmware-revision
-  Display = MDC_ID_PROD_SPEC_FW
-  Definition = Firmware Revision
+  Display = Firmware Revision
+  Definition = Firmware Revision - MDC_ID_PROD_SPEC_FW
 
  -- Row 7 -----------------------------------
   Id = 531977
   Code = protocol-revision
-  Display = MDC_ID_PROD_SPEC_PROTOCOL
-  Definition = Protocol Revision
+  Display = Protocol Revision
+  Definition = Protocol Revision - MDC_ID_PROD_SPEC_PROTOCOL
 
  -- Row 8 -----------------------------------
   Id = 531978
   Code = gmdn
-  Display = MDC_ID_PROD_SPEC_GMDN
-  Definition = GMDN
+  Display = GMDN
+  Definition = GMDN - MDC_ID_PROD_SPEC_GMDN
 
 === Sheet parameter-group =====================================
 
  -- Row 1 -----------------------------------
   Id = 393729
   Code = haemodynamic
-  Display = MDC_PGRP_HEMO
-  Definition = Haemodynamic Parameter Group
+  Display = Haemodynamic Parameter Group
+  Definition = Haemodynamic Parameter Group - MDC_PGRP_HEMO
 
  -- Row 2 -----------------------------------
   Id = 393730
   Code = ecg
-  Display = MDC_PGRP_ECG
-  Definition = ECG Parameter Group
+  Display = ECG Parameter Group
+  Definition = ECG Parameter Group - MDC_PGRP_ECG
 
  -- Row 3 -----------------------------------
   Id = 393731
   Code = respiratory
-  Display = MDC_PGRP_RESP
-  Definition = Respiratory Parameter Group
+  Display = Respiratory Parameter Group
+  Definition = Respiratory Parameter Group - MDC_PGRP_RESP
 
  -- Row 4 -----------------------------------
   Id = 393732
   Code = ventilation
-  Display = MDC_PGRP_VENT
-  Definition = Ventilation Parameter Group
+  Display = Ventilation Parameter Group
+  Definition = Ventilation Parameter Group - MDC_PGRP_VENT
 
  -- Row 5 -----------------------------------
   Id = 393733
   Code = neurological
-  Display = MDC_PGRP_NEURO
-  Definition = Neurological Parameter Group
+  Display = Neurological Parameter Group
+  Definition = Neurological Parameter Group - MDC_PGRP_NEURO
 
  -- Row 6 -----------------------------------
   Id = 393734
   Code = drug-delivery
-  Display = MDC_PGRP_DRUG
-  Definition = Drug Delivery Parameter Group
+  Display = Drug Delivery Parameter Group
+  Definition = Drug Delivery Parameter Group - MDC_PGRP_DRUG
 
  -- Row 7 -----------------------------------
   Id = 393735
   Code = fluid-chemistry
-  Display = MDC_PGRP_FLUID
-  Definition = Fluid Chemistry Parameter Group
+  Display = Fluid Chemistry Parameter Group
+  Definition = Fluid Chemistry Parameter Group - MDC_PGRP_FLUID
 
  -- Row 8 -----------------------------------
   Id = 393736
   Code = blood-chemistry
-  Display = MDC_PGRP_BLOOD_CHEM
-  Definition = Blood Chemistry Parameter Group
+  Display = Blood Chemistry Parameter Group
+  Definition = Blood Chemistry Parameter Group - MDC_PGRP_BLOOD_CHEM
 
  -- Row 9 -----------------------------------
   Id = 393737
   Code = miscellaneous
-  Display = MDC_PGRP_MISC
-  Definition = Miscellaneous Parameter Group
+  Display = Miscellaneous Parameter Group
+  Definition = Miscellaneous Parameter Group - MDC_PGRP_MISC
 
 === Sheet Invariants =====================================
 
@@ -369,49 +369,3 @@
   Binding = Language
   Short Name = Language code for the human-readable text strings produced by the device
   Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = parent
-  Type = reference
-  Description = The parent DeviceComponent resource
-  Path = DeviceComponent.parent
-
- -- Row 2 -----------------------------------
-  Name = type
-  Type = token
-  Description = The device component type
-  Path = DeviceComponent.type
-
- -- Row 3 -----------------------------------
-  Name = source
-  Type = reference
-  Description = The device source
-  Path = DeviceComponent.source
-
- -- Row 4 -----------------------------------
-  Name = identifier
-  Type = token
-  Description = The identifier of the component
-  Path = DeviceComponent.identifier
-
-=== Sheet Profiles =====================================
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = General
-  Identity = example
-  Description = General DeviceComponent example
-  Filename = devicecomponent-example.xml
-  Type = xml
-
- -- Row 2 -----------------------------------
-  Name = Example with ProdSpec
-  Identity = example-prodspec
-  Description = Example for DeviceComponent includes production specification information
-  Filename = devicecomponent-example-prodspec.xml
-  Type = xml
-
-=== Sheet Examples =====================================
