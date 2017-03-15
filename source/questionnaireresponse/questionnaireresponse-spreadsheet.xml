@@ -6358,8 +6358,8 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Code indicating the response provided for a question.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s155" ss:HRef="http://hl7.org/fhir/ValueSet/valueset-questionnaire-answers"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/valueset-questionnaire-answers</Data></Cell>
+    <Cell ss:StyleID="s155" ss:HRef="http://hl7.org/fhir/ValueSet/questionnaire-answers"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/questionnaire-answers</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Binding this is problematic because one value set can't apply to both codes and quantities.</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
