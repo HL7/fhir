@@ -5,6 +5,10 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Health education - breast examination for early detection of breast mass</div>
   </text>
+  <basedOn>
+	<reference value="ProcedureRequest/education"/> 
+    <display value="Order for health education"/> 
+  </basedOn>
   <status value="completed"/>
   <category>
     <coding>
