@@ -233,7 +233,7 @@
   Binding = MetricType
   Short Name = Identity of metric, for example Heart Rate or PEEP Setting
   Definition = Describes the type of the metric. For example: Heart Rate, PEEP Setting, etc.
-  Comments = DeviceMetric.type can be referred to either GDMN (nomenclature system supported by FDA Global UDI Database) or preferable RTMMS coding system.
+  Comments = DeviceMetric.type can be referred to either IEEE 11073-10101 or LOINC.
   w5 = class
 
  -- Row 4 -----------------------------------
