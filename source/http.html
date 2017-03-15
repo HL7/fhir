@@ -15,6 +15,13 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="timelines.html#levels">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
 
 <p>
+FHIR is described as a 'RESTful' specification based on common industry level use of the term REST. In practice, FHIR only supports Level 2 of the 
+<a href="https://martinfowler.com/articles/richardsonMaturityModel.html">REST Maturity model</a> as part of the core specification, though full Level 3 
+conformance is possible through the use of <a href="extensibility.html">extensions</a>. Because FHIR is a standard, it relies on the standardization of 
+resource structures and interfaces.  This may be considered a violation of REST principles but is key to ensuring consistent interoperability across 
+diverse systems.
+</p>
+<p>
 Each "resource type" has the same set of interactions defined that can be used to manage the resources
 in a highly granular fashion. Applications claiming conformance to this framework
 claim to be conformant to "RESTful FHIR"  (see <a href="conformance-rules.html">Conformance</a>).
