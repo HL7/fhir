@@ -20,14 +20,14 @@ resource (and there is an <a href="mapping.g4">antlr grammar for the concrete sy
 </p>
 <p>
 The mapping language describes how one set of Directed Acyclic Graphs (an instance) is transformed to another set of 
-directed ayclic graphs. It is not necessary for the instances to have formal declarations and/or be 
+directed acyclic graphs. It is not necessary for the instances to have formal declarations and/or be 
 strongly typed - just that they have named children that themselves have properties. On the other hand, 
 when the instances are strongly typed - specifically, when they have formal definitions that are represented as 
 <a href="structuredefinition.html">Structure Definitions</a>, the mapping language can use additional type
 related features. 
 </p>
 <p>
-The mapping language addresses 2 very different kinds of transformations:
+The mapping language addresses two very different kinds of transformations:
 </p>
 <ul>
  <li>Structural changes between the source and target structures</li>
@@ -41,7 +41,7 @@ A map has 6 parts:
  <li>Embedded <a href="conceptmap.html">ConceptMaps</a> to translate between different code systems</li>
  <li>References to the structures involved in the mapping</li>
  <li>Imports: additional Maps used by this map</li>
- <li>a series of groups, with a list of input variables</li>
+ <li>A series of groups, each with a list of input variables</li>
  <li>A series of transformation rules in each group</li>
 </ul>
 
@@ -61,7 +61,7 @@ instance for its children, its primitive value, and (optionally) its type. The l
 <li>Return the correct string format to refer to a tree (input or output)</li>
 </ul>
 <p>
-These functions consistitute a Mapping Support API that makes maps portable between different systems
+These functions constitute a Mapping Support API that makes maps portable between different systems
 </p>
 
 <p>
@@ -75,7 +75,7 @@ Generally, it is assumed the invocation of the engine follows some pattern like 
 </ul>
 <p>
 Some host applications may be able to determine how to combine maps and inputs on the fly based 
-on their metadata, and minimal configuration, while others may require manual arrangements in
+on their metadata, and require minimal configuration, while others may require manual arrangements in
 order to manage the map execution process.
 </p>
 
@@ -84,7 +84,7 @@ order to manage the map execution process.
 <h3>General Syntax Notes</h3>
 <p>
 Mapping files are always plain text in unicode. Whitespace is any unicode whitespace, and the particular whitespace used 
-is not signicant, except that unicode end of line characters terminate a 
+is not significant, except that unicode end of line characters terminate a 
 comment. Comments are started by the characters "//".
 </p>
 <p>
@@ -149,13 +149,13 @@ There are 4 modes in which a structure definition may be used:
 </ul>
 <p>
 The simplest case, which is common, is where a single structure is converted to another single structure. in 
-this case, the map specifes one target, and one source. Such maps are easy to use automatically - the host 
+this case, the map specifies one target, and one source. Such maps are easy to use automatically - the host 
 application has content in one format, creates an empty instance of the target, and asks the mapping engine to convert. 
 </p>
 <p>
 However, many mappings are not so simple. For instance, converting from a single CDA document to FHIR typically
 creates a set of resources. In this case, there is a single target - a <a href="bundle.html">Bundle</a>, but it 
-is also useful to specify a set of other structure definitions that may be created as part of the bundle. Alternatively
+is also useful to specify a set of other structure definitions for resources that may be created as part of the bundle. Alternatively
 converting from one source model to another might involve looking up other information in other instances of data.
 </p>
 <p>
@@ -173,7 +173,7 @@ This section references additional maps that are used by this map:
 imports "[url]" // documentation
 </pre>
 <p>
-Typically, maps that are imported a type based, such as a CDA --> FHIR map that makes 
+Typically, maps that are imported are type based, such as a CDA --> FHIR map that makes 
 use of a CD --> CodeableConcept map. How imported maps are actually used is discussed below.
 </p>
 <p>
@@ -195,27 +195,30 @@ group (for type) [group-name] (extends [other-group])
 </pre>
 <p>
 Each group has a name, which is how the mapping is invoked. The first group 
-is special, in that this is the group invoked if there no name is provided (e.g.
+is special, in that this is the group invoked if no name is provided (e.g.
 starting the mapping by a host application). 
 </p>
 <p>
+The inputs of a group are also  referred to (below) as its input parameters, or just as parameters; or as input variables.
+</p>
+<p>
 Each input to the group has a name. This is the name that applications use when passing the 
-instance to the invocation engine, or that rules use when invoking the group. Inputs may have a type - and should (see the 
+instance to the invocation engine, or that rules use when invoking the group. Inputs may have a type - and should have (see the 
 discussion above), but are not required to. Input variables also have a mode, 
 which may be one of source or target (see above). There must be at least two 
-input variable (source and target) - else there's nothing to map. 
+input variables (source and target) - else there's nothing to map. 
 Maps may have additional input or output inputs, where that's necessary. 
 </p>
 <p>
 Groups may extend other groups, which means that the rules in the other group 
 also apply (typically, this is used with specialising classes in an OO context). 
 When a group extends another group, it SHALL have the same input parameters (by name, type and mode)
-though their order may differ, and it may have additional parameters.
+though their order may differ, and it MAY have additional parameters.
 </p>
 <p>
 The key word <code>for</code> is used to indicate that this group provides a 
 set of mappings that are intended to be used as the default way to map from
-source from source to target. There are 2 variants:
+source to target. There are 2 variants:
 </p>
 <ul>
  <li><code>for types</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
@@ -246,7 +249,7 @@ Each rule has 4 main sections:
  <li><b>Dependent Rules</b>: Specifies which - if any - rules or groups to apply within the scope of the rule</li>
 </ul>
 <p>
-Rules may be applied in any order; there is no sense of sequentially applying one rule after another.
+Rules in a group may be applied in any order; there is no sense of sequentially applying one rule after another.
 </p>
 
 <h4>Name</h4>
@@ -258,7 +261,7 @@ Names must be unique within the context of the map.
 <h4>Source Content</h4>
 <p>
 Each rule specifies one or more elements taken from the source that define variables that can be used 
-when specifying target content, or re-used in subsequent transform rules. Multiple source elements are
+when specifying target content, or re-used in subsequent transforms on the rule. Multiple source elements are
 separated by a comma, like this:
 </p>
 <pre>
@@ -268,7 +271,7 @@ rule_name: for [source], [source], make ...
 Each [source] contains the following items:
 </p>
 <pre>
-for context.element { : type {min..max}} {default [value]} { list-option } as variable where [FHIRPath] check [FHIRPath]
+context.element { : type {min..max}} {default [value]} { list-option } as variable where [FHIRPath] check [FHIRPath]
 </pre>
 <ul>
  <li><b>context</b>: A variable that is the context in which this rule applies. Variables are not prefixed, and must be declared elsewhere in the map ('as variable' below, or in the input source variables)</li>
@@ -276,7 +279,7 @@ for context.element { : type {min..max}} {default [value]} { list-option } as va
  <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
  <li><b>min..max</b>: Specified cardinality. If a cardinality is specified, and the input document does not conform to the cardinality, the mapping engine raises an exception instead of completing the transformation</li>
  <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once</li>
- <li><b>list-option</b>: by default, the rule will apply once for each occurance of the element in context. The list option can override this to specify only to apply the first, last, or not to those</li>
+ <li><b>list-option</b>: by default, the rule will apply once for each occurrence of the element in context. The list option can override this to specify only to apply the first, last, or not to those</li>
  <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
  <li><b>where [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
  <li><b>check [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine terminates execution with an error. Note: it's usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
