@@ -9,9 +9,14 @@
     </div>
   </text>
   <url value="http://example.org/Questionnaire/zika-virus-exposure-assessment"/>
+  <name value="ExampleZikaVirusExposureAssessment"/>
   <title value="Example Zika Virus Exposure Assessment"/>
   <status value="draft"/>
   <date value="2016-11-14"/>
+  <description value="Example questionnaire to assess Zika virus exposure potential."/>
+  <effectivePeriod>
+    <start value="2016-11-14"/>
+  </effectivePeriod>
   <subjectType value="Patient"/>
 
   <item>
