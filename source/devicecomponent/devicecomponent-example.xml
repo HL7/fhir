@@ -32,13 +32,7 @@
 			<display value="Miscellaneous Parameter Group"/>
 		</coding>
 	</parameterGroup>
-	<measurementPrinciple>
-		<coding>
-			<system value="http://hl7.org/fhir/measurement-principle"/>
-			<code value="optical"/>
-			<display value="MSP Optical"/>
-		</coding>
-	</measurementPrinciple>
+	<measurementPrinciple value="optical"/>
 	<languageCode>
 		<coding>
 			<system value="http://tools.ietf.org/html/bcp47"/>

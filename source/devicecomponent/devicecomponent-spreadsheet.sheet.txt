@@ -328,7 +328,7 @@
  -- Row 9 -----------------------------------
   Element = DeviceComponent.measurementPrinciple
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = MeasmntPrinciple
   Short Name = other | chemical | electrical | impedance | nuclear | optical | thermal | biological | mechanical | acoustical | manual+
   Definition = The physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
@@ -369,3 +369,49 @@
   Binding = Language
   Short Name = Language code for the human-readable text strings produced by the device
   Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = parent
+  Type = reference
+  Description = The parent DeviceComponent resource
+  Path = DeviceComponent.parent
+
+ -- Row 2 -----------------------------------
+  Name = type
+  Type = token
+  Description = The device component type
+  Path = DeviceComponent.type
+
+ -- Row 3 -----------------------------------
+  Name = source
+  Type = reference
+  Description = The device source
+  Path = DeviceComponent.source
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The identifier of the component
+  Path = DeviceComponent.identifier
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General DeviceComponent example
+  Filename = devicecomponent-example.xml
+  Type = xml
+
+ -- Row 2 -----------------------------------
+  Name = Example with ProdSpec
+  Identity = example-prodspec
+  Description = Example for DeviceComponent includes production specification information
+  Filename = devicecomponent-example-prodspec.xml
+  Type = xml
+
+=== Sheet Examples =====================================
