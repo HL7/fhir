@@ -352,7 +352,7 @@
   Binding = SecurityLabels
   Short Name = Security Labels that define affected resources
   Definition = A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels
-  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 21 -----------------------------------
   Element = Consent.purpose
@@ -470,7 +470,7 @@
   Binding = SecurityLabels
   Short Name = Security Labels that define affected resources
   Definition = A set of security labels that define which resources are controlled by this exception. If more than one label is specified, all resources must have all the specified labels
-  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labelled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 34 -----------------------------------
   Element = Consent.except.purpose

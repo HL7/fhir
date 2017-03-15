@@ -201,7 +201,7 @@
   Type = boolean
   Short Name = Is this the id that should be used for this type
   Definition = Indicates whether this identifier is the \"preferred\" identifier of this type.
-  Missing Meaning = If there are multiple ids, and one is labelled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn
+  Missing Meaning = If there are multiple ids, and one is labeled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn
 
  -- Row 18 -----------------------------------
   Element = NamingSystem.uniqueId.comment

@@ -135,6 +135,7 @@
  -- Row 15 -----------------------------------
   Element = OperationDefinition.idempotent
   Card. = 0..1
+  Summary = Y
   Type = boolean
   Short Name = Whether content is unchanged by the operation
   Definition = Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST
@@ -142,6 +143,7 @@
  -- Row 16 -----------------------------------
   Element = OperationDefinition.code
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = !
   Short Name = Name used to invoke the operation
@@ -158,6 +160,7 @@
  -- Row 18 -----------------------------------
   Element = OperationDefinition.base
   Card. = 0..1
+  Summary = Y
   Type = Reference(OperationDefinition)
   Short Name = Marks this as a profile of the base
   Definition = Indicates that this operation definition is a constraining profile on the base
@@ -167,6 +170,7 @@
  -- Row 19 -----------------------------------
   Element = OperationDefinition.resource
   Card. = 0..*
+  Summary = Y
   Type = code
   Binding = ResourceType
   Short Name = Types this operation applies to
@@ -177,6 +181,7 @@
  -- Row 20 -----------------------------------
   Element = OperationDefinition.system
   Card. = 1..1
+  Summary = Y
   Type = boolean
   Short Name = Invoke at the system level?
   Definition = Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)
@@ -184,6 +189,7 @@
  -- Row 21 -----------------------------------
   Element = OperationDefinition.type
   Card. = 1..1
+  Summary = Y
   Type = boolean
   Short Name = Invole at the type level?
   Definition = Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)
@@ -191,6 +197,7 @@
  -- Row 22 -----------------------------------
   Element = OperationDefinition.instance
   Card. = 1..1
+  Summary = Y
   Type = boolean
   Short Name = Invoke on an instance?
   Definition = Indicates whether this operation can be invoked on a particular instance of one of the given types

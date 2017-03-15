@@ -425,7 +425,7 @@
   Inv. = 18
   Type = string
   Short Name = FHIRPath invariants - when the extension can be used
-  Definition = A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurance variants for the extension)
+  Definition = A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension)
   Comments = All the rules must be true. When evaluating the invariant, the fluentpath focus is the element that holds the extension, and %extension refers to the extension itself
 
  -- Row 29 -----------------------------------

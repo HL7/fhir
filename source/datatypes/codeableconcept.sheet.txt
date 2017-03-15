@@ -23,7 +23,7 @@
   Short Name = Code defined by a terminology system
   Definition = A reference to a code defined by a terminology system
   Requirements = Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.
-  Comments = Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labelled as UserSelected = true
+  Comments = Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true
   v2 Mapping = C*E.1-8, C*E.10-22
   RIM Mapping = union(., ./translation)
   ORIM Mapping = fhir:CodeableConcept.coding rdfs:subPropertyOf dt:CD.coding
@@ -39,4 +39,3 @@
   v2 Mapping = C*E.9. But note many systems use C*E.2 for this
   RIM Mapping = ./originalText[mediaType/code=\"text/plain\"]/data
   ORIM Mapping = fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText
-  Translatable = y

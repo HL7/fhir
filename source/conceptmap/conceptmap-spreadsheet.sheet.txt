@@ -252,7 +252,7 @@
   Card. = 1..1
   Type = uri
   Short Name = Reference to property mapping depends on
-  Definition = A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property
+  Definition = A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labeled to correspond with a code system property
 
  -- Row 34 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn.system

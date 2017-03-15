@@ -389,7 +389,7 @@
   Type = Dosage
   Short Name = Details of how medication is/was taken or should be taken
   Definition = Indicates how the medication is/was or should be taken by the patient
-  Comments = The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, \"from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.\"  It is expected that this specificity may only be populated where the patient brings in their labelled container or where the Medication Statement is derived from a MedicationRequest.
+  Comments = The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, \"from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.\"  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Statement is derived from a MedicationRequest.
   RIM Mapping = refer dosageInstruction mapping
 
 === Sheet Search =====================================
