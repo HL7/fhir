@@ -266,7 +266,7 @@
  -- Row 23 -----------------------------------
   Element = RiskAssessment.comment
   Card. = 0..1
-  Type = Annotation
+  Type = string
   Short Name = Comments on the risk assessment
   Definition = Additional comments about the risk assessment
   Workflow Mapping = Event.note
