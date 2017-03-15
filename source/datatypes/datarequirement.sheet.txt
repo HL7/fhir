@@ -36,7 +36,7 @@
  -- Row 5 -----------------------------------
   Element = DataRequirement.codeFilter
   Card. = 0..*
-  Short Name = Code filters for the data
+  Short Name = What codes are expected
   Definition = Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data
 
  -- Row 6 -----------------------------------
@@ -57,27 +57,27 @@
   Element = DataRequirement.codeFilter.valueCode
   Card. = 0..*
   Type = code
-  Short Name = Code value of the filter
-  Definition = The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes
+  Short Name = What code is expected
+  Definition = The codes for the code filter. Only one of valueSet, valueCode, valueCoding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes
 
  -- Row 9 -----------------------------------
   Element = DataRequirement.codeFilter.valueCoding
   Card. = 0..*
   Type = Coding
-  Short Name = Coding value of the filter
+  Short Name = What Coding is expected
   Definition = The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings
 
  -- Row 10 -----------------------------------
   Element = DataRequirement.codeFilter.valueCodeableConcept
   Card. = 0..*
   Type = CodeableConcept
-  Short Name = CodeableConcept value of the filter
+  Short Name = What CodeableConcept is expected
   Definition = The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts
 
  -- Row 11 -----------------------------------
   Element = DataRequirement.dateFilter
   Card. = 0..*
-  Short Name = Date filters for the data
+  Short Name = What dates/date ranges are expected
   Definition = Date filters specify additional constraints on the data in terms of the applicable date range for specific elements
 
  -- Row 12 -----------------------------------

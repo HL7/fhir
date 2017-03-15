@@ -58,7 +58,7 @@
   Element = Contributor.name
   Card. = 1..1
   Type = string
-  Short Name = Name of the contributor
+  Short Name = Who contributed the content
   Definition = The name of the individual or organization responsible for the contribution
 
  -- Row 4 -----------------------------------

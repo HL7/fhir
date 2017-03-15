@@ -210,6 +210,13 @@
     </resource>
   </relatedArtifact>
 
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource>
+      <reference value="Measure/measure-exclusive-breastfeeding"/>
+    </resource>
+  </relatedArtifact>
+
   <!--valueSet>
     <name value="Female Administrative Sex"/>
     <identifier value="2.16.840.1.113883.3.560.100.2"/>

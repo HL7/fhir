@@ -23,8 +23,8 @@
   Card. = 0..1
   Type = code
   Binding = !
-  Short Name = Parameter name
-  Definition = The name of the parameter
+  Short Name = Name used to access the parameter value
+  Definition = The name of the parameter used to allow access to the value of the parameter in evaluation contexts
 
  -- Row 3 -----------------------------------
   Element = ParameterDefinition.use
@@ -60,12 +60,12 @@
   Card. = 1..1
   Type = code
   Binding = FHIRAllTypes
-  Short Name = Type for the parameter
+  Short Name = What type of value
   Definition = The type of the parameter
 
  -- Row 8 -----------------------------------
   Element = ParameterDefinition.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
-  Short Name = The profile of the parameter, any
+  Short Name = What profile the value is expected to be
   Definition = If specified, this indicates a profile that the input data must conform to, or that the output data will conform to

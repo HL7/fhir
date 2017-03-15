@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id value="referralPrimaryCareMentalHealth"/>
+  <id value="referralPrimaryCareMentalHealth-initial"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -11,7 +11,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/referralPrimaryCareMentalHealth</td>
+               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/referralPrimaryCareMentalHealth-initial</td>
             </tr>
          </table>
          <p/>
@@ -97,20 +97,20 @@
     <system value="http://motivemi.com/artifacts"/>
     <value value="referralPrimaryCareMentalHealth"/>
   </identifier>
-  <version value="1.1.0"/>
+  <version value="1.0.0"/>
   <name value="ReferralPrimaryCareMentalHealth"/>
   <title value="Referral to Primary Care Mental Health"/>
-  <status value="active"/>
+  <status value="retired"/>
   <experimental value="true"/>
   <date value="2017-03-03T14:06:00Z"/>
   <publisher value="Motive Medical Intelligence"/>
   <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
   <purpose value="Defines a referral to a mental-health integrated care program for use in suicide risk order sets. The definition is independent of the order set in which it appears to allow reuse of the general definition of the referrral."/>
   <usage value="This activity definition is used as the definition of a referral request within various suicide risk order sets. Elements that apply universally are defined here, while elements that apply to the specific setting of a referral within a particular order set are defined in the order set."/>
-  <approvalDate value="2017-03-01"/>
-  <lastReviewDate value="2017-03-01"/>
+  <approvalDate value="2016-03-12"/>
+  <lastReviewDate value="2016-08-15"/>
   <effectivePeriod>
-    <start value="2017-03-01"/>
+    <start value="2016-01-01"/>
     <end value="2017-12-31"/>
   </effectivePeriod>
   <useContext>
@@ -248,9 +248,9 @@
     <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="predecessor"/>
+    <type value="successor"/>
     <resource>
-      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
+      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
     </resource>
   </relatedArtifact>
   <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->

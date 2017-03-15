@@ -462,6 +462,18 @@
   Description = Definition for blood collection tubes supply
   Filename = activitydefinition-supplyrequest-example.xml
 
+ -- Row 8 -----------------------------------
+  Name = Predecessor
+  Identity = referralPrimaryCareMentalHealth-initial
+  Description = Example of a predecessor/successor relationship
+  Filename = activitydefinition-predecessor-example.xml
+
+ -- Row 9 -----------------------------------
+  Name = Order Serum Dengue Virus IgM
+  Identity = serum-dengue-virus-igm
+  Description = Definition for ordering a Serum Dengue Virus IgM Antibody Diagnostic
+  Filename = activitydefinition-order-serum-dengue-virus-igm.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

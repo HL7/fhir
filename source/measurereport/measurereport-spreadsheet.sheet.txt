@@ -114,7 +114,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Measure)
-  Short Name = Measure that was evaluated
+  Short Name = What measure was evaluated
   Definition = A reference to the Measure that was evaluated to produce this report
   Workflow Mapping = Event.definition
   w5 = what
@@ -124,7 +124,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Patient)
-  Short Name = Optional Patient
+  Short Name = What patient the report is for
   Definition = Optional Patient if the report was requested for a single patient.
   Workflow Mapping = Event.subject
   w5 = who.focus
@@ -134,7 +134,7 @@
   Card. = 0..1
   Summary = Y
   Type = dateTime
-  Short Name = Date the report was generated
+  Short Name = When the report was generated
   Definition = The date this measure report was generated
   Workflow Mapping = Event.occurrenceDateTime
   w5 = when.recorded
@@ -144,7 +144,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Name = Reporting Organization
+  Short Name = Who is reporting the data
   Definition = Reporting Organization
   w5 = who.source
 
@@ -153,7 +153,7 @@
   Card. = 1..1
   Summary = Y
   Type = Period
-  Short Name = Reporting period
+  Short Name = What period the report covers
   Definition = The reporting period for which the report was calculated
 
  -- Row 10 -----------------------------------
@@ -169,7 +169,7 @@
   Card. = 1..1
   Summary = N
   Type = Identifier
-  Short Name = Identifier of the population group being reported
+  Short Name = What group of the measure
   Definition = The identifier of the population group as defined in the measure definition
 
  -- Row 12 -----------------------------------
@@ -184,7 +184,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Identifier of the population being reported
+  Short Name = Population identifier as defined in the measure
   Definition = The identifier of the population being reported, as defined by the population element of the measure
 
  -- Row 14 -----------------------------------
@@ -217,8 +217,8 @@
   Card. = 0..1
   Summary = N
   Type = decimal
-  Short Name = The measure score
-  Definition = The measure score
+  Short Name = What score this group achieved
+  Definition = The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group
 
  -- Row 18 -----------------------------------
   Element = MeasureReport.group.stratifier
@@ -233,7 +233,7 @@
   Card. = 0..1
   Summary = N
   Type = Identifier
-  Short Name = Identifier of the stratifier
+  Short Name = What stratifier of the group
   Definition = The identifier of this stratifier, as defined in the measure definition
 
  -- Row 20 -----------------------------------
@@ -267,7 +267,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Identifier of the population
+  Short Name = Population identifier as defined in the measure
   Definition = The identifier of the population being reported, as defined by the population element of the measure
 
  -- Row 24 -----------------------------------
@@ -300,8 +300,8 @@
   Card. = 0..1
   Summary = N
   Type = decimal
-  Short Name = Score for this stratum
-  Definition = The measure score for this stratum
+  Short Name = What score this stratum achieved
+  Definition = The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum
 
  -- Row 28 -----------------------------------
   Element = MeasureReport.evaluatedResources
@@ -318,6 +318,18 @@
   Type = reference
   Description = The identity of a patient to search for individual measure report results for
   Path = MeasureReport.patient
+
+ -- Row 2 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the measure report
+  Path = MeasureReport.status
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = External identifier of the measure report to be returned
+  Path = MeasureReport.identifier
 
 === Sheet Profiles =====================================
 

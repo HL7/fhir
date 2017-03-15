@@ -1,15 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/guidanceresponse.xsd">
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="example"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-  
+  <!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. -->
+  <contained>
+    <Parameters >
+      <id value="outputParameters1"/>
+      <parameter>
+        <name value="score"/>
+        <valueDecimal value="7"/>
+      </parameter>
+      <parameter>
+        <name value="item-assessed"/>
+		<valueCodeableConcept>
+		  <coding>
+			<system value="http://www.ama-assn.org/go/cpt"/>
+			<code value="70450"/>
+			<display value="CT, head, wo iv contrast"/>
+		  </coding>
+		</valueCodeableConcept>
+      </parameter>
+      <parameter>
+        <name value="device"/>
+        <valueReference>
+          <reference value="Device/software"/>
+        </valueReference>
+      </parameter>
+      <parameter>
+        <name value="guideline-followed"/>
+        <valueUri value="http://someguidelineprovider.org/radiology-appropriateness-guidelines.html"/>
+      </parameter>
+    </Parameters>
+  </contained>
+  <requestId value="guidanceRequest1"/>
+  <identifier>
+    <system value="http://example.org"/>
+    <value value="guidanceResponse1"/>
+  </identifier>
   <module>
-	  <reference value="ServiceDefinition/example"/>
+    <reference value="ServiceDefinition/example"/>
   </module>
-  
   <status value="success"/>
-  
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
+  <occurrenceDateTime value="2017-03-10T16:02:00Z"/>
+  <performer>
+    <reference value="Device/software"/>
+  </performer>
+  <reasonCodeableConcept>
+    <text value="Guideline Appropriate Ordering Assessment"/>
+  </reasonCodeableConcept>
+  <outputParameters>
+    <reference value="#outputParameters1"/>
+  </outputParameters>
 </GuidanceResponse>

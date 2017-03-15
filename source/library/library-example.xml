@@ -177,7 +177,7 @@
                   </p>
                   <p style="margin-bottom: 5px;">
                      <b>url: </b>
-                     <span>http://cqlrepository.org/ChlamydiaScreening_Common.cql</span>
+                     <span>library-example-content.cql</span>
                   </p>
                </td>
             </tr>
@@ -227,7 +227,7 @@
 
   <content>
     <contentType value="text/cql"/>
-    <url value="http://cqlrepository.org/ChlamydiaScreening_Common.cql"/>
+    <url value="library-example-content.cql"/>
   </content>
 
 </Library>

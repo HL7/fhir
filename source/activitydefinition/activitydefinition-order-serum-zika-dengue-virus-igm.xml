@@ -110,6 +110,12 @@
 	<display value="Explanation of diagnostic tests for Zika virus and which to use based on the patient’s clinical and exposure history."/>
 	<url value="http://www.cdc.gov/zika/hc-providers/diagnostic.html"/>
   </relatedArtifact>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource>
+      <reference value="ActivityDefinition/serum-dengue-virus-igm"/>
+    </resource>
+  </relatedArtifact>
   <library>
     <reference value="Library/zika-virus-intervention-logic"/>
   </library>

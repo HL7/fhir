@@ -586,6 +586,12 @@
   Description = Glasgow Coma Score example form
   Filename = questionnaire-example-gcs.xml
 
+ -- Row 5 -----------------------------------
+  Name = Zika Virus Exposure Assessment
+  Identity = zika-virus-exposure-assessment
+  Description = Example instrument for assessing Zika virus exposure potential
+  Filename = questionnaire-zika-virus-exposure-assessment.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

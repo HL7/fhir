@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
-  <id value="administer-zika-virus-exposure-assessment"/>
+  <id value="serum-dengue-virus-igm"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -12,7 +12,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/administer-zika-virus-exposure-assessment</td>
+               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/serum-dengue-virus-igm</td>
             </tr>
          </table>
          <p/>
@@ -34,7 +34,27 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Administer Zika Virus Exposure Assessment</td>
+               <td style="padding-left: 25px; padding-right: 25px;">Order Serum Dengue Virus IgM</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Related: </b>
+               </td>
+            </tr>
+            <tr style="vertical-align: top;">
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <p style="margin-top: 5px;">
+                     <b>type: </b>
+                     <span>documentation</span>
+                  </p>
+                  <p style="margin-top: 5px;">
+                     <b>display: </b>
+                     <span>Explanation of diagnostic tests for Dengue virus and which to use based on the patients clinical and exposure history.</span>
+                  </p>
+               </td>
             </tr>
          </table>
          <p/>
@@ -45,7 +65,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">procedure</td>
+               <td style="padding-left: 25px; padding-right: 25px;">diagnostic</td>
             </tr>
          </table>
          <p/>
@@ -57,19 +77,10 @@
             </tr>
             <tr>
                <td style="padding-right: 25px;">
-                  <span>
-                     <span>
-                        <span style="padding-left: 25px;">
-                           <b>system: </b>
-                           <span>http://example.org/questionnaires</span>
-                           <br/>
-                        </span>
-                        <span style="padding-left: 25px;">
-                           <b>code: </b>
-                           <span>zika-virus-exposure-assessment</span>
-                           <br/>
-                        </span>
-                     </span>
+                  <span style="padding-left: 25px;">
+                     <b>text: </b>
+                     <span>Serum Dengue Virus IgM</span>
+                     <br/>
                   </span>
                </td>
             </tr>
@@ -87,28 +98,16 @@
          </table>
       </div>
   </text>
-  <url value="http://example.org/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+  <url value="http://example.org/ActivityDefinition/serum-dengue-virus-igm"/>
   <status value="draft"/>
-  <description value="Administer Zika Virus Exposure Assessment"/>
+  <description value="Order Serum Dengue Virus IgM"/>
   <relatedArtifact>
-    <type value="derived-from"/>
-    <url value="https://www.cdc.gov/zika/hc-providers/pregnant-woman.html"/>
+	<type value="documentation"/>
+	<display value="Explanation of diagnostic tests for Dengue virus and which to use based on the patient’s clinical and exposure history."/>
   </relatedArtifact>
-  <relatedArtifact>
-    <type value="depends-on"/>
-    <resource>
-      <reference value="Questionnaire/zika-virus-exposure-assessment"/>
-    </resource>
-  </relatedArtifact>
-  <library>
-    <reference value="Library/zika-virus-intervention-logic"/>
-  </library>
   <kind value="ProcedureRequest"/>
   <code>
-    <coding>
-      <system value="http://example.org/questionnaires"/>
-      <code value="zika-virus-exposure-assessment"/>
-    </coding>
+    <text value="Serum Dengue Virus IgM"/>
   </code>
   <timingTiming>
     <event>
@@ -117,7 +116,7 @@
       </extension>
     </event>
   </timingTiming>
-  <participant>
+	<participant>
 		<type value="practitioner"/>
   </participant>
 </ActivityDefinition>

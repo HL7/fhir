@@ -901,11 +901,23 @@
     </telecom>
   </contact>
   <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
-	<relatedArtifact>
-      <type value="citation"/>
-      <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
-	</relatedArtifact>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+    <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="composed-of"/>
+    <resource>
+      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
+    </resource>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="composed-of"/>
+    <resource>
+      <reference value="ActivityDefinition/citalopramPrescription"/>
+    </resource>
+  </relatedArtifact>
   <library>
     <reference value="Library/suiciderisk-orderset-logic"/>
     <display value="SuicideRiskLogic"/>

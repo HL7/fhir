@@ -157,7 +157,6 @@
   Workflow Mapping = Event.performer.actor
   v2 Mapping = IAM-14 / IAM-16
   RIM Mapping = .participation[typeCode=AUT].role[classCode=ASSIGNED]
-  To Do = Is this 80%?
   w5 = who.author
 
  -- Row 9 -----------------------------------
@@ -190,7 +189,6 @@
   Short Name = Authority for issue
   Definition = The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified
   RIM Mapping = .outboundRelationship[typeCode=INST].target[classCode=ALRT, moodCode=DEFN].text.uri
-  To Do = Is this in the 80%?
 
  -- Row 12 -----------------------------------
   Element = DetectedIssue.mitigation
@@ -199,7 +197,6 @@
   Short Name = Step taken to address
   Definition = Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.
   RIM Mapping = .outboundRelationship[typeCode=MITG].target[classCode=ACT, moodCode=EVN]
-  To Do = How much, if any of this is in the 80%?
 
  -- Row 13 -----------------------------------
   Element = DetectedIssue.mitigation.action

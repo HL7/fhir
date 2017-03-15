@@ -147,6 +147,12 @@
   <topic>
     <text value="Exclusive Breastfeeding"/>
   </topic>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource>
+      <reference value="Measure/measure-exclusive-breastfeeding"/>
+    </resource>
+  </relatedArtifact>
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
   </library>

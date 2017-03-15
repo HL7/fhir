@@ -72,13 +72,24 @@
       </table>
     </div>
   </text>
+  <identifier>
+    <use value="official"/>
+    <system value="http://example.org"/>
+    <value value="risk-assessment-cardiac"/>
+  </identifier>
   <status value="final"/>
+  <subject>
+    <reference value="Patient/pat2"/>
+  </subject>
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
   <occurrenceDateTime value="2014-07-19T16:04:00Z"/>
   <performer>
     <display value="http://cvdrisk.nhlbi.nih.gov/#cholesterol"/>
   </performer>
   <basis>
-    <reference value="Patient/example"/>
+    <reference value="Patient/pat2"/>
   </basis>
   <basis>
     <reference value="DiagnosticReport/lipids"/>

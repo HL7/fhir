@@ -115,11 +115,6 @@
         <documentation value="Search allows clients to filter measures based on a provided search parameter"/>
 	  </interaction>
       <searchParam>
-        <name value="description"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/Measure-description"/>
-        <type value="string"/>
-      </searchParam>
-      <searchParam>
         <name value="identifier"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-identifier"/>
         <type value="token"/>
@@ -127,16 +122,6 @@
       <searchParam>
         <name value="status"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-status"/>
-        <type value="token"/>
-      </searchParam>
-      <searchParam>
-        <name value="title"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/Measure-title"/>
-        <type value="string"/>
-      </searchParam>
-      <searchParam>
-        <name value="topic"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/Measure-topic"/>
         <type value="token"/>
       </searchParam>
       <searchParam>

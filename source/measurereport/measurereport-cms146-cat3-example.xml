@@ -965,6 +965,9 @@
       <name value="Good Health Hospital"/>
     </Organization>
   </contained>
+  <identifier>
+    <value value="measurereport-cms146-cat3-example-2017-03-13"/>
+  </identifier>
   <status value="complete"/>
   <type value="summary"/>
   <measure>

@@ -87,7 +87,7 @@
             <tr>
                <td style="padding-left: 25px; padding-right: 25px;">
                   <b>reference: </b>
-                  <span>Library/ChlamydiaScreening_CDS_UsingCommon</span>
+                  <span>Library/example</span>
                </td>
             </tr>
          </table>
@@ -132,7 +132,7 @@
     <text value="Chlamydia Screeening"/>
   </topic>
   <library>
-    <reference value="Library/ChlamydiaScreening_CDS_UsingCommon"/>
+    <reference value="Library/example"/>
   </library>
   <action>
     <title value="Patient has not had chlamydia screening within the recommended timeframe..."/>

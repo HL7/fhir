@@ -630,6 +630,30 @@
   Description = Appropriate Testing for Children with Pharyngitis
   Filename = measure-cms146-example.xml
 
+ -- Row 3 -----------------------------------
+  Name = Component A
+  Identity = component-a-example
+  Description = Screening for Alcohol Misuse - Component A of a Composite Measure
+  Filename = measure-component-a-example.xml
+
+ -- Row 4 -----------------------------------
+  Name = Component B
+  Identity = component-b-example
+  Description = Screening for Depression - Component B of a Composite Measure Example
+  Filename = measure-component-b-example.xml
+
+ -- Row 5 -----------------------------------
+  Name = Composite
+  Identity = composite-example
+  Description = Behavioral Health Assessment - Composite Measure Example
+  Filename = measure-composite-example.xml
+
+ -- Row 6 -----------------------------------
+  Name = Predecessor
+  Identity = measure-predecessor-example
+  Description = Predecessor example - Exclusive Breastfeeding
+  Filename = measure-predecessor-example.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

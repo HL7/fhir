@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measure.xsd">
+  <id value="component-a-example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">Screening for Alcohol Misuse
+    <p>This measure example is used to illustrate how a composite measure can be constructured. This measure is one component of the composite measure.</p></div>
+  </text>
+  <title value="Screening for Alcohol Misuse"/>
+  <status value="draft"/>
+  <scoring><coding><code value="proportion"/></coding></scoring>
+  
+  <group>
+    <identifier><value value="Main"/></identifier>
+    <population>
+      <code><coding><code value="initial-population"/></coding></code>
+      <criteria value="Initial Population"/>
+    </population>
+    <population>
+      <code><coding><code value="denominator"/></coding></code>
+      <criteria value="Denominator"/>
+    </population>
+    <population>
+      <code><coding><code value="numerator"/></coding></code>
+      <criteria value="Numerator"/>
+    </population>
+  </group>
+</Measure>
+

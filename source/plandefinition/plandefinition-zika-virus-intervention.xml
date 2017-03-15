@@ -374,14 +374,24 @@
     <use value="official"/>
     <value value="zika-virus-intervention"/>
   </identifier>
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <title value="Example Zika Virus Intervention"/>
   <status value="active"/>
-  <date value="2016-11-14"/>
+  <date value="2017-01-12"/>
   <description value="Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management."/>
   <topic>
     <text value="Zika Virus Management"/>
   </topic>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <url value="https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"/>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="predecessor"/>
+    <resource>
+      <reference value="PlanDefinition/zika-virus-intervention-initial"/>
+    </resource>
+  </relatedArtifact>
   <library>
     <reference value="Library/zika-virus-intervention-logic"/>
   </library>

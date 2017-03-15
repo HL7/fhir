@@ -1007,8 +1007,14 @@
  -- Row 11 -----------------------------------
   Name = OptionsExample
   Identity = options-example
-  Description = Plan Definition Illistrating Related Actions
+  Description = Plan Definition Illustrating Related Actions
   Filename = plandefinition-options-example.xml
+
+ -- Row 12 -----------------------------------
+  Name = PredecessorExample
+  Identity = zika-virus-intervention-initial
+  Description = Plan Definition Illustrating Predecessor Relationship
+  Filename = plandefinition-predecessor-example.xml
 
 === Sheet Examples =====================================
 

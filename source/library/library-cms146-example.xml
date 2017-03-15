@@ -128,36 +128,6 @@
                   <div>
                      <p style="margin-bottom: 5px;">
                         <b>type: </b>
-                        <span>Condition</span>
-                     </p>
-                     <p style="margin-bottom: 5px;">
-                        <b>code filter:</b>
-                        <br/>
-                        <span style="padding-left: 25px;">
-                           <b>path: </b>
-                           <span>code</span>
-                        </span>
-                        <br/>
-                        <span style="padding-left: 25px;">
-                           <b>valueset: </b>
-                           <span>Other Female Reproductive Conditions</span>
-                        </span>
-                     </p>
-                  </div>
-               </td>
-            </tr>
-         </table>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Data Requirements: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <div>
-                     <p style="margin-bottom: 5px;">
-                        <b>type: </b>
                         <span>Patient</span>
                      </p>
                   </div>
@@ -492,7 +462,7 @@
                   </p>
                   <p style="margin-bottom: 5px;">
                      <b>url: </b>
-                     <span>http://cqlrepository.org/CMS146.cql</span>
+                     <span>library-cms146-example-content.cql</span>
                   </p>
                </td>
             </tr>
@@ -519,22 +489,6 @@
       <reference value="Library/library-quick-model-definition"/>
     </resource>
   </relatedArtifact>
-
-  <!-- TODO: Need to determine the best way to expose this information -->
-  <!--valueSet>
-    <name value="Female Administrative Sex"/>
-    <identifier value="2.16.840.1.113883.3.560.100.2"/>
-  </valueSet-->
-  <!-- ... other value sets as defined in the library -->
-
-  <dataRequirement>
-    <type value="Condition"/>
-    <codeFilter>
-      <path value="code"/>
-      <valueSetString value="Other Female Reproductive Conditions"/>
-    </codeFilter>
-  </dataRequirement>
-  <!-- ... other data requirements as defined in the library -->
 
   <dataRequirement>
     <type value="Patient"/>
@@ -630,7 +584,7 @@
 
   <content>
     <contentType value="text/cql"/>
-    <url value="http://cqlrepository.org/CMS146.cql"/>
+    <url value="library-cms146-example-content.cql"/>
   </content>
 
 </Library>

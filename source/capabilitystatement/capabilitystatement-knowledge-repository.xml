@@ -144,6 +144,31 @@
         <definition value="http://hl7.org/fhir/SearchParameter/Library-version"/>
         <type value="string"/>
       </searchParam>
+      <searchParam>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Library-successor"/>
+        <type value="reference"/>
+      </searchParam>
     </resource>
 	<resource>
       <type value="PlanDefinition"/>
@@ -187,6 +212,31 @@
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-version"/>
         <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-successor"/>
+        <type value="reference"/>
       </searchParam>
     </resource>
 	<resource>
@@ -232,6 +282,31 @@
         <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-version"/>
         <type value="string"/>
       </searchParam>
+      <searchParam>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-successor"/>
+        <type value="reference"/>
+      </searchParam>
     </resource>
 	<resource>
       <type value="Measure"/>
@@ -275,6 +350,31 @@
         <name value="version"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-version"/>
         <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="composed-of"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Measure-composed-of"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="depends-on"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Measure-depends-on"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="derived-from"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Measure-derived-from"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="predecessor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Measure-predecessor"/>
+        <type value="reference"/>
+      </searchParam>
+      <searchParam>
+        <name value="successor"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/Measure-successor"/>
+        <type value="reference"/>
       </searchParam>
     </resource>
 	<resource>
@@ -334,7 +434,7 @@
     <operation>
 		<name value="data-requirements"/>
 		<definition>
-		  <reference value="http://hl7.org/fhir/OperationDefinition/Library-data-requirements"/>
+		  <reference value="OperationDefinition/Library-data-requirements"/>
 		</definition>
 	</operation>
   </rest>

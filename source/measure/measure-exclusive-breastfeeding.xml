@@ -8,7 +8,7 @@
     <use value="official"/>
     <value value="exclusive-breastfeeding-measure"/>
   </identifier>
-  <version value="1.0.0"/>
+  <version value="4.0.0"/>
   <title value="Exclusive Breastfeeding Measure"/>
   <status value="active"/>
   <date value="2015-03-08"/>
@@ -65,6 +65,20 @@
 	<type value="documentation"/>
 	<citation value="World Health Organization. (1991). Indicators for assessing breastfeeding practices. Geneva, Switzerland: World Health Organization. Available at: http://whqlibdoc.who.int/hq/1991/WHO_CDD_SER_91.14.pdf?ua=1."/>
   </relatedArtifact>
+  <relatedArtifact>
+    <type value="predecessor"/>
+    <resource>
+      <!-- This measure replaces the previous version of the exclusive breastmilk feeding measure -->
+      <reference value="Measure/measure-predecessor-example"/>
+    </resource>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource>
+      <!-- This measure derives from the previous version, and changes the logic to add ACOG revitalize guidelines for gestational age calculation -->
+      <reference value="Measure/measure-predecessor-example"/>
+    </resource>
+  </relatedArtifact>
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cqm-logic"/>
   </library>
@@ -82,6 +96,7 @@
   <rationale value="Exclusive breast milk feeding for the first 6 months of neonatal life has long been the expressed goal of World Health Organization (WHO), Department of Health and Human Services (DHHS), American Academy of Pediatrics (AAP) and American College of Obstetricians and Gynecologists (ACOG). ACOG has recently reiterated its position (ACOG, 2007). A recent Cochrane review substantiates the benefits (Kramer et al., 2002). Much evidence has now focused on the prenatal and intrapartum period as critical for the success of exclusive (or any) BF (Centers for Disease Control and Prevention [CDC], 2007; Petrova et al., 2007; Shealy et al., 2005; Taveras et al., 2004). Exclusive breast milk feeding rate during birth hospital stay has been calculated by the California Department of Public Health for the last several years using newborn genetic disease testing data. Healthy People 2010 and the CDC have also been active in promoting this goal."/>
   <clinicalRecommendationStatement value="Exclusive breast milk feeding for the first 6 months of neonatal life can result in numerous long-term health benefits for both mother and newborn and is recommended by a number of national and international organizations. Evidence suggests that the prenatal and intrapartum period is critical for the success of exclusive (or any) breast feeding. Therefore, it is recommended that newborns are fed breast milk only from birth to discharge."/>
   <improvementNotation value="Improvement noted as an increase in the rate"/>
+  <definition value="Gestational age is calculated using the ACOG ReVITALize guidelines with Estimated Due Date (EDD) http://www.acog.org/about_acog/acog_departments/patient_safety_and_quality_improvement/~/media/departments/patient%20safety%20and%20quality%20improvement/201213issuesandrationale-gestationalageterm.pdf. The exam used needs to be the most recent exam associated with this pregnancy"/>
   <guidance value="A discharge to a designated cancer center or children's hospital should be captured as a discharge to an acute care facility. It is acceptable to calculate Gestational Age using the American College of Obstetricians and Gynecologists ReVITALize guidelines, which define Gestational Age as calculated using the best obstetrical Estimated Due Date (EDD) based on the formula: Gestational Age= (280-(EDD-Reference Date))/7 where Reference Date is the date on which you are trying to determine gestational age. For PC-05, Reference Date is the Birth Date. Note however that the calculation may yield a non-whole number and gestational age should be rounded off to the nearest completed week. For example, an infant born on the 5th day of the 36th week (35 weeks and 5/7 days) is at a gestational age of 35 weeks, not 36 weeks."/>
   <group>
     <identifier>

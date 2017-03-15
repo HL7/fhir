@@ -1,0 +1,462 @@
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+  <id value="zika-virus-intervention-initial"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Id: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/zika-virus-intervention-initial</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Identifier: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>value: </b>
+                  <span>zika-virus-intervention</span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Title: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">Example Zika Virus Intervention</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Status: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">active</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Description: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management.</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Topic: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <span>
+                     <b>text: </b>
+                     <span>Zika Virus Management</span>
+                  </span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Library: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>reference: </b>
+                  <span>Library/zika-virus-intervention-logic</span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <h2>Actions</h2>
+         <p style="width: 100%;" class="hierarchy">
+            <span>
+               <b>Step: </b>
+               <br/>
+               <span style="padding-left: 25px;">
+                  <b>title: </b>
+                  <span>Zika Virus Assessment</span>
+                  <br/>
+               </span>
+               <span style="padding-left: 25px;">
+                  <b>condition: </b>
+                  <br/>
+                  <span style="padding-left: 50px;">
+                     <b>type: </b>
+                     <span>applicability</span>
+                     <br/>
+                  </span>
+                  <span style="padding-left: 50px;">
+                     <b>expression: </b>
+                     <span>Is Patient Pregnant</span>
+                     <br/>
+                  </span>
+               </span>
+               <span style="padding-left: 25px;">
+                  <span>
+                     <b>Step: </b>
+                     <br/>
+                     <span style="padding-left: 50px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 75px;">
+                           <b>type: </b>
+                           <span>applicability</span>
+                           <br/>
+                        </span>
+                        <span style="padding-left: 75px;">
+                           <b>expression: </b>
+                           <span>Should Administer Zika Virus Exposure Assessment</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 50px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 75px;">
+                           <b>reference: </b>
+                           <br/>
+                           <span style="padding-left: 100px;">#administer-zika-virus-exposure-assessment</span>
+                           <br/>
+                           <span>
+							 <span style="padding-left: 75px;">
+								<b>description: </b>
+								<span>Administer Zika Virus Exposure Assessment</span>
+								<br/>
+							 </span>
+							 <span style="padding-left: 75px;">
+								<b>category: </b>
+								<span>procedure</span>
+								<br/>
+							 </span>
+                           </span>
+                        </span>
+                     </span>
+                     <span style="padding-left: 50px;"/>
+                  </span>
+                  <span>
+                     <b>Step: </b>
+                     <br/>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>type: </b>
+                           <span>applicability</span>
+                           <br/>
+                        </span>
+                        <span style="padding-left: 100px;">
+                           <b>expression: </b>
+                           <span>Should Order Serum + Urine rRT-PCR Test</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>reference: </b>
+                           <br/>
+                           <span style="padding-left: 125px;">ActivityDefinition/order-serum-urine-rrt-pcr-test</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 50px;"/>
+                  </span>
+                  <span>
+                     <b>Step: </b>
+                     <br/>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>type: </b>
+                           <span>applicability</span>
+                           <br/>
+                        </span>
+                        <span style="padding-left: 100px;">
+                           <b>expression: </b>
+                           <span>Should Order Serum Zika Virus IgM + Dengue Virus IgM</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>reference: </b>
+                           <br/>
+                           <span style="padding-left: 125px;">#order-serum-zika-dengue-virus-igm</span>
+                           <br/>
+                           <span>
+                              <span style="padding-left: 50px;">
+                                 <span style="padding-left: 50px;">
+                                    <b>description: </b>
+                                    <span>Order Serum Zika and Dengue Virus IgM</span>
+                                    <br/>
+                                 </span>
+                                 <span style="padding-left: 75px;">
+                                    <b>related:</b>
+                                    <br/>
+                                    <span style="padding-left: 100px;">
+                                       <b>type: </b>
+                                       <span>documentation</span>
+                                       <br/>
+                                    </span>
+                                    <span style="padding-left: 100px;">
+                                       <b>display: </b>
+                                       <span>Explanation of diagnostic tests for Zika virus and which to use based on the patients clinical and exposure history.</span>
+                                       <br/>
+                                    </span>
+                                 </span>
+                                 <span style="padding-left: 100px;">
+                                    <b>category: </b>
+                                    <span>diagnostic</span>
+                                    <br/>
+                                 </span>
+                              </span>
+                           </span>
+                           <span/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 50px;"/>
+                  </span>
+                  <span>
+                     <b>Step: </b>
+                     <br/>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>type: </b>
+                           <span>applicability</span>
+                           <br/>
+                        </span>
+                        <span style="padding-left: 100px;">
+                           <b>expression: </b>
+                           <span>Should Consider IgM Antibody Testing</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>reference: </b>
+                           <br/>
+                           <span style="padding-left: 125px;">ActivityDefinition/consider-igm-antibody-testing</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 50px;"/>
+                  </span>
+                  <span>
+                     <b>Step: </b>
+                     <br/>
+                     <span style="padding-left: 75px;">
+                        <b>condition: </b>
+                        <br/>
+                        <span style="padding-left: 100px;">
+                           <b>type: </b>
+                           <span>applicability</span>
+                           <br/>
+                        </span>
+                        <span style="padding-left: 100px;">
+                           <b>expression: </b>
+                           <span>Should Provide Mosquito Prevention and Contraception Advice</span>
+                           <br/>
+                        </span>
+                     </span>
+                     <span style="padding-left: 50px;">
+                        <span>
+                           <b>Step: </b>
+                           <br/>
+                           <span style="padding-left: 75px;">
+                              <b>condition: </b>
+                              <br/>
+                              <span style="padding-left: 100px;">
+                                 <b>reference: </b>
+                                 <br/>
+                                 <span style="padding-left: 125px;">#provide-mosquito-prevention-advice</span>
+                                 <span>
+                                    <span style="padding-left: 75px;">
+                                       <br/>
+                                       <span style="padding-left: 100px;">
+                                          <b>description: </b>
+                                          <span>Provide mosquito prevention advice</span>
+                                          <br/>
+                                       </span>
+                                       <span style="padding-left: 75px;">
+                                          <b>related:</b>
+                                          <br/>
+                                          <span style="padding-left: 100px;">
+                                             <b>type: </b>
+                                             <span>documentation</span>
+                                             <br/>
+                                          </span>
+                                          <span style="padding-left: 100px;">
+                                             <b>display: </b>
+                                             <span>Advice for patients about how to avoid Mosquito bites.</span>
+                                             <br/>
+                                          </span>
+                                       </span>
+                                       <span style="padding-left: 75px;">
+                                          <b>related:</b>
+                                          <br/>
+                                          <span style="padding-left: 100px;">
+                                             <b>type: </b>
+                                             <span>documentation</span>
+                                             <br/>
+                                          </span>
+                                          <span style="padding-left: 100px;">
+                                             <b>display: </b>
+                                             <span>Advice for patients about which mosquito repellents are effective and safe to use in pregnancy. [DEET, IF3535 and Picardin are safe during]</span>
+                                             <br/>
+                                          </span>
+                                       </span>
+                                       <span style="padding-left: 100px;">
+                                          <b>category: </b>
+                                          <span>communication</span>
+                                          <br/>
+                                       </span>
+                                    </span>
+                                 </span>
+                              </span>
+                           </span>
+                           <span style="padding-left: 75px;"/>
+                        </span>
+                        <span>
+                           <b>Step: </b>
+                           <br/>
+                           <span style="padding-left: 75px;">
+                              <b>condition: </b>
+                              <br/>
+                              <span style="padding-left: 100px;">
+                                 <b>reference: </b>
+                                 <br/>
+                                 <span style="padding-left: 125px;">ActivityDefinition/provide-contraception-advice</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                     </span>
+                  </span>
+               </span>
+            </span>
+         </p>
+      </div>
+  </text>
+  <url value="http://example.org/PlanDefinition/zika-virus-intervention"/>
+  <identifier>
+    <use value="official"/>
+    <value value="zika-virus-intervention"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Example Zika Virus Intervention"/>
+  <status value="active"/>
+  <date value="2016-11-14"/>
+  <description value="Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management."/>
+  <topic>
+    <text value="Zika Virus Management"/>
+  </topic>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <url value="https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"/>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="successor"/>
+    <resource>
+      <reference value="PlanDefinition/zika-virus-intervention"/>
+    </resource>
+  </relatedArtifact>
+  <library>
+    <reference value="Library/zika-virus-intervention-logic"/>
+  </library>
+  <action>
+    <title value="Zika Virus Assessment"/>
+    <triggerDefinition>
+      <type value="named-event"/>
+      <eventName value="patient-view"/>
+    </triggerDefinition>
+    <condition>
+      <kind value="applicability"/>
+      <expression value="Is Patient Pregnant"/>
+    </condition>
+    <action>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Administer Zika Virus Exposure Assessment"/>
+		</condition>
+		<definition>
+			<reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+		</definition>
+    </action>
+    <action>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Order Serum + Urine rRT-PCR Test"/>
+		</condition>
+		<definition>
+			<reference value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
+		</definition>
+    </action>
+    <action>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
+		</condition>
+		<definition>
+			<reference value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
+		</definition>
+    </action>
+    <action>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Consider IgM Antibody Testing"/>
+		</condition>
+		<definition>
+			<reference value="ActivityDefinition/consider-igm-antibody-testing"/>
+		</definition>
+    </action>
+    <action>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Provide Mosquito Prevention and Contraception Advice"/>
+		</condition>
+		<action>
+			<definition>
+				<reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
+			</definition>
+		</action>
+		<action>
+			<definition>
+				<reference value="ActivityDefinition/provide-contraception-advice"/>
+			</definition>
+		</action>
+    </action>
+  </action>
+</PlanDefinition>
+

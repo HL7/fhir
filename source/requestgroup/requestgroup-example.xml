@@ -13,7 +13,7 @@
         <text value="Medication 1"/>
       </medicationCodeableConcept>
       <subject>
-        <reference value="Patient/1"/>
+        <reference value="Patient/example"/>
       </subject>
     </MedicationRequest>
   </contained>
@@ -25,7 +25,7 @@
         <text value="Medication 2"/>
       </medicationCodeableConcept>
       <subject>
-        <reference value="Patient/1"/>
+        <reference value="Patient/example"/>
       </subject>
     </MedicationRequest>
   </contained>
@@ -33,10 +33,10 @@
     <value value="requestgroup-1"/>
   </identifier>  
   <subject>
-    <reference value="Patient/1"/>
+    <reference value="Patient/example"/>
   </subject>
   <context>
-    <reference value="Encounter/1"/>
+    <reference value="Encounter/example"/>
   </context>
   <occurrenceDateTime value="2017-03-06T17:31:00Z"/>
   <author>

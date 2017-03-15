@@ -98,7 +98,7 @@
   Element = RelatedArtifact.url
   Card. = 0..1
   Type = uri
-  Short Name = Url for the related artifact
+  Short Name = Where the artifact can be accessed
   Definition = A url for the artifact that can be followed to access the actual content
   Comments = If a document or resource element is present, this element SHALL NOT be provided (use the url or reference in the Attachment or resource reference)
 
@@ -106,13 +106,13 @@
   Element = RelatedArtifact.document
   Card. = 0..1
   Type = Attachment
-  Short Name = The related document
+  Short Name = What document is being referenced
   Definition = The document being referenced, represented as an attachment. This is exclusive with the resource element
 
  -- Row 7 -----------------------------------
   Element = RelatedArtifact.resource
   Card. = 0..1
   Type = Reference(Any)
-  Short Name = The related resource
+  Short Name = What resource is being referenced
   Definition = The related resource, such as a library, value set, profile, or other knowledge resource
   Comments = If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource

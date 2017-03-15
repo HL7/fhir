@@ -281,6 +281,18 @@
   Description = Zika Virus Management Intervention Logic
   Filename = library-zika-virus-intervention-logic.xml
 
+ -- Row 10 -----------------------------------
+  Name = Composition
+  Identity = composition-example
+  Description = Zika Virus Management Library
+  Filename = library-composition-example.xml
+
+ -- Row 11 -----------------------------------
+  Name = Predecessor
+  Identity = library-fhir-helpers-predecessor
+  Description = Predecessor library example
+  Filename = library-predecessor-example.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

@@ -1,5 +1,5 @@
 <Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id value="library-fhir-helpers"/>
+  <id value="library-fhir-helpers-predecessor"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -10,7 +10,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Library/library-fhir-helpers</td>
+               <td style="padding-left: 25px; padding-right: 25px;">Library/library-fhir-helpers-predecessor</td>
             </tr>
          </table>
          <table class="grid dict">
@@ -34,7 +34,7 @@
                </td>
             </tr>
             <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">1.8</td>
+               <td style="padding-left: 25px; padding-right: 25px;">1.6</td>
             </tr>
          </table>
          <p/>
@@ -162,7 +162,7 @@
     <use value="official"/>
     <value value="FHIRHelpers"/>
     </identifier>
-    <version value="1.8"/>
+    <version value="1.6"/>
     <title value="FHIR Helpers"/>
     <status value="active"/>
     <experimental value="true"/>
@@ -185,9 +185,9 @@
   </relatedArtifact>
   
   <relatedArtifact>
-    <type value="predecessor"/>
+    <type value="successor"/>
     <resource>
-      <reference value="library-fhir-helpers-predecessor"/>
+      <reference value="Library/library-fhir-helpers"/>
     </resource>
   </relatedArtifact>
 
@@ -199,3 +199,4 @@
   </content>
 
 </Library>
+

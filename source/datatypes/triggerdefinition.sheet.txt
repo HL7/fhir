@@ -74,7 +74,7 @@
   Element = TriggerDefinition.eventName
   Card. = 0..1
   Type = string
-  Short Name = Name of the event
+  Short Name = Triggering event name
   Definition = The name of the event (if this is a named-event trigger)
 
  -- Row 4 -----------------------------------
