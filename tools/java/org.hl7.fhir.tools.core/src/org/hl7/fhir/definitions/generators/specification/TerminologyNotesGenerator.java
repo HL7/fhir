@@ -193,19 +193,18 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         write("<td valign=\"top\">");
         if (cd.getBinding() == BindingSpecification.BindingMethod.Special) {
           if (name.equals("MessageEvent"))
-            write("<a href=\""+prefix+"valueset-message-events.html\">http://hl7.org/fhir/valueset/message-events</a>");
+            write("<a href=\""+prefix+"valueset-message-events.html\">Message Events</a>");
           else if (name.equals("ResourceType"))
-            write("<a href=\""+prefix+"valueset-resource-types.html\">http://hl7.org/fhir/valueset/resource-types</a>");
+            write("<a href=\""+prefix+"valueset-resource-types.html\">Resource Types</a>");
           else if (name.equals("DataType"))
-            write("<a href=\""+prefix+"valueset-data-types.html\">http://hl7.org/fhir/valueset/data-types</a>");
+            write("<a href=\""+prefix+"valueset-data-types.html\">Data Types</a>");
           else if (name.equals("FHIRDefinedType"))
-            write("<a href=\""+prefix+"valueset-defined-types.html\">http://hl7.org/fhir/valueset/defined-types</a>");
+            write("<a href=\""+prefix+"valueset-defined-types.html\">Defined Types</a>");
           else if (name.equals("FHIRAllTypes"))
-            write("<a href=\""+prefix+"valueset-all-types.html\">http://hl7.org/fhir/valueset/all-types</a>");
+            write("<a href=\""+prefix+"valueset-all-types.html\">All Types</a>");
           else 
             throw new Exception("Unknown special type "+name);
-        } 
-        if (cd.getValueSet() != null) {
+        } else if (cd.getValueSet() != null) {
           ValueSet vs = cd.getValueSet();
           String pp = (String) vs.getUserData("path");
           if (pp == null)
