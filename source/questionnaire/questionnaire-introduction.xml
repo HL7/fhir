@@ -14,7 +14,8 @@ the constraints are on the allowed answers.  The results of a <b>Questionnaire</
 Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
 clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires define specifics about data capture -
 exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions is part of the Questionnaire, 
-and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.
+and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.  (Questionnaire questions can be linked to
+shared data elements using the <code>Questionnaire.item.definition</code> element.)
 </p>
 <p>Examples of Questionnaires include:</p>
 <ul>
@@ -50,12 +51,21 @@ arbitrary questions.  In theory, a <b>Questionnaire</b> could be expressed as a 
 must generally be maintained as a single structure.  The latter would focus on rendering of the data elements rather than organizing the capture of information.
 </p>
 <p>
-<b>PLANNED CHANGE:</b>
+Questionnaires are distinct from <a href="observation.html">Observations</a> and <a href="diagnosticreport.html">DiagnosticReports</a> in that both of these resources are
+intended to capture only certain types of information (lab, imaging, vitals, etc.) and should not be used to capture the full breadth of healthcare information (allergies,
+medications, care plans, etc.), while Questionnaires are able to capture any information at all.  More importantly, Observation and DiagnosticReport focus on capturing the
+discrete information in a standardized form so that the information can be used consistently regardless of where or how it is captured.  Questionnaire focuses on information
+capture.  The same information can be captured using a wide variety of questionnaires with differently phrased questions organized in different manners.  As such, the
+Questionnaire resource provides a means to standardize the information gathering process (how information is captured), but not the actual information collected.  Observation 
+and DiagnosticReport standardize what information is actually captured, but not how the information is gathered.
 </p>
 <p>
-<b>Questionnaire</b> is one of the <a href="workflow.html#definition">Definition</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-is expected to be adjusted to align with the <a href="definition.html">Definition</a> workflow pattern.  Any concerns about performing such alignment are welcome as ballot
-comments and/or tracker items.
+Questionnaires are similar to the notion of "logical models" supported by the <a href="structuredefinition.html">StructureDefinition</a> resource.  Both support the representation
+of a collection of data points with labels, data types and hierarchy.  It will be common to find the two of them mapped together.  The primary difference is that Questionnaire
+is focused on user-facing data collection.  It describes specific questions and includes information such as what number/label should be displayed beside each question,
+conditions in which questions should be displayed (or not), what instructions should be provided to the user, etc.  StructureDefinition, on the other hand, merely defines a
+data structure with no guidance on display or rules around capture mechanism, only what data should exist in the end.  As well, logical models are not intended to capture
+data directly.  Rather, they provide a basis for mapping between data capture structures.
 </p>
 </div>
 
@@ -63,8 +73,11 @@ comments and/or tracker items.
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
-Groups and questions that make up a Questionnaire can be explicitly coded to refer to externally defined numbering or identification of questions and sections on
-formally defined questionnaires. This allows extraction of the data on a form and post-processing of the data contained in a Questionnaire. Such coding is not required however 
+Groups and questions that make up a Questionnaire can use the <code>definition</code> element to refer to data elements in external code systems, 
+<a href="dataelement.html">DataElements</a> and <a href="structuredefinition.html">StructureDefinitions</a>.  In this way, it's possible to leverage standard definitions
+of questions and their associated data types and answer sets across questionnaires. This also allows extraction of the data from a questionnaire response into other data
+structures (e.g. populating a <a href="referralrequest.html">ReferralRequest</a> or <a href="careplan.html">CarePlan</a> from information in a completed questionnaire response.
+It can also support other sorts of post-processing of the data contained in a questionnaire response. However, use of the definition element is not required 
 and Questionnaires may be quite loosely defined. The section <a href="#qversusr">Questionnaire versus Resources</a> below discusses the issues of collecting data in such
 loosely defined Questionnaires versus collecting data as well-defined separate Resources.
 </p>
