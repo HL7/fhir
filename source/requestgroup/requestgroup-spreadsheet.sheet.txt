@@ -377,4 +377,16 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = Offset Actions Example
+  Identity = example
+  Description = Simple example request group illustrating related actions with offsets
+  Filename = requestgroup-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = KDN5 Example
+  Identity = kdn5-example
+  Description = Example realization of the KDN5 PlanDefinition example
+  Filename = requestgroup-kdn5-example.xml
+
 === Sheet Examples =====================================

@@ -267,8 +267,8 @@
           <!-- list of regimen entry references for this regimen part -->
           <!-- references would duplicated in each cycle definition option
           (see http://build.fhir.org/codesystem-action-grouping-behavior.html#sentence-group)-->
-          <action>
-            <extension url="http://example.org/fhir/daysOfCycle">
+          <action id="action-1">
+            <extension url="http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle">
               <extension url="day">
                 <valueInteger value="1" />
               </extension>
@@ -281,13 +281,17 @@
               <reference value="#1111"/>
             </definition>
           </action>
-          <action>
-            <extension url="http://example.org/fhir/daysOfCycle">
+          <action id="action-2">
+            <extension url="http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle">
               <extension url="day">
                 <valueInteger value="1" />
               </extension>
             </extension>
             <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
+            <relatedAction>
+              <actionId value="action-1"/>
+              <relationship value="concurrent-with-start"/>
+            </relatedAction>
             <definition>
               <reference value="#2222"/>
             </definition>
