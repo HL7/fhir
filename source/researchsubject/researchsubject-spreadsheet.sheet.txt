@@ -72,7 +72,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifer for event
+  Short Name = Business Identifier for event
   Definition = Identifiers assigned to this research study by the sponsor or other systems
   Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
   RIM Mapping = .identifier

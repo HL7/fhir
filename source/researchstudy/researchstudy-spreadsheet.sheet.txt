@@ -87,7 +87,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifer for study
+  Short Name = Business Identifier for study
   Definition = Identifiers assigned to this research study by the sponsor or other systems
   Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
   clinicaltrials.gov Mapping = Organization\'s Unique Protocol ID; Secondary IDs
