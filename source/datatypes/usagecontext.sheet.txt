@@ -5,8 +5,15 @@
   Binding Name = UsageContextType
   Binding = code list
   Reference = #usage-context-type
-  Definition = A code the specifies a type of context being specified by a usage context
+  Definition = A code that specifies a type of context being specified by a usage context
   Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = UsageContextValue
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/use-context
+  Definition = A code that defines the specific value for the context being specified
+  Conformance = example
 
 === Sheet usage-context-type =====================================
 
@@ -14,43 +21,43 @@
   Id = 1
   Code = gender
   Display = Gender
-  Definition = The gender of the patient. For this context type, the value should be a code taken from the [AdministrativeGender](valueset-administrative-gender.html) value set
+  Definition = The gender of the patient. For this context type, the value should be a code taken from the http://hl7.org/fhir/ValueSet/administrative-gender value set
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = age
   Display = Age Range
-  Definition = The age of the patient. For this context type, the value should be a range the specifies the applicable ages or a code from the MeSH value set AgeGroupObservationValue
+  Definition = The age of the patient. For this context type, the value should be a range the specifies the applicable ages or a code from the MeSH value set http://hl7.org/fhir/ValueSet/v3-AgeGroupObservationValue
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = focus
   Display = Clinical Focus
-  Definition = The clinical concept(s) addressed by the artifact. For example, disease, diagnostic test interpretation, medication ordering.
+  Definition = The clinical concept(s) addressed by the artifact. For example, disease, diagnostic test interpretation, medication ordering as in http://hl7.org/fhir/ValueSet/condition-code.
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = user
   Display = User Type
-  Definition = The clinical speciality of the context in which the patient is bring treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomyCode system (OID: 2.16.840.1.113883.6.101).
+  Definition = The clinical speciality of the context in which the patient is bring treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomy value set http://hl7.org/fhir/ValueSet/provider-taxonomy.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = workflow
   Display = Workflow Setting
-  Definition = The settings in which the artifact is intended for use. For example, admission, pre-op, etc
+  Definition = The settings in which the artifact is intended for use. For example, admission, pre-op, etc. For example, the ActEncounterCode value set http://hl7.org/fhir/ValueSet/v3-ActEncounterCode
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = task
   Display = Workflow Task
-  Definition = The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set (OID: 2.16.840.1.113883.1.11.19846). General categories include: order entry, patient documentation and patient information review.
+  Definition = The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set http://hl7.org/fhir/ValueSet/v3-ActTaskCode. General categories include: order entry, patient documentation and patient information review.
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = venue
   Display = Clinical Venue
-  Definition = The venue in which an artifact could be used. For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounter (OID: 2.16.840.1.113883.1.11.13955) or NUCC non-individual provider codes OID: 2.16.840.1.113883.1.11.19465.
+  Definition = The venue in which an artifact could be used. For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounterCode http://hl7.org/fhir/ValueSet/v3-ActEncounterCode or NUCC non-individual provider codes http://hl7.org/fhir/ValueSet/provider-taxonomy
 
  -- Row 8 -----------------------------------
   Id = 8
@@ -81,5 +88,6 @@
   Element = UsageContext.value[x]
   Card. = 1..1
   Type = CodeableConcept | Quantity | Range
+  Binding = UsageContextValue
   Short Name = Value that defines the context
   Definition = A value that defines the context specified in this context of use. The interpretation of the value is defined by the code

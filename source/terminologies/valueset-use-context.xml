@@ -64,5 +64,39 @@
       </filter>
     </include>
     
+    <!-- gender -->
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+    </include>
+    
+    <!-- age group -->
+    <!-- Can't resolve MeSH OID
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/v3-AgeGroupObservationValue"/>
+    </include>
+    -->
+    
+    <!-- clinical focus -->
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+    </include>
+    
+    <!-- user type -->
+    <!-- Can't resolve NUCC provider taxonomy 
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/provider-taxonomy"/>
+    </include>
+    -->
+    
+    <!-- workflow/venue -->
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode"/>
+    </include>
+    
+    <!-- task -->
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActTaskCode"/>
+    </include>
+    
   </compose>
 </ValueSet>
