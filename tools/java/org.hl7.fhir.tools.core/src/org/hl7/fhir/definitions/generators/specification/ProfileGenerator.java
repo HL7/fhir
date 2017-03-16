@@ -1213,17 +1213,19 @@ public class ProfileGenerator {
     // If this element has a profile name, and this is the first of the
     // slicing group, add a slicing group "entry" (= first slice member,
     // which holds Slicing information)
-    if (!Utilities.noString(e.getProfileName())) {
+    if (e.hasDescriminator() || !Utilities.noString(e.getProfileName())) {
       if (e.getDiscriminator().size() > 0 && !slices.contains(path) && handleDiscriminator) {
         processDiscriminator(e, path, ce);
         slices.add(path);
       }
-      SliceHandle hnd = new SliceHandle();
-      hnd.name = path; // though this it not used?
-      myParents.add(hnd);
-      if (path.contains(".")) { // We don't want a slice name on the root
-        ce.setSliceName(e.getProfileName());
-        ce.setId(ce.getId()+":"+e.getProfileName());
+      if (!Utilities.noString(e.getProfileName())) {
+        SliceHandle hnd = new SliceHandle();
+        hnd.name = path; // though this it not used?
+        myParents.add(hnd);
+        if (path.contains(".")) { // We don't want a slice name on the root
+          ce.setSliceName(e.getProfileName());
+          ce.setId(ce.getId()+":"+e.getProfileName());
+        }
       }
     }
 

@@ -1,0 +1,231 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ProvenanceHistoryRecordActivity
+  Binding = value set
+  Reference = valueset-provenance-history-record-activity
+  Definition = Types of activities that are relevant for tracking event history using Provenance
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = ProvenanceHistoryAgentRole
+  Binding = value set
+  Reference = valueset-provenance-history-agent-role
+  Definition = Types of roles that agents can play when tracking event history using Provenance
+  Conformance = extensible
+
+=== Sheet provenance-relevant-history-Inv =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Provenance.agent
+  English = onBehalfOf can only be specified if agent is practitioner or device
+  XPath = contains(f:agent, \'/Practitioner\') or contains(f:agent, \'/Device\') or not(exists(f:onBehalfOf))
+  Expression = (agent.resolve().empty()) or (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()
+
+=== Sheet provenance-relevant-history =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Provenance
+  Type = DomainResource
+
+ -- Row 2 -----------------------------------
+  Element = Provenance.target
+  Must Support = Y
+  Short Name = Resource version
+  Definition = This points to the version of the resource that was created as a result of this historical record action.  Typically only a single resource will be referenced, but if the same action is performed to multiple resources in the context of a transaction, some systems may link multiple resource instances.
+  Comments = The reference SHALL be version-specific
+
+ -- Row 3 -----------------------------------
+  Element = Provenance.period
+  Must Support = Y
+  Definition = This indicates the time the resource action (creation, revision, deletion, etc.) occurred
+  Comments = Both low and high will be set to the time the record event occurred.  (In a future version, this element will likely be a choice with dateTime so that multiple values aren\'t needed.)
+
+ -- Row 4 -----------------------------------
+  Element = Provenance.reason
+  Must Support = Y
+  Comments = Plain text reasons can be sent in the \"text\" component with no codings.  Domains may wish to define a constrained terminology.
+
+ -- Row 5 -----------------------------------
+  Element = Provenance.activity
+  Card. = 1..1
+  Must Support = Y
+  Binding = ProvenanceHistoryRecordActivity
+  Short Name = Record activity
+  Definition = Indicates what action occurred to the referenced resource.
+  Comments = This should be captured at a sufficiently useful level of granularity.  For example \"suspended\" is more useful than \"updated\".  Domains will need to map the listed codes to their own state transitions and may wish to define additional domain-specific fine-grained codes.
+
+ -- Row 6 -----------------------------------
+  Element = Provenance.agent
+  Discriminator = role.coding.code
+  Must Support = Y
+  Short Name = General agent constraints
+
+ -- Row 7 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Must Support = Y
+  Binding = ProvenanceHistoryAgentRole
+
+ -- Row 8 -----------------------------------
+  Element = Provenance.agent.role.who
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 9 -----------------------------------
+  Element = Provenance.agent.role.onBehalfOf
+  Card. = 0..1
+  Type = Reference(Organization)
+
+ -- Row 10 -----------------------------------
+  Element = Provenance.agent
+  Profile Name = Author
+  Card. = 0..1
+  Must Support = Y
+  Short Name = Who caused resource change
+  Comments = If any agents are listed, the author should be one of them
+
+ -- Row 11 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Must Support = Y
+  Binding = ProvenanceHistoryAgentRole
+
+ -- Row 12 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Discriminator = system
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Profile Name = Author.coding
+  Card. = 1..1
+
+ -- Row 14 -----------------------------------
+  Element = Provenance.agent.role.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+
+ -- Row 15 -----------------------------------
+  Element = Provenance.agent.role.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = AUT
+
+ -- Row 16 -----------------------------------
+  Element = Provenance.agent
+  Profile Name = Informant
+  Must Support = Y
+  Short Name = Who provided the information that is reflected in the resource change
+  Comments = This could be another practitioner, the patient themselves, a related person, a piece of software, etc.
+
+ -- Row 17 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Must Support = Y
+  Binding = ProvenanceHistoryAgentRole
+
+ -- Row 18 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Discriminator = system
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Profile Name = Informant.coding
+  Card. = 1..1
+
+ -- Row 20 -----------------------------------
+  Element = Provenance.agent.role.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+
+ -- Row 21 -----------------------------------
+  Element = Provenance.agent.role.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = INF
+
+ -- Row 22 -----------------------------------
+  Element = Provenance.agent
+  Profile Name = Enterer
+  Card. = 0..1
+  Must Support = Y
+  Short Name = Who captured resource change in electronic system
+
+ -- Row 23 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Must Support = Y
+  Binding = ProvenanceHistoryAgentRole
+
+ -- Row 24 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Discriminator = system
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 25 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Profile Name = Enterer.coding
+  Card. = 1..1
+
+ -- Row 26 -----------------------------------
+  Element = Provenance.agent.role.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+
+ -- Row 27 -----------------------------------
+  Element = Provenance.agent.role.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = ENT
+
+ -- Row 28 -----------------------------------
+  Element = Provenance.agent
+  Profile Name = Verifier
+  Must Support = Y
+  Short Name = Who took responsibility for change being correct
+  Comments = There will generally only be one verifier.  If not specified, then the author takes full responsibility for correctness.  If there are multiple verifiers, then each may take responsibility for a different aspect of correctness
+
+ -- Row 29 -----------------------------------
+  Element = Provenance.agent.role
+  Card. = 1..1
+  Must Support = Y
+  Binding = ProvenanceHistoryAgentRole
+
+ -- Row 30 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Discriminator = system
+  Card. = 1..*
+  Must Support = Y
+
+ -- Row 31 -----------------------------------
+  Element = Provenance.agent.role.coding
+  Profile Name = Verifier.coding
+  Card. = 1..1
+
+ -- Row 32 -----------------------------------
+  Element = Provenance.agent.role.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+
+ -- Row 33 -----------------------------------
+  Element = Provenance.agent.role.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Value = VRF
+
+=== Sheet Search =====================================

@@ -503,14 +503,14 @@
  -- Row 23 -----------------------------------
   Element = TestScript.metadata
   Card. = 0..1
-  UML = 300;30
+  UML = 260;30
   Short Name = Required capability that is assumed to function correctly on the FHIR server being tested
   Definition = The required capability must exist and are assumed to function correctly on the FHIR server being tested.
 
  -- Row 24 -----------------------------------
   Element = TestScript.metadata.link
   Card. = 0..*
-  UML = 500;0
+  UML = 360;0
   Short Name = Links to the FHIR specification
   Definition = A link to the FHIR specification that this test is covering.
 
@@ -531,7 +531,7 @@
  -- Row 27 -----------------------------------
   Element = TestScript.metadata.capability
   Card. = 1..*
-  UML = -20;0
+  UML = -70;0
   Short Name = Capabilities  that are assumed to function correctly on the FHIR server being tested
   Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
   Comments = When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.

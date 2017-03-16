@@ -361,7 +361,7 @@
  -- Row 2 -----------------------------------
   Name = Provenance Relevant History
   IG Name = core
-  Filename = provenance-relevant-history.xml
+  Filename = relevant-history.xml
   Type = spreadsheet
 
 === Sheet Examples =====================================

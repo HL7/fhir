@@ -957,6 +957,10 @@ public class ElementDefn {
 
   public void setOrderMeaning(String orderMeaning) {
     this.orderMeaning = orderMeaning;
+  }
+
+  public boolean hasDescriminator() {
+    return !discriminator.isEmpty();
   }	
   
 }

@@ -2387,8 +2387,7 @@ public class SpreadsheetParser {
 	    return res;
 	  }
 
-  private ElementDefn makeFromPath(ElementDefn root, String pathname,
-			int row, String profileName, boolean allowMake) throws Exception {
+  private ElementDefn makeFromPath(ElementDefn root, String pathname, int row, String profileName, boolean allowMake) throws Exception {
 		String[] path = pathname.split("\\.");
 		boolean n = false;
 		if (!path[0].equals(root.getName()))
@@ -2406,7 +2405,7 @@ public class SpreadsheetParser {
 			ElementDefn t = res.getElementByName(definitions, en, false, false);
 
 			boolean isUnpickingElement = t != null && (i == path.length - 1)
-					&& !t.getProfileName().equals("")
+					&& (!t.getProfileName().equals("") || t.hasDescriminator())
 					&& !t.getProfileName().equals(profileName);
 
 			if (t == null || isUnpickingElement) {
@@ -2426,8 +2425,7 @@ public class SpreadsheetParser {
 			res = t;
 		}
 		if (!n)
-			throw new Exception("Duplicate Row name " + pathname + " @ "
-					+ getLocation(row));
+			throw new Exception("Duplicate Row name " + pathname + " "+(Utilities.noString(profileName) ? "" : "("+profileName+")")+" @ "+ getLocation(row));
 		return res;
 	}
 
