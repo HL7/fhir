@@ -358,6 +358,12 @@
   Filename = !provenance-extensions-spreadsheet.xml
   Type = spreadsheet
 
+ -- Row 2 -----------------------------------
+  Name = Provenance Relevant History
+  IG Name = core
+  Filename = provenance-relevant-history.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
