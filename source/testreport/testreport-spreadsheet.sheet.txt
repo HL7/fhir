@@ -207,7 +207,6 @@
  -- Row 6 -----------------------------------
   Element = TestReport.result
   Card. = 1..1
-  Is Modifier = yes
   Summary = y
   Type = code
   Binding = TestReportResult
