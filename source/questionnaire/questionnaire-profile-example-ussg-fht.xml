@@ -283,7 +283,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<copyright value="(c) 2015 Regenstrief Institute"/>
 				<code>
           <system value="http://loinc.org"/>
-					<code value="54127-6H"/>
+					<code value="54127-6"/>
 					<display value="US Surgeon General family health portrait [USSG-FHT]"/>
 				</code>
 				<subjectType value="Patient"/>
@@ -523,7 +523,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<text value="Living?"/>
 								<type value="choice"/>
 								<options>
-									<reference value="LL361-7"/>
+									<reference value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
 									<display value="Y/N1"/>
 								</options>
 								<item>
@@ -682,7 +682,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
-						
+						<system value="http://loinc.org"/>
 						<concept>
 							<code value="LA2-8"/>
 							<display value="Male"/>
@@ -722,6 +722,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA10427-5"/>
@@ -762,6 +763,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA33-6"/>
@@ -798,6 +800,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA10608-0"/>
@@ -898,6 +901,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA6214-6"/>
@@ -974,6 +978,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA10533-0"/>
@@ -1266,6 +1271,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA10402-8"/>
@@ -1338,6 +1344,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA10405-1"/>
@@ -1454,6 +1461,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA33-6"/>
@@ -1494,6 +1502,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<extensible value="false"/>
 				<compose>
 					<include>
+						<system value="http://loinc.org"/>
 						
 						<concept>
 							<code value="LA10533-0"/>
