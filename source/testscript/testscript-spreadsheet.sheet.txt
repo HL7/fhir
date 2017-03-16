@@ -477,7 +477,7 @@
  -- Row 20 -----------------------------------
   Element = TestScript.destination
   Card. = 0..*
-  UML = -90;220
+  UML = -120;220
   Short Name = An abstract server representing a destination or receiver in a message exchange
   Definition = An abstract server used in operations within this test script in the destination element.
   Comments = The purpose of this element is to define the profile of an destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
@@ -630,7 +630,7 @@
  -- Row 40 -----------------------------------
   Element = TestScript.variable
   Card. = 0..*
-  UML = 560;410
+  UML = 580;250
   Short Name = Placeholder for evaluated elements
   Definition = Variable is set based either on element value in response body or on header field value in the response headers.
   Comments = Variables would be set based either on XPath/JsonPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report error.  Variables would be used to perform clean replacements in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations. This limits the places that test engines would need to look for placeholders \"${}\".  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations.  See example testscript-search.xml.
@@ -700,7 +700,7 @@
  -- Row 49 -----------------------------------
   Element = TestScript.rule
   Card. = 0..*
-  UML = 700;700
+  UML = 520;0
   Short Name = Assert rule used within the test script
   Definition = Assert rule to be used in one or more asserts within the test script
   Comments = Each rule should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
@@ -715,7 +715,7 @@
  -- Row 51 -----------------------------------
   Element = TestScript.rule.param
   Card. = 0..*
-  UML = 700;700
+  UML = 720;0
   Type = =RuleParam
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
@@ -740,7 +740,7 @@
  -- Row 54 -----------------------------------
   Element = TestScript.ruleset
   Card. = 0..*
-  UML = 700;700
+  UML = 540;70
   Short Name = Assert ruleset used within the test script
   Definition = Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
   Comments = Each rule within a ruleset should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
@@ -755,7 +755,7 @@
  -- Row 56 -----------------------------------
   Element = TestScript.ruleset.rule
   Card. = 1..*
-  UML = 700;700
+  UML = 740;70
   Type = =RulesetRule
   Short Name = The referenced rule within the ruleset
   Definition = The referenced rule within the external ruleset template
@@ -771,7 +771,7 @@
  -- Row 58 -----------------------------------
   Element = TestScript.ruleset.rule.param
   Card. = 0..*
-  UML = 700;700
+  UML = 760;160
   Type = =RulesetRuleParam
   Short Name = Ruleset rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
@@ -796,14 +796,14 @@
  -- Row 61 -----------------------------------
   Element = TestScript.setup
   Card. = 0..1
-  UML = 30;290
+  UML = 0;300
   Short Name = A series of required setup operations before tests are executed
   Definition = A series of required setup operations before tests are executed.
 
  -- Row 62 -----------------------------------
   Element = TestScript.setup.action
   Card. = 1..*
-  UML = 50;380
+  UML = 20;390
   Type = =SetupAction
   Short Name = A setup operation or assert to perform
   Definition = Action would contain either an operation or an assertion.
@@ -812,7 +812,7 @@
  -- Row 63 -----------------------------------
   Element = TestScript.setup.action.operation
   Card. = 0..1
-  UML = 280;480
+  UML = -40;490
   Short Name = The setup operation to perform
   Definition = The operation to perform
 
@@ -905,7 +905,7 @@
  -- Row 74 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader
   Card. = 0..*
-  UML = 560;600
+  UML = -30;760
   Short Name = Each operation can have one ore more header elements
   Definition = Header elements would be used to set HTTP headers.
   Comments = This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - \"If-Modified-Since\" and \"If-None-Match\" headers.  See http://build.fhir.org/http.html#2.1.0.5.1 - \"If-Match\" header.  See http://build.fhir.org/http.html#2.1.0.11 - Conditional Create using \"If-None-Exist\".  See http://build.fhir.org/http.html#2.1.0.13.1 - Invalid \"Content-Type\" header for negative testing. - etc.
@@ -968,7 +968,7 @@
  -- Row 82 -----------------------------------
   Element = TestScript.setup.action.assert
   Card. = 0..1
-  UML = 0;480
+  UML = 280;490
   Short Name = The assertion to perform
   Definition = Evaluates the results of previous operations to determine if the server under test behaves appropriately.
   Comments = In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
@@ -1126,7 +1126,7 @@
  -- Row 101 -----------------------------------
   Element = TestScript.setup.action.assert.rule
   Card. = 0..1
-  UML = 700;700
+  UML = 600;550
   Type = =ActionAssertRule
   Short Name = The reference to a TestScript.rule
   Definition = The TestScript.rule this assert will evaluate
@@ -1142,7 +1142,7 @@
  -- Row 103 -----------------------------------
   Element = TestScript.setup.action.assert.rule.param
   Card. = 0..*
-  UML = 700;700
+  UML = 760;550
   Type = =ActionAssertRuleParam
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
@@ -1167,7 +1167,7 @@
  -- Row 106 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset
   Card. = 0..1
-  UML = 700;700
+  UML = 600;650
   Type = =ActionAssertRuleset
   Short Name = The reference to a TestScript.ruleset
   Definition = The TestScript.ruleset this assert will evaluate
@@ -1183,7 +1183,7 @@
  -- Row 108 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule
   Card. = 0..*
-  UML = 700;700
+  UML = 760;650
   Type = =ActionAssertRulesetRule
   Short Name = The referenced rule within the ruleset
   Definition = The referenced rule within the external ruleset template
@@ -1199,7 +1199,7 @@
  -- Row 110 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule.param
   Card. = 0..*
-  UML = 700;700
+  UML = 760;750
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.
@@ -1256,7 +1256,7 @@
  -- Row 117 -----------------------------------
   Element = TestScript.test
   Card. = 0..*
-  UML = 580;270
+  UML = 540;410
   Short Name = A test in this script
   Definition = A test in this script.
 
@@ -1277,7 +1277,7 @@
  -- Row 120 -----------------------------------
   Element = TestScript.test.action
   Card. = 1..*
-  UML = 450;380
+  UML = 360;420
   Type = =TestAction
   Short Name = A test operation or assert to perform
   Definition = Action would contain either an operation or an assertion.
@@ -1301,14 +1301,14 @@
  -- Row 123 -----------------------------------
   Element = TestScript.teardown
   Card. = 0..1
-  UML = 70;290
+  UML = 60;330
   Short Name = A series of required clean up steps
   Definition = A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
 
  -- Row 124 -----------------------------------
   Element = TestScript.teardown.action
   Card. = 1..*
-  UML = 200;380
+  UML = 130;390
   Type = =TeardownAction
   Short Name = One or more teardown operations to perform
   Definition = The teardown action will only contain an operation.
