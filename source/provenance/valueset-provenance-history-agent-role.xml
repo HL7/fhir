@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="provenance-history-agent-role"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-agent-role"/>
+	</meta>
+	<name value="Provenance Event History Agent Role Codes"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="HL7 (FHIR Project)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="Types of roles indicating how a particular agent was involved with the creation or modification of a resource for use when exposing event history"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<concept>
+				<code value="AUT"/>
+			</concept>
+			<concept>
+				<code value="INF"/>
+			</concept>
+			<concept>
+				<code value="VRF"/>
+			</concept>
+			<concept>
+				<code value="ENT"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

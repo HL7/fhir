@@ -22,7 +22,7 @@ Observations to model Questionnaires. Such use cases should now use the Question
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
-<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.): 
+<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.). 
 <b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate 
 Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
 distill separate resources from it and capturing the data in a <b>Questionnaire</b> would be most appropriate.
@@ -59,7 +59,7 @@ A Questionnaire is built out of two components:</p>
         instructions or other background.</li>
       <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child 
         'question' items which do.  </li>
-      <li><i>question</i> items ask a specific question to which an answer may be given.  There isn't a single 
+      <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single 
         <code>type</code> for question items.  Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question.
         and actual "question" information which allows a particular type of answer to be gathered (and which may also have nested items).  Questions may also have nested content - groups and/or 
         other questions.  This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
