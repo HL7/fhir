@@ -105,7 +105,7 @@
 
  -- Row 1 -----------------------------------
   Element = Medication
-  UML = 200;0
+  UML = 0;0
   Type = DomainResource
   Short Name = Definition of a Medication
   Definition = This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
@@ -186,7 +186,7 @@
  -- Row 8 -----------------------------------
   Element = Medication.ingredient
   Card. = 0..*
-  UML = 480;240
+  UML = 0;200
   Short Name = Active or inactive ingredient
   Definition = Identifies a particular constituent of interest in the product
   Comments = The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.
@@ -224,7 +224,7 @@
  -- Row 12 -----------------------------------
   Element = Medication.package
   Card. = 0..1
-  UML = 0;120
+  UML = 380;40
   Type = code
   Short Name = Details about packaged medications
   Definition = Information that only applies to packages (not products)
@@ -245,7 +245,7 @@
  -- Row 14 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
-  UML = 0;240
+  UML = 500;200
   Short Name = What is  in the package
   Definition = A set of components that go to make up the described item.
   SCRIPT 10.6 Mapping = no mapping
@@ -272,7 +272,7 @@
  -- Row 17 -----------------------------------
   Element = Medication.package.batch
   Card. = 0..*
-  UML = 300;240
+  UML = 300;200
   Short Name = Identifies a single production run
   Definition = Information about a group of medication produced or packaged from one production run.
   SCRIPT 10.6 Mapping = no mapping

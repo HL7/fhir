@@ -432,7 +432,6 @@
 
  -- Row 11 -----------------------------------
   Element = TestScript.contact
-  UML = 0;80
 
  -- Row 12 -----------------------------------
   Element = TestScript.description
@@ -452,6 +451,7 @@
  -- Row 17 -----------------------------------
   Element = TestScript.origin
   Card. = 0..*
+  UML = -70;140
   Short Name = An abstract server representing a client or sender in a message exchange
   Definition = An abstract server used in operations within this test script in the origin element.
   Comments = The purpose of this element is to define the profile of an origin element used elsewhere in the script.  Test engines could then use the origin-profile mapping to offer a filtered list of test systems that can serve as the sender for the interaction.
@@ -477,6 +477,7 @@
  -- Row 20 -----------------------------------
   Element = TestScript.destination
   Card. = 0..*
+  UML = -90;220
   Short Name = An abstract server representing a destination or receiver in a message exchange
   Definition = An abstract server used in operations within this test script in the destination element.
   Comments = The purpose of this element is to define the profile of an destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
@@ -502,14 +503,14 @@
  -- Row 23 -----------------------------------
   Element = TestScript.metadata
   Card. = 0..1
-  UML = 300;0
+  UML = 300;30
   Short Name = Required capability that is assumed to function correctly on the FHIR server being tested
   Definition = The required capability must exist and are assumed to function correctly on the FHIR server being tested.
 
  -- Row 24 -----------------------------------
   Element = TestScript.metadata.link
   Card. = 0..*
-  UML = 0;0
+  UML = 500;0
   Short Name = Links to the FHIR specification
   Definition = A link to the FHIR specification that this test is covering.
 
@@ -530,7 +531,7 @@
  -- Row 27 -----------------------------------
   Element = TestScript.metadata.capability
   Card. = 1..*
-  UML = 500;0
+  UML = -20;0
   Short Name = Capabilities  that are assumed to function correctly on the FHIR server being tested
   Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
   Comments = When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.
@@ -699,6 +700,7 @@
  -- Row 49 -----------------------------------
   Element = TestScript.rule
   Card. = 0..*
+  UML = 700;700
   Short Name = Assert rule used within the test script
   Definition = Assert rule to be used in one or more asserts within the test script
   Comments = Each rule should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
@@ -713,6 +715,7 @@
  -- Row 51 -----------------------------------
   Element = TestScript.rule.param
   Card. = 0..*
+  UML = 700;700
   Type = =RuleParam
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
@@ -737,6 +740,7 @@
  -- Row 54 -----------------------------------
   Element = TestScript.ruleset
   Card. = 0..*
+  UML = 700;700
   Short Name = Assert ruleset used within the test script
   Definition = Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
   Comments = Each rule within a ruleset should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
@@ -751,6 +755,7 @@
  -- Row 56 -----------------------------------
   Element = TestScript.ruleset.rule
   Card. = 1..*
+  UML = 700;700
   Type = =RulesetRule
   Short Name = The referenced rule within the ruleset
   Definition = The referenced rule within the external ruleset template
@@ -766,6 +771,7 @@
  -- Row 58 -----------------------------------
   Element = TestScript.ruleset.rule.param
   Card. = 0..*
+  UML = 700;700
   Type = =RulesetRuleParam
   Short Name = Ruleset rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
@@ -790,7 +796,7 @@
  -- Row 61 -----------------------------------
   Element = TestScript.setup
   Card. = 0..1
-  UML = 30;240
+  UML = 30;290
   Short Name = A series of required setup operations before tests are executed
   Definition = A series of required setup operations before tests are executed.
 
@@ -899,7 +905,7 @@
  -- Row 74 -----------------------------------
   Element = TestScript.setup.action.operation.requestHeader
   Card. = 0..*
-  UML = 560;500
+  UML = 560;600
   Short Name = Each operation can have one ore more header elements
   Definition = Header elements would be used to set HTTP headers.
   Comments = This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - \"If-Modified-Since\" and \"If-None-Match\" headers.  See http://build.fhir.org/http.html#2.1.0.5.1 - \"If-Match\" header.  See http://build.fhir.org/http.html#2.1.0.11 - Conditional Create using \"If-None-Exist\".  See http://build.fhir.org/http.html#2.1.0.13.1 - Invalid \"Content-Type\" header for negative testing. - etc.
@@ -1120,6 +1126,7 @@
  -- Row 101 -----------------------------------
   Element = TestScript.setup.action.assert.rule
   Card. = 0..1
+  UML = 700;700
   Type = =ActionAssertRule
   Short Name = The reference to a TestScript.rule
   Definition = The TestScript.rule this assert will evaluate
@@ -1135,6 +1142,7 @@
  -- Row 103 -----------------------------------
   Element = TestScript.setup.action.assert.rule.param
   Card. = 0..*
+  UML = 700;700
   Type = =ActionAssertRuleParam
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
@@ -1159,6 +1167,7 @@
  -- Row 106 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset
   Card. = 0..1
+  UML = 700;700
   Type = =ActionAssertRuleset
   Short Name = The reference to a TestScript.ruleset
   Definition = The TestScript.ruleset this assert will evaluate
@@ -1174,6 +1183,7 @@
  -- Row 108 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule
   Card. = 0..*
+  UML = 700;700
   Type = =ActionAssertRulesetRule
   Short Name = The referenced rule within the ruleset
   Definition = The referenced rule within the external ruleset template
@@ -1189,6 +1199,7 @@
  -- Row 110 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule.param
   Card. = 0..*
+  UML = 700;700
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.

@@ -293,6 +293,7 @@
   Element = Immunization.practitioner
   Card. = 0..*
   Summary = Y
+  UML = 0;360
   Short Name = Who performed event
   Definition = Indicates who or what performed the event
   Workflow Mapping = Event.performer
@@ -335,7 +336,7 @@
  -- Row 22 -----------------------------------
   Element = Immunization.explanation
   Card. = 0..1
-  UML = 410;320
+  UML = 410;360
   Short Name = Administration/non-administration reasons
   Definition = Reasons why a vaccine was or was not administered
   RIM Mapping = n/a
@@ -364,7 +365,7 @@
  -- Row 25 -----------------------------------
   Element = Immunization.reaction
   Card. = 0..*
-  UML = 410;0
+  UML = 440;0
   Short Name = Details of a reaction that follows immunization
   Definition = Categorical data indicating that an adverse event is associated in time to an immunization
   Comments = A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case,  it should be recorded as a new [[[AllergyIntolerance]]] resource instance as most systems will not query against  past Immunization.reaction elements.

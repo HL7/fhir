@@ -70,6 +70,7 @@
 
  -- Row 1 -----------------------------------
   Element = MeasureReport
+  UML = 0;0
   Type = DomainResource
   Short Name = Results of a measure evaluation
   Definition = The MeasureReport resource contains the results of evaluating a measure
@@ -161,7 +162,7 @@
   Element = MeasureReport.group
   Card. = 0..*
   Summary = N
-  UML = down
+  UML = 360;0
   Short Name = Measure results for each group
   Definition = The results of the calculation, one for each population group in the measure
 
@@ -177,6 +178,7 @@
   Element = MeasureReport.group.population
   Card. = 0..*
   Summary = N
+  UML = 0;240
   Short Name = The populations in the group
   Definition = The populations that make up the population group, one for each type of population appropriate for the measure
 
@@ -225,7 +227,7 @@
   Element = MeasureReport.group.stratifier
   Card. = 0..*
   Summary = N
-  UML = right
+  UML = 550;0
   Short Name = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
 
@@ -241,7 +243,7 @@
   Element = MeasureReport.group.stratifier.stratum
   Card. = 0..*
   Summary = N
-  UML = down
+  UML = 450;120
   Type = =StratifierGroup
   Short Name = Stratum results, one for each unique value in the stratifier
   Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
@@ -258,7 +260,7 @@
   Element = MeasureReport.group.stratifier.stratum.population
   Card. = 0..*
   Summary = N
-  UML = left
+  UML = 300;240
   Type = =StratifierGroupPopulation
   Short Name = Population results in this stratum
   Definition = The populations that make up the stratum, one for each type of population appropriate to the measure

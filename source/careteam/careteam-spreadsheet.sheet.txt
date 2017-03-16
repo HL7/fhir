@@ -112,6 +112,7 @@
 
  -- Row 1 -----------------------------------
   Element = CareTeam
+  UML = 0;0
   Type = DomainResource
   Short Name = Planned participants in the coordination and delivery of care for a patient or group
   Definition = The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient
@@ -195,6 +196,7 @@
  -- Row 9 -----------------------------------
   Element = CareTeam.participant
   Card. = 0..*
+  UML = 360;0
   Inv. = 1
   Short Name = Members of the team
   Definition = Identifies all people and organizations who are expected to be involved in the care team.

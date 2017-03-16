@@ -246,6 +246,7 @@
  -- Row 10 -----------------------------------
   Element = TestReport.participant
   Card. = 0..*
+  UML = 500;150
   Short Name = A participant in the test execution, either the execution engine, a client, or a server
   Definition = A participant in the test execution, either the execution engine, a client, or a server.
 

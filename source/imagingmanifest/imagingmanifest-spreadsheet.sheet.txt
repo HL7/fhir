@@ -208,7 +208,7 @@
   Element = ImagingManifest.study
   Card. = 1..*
   Summary = y
-  UML = 0;200
+  UML = 380;0
   Type = =Study
   Short Name = Study identity of the selected instances
   Definition = Study identity and locating information of the DICOM SOP instances in the selection.
@@ -252,7 +252,6 @@
  -- Row 12 -----------------------------------
   Element = !ImagingManifest.study.baseLocation
   Card. = 0..*
-  UML = 300;175
   Type = =StudyBaseLocation
   Short Name = Study access service endpoint
   Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
@@ -280,7 +279,7 @@
   Element = ImagingManifest.study.series
   Card. = 1..*
   Summary = y
-  UML = 0;300
+  UML = 390;200
   Type = =Series
   Short Name = Series identity of the selected instances
   Definition = Series identity and locating information of the DICOM SOP instances in the selection
@@ -313,7 +312,6 @@
  -- Row 18 -----------------------------------
   Element = !ImagingManifest.study.series.baseLocation
   Card. = 0..*
-  UML = 300;300
   Type = =SeriesBaseLocation
   Short Name = Series access endpoint
   Definition = Methods of accessing (e.g. retrieving) the series
@@ -341,7 +339,7 @@
   Element = ImagingManifest.study.series.instance
   Card. = 1..*
   Summary = y
-  UML = 0;400
+  UML = 200;200
   Type = =Instance
   Short Name = The selected instance
   Definition = Identity and locating information of the selected DICOM SOP instances

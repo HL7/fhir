@@ -54,6 +54,7 @@
 
  -- Row 1 -----------------------------------
   Element = SupplyDelivery
+  UML = 0;0
   Type = DomainResource
   Short Name = Delivery of bulk Supplies
   Definition = Record of delivery of what is supplied.
@@ -130,6 +131,7 @@
  -- Row 8 -----------------------------------
   Element = SupplyDelivery.suppliedItem
   Card. = 0..1
+  UML = 360;50
   Short Name = The item that is delivered or supplied
   Definition = The item that is being delivered or has been supplied
   RIM Mapping = .participation[typeCode=PRD].role

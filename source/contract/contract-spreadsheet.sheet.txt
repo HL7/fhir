@@ -483,7 +483,7 @@
  -- Row 44 -----------------------------------
   Element = Contract.term.agent
   Card. = 0..*
-  UML = -20;320
+  UML = -50;320
   Type = =TermAgent
   Short Name = Contract Term Agent List
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
@@ -518,7 +518,7 @@
  -- Row 48 -----------------------------------
   Element = Contract.term.valuedItem
   Card. = 0..*
-  UML = -20;460
+  UML = -60;460
   Type = =TermValuedItem
   Short Name = Contract Term Valued Item List
   Definition = Contract Provision Valued Item List
@@ -614,7 +614,7 @@
  -- Row 60 -----------------------------------
   Element = Contract.friendly
   Card. = 0..*
-  UML = -20;0
+  UML = -60;0
   Type = =FriendlyLanguage
   Short Name = Contract Friendly Language
   Definition = The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
@@ -637,7 +637,7 @@
  -- Row 63 -----------------------------------
   Element = Contract.legal
   Card. = 0..*
-  UML = -20;120
+  UML = -60;120
   Type = =LegalLanguage
   Short Name = Contract Legal Language
   Definition = List of Legal expressions or representations of this Contract.
@@ -660,7 +660,7 @@
  -- Row 66 -----------------------------------
   Element = Contract.rule
   Card. = 0..*
-  UML = -20;230
+  UML = -90;230
   Type = =ComputableLanguage
   Short Name = Computable Contract Language
   Definition = List of Computable Policy Rule Language Representations of this Contract.

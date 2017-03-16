@@ -217,7 +217,7 @@
  -- Row 4 -----------------------------------
   Element = Encounter.statusHistory
   Card. = 0..*
-  UML = 20;300
+  UML = 0;300
   Type = =StatusHistory
   Short Name = List of past encounter statuses
   Definition = The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them
@@ -253,6 +253,7 @@
  -- Row 8 -----------------------------------
   Element = Encounter.classHistory
   Card. = 0..*
+  UML = -300;0
   Type = =ClassHistory
   Short Name = List of past encounter classes
   Definition = The class history permits the tracking of the encounters transitions without needing to go  through the resource history.\n\nThis would be used for a case where an admission starts of as an emergency encounter, then transisions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kindof discharge from emergency to inpatient.
@@ -331,7 +332,7 @@
   Element = Encounter.participant
   Card. = 0..*
   Summary = y
-  UML = 350;0
+  UML = 370;0
   Short Name = List of participants involved in the encounter
   Definition = The list of people responsible for providing the service
   v2 Mapping = ROL
@@ -416,6 +417,7 @@
   Element = Encounter.diagnosis
   Card. = 0..*
   Summary = y
+  UML = -300;100
   Type = =Diagnosis
   Short Name = The list of diagnosis relevant to this encounter
   RIM Mapping = .outboundRelationship[typeCode=RSON]
@@ -458,7 +460,7 @@
  -- Row 29 -----------------------------------
   Element = Encounter.hospitalization
   Card. = 0..1
-  UML = 350;200
+  UML = 370;200
   Short Name = Details about the admission to a healthcare service
   Comments = An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.\r\rThe duration recorded in the period of this encounter covers the entire scope of this hospitalization record.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]
@@ -528,7 +530,6 @@
  -- Row 37 -----------------------------------
   Element = !Encounter.hospitalization.accomodation
   Card. = 0..*
-  UML = down
   Short Name = Where the patient stays during this encounter
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACCOM, moodCode=EVN]
 
@@ -604,7 +605,7 @@
  -- Row 46 -----------------------------------
   Element = Encounter.location
   Card. = 0..*
-  UML = 350;100
+  UML = 370;100
   Short Name = List of locations where the patient has been
   Definition = List of locations where  the patient has been during this encounter
   Comments = Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type \"kind\" such as \"client\'s home\" and an encounter.class = \"virtual\"

@@ -84,6 +84,7 @@
 
  -- Row 1 -----------------------------------
   Element = Coverage
+  UML = 0;0
   Type = DomainResource
   Short Name = Insurance or medical plan or a payment agreement
   Definition = Financial instrument which may be used to reimburse or pay for health care products and services.
@@ -246,6 +247,7 @@
  -- Row 15 -----------------------------------
   Element = Coverage.grouping
   Card. = 0..1
+  UML = 360;0
   Type = =Group
   Short Name = Additional coverage classifications
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.

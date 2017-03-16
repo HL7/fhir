@@ -599,7 +599,7 @@
   Element = CapabilityStatement.software
   Card. = 0..1
   Summary = y
-  UML = 0;160
+  UML = 0;100
   Inv. = 2
   Short Name = Software that is covered by this capability statement
   Definition = Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.
@@ -633,7 +633,7 @@
   Element = CapabilityStatement.implementation
   Card. = 0..1
   Summary = y
-  UML = 0;320
+  UML = 0;200
   Inv. = 2
   Short Name = If this describes a specific instance
   Definition = Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program
@@ -713,7 +713,7 @@
   Element = CapabilityStatement.rest
   Card. = 0..*
   Summary = Y
-  UML = 230;520
+  UML = 250;520
   Inv. = 1
   Short Name = If the endpoint is a RESTful one
   Definition = A definition of the restful capabilities of the solution, if any
@@ -771,7 +771,7 @@
  -- Row 38 -----------------------------------
   Element = CapabilityStatement.rest.security.certificate
   Card. = 0..*
-  UML = up
+  UML = 590;240
   Short Name = Certificates associated with security profiles
   Definition = Certificates associated with security profiles
 
@@ -1048,7 +1048,7 @@
   Element = CapabilityStatement.messaging
   Card. = 0..*
   Summary = Y
-  UML = 230;0
+  UML = 310;0
   Inv. = 1
   Short Name = If messaging is supported
   Definition = A description of the messaging capabilities of the solution
@@ -1058,7 +1058,7 @@
   Element = CapabilityStatement.messaging.endpoint
   Card. = 0..*
   Aliases = 3
-  UML = 550;150
+  UML = 570;160
   Short Name = Where messages should be sent
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
@@ -1096,6 +1096,7 @@
   Element = CapabilityStatement.messaging.supportedMessage
   Card. = 0..*
   Summary = Y
+  UML = -20;0
   Short Name = Messages supported by this system
   Definition = References to message definitions for messages this system can send or receive
   Comments = This is a proposed alternative to the messaging.event structure
@@ -1187,7 +1188,7 @@
   Element = CapabilityStatement.document
   Card. = 0..*
   Summary = Y
-  UML = 0;480
+  UML = -20;300
   Inv. = 1
   Short Name = Document definition
   Definition = A document definition

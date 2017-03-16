@@ -540,7 +540,7 @@
  -- Row 18 -----------------------------------
   Element = Sequence.referenceSeq.windowEnd
   Card. = 1..1
-  UML = down
+  UML = right
   Type = integer
   Short Name = End position of the window on the reference sequence
   Definition = End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
@@ -718,7 +718,7 @@
  -- Row 43 -----------------------------------
   Element = Sequence.repository
   Card. = 0..*
-  UML = right
+  UML = down
   Short Name = External repository which contains detailed report related with observedSeq in this resource
   Definition = Configurations of the external repository. The repository shall store target\'s observedSeq or records related with target\'s observedSeq.
 

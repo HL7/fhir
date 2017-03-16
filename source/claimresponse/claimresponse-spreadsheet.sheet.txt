@@ -525,7 +525,7 @@
  -- Row 58 -----------------------------------
   Element = ClaimResponse.error
   Card. = 0..*
-  UML = 0;0
+  UML = -20;0
   Type = =Error
   Short Name = Processing errors
   Definition = Mutually exclusive with Services Provided (Item).
@@ -658,7 +658,7 @@
  -- Row 76 -----------------------------------
   Element = ClaimResponse.processNote
   Card. = 0..*
-  UML = 20;110
+  UML = -20;110
   Type = =Note
   Short Name = Processing notes
   Definition = Note text

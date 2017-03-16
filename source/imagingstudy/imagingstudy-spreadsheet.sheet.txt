@@ -231,7 +231,6 @@
   Element = !ImagingStudy.baseLocation
   Card. = 0..*
   Summary = Y
-  UML = 320;250
   Type = =StudyBaseLocation
   Short Name = Study access service endpoint
   Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
@@ -326,7 +325,7 @@
   Element = ImagingStudy.series
   Card. = 0..*
   Summary = Y
-  UML = 320;50
+  UML = 380;50
   Short Name = Each study has one or more series of instances
   Definition = Each study has one or more series of images or other content
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBSSER, moodCode=EVN]
@@ -417,7 +416,6 @@
   Element = !ImagingStudy.series.baseLocation
   Card. = 0..*
   Summary = Y
-  UML = 620;270
   Type = =SeriesBaseLocation
   Short Name = Series access endpoint
   Definition = Methods of accessing (e.g. retrieving) the series
@@ -491,7 +489,7 @@
  -- Row 38 -----------------------------------
   Element = ImagingStudy.series.instance
   Card. = 0..*
-  UML = 620;70
+  UML = 680;70
   Short Name = A single SOP instance from the series
   Definition = A single SOP instance within the series, e.g. an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]

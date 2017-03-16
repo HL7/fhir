@@ -173,6 +173,7 @@
  -- Row 1 -----------------------------------
   Element = AdverseEvent
   Aliases = AE
+  UML = 0;0
   Type = DomainResource
   Short Name = Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death
   w5 = clinical.general
@@ -266,6 +267,7 @@
  -- Row 14 -----------------------------------
   Element = AdverseEvent.suspectEntity
   Card. = 0..*
+  UML = 400;0
   Type = Backbone Element
   Short Name = AdverseEvent.suspectEntity
 

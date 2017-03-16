@@ -380,6 +380,7 @@
   Element = Composition.relatesTo
   Card. = 0..*
   Summary = y
+  UML = 400;0
   Short Name = Relationships to other compositions/documents
   Definition = Relationships that this composition has with other compositions or documents that already exist
   Comments = A document is a version specific composition

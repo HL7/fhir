@@ -203,6 +203,7 @@
 
  -- Row 1 -----------------------------------
   Element = Measure
+  UML = 0;0
   Type = MetadataResource
   Short Name = A quality measure definition
   Definition = The Measure resource provides the definition of a quality measure
@@ -432,7 +433,7 @@
  -- Row 37 -----------------------------------
   Element = Measure.group
   Card. = 0..*
-  UML = left
+  UML = 370;300
   Short Name = Population criteria group
   Definition = A group of population criteria for the measure
 
@@ -460,7 +461,7 @@
  -- Row 41 -----------------------------------
   Element = Measure.group.population
   Card. = 0..*
-  UML = up
+  UML = 370;150
   Short Name = Population criteria
   Definition = A population criteria for the measure
 
@@ -504,7 +505,7 @@
  -- Row 47 -----------------------------------
   Element = Measure.group.stratifier
   Card. = 0..*
-  UML = down
+  UML = 370;450
   Short Name = Stratifier criteria for the measure
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path
 
@@ -532,7 +533,7 @@
  -- Row 51 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
-  UML = right
+  UML = 370;0
   Short Name = What other data should be reported with the measure
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
   Comments = Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information

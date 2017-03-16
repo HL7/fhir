@@ -238,6 +238,7 @@
   Card. = 0..1
   Aliases = author
   Summary = Y
+  UML = 380;240
   Short Name = Who/what is requesting service
   Definition = The individual who initiated the request and has responsibility for its activation
   Workflow Mapping = Request.requester

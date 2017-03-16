@@ -52,6 +52,7 @@
  -- Row 1 -----------------------------------
   Element = Account
   Aliases = Cost center, Record
+  UML = 0;0
   Type = DomainResource
   Short Name = Tracks balance, charges, for patient or cost center
   Definition = A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
@@ -163,6 +164,7 @@
   Element = Account.coverage
   Card. = 0..*
   Summary = y
+  UML = 360;0
   Type = =Coverage
   Short Name = The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
   Comments = Typically this may be some form of insurance, internal charges, or self-pay.\n\nLocal or jurisdicational business rules may determine which coverage covers which types of billable items charged to the account, and in which order.\nWhere the order is important, a local/jurisdicational extension may be defined to specify the order for the type of charge.
@@ -208,6 +210,7 @@
  -- Row 16 -----------------------------------
   Element = Account.guarantor
   Card. = 0..*
+  UML = 360;150
   Type = =Guarantor
   Short Name = Responsible for the account
   Definition = Parties financially responsible for the account.

@@ -313,6 +313,7 @@
  -- Row 16 -----------------------------------
   Element = Consent.policy
   Card. = 0..*
+  UML = 400;0
   Short Name = Policies covered by this consent
   Definition = The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law
 
