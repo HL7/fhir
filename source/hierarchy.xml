@@ -25,31 +25,16 @@ signatures.html
       <page title="Services" filename="servicelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
+      <page title="Getting Started" filename="modules.html"/>
 <!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
     </page>
 
     <!-- foundation - quite a lot of documentation -->
     <page title="Foundation" filename="foundation-module.html" icon="foundation.png">
       <!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
-      <page title="Summary" filename="summary.html"/>
-      <page title="Introduction" filename="overview.html"/>
-      <page title="Developer Introduction" filename="overview-dev.html"/>
-      <page title="Clinical Introduction" filename="overview-clinical.html"/>
-      <page title="Architect's Introduction" filename="overview-arch.html"/>
-      <page title="Getting Started" filename="modules.html"/>
-      <page title="Glossary" filename="help.html"/>
-      <page title="License and Legal Terms" filename="license.html"/>
-      <page title="Community and Credits" filename="credits.html"/>
-      <page title="Version History" filename="history.html"/>
-      <page title="Differences from DSTU Release 2" filename="diff.html"/>
-      <page title="DSTU Release 2 Transforms" filename="r2maps.html"/>
-      <page title="Outstanding Issues" filename="todo.html"/>
-      <page title="FHIR Timelines" filename="timelines.html"/>
-      <page title="FHIRPath" filename="http://hl7.org/fluentpath"/>
       <page title="Conformance" filename="conformance-rules.html"/>
-      <page title="Life Cycle" filename="lifecycle.html"/>
-      <page title="Resource Guide" filename="resourceguide.html"/>
-      <page title="References" filename="references.html">
+      <page title="Resource Life Cycles" filename="lifecycle.html"/>
+      <page title="References between Resources" filename="references.html">
         <page title="Definitions" filename="references-definitions.html"/>
       </page>
       <page title="Narrative" filename="narrative.html">
@@ -65,6 +50,38 @@ signatures.html
         <page title="XML" filename="xml.html"/>
         <page title="JSON" filename="json.html"/>
       </page>
+      <page title="Change Management and Versioning" filename="versions.html">
+        <page title="Inter-version Compatibility" filename="compatibility.html"/>
+        <page title="Timelines" filename="timelines.html"/>
+      </page>
+      <page title="Version History" filename="history.html"/>
+      <page title="Differences from DSTU Release 2" filename="diff.html"/>
+      <page title="Release 2/3 Transforms" filename="r2maps.html"/>
+
+      <page title="Introduction" filename="overview.html"/>
+      <page title="Developer Introduction" filename="overview-dev.html"/>
+      <page title="Clinical Introduction" filename="overview-clinical.html"/>
+      <page title="Architect's Introduction" filename="overview-arch.html"/>
+      <page title="Summary" filename="summary.html"/>
+      <page title="Glossary" filename="help.html"/>
+      <page title="License and Legal Terms" filename="license.html"/>
+      <page title="Community and Credits" filename="credits.html"/>
+      <page title="Outstanding Issues" filename="todo.html"/>
+      <page title="Coming Challenges" filename="change.html"/>
+
+      <page title="RESTful API" filename="http.html">
+        <page title="Search" filename="search.html"/>
+        <page title="_filter Parameter" filename="search_filter.html"/>
+        <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
+        <page title="FHIRPath Patch" filename="fhirpatch.html"/>
+      </page>
+      <page title="Operations" filename="operations.html">
+        <page title="Example" filename="op-example-request.html"/>
+      </page>
+      <page title="Documents" filename="documents.html"/>
+      <page title="Messaging" filename="messaging.html"/>
+      <page title="Services" filename="services.html"/>
+
       <page title="Data Types" filename="datatypes.html">
         <page title="Examples" filename="datatypes-examples.html"/>
         <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
@@ -77,23 +94,23 @@ signatures.html
         <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
         <page title="Mappings" filename="metadatatypes-mappings.html"/>
       </page>
-      <page title="Coming Challenges" filename="change.html"/>
-      <!-- base types -->
+      <page type="resource" resource="Resource">
+        <page title="Definitions" filename="resource-definitions.html"/>
+      </page>
+      <page type="resource" resource="DomainResource"/>
       <page title="Element" filename="element.html">
         <page title="Element - Detailed Descriptions" filename="element-definitions.html"/>
+      </page>
+      <page title="BackboneElement" filename="backboneelement.html">
+        <page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
       </page>
       <page title="ElementDefinition" filename="elementdefinition.html">
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
         <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
       </page>
-      <page title="BackboneElement" filename="backboneelement.html">
-        <page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
-      </page>
-      <page type="resource" resource="Resource">
-        <page title="Definitions" filename="resource-definitions.html"/>
-      </page>
-      <page type="resource" resource="DomainResource"/>
+
+      <page title="Resource Guide" filename="resourceguide.html"/>
 
       <!-- infrastructure resources -->
       <page type="resource" resource="Questionnaire"/>
@@ -110,19 +127,6 @@ signatures.html
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
-
-      <page title="RESTful API" filename="http.html">
-        <page title="Search" filename="search.html"/>
-        <page title="_filter Parameter" filename="search_filter.html"/>
-        <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
-        <page title="FHIRPath Patch" filename="fhirpatch.html"/>
-      </page>
-      <page title="Operations" filename="operations.html">
-        <page title="Example" filename="op-example-request.html"/>
-      </page>
-      <page title="Documents" filename="documents.html"/>
-      <page title="Messaging" filename="messaging.html"/>
-      <page title="Services" filename="services.html"/>
     </page>
 
     <page title="Linked Data" filename="linked-data-module.html" icon="linked-data.png">
@@ -193,7 +197,6 @@ signatures.html
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
       <page title="Clinical Safety" filename="safety.html"/>
-      <page title="Inter-version Compatibility" filename="compatibility.html"/>
       <page title="Testing FHIR" filename="testing.html"/>
       <page title="How FHIR fits into an EHR" filename="ehr-fm.html"/>
       <page title="Comparison" filename="comparison.html">

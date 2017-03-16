@@ -360,33 +360,6 @@ However, in some cases, an update may invalidate existing tags.  Servers may upd
 or remove previously existing recognized tags if this is known to be appropriate.
 </p>
 
-<a name="maturity"> </a>
-<h3>Maturity Levels</h3>
-<p>
-All resources in this specification are assigned a "Maturity Level", known as FMM (after the well known <a href="http://en.wikipedia.org/wiki/Capability_Maturity_Model">CMM</a> grades).
-The FMM level can be used by implementers to judge how advanced - and therefore stable - a resource is. The following FMM levels are defined:
-</p>
-<ol  start="0">
- <li>the resource or profile (artifact) has been published on the current build.  This level is synonymous with Draft.</li>
- <li>PLUS the artifact produces no warnings during the build process and the responsible WG has indicated that they consider the artifact substantially complete and ready for implementation</li>
- <li>PLUS the artifact has been tested and successfully exchanged between at least three independently developed systems leveraging at least 80% of the core data elements using semi-realistic data and scenarios based on at least one of the declared scopes of the resource (e.g. at a connectathon).  These interoperability results must have been reported to and accepted by the FMG</li>
- <li>PLUS the artifact has been verified by the work group as meeting the <a href="http://wiki.hl7.org/index.php?title=DSTU_2_QA_guidelines">STU Quality Guidelines</a> and has been subject to a 
- round of formal balloting; has at least 10 implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change</li>
- <li>PLUS the artifact has been tested across its scope (see below), published in a formal publication (e.g. STU), and implemented in multiple prototype projects. As well, the responsible 
- work group agrees the resource is sufficiently stable to require implementer consultation for subsequent non-backward compatible changes.</li>
- <li>PLUS the artifact has been published in two formal publication release cycles at FMM1+ (i.e. STU level) and has been implemented in at least 5 independent production systems in more than one country</li>
- <li>"Normative": the artifact is now considered <a href="versions.html#normative">normative</a></li>
-</ol>
-<p></p>
-<p>Tested across scope means:</p>
-<ul>
-  <li>The FMG has signed off on the list of "example contexts" defined for the artifact</li>
-  <li>For each example context, the artifact has either been: reviewed and approved by a domain expert for that scope area, mapped to an existing implemented scope-area-specific standard or tested in an implementation</li>
-</ul>
-<p>
-The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
-For further information, and discussion, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_Maturity_Model">FHIR Wiki</a>.
-</p>
  
 <a name="furtherinfo"> </a>
 <h3>Further Information</h3>
@@ -398,8 +371,16 @@ For further information, and discussion, see the <a href="http://wiki.hl7.org/in
   <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
   <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
   <li><a href="resource-definitions.html">Detailed Descriptions</a></li>
-  <li><a href="compatibility.html">Inter-version Compatibility</a></li>
+  <li><a href="versions.html">Inter-version Compatibility</a></li>
 </ul>
+
+
+
+<a name="maturity"> </a>
+<h3>Maturity Levels</h3>
+<p>
+The <a href="versions.html#maturity">Maturity level documentation has moved</a>.
+</p>
 
   <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>

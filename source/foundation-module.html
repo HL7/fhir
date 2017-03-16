@@ -14,7 +14,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 <div class="col-12">
-<table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="timelines.html#levels">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
+<table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
 
 <a name="root"> </a>
 <h2>Foundation Module</h2>
@@ -25,67 +25,15 @@ The Foundation Module is responsible the overall infrastructure of the FHIR spec
 Every implementer works with the content in the foundation module however they use FHIR.
 </p>
 <a name="index"> </a>
+<p>
+The Foundation Module maintains most of the basic <a href="documentation.html">documentation</a> for
+the FHIR specification. In addition, the Foundation Module includes the following resources:
+</p>
+
 <table width="100%" style="table-layout: fixed">
  <tr>
  <td width="33%">
-<p><b>Overview</b></p>
-<p>Tutorial and Introductory Information.</p>
-<ul>
-  <li><a href="overview.html">Overview &amp; Roadmap</a></li>
-  <li><a href="overview-dev.html">Developer's Introduction</a></li>
-  <li><a href="overview-clinical.html">Clinical Introduction</a></li>
-  <li><a href="overview-arch.html">Architect's Introduction</a></li>
-  <li><a href="summary.html">1 page Summary (Glossy)</a></li>
-  <li><a href="timelines.html"><b>FHIR Timelines</b></a></li>
-</ul>
-<hr/>
-<p><b>Administration</b></p>
-<p>Documentation Guidance / Background.</p>
-<ul>
-  <li><a href="help.html">Glossary</a></li>
-  <li><a href="license.html">License and Legal Terms</a></li>
-  <li><a href="credits.html">Community &amp; Credits</a></li>
-  <li><a href="history.html">Version History</a></li>
-  <li><a href="diff.html">Differences to DSTU 2</a></li>
-  <li><a href="r2maps.html">Transforms between DSTU 2 and STU 3</a></li>
-  <li><a href="todo.html">Outstanding Issues</a></li>
-</ul>
-<hr/>
-<p><b>Appendices</b>:</p>
-<ul>
-  <li><a href="change.html">Coming Challenges Driving Change</a></li>
-</ul>
-
-</td><td width="33%" style="border-left: 1px solid #eeeeee">
-<p><b>Technical Documentation</b></p>
-<p>General Implementer Documentation.</p>
-<ul>
-  <li><a href="conformance-rules.html">Conformance Rules</a></li>
-  <li><a href="lifecycle.html">Resource Life Cycles</a></li>
-  <li><a href="references.html">References between Resources</a></li>
-  <li><a href="narrative.html">Narrative</a></li>
-  <li><a href="extensibility.html">Extensibility</a> &amp; <a href="extensibility-registry.html">Extension Registry</a></li>
-  <li><a href="compartmentdefinition.html">Compartments (Patient based access)</a></li>
-  <li><a href="formats.html">Formats</a>: <a href="xml.html">XML</a>, &amp; <a href="json.html">JSON</a></li>
-  <li><a href="http://hl7.org/fhirpath">FHIRPath</a></li>
-  <li><a href="datatypes.html">Data Types</a></li>
-  <li><a href="element.html">Element</a></li>
-  <li><a href="backboneelement.html">BackboneElement</a></li>
-  <li><a href="elementdefinition.html">ElementDefinition</a></li>
-</ul>
-<hr/>
-<p><b>Exchange</b></p>
-<p>Tutorial and Introductory Information.</p>
-<ul>
-  <li><a href="http.html">RESTful API</a> + <a href="search.html">Search</a></li>
-  <li><a href="operations.html">Operations</a></li>
-  <li><a href="documents.html">Documents</a></li>
-  <li><a href="messaging.html">Messaging</a></li>
-  <li><a href="services.html">Services</a></li>
-</ul>
-</td><td width="33%" style="border-left: 1px solid #eeeeee">
-<p><b>Resources</b></p>
-<p>Foundation Framework</p>
+<p><b>Foundation Framework</b></p>
 <ul>
   <li><a href="resource.html">Resource</a></li>
   <li><a href="domainresource.html">DomainResource</a></li>
@@ -96,8 +44,7 @@ Every implementer works with the content in the foundation module however they u
   <li><a href="operationoutcome.html">OperationOutcome</a></li>
   <li><a href="parameters.html">Parameters</a></li>
 </ul>
-<hr/>
-<p><b>Infrastructure</b></p>
+</td><td width="33%" style="border-left: 1px solid #eeeeee">
 <p>Support Resources.</p>
 <ul>
   <li><a href="questionnaire.html">Questionnaire</a></li>
@@ -110,9 +57,6 @@ Every implementer works with the content in the foundation module however they u
 </ul>
 </td></tr>
 </table>
-
-      <page title="Resource Guide" filename="resourceguide.html"/>
-      <page title="Resource Guide" filename="resourceguide.html"/>
 
 
 <a name="secpriv"> </a>

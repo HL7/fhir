@@ -27,121 +27,20 @@ notes:
 
 <div class="col-12">
 
-<p>See <a href="#history">below</a> for version history details.</p>
-
-<a name="versioning"> </a>
-<h2>Version History</h2>
-
-<p>
-This is the developmental version of FHIR. The only changes tracked here are
-the changes made after the publication of the first DSTU release. For earlier changes,
-see the <a href="http://hl7.org/fhir/history.html">DSTU #1 Version History</a>.
-Note that a full archive history of everything is available
-<a href="http://wiki.hl7.org/index.php?title=FHIR">through the HL7 gForge SVN archives</a>.
-</p>
-
-<a name="rules"> </a>
-<h3>How FHIR Versioning works</h3>
-
-<p>
-The FHIR version policy is based on <a href="http://semver.org/">Semantic versioning</a>, but with
-some differences due to the fact that FHIR is a specification, not a software API.
-</p>
-<p>
-There is a single development version of FHIR. This undergoes cycles of development as
-managed by HL7. Each major cycle of development is concluded by a formal ballot, and then
-a new specification is published. In version control terms, each published specification is a
-branch off the development trunk, which may then itself undergo further change as
-HL7 maintains the published specification (though such changes are usually extremely
-minimal).
-</p>
-<p>
-The following kinds of changes may be made to the specification:
-</p>
-<ul>
- <li>Non-substantive changes do not cause changes in any conformant application. For example, section renumbering,
-   broken links, style corrections, typos, and clarifications that do not change the meaning. Some corrections may
-   be judged not to create any expectation of change to a conformant application.</li>
- <li>Substantive changes that are not breaking. These introduce new functionality - changes to the specification that create new capabilities - but would not render existing applications non-conformant if they do not change.</li>
- <li>Breaking changes would mean that previously conformant applications are no longer conformant</li>
-</ul>
-<p>
-Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) may not be able to handle some consequences of these changes without error:</p>
-<ul>
- <li>creation of new resources</li>
- <li>adding new optional elements in an existing resource</li>
- <li>defining new data types</li>
- <li>Adding new API operations</li>
-</ul>
-<p>
-Also, the examples are never substantive. Every effort is made to ensure that FHIR examples are correct, but changes to the examples in the specification are not considered substantive.
-</p>
-
-<p>
-Each FHIR version is identified by a string composed from 4 parts: publication.major.minor.revision.
-</p>
-<table class="lines">
-  <tr>
-   <td valign="top">publication</td>
-   <td>
-     <ul>
-       <li>Incremented when HL7 publishes FHIR as an updated specification, e.g. a STU or normative version of FHIR</li>
-       <li>HL7 plans to do this every 1 to 2 years</li>
-       <li>The first STU was version 0</li>
-     </ul>
-   </td>
-  </tr>
-  <tr>
-   <td valign="top">major</td>
-   <td>
-     <ul>
-       <li>Increments every time a breaking change is made</li>
-       <li>When a new publication is made, this is reset to 0 in the publication, and 1 in the development branch</li>
-       <li>Since HL7 does not make breaking changes as technical corrections to a published specification, these versions of FHIR always have a version number X.0.n.r</li>
-       <li>Because the development version is the subject of ongoing analysis, debate, ballot and repeated alterations, breaking changes are to be expected</li>
-     </ul>
-   </td>
-  </tr>
-  <tr>
-   <td valign="top">minor</td>
-   <td>
-     <ul>
-       <li>Increments every time a substantive change is made</li>
-       <li>Resets to 0 any time the major version changes</li>
-     </ul>
-   </td>
-  </tr>
-  <tr>
-   <td valign="top">revision</td>
-   <td>
-     <ul>
-       <li>Incremented any time a change is made to the specification</li>
-       <li>At present, this is the SVN version number (this allows anyone to reconstruct the source from which the version was built)</li>
-     </ul>
-   </td>
-  </tr>
-</table>
-
-<p>
-Additional notes:
-</p>
-<ul>
- <li>Changes to a formally published specification (except for minor publishing corrections, such as correcting broken links) are only made via announced technical corrections</li>
- <li>The reference implementations have 2 versions - the version of the specification that they implement, and their own version. Consult the reference implementation documentation for policy regarding this version number</li>
- <li>The specification published by the continuous integration service (<a href="http://build.fhir.org/">http://build.fhir.org/</a>) build may not conform to this version policy,
-   but the versions published on the HL7 web site will (see <a href="http://hl7.org/fhir/directory.html">Directory of published versions</a>)</li>
- <li>The first DSTU was published prior to these rules being agreed as v0.80-2286. This has been updated to 0.0.81.2382 as a technical correction to align with this policy on 9-May 2014</li>
-</ul>
-
 <a name="history"> </a>
 <h3>Version History since DSTU #1</h3>
+
+<p>
+For background to this version hsitory, see <a href="versions.html">FHIR Version Management Policy</a>.
+</p>
+
 <a name="pubs"> </a>
 <p>
 Major Milestones:
 </p>
 <table class="grid">
   <tr>
-    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Oct 24, 2015</a></td>
+    <td><a href="http://hl7.org/fhir/DSTU2/index.html">Feb 21, 2017</a></td>
     <td>3.0.0</td>
     <td>Release 3 (STU - Standard for Trial Use)</td>
   </tr>
@@ -159,6 +58,13 @@ Major Milestones:
 
 <p>
 This table lists substantive changes only.
+</p>
+<p>
+This is the developmental version of FHIR. The only changes tracked here are
+the changes made after the publication of the first DSTU release. For earlier changes,
+see the <a href="http://hl7.org/fhir/history.html">DSTU #1 Version History</a>.
+Note that a full archive history of everything is available
+<a href="http://wiki.hl7.org/index.php?title=FHIR">through the HL7 gForge SVN archives</a>.
 </p>
 
 <table class="grid">
@@ -418,7 +324,7 @@ notes: do not list revision in the version
       <p>This version had extensive change as a result of the May 2015 DSTU ballot, ongoing testing, and the open change proposals (1317 gForge tasks). The extent of the changes is best illustrated by the number of the
         <a href="http://wiki.hl7.org/index.php?title=FHIR_Breaking_changes_between_DSTU_2_ballot_and_final">list of changes labeled 'breaking change'</a> - 158 changes of 1317 total tasks. Below is a list of the most important changes:</p>
       <ul>
-        <li>General: introduced the <a href="resource.html#maturity">maturity framework</a></li>
+        <li>General: introduced the <a href="versions.html#maturity">maturity framework</a></li>
         <li><a href="http.html">RESTful API</a>: add batch, several clarifications around versioning &amp; transactional integrity, changed Bundle URL resolution rules</li>
         <li><a href="search.html">Search</a>: changed the way &lt;&gt; etc.works, added _list parameter, changed rules around contained and included resources</li>
         <li>Formats: added a <a href="xml.html">note about whitespace in XML</a>, added <a href="xml.html#schema-gen">code generation schemas</a></li>
