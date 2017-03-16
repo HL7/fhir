@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>712</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -750,6 +750,10 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s149" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Interior/>
+  </Style>
   <Style ss:ID="s150">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -786,10 +790,6 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s155" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
-   <Interior/>
   </Style>
  </Styles>
  <Names>
@@ -5923,12 +5923,11 @@
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">n</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+   <Row ss:Height="43.199999999999996">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">LOINC USSG Family History Response</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s89"><Data ss:Type="String">Example response to the SDC-LOINC USSG Family History questionnaire</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ussg-fht-answers</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">questionnaireresponse-example-ussg-fht-answers.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
    </Row>
@@ -6238,6 +6237,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6257,8 +6257,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6358,7 +6358,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Code indicating the response provided for a question.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s155" ss:HRef="http://hl7.org/fhir/ValueSet/questionnaire-answers"><Data
+    <Cell ss:StyleID="s149" ss:HRef="http://hl7.org/fhir/ValueSet/questionnaire-answers"><Data
       ss:Type="String">http://hl7.org/fhir/ValueSet/questionnaire-answers</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Binding this is problematic because one value set can't apply to both codes and quantities.</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -6788,7 +6788,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
