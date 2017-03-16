@@ -109,7 +109,7 @@
   Short Name = Whether this patient\'s record is in active use
   Definition = Whether this patient record is in active use
   Requirements = Need to be able to mark a patient record as not to be used because it was created in error
-  Comments = Default is true. If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient
+  Comments = Default is true. If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient\n\nThis element is labeled as a modifier because when the patient record is marked as not active it is not expected to be used/referenced without being changed back to active.
   RIM Mapping = statusCode
   CDA Mapping = n/a
   Default Value = True
@@ -193,7 +193,7 @@
   Short Name = Indicates if the individual is deceased or not
   Definition = Indicates if the individual is deceased or not
   Requirements = The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.
-  Comments = If there\'s no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.
+  Comments = If there\'s no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.\n\nThis element is labeled as a modifier because once a patient is marked as deceased, the actions that are appropriate to perform on the patient may be significantly different.
   v2 Mapping = PID-30  (bool) and PID-29 (datetime)
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime
   CDA Mapping = n/a
@@ -503,14 +503,13 @@
   Short Name = Link to another patient resource that concerns the same actual person
   Definition = Link to another patient resource that concerns the same actual patient
   Requirements = There are multiple usecases: \n\n* Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers
-  Comments = There is no assumption that linked patient records have mutual links.
+  Comments = There is no assumption that linked patient records have mutual links. \n\nThis element is labelled as a modifier because it may not be the main Patient resource, and the referenced patient should be used instead of this Patient record. This is when the link.type value is \'replaced-by\'
   RIM Mapping = outboundLink
   CDA Mapping = n/a
 
  -- Row 35 -----------------------------------
   Element = Patient.link.other
   Card. = 1..1
-  Is Modifier = y
   Summary = y
   Type = Reference(Patient|RelatedPerson)
   Short Name = The other patient or related person resource that the link refers to
@@ -523,7 +522,6 @@
  -- Row 36 -----------------------------------
   Element = Patient.link.type
   Card. = 1..1
-  Is Modifier = y
   Summary = y
   Type = code
   Binding = LinkType
