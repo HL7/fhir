@@ -11,41 +11,51 @@
   <concept>
     <code value="hosp-trans"/>
     <display value="Transferred from other hospital"/>
+    <definition value="The Patient has been transferred from another hospital for this encounter."/>
   </concept>
   <concept>
     <code value="emd"/>
     <display value="From accident/emergency department"/>
+    <definition value="The patient has been transferred from the emergency department within the hospital. This is typically used in the transition to an inpatient encounter"/>
   </concept>
   <concept>
     <code value="outp"/>
     <display value="From outpatient department"/>
+    <definition value="The patient has been transferred from an outpatient department within the hospital."/>
   </concept>
   <concept>
     <code value="born"/>
     <display value="Born in hospital"/>
+    <definition value="The patient is a newborn and the encounter will track the baby related activities (as opposed to the Mothers encounter - that may be associated using the newborn encounters partof property)"/>
   </concept>
   <concept>
     <code value="gp"/>
     <display value="General Practitioner referral"/>
+    <definition value="The patient has been admitted due to a referred from a General Practitioner."/>
   </concept>
   <concept>
     <code value="mp"/>
     <display value="Medical Practitioner/physician referral"/>
+    <definition value="The patient has been admitted due to a referred from a Specialist (as opposed to a General Practitioner)."/>
   </concept>
   <concept>
     <code value="nursing"/>
     <display value="From nursing home"/>
+    <definition value="The patient has been transferred from a nursing home."/>
   </concept>
   <concept>
     <code value="psych"/>
     <display value="From psychiatric hospital"/>
+    <definition value="The patient has been transferred from a psychiatric facility."/>
   </concept>
   <concept>
     <code value="rehab"/>
     <display value="From rehabilitation facility"/>
+    <definition value="The patient has been transferred from a rehabilitiation facility or clinic."/>
   </concept>
   <concept>
     <code value="other"/>
     <display value="Other"/>
+    <definition value="The patient has been admitted from a source otherwise not specified here."/>
   </concept>
 </CodeSystem>

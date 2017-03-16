@@ -5,27 +5,32 @@
   <name value="SpecialArrangements"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit."/>
+  <description value="This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patient's visit."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="wheel"/>
     <display value="Wheelchair"/>
+    <definition value="The patient requires a wheelchair to be made available for the encounter."/>
   </concept>
   <concept>
-    <code value="stret"/>
-    <display value="Stretcher"/>
+    <code value="add-bed"/>
+    <display value="Additional bedding"/>
+    <definition value="An additional bed made available for a person accompanying the patient, for example a parent accompanying a child."/>
   </concept>
   <concept>
     <code value="int"/>
     <display value="Interpreter"/>
+    <definition value="The patient is not fluent in the local language and requires an interpreter to be available. Refer to the Patient.Language property for the type of interpreter required."/>
   </concept>
   <concept>
     <code value="att"/>
     <display value="Attendant"/>
+    <definition value="A person who accompanies a patient to provide assistive services necessary for the patient's care during the encounter."/>
   </concept>
   <concept>
     <code value="dog"/>
     <display value="Guide dog"/>
+    <definition value="The patient has a guide-dog and the location used for the encounter should be able to support the presence of the service animal."/>
   </concept>
 </CodeSystem>
