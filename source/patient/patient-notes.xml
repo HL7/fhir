@@ -240,7 +240,7 @@ further advice. All patient records SHALL have a score from 0 to 1, where
   &lt;/entry&gt; 
 </pre>
 <p>
-The patient-mpi-match extension has one of the <a href="valueset-match-grade.html">following codes</a>:
+The match-grade extension has one of the <a href="valueset-match-grade.html">following codes</a>:
 </p>
 [%codelist-nh http://hl7.org/fhir/match-grade%]
 <p>
@@ -272,7 +272,7 @@ Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedbac
 </p>
 </blockquote>
 <p>
-A <a href="patient-mpi-search.html">formal definition</a> for the MPI $match operation is published.
+A <a href="operation-patient-match.html">formal definition</a> for the MPI $match operation is published.
 </p>
 <blockquote class="dstu-note">
 <a name="dstu-2"> </a>

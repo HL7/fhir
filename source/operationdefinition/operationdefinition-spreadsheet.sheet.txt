@@ -423,27 +423,20 @@
   Type = tool
 
  -- Row 8 -----------------------------------
-  Name = Patient-MPI
-  Identity = patient-mpi
-  Description = Patient MPI Query
-  Filename = patient-mpi-search.xml
-  Type = xml
-
- -- Row 9 -----------------------------------
   Name = lib-data-req
   Identity = Library-data-requirements
   Description = Library data requirements
   Filename = operation-library-data-requirements.xml
   Type = tool
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = meas-date-req
   Identity = Measure-data-requirements
   Description = Measure data requirements
   Filename = operation-measure-data-requirements.xml
   Type = tool
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = meas-eval
   Identity = Measure-evaluate-measure
   Description = Measure evaluate measure
