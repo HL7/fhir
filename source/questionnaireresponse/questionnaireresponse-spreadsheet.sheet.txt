@@ -12,7 +12,7 @@
  -- Row 2 -----------------------------------
   Binding Name = QuestionnaireAnswer
   Binding = value set
-  Reference = http://snomed.info/sct?fhir_vs
+  Reference = http://hl7.org/fhir/ValueSet/questionnaire-answers
   Definition = Code indicating the response provided for a question.
   Description = Binding this is problematic because one value set can\'t apply to both codes and quantities.
   Conformance = example
