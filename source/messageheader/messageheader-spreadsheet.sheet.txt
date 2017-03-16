@@ -64,7 +64,6 @@
  -- Row 3 -----------------------------------
   Element = MessageHeader.event
   Card. = 1..1
-  Is Modifier = y
   Type = Coding
   Binding = MessageEvent
   Short Name = Code for the event this message represents
@@ -267,7 +266,6 @@
  -- Row 21 -----------------------------------
   Element = MessageHeader.response
   Card. = 0..1
-  Is Modifier = y
   UML = 380;220
   Short Name = If this is a reply to prior message
   Definition = Information about the message that this message is a response to.  Only present if this message is a response.
@@ -287,7 +285,6 @@
  -- Row 23 -----------------------------------
   Element = MessageHeader.response.code
   Card. = 1..1
-  Is Modifier = y
   Type = code
   Binding = ResponseType
   Short Name = ok | transient-error | fatal-error
