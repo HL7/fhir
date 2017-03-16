@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7332</WindowHeight>
-  <WindowWidth>8952</WindowWidth>
+  <WindowHeight>8220</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4307,7 +4307,7 @@
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s112" ss:DefaultColumnWidth="64.8"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="70.8"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="95.399999999999991"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="109.8"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="210" ss:Span="2"/>
@@ -4462,7 +4462,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.gender</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Gender of the person</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Gender of the related person</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">patient</Data></Cell>
@@ -4471,7 +4471,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.patient</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">The patient this person is related to</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">The patient this related person is related to</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">active</Data></Cell>
@@ -4480,7 +4480,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">RelatedPerson.active</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Wheter the related person record is active</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Indicates if the related person record is active</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"/>
@@ -4685,6 +4685,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4705,6 +4706,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>13</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
@@ -6901,7 +6903,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

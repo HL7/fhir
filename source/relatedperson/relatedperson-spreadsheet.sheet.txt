@@ -178,12 +178,14 @@
   Type = token
   Description = A value in a phone contact
   Path = RelatedPerson.telecom(system=phone)
+  Expression = RelatedPerson.telecom.where(system=\'phone\')
 
  -- Row 6 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
   Path = RelatedPerson.telecom(system=email)
+  Expression = RelatedPerson.telecom.where(system=\'email\')
 
  -- Row 7 -----------------------------------
   Name = address
@@ -230,19 +232,19 @@
  -- Row 14 -----------------------------------
   Name = gender
   Type = token
-  Description = Gender of the person
+  Description = Gender of the related person
   Path = RelatedPerson.gender
 
  -- Row 15 -----------------------------------
   Name = patient
   Type = reference
-  Description = The patient this person is related to
+  Description = The patient this related person is related to
   Path = RelatedPerson.patient
 
  -- Row 16 -----------------------------------
   Name = active
   Type = token
-  Description = Wheter the related person record is active
+  Description = Indicates if the related person record is active
   Path = RelatedPerson.active
 
 === Sheet Profiles =====================================
