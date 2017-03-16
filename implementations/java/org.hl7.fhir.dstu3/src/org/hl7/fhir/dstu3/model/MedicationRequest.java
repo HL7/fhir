@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -1375,7 +1375,7 @@ public class MedicationRequest extends DomainResource {
     /**
      * Indicates how quickly the Medication Request should be addressed with respect to other requests.
      */
-    @Child(name = "priority", type = {CodeType.class}, order=7, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "priority", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="Indicates how quickly the Medication Request should be addressed with respect to other requests." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-request-priority")
     protected Enumeration<MedicationRequestPriority> priority;

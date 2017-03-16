@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -1171,7 +1171,7 @@ public class Patient extends DomainResource {
         /**
          * The other patient resource that the link refers to.
          */
-        @Child(name = "other", type = {Patient.class, RelatedPerson.class}, order=1, min=1, max=1, modifier=true, summary=true)
+        @Child(name = "other", type = {Patient.class, RelatedPerson.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The other patient or related person resource that the link refers to", formalDefinition="The other patient resource that the link refers to." )
         protected Reference other;
 
@@ -1183,7 +1183,7 @@ public class Patient extends DomainResource {
         /**
          * The type of link between this patient resource and another patient resource.
          */
-        @Child(name = "type", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+        @Child(name = "type", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="replaced-by | replaces | refer | seealso - type of link", formalDefinition="The type of link between this patient resource and another patient resource." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/link-type")
         protected Enumeration<LinkType> type;

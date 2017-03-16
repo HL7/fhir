@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -409,18 +409,18 @@ public class Observation extends DomainResource {
         protected SimpleQuantity high;
 
         /**
-         * Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.
+         * Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Reference range qualifier", formalDefinition="Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range." )
+        @Description(shortDefinition="Reference range qualifier", formalDefinition="Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/referencerange-meaning")
         protected CodeableConcept type;
 
         /**
-         * Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
+         * Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
          */
         @Child(name = "appliesTo", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Reference range population", formalDefinition="Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race." )
+        @Description(shortDefinition="Reference range population", formalDefinition="Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/referencerange-appliesto")
         protected List<CodeableConcept> appliesTo;
 
@@ -496,7 +496,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #type} (Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.)
+         * @return {@link #type} (Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.)
          */
         public CodeableConcept getType() { 
           if (this.type == null)
@@ -512,7 +512,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.)
+         * @param value {@link #type} (Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.)
          */
         public ObservationReferenceRangeComponent setType(CodeableConcept value) { 
           this.type = value;
@@ -520,7 +520,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #appliesTo} (Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.)
+         * @return {@link #appliesTo} (Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.)
          */
         public List<CodeableConcept> getAppliesTo() { 
           if (this.appliesTo == null)
@@ -649,8 +649,8 @@ public class Observation extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("low", "SimpleQuantity", "The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).", 0, java.lang.Integer.MAX_VALUE, low));
           childrenList.add(new Property("high", "SimpleQuantity", "The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9).   If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).", 0, java.lang.Integer.MAX_VALUE, high));
-          childrenList.add(new Property("type", "CodeableConcept", "Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("appliesTo", "CodeableConcept", "Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.", 0, java.lang.Integer.MAX_VALUE, appliesTo));
+          childrenList.add(new Property("type", "CodeableConcept", "Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("appliesTo", "CodeableConcept", "Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.", 0, java.lang.Integer.MAX_VALUE, appliesTo));
           childrenList.add(new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, java.lang.Integer.MAX_VALUE, age));
           childrenList.add(new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'.", 0, java.lang.Integer.MAX_VALUE, text));
         }

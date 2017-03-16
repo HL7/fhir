@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -879,11 +879,11 @@ public class RiskAssessment extends DomainResource {
     /**
      * Additional comments about the risk assessment.
      */
-    @Child(name = "comment", type = {Annotation.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "comment", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Comments on the risk assessment", formalDefinition="Additional comments about the risk assessment." )
-    protected Annotation comment;
+    protected StringType comment;
 
-    private static final long serialVersionUID = -127486832L;
+    private static final long serialVersionUID = -715866284L;
 
   /**
    * Constructor
@@ -1512,15 +1512,19 @@ public class RiskAssessment extends DomainResource {
     }
 
     /**
-     * @return {@link #comment} (Additional comments about the risk assessment.)
+     * @return {@link #comment} (Additional comments about the risk assessment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Annotation getComment() { 
+    public StringType getCommentElement() { 
       if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RiskAssessment.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new Annotation(); // cc
+          this.comment = new StringType(); // bb
       return this.comment;
+    }
+
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     public boolean hasComment() { 
@@ -1528,10 +1532,31 @@ public class RiskAssessment extends DomainResource {
     }
 
     /**
-     * @param value {@link #comment} (Additional comments about the risk assessment.)
+     * @param value {@link #comment} (Additional comments about the risk assessment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public RiskAssessment setComment(Annotation value) { 
+    public RiskAssessment setCommentElement(StringType value) { 
       this.comment = value;
+      return this;
+    }
+
+    /**
+     * @return Additional comments about the risk assessment.
+     */
+    public String getComment() { 
+      return this.comment == null ? null : this.comment.getValue();
+    }
+
+    /**
+     * @param value Additional comments about the risk assessment.
+     */
+    public RiskAssessment setComment(String value) { 
+      if (Utilities.noString(value))
+        this.comment = null;
+      else {
+        if (this.comment == null)
+          this.comment = new StringType();
+        this.comment.setValue(value);
+      }
       return this;
     }
 
@@ -1552,7 +1577,7 @@ public class RiskAssessment extends DomainResource {
         childrenList.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
         childrenList.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
         childrenList.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, java.lang.Integer.MAX_VALUE, mitigation));
-        childrenList.add(new Property("comment", "Annotation", "Additional comments about the risk assessment.", 0, java.lang.Integer.MAX_VALUE, comment));
+        childrenList.add(new Property("comment", "string", "Additional comments about the risk assessment.", 0, java.lang.Integer.MAX_VALUE, comment));
       }
 
       @Override
@@ -1573,7 +1598,7 @@ public class RiskAssessment extends DomainResource {
         case 93508670: /*basis*/ return this.basis == null ? new Base[0] : this.basis.toArray(new Base[this.basis.size()]); // Reference
         case 1161234575: /*prediction*/ return this.prediction == null ? new Base[0] : this.prediction.toArray(new Base[this.prediction.size()]); // RiskAssessmentPredictionComponent
         case 1293793087: /*mitigation*/ return this.mitigation == null ? new Base[0] : new Base[] {this.mitigation}; // StringType
-        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // Annotation
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1629,7 +1654,7 @@ public class RiskAssessment extends DomainResource {
           this.mitigation = castToString(value); // StringType
           return value;
         case 950398559: // comment
-          this.comment = castToAnnotation(value); // Annotation
+          this.comment = castToString(value); // StringType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1670,7 +1695,7 @@ public class RiskAssessment extends DomainResource {
         } else if (name.equals("mitigation")) {
           this.mitigation = castToString(value); // StringType
         } else if (name.equals("comment")) {
-          this.comment = castToAnnotation(value); // Annotation
+          this.comment = castToString(value); // StringType
         } else
           return super.setProperty(name, value);
         return value;
@@ -1696,7 +1721,7 @@ public class RiskAssessment extends DomainResource {
         case 93508670:  return addBasis(); 
         case 1161234575:  return addPrediction(); 
         case 1293793087:  return getMitigationElement();
-        case 950398559:  return getComment(); 
+        case 950398559:  return getCommentElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1720,7 +1745,7 @@ public class RiskAssessment extends DomainResource {
         case 93508670: /*basis*/ return new String[] {"Reference"};
         case 1161234575: /*prediction*/ return new String[] {};
         case 1293793087: /*mitigation*/ return new String[] {"string"};
-        case 950398559: /*comment*/ return new String[] {"Annotation"};
+        case 950398559: /*comment*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1793,8 +1818,7 @@ public class RiskAssessment extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type RiskAssessment.mitigation");
         }
         else if (name.equals("comment")) {
-          this.comment = new Annotation();
-          return this.comment;
+          throw new FHIRException("Cannot call addChild on a primitive type RiskAssessment.comment");
         }
         else
           return super.addChild(name);
@@ -1861,7 +1885,8 @@ public class RiskAssessment extends DomainResource {
         if (!(other instanceof RiskAssessment))
           return false;
         RiskAssessment o = (RiskAssessment) other;
-        return compareValues(status, o.status, true) && compareValues(mitigation, o.mitigation, true);
+        return compareValues(status, o.status, true) && compareValues(mitigation, o.mitigation, true) && compareValues(comment, o.comment, true)
+          ;
       }
 
       public boolean isEmpty() {

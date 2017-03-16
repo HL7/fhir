@@ -32,7 +32,7 @@ public class IGPackConverter102 implements VersionConvertorAdvisor {
         System.out.println("process "+s);
         org.hl7.fhir.dstu2.formats.XmlParser xp = new org.hl7.fhir.dstu2.formats.XmlParser();
         org.hl7.fhir.dstu2.model.Resource r10 = xp.parse(new FileInputStream("C:\\temp\\igpack2\\"+s));
-        org.hl7.fhir.dstu3.model.Resource r17 = new VersionConvertor_10_20(this).convertResource(r10);
+        org.hl7.fhir.dstu3.model.Resource r17 = new VersionConvertor_10_30(this).convertResource(r10);
         org.hl7.fhir.dstu3.formats.XmlParser xc = new org.hl7.fhir.dstu3.formats.XmlParser();
         xc.setOutputStyle(OutputStyle.PRETTY);
         xc.compose(new FileOutputStream("C:\\temp\\igpack2\\"+s), r17);

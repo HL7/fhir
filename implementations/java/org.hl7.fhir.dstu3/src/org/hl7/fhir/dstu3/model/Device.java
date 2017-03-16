@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -50,11 +50,11 @@ public class Device extends DomainResource {
 
     public enum UDIEntryType {
         /**
-         * A Barcode scanner captured the the data from the device label
+         * A Barcode scanner captured the data from the device label
          */
         BARCODE, 
         /**
-         * An RFID chip reader captured the the data from the device label
+         * An RFID chip reader captured the data from the device label
          */
         RFID, 
         /**
@@ -121,8 +121,8 @@ public class Device extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case BARCODE: return "A Barcode scanner captured the the data from the device label";
-            case RFID: return "An RFID chip reader captured the the data from the device label";
+            case BARCODE: return "A Barcode scanner captured the data from the device label";
+            case RFID: return "An RFID chip reader captured the data from the device label";
             case MANUAL: return "The data was read from the label by a person and manually entered. (e.g.  via a keyboard)";
             case CARD: return "The data orginated from a patient's implant card and read by an operator.";
             case SELFREPORTED: return "The data orginated from a patient source and not directly scanned or read from a label or card.";

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -60,7 +60,7 @@ public class Library extends MetadataResource {
     /**
      * Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="logic-library | model-definition | asset-collection | module-definition", formalDefinition="Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/library-type")
     protected CodeableConcept type;

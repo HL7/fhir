@@ -8,7 +8,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml"> </div>
   </text>
   <url value="http://hl7.org/fhir/extra-security-role-type"/>
-  <version value="1.9.0"/>
+  <version value="3.0.0"/>
   <name value="SecurityRoleType"/>
   <status value="draft"/>
   <experimental value="true"/>

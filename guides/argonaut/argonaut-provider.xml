@@ -30,7 +30,7 @@
   </useContext>
   <requirements value="As agree by Argonaut project " />
   <copyright value="Licensed under Create Commons 0 (Public Domain)" />
-  <fhirVersion value="1.9.0" />
+  <fhirVersion value="3.0.0" />
   <mapping>
     <identity value="v2" />
     <uri value="http://hl7.org/v2" />

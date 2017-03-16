@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -66,14 +66,14 @@ public abstract class MetadataResource extends DomainResource {
      * A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name for this metadata resource (Computer friendly)", formalDefinition="A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation." )
+    @Description(shortDefinition="Name for this metadata resource (computer friendly)", formalDefinition="A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation." )
     protected StringType name;
 
     /**
      * A short, descriptive, user-friendly title for the metadata resource.
      */
     @Child(name = "title", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name for this metadata resource (Human friendly)", formalDefinition="A short, descriptive, user-friendly title for the metadata resource." )
+    @Description(shortDefinition="Name for this metadata resource (human friendly)", formalDefinition="A short, descriptive, user-friendly title for the metadata resource." )
     protected StringType title;
 
     /**
@@ -102,7 +102,7 @@ public abstract class MetadataResource extends DomainResource {
      * The name of the individual or organization that published the metadata resource.
      */
     @Child(name = "publisher", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the metadata resource." )
+    @Description(shortDefinition="Name of the publisher (organization or individual)", formalDefinition="The name of the individual or organization that published the metadata resource." )
     protected StringType publisher;
 
     /**

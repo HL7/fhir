@@ -582,6 +582,12 @@
   Description = Example instrument for assessing Zika virus exposure potential
   Filename = questionnaire-zika-virus-exposure-assessment.xml
 
+ -- Row 6 -----------------------------------
+  Name = LOINC USSG Family History
+  Identity = ussg-fht
+  Description = LOINC US Surgeon General family history including value sets
+  Filename = questionnaire-profile-example-ussg-fht.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

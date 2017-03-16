@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class ChargeItem extends DomainResource {
 
     public enum ChargeItemStatus {
         /**
-         * the charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization
+         * The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization
          */
         PLANNED, 
         /**
-         * the charge item is ready for billing
+         * The charge item is ready for billing
          */
         BILLABLE, 
         /**
-         * the charge item has been determined to be not billable (e.g. due to rules associated with the billing code)
+         * The charge item has been determined to be not billable (e.g. due to rules associated with the billing code)
          */
         NOTBILLABLE, 
         /**
@@ -67,7 +67,7 @@ public class ChargeItem extends DomainResource {
          */
         ABORTED, 
         /**
-         * the charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices
+         * The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices
          */
         BILLED, 
         /**
@@ -130,11 +130,11 @@ public class ChargeItem extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PLANNED: return "the charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization";
-            case BILLABLE: return "the charge item is ready for billing";
-            case NOTBILLABLE: return "the charge item has been determined to be not billable (e.g. due to rules associated with the billing code)";
+            case PLANNED: return "The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization";
+            case BILLABLE: return "The charge item is ready for billing";
+            case NOTBILLABLE: return "The charge item has been determined to be not billable (e.g. due to rules associated with the billing code)";
             case ABORTED: return "The processing of the charge was aborted";
-            case BILLED: return "the charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices";
+            case BILLED: return "The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices";
             case ENTEREDINERROR: return "The charge item has been entered in error and should not be processed for billing";
             case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this charge item  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
@@ -142,11 +142,11 @@ public class ChargeItem extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PLANNED: return "planned";
-            case BILLABLE: return "billable";
-            case NOTBILLABLE: return "not billable";
-            case ABORTED: return "aborted";
-            case BILLED: return "billed";
+            case PLANNED: return "Planned";
+            case BILLABLE: return "Billable";
+            case NOTBILLABLE: return "Not billable";
+            case ABORTED: return "Aborted";
+            case BILLED: return "Billed";
             case ENTEREDINERROR: return "Entered in Error";
             case UNKNOWN: return "Unknown";
             default: return "?";

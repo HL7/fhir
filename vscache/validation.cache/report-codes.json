@@ -139,6 +139,11 @@
       "hash": "#|https://system/PGxReport|null|PGxReport|Pharmacogenetics Report",
       "severity": "error",
       "message": "The code provided (https://system/PGxReport#PGxReport, (Pharmacogenetics Report)) is not  valid in the value set LOINC Diagnostic Report Codes"
+    },
+    {
+      "hash": "#|https://www.acmeonline.com|null|4503|Biopsy without Microscopic Description (1 Site/Lesion)-Standard",
+      "severity": "error",
+      "message": "The code provided (https://www.acmeonline.com#4503, (Biopsy without Microscopic Description (1 Site/Lesion)-Standard)) is not  valid in the value set LOINC Diagnostic Report Codes"
     }
   ]
 }

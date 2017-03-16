@@ -46,8 +46,8 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor;
-import org.hl7.fhir.convertors.VersionConvertor_10_20;
-import org.hl7.fhir.convertors.VersionConvertor_14_20;
+import org.hl7.fhir.convertors.VersionConvertor_10_30;
+import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
@@ -1490,7 +1490,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
           else if (file.getContentType().contains("xml"))
             res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
-          org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_20(null).convertResource(res2);
+          org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_30(null).convertResource(res2);
           e = convertToElement(res);
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res); 
@@ -1737,7 +1737,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(file.getSource());
       else
         throw new Exception("Unable to determine file type for "+file.getName());
-      return VersionConvertor_14_20.convertResource(res);
+      return VersionConvertor_14_30.convertResource(res);
     } else if (version.equals("1.0.2")) {
       org.hl7.fhir.dstu2.model.Resource res;
       if (file.getContentType().contains("json"))
@@ -1748,7 +1748,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         throw new Exception("Unable to determine file type for "+file.getName());
       
       VersionConvertorAdvisor advisor = new IGR2ConvertorAdvisor();
-      return new VersionConvertor_10_20(advisor ).convertResource(res);
+      return new VersionConvertor_10_30(advisor ).convertResource(res);
     } else if (version.equals(Constants.VERSION)) {
       if (file.getContentType().contains("json"))
         return new JsonParser().parse(file.getSource());
@@ -1907,10 +1907,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
-      jp.compose(bs, VersionConvertor_14_20.convertResource(res));
+      jp.compose(bs, VersionConvertor_14_30.convertResource(res));
     } else if (version.equals("1.0.2")) {
         org.hl7.fhir.dstu2.formats.JsonParser jp = new org.hl7.fhir.dstu2.formats.JsonParser();
-        jp.compose(bs, new VersionConvertor_10_20(new IGR2ConvertorAdvisor()).convertResource(res));
+        jp.compose(bs, new VersionConvertor_10_30(new IGR2ConvertorAdvisor()).convertResource(res));
     } else { // if (version.equals(Constants.VERSION)) {
       org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
       jp.compose(bs, res);

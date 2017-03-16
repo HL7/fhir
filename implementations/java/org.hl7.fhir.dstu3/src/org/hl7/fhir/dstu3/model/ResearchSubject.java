@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -208,7 +208,7 @@ public class ResearchSubject extends DomainResource {
      * Identifiers assigned to this research study by the sponsor or other systems.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Business Identifer for event", formalDefinition="Identifiers assigned to this research study by the sponsor or other systems." )
+    @Description(shortDefinition="Business Identifier for event", formalDefinition="Identifiers assigned to this research study by the sponsor or other systems." )
     protected Identifier identifier;
 
     /**
@@ -849,17 +849,17 @@ public class ResearchSubject extends DomainResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Business Identifer for event</b><br>
+   * Description: <b>Business Identifier for event</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ResearchSubject.identifier", description="Business Identifer for event", type="token" )
+  @SearchParamDefinition(name="identifier", path="ResearchSubject.identifier", description="Business Identifier for event", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Business Identifer for event</b><br>
+   * Description: <b>Business Identifier for event</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.identifier</b><br>
    * </p>

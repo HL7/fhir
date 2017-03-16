@@ -14,7 +14,7 @@
       decisions, and providing query responses.</div>
   </text>
   <url value="http://hl7.org/fhir/contract-content-derivative"/>
-  <version value="1.9.0"/>
+  <version value="3.0.0"/>
   <name value="ContractContentDerivative"/>
   <status value="draft"/>
   <experimental value="true"/>

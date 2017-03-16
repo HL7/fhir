@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="the target of a Statement. StatementTarget represents one of a literal value, a reference to a non-entity type resource, an entity,  or an anonymous blank BNODE."/>
-   <fhirVersion value="1.9.0"/>
+   <fhirVersion value="3.0.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

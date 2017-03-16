@@ -129,7 +129,7 @@ public class SpecDifferenceEvaluator {
     for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.dstu2.model.StructureDefinition) {
         org.hl7.fhir.dstu2.model.StructureDefinition sd = (org.hl7.fhir.dstu2.model.StructureDefinition) be.getResource();
-        map.put(sd.getName(), new VersionConvertor_10_20(null).convertStructureDefinition(sd));
+        map.put(sd.getName(), new VersionConvertor_10_30(null).convertStructureDefinition(sd));
       }
     }
     
@@ -149,7 +149,7 @@ public class SpecDifferenceEvaluator {
     for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet) {
         org.hl7.fhir.dstu2.model.ValueSet sd = (org.hl7.fhir.dstu2.model.ValueSet) be.getResource();
-        map.put(sd.getName(), new VersionConvertor_10_20(null).convertValueSet(sd));
+        map.put(sd.getName(), new VersionConvertor_10_30(null).convertValueSet(sd));
       }
     }    
   }

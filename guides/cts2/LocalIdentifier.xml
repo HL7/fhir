@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="an identifier that uniquely references a class, individual, property or other resource within the context of a specific CTS2 service implementation. LocalIdentifier syntax must match the PNAME_LN production as defined in the SPARQL Query Specification . LocalIdentifiers may begin&#xa;&#x9;&#x9;&#x9;&#x9;with leading digits, where XML Local Identifiers and NameSpaceIdentifiers may not"/>
-   <fhirVersion value="1.9.0"/>
+   <fhirVersion value="3.0.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/string"/>

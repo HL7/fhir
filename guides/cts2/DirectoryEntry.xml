@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="an entry in a directory. DirectoryEntry is a mixin that identifies the attributes that must or may be present in any element that can be represented as an entry in a Directory."/>
-   <fhirVersion value="1.9.0"/>
+   <fhirVersion value="3.0.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

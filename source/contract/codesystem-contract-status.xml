@@ -14,7 +14,7 @@
             http://hl7-fhir.github.io/sc.html.</div>
     </text>
     <url value="http://hl7.org/fhir/contract-status"/>
-    <version value="1.9.0"/>
+    <version value="3.0.0"/>
     <name value="ContractStatus"/>
     <status value="draft"/>
     <experimental value="true"/>

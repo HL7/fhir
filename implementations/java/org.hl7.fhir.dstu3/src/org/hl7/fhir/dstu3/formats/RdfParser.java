@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -10513,14 +10513,28 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "RequestGroup", name, element, index);
-    if (element.hasIdentifier())
-      composeIdentifier(t, "RequestGroup", "identifier", element.getIdentifier(), -1);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "RequestGroup", "identifier", element.getIdentifier().get(i), i);
+    for (int i = 0; i < element.getDefinition().size(); i++)
+      composeReference(t, "RequestGroup", "definition", element.getDefinition().get(i), i);
+    for (int i = 0; i < element.getBasedOn().size(); i++)
+      composeReference(t, "RequestGroup", "basedOn", element.getBasedOn().get(i), i);
+    for (int i = 0; i < element.getReplaces().size(); i++)
+      composeReference(t, "RequestGroup", "replaces", element.getReplaces().get(i), i);
+    if (element.hasGroupIdentifier())
+      composeIdentifier(t, "RequestGroup", "groupIdentifier", element.getGroupIdentifier(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "RequestGroup", "status", element.getStatusElement(), -1);
+    if (element.hasIntentElement())
+      composeEnum(t, "RequestGroup", "intent", element.getIntentElement(), -1);
+    if (element.hasPriorityElement())
+      composeEnum(t, "RequestGroup", "priority", element.getPriorityElement(), -1);
     if (element.hasSubject())
       composeReference(t, "RequestGroup", "subject", element.getSubject(), -1);
     if (element.hasContext())
       composeReference(t, "RequestGroup", "context", element.getContext(), -1);
-    if (element.hasOccurrenceDateTimeElement())
-      composeDateTime(t, "RequestGroup", "occurrenceDateTime", element.getOccurrenceDateTimeElement(), -1);
+    if (element.hasAuthoredOnElement())
+      composeDateTime(t, "RequestGroup", "authoredOn", element.getAuthoredOnElement(), -1);
     if (element.hasAuthor())
       composeReference(t, "RequestGroup", "author", element.getAuthor(), -1);
     if (element.hasReason())
@@ -10755,8 +10769,8 @@ public class RdfParser extends RdfParserBase {
       composeRiskAssessmentRiskAssessmentPredictionComponent(t, "RiskAssessment", "prediction", element.getPrediction().get(i), i);
     if (element.hasMitigationElement())
       composeString(t, "RiskAssessment", "mitigation", element.getMitigationElement(), -1);
-    if (element.hasComment())
-      composeAnnotation(t, "RiskAssessment", "comment", element.getComment(), -1);
+    if (element.hasCommentElement())
+      composeString(t, "RiskAssessment", "comment", element.getCommentElement(), -1);
   }
 
   protected void composeRiskAssessmentRiskAssessmentPredictionComponent(Complex parent, String parentType, String name, RiskAssessment.RiskAssessmentPredictionComponent element, int index) {

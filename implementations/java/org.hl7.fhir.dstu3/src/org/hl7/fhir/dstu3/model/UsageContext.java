@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 15, 2017 17:26+1100 for FHIR v1.9.0
+// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
 
 import java.util.*;
 
@@ -59,6 +59,7 @@ public class UsageContext extends Type implements ICompositeType {
      */
     @Child(name = "value", type = {CodeableConcept.class, Quantity.class, Range.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Value that defines the context", formalDefinition="A value that defines the context specified in this context of use. The interpretation of the value is defined by the code." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/use-context")
     protected Type value;
 
     private static final long serialVersionUID = -1092486508L;

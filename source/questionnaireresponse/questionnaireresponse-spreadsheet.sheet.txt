@@ -378,4 +378,10 @@
   Description = Glasgow Coma Score example answers
   Filename = questionnaireresponse-example-gcs.xml
 
+ -- Row 5 -----------------------------------
+  Name = LOINC USSG Family History Response
+  Identity = ussg-fht-answers
+  Description = Example response to the SDC-LOINC USSG Family History questionnaire
+  Filename = questionnaireresponse-example-ussg-fht-answers.xml
+
 === Sheet Examples =====================================

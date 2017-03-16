@@ -492,7 +492,7 @@
   Type = Reference(Provenance)
   Short Name = Key events in history of the Task
   Definition = Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task
-  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  See the [Provenance Relevant History profile](provenance-relevant-history.html) for guidance on the use of Provenance to capture history information.
+  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
   Workflow Mapping = Request.relevantHistory
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 

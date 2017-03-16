@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import org.hl7.fhir.convertors.VersionConvertorAdvisor;
-import org.hl7.fhir.convertors.VersionConvertor_10_20;
+import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu3.formats.XmlParser;
@@ -18,11 +18,11 @@ import org.hl7.fhir.exceptions.FHIRException;
 public class DSTU2ValidationConvertor implements VersionConvertorAdvisor {
 
   private Bundle source;
-  private VersionConvertor_10_20 vc;
+  private VersionConvertor_10_30 vc;
   
   public void convert(String bundleSource, String bundleTarget) throws Exception {
     System.out.println("Convert "+bundleSource);
-    vc = new VersionConvertor_10_20(this);
+    vc = new VersionConvertor_10_30(this);
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));

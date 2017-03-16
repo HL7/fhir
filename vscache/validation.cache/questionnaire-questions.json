@@ -2,6 +2,36 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-questions",
   "outcomes": [
     {
+      "hash": "|http://example.org/questionnaires|null|CDE: Planned Travel to Zika Area|null",
+      "severity": "error",
+      "message": "The code provided (http://example.org/questionnaires#CDE: Planned Travel to Zika Area) is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
+      "hash": "|http://example.org/questionnaires|null|CDE: Recent Sexual Encounter with Traveler to Zika Area|null",
+      "severity": "error",
+      "message": "The code provided (http://example.org/questionnaires#CDE: Recent Sexual Encounter with Traveler to Zika Area) is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
+      "hash": "|http://example.org/questionnaires|null|CDE: Recent Travel to Zika Area|null",
+      "severity": "error",
+      "message": "The code provided (http://example.org/questionnaires#CDE: Recent Travel to Zika Area) is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
+      "hash": "|http://example.org/questionnaires|null|CDE: Resident of or Frequent Traveler to Zika Area|null",
+      "severity": "error",
+      "message": "The code provided (http://example.org/questionnaires#CDE: Resident of or Frequent Traveler to Zika Area) is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
+      "hash": "|http://example.org/questionnaires|null|CDE: Time Since Returned From Travel|null",
+      "severity": "error",
+      "message": "The code provided (http://example.org/questionnaires#CDE: Time Since Returned From Travel) is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
+      "hash": "|http://example.org/questionnaires|null|CDE: Time Since Sexual Encounter|null",
+      "severity": "error",
+      "message": "The code provided (http://example.org/questionnaires#CDE: Time Since Sexual Encounter) is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
       "hash": "|http://example.org/system/code/lifelines/nl|null|VL 1-1, 18-65_1.2.2|Lifelines Questionnaire 1 part 1",
       "severity": "error",
       "message": "The code provided (http://example.org/system/code/lifelines/nl#VL 1-1, 18-65_1.2.2) is not  valid in the value set Questionnaire Question Codes"
@@ -170,6 +200,17 @@
         "code": null,
         "definition": null,
         "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54127-6|US Surgeon General family health portrait [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "US Surgeon General family health portrait [USSG-FHT]"
       }
     },
     {

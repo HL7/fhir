@@ -1,0 +1,230 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/questionnaire-answers",
+  "outcomes": [
+    {
+      "hash": "|http://cancer.questionnaire.org/system/code/yesno|null|0|null",
+      "severity": "error",
+      "message": "Unknown Code 0 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://cancer.questionnaire.org/system/code/yesno|null|1|Yes",
+      "severity": "error",
+      "message": "Unknown Code 1 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://cancer.questionnaire.org/system/code/yesno|null|1|null",
+      "severity": "error",
+      "message": "Unknown Code 1 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10395-4|Childhood",
+      "severity": "error",
+      "message": "Unknown Code LA10395-4 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10397-0|30-39",
+      "severity": "error",
+      "message": "Unknown Code LA10397-0 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10398-8|40-49",
+      "severity": "error",
+      "message": "Unknown Code LA10398-8 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10399-6|50-59",
+      "severity": "error",
+      "message": "Unknown Code LA10399-6 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10400-2|OVER 60",
+      "severity": "error",
+      "message": "Unknown Code LA10400-2 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10405-1|Daughter",
+      "severity": "error",
+      "message": "Unknown Code LA10405-1 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10410-1|Maternal Aunt",
+      "severity": "error",
+      "message": "Unknown Code LA10410-1 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10411-9|Maternal Cousin",
+      "severity": "error",
+      "message": "Unknown Code LA10411-9 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10412-7|Maternal Grandfather",
+      "severity": "error",
+      "message": "Unknown Code LA10412-7 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10413-5|Maternal Grandmother",
+      "severity": "error",
+      "message": "Unknown Code LA10413-5 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10414-3|Maternal Uncle",
+      "severity": "error",
+      "message": "Unknown Code LA10414-3 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10415-0|Brother",
+      "severity": "error",
+      "message": "Unknown Code LA10415-0 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10416-8|Father",
+      "severity": "error",
+      "message": "Unknown Code LA10416-8 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10417-6|Mother",
+      "severity": "error",
+      "message": "Unknown Code LA10417-6 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10418-4|Sister",
+      "severity": "error",
+      "message": "Unknown Code LA10418-4 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10419-2|Nephew",
+      "severity": "error",
+      "message": "Unknown Code LA10419-2 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10420-0|Niece",
+      "severity": "error",
+      "message": "Unknown Code LA10420-0 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10421-8|Paternal Aunt",
+      "severity": "error",
+      "message": "Unknown Code LA10421-8 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10423-4|Paternal Grandfather",
+      "severity": "error",
+      "message": "Unknown Code LA10423-4 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10424-2|Paternal Grandmother",
+      "severity": "error",
+      "message": "Unknown Code LA10424-2 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10425-9|Paternal Uncle",
+      "severity": "error",
+      "message": "Unknown Code LA10425-9 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10536-3|-- Breast Cancer",
+      "severity": "error",
+      "message": "Unknown Code LA10536-3 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10537-1|-- Colon Cancer",
+      "severity": "error",
+      "message": "Unknown Code LA10537-1 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10539-7|-- Ovarian Cancer",
+      "severity": "error",
+      "message": "Unknown Code LA10539-7 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10543-9|-- Skin Cancer",
+      "severity": "error",
+      "message": "Unknown Code LA10543-9 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10550-4|-- Other Cancer",
+      "severity": "error",
+      "message": "Unknown Code LA10550-4 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10558-7|-- Heart Attack",
+      "severity": "error",
+      "message": "Unknown Code LA10558-7 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10564-5|-- Asthma",
+      "severity": "error",
+      "message": "Unknown Code LA10564-5 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10571-0|-- Other/Unknown",
+      "severity": "error",
+      "message": "Unknown Code LA10571-0 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10589-2|-- Other/Unexpected",
+      "severity": "error",
+      "message": "Unknown Code LA10589-2 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10602-3|-- Mexican",
+      "severity": "error",
+      "message": "Unknown Code LA10602-3 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA10606-4|-- South American",
+      "severity": "error",
+      "message": "Unknown Code LA10606-4 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA2-8|Male",
+      "severity": "error",
+      "message": "Unknown Code LA2-8 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA3-6|Female",
+      "severity": "error",
+      "message": "Unknown Code LA3-6 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA32-8|No",
+      "severity": "error",
+      "message": "Unknown Code LA32-8 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA33-6|Yes",
+      "severity": "error",
+      "message": "Unknown Code LA33-6 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA4457-3|White",
+      "severity": "error",
+      "message": "Unknown Code LA4457-3 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA6556-0|Eyes open spontaneously",
+      "severity": "error",
+      "message": "Unknown Code LA6556-0 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA6560-2|Confused",
+      "severity": "error",
+      "message": "Unknown Code LA6560-2 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://loinc.org|null|LA6566-9|Localizing pain",
+      "severity": "error",
+      "message": "Unknown Code LA6566-9 in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://unitsofmeasure.org|null|[in_i]|inches",
+      "severity": "error",
+      "message": "Unknown Code [in_i] in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    },
+    {
+      "hash": "|http://unitsofmeasure.org|null|lb|pounds",
+      "severity": "error",
+      "message": "Unknown Code lb in http://hl7.org/fhir/ValueSet/questionnaire-answers"
+    }
+  ]
+}
