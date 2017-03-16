@@ -115,6 +115,7 @@
  -- Row 15 -----------------------------------
   Element = GraphDefinition.profile
   Card. = 0..1
+  UML = 250;0
   Type = uri
   Short Name = Profile on base resource
   Definition = The profile that describes the use of the base resource
@@ -165,6 +166,7 @@
  -- Row 22 -----------------------------------
   Element = GraphDefinition.link.target
   Card. = 1..*
+  UML = 500;0
   Short Name = Potential target for the link
   Definition = Potential target for the link
 
@@ -186,6 +188,7 @@
  -- Row 25 -----------------------------------
   Element = GraphDefinition.link.target.compartment
   Card. = 0..*
+  UML = 500;200
   Short Name = Compartment Consistency Rules
   Definition = Compartment Consistency Rules
 

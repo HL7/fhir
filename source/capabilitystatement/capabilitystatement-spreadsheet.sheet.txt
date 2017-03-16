@@ -521,7 +521,7 @@
  -- Row 1 -----------------------------------
   Element = CapabilityStatement
   Card. = 1..1
-  UML = 230;160
+  UML = 230;120
   Type = MetadataResource
   Short Name = A statement of system Capabilities
   Definition = A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
@@ -599,7 +599,7 @@
   Element = CapabilityStatement.software
   Card. = 0..1
   Summary = y
-  UML = 230;0
+  UML = 0;160
   Inv. = 2
   Short Name = Software that is covered by this capability statement
   Definition = Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.
@@ -633,7 +633,7 @@
   Element = CapabilityStatement.implementation
   Card. = 0..1
   Summary = y
-  UML = 370;0
+  UML = 0;320
   Inv. = 2
   Short Name = If this describes a specific instance
   Definition = Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program
@@ -713,7 +713,7 @@
   Element = CapabilityStatement.rest
   Card. = 0..*
   Summary = Y
-  UML = 230;460
+  UML = 230;520
   Inv. = 1
   Short Name = If the endpoint is a RESTful one
   Definition = A definition of the restful capabilities of the solution, if any
@@ -794,7 +794,7 @@
   Element = CapabilityStatement.rest.resource
   Card. = 0..*
   Summary = Y
-  UML = 230;600
+  UML = 230;640
   Short Name = Resource served on the REST interface
   Definition = A specification of the restful capabilities of the solution for a specific resource type
   Comments = Max of one repetition per resource type
@@ -1048,7 +1048,7 @@
   Element = CapabilityStatement.messaging
   Card. = 0..*
   Summary = Y
-  UML = 0;240
+  UML = 230;0
   Inv. = 1
   Short Name = If messaging is supported
   Definition = A description of the messaging capabilities of the solution
@@ -1058,7 +1058,7 @@
   Element = CapabilityStatement.messaging.endpoint
   Card. = 0..*
   Aliases = 3
-  UML = 0;330
+  UML = 550;150
   Short Name = Where messages should be sent
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
@@ -1121,7 +1121,7 @@
   Element = CapabilityStatement.messaging.event
   Card. = 0..*
   Summary = Y
-  UML = -20;80
+  UML = 550;0
   Short Name = Declare support for this event
   Definition = A description of the solution\'s support for an event at this end-point.
   Comments = The same event may be listed up to two times - once as sender and once as receiver.
@@ -1187,7 +1187,7 @@
   Element = CapabilityStatement.document
   Card. = 0..*
   Summary = Y
-  UML = 550;50
+  UML = 0;480
   Inv. = 1
   Short Name = Document definition
   Definition = A document definition

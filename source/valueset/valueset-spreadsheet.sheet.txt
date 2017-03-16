@@ -471,7 +471,7 @@
  -- Row 47 -----------------------------------
   Element = ValueSet.expansion.contains
   Card. = 0..*
-  UML = 190;290
+  UML = 500;320
   Short Name = Codes in the value set
   Definition = The codes that are contained in the value set expansion
 

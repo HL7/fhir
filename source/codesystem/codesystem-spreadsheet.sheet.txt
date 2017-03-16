@@ -415,7 +415,7 @@
  -- Row 42 -----------------------------------
   Element = CodeSystem.concept.property
   Card. = 0..*
-  UML = 400;240
+  UML = 400;260
   Type = =ConceptProperty
   Short Name = Property value for the concept
   Definition = A property value for this concept

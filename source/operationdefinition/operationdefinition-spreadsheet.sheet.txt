@@ -278,7 +278,7 @@
  -- Row 32 -----------------------------------
   Element = OperationDefinition.parameter.binding
   Card. = 0..1
-  UML = 400;180
+  UML = 400;230
   Short Name = ValueSet details if this is coded
   Definition = Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)
 

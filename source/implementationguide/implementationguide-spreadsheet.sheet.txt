@@ -197,7 +197,7 @@
   Element = ImplementationGuide.package.resource
   Card. = 1..*
   Summary = Y
-  UML = 490;220
+  UML = 550;220
   Short Name = Resource in the implementation guide
   Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
 
@@ -255,7 +255,7 @@
   Element = ImplementationGuide.global
   Card. = 0..*
   Summary = Y
-  UML = 250;260
+  UML = 250;300
   Short Name = Profiles that apply globally
   Definition = A set of profiles that all resources covered by this implementation guide must conform to
   Comments = See [Default Profiles](implementationguide.html#default) for a discussion of which resources are \'covered\' by an implementation guide

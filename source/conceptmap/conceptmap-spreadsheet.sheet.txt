@@ -287,6 +287,7 @@
  -- Row 38 -----------------------------------
   Element = ConceptMap.group.unmapped
   Card. = 0..1
+  UML = 150;300
   Short Name = When no match in the mappings
   Definition = What to do when there is no match in the mappings in the group
   Comments = This only applies if the source code is in the system defined for the group
