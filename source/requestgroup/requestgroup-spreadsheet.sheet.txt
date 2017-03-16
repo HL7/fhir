@@ -119,12 +119,12 @@
   w5 = context
 
  -- Row 6 -----------------------------------
-  Element = RequestGroup.occurrenceDateTime
+  Element = RequestGroup.authoredOn
   Card. = 0..1
   Type = dateTime
   Short Name = When the request group was authored
   Definition = Indicates when the request group was created
-  w5 = when.done
+  w5 = when.recorded
 
  -- Row 7 -----------------------------------
   Element = RequestGroup.author
@@ -132,6 +132,7 @@
   Type = Reference(Device | Practitioner)
   Short Name = Device or practitioner that authored the request group
   Definition = Provides a reference to the author of the request group
+  w5 = who.author
 
  -- Row 8 -----------------------------------
   Element = RequestGroup.reason[x]

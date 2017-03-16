@@ -87,7 +87,7 @@
   <context>
     <reference value="Encounter/example"/>
   </context>
-  <occurrenceDateTime value="2017-03-06T17:31:00Z"/>
+  <authoredOn value="2017-03-06T17:31:00Z"/>
   <author>
     <reference value="Practitioner/1"/>
   </author>
