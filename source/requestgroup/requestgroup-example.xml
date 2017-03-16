@@ -32,7 +32,13 @@
   <identifier>
     <value value="requestgroup-1"/>
   </identifier>  
+  <groupIdentifier>
+    <system value="http://example.org/treatment-group"/>
+    <value value="00001"/>
+  </groupIdentifier>
   <status value="draft"/>
+  <intent value="plan"/>
+  <priority value="routine"/>
   <subject>
     <reference value="Patient/example"/>
   </subject>

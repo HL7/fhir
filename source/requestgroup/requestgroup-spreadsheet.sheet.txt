@@ -64,6 +64,25 @@
   Definition = Codes identifying the stage lifecycle stage of a request
   Conformance = required
 
+ -- Row 10 -----------------------------------
+  Binding Name = RequestIntent
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
+  Definition = Codes indicating the degree of authority/intentionality associated with a request
+  Conformance = required
+
+ -- Row 11 -----------------------------------
+  Binding Name = RequestPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
+  Definition = Identifies the level of importance to be assigned to actioning the request
+  Conformance = required
+
+ -- Row 12 -----------------------------------
+  Binding Name = RequestCode
+  Binding = unbound
+  Definition = Codes indicating the overall intent/content of the request group
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -80,18 +99,62 @@
   Type = DomainResource
   Short Name = A group of related requests
   Definition = A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\"
+  Workflow Mapping = Request
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = RequestGroup.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Name = Business identifier
-  Definition = Allows a service to provide a unique, business identifier for the response
+  Definition = Allows a service to provide a unique, business identifier for the request
+  Requirements = Allows identification of the request as it is known by various participating systems and in a way that remains consistent across servers
+  Workflow Mapping = Request.identifier
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = RequestGroup.definition
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Instantiates protocol or definition
+  Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request
+  Workflow Mapping = Request.identifier
+
+ -- Row 4 -----------------------------------
+  Element = RequestGroup.basedOn
+  Card. = 0..*
+  Aliases = fulfills
+  Type = Reference(Any)
+  Short Name = Fulfills plan, proposal, or order
+  Definition = A plan, proposal or order that is fulfilled in whole or in part by this request
+  Requirements = Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon
+  Workflow Mapping = Request.basedOn
+
+ -- Row 5 -----------------------------------
+  Element = RequestGroup.replaces
+  Card. = 0..*
+  Aliases = supersedes, prior, renewed order
+  Type = Reference(Any)
+  Short Name = Request(s) replaced by this request
+  Definition = Completed or terminated request(s) whose function is taken by this new request
+  Requirements = Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests
+  Comments = The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing.
+  Workflow Mapping = Request.replaces
+
+ -- Row 6 -----------------------------------
+  Element = RequestGroup.groupIdentifier
+  Card. = 0..1
+  Aliases = grouperid, requisition
+  Summary = Y
+  Type = Identifier
+  Short Name = Composite request this is part of
+  Definition = A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.
+  Requirements = Some business processes need to know if multiple items were ordered as part of the same \"prescription\" or \"requisition\" for billing or other purposes.
+  Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
+  Workflow Mapping = Request.groupIdentifier
+
+ -- Row 7 -----------------------------------
   Element = RequestGroup.status
   Card. = 1..1
   Is Modifier = Y
@@ -100,77 +163,110 @@
   Binding = RequestStatus
   Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
   Definition = The current state of the request. For request groups, the status reflects the status of all the requests in the group
+  Workflow Mapping = Request.status
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 8 -----------------------------------
+  Element = RequestGroup.intent
+  Card. = 1..1
+  Aliases = category
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = RequestIntent
+  Short Name = proposal | plan | order
+  Definition = Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
+  Requirements = Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain.
+  Workflow Mapping = Request.intent
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = RequestGroup.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = RequestPriority
+  Short Name = routine | urgent | asap | stat
+  Definition = Indicates how quickly the request should be addressed with respect to other requests
+  Workflow Mapping = Request.priority
+  Missing Meaning = If missing, this request should be performed with normal priority
+  w5 = grade
+
+ -- Row 10 -----------------------------------
   Element = RequestGroup.subject
   Card. = 0..1
   Type = Reference(Patient | Group)
   Short Name = Who the request group is about
   Definition = The subject for which the request group was created
+  Workflow Mapping = Request.subject
   w5 = who.focus
 
- -- Row 5 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = RequestGroup.context
   Card. = 0..1
   Type = Reference(Encounter | EpisodeOfCare)
   Short Name = Encounter or Episode for the request group
   Definition = Describes the context of the request group, if any
+  Workflow Mapping = Request.context
   w5 = context
 
- -- Row 6 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = RequestGroup.authoredOn
   Card. = 0..1
   Type = dateTime
   Short Name = When the request group was authored
   Definition = Indicates when the request group was created
+  Workflow Mapping = Request.authoredOn
   w5 = when.recorded
 
- -- Row 7 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = RequestGroup.author
   Card. = 0..1
   Type = Reference(Device | Practitioner)
   Short Name = Device or practitioner that authored the request group
   Definition = Provides a reference to the author of the request group
+  Workflow Mapping = Request.author
   w5 = who.author
 
- -- Row 8 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = RequestGroup.reason[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Any)
   Short Name = Reason for the request group
   Definition = Indicates the reason the request group was created. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response
+  Workflow Mapping = Request.reason
   w5 = why
 
- -- Row 9 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = RequestGroup.note
   Card. = 0..*
   Type = Annotation
   Short Name = Additional notes about the response
   Definition = Provides a mechanism to communicate additional information about the response
+  Workflow Mapping = Request.note
 
- -- Row 10 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = RequestGroup.action
   Card. = 0..*
   UML = right
   Short Name = Proposed actions, if any
   Definition = The actions, if any, produced by the evaluation of the artifact
 
- -- Row 11 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = RequestGroup.action.label
   Card. = 0..1
   Type = string
   Short Name = User-visible label for the action (e.g. 1. or A.)
   Definition = A user-visible label for the action
 
- -- Row 12 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = RequestGroup.action.title
   Card. = 0..1
   Type = string
   Short Name = User-visible title
   Definition = The title of the action displayed to a user
 
- -- Row 13 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = RequestGroup.action.description
   Card. = 0..1
   Summary = Y
@@ -178,7 +274,7 @@
   Short Name = Short description of the action
   Definition = A short description of the action used to provide a summary to display to the user
 
- -- Row 14 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = RequestGroup.action.textEquivalent
   Card. = 0..1
   Summary = Y
@@ -186,21 +282,23 @@
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
 
- -- Row 15 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = RequestGroup.action.code
   Card. = 0..*
   Type = CodeableConcept
   Short Name = Code representing the meaning of the action or sub-actions
   Definition = A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template
+  Workflow Mapping = Request.code
 
- -- Row 16 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = RequestGroup.action.documentation
   Card. = 0..*
   Type = RelatedArtifact
   Short Name = Supporting documentation for the intended performer of the action
   Definition = Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources
+  Workflow Mapping = Request.supportingInfo
 
- -- Row 17 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = RequestGroup.action.condition
   Card. = 0..*
   UML = 650;0
@@ -208,7 +306,7 @@
   Short Name = Whether or not the action is applicable
   Definition = An expression that describes applicability criteria, or start/stop conditions for the action
 
- -- Row 18 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = RequestGroup.action.condition.kind
   Card. = 1..1
   Type = code
@@ -217,21 +315,21 @@
   Definition = The kind of condition
   Comments = Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe when enter/exit criteria for an action
 
- -- Row 19 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = RequestGroup.action.condition.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the condition
   Definition = A brief, natural language description of the condition that effectively communicates the intended semantics
 
- -- Row 20 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = RequestGroup.action.condition.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 21 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = RequestGroup.action.condition.expression
   Card. = 0..1
   Type = string
@@ -239,21 +337,21 @@
   Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
 
- -- Row 22 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = RequestGroup.action.relatedAction
   Card. = 0..*
   UML = down
   Short Name = Relationship to another action
   Definition = A relationship to another action such as \"before\" or \"30-60 minutes after start of\"
 
- -- Row 23 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = RequestGroup.action.relatedAction.actionId
   Card. = 1..1
   Type = id
   Short Name = What action this is related to
   Definition = The element id of the action this is related to
 
- -- Row 24 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = RequestGroup.action.relatedAction.relationship
   Card. = 1..1
   Type = code
@@ -261,29 +359,31 @@
   Short Name = before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
   Definition = The relationship of this action to the related action
 
- -- Row 25 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = RequestGroup.action.relatedAction.offset[x]
   Card. = 0..1
   Type = Duration|Range
   Short Name = Time offset for the relationship
   Definition = A duration or range of durations to apply to the relationship. For example, 30-60 minutes before
 
- -- Row 26 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = RequestGroup.action.timing[x]
   Card. = 0..1
   Type = dateTime|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
+  Workflow Mapping = Request.occurrence
 
- -- Row 27 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = RequestGroup.action.participant
   Card. = 0..*
   Type = Reference(Patient|Person|Practitioner | RelatedPerson)
   Short Name = Who should perform the action
   Definition = The participant that should perform or be responsible for this action
+  Workflow Mapping = Request.performer
   w5 = who.actor
 
- -- Row 28 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = RequestGroup.action.type
   Card. = 0..1
   Type = Coding
@@ -291,7 +391,7 @@
   Short Name = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
- -- Row 29 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = RequestGroup.action.groupingBehavior
   Card. = 0..1
   Type = code
@@ -299,7 +399,7 @@
   Short Name = visual-group | logical-group | sentence-group
   Definition = Defines the grouping behavior for the action and its children
 
- -- Row 30 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = RequestGroup.action.selectionBehavior
   Card. = 0..1
   Type = code
@@ -307,7 +407,7 @@
   Short Name = any | all | all-or-none | exactly-one | at-most-one | one-or-more
   Definition = Defines the selection behavior for the action and its children
 
- -- Row 31 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = RequestGroup.action.requiredBehavior
   Card. = 0..1
   Type = code
@@ -315,7 +415,7 @@
   Short Name = must | could | must-unless-documented
   Definition = Defines the requiredness behavior for the action
 
- -- Row 32 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = RequestGroup.action.precheckBehavior
   Card. = 0..1
   Type = code
@@ -323,7 +423,7 @@
   Short Name = yes | no
   Definition = Defines whether the action should usually be preselected
 
- -- Row 33 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = RequestGroup.action.cardinalityBehavior
   Card. = 0..1
   Type = code
@@ -331,7 +431,7 @@
   Short Name = single | multiple
   Definition = Defines whether the action can be selected multiple times
 
- -- Row 34 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = RequestGroup.action.resource
   Card. = 0..1
   Inv. = 1
@@ -340,7 +440,7 @@
   Definition = The resource that is the target of the action (e.g. CommunicationRequest)
   Comments = The target resource SHALL be a [[[Request]]] resource with a Request.intent set to \"option\".
 
- -- Row 35 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = RequestGroup.action.action
   Card. = 0..*
   Inv. = 1
@@ -399,6 +499,36 @@
   Type = token
   Description = The status of the request group
   Path = RequestGroup.status
+
+ -- Row 9 -----------------------------------
+  Name = definition
+  Type = reference
+  Description = The definition from which the request group is realized
+  Path = RequestGroup.definition
+
+ -- Row 10 -----------------------------------
+  Name = group-identifier
+  Type = token
+  Description = The group identifier for the request group
+  Path = RequestGroup.groupIdentifier
+
+ -- Row 11 -----------------------------------
+  Name = priority
+  Type = token
+  Description = The priority of the request group
+  Path = RequestGroup.priority
+
+ -- Row 12 -----------------------------------
+  Name = intent
+  Type = token
+  Description = The intent of the request group
+  Path = RequestGroup.intent
+
+ -- Row 13 -----------------------------------
+  Name = authored
+  Type = date
+  Description = The date the request group was authored
+  Path = RequestGroup.authoredOn
 
 === Sheet Profiles =====================================
 

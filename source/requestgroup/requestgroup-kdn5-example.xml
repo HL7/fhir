@@ -80,7 +80,12 @@
   <identifier>
     <value value="requestgroup-kdn5"/>
   </identifier>  
+  <definition>
+    <reference value="PlanDefinition/KDN5"/>
+  </definition>
   <status value="draft"/>
+  <intent value="plan"/>
+  <priority value="routine"/>
   <subject>
     <reference value="Patient/example"/>
   </subject>
@@ -91,12 +96,6 @@
   <author>
     <reference value="Practitioner/1"/>
   </author>
-  <reasonCodeableConcept>
-    <text value="Treatment"/>
-  </reasonCodeableConcept>
-  <note>
-    <text value="Additional notes about the request group"/>
-  </note>
 
   <action>
     <!-- list of regimen options. in this case only one -->
