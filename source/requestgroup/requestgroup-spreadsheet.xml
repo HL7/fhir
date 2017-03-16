@@ -8,9 +8,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>lloyd</LastAuthor>
+  <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-17T16:11:34Z</LastSaved>
+  <LastSaved>2017-03-15T23:55:17Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,7 +24,8 @@
   <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -833,9 +834,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R106C24" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R107C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="111" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="112" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="54"
    ss:DefaultRowHeight="14.4375">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="289.5"/>
@@ -1008,6 +1009,41 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Business identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Allows a service to provide a unique, business identifier for the response</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="43.3125">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">RequestGroup.status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">RequestStatus</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">draft | active | suspended | cancelled | completed | entered-in-error | unknown</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The current state of the request. For request groups, the status reflects the status of all the requests in the group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3981,7 +4017,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4001,18 +4036,18 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R106C24"
+  <AutoFilter x:Range="R1C1:R107C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15:R35C15</Range>
+   <Range>R12C15:R36C15</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -4023,35 +4058,35 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15:R35C15</Range>
+   <Range>R12C15:R36C15</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R34C15:R35C15,R27C15:R28C15,R16C15,R11C15:R14C15</Range>
+   <Range>R35C15:R36C15,R28C15:R29C15,R17C15,R12C15:R15C15</Range>
    <Condition>
     <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R11C15:R35C15</Range>
+   <Range>R12C15:R36C15</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R22C15:R25C15</Range>
+   <Range>R23C15:R26C15</Range>
    <Condition>
     <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC15=#REF!)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R26C15,R29C15:R33C15,R17C15:R21C15,R15C15</Range>
+   <Range>R27C15,R30C15:R34C15,R18C15:R22C15,R16C15</Range>
    <Condition>
     <Value1>AND(RC15&lt;&gt;&quot;&quot;,RC15=RC16)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -4676,11 +4711,11 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">External identifiers for the request group</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">RequestGroup.status</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">The status of the request group</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
@@ -4838,6 +4873,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4857,8 +4893,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6736,11 +6772,12 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s147"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">RequestStatus</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes identifying the stage lifecycle stage of a request</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s148" ss:HRef="http://hl7.org/fhir/ValueSet/request-status"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/request-status</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -7038,8 +7075,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>13</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

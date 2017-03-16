@@ -80,6 +80,7 @@
   <identifier>
     <value value="requestgroup-kdn5"/>
   </identifier>  
+  <status value="draft"/>
   <subject>
     <reference value="Patient/example"/>
   </subject>

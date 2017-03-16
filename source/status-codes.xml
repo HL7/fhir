@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5688</WindowHeight>
-  <WindowWidth>15864</WindowWidth>
+  <WindowHeight>9450</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -311,18 +311,18 @@
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R103C30"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R104C30"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="103" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="25.95">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="104" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
+   ss:DefaultRowHeight="26.0625">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -3477,6 +3477,45 @@
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RequestGroup.status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">draft</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">active</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">suspended</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">completed</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">cancelled</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">unknown</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchStudy.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data><NamedCell
@@ -4118,9 +4157,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>82</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4128,19 +4167,23 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>4</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>86</ActiveRow>
+     <ActiveCol>22</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R3C1:R103C30"
+  <AutoFilter x:Range="R3C1:R104C30"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
