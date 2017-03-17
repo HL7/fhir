@@ -731,10 +731,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
-      } else if (com[0].equals("fmm")) {
-        src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
-        src = s1+getStandardsStatus(com[1])+s3;
+        if (com.length == 1) {
+          String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
+          if (Utilities.noString(ss))
+            ss = "Informative";
+          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
+        } else
+          src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
         src = s1+getWgLink(file, wg == null && com.length > 1 ? wg(com[1]) : wg)+s3;
       } else if (com[0].equals("wgt")) {
@@ -765,6 +769,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genExample(e, com.length > 2 ? Integer.parseInt(com[2]) : 0, genlevel(level))+s3;
       } else if (com[0].equals("r2r3transform")) {
         src = s1+dtR2R3Transform(com[1])+s3;
+      } else if (com[0].equals("fmm-style")) {
+        String fmm = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+      } else if (com[0].equals("fmm")) {
+        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("fmmshort")) {
+        String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        src = s1+getFmmShortFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1089,6 +1102,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(rd == null ? "" : getCompLinks(rd))+s3;
       else if (com[0].equals("r2maps-summary"))
         src = s1 + genR2MapsSummary() + s3;
+      else if (com[0].equals("wg")) {
+        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+      } else if (com[0].equals("profile-context"))
+        src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
       else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
@@ -4581,6 +4598,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getXcm(com[1])+s3;
       } else if (com[0].equals("fmm")) {
         src = s1+getFmm(com[1])+s3;
+      } else if (com[0].equals("fmmshort")) {
+        src = s1+getFmmShort(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
         src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
@@ -6594,7 +6613,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(pack.getCandidateResource(), genlevel(level))+s3;
-      else if (com[0].equals("past-narrative-link")) {
+      else if (com[0].equals("sstatus")) {
+        String ss = ToolingExtensions.readStringExtension(profile.getResource(), ToolingExtensions.EXT_BALLOT_STATUS);
+        if (Utilities.noString(ss))
+          ss = "Informative";
+        src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
+      } else if (com[0].equals("past-narrative-link")) {
         if (hasNarrative)  
           src = s1 + s3;
         else
@@ -6624,9 +6648,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (mr.getExperimental())
       b.append("Not Intended for Production use");
     if (b.length() == 0)
-      return "Use Context: Any";
+      return "<a href=\""+prefix+"metadatatypes.html#UsageContext\">Use Context</a>: Any";
     else
-      return "Use Context: "+b.toString();
+      return "<a href=\""+prefix+"metadatatypes.html#UsageContext\">Use Context</a>: "+b.toString();
   }
 
   private String generateProfileExamples(Profile pack, ConstraintStructure profile) {
@@ -7055,6 +7079,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("fmm")) {
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("sstatus")) {
+        String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
+        if (Utilities.noString(ss))
+          ss = "Informative";
+        src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(ed, genlevel(level))+s3;
       else
@@ -7861,7 +7890,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getSearch(pack)+s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;
-      else
+      else if (com[0].equals("wg")) {
+        String wg = pack.getWg();
+        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+      } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing profile "+pack.getId());
     }
     return src;
@@ -8122,16 +8154,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new FHIRException("unable to find resource '"+resourceName+"'");
-    return "&nbsp;<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getStatus().toDisplay()+"</a>";
+    return "&nbsp;<a href=\"versions.html#std-process\" title=\"Maturity Level\">"+rd.getStatus().toDisplay()+"</a>";
   }
   private String getFmm(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    return "&nbsp;<a href=\"versions.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
+    return "&nbsp;<a href=\"versions.html#maturity\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
+  }
+  private String getFmmShort(String resourceName) throws Exception {
+    ResourceDefn rd = definitions.getResourceByName(resourceName);
+    if (rd == null)
+      throw new Exception("unable to find resource '"+resourceName+"'");
+    return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
   private String getFmmFromlevel(String prefix, String level) throws Exception {
-    return "&nbsp;<a href=\""+prefix+"versions.html#maturity\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">Maturity Level</a>: "+(Utilities.noString(level) ? "0" : level);
+    return "&nbsp;<a href=\""+prefix+"versions.html#maturity\" title=\"Maturity Level\">Maturity Level</a>: "+(Utilities.noString(level) ? "0" : level);
+  }
+
+  private String getFmmShortFromlevel(String prefix, String level) throws Exception {
+    return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+(Utilities.noString(level) ? "0" : level)+"</a>";
   }
 
   private String getXcm(String param) {

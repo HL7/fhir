@@ -105,7 +105,7 @@ public class ToolingExtensions {
   public static final String EXT_TABLE_NAME = "http://hl7.org/fhir/StructureDefinition/structuredefinition-table-name";
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
   public static final String EXT_WORKGROUP = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg";
-
+  public static final String EXT_BALLOT_STATUS = "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status";
 
 
   // specific extension helpers

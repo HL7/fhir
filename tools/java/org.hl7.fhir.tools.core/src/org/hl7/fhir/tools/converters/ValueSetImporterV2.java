@@ -355,7 +355,8 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
-    vs.setDateElement(new DateTimeType(date)); 
+    vs.setDateElement(new DateTimeType(date));
+    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     StringBuilder s = new StringBuilder();
     Set<String> sources = vsImports.get(id);
 
@@ -493,11 +494,13 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
+    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     
     
     StringBuilder s = new StringBuilder();
 
     CodeSystem cs = new CodeSystem();
+    ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     String desc = "";
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
@@ -654,9 +657,11 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType(date)); 
     vs.setDescription("v2 table definition for "+vs.getName());
+    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     CodeSystem cs = new CodeSystem();
     CodeSystemUtilities.makeShareable(cs);
     CodeSystemConvertor.populate(cs, vs);
+    ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     cs.setUserData("spec.vs.cs", vs);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 

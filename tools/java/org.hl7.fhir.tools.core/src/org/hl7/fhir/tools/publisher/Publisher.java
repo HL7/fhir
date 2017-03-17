@@ -5599,7 +5599,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.setId(vs.getId());
       String sf;
       try {
-        sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set", ig, null, wg("vocab"));
+        sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set", ig, null, wg(vs, "vocab"));
       } catch (Exception e) {
         throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
       }
@@ -5637,6 +5637,11 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   }
 
+
+  private WorkGroup wg(DomainResource dr, String wg) {
+    String code = ToolingExtensions.readStringExtension(dr, ToolingExtensions.EXT_WORKGROUP);
+    return page.getDefinitions().getWorkgroups().get(Utilities.noString(code) ? wg : code);
+  }
 
   private void generateCodeSystemPart2(CodeSystem cs) throws Exception {
     String n = cs.getUserString("filename");
