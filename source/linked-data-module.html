@@ -31,10 +31,10 @@ Materials in this module are created and maintained by a collaboration between H
 </p>
 
 <a name="motivation"> </a>
-<h4>Motivation and Design of FHIR/RDF</h4>
+<h4>Motivation and Design of the FHIR Linked Data Module</h4>
 <p>
 Although RDF formats can be used to exchange FHIR data, 
-the primary purpose of FHIR/RDF is to ground FHIR data semantics in 
+the primary purpose of the FHIR Linked Data Module is to ground FHIR data semantics in 
 RDF, as a universal information representation.
 This enables FHIR data to be used with RDF applications, to support
 inference, shared semantics across multiple standards and data formats,
@@ -43,17 +43,12 @@ compliance enforcement, SPARQL queries and other uses.
 </p>
 
 <p>
-FHIR/RDF is based on the same abstract FHIR information model
-as FHIR/XML and FHIR/JSON, and carries the same FHIR
-information content.
-FHIR data is losslessly round-trippable between XML, JSON and
-RDF formats.  
-For this reason, data expressed in FHIR/RDF corresponds 
-closely to FHIR/XML and FHIR/JSON
-in its look and feel.  However, there are a few additional terms
-that appear in FHIR/RDF, which are explained on 
-<a href="rdf.html">the RDF page</a>: 
-fhir:nodeRole, fhir:treeRoot, fhir:value, fhir:index and fhir:concept.
+The FHIR/RDF is based on the same abstract FHIR information model
+as the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats, and carries the same FHIR
+information content. FHIR data is losslessly round-trippable between XML, JSON and RDF formats.  
+For this reason, data expressed in FHIR/RDF corresponds closely to the XML and JSON formats 
+in its look and feel.  However, there are a few additional terms that may appear in the RDF format, which are explained on 
+<a href="rdf.html">the RDF page</a>: <code>fhir:nodeRole</code>, <code>fhir:treeRoot</code>, <code>fhir:value</code>, <code>fhir:index</code> and <code>fhir:concept</code>.
 </p>
 
 <p>
@@ -96,8 +91,6 @@ created accidentally, and should be ignored.
 <h4>FHIR/RDF Data Formats</h4>
 <p>
 FHIR/RDF examples are provided for all FHIR resources in both Turtle and JSON-LD formats.   
-<!-- However, other RDF serializations may be used for FHIR/RDF also. GG: I Don't think this is true. At the least, we need to  discuss the ramifications, and we say something elsewhere. DBooth: Ok, we can just omit that sentence.  It
-is not important.  -->
 To access a JSON-LD example, first navigate to that example in Turtle format,
 and then click the "JSON-LD" link above the Turtle example.
 </p>
@@ -116,23 +109,13 @@ the following rough steps, though exact steps will depend on your application:
 Open source implementations that can perform this conversion include:
 
 <ul>
-<li>(Windows) <a href="http://github.com/grahamegrieve/fhirserver">reference implementation</a> by Grahame Grieve, using delphi / windows / mssql.
-</li>
-<li>(Windows, Linux and Mac?) <a href="https://github.com/mvdzel/fhir-net-api">fhir-net-api</a>, a .NET implementation by Michael van der Zel and Ewout Kramer.
-So far this has only been tested on Windows.  However,
-in theory it should also work on Linux (and Mac?) running under
-<a href="http://www.mono-project.com/">Mono</a>, an open source .NET framework.
-<i>Please notify <a href="mailto:david@dbooth.org">David Booth</a>
-if you confirm that it works on Linux or Mac, so that this page can be updated.</i>
-</li>
-
-<li>Check the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 Open Source FHIR Implementations page,</a>
-in case new implementations have become available.
-</li>
+<li><a href="https://hapifhir.io/">HAPI java Reference library</a> (Same code as used in the build)</li>
+<li><a href="http://fhir3.healthintersections.com.au/open">Reference Server</a> (based on <a href="http://github.com/grahamegrieve/fhirserver">Delphi reference implementation</a>)</li>
+<li><a href="https://github.com/mvdzel/fhir-net-api">fhir-net-api</a>, a .NET implementation. (should work on <a href="http://www.mono-project.com/">Mono</a>)</li>
+<li>Check the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 Open Source FHIR Implementations page,</a> in case new implementations have become available.</li>
 </ul>
 </li>
-
-<li><a href="http://build.fhir.org/linked-data-module.html">Download</a> the FHIR ontology.
+<li><a href="downloads.html">Download</a> the FHIR ontology.
 </li>
 
 <li> Download other ontologies that you wish to use with your application,
@@ -152,7 +135,7 @@ reasoning.
 
 <li> If you are creating FHIR/RDF then you might also wish to validate
 it, using <a href="http://shex.io/">ShEx</a>.
-If so, you can <a href="http://build.fhir.org/fhir.shex">download the ShEx schema</a> for FHIR/RDF.
+If so, you can <a href="fhir.shex">download the ShEx schema</a> for FHIR/RDF.
 </li>
 </ol>
 </p>
@@ -180,7 +163,7 @@ Other content in this module:
 <li><a href="http://w3c.github.io/hcls-fhir-rdf/spec/">
   (Draft) FHIR/RDF formal specification (at W3C)</a></li>
 
-<li><a href="http://build.fhir.org/fhir.shex">Downloadable ShEx Validation Schema for FHIR RDF</a></li>
+<li><a href="fhir.shex">Downloadable ShEx Validation Schema for FHIR RDF</a></li>
 
 <li><a href="ontology.html">FHIR Ontology introduction</a>  See also: 
   <a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">
