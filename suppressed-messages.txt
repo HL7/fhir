@@ -18,10 +18,11 @@ WARNING: DiagnosticReport.image.comment: MnM must have confirmed this should not
 WARNING: ElementDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ElementDefinition.comment: The type of 'comment' must be 'string'
 WARNING: ElementDefinition.mapping.language: Unable to resolve value set on 'code' Binding
+WARNING: ElementDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Endpoint.payloadMimeType: Unable to resolve value set on 'code' Binding
 WARNING: ImplementationGuide.page.format: Unable to resolve value set on 'code' Binding
 WARNING: Linkage: All resources should have an identifier
-WARNING: Measure.supplementalData Element names should be singular
+WARNING: Measure.supplementalData: Element names should be singular
 WARNING: Medication: All resources should have an identifier
 WARNING: NamingSystem.uniqueId.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Observation.comment: MnM must have confirmed this should not be an Annotation
@@ -33,7 +34,10 @@ WARNING: Signature.contentType: Unable to resolve value set on 'code' Binding
 WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0267/index.html (v2 Days of the Week) & valueset-days-of-week.html (DaysOfWeek) (name: [weeks, days] / [weeks, days]))
+WARNING: sd:ValueSetComparison: Duplicate Valueset Names: v2-0270 (v2 Document Type) & c80-doc-typecodes (Document Type Value Set) (name: [types, documents] / [types, documents]))
+WARNING: sd:ValueSetComparison: Duplicate Valueset Names: v2-0331 (v2 Facility Type) & c80-facilitycodes (Facility Type Code Value Set) (name: [types, facilities] / [types, facilities]))
 ;temporary
 INFORMATION: Appointment.appointmentType: Name of child (appointmentType) overlaps with name of parent (Appointment)
 WARNING: CompartmentDefinition.jurisdiction: Search Parameter 'CompartmentDefinition.jurisdiction' had no found values in any example. Consider reviewing the expression (CompartmentDefinition.jurisdiction)
 WARNING: CompartmentDefinition.title: Search Parameter 'CompartmentDefinition.title' had no found values in any example. Consider reviewing the expression (CompartmentDefinition.title)
+WARNING: RiskAssessment.comment: MnM must have confirmed this should not be an Annotation

@@ -333,15 +333,29 @@ public class ResourceValidator extends BaseValidator {
         }
       }
     }
+    // Remove suppressed messages
+    List<ValidationMessage> suppressed = new ArrayList<ValidationMessage>();
+    for (ValidationMessage em : errors) {
+      if (isSuppressedMessage(em.getDisplay())) {
+        suppressed.add(em);
+      }
+    }
+    errors.removeAll(suppressed);
+    
     // last check: if maturity level is 
     int warnings = 0;
+    int hints = 0;
     for (ValidationMessage em : errors) {
-      if (em.getLevel() == IssueSeverity.WARNING && !isSuppressedMessage(em.getDisplay()))
+      if (em.getLevel() == IssueSeverity.WARNING)
         warnings++;
+      else if (em.getLevel() == IssueSeverity.INFORMATION)
+        hints++;
     }
     boolean ok = warnings == 0 || "0".equals(rd.getFmmLevel());
-    if (rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
-      rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
+    if (rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
+      rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
+    ok = hints == 0 || Integer.parseInt(rd.getFmmLevel()) < 3;
+    rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >2 ("+rd.getFmmLevel()+") if it has informational hints");
 	}
 
   private boolean isSuppressedMessage(String message) {

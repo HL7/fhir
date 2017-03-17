@@ -424,13 +424,15 @@
   Summary = y
   UML = down
   Short Name = Named sections for reader convenience
+  Definition = Organizes the mapping into managable chunks for human review/ease of maintenance
 
  -- Row 24 -----------------------------------
   Element = StructureMap.group.name
   Card. = 1..1
   Summary = y
   Type = id
-  Short Name = Descriptive name for a user
+  Short Name = Human-readable label
+  Definition = A unique name for the group for the convenience of human readers
 
  -- Row 25 -----------------------------------
   Element = StructureMap.group.extends
@@ -454,7 +456,8 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Documentation for this group
+  Short Name = Additional description/explaination for group
+  Definition = Additional supporting documentation that explains the purpose of the group and the types of mappings within it.
 
  -- Row 28 -----------------------------------
   Element = StructureMap.group.input
@@ -544,7 +547,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Name = Type for this source
+  Short Name = Rule only applies if source has this type
   Definition = Specified type for the element. This works as a condition on the mapping - use for polymorphic elements
 
  -- Row 40 -----------------------------------
