@@ -127,6 +127,7 @@ signatures.html
       <page type="resource" resource="MessageHeader"/>
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
+      <page type="resource" resource="Subscription"/>
     </page>
 
     <page title="Linked Data" filename="linked-data-module.html" icon="linked-data.png">
@@ -316,7 +317,6 @@ signatures.html
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="SupplyRequest"/>
-      <page type="resource" resource="Subscription"/>
     </page>
 
     <page title="Financial" filename="financial-module.html" icon="financial.png">
