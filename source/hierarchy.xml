@@ -113,21 +113,23 @@ signatures.html
       <page title="Resource Guide" filename="resourceguide.html"/>
 
       <!-- infrastructure resources -->
-      <page type="resource" resource="Questionnaire"/>
-      <page type="resource" resource="QuestionnaireResponse"/>
-      <page type="resource" resource="List"/>
-      <page type="resource" resource="Media"/>
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
+      <page type="resource" resource="Media"/>
+      
+      <page type="resource" resource="Questionnaire"/>
+      <page type="resource" resource="QuestionnaireResponse"/>
+      <page type="resource" resource="List"/>
       <page type="resource" resource="Composition"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DocumentManifest"/>
-      <page type="resource" resource="MessageDefinition"/>
-      <page type="resource" resource="MessageHeader"/>
+
       <page type="resource" resource="OperationOutcome"/>
       <page type="resource" resource="Parameters"/>
       <page type="resource" resource="Subscription"/>
+      <page type="resource" resource="MessageHeader"/>
+      <page type="resource" resource="MessageDefinition"/>
     </page>
 
     <page title="Linked Data" filename="linked-data-module.html" icon="linked-data.png">
@@ -164,25 +166,24 @@ signatures.html
       <page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
       <page title="identifier Registry" filename="identifier-registry.html"/>
       <page title="TerminologyService" filename="terminology-service.html"/>
-      <page type="resource" resource="ValueSet"/>
-      <page type="resource" resource="ExpansionProfile"/>
-      <page type="resource" resource="NamingSystem"/>
-      <page type="resource" resource="ConceptMap"/>
       <page type="resource" resource="CodeSystem"/>
+      <page type="resource" resource="ValueSet"/>
+      <page type="resource" resource="ConceptMap"/>
+      <page type="resource" resource="NamingSystem"/>
+      <page type="resource" resource="ExpansionProfile"/>
     </page>
 
     <page title="Conformance" filename="conformance-module.html" icon="conformance.jpg">
       <page title="Profiling FHIR" filename="profiling.html">
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
-      <page type="resource" resource="ImplementationGuide"/>
       <page type="resource" resource="CapabilityStatement"/>
       <page type="resource" resource="StructureDefinition"/>
-      <page type="resource" resource="StructureMap"/>
       <page type="resource" resource="OperationDefinition"/>
       <page type="resource" resource="SearchParameter"/>
       <page type="resource" resource="CompartmentDefinition"/>
       <page type="resource" resource="DataElement"/>
+      <page type="resource" resource="ImplementationGuide"/>
       <page type="resource" resource="GraphDefinition"/>
     </page>
 
@@ -191,15 +192,31 @@ signatures.html
         <page title="Security Labels" filename="security-labels.html"/>
         <page title="Signatures" filename="signatures.html"/>
       </page>
+      <page type="resource" resource="Consent"/>
       <page type="resource" resource="Provenance"/>
       <page type="resource" resource="AuditEvent"/>
-      <page type="resource" resource="Consent"/>
     </page>
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
-      <page title="Clinical Safety" filename="safety.html"/>
+      <page title="Downloads" filename="downloads.html"/>
+
       <page title="Testing FHIR" filename="testing.html"/>
+      <page type="resource" resource="TestScript" />
+      <page type="resource" resource="TestReport" />
+      <page title="Validating Resources" filename="validation.html"/>
+      <page title="Mapping Language" filename="mapping-language.html">
+        <page title="Mapping Language Tutorial" filename="mapping-tutorial.html"/>
+      </page>
+      <page type="resource" resource="StructureMap"/>
+      <page title="Common Usages" filename="usecases.html"/>
+
+      <page title="Clinical Safety" filename="safety.html"/>
       <page title="How FHIR fits into an EHR" filename="ehr-fm.html"/>
+      <page title="Managing Resource Identity" filename="managing.html"/>
+      <page title="Interaction Patterns" filename="pushpull.html"/>
+      <page title="Update Rules" filename="updates.html"/>
+      <page title="Clinical Examples" filename="integrated-examples.html"/>
+
       <page title="Comparison" filename="comparison.html">
         <page title="v2 Messaging" filename="comparison-v2.html"/>
         <page title="v3 Messaging" filename="comparison-v3.html"/>
@@ -207,82 +224,73 @@ signatures.html
         <page title="CDA on FHIR" filename="cda-intro.html"/>
         <page title="Other Specifications" filename="comparison-other.html"/>
       </page>
-      <page title="Downloads" filename="downloads.html"/>
-      <page title="Validating Resources" filename="validation.html"/>
-      <page title="Mapping Language" filename="mapping-language.html">
-        <page title="Mapping Language Tutorial" filename="mapping-tutorial.html"/>
-      </page>
-      <page title="Managing Resource Identity" filename="managing.html"/>
-      <page title="Interaction Patterns" filename="pushpull.html"/>
-      <page title="Variations between Submitted data and Retrieved data" filename="updates.html"/>
-      <page title="Integrated Examples" filename="integrated-examples.html"/>
-      <page title="Common Usages" filename="usecases.html"/>
-      <page type="resource" resource="TestScript" />
-      <page type="resource" resource="TestReport" />
+
     </page>
 
     <page title="Administration" filename="administration-module.html" icon="administration.jpg">
       <page type="resource" resource="Patient"/>
       <page type="resource" resource="RelatedPerson"/>
-      <page type="resource" resource="Person"/>
+      <page type="resource" resource="Group"/>
       <page type="resource" resource="Practitioner"/>
       <page type="resource" resource="PractitionerRole"/>
+
       <page type="resource" resource="Organization"/>
+      <page type="resource" resource="Location"/>
       <page type="resource" resource="HealthcareService"/>
+      <page type="resource" resource="Endpoint"/>
+
+      <page type="resource" resource="EpisodeOfCare"/>
+      <page type="resource" resource="Encounter"/>
       <page type="resource" resource="Account"/>
+      <page type="resource" resource="Flag"/>
+
       <page type="resource" resource="Device"/>
       <page type="resource" resource="DeviceComponent"/>
       <page type="resource" resource="DeviceMetric"/>
-      <page type="resource" resource="Location"/>
       <page type="resource" resource="Substance"/>
-      <page type="resource" resource="Group"/>
-      <page type="resource" resource="Encounter"/>
-      <page type="resource" resource="EpisodeOfCare"/>
-      <page type="resource" resource="Flag"/>
-      <page type="resource" resource="Endpoint"/>
+
+      <page type="resource" resource="Person"/>
       <page type="resource" resource="Linkage"/>
       <page type="resource" resource="Communication"/>
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
-	  <page type="resource" resource="ChargeItem"/>
+  	  <page type="resource" resource="ChargeItem"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
       <page type="resource" resource="AllergyIntolerance"/>
-      <page type="resource" resource="AdverseEvent"/>
       <page type="resource" resource="Condition"/>
-      <page type="resource" resource="CarePlan"/>
-      <page type="resource" resource="CareTeam"/>
-      <page type="resource" resource="Goal"/>
-      <page type="resource" resource="ClinicalImpression"/>
-      <page type="resource" resource="ReferralRequest"/>
       <page type="resource" resource="Procedure"/>
-      <page type="resource" resource="ProcedureRequest"/>
+      <page type="resource" resource="FamilyMemberHistory"/>
+
+      <page type="resource" resource="CarePlan"/>
+      <page type="resource" resource="Goal"/>
+      <page type="resource" resource="CareTeam"/>
+      <page type="resource" resource="ClinicalImpression"/>
+
+      <page type="resource" resource="AdverseEvent"/>
       <page type="resource" resource="DetectedIssue"/>
       <page type="resource" resource="RiskAssessment"/>
-      <page type="resource" resource="FamilyMemberHistory"/>
-      <page type="resource" resource="NutritionOrder"/>
-      <page type="resource" resource="VisionPrescription"/>
     </page>
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DiagnosticReport"/>
+      <page type="resource" resource="ImagingStudy"/>
+      <page type="resource" resource="ImagingManifest"/>
       <page type="resource" resource="Sequence"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="BodySite"/>
-      <page type="resource" resource="ImagingStudy"/>
-      <page type="resource" resource="ImagingManifest"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
     </page>
 
     <page title="Medications" filename="medications-module.html" icon="medication.png">
-      <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
       <page type="resource" resource="MedicationDispense"/>
       <page type="resource" resource="MedicationStatement"/>
+      <page type="resource" resource="Medication"/>
       <page type="resource" resource="Immunization"/>
       <page type="resource" resource="ImmunizationRecommendation"/>
       <page title="Dosage" filename="dosage.html">
@@ -293,43 +301,47 @@ signatures.html
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
-      <page title="Workflow Overview" filename="workflow.html"/>
-      <page title="Workflow Communication Patterns" filename="workflow-communications.html"/>
-      <page title="Workflow Ad-Hoc Patterms" filename="workflow-ad-hoc.html"/>
-      <page title="Workflow Management Patterns" filename="workflow-management.html"/>
-      <page title="Workflow Overview" filename="workflow-examples.html"/>
+      <page type="resource" resource="Task"/>
+<!--      <page type="resource" resource="Definition"/>
+      <page type="resource" resource="Request"/>
+      <page type="resource" resource="Event"/> -->
       <page title="Definition Pattern" filename="definition.html"/>
       <page title="Request Pattern" filename="request.html"/>
       <page title="Event Pattern" filename="event.html"/>
-      <page type="resource" resource="Definition"/>
-      <page type="resource" resource="Request"/>
-      <page type="resource" resource="Event"/>
-      <page type="resource" resource="Task"/>
-      <page type="resource" resource="ActivityDefinition"/>
-      <page type="resource" resource="PlanDefinition"/>
+      <page title="Workflow Overview" filename="workflow.html"/>
+      <page title="Workflow Communication Patterns" filename="workflow-communications.html"/>
+      <page title="Workflow Ad-Hoc Patterns" filename="workflow-ad-hoc.html"/>
+      <page title="Workflow Management Patterns" filename="workflow-management.html"/>
+      <page title="Workflow Examples" filename="workflow-examples.html"/>
       <page type="resource" resource="Appointment"/>
       <page type="resource" resource="AppointmentResponse"/>
       <page type="resource" resource="Schedule"/>
       <page type="resource" resource="Slot"/>
+      <page type="resource" resource="ReferralRequest"/>
+      <page type="resource" resource="ProcedureRequest"/>
+      <page type="resource" resource="NutritionOrder"/>
+      <page type="resource" resource="VisionPrescription"/>
+      <page type="resource" resource="ActivityDefinition"/>
+      <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="ProcessRequest"/>
       <page type="resource" resource="ProcessResponse"/>
       <page type="resource" resource="DeviceRequest"/>
       <page type="resource" resource="DeviceUseStatement"/>
-      <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="SupplyRequest"/>
+      <page type="resource" resource="SupplyDelivery"/>
     </page>
 
     <page title="Financial" filename="financial-module.html" icon="financial.png">
-      <page type="resource" resource="Claim"/>
-      <page type="resource" resource="ClaimResponse"/>
       <page type="resource" resource="Coverage"/>
       <page type="resource" resource="EligibilityRequest"/>
       <page type="resource" resource="EligibilityResponse"/>
-      <page type="resource" resource="ExplanationOfBenefit"/>
       <page type="resource" resource="EnrollmentRequest"/>
       <page type="resource" resource="EnrollmentResponse"/>
+      <page type="resource" resource="Claim"/>
+      <page type="resource" resource="ClaimResponse"/>
       <page type="resource" resource="PaymentNotice"/>
       <page type="resource" resource="PaymentReconciliation"/>
+      <page type="resource" resource="ExplanationOfBenefit"/>
       <page type="resource" resource="Contract"/>
     </page>
 
