@@ -557,7 +557,7 @@
   Element = Measure.supplementalData.criteria
   Card. = 0..1
   Type = string
-  Short Name = Expression describing additional data to be reporrted
+  Short Name = Expression describing additional data to be reported
   Definition = The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element
 
  -- Row 55 -----------------------------------

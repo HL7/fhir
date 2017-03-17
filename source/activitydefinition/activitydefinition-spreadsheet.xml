@@ -4475,7 +4475,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4483,6 +4483,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4490,8 +4491,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7230,7 +7231,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">ActivityParticipantType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of participant for an action in the orderset</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The type of participant in the activity</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/ValueSet/action-participant-type"><Data
@@ -7246,7 +7247,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">ActivityDefinitionCategory</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">High-level categorization of the type of activity in a protocol.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">High-level categorization of the type of activity</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">#activity-definition-category</Data></Cell>
@@ -7277,7 +7278,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">ActivityDefinitionType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Detailed type of planned activity; e.g. CBC</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Detailed type of the activity; e.g. CBC</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/procedure-code</Data></Cell>
@@ -7307,7 +7308,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">BodySite</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A code that identifies the anatomical location.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A code that identifies the anatomical location</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s147" ss:HRef="http://hl7.org/fhir/ValueSet/body-site"><Data
@@ -7609,7 +7610,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

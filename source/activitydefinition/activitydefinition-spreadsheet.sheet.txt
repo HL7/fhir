@@ -5,14 +5,14 @@
   Binding Name = ActivityParticipantType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/action-participant-type
-  Definition = The type of participant for an action in the orderset
+  Definition = The type of participant in the activity
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = ActivityDefinitionCategory
   Binding = code list
   Reference = #activity-definition-category
-  Definition = High-level categorization of the type of activity in a protocol.
+  Definition = High-level categorization of the type of activity
   Conformance = example
 
  -- Row 3 -----------------------------------
@@ -26,7 +26,7 @@
   Binding Name = ActivityDefinitionType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-code
-  Definition = Detailed type of planned activity; e.g. CBC
+  Definition = Detailed type of the activity; e.g. CBC
   Conformance = example
 
  -- Row 5 -----------------------------------
@@ -40,7 +40,7 @@
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = A code that identifies the anatomical location.
+  Definition = A code that identifies the anatomical location
   Conformance = example
 
  -- Row 7 -----------------------------------

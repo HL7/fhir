@@ -139,7 +139,7 @@
   Id = 2
   Code = protocol
   Display = Protocol
-  Definition = A set of activities that can be peformed that have relationships in terms of order, pre-conditions etc
+  Definition = A set of activities that can be performed that have relationships in terms of order, pre-conditions, etc
 
  -- Row 3 -----------------------------------
   Id = 3

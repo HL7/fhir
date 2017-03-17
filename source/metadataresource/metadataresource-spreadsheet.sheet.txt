@@ -19,8 +19,8 @@
   Card. = 0..1
   Summary = y
   Type = uri
-  Short Name = Logical uri to reference this {{title}} (globally unique)
-  Definition = An absolute URL that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions)
+  Short Name = Logical URI to reference this {{title}} (globally unique)
+  Definition = An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions)
   Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
   Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
   w5 = id
@@ -33,7 +33,7 @@
   Short Name = Additional identifier for the {{title}}
   Definition = A formal identifier that is used to identify this {{title}} when it is represented in other formats, or referenced in a specification, model, design or an instance.
   Requirements = Allows externally provided and/or usable business identifiers to be easily associated with the module
-  Comments = Typically, this is used for identifiers that can go in an HL7 v3 II data type - e.g. to identify this {{title}} outside of FHIR, where the logical URL is not possible to use
+  Comments = Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, e.g., to identify this {{title}} outside of FHIR, where it is not possible to use the logical URI
   Object Impl = no-gen-base
   w5 = id
 
@@ -43,8 +43,8 @@
   Summary = y
   Type = string
   Short Name = Business version of the {{title}}
-  Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable
-  Comments = There may be multiple different instances of a {{title}} that have the same identifier but different versions
+  Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence
+  Comments = There may be different {{title}} instances that have the same identifier but different versions
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -83,9 +83,9 @@
   Is Modifier = y
   Summary = y
   Type = boolean
-  Short Name = If for testing purposes, not real usage
-  Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
-  Requirements = Enables experimental content to be developed following the same lifecycle as a production-level {{title}} would
+  Short Name = For testing purposes, not real usage
+  Definition = A boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Requirements = Enables experimental content to be developed following the same lifecycle that would be used for a production-level {{title}}
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not. This is labeled as \"Is Modifier\" because applications should not use an experimental {{title}} in production
   w5 = class
 
