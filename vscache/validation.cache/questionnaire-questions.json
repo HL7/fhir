@@ -2,86 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-questions",
   "outcomes": [
     {
-      "hash": "|http://example.org/questionnaires|null|CDE: Planned Travel to Zika Area|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/questionnaires#CDE: Planned Travel to Zika Area) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/questionnaires|null|CDE: Recent Sexual Encounter with Traveler to Zika Area|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/questionnaires#CDE: Recent Sexual Encounter with Traveler to Zika Area) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/questionnaires|null|CDE: Recent Travel to Zika Area|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/questionnaires#CDE: Recent Travel to Zika Area) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/questionnaires|null|CDE: Resident of or Frequent Traveler to Zika Area|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/questionnaires#CDE: Resident of or Frequent Traveler to Zika Area) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/questionnaires|null|CDE: Time Since Returned From Travel|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/questionnaires#CDE: Time Since Returned From Travel) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/questionnaires|null|CDE: Time Since Sexual Encounter|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/questionnaires#CDE: Time Since Sexual Encounter) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/lifelines/nl|null|VL 1-1, 18-65_1.2.2|Lifelines Questionnaire 1 part 1",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/lifelines/nl#VL 1-1, 18-65_1.2.2) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMCAR00|Angina Pectoris",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/questions#COMCAR00) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/questions#COMORBCAR) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORBVAS|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/questions#COMORBVAS) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORB|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/questions#COMORB) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/questions#STADPT) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/sections#ABDOMINAL) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|CARDIAL|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/sections#CARDIAL) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/sections#COMORBIDITY) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided (http://example.org/system/code/sections#HISTOPATHOLOGY) is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
       "hash": "|http://loinc.org|null|44249-1|PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9",
       "severity": null,
       "message": null,
@@ -137,17 +57,6 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|44254-1|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Feeling tired or having little energy in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
       "hash": "|http://loinc.org|null|44255-8|null",
       "severity": null,
       "message": null,
@@ -200,61 +109,6 @@
         "code": null,
         "definition": null,
         "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54127-6|US Surgeon General family health portrait [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "US Surgeon General family health portrait [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9267-6|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score eye opening"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9268-4|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score motor"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9269-2|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score total"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9270-0|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score verbal"
       }
     }
   ]

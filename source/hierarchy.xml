@@ -134,7 +134,6 @@ signatures.html
 
     <page title="Linked Data" filename="linked-data-module.html" icon="linked-data.png">
       <page title="RDF" filename="rdf.html"/>
-      <page title="Ontology" filename="ontology.html"/>
       <page title="Status Code Map" filename="sc.html"/>
       <page title="W5 Map" filename="w5.html"/>
     </page>
