@@ -24,14 +24,14 @@ This exchange specification is based on generally agreed common
 requirements across healthcare - covering many jurisdictions, domains, and
 different functional approaches. It is common for
 specific implementations to have valid requirements that are not
-part of these agreed common requirements. Incorporating all of these requirements
+part of these agreed common requirements. Incorporating all valid requirements
 would make this specification very cumbersome and difficult to
-implement. Instead, this specification expects that these additional
-distinct requirements will be implemented as extensions.
+implement. Instead, this specification expects that additional
+valid requirements will be implemented as extensions.
 </p>
 <p>
 As such, extensibility is a fundamental part of the design of this
-specification. Every element in a resource may have extension child elements
+specification. Every element in a resource can have extension child elements
 to represent additional information that is not part of the basic definition
 of the resource. Applications should not reject resources merely because
 they contain extensions, though they may need to reject resources
@@ -45,9 +45,9 @@ extensions.  The use of extensions is what allows the FHIR specification to reta
 simplicity for everyone.
 </p>
 <p>
-In order to make the use of extensions safe and manageable, there is a
-strict governance applied to the definition and use of extensions. Though
-any implementer is allowed to define and use extensions, there is a set of requirements
+To make the use of extensions safe and manageable, there is
+strict governance applied to the definition and use of extensions. Although
+any implementer can define and use extensions, there is a set of requirements
 that must be met as part of their use and definition.
 </p>
 <a name="Extension"> </a>
@@ -63,9 +63,9 @@ Notes:
 </p>
 <ul>
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="structuredefinition.html">extension definition</a> that defines the content and meaning of the extension</li>
- <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within a complex extensions, the URL SHALL be an absolute URL). The StructureDefinition that defines the extension SHOULD be available at the identified location so that resource processors can access the definition from the URL</li>
+ <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. The StructureDefinition that defines the extension SHOULD be available at the identified location so that resource processors can access the definition from the URL</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
- <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented differently, using <a href="#isModifier">a Modifier Extension</a></li>
+ <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented differently using a <a href="#isModifier">Modifier Extension</a></li>
  <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type:
   <ul class="dense">
    <li>valueInteger : <a href="datatypes.html#integer">integer</a></li>
@@ -119,7 +119,7 @@ Here is an example of an extension in XML:
 &lt;/name&gt;
 </pre>
 <p>
-In this example, the name with text = "Chief Red Cloud" is extended to have a
+In this example the name with text = "Chief Red Cloud" is extended to have a
 name use code of "Indigenous" (defined in ISO 21090, but very rarely used in
 practice).
 </p>
@@ -142,22 +142,22 @@ Making the types explicit in the representation means that all systems can read 
 definition of the extension.
 </p>
 <p>
-Note that the JSON represenation for extensions on primitive data types is handled
+Note that the JSON representation for extensions on primitive data types is handled
 differently. See <a href="json.html#primitive">Representing primitive types in JSON</a> for further information.
 </p>
 <p>
 Extensions can also contain extensions, either because the extension
 definition itself defines complex content - that is, a nested tree of values
-in the extension, or because the extension is extended with an additional
+in the extension - or because the extension is extended with an additional
 extension defined separately.
 </p>
 <p>
-In the first case, the identity of the parts of the extension are local/relative to the reference
+In the case where an extension defines complex content, the identity of the parts of the extension are local/relative to the reference
 to the extension definition.
 </p>
 <div class="example">
 <p>
-As an example, consider extending a patient with an opt-in status for a clinical trial, with 3 fields: clinical trial number, period of involvement, and
+As an example, consider extending a patient with an opt-in status for a clinical trial containing 3 fields: clinical trial number, period of involvement, and
 a reason for enrollment. In XML:
 </p>
 <pre class="xml" fragment="Patient">
@@ -216,13 +216,13 @@ Or in JSON:
 As the URL suggests, <a href="extension-patient-clinicaltrial.html">this extension is defined as part of this specification</a>.
 </p>
 <p>
-This can be extended again, by adding a "registrar" extension:
+This extension can be extended again, by adding a "registrar" extension:
 </p>
 <div class="example">
 <p>
 The registrar is defined as a separate extension (e.g. by
-an implementing organization), rather than part of the official clinical-trial extension.
-The URL of the extension is different:
+an implementing organization) rather than part of the official clinical-trial extension.
+The URL of the extension is thus different. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
@@ -306,8 +306,7 @@ negates the primary meaning of the element that contains it. Some examples:
  <li>Asserting an additional subsumption relationship on a concept in a <a href="valueset.html">value set</a></li>
 </ul>
 <p>
-Implementers should avoid the use of modifier extensions where possible.  Any use should be
-carefully considered against its possible downstream consequences. However, implementers
+Such extensions are known as "modifier extensions". Implementers should avoid the use of modifier extensions where possible.  Any use should be carefully considered against its possible downstream consequences. However, implementers
 are often forced into these situations by the business arrangements around
 the use of resources, so this specification creates a framework for handling such cases.
 If modifier extensions are present, an application cannot safely process the resource unless it knows
@@ -316,15 +315,15 @@ what the extension means for its own use of the data.
 <p>
 This specification allows for such modifier elements to be included at the base of a resource or in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the resource UML
-diagrams). Elements that are data types, or that are inside data types SHALL NOT have modifier extensions,
-nor can extensions have modifier extensions internally.
+diagrams). Elements that are data types, or that are inside data types SHALL NOT have modifier extensions, 
+and extensions SHALL NOT have modifier extensions internally.
 </p>
 <p>
-Note that complex extensions are allowed to have elements in the complex extension that are marked is
-<a href="conformance-rules.html#isModifier">modifier = true</a>, which mean that these elements modify the extension value itself.
+Note that complex extensions are allowed to have elements in the complex extension that are marked 
+<a href="conformance-rules.html#isModifier">Is-Modifier = true</a>, which means that these elements modify the extension value itself.
 </p>
 <p>
-Extensions marked "is modifier" are still represented using the "extension" element , not "modifierExtension"
+Extensions marked "Is-Modifier" are still represented using the <code>extension</code> element , not <code>modifierExtension</code>
 because the impact of the modifier element is expected to be known by applications that understand the containing extension.
 </p>
 <p>
@@ -333,22 +332,22 @@ Any modifierExtension defined outside an extension cannot be placed in another e
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>STU Note:</b> Is this a problem? Input from implementers identiying places where modifier
+<b>STU Note:</b> Is this a problem? Input from implementers identifying places where modifier
 extensions might be needed inside other extensions is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
 
 <p>
-In XML, these modifier elements are represented using an element named "modifierExtension", which has same content as the
-<i>extension</i> element documented above:
+In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has same content as the
+<code>extension</code> element documented above:
 </p>
 <div class="example">
 <p>
   Example: There's no element on <a href="medicationrequest.html">MedicationRequest</a>
-to write an "anti-prescription" - an instruction not to take a medication for a particular time.
+to write an "anti-prescription" - an instruction not to take a medication for a particular period.
 Classical clinical recording systems do not record this as a prescription - but one particular
 system does, and these "anti-prescription" records need to be shared within the institution
-where this happens, as they are an important part of the workflow.  Hence, applications are allowed to extend a resource with data like this:
+where this happens as they are an important part of the workflow.  Hence, applications are allowed to extend a resource with data like this:
 </p>
 <pre class="xml">
 &lt;MedicationRequest&gt;
@@ -375,7 +374,7 @@ Or in JSON:
 
 <p>
 Implementations processing the data in resources SHALL
-check for modifiers anywhere they may appear, and if
+check for modifiers anywhere they could appear, and if
 a modifier extension is present, SHALL do one of these
 things:
 </p>
@@ -400,22 +399,22 @@ in it because of the existence of the modifier extension.
 </p>
 <p><b>#2</b>:
 This means that implementations are not inherently required to "support"
-a modifier extension in any meaningful way - they may achieve this
+a modifier extension in any meaningful way - they can achieve this
 understanding by rejecting instances that contain this extension
 (a server, for instance, could return a HTTP 422 status code with
 an <a href="operationoutcome.html">OperationOutcome</a> if a client
-PUTs or POSTs a modifier extension it does not know.
-Applications may also be able to ignore a modifier extension if they
-can know that this is safe to do in its own context, though this would not usually be the case.
+PUTs or POSTs a modifier extension it does not know).
+Applications might also be able to ignore a modifier extension if they know 
+that it is safe to do so in their own context, though this would not usually be the case.
 </p>
 <p>
-Note that implementations may be able to be sure, due to their
+Note that implementations might be able to be sure, due to their
 implementation environment (e.g. specific trading partner agreement),
 that modifier extensions will never occur, and can therefore meet
 the requirement to check for modifiers at the design stage.
-However, since integration and deployment options often change
-subsequently, applications SHOULD always check for modifier extensions when
-processing resources anyway.
+However, since integration and deployment options often change, 
+applications SHOULD always check for modifier extensions when
+processing resources.
 </p>
 
 <p><b>#3</b>:
@@ -426,7 +425,7 @@ this:
 </p>
 <img src="modifier-extension-warning.png"/>
 <p>
-Note that the narrative of the resource SHALL contain this qualifying
+Note that the narrative of the resource SHALL contain modifying
 information, so it is safe to show this to the user as an expression
 of the resource's content. A warning dialog box could be extended to
 offer the user the choice to see the original narrative.
@@ -453,26 +452,26 @@ Here is the prescription example from above with narrative:
 </pre>
 </div>
 <p>
-An application only needs to concern itself with modifierExtensions on elements that
-it processes. Take, for example, the case above where a procedure resource
-has a modifierExtension on one of the performer elements indicating that they did
-not participate in the procedure. In this case, if an application is not using the performer details at all,
-the fact that one of the performers has a modifierExtension is irrelevant and the
-application is free to ignore it. If it does process the performers, and it sees the
+An application only needs to concern itself with modifier extensions on elements that
+it processes. Take, for example, a case where a procedure resource
+has a modifier extension on one of the <code>performer</code> elements indicating that they did
+not participate in the procedure. If an application is not using the performer details at all,
+the fact that one of the performers has a modifier extension is irrelevant and the
+application is free to ignore it. If the application does process the performers, and it sees the
 modifier extension, it must act in one of the ways outlined above.
 </p>
 
 <h3>Summary: Conformance Rules for Modifier Extensions</h3>
 <ul>
- <li>Modifier Extensions SHALL only modify the element which contains it and/or that element's children</li>
+ <li>A Modifier Extension SHALL only modify the element which contains it and/or that element's children</li>
  <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative</li>
- <li>Applications SHALL always check for modifier extensions when processing the data from any element that may carry one</li>
- <li>If a modifier Extension they do not understand is present, the application SHALL either refuse to process the resource or affected element, or provide an appropriate warning to its users</li>
+ <li>Applications SHALL always check for modifier extensions when processing the data from any element that can carry one</li>
+ <li>If a Modifier Extension that an application does not understand is present, the application SHALL refuse to process the resource or affected element, or SHALL provide an appropriate warning to its users</li>
 </ul>
 
 <h3>Special Case: Missing data</h3>
 <p>
-In some cases, implementers may find that they do not have appropriate data for an
+In some cases, implementers might find that they do not have appropriate data for an
 element with minimum cardinality = 1. In this case, the element must be present, but
 unless the resource or a profile on it has made the actual value of the primitive
 data type mandatory, it is possible to provide an extension that explains why the
@@ -493,8 +492,8 @@ value.
 </p>
 <p>
 It is not valid to create a fictional piece of data for the primitive value,
-and then to add an extension indicating that the data has been constructed
-to meet the data rules. This would be both a bad idea, and also a modifier
+and then add an extension indicating that the data has been constructed
+to meet the data rules. This would be both a bad idea, and a modifier
 extension, which is not allowed on data types.
 </p>
 
@@ -511,13 +510,13 @@ are informed about them.
 <p>
 While the structured definition of an extension should always be available (see below for
 details), the mere availability of a definition does not automatically mean that applications
-know how to handle them correctly - generally, human decisions are required to be made around
-how the data in extensions contain should be handled, along with the implicit obligations
+know how to handle them correctly - generally, human decisions are required to determine 
+how the data in extensions should be handled, along with the implicit obligations
 that surround the information.
 </p>
 <p>
 For this reason, local requirements that manifest as extensions are an obstacle to
-integration. The more the requirements are shared (i.e. regional or national scale),
+integration and interoperability. The more the requirements are shared (i.e. regional or national scale),
 the less impact they will have. The consistent representation, definition and registration of
 extensions that this specification defines cannot resolve that problem - it only provides a framework
 within which such local variations can be handled more easily.
@@ -526,7 +525,7 @@ within which such local variations can be handled more easily.
 When it comes to deploying applications that support local requirements, situations
 will very likely arise where different applications
 exchanging information with each other are supporting different sets of extensions.
-This specification makes some basic rules that are intended to make management
+This specification defines some basic rules that are intended to make management
 of these situations easier, but they cannot resolve them.
 </p>
 <ul>
@@ -537,7 +536,7 @@ might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "processing the resource"</li>
  <li>A system SHALL NOT modify a resource or element that contains "modifier" extensions it doesn't understand</li>
  <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
- <li>Systems that do not accept unknown extensions SHALL declare so in their Conformance resource instances</li>
+ <li>Systems that do not accept unknown extensions SHALL declare so in their CapabilityStatement resource instances</li>
 </ul>
 <p>
 The degree to which a system can retain unknown extensions is a function of the type of system
@@ -553,7 +552,7 @@ Use the following rules as a guideline for handling resources:
 </p>
 <ul>
  <li>When writing extensions, make sure they are defined and published</li>
- <li>When reading, navigating through or searching on elements that can have modifier extensions, check whether there are any</li>
+ <li>When reading, navigating through or searching on elements that can have modifier extensions, check whether there are any modifier extensions present</li>
  <li>When reading elements, read and process the extensions you know and use, and ignore other extensions</li>
  <li>Retain extensions whenever you can</li>
 </ul>

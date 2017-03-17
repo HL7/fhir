@@ -364,7 +364,7 @@ This particular example is a Scandinavian mellannamn. See
 <a name="complex"> </a>
 <h3>Complex Extension: Patient Clinical Trial</h3>
 <p>
-Defining complex extensions is a little different. They have the same meta data - context etc.,
+Defining complex extensions is a little different. They have the same meta data - context, etc. -
 but differ in the internal structure. As an example, consider enrolling a patient in a clinical
 trial. There are 3 data items to collect:
 </p>
@@ -381,10 +381,10 @@ extension. Since this one is part of the FHIR publication, it is assigned
 a URI where it will be published: http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial.
 </p>
 <p>
-Internally, in the extension, the cardinality of the value[x] element is set to 0, since it 
-will not (and cannot) be used. Then, the Extension.extension element is sliced by URL, 
+Internally, in the extension, the cardinality of the value[x] element is set to 0 since it 
+will not (and cannot) be used. The Extension.extension element is sliced by URL, 
 and 3 slices are defined, each with a fixed relative URI which is the code from the table above.
-Here's the relevant parts of the definition of this extension:
+Here are the relevant parts of the definition of this extension:
 </p>
 <pre class="xml">
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
