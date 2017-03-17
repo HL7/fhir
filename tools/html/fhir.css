@@ -64,6 +64,7 @@ tr {
 	vertical-align: top;
 	text-align: left;
 }
+
 table.cols {
 	width: 100%;
 }
@@ -85,8 +86,22 @@ table.colsd td {
 	border-spacing: 0;
 	padding: 5px;
 	border-collapse: collapse;
-	background-color: salmon;
+	background-color: #fdd4ce;
 }
+
+table.colsn {
+	width: 100%;
+}
+
+table.colsn td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: #e6ffe6;
+}
+
+
 
 table.list td {
         border-top: 1px silver solid;

@@ -16,6 +16,7 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
@@ -806,7 +807,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
           Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
           String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl.html");
           ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+id);
-          String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
+          String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null, null, wg());
           sf = sects.addSectionNumbers("v2" + File.separator + id + File.separator +  "index.html", "template-v2", sf, iid, 2, null, null);
           TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
           page.getHTMLChecker().registerExternal("v2" + File.separator + id + File.separator + "index.html");
@@ -821,7 +822,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
               Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver);
               String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-tbl-ver.html");
               ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+FormatUtilities.makeId(ver)+"-"+id);
-              String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", vs, null, "V2 Table", null);
+              String sf = page.processPageIncludes(id + "|" + ver + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + ver + File.separator + "index.html", vs, null, "V2 Table", null, null, wg());
               sf = sects.addSectionNumbers("v2" + File.separator + id + "/" + ver + File.separator +  "index.html", "template-v2", sf, iid + "." + Integer.toString(i), 3, null, null);
               TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
               page.getHTMLChecker().registerExternal("v2" + File.separator + id + File.separator + ver + File.separator + "index.html");
@@ -833,7 +834,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         Utilities.clearDirectory(page.getFolders().dstDir + "v2" + File.separator + id);
         String src = TextFile.fileToString(page.getFolders().srcDir + "v2" + File.separator + "template-vs.html");
         ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v2-"+id);
-        String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null);
+        String sf = page.processPageIncludes(id + ".html", src, "v2Vocab", null, "v2" + File.separator + id + File.separator + "index.html", vs, null, "V2 Table", null, null, wg());
         sf = sects.addSectionNumbers("v2" + File.separator + id + File.separator +  "index.html", "template-v2", sf, iid, 2, null, null);
         TextFile.stringToFile(sf, page.getFolders().dstDir + "v2" + File.separator + id + File.separator + "index.html");
         page.getHTMLChecker().registerExternal("v2" + File.separator + id + File.separator + "index.html");        
@@ -842,6 +843,10 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     }
 
     
+  }
+
+  private WorkGroup wg() {
+    return page.getDefinitions().getWorkgroups().get("vocab");
   }
 
 

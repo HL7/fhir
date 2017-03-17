@@ -31,7 +31,7 @@
 	  </requester>
       <specialty>
 		  <coding>
-			  <system value="http://example.org/CodeSystem/npi-taxonomy"/>
+			  <system value="http://nucc.org/provider-taxonomy"/>
 			  <code value="261QM0850X"/>
 			  <display value="Adult Mental Health"/>
 		  </coding>

@@ -1047,7 +1047,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Used in Encounter and EpisodeOfCare</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!ProviderTaxonomy</Data></Cell>
+    <Cell><Data ss:Type="String">ProviderTaxonomy</Data></Cell>
     <Cell><Data ss:Type="String">Healthcare Provider Taxonomy codes</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>

@@ -2546,6 +2546,7 @@ public class SpreadsheetParser {
 
     LogicalModel lm = new LogicalModel();
     lm.setResource(resource);
+    lm.setWg(definitions.getWorkgroups().get("fhir"));
     tabfmt.close();
 
     return lm;

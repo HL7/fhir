@@ -8,6 +8,7 @@ public class LogicalModel {
   private String source;
   private ResourceDefn resource;
   private StructureDefinition definition;
+  private WorkGroup wg;
 
   public LogicalModel() {
     super();
@@ -54,4 +55,12 @@ public class LogicalModel {
     this.definition = definition;
   }
 
+  public WorkGroup getWg() {
+    return wg;
+  }
+
+  public void setWg(WorkGroup wg) {
+    this.wg = wg;
+  }
+  
 }

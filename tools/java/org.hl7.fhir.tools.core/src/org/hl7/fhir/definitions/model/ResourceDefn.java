@@ -32,12 +32,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 
 public class ResourceDefn  {
+  public enum StandardsStatus {
+    DRAFT, TRIAL_USE, NORMATIVE;
+
+    public String toDisplay() {
+      switch (this) {
+      case DRAFT : 
+        return "Draft";  
+      case NORMATIVE  : 
+        return "Normative";
+      case TRIAL_USE : 
+        return "Trial Use";  
+      }
+      return "?";
+    }
+  }
+
   public class StringPair {
     public String name;
     public String value;
@@ -53,7 +70,7 @@ public class ResourceDefn  {
   private List<Operation> operations = new ArrayList<Operation>();
   private List<Profile> conformancePackages = new ArrayList<Profile>();
 
-  private String status;
+  private StandardsStatus status = StandardsStatus.TRIAL_USE;
   private boolean abstract_;
   private WorkGroup wg;
   private Profile conformancePack;
@@ -142,11 +159,11 @@ public class ResourceDefn  {
     return searchParams;
   }
 
-  public String getStatus() {
+  public StandardsStatus getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StandardsStatus status) {
     this.status = status;
   } 
 

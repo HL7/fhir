@@ -341,6 +341,7 @@ public class ValueSetValidator extends BaseValidator {
         system.equals("urn:ietf:rfc:3986") ||
         system.equals("urn:iso:std:iso:11073:10101") ||
         system.equals("urn:iso:std:iso:3166") ||
+        system.equals("http://nucc.org/provider-taxonomy") ||
         system.startsWith("http://example.com") ||
         system.startsWith("http://example.org") ||
         system.startsWith("https://precision.fda.gov")

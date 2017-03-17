@@ -67,6 +67,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
@@ -929,9 +930,11 @@ public class SourceParser {
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());
 
-    root.setStatus(ini.getStringProperty("status", n));
-    if (Utilities.noString(root.getStatus()) && ini.getBooleanProperty("draft-resources", root.getName()))
-      root.setStatus("draft");
+    if (ini.getBooleanProperty("draft-resources", root.getName()))
+      root.setStatus(StandardsStatus.DRAFT);
+    else if (ini.getBooleanProperty("normative-resources", root.getName()))
+      root.setStatus(StandardsStatus.NORMATIVE);
+    
     if (map != null) {
       map.put(root.getName(), root);
     }

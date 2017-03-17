@@ -11,7 +11,7 @@
 [%file newnavbar%]
 
 <div class="col-12">
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 
 <h2>Version Management Policy</h2>
@@ -40,7 +40,7 @@ develops a standard so that implementers know what to expect as the standard evo
 </p>
 
 <p>
-FHIR has three descriptive terms that describe the level of stability and implementation readiness associated with
+FHIR has four descriptive terms that describe the level of stability and implementation readiness associated with
 different aspects of the specification.  They are as follows:
 </p>
 <table>
@@ -80,8 +80,18 @@ different aspects of the specification.  They are as follows:
       <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
       expected to be infrequent and are tightly constrained.</td>
     </tr>
+    <tr>
+      <th>Informative</th>
+      <td>This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. 
+         Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice</td>
+    </tr>
   </tbody>
 </table>
+
+<p style="background-color: gold; border:1px solid maroon; padding: 5px;">
+This release (Release 3) is an <i>Trial Use</i> Specification, though a little of the content (where marked 
+specifically at the top of the page) is <i>Draft</i>. For Release 4, some content is planned to be <i>Normative</i>.
+</p>
 
 <p>
 Notes:
@@ -91,13 +101,11 @@ Notes:
  <li>Between FHIR release 2 and 3, HL7 changed from using "DSTU" (Draft Standard for Trial Use) to just simply "STU" (Standard for Trial Use)
   to reflect the maturity of the FHIR specification: Release 2 and particularly this Release 3 are far beyond 
   "draft" specifications, and have been and will be widely implemented</li>
+ <li>Most pages in the specification identify their status explicitly. The few pages that don't are Table of contents pages, and are all <i>Informative</i></li>
 </ul>
 
-<p style="background-color: gold; border:1px solid maroon; padding: 5px;">
-This release (Release 3) is an <i>Trial Use</i> Specification, though a little of the content (where marked 
-specifically at the top of the page) is <i>Draft</i>. For Release 4, some content is planned to be <i>Normative</i>.
+<p>
 </p>
-
 
 <a name="maturity"> </a>
 <h3>Maturity Levels</h3>

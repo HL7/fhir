@@ -64,9 +64,9 @@ public abstract class BuildToolScriptedPageProcessor extends ScriptedPageProcess
     else if (com[0].equals("search-header")) 
       return searchHeader(level);
     else if (com[0].equals("introduction")) 
-      return page.loadXmlNotes(name, "introduction", true, getDescription(), getResource(), tabs, ig);
+      return page.loadXmlNotes(name, "introduction", true, getDescription(), getResource(), tabs, ig, null);
     else if (com[0].equals("notes")) 
-      return page.loadXmlNotes(name, "notes", false, getDescription(), getResource(), tabs, ig);
+      return page.loadXmlNotes(name, "notes", false, getDescription(), getResource(), tabs, ig, null);
     else if (com[0].equals("plural"))
       return Utilities.pluralizeMe(name);
     else if (com[0].equals("baseURL"))

@@ -82,11 +82,9 @@
     </include>
     
     <!-- user type -->
-    <!-- Can't resolve NUCC provider taxonomy 
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/provider-taxonomy"/>
+      <system value="http://nucc.org/provider-taxonomy"/>
     </include>
-    -->
     
     <!-- workflow/venue -->
     <include>
