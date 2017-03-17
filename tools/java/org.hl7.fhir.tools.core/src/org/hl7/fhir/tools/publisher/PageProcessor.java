@@ -1392,7 +1392,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       definitions.page(filename).setWgCode(wg.getCode());
       return wg.getUrl() ;
     } else
-      return "?wg?";
+      return "index.html"; // todo: fix this.
   }
 
   private String getWgTitle(WorkGroup wg) {
