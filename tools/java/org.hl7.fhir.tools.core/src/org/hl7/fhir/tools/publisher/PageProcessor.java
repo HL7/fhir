@@ -736,9 +736,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("sstatus")) {
         src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
-        src = s1+getWgLink(file, wg)+s3;
+        src = s1+getWgLink(file, wg == null && com.length > 1 ? wg(com[1]) : wg)+s3;
       } else if (com[0].equals("wgt")) {
-        src = s1+getWgTitle(wg)+s3;
+        src = s1+getWgTitle(wg == null && com.length > 1 ? wg(com[1]) : wg)+s3;
       } else if (com[0].equals("ig.registry")) {
         src = s1+buildIgRegistry(ig, com[1])+s3;
       } else if (com[0].equals("search-link")) {
@@ -1098,6 +1098,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private WorkGroup wg(String code) {
+    return definitions.getWorkgroups().get(code);
   }
 
   private String dtR2R3Transform(String name) throws Exception {
@@ -4580,9 +4584,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("sstatus")) {
         src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
-        src = s1+getWgLink(file, wg)+s3;
+        src = s1+getWgLink(file, wg == null && com.length > 0 ? wg(com[1]) : wg)+s3;
       } else if (com[0].equals("wgt")) {
-        src = s1+getWgTitle(wg)+s3;
+        src = s1+getWgTitle(wg == null && com.length > 0 ? wg(com[1]) : wg)+s3;
       } else if (com[0].equals("search-link")) {
         src = s1+searchLink(s2)+s3;
       } else if (com[0].equals("search-footer")) {
