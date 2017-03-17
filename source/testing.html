@@ -22,7 +22,7 @@ Because of its general nature and wide applicability, the rules made in this
 specification are generally fairly loose. As a consequence and in order to insure
 interoperability between applications claiming conformance to this specification, a
 testing framework has been established within the FHIR specification. To this end, the
-<a href="testscript.html">TestScript</a> resource provides an implementation agnostic
+<a href="testscript.html">TestScript</a> resource provides an implementation-agnostic
 description of tests that allows test execution engines to evaluate if a FHIR
 implementation conforms with the FHIR specification. Providing a clear and concise
 test methodology for the FHIR specification through the TestScript resource helps to
@@ -122,7 +122,7 @@ systems adhere to the specification.
   Without variables, search parameters and request headers (such as If-Modified-Since) would be specified in outgoing requests as literal values. Variables allow the values to be managed externally in fixtures or dynamically in server response fixtures. They would be defined to hold path expressions against the fixtures. The path expressions would not change from one server to another but the fixture data could.
 </p>
 <p>
-  Using variables allows for the same test scripts to be executed against the same servers by different clients at the same time. Each client would change the fixture data (external to the test script) to make the data unique to that client. This ensures that the same delete/create/read operations executed concurrently by one client does not interfere with those of a another client. That can be important within the context of a testing event such as a Connectathon. It can be very useful in year-round testing against public servers as well.
+  Using variables allows for the same test scripts to be executed against the same servers by different clients at the same time. Each client would change the fixture data (external to the test script) to make the data unique to that client. This ensures that the same delete/create/read operations executed concurrently by one client does not interfere with those of another client. That can be important within the context of a testing event such as a Connectathon. It can be very useful in year-round testing against public servers as well.
 </p>
 <p>
   See <a href="#howToUseVariables">Use Variables</a> for more information.
@@ -130,7 +130,7 @@ systems adhere to the specification.
 
 <h4 id="operation-execution">Operation Execution</h4>
 <p>
-  The setup, test, and teardown sections of a TestScript can contain operation elements. Operations are intended to be executed in sequence and they represent the logic defined by the TestScript. Operations define a type, sourceId, targetid, destination, responseId, contentType, and other parameters. The type of the operation aligns with a corresponding RESTful API interaction. The sourceId and targetId of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>). The destination defines the server the operation is executed on and is only required for tests that include multiple servers. The responseId specifies a fixture ID to use to map to the server response. The contentType defines the format (XML or JSON) and the corresponding mime-type (application/fhir+xml and application/fhir+json) to use in the RESTful operation (defaulting to XML). The parameters of an operation allow providing additional data required for execution.
+  The setup, test, and teardown sections of a TestScript can contain operation elements. Operations are intended to be executed in sequence and they represent the logic defined by the TestScript. Operations define a type, sourceId, targetId, destination, responseId, contentType, and other parameters. The type of the operation aligns with a corresponding RESTful API interaction. The sourceId and targetId of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>). The destination defines the server the operation is executed on and is only required for tests that include multiple servers. The responseId specifies a fixture ID to use to map to the server response. The contentType defines the format (XML or JSON) and the corresponding mime-type (application/fhir+xml and application/fhir+json) to use in the RESTful operation (defaulting to XML). The parameters of an operation allow providing additional data required for execution.
 </p>
 <p>
   TestScript execution engines must load the operation details and execute the operation against the server(s) under test. Operations that are expected to result in an error or exception, shall immediately be followed by one or more "assertion" operations (that test for those error conditions), otherwise the test fails. This allows for "negative" testing (for example, the test script may perform operations that should return a 4XX or 5XX HTTP response code). Test execution is halted as soon as an operation or assertion fails. If an operation or assertion fails, then the test ends in failure and the test script execution proceeds to the next test. Once all tests have completed execution, the teardown section is executed. Once teardown completes, the suite execution is complete. If any setup or test operation or assertion failed, the test script is marked in failure. Failures in teardown are ignored.
@@ -626,7 +626,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </xmp></div>
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToTestReadOperation">Test read operation</h4>
-<p>The <a href="http.html#read">read</a> operation operation requires the resource id in the URL. Since resource ids are unpredictable on servers, it's best to create the resource within the test script prior to executing the read operation:</p>
+<p>The <a href="http.html#read">read</a> operation requires the resource id in the URL. Since resource ids are unpredictable on servers, it's best to create the resource within the test script prior to executing the read operation:</p>
 <div class="xmlCode"><xmp>
 <action>
   <operation>
@@ -659,7 +659,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToTestVReadOperation">Test vread operation</h4>
-<p>The <a href="http.html#vread">vread</a> operation operation requires the resource id as well as the resource version id in the URL. Since resource ids and version ids are unpredictable on servers, it's best to create the resource within the test script prior to executing the vread operation:</p>
+<p>The <a href="http.html#vread">vread</a> operation requires the resource id as well as the resource version id in the URL. Since resource ids and version ids are unpredictable on servers, it's best to create the resource within the test script prior to executing the vread operation:</p>
 <div class="xmlCode"><xmp>
 <action>
   <operation>
@@ -736,7 +736,7 @@ GET [base]/[type]/_history{?[parameters]&amp;_format=[mime-type]}
 </li>
 <li>
 GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
-<p>Here neither the resource type nor the resource id is required in the url. In the following example, no more than 50 history entries would be returned by server:</p>
+<p>Here neither the resource type nor the resource id is required in the URL. In the following example, no more than 50 history entries would be returned by server:</p>
 <div class="xmlCode"><xmp>
 <action>
   <operation>
@@ -789,7 +789,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
   </operation>
 </action>
 </xmp></div>
-<p>Test engines will take values specified for <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> "as-is" and not transform them. This might be useful for negative testing e.g. the value can be set explicitly to "applcation/xml" or an invalid value and verify server response.</p>
+<p>Test engines will take values specified for <a href="testscript-definitions.html#TestScript.setup.action.operation.requestHeader">requestHeader</a> "as-is" and not transform them. This might be useful for negative testing, e.g. the value can be set explicitly to "applcation/xml" or an invalid value and verify server response.</p>
 </li>
 </ol>
 
