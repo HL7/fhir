@@ -12,23 +12,26 @@ public class ConstraintStructure {
   private ImplementationGuideDefn usage;
   private String owner; // id of the AP that owns this
   private ImplementationGuidePackageResourceComponent resourceInfo;
+  private WorkGroup wg;
     
-  public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage) {
+  public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage, WorkGroup wg) {
     this.id = resource.getId();
     this.title = resource.getName();
     this.resource = resource;
     if (usage == null)
       throw new Error("No usage on profile on "+resource.getName());
     this.usage = usage;
+    this.wg = wg;
   }
 
-  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuideDefn usage) {
+  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuideDefn usage, WorkGroup wg) {
     this.id = id;
     this.title = title;
     this.defn = defn;
     this.usage = usage;
     if (usage == null)
       throw new Error("No usage on profile "+id+" ("+title+"):");
+    this.wg = wg;
   }
 
   public String getTitle() {

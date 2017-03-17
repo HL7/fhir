@@ -3210,8 +3210,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + prefix+filename+".canonical.json");
       new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, ed);
       s.close();
-      cloneToXhtml(prefix+filename, ed.getName(), false, "summary-instance", ed.getUrl(), null, null);
-      jsonToXhtml(prefix+filename, ed.getName(), resource2Json(ed), "extension", ed.getUrl(), null, null);
+      cloneToXhtml(prefix+filename, ed.getName(), false, "summary-instance", ed.getUrl(), null, wg(ed));
+      jsonToXhtml(prefix+filename, ed.getName(), resource2Json(ed), "extension", ed.getUrl(), null, wg(ed));
 
       ByteArrayOutputStream bytes = new ByteArrayOutputStream();
       XmlSpecGenerator gen = new XmlSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1));
@@ -3251,6 +3251,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getHTMLChecker().registerFile(prefix+filename + ".html", "Extension " + ed.getName(), HTMLLinkChecker.XHTML_TYPE, true);
       TextFile.stringToFile(src, page.getFolders().dstDir + prefix+filename + ".html");
     }
+  }
+
+  private WorkGroup wg(StructureDefinition ed) {
+    return page.getDefinitions().getWorkgroups().get(ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_WORKGROUP));
   }
 
   private void copyStaticContent() throws IOException, Exception {
@@ -4991,7 +4995,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (base == null)
       throw new Exception("Unable to find base profile for "+d.getId()+": "+p.getBaseDefinition()+" from "+page.getProfiles().keySet());
     new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSnapshot(base, p, p.getBaseDefinition(), p.getId());
-    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation")); // todo
+    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation"), null); // todo
     pd.setId(p.getId());
     pd.setTitle(p.getName());
     Profile pack = new Profile("hspc");

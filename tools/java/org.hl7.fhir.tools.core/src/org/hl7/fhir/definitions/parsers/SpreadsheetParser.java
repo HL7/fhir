@@ -69,6 +69,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
+import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.ExtensionDefinitionValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
@@ -161,21 +162,23 @@ public class SpreadsheetParser {
   private String txFolder;
   private boolean isLogicalModel;
   private IniFile ini;
-  private String committee;
+  private WorkGroup committee;
   private TabDelimitedSpreadSheet tabfmt;
   private Map<String, ConstraintStructure> profileIds;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<FHIRPathUsage> fpUsages;
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
+  private Map<String, WorkGroup> workgroups;  
   private ResourceDefn template;
   private String templateTitle;
 
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);
 		this.definitions = definitions;
+		this.workgroups = definitions.getWorkgroups();
 		this.mappings = definitions.getMapTypes();
 		if (name.indexOf('-') > 0)
 			title = name.substring(0, name.indexOf('-'));
@@ -204,12 +207,13 @@ public class SpreadsheetParser {
 		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
     xls = new XLSXmlParser(in, name);
     this.definitions = null;
+    this.workgroups = workgroups;
     this.mappings = mappings;
     this.ig = ig;
     if (name.indexOf('-') > 0)
@@ -1348,7 +1352,7 @@ public class SpreadsheetParser {
   }
 
 
-	public void parseConformancePackage(Profile ap, Definitions definitions, String folder, String usage, List<ValidationMessage> issues) throws Exception {
+	public void parseConformancePackage(Profile ap, Definitions definitions, String folder, String usage, List<ValidationMessage> issues, WorkGroup wg) throws Exception {
 	  try {
 	    isProfile = true;
 	    checkMappings(ap);
@@ -1383,6 +1387,13 @@ public class SpreadsheetParser {
       if (!ap.metadata("id").matches(FormatUtilities.ID_REGEX))
         throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" 'id' is not a valid id");
 
+      if (wg == null)
+        wg = workgroups.get(ap.metadata("workgroup"));
+      if (wg == null)
+        wg = committee;
+      if (wg == null)
+        throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" : no workgroup value in the metadata");
+      
       if (!ap.metadata("id").equals(ap.metadata("id").toLowerCase()))
         throw new Exception("Error parsing "+ap.getId()+"/"+ap.getTitle()+" 'id' must be all lowercase");
 
@@ -1407,7 +1418,7 @@ public class SpreadsheetParser {
           if (sheet.getColumn(row, "Code").startsWith("!"))
             row++;
           else
-            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants);
+            row = processExtension(null, sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants, wg);
         }
       }
 
@@ -1418,14 +1429,14 @@ public class SpreadsheetParser {
 	        if (!Utilities.noString(n)) {
 	          if (ig != null && !ig.isCore() && !n.toLowerCase().startsWith(ig.getCode()+"-"))
 	            throw new Exception("Error: published structure names must start with the implementation guide code ("+ig.getCode()+"-)");
-	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues));
+	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues, wg));
 	        }
 	      }
 	    }
 
 	    int i = 0;
 	    while (i < namedSheets.size()) {
-	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage, issues));
+	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage, issues, wg));
 	      i++;
 	    }
 	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
@@ -1454,7 +1465,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage, List<ValidationMessage> issues) throws Exception {
+  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage, List<ValidationMessage> issues, WorkGroup wg) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
@@ -1489,7 +1500,7 @@ public class SpreadsheetParser {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
         else
-          row = processExtension(resource.getRoot().getElementByName(definitions, "extensions", true, false), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants);
+          row = processExtension(resource.getRoot().getElementByName(definitions, "extensions", true, false), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants, wg);
       }
     }
     sheet = loadSheet(n+"-Search");
@@ -1524,10 +1535,14 @@ public class SpreadsheetParser {
 
     if (profileIds.containsKey(n.toLowerCase()))
       throw new Exception("Duplicate Profile Name: "+n.toLowerCase()+" in "+ap.getId()+", already registered in "+profileIds.get(n.toLowerCase()).getOwner());
-		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name));
+		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name), wg);
 		p.setOwner(ap.getId());
     profileIds.put(n.toLowerCase(), p);
     return p;
+  }
+
+  private WorkGroup wg(String code) {
+    return definitions.getWorkgroups().get(code);
   }
 
   private String igPrefix(ImplementationGuideDefn ig2) {
@@ -2135,7 +2150,7 @@ public class SpreadsheetParser {
 		  }
 	}
 
-  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap, List<ValidationMessage> issues, Map<String, Invariant> invariants) throws Exception {
+  private int processExtension(ElementDefn extensions, Sheet sheet, int row,	Definitions definitions, String uri, Profile ap, List<ValidationMessage> issues, Map<String, Invariant> invariants, WorkGroup wg) throws Exception {
 	  // first, we build the extension definition
     StructureDefinition ex = new StructureDefinition();
     ex.setUserData(ToolResourceUtilities.NAME_RES_IG, ig == null ? "core" : ig.getCode());
@@ -2146,7 +2161,13 @@ public class SpreadsheetParser {
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
     ex.setFhirVersion(version);
-
+    if (wg != null)
+      ToolingExtensions.setCodeExtension(ex, ToolingExtensions.EXT_WORKGROUP, wg.getCode());
+    String fmm = sheet.getColumn(row, "FMM");
+    if (Utilities.noString(fmm))
+      fmm = "1"; // default fmm value for extensions
+    ToolingExtensions.addIntegerExtension(ex, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(fmm));
+    
     if (ap.hasMetadata("fmm-level"))
       ToolingExtensions.addIntegerExtension(ex, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(ap.getFmmLevel()));
     if (ap.hasMetadata("workgroup"))

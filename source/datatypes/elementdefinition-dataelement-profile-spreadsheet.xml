@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -935,7 +935,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Metadata">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="98.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="363"/>
@@ -967,6 +967,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Identifies how the ElementDefinition data type is used when it appears within a data element</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="69.75">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">workgroup</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">fhir</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -1014,6 +1018,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1033,7 +1038,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2907,7 +2912,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

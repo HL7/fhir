@@ -20,11 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9450</WindowHeight>
-  <WindowWidth>21465</WindowWidth>
+  <WindowHeight>13410</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -796,7 +796,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Metadata">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="51.75"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="98.25"/>
@@ -829,6 +829,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="69.75">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Defines &quot;common&quot; extensions for use with the Timing  data type</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="69.75">
+    <Cell ss:StyleID="s74"><Data ss:Type="String">workgroup</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">fhir</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -873,6 +877,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -897,7 +902,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2066,7 +2071,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

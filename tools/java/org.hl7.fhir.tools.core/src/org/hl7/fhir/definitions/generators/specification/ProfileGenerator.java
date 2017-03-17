@@ -56,6 +56,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
@@ -1624,7 +1625,11 @@ public class ProfileGenerator {
   }
 
   public ConstraintStructure wrapProfile(StructureDefinition profile) throws Exception {
-    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()));
+    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()), wg(ToolingExtensions.readStringExtension(profile, ToolingExtensions.EXT_WORKGROUP)));
+  }
+
+  private WorkGroup wg(String code) {
+    return definitions.getWorkgroups().get(code);
   }
 
   public void convertElements(ElementDefn src, StructureDefinition ed, String path) throws Exception {

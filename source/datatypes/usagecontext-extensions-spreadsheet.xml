@@ -20,11 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7230</WindowHeight>
-  <WindowWidth>22200</WindowWidth>
+  <WindowHeight>13410</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -772,7 +772,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Metadata">
-  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="15" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="16" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s68" ss:Width="98.25"/>
@@ -804,6 +804,10 @@
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s73"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Defines common extensions used with or related to conformance and knowledge resources</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="69">
+    <Cell ss:StyleID="s73"><Data ss:Type="String">workgroup</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">fhir</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">status</Data></Cell>
@@ -848,6 +852,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -868,7 +873,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>8</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4575,7 +4580,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
