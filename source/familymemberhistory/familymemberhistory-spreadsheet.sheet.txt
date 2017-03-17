@@ -168,10 +168,10 @@
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Name = Family member history did not occur
-  Definition = If true, indicates that the family member history did not actually occur.
+  Short Name = The taking of a family member\'s history did not occur
+  Definition = If true, indicates the taking of an individual family member\'s history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
   Requirements = Creating a FamilyMemberHistory where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
-  Comments = The more attributes are populated, the more constrained the negated statement is.
+  Comments = This element is labeled as a modifier because it marks the family member history as a family member history that did not occur.  The more attributes are populated, the more constrained the negated statement is.  This notDone element is being evaluated and will likely be removed in a subsequent release.
   RIM Mapping = .actionNegationInd
   Default Value = False
 
@@ -183,8 +183,9 @@
   Type = CodeableConcept
   Binding = FamilyHistoryNotDoneReason
   Short Name = subject-unknown | withheld | unable-to-obtain | deferred
-  Definition = Describes why the family member history did not occur in coded and/or textual form.
+  Definition = Describes why the family member\'s history is absent.
   Requirements = This is a separate element to allow it to have a distinct binding from reasonCode
+  Comments = This notDoneReason element is being evaluated and will likely be replaced in a subsequent release (e.g. dataAbsentReason).
   RIM Mapping = .reasonCode
 
  -- Row 7 -----------------------------------

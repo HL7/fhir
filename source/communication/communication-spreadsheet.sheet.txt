@@ -180,7 +180,7 @@
   Short Name = Communication did not occur
   Definition = If true, indicates that the described communication event did not actually occur.
   Requirements = Creating a Communication where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
-  Comments = The more attributes are populated, the more constrained the negated statement is.
+  Comments = This element is labeled as a modifier because it marks the communication as a communication that did not occur.  The more attributes are populated, the more constrained the negated statement is.
   Workflow Mapping = Event.notDone
 
  -- Row 8 -----------------------------------

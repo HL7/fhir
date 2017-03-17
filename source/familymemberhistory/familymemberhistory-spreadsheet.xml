@@ -20,11 +20,12 @@
    <Path>\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>9510</WindowHeight>
+  <WindowHeight>9210</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1153,13 +1154,13 @@
     <Cell ss:StyleID="s88"><Data ss:Type="Boolean">0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">Family member history did not occur</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">The taking of a family member's history did not occur</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If true, indicates that the family member history did not actually occur.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Creating a FamilyMemberHistory where notDone is true is intended for situations where there's a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn't fulfilled, that should be handled using Task.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The more attributes are populated, the more constrained the negated statement is.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This element is labeled as a modifier because it marks the family member history as a family member history that did not occur.  The more attributes are populated, the more constrained the negated statement is.  This notDone element is being evaluated and will likely be removed in a subsequent release.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.actionNegationInd</Data><NamedCell
@@ -1190,11 +1191,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">subject-unknown | withheld | unable-to-obtain | deferred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Describes why the family member history did not occur in coded and/or textual form.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Describes why the family member's history is absent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">This is a separate element to allow it to have a distinct binding from reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This notDoneReason element is being evaluated and will likely be replaced in a subsequent release (e.g. dataAbsentReason).</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3928,9 +3930,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3938,6 +3940,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3945,7 +3948,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
