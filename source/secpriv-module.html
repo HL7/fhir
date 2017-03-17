@@ -37,21 +37,11 @@ The Security and Privacy module includes the following materials:
 
 <table class="none">
  <tr>
-   <td><b>Implementation Guidance and Principles</b></td>
    <td><b>Resources</b></td>
    <td><b>Datatypes</b></td>
+   <td><b>Implementation Guidance and Principles</b></td>
   </tr>
  <tr>
-   <td>
-<ul>
-<li>
-  <a href="security.html">Security</a>
-</li>
-<li>
-  <a href="security-labels.html">Security Labels</a>
-</li>
-</ul>
-   </td>
    <td>
 <ul>
 <li>
@@ -72,8 +62,20 @@ The Security and Privacy module includes the following materials:
 </li>
 </ul>
    </td>
+   <td>
+<ul>
+<li>
+  <a href="security.html">Security Principles</a>
+</li>
+<li>
+  <a href="security-labels.html">Security Labels</a>
+</li>
+</ul>
+   </td>
   </tr>
 </table>
+
+
 
 <a name="security"> </a>
 <h3>Security</h3>
@@ -130,7 +132,7 @@ includes implementation guidance to ensure that:
 
 <a name="uses"> </a>
 <h3>Common Use Cases</h3>
-
+<a name="authorization"> </a>
 <h4>
 Authorization and Access Control
 </h4>
@@ -158,7 +160,7 @@ approaches to authorization.
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
-
+<a name="audit"> </a>
 <h4>
 Audit Logging
 </h4>
@@ -172,7 +174,7 @@ all API access and other security- and privacy-relevant events".
 
 <p>
 
-<em>Approach:</em> Approach: FHIR provides an AuditEvent resource suitable for
+<em>Approach:</em> FHIR provides an AuditEvent resource suitable for
 use by FHIR clients and servers to record when a security or privacy relevant
 event has occurred. This form of audit logging records as much detail as
 reasonable at the time the event happened. 
@@ -183,6 +185,70 @@ For details, see
 
 </p>
 
+<a name="privacy-consent"> </a>
+<h4>
+Privacy Consent
+</h4>
+
+<p>
+
+<em>Use case:</em> "Documentation of a Patient's Privacy Consent Directive - rules for Collection, Use, and Disclosure of their health data."
+
+</p>
+
+<p>
+
+<em>Approach:</em> FHIR provides a Consent resource suitable for
+use by FHIR clients and servers to record current Privacy Consent state. The meaning of a consent or the absence of the consent is a local policy concern.
+The Privacy Consent may be a pointer to privacy rules documented elsewhere, such as a policy identifier or identifier in XACML.
+The Privacy Consent has the ability to point at a scanned image of an ink-on-paper signing ceremony, 
+and supports digital signatures through use of <a href="provenance.html">Provenance</a>.
+The Privacy Consent has the ability to include some simple FHIR centric base and exception rules. 
+</p><p>
+All uses of FHIR Resources would be security/privacy relevant and thus should be recorded in an <a href="auditevent.html">AuditEvent</a>. 
+Those access qualifying as a Disclosure should additionally be recorded as a Disclosure, see <a href="auditevent-example-disclosure.html">Disclosure Audit Event Example</a>.
+</p><p>
+For Privacy Consent guidance and examples, see
+<a href="consent.html">Consent Resource</a>.
+
+</p>
+<a name="provenance"> </a>
+<h4>
+Provenance
+</h4>
+
+<p>
+
+<em>Use case:</em> "All FHIR Resources should be capable of having the Provenance fully described."
+
+</p>
+
+<p>
+
+<em>Approach:</em> FHIR provides the Provenance resource suitable for
+use by FHIR clients and servers to record the full provenance details: who, what, where, when, and why. 
+A Provenance resource can record details for Create, Update, and Delete; or any other activity. 
+Generally Read operations would be recorded using  <a href="auditevent.html">AuditEvent</a>. 
+Many Resources include these elements within, this is done when that provenance element is critical to the use of that Resource. 
+This is <a href="w5.html">overlap is expected and cross-referenced on the W5 report</a>.
+
+For details, see
+<a href="provenance.html">Provenance Resource</a>.
+</p>
+<a name="signature"> </a>
+<h4>Signature</h4>
+<p>
+<em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
+</p><p>
+<em>Approach:</em> FHIR Resources are often parts of Medical Record, or are communicated as part of formal Medical Documentation. 
+As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
+This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
+Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
+
+For details, see
+<a href="security.html#signatures">Security: Digital Signatures</a>.
+
+</p>
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 
