@@ -1429,14 +1429,20 @@ public class SpreadsheetParser {
 	        if (!Utilities.noString(n)) {
 	          if (ig != null && !ig.isCore() && !n.toLowerCase().startsWith(ig.getCode()+"-"))
 	            throw new Exception("Error: published structure names must start with the implementation guide code ("+ig.getCode()+"-)");
-	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues, wg));
+	          String fmm = ap.metadata("fmm-"+n);
+	          if (Utilities.noString(fmm)) 
+	            fmm = "1"; // default fmm value
+	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues, wg, fmm));
 	        }
 	      }
 	    }
 
 	    int i = 0;
 	    while (i < namedSheets.size()) {
-	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage, issues, wg));
+        String fmm = ap.metadata("fmm-"+namedSheets.get(i));
+        if (Utilities.noString(fmm)) 
+          fmm = "1"; // default fmm value
+	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage, issues, wg, fmm));
 	      i++;
 	    }
 	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
@@ -1465,7 +1471,7 @@ public class SpreadsheetParser {
   }
 
 
-  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage, List<ValidationMessage> issues, WorkGroup wg) throws Exception {
+  private ConstraintStructure parseProfileSheet(Definitions definitions, Profile ap, String n, List<String> namedSheets, boolean published, String usage, List<ValidationMessage> issues, WorkGroup wg, String fmm) throws Exception {
     Sheet sheet;
     ResourceDefn resource = new ResourceDefn();
     resource.setPublishedInProfile(published);
@@ -1535,7 +1541,7 @@ public class SpreadsheetParser {
 
     if (profileIds.containsKey(n.toLowerCase()))
       throw new Exception("Duplicate Profile Name: "+n.toLowerCase()+" in "+ap.getId()+", already registered in "+profileIds.get(n.toLowerCase()).getOwner());
-		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name), wg);
+		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name), wg, fmm);
 		p.setOwner(ap.getId());
     profileIds.put(n.toLowerCase(), p);
     return p;

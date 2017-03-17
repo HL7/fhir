@@ -731,7 +731,7 @@ public class SourceParser {
           for (StringType s : ed.getContext())
             definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());
           ToolResourceUtilities.updateUsage(ed, pack.getCategory());
-          pack.getProfiles().add(new ConstraintStructure(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath()), wg == null ? wg(ed) : wg));
+          pack.getProfiles().add(new ConstraintStructure(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath()), wg == null ? wg(ed) : wg, fmm(ed)));
         } else if (ae.getResource() instanceof StructureDefinition) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           if (Utilities.noString(ed.getBaseDefinition()))
@@ -747,6 +747,13 @@ public class SourceParser {
       throw new Exception("Error Parsing profile: '"+n+"': "+e.getMessage(), e);
     }
   }
+
+
+  private String fmm(StructureDefinition ed) {
+    return Integer.toString(ToolingExtensions.readIntegerExtension(ed, ToolingExtensions.EXT_FMM_LEVEL, 1)); // default fmm level
+  }
+
+
 
 
   private WorkGroup wg(StructureDefinition ed) {
@@ -771,7 +778,7 @@ public class SourceParser {
       ap.putMetadata("description", new XhtmlComposer().compose(sd.getText().getDiv()));
       ap.setTitle(sd.getTitle());
       new ProfileUtilities(page.getWorkerContext(), null, null).setIds(sd, false);
-      ap.getProfiles().add(new ConstraintStructure(sd, definitions.getUsageIG(ap.getCategory(), "Parsing "+ap.getSource()), wg == null ? wg(sd) : wg));
+      ap.getProfiles().add(new ConstraintStructure(sd, definitions.getUsageIG(ap.getCategory(), "Parsing "+ap.getSource()), wg == null ? wg(sd) : wg, fmm(sd)));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
       parseConformanceDocument(ap, ap.getId(), new CSFile(ap.getSource()), ap.getCategory(), wg);
   }

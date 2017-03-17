@@ -1625,7 +1625,11 @@ public class ProfileGenerator {
   }
 
   public ConstraintStructure wrapProfile(StructureDefinition profile) throws Exception {
-    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()), wg(ToolingExtensions.readStringExtension(profile, ToolingExtensions.EXT_WORKGROUP)));
+    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()), wg(ToolingExtensions.readStringExtension(profile, ToolingExtensions.EXT_WORKGROUP)), fmm(profile));
+  }
+
+  private String fmm(StructureDefinition ed) {
+    return ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL); // default fmm level
   }
 
   private WorkGroup wg(String code) {

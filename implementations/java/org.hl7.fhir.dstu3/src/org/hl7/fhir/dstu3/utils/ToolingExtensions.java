@@ -53,6 +53,7 @@ import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType;
 import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
@@ -526,6 +527,15 @@ public class ToolingExtensions {
         i.remove();
       }
     }
+  }
+
+  public static int readIntegerExtension(DomainResource dr, String uri, int defaultValue) {
+    Extension ex = ExtensionHelper.getExtension(dr, uri);
+    if (ex == null)
+      return defaultValue;
+    if (ex.getValue() instanceof IntegerType)
+      return ((IntegerType) ex.getValue()).getValue();
+    throw new Error("Unable to read extension "+uri+" as an integer");
   }
 
 //  public static boolean hasOID(ValueSet vs) {

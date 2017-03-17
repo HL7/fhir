@@ -204,7 +204,7 @@ public class IgParser {
 //            sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+sd.getId());
             pr.forceMetadata("id", sd.getId()+"-profile");
             pr.setSourceType(ConformancePackageSourceType.StructureDefinition);
-            ConstraintStructure cs = new ConstraintStructure(sd, igd, null);
+            ConstraintStructure cs = new ConstraintStructure(sd, igd, wg(sd), fmm(sd));
             pr.getProfiles().add(cs);
             igd.getProfiles().add(pr);
           }
@@ -426,5 +426,15 @@ public class IgParser {
     
   }
   
-  
+
+  private String fmm(StructureDefinition ed) {
+    return Integer.toString(ToolingExtensions.readIntegerExtension(ed, ToolingExtensions.EXT_FMM_LEVEL, 1)); // default fmm level
+  }
+
+
+
+
+  private WorkGroup wg(StructureDefinition ed) {
+    return workgroups.get(ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_WORKGROUP));
+  }
 }

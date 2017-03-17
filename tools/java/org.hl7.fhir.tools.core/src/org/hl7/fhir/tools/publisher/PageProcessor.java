@@ -6583,10 +6583,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String wg = pack.getWg();
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("fmm-style")) {
-        String fmm = pack.getFmmLevel();
+        String fmm = profile.getFmm();
+        if (Utilities.noString(fmm))
+            fmm = pack.getFmmLevel();
         src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
       } else if (com[0].equals("fmm")) {
-        String fmm = pack.getFmmLevel();
+        String fmm = profile.getFmm();
+        if (Utilities.noString(fmm))
+            fmm = pack.getFmmLevel();
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(pack.getCandidateResource(), genlevel(level))+s3;
@@ -6620,9 +6624,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (mr.getExperimental())
       b.append("Not Intended for Production use");
     if (b.length() == 0)
-      return "Context: Any";
+      return "Use Context: Any";
     else
-      return "Context: "+b.toString();
+      return "Use Context: "+b.toString();
   }
 
   private String generateProfileExamples(Profile pack, ConstraintStructure profile) {
