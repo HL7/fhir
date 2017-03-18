@@ -160,7 +160,7 @@
   UML = 200;150
   Type = DomainResource
   Short Name = Describes the results of a TestScript execution
-  Definition = TestReport is a resource that includes summary information on the results of executing a TestScript.
+  Definition = A summary of information based on the results of executing a TestScript.
   RIM Mapping = n/a
   Object Impl = BaseConformance
   w5 = conformance.misc

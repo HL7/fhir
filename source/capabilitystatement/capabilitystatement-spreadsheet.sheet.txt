@@ -287,7 +287,7 @@
   Id = 3
   Code = versioned-update
   Display = VersionId tracked fully
-  Definition = VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
+  Definition = VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client).
 
 === Sheet transaction-mode =====================================
 

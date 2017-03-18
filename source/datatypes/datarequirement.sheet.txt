@@ -9,7 +9,7 @@
   Element = DataRequirement
   Type = Type
   Short Name = Describes a required data item
-  Definition = Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data
+  Definition = Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data
 
  -- Row 2 -----------------------------------
   Element = DataRequirement.type

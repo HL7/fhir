@@ -8,11 +8,13 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptPropertyComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.PropertyComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.PropertyType;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 
 public class CodeSystemUtilities {
 
@@ -138,6 +140,39 @@ public class CodeSystemUtilities {
         return s;
     }
     return null;
+  }
+
+  public static void markStatus(CodeSystem cs, String wg, String status, String fmm) {
+    if (wg != null) {
+      if (!ToolingExtensions.hasExtension(cs, ToolingExtensions.EXT_WORKGROUP) || 
+          (Utilities.existsInList(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_WORKGROUP), "fhir", "vocab") && !Utilities.existsInList(wg, "fhir", "vocab"))) {
+        ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_WORKGROUP, wg);
+      }
+    }
+    if (status != null) {
+      String ss = ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS);
+      if (Utilities.noString(ss) || ssval(ss) < ssval(status)) 
+        ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, status);
+    }
+    if (fmm != null) {
+      String sfmm = ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_FMM_LEVEL);
+      if (Utilities.noString(sfmm) || Integer.parseInt(sfmm) < Integer.parseInt(fmm)) 
+        ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, fmm);
+    }
+  }
+
+  private static int ssval(String status) {
+    if ("Draft".equals("status")) 
+      return 1;
+    if ("Informative".equals("status")) 
+      return 2;
+    if ("External".equals("status")) 
+      return 3;
+    if ("Trial Use".equals("status")) 
+      return 3;
+    if ("Normative".equals("status")) 
+      return 4;
+    return -1;
   }
 
 }

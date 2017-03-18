@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.WorkGroup;
+import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
@@ -219,7 +220,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       vs.setDescription("**** MISSING DEFINITIONS ****");
 
     CodeSystem cs = new CodeSystem();
-    ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     cs.setUrl("http://hl7.org/fhir/v3/" + id);
     cs.setId("v3-"+FormatUtilities.makeId(id));
     CodeSystemUtilities.setOID(cs, "urn:oid:"+csOid);
@@ -440,7 +441,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
@@ -489,7 +491,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, CodeSystem> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));

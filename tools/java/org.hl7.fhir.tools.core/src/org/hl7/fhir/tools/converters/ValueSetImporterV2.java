@@ -17,6 +17,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.WorkGroup;
+import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
@@ -345,6 +346,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -356,7 +358,6 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date));
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     StringBuilder s = new StringBuilder();
     Set<String> sources = vsImports.get(id);
 
@@ -482,6 +483,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -494,13 +496,12 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     
     
     StringBuilder s = new StringBuilder();
 
     CodeSystem cs = new CodeSystem();
-    ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     String desc = "";
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
@@ -645,6 +646,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
@@ -657,11 +659,10 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType(date)); 
     vs.setDescription("v2 table definition for "+vs.getName());
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
     CodeSystem cs = new CodeSystem();
     CodeSystemUtilities.makeShareable(cs);
     CodeSystemConvertor.populate(cs, vs);
-    ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     cs.setUserData("spec.vs.cs", vs);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 

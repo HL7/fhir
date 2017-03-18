@@ -55,6 +55,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.Translations;
 import org.hl7.fhir.dstu3.validation.BaseValidator;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -652,6 +653,12 @@ public class ResourceValidator extends BaseValidator {
 			if (cd != null) {
 			  check(errors, path, cd, sd, e);
 			  if (cd.getValueSet() != null) {
+			    if (e.getBinding().getStrength() == BindingStrength.EXAMPLE)
+	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), "Draft", "1");
+			    else if (parent == null)
+            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", "Draft", "0");
+			    else
+			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus().toDisplay(), parent.getFmmLevel());
 			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
 			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
 			      vsWarnings++;

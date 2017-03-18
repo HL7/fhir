@@ -5,7 +5,7 @@
   Binding Name = DigitalMediaType
   Binding = Code List
   Reference = #digital-media-type
-  Definition = Whether the Media is a photo, video, or audio
+  Definition = Whether the media is a photo, video, or audio
   Conformance = required
 
  -- Row 2 -----------------------------------

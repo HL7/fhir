@@ -259,7 +259,7 @@
   UML = 0;0
   Type = MetadataResource
   Short Name = Structural Definition
-  Definition = A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
+  Definition = A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
   RIM Mapping = n/a
   w5 = conformance.content
 

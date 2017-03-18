@@ -17,7 +17,7 @@
   Element = Extension
   Type = Type
   Short Name = Optional Extensions Element
-  Definition = Optional Extensions Element - found in all resources
+  Definition = Optional Extension Element - found in all resources
   Requirements = The ability to add extensions in a structured way is what keeps FHIR resources simple
   RIM Mapping = N/A
 

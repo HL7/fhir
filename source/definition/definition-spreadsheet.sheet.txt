@@ -5,7 +5,7 @@
   Binding Name = DefinitionStatus
   Binding = code list
   Reference = #definition-status
-  Definition = Codes identifying the stage lifecycle stage of a definition
+  Definition = Codes identifying the lifecycle stage of a definition
 
  -- Row 2 -----------------------------------
   Binding Name = DefinitionSubject

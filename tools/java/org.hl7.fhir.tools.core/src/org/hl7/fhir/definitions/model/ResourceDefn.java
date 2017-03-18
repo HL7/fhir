@@ -40,7 +40,7 @@ import org.w3c.dom.Element;
 
 public class ResourceDefn  {
   public enum StandardsStatus {
-    DRAFT, TRIAL_USE, NORMATIVE;
+    DRAFT, TRIAL_USE, NORMATIVE, INFORMATIVE, EXTERNAL;
 
     public String toDisplay() {
       switch (this) {
@@ -50,6 +50,10 @@ public class ResourceDefn  {
         return "Normative";
       case TRIAL_USE : 
         return "Trial Use";  
+      case INFORMATIVE:
+        return "Informative";
+      case EXTERNAL:
+        return "external";
       }
       return "?";
     }

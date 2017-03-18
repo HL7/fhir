@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
 import org.hl7.fhir.dstu2.model.Identifier;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.MetadataResource;
@@ -16,6 +17,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.validation.BaseValidator;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -130,6 +132,7 @@ public class ValueSetValidator extends BaseValidator {
  
   
   public void validate(List<ValidationMessage> errors, String nameForErrors, CodeSystem cs, boolean internal, boolean exemptFromCopyrightRule) {
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.INFORMATIVE.toDisplay(), "0");
     if (Utilities.noString(cs.getCopyright()) && !exemptFromCopyrightRule) {
       String s = cs.getUrl();
       warning(errors, IssueType.BUSINESSRULE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"].copyright", s.startsWith("http://hl7.org") || s.startsWith("urn:iso") || s.startsWith("urn:ietf") || s.startsWith("http://need.a.uri.org")
@@ -178,6 +181,7 @@ public class ValueSetValidator extends BaseValidator {
   }
   
   public void validate(List<ValidationMessage> errors, String nameForErrors, ValueSet vs, boolean internal, boolean exemptFromCopyrightRule) throws TerminologyServiceException {
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.INFORMATIVE.toDisplay(), "0");
     int o_warnings = 0;
     for (ValidationMessage em : errors) {
       if (em.getLevel() == IssueSeverity.WARNING)

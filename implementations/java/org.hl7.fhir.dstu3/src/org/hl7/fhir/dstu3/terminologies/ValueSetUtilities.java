@@ -1,9 +1,12 @@
 package org.hl7.fhir.dstu3.terminologies;
 
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetUtilities {
 
@@ -49,6 +52,41 @@ public class ValueSetUtilities {
       }
     }
     vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue(oid);
+  }
+
+  public static void markStatus(ValueSet vs, String wg, String status, String fmm) {
+    if (wg != null) {
+      if (!ToolingExtensions.hasExtension(vs, ToolingExtensions.EXT_WORKGROUP) || 
+          (Utilities.existsInList(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP), "fhir", "vocab") && !Utilities.existsInList(wg, "fhir", "vocab"))) {
+        ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, wg);
+      }
+    }
+    if (status != null) {
+      String ss = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS);
+      if (Utilities.noString(ss) || ssval(ss) < ssval(status)) 
+        ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, status);
+    }
+    if (fmm != null) {
+      String sfmm = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_FMM_LEVEL);
+      if (Utilities.noString(sfmm) || Integer.parseInt(sfmm) < Integer.parseInt(fmm)) 
+        ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, fmm);
+    }
+    if (vs.hasUserData("cs"))
+      CodeSystemUtilities.markStatus((CodeSystem) vs.getUserData("cs"), wg, status, fmm);
+  }
+
+  private static int ssval(String status) {
+    if ("Draft".equals("status")) 
+      return 1;
+    if ("Informative".equals("status")) 
+      return 2;
+    if ("External".equals("status")) 
+      return 3;
+    if ("Trial Use".equals("status")) 
+      return 3;
+    if ("Normative".equals("status")) 
+      return 4;
+    return -1;
   }
 
 }

@@ -5,7 +5,7 @@
   Binding Name = EventTiming
   Binding = code list
   Reference = #event-timing
-  Definition = Real world event that the relating to the schedule.
+  Definition = Real world event relating to the schedule.
 
  -- Row 2 -----------------------------------
   Binding Name = UnitsOfTime

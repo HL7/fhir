@@ -133,7 +133,7 @@
   Id = 4
   Code = not
   Display = Not
-  Definition = The search parameter returns resources that do not contain a match .
+  Definition = The search parameter returns resources that do not contain a match.
 
  -- Row 5 -----------------------------------
   Id = 5

@@ -490,6 +490,15 @@ public class Enumerations {
             default: return "?";
           }
         }
+        public int getVal() {
+          switch (this) {
+          case REQUIRED: return 4;
+          case EXTENSIBLE: return 3;
+          case PREFERRED: return 2;
+          case EXAMPLE: return 1;
+          default: return 0;
+        }
+        }
     }
 
   public static class BindingStrengthEnumFactory implements EnumFactory<BindingStrength> {
