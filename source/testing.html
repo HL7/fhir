@@ -108,7 +108,7 @@ systems adhere to the specification.
 
 <h4 id="profiles">Profiles</h4>
 <p>
-  The profiles section of the TestScript defines a set of FHIR profiles (see <a href="structuredefinition.html">StructureDefinition</a> resource) that will be used as part of the setup or test sections during TestScript execution. Each profile defines a StructureDefinition instance by URI, and must be identified by an ID. The URI MUST reference a known FHIR profile corresponding to the FHIR specification version being tested. As with Fixtures, the ID on the profile is considered the "source" identifier of the profile. Operations reference the ID of a profile to uniquely identify the profile instance the operation is using ("validateProfileId").
+  The profiles section of the TestScript defines a set of FHIR profiles (see <a href="structuredefinition.html">StructureDefinition</a> resource) that will be used as part of the setup or test sections during TestScript execution. Each profile defines a StructureDefinition instance by URI, and must be identified by an ID. The URI SHALL reference a known FHIR profile corresponding to the FHIR specification version being tested. As with Fixtures, the ID on the profile is considered the "source" identifier of the profile. Operations reference the ID of a profile to uniquely identify the profile instance the operation is using ("validateProfileId").
 </p>
 <p>
   See <a href="#howToUseProfiles">Use Profiles</a> for more information.

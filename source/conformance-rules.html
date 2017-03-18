@@ -67,6 +67,16 @@ Any assertion of conformance to FHIR that does not reference a <a href="capabili
 instance has limited utility.  System capabilities that cannot be described by a CapabilityStatement cannot be considered FHIR conformant.
 </p>
 
+<a name="conflang"> </a>
+<h3>Conformance Language</h3>
+<p>This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in RFC 2119 . Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular:</p>
+
+<ol><li>SHALL: an absolute requirement for all implementations</li>
+<li>SHALL NOT: an absolute prohibition against inclusion for all implementations</li>
+<li>SHOULD/SHOULD NOT: A best practice or recommendation to be considered by implementers within the context of their particular implementation; there may be valid reasons to ignore an item, but the full implications must be understood and carefully weighed before choosing a different course</li>
+<li>MAY: This is truly optional language for an implementation; can be included or omitted as the implementer decides with no implications</li>
+</ol>
+ 
 <a name="baseconf"> </a>
 <h3>Base Conformance Rules</h3>
 <p>
@@ -75,10 +85,7 @@ conform to the rules described in this specification, as defined in the
 narrative of the specification, and as controlled by the conformance
 properties defined below.
 </p>
-<p>
-Note: This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
-Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features.
-</p>
+
 <p>
 Data elements defined in resources and data types have 3 properties that are
 directly related to conformance: Cardinality, Is-Modifier, and Must-Support.
