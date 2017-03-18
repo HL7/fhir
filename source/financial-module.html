@@ -2,9 +2,9 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
-      
+
 [%settitle Financial Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -23,12 +23,12 @@ in order to support consistent definitions for schema and UML derived code.
 <h3>Introduction</h3>
 <p>
 The Financial module covers the resources and services provided by FHIR to support the costing, financial transactions and billing which occur within
-a healthcare provider as well as the eligibility, enrollment, authorizations, claims and payments which occur between healthcare providers 
+a healthcare provider as well as the eligibility, enrollment, authorizations, claims and payments which occur between healthcare providers
 and insurers and the reporting and notification between insurers and subscribers and patients.
 </p>
 <p>
 See also the <a href="administration-module.html">Administration</a> and <a href="workflow-module.html">WorkFlow</a>  modules.
-</p> 
+</p>
 
 <a name="index"> </a>
 <h3>Index</h3>
@@ -107,45 +107,45 @@ See also the <a href="administration-module.html">Administration</a> and <a href
     </table>
 
 <p>
-Additional Resources will be added in the future. A list of hypothesized resources can be found on the 
-<a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Types">HL7 wiki</a>.  Feel free to add any you think are missing or engage with one 
-of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups</a> to submit a 
+Additional Resources will be added in the future. A list of hypothesized resources can be found on the
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Types">HL7 wiki</a>.  Feel free to add any you think are missing or engage with one
+of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups</a> to submit a
 <a href="http://wiki.hl7.org/index.php?title=Category:FHIR_Resource_Proposal">proposal</a> to define a resource of particular interest.
 </p>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-Financial information in general and in particular when related to or including health information, such as claims data, are typically considered 
+Financial information in general and in particular when related to or including health information, such as claims data, are typically considered
 Protected Health Information and as such must be afforded the same protection and safeguards as would be afforded to purely clinical identified health data.
 </p>
 <p>
-The Security and Privacy measures associated with FHIR, such as the use of Security labels and tags in the resource.meta, is 
-encouraged as are the use of whatever measures for authorization and encryption are supported by the chosen exchange model, 
-eg. FHIR REST, Web Services, Direct, MLLP, SMTP and others.
+The Security and Privacy measures associated with FHIR, such as the use of Security labels and tags in the resource.meta, is
+encouraged as are the use of whatever measures for authorization and encryption are supported by the chosen exchange model,
+e.g. FHIR REST, Web Services, Direct, MLLP, SMTP and others.
 </p>
 <p>
 For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
 </p>
 
 <a name="uses"> </a>
-<h3>Common use Cases</h3>
+<h3>Common Use Cases</h3>
 
  <p>
- The table below details various common business activities which occur in the financial realm, and the focal resources 
- which may be exchanged, along with supporting resources, to accomplish the business activities. Whether or not the 
- resources specified are actually needed requires consideration of the business itself and the exchange methodology 
- and transport being used. 
+ The table below details various common business activities which occur in the financial realm, and the focal resources
+ which may be exchanged, along with supporting resources, to accomplish the business activities. Whether the
+ resources specified are actually needed requires consideration of the business itself and the exchange methodology
+ and transport being used.
  </p>
  <p>
- For example: If a content model is not requred to obtain the appropriate status element then a SEARCH (GET) may be used, 
+ For example: If a content model is not required to obtain the appropriate status element then a SEARCH (GET) may be used,
  however if a content model is required to support the request for information then the content model will need to be CREATEd (POST).
  Alternately, if FHIR Operations are being used then
  the specified focal resource may be employed as one of the Operation parameters or may not be required.
  </p>
- 
+
  <table class="grid">
- 
+
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
  <tr><td>Eligibility Check</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
  <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
@@ -186,7 +186,7 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
  <tr><td>Provider submits Pre-determination(s) for treatment options to determine potential reimbursement</td><td><a href="claim.html">Claim</a> {use=exploratory}</td></tr>
  <tr><td>Insurer responds with potential reimbursement</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td><b>Provider and Patient determine treatment plan</b></td></tr>
- <tr><td>Treament plan submitted to Insurer to reserve funds</td><td><a href="claim.html">Claim</a> {use=proposed}</td></tr>
+ <tr><td>Treatment plan submitted to Insurer to reserve funds</td><td><a href="claim.html">Claim</a> {use=proposed}</td></tr>
  <tr><td>Insurer acknowledges receipt of pre-authorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Insurer requests additional information</td><td><a href="communicationrequest.html">CommunicationRequest</a></td></tr>
  <tr><td>Provider submits supporting information</td><td><a href="communication.html">Communication</a></td></tr>
@@ -206,19 +206,20 @@ For more general considerations, see <a href="secpriv-module.html">the Security 
  <tr><td>Insurer notifies parties that payment funds have been received</td><td><a href="paymentnotice.html">PaymentNotice</a></td></tr>
  </table>
  <p/>
- 
+
 <a name="secondary-use"> </a>
-<h3>Secondary Uses</h3> 
+<h3>Secondary Uses</h3>
 <p>
-In addition to their primary use of conveying patient billing information to insurers for reimbursement either to the subscriber or the provider (assignment of benefit), many of the 
+In addition to their primary use of conveying patient billing information to insurers for reimbursement either to the subscriber or the provider (assignment of benefit), many of the
 financial resources, such as <a href="claim.html">Claim</a> and <a href="explanationofbenefit.html">ExplanationOfBenefit</a>, may be used to export data to other agencies to support reporting and analytics.
 </p>
 
 <a name="attachments"> </a>
-<h3>Attachments - Supporting Information</h3> 
+<h3>Attachments - Supporting Information</h3>
 <p>
-There is often a need to provide supporting information, commonly referred to as <b>attachments</b>, to document the need for a service and/or to confirm that the good or service was actually authorized or rendered. 
-This information may be in many forms, including: scanned documents, PDFs, word processing files, XRays, images, CDAs and FHIR Resources. 
+There is often a need to provide supporting information, commonly referred to as <b>attachments</b>, to document the need for a service
+and/or to confirm that the good or service was authorized or rendered.
+This information may be in many forms, including: scanned documents, PDFs, word processing files, XRays, images, CDAs and FHIR Resources.
 </p>
 <p>
 Supporting information may be provided, as a reference or the actual material, to support the <a href="claim.html">Claim</a> (complete claim or Pre-Authorization) or <a href="explanationofbenefit.html">ExplanationOfBenefit</a> in a variety of manners:
@@ -238,11 +239,11 @@ The Financial Management Work Group (FM) is responsible for two subdomains:
 </p>
 <p>
 Financial Accounts and Billing (FIAB) - resources for accounts, charges (internal costing transactions) and patient billing, and<br/>
-Financial Claims and Reimbursement (FICR) - insurance information, enrollement, eligibility, pre-authorization, claims, patient reporting and payments.
+Financial Claims and Reimbursement (FICR) - insurance information, enrollment, eligibility, pre-authorization, claims, patient reporting and payments.
 </p>
 <p>
 To date FM has been focusing on the resources required to support the exchange of claims and related information between healthcare providers and insurers. The first draft of this work
-is nearing completion with the release of the first Financial Standard for Trial Use in STU3 of FHIR. Over the next year further refinements will be expected as we begin developing regional profiles 
+is nearing completion with the release of the first Financial Standard for Trial Use in STU3 of FHIR. Over the next year further refinements will be expected as we begin developing regional profiles
 and begin live pilots with resources.
 </p>
 <p>
@@ -252,9 +253,9 @@ Once the above is well underway FM can then look to developing the Enrollment-re
 <a name="terminology"> </a>
 <h3>Terminology</h3>
 <p>
-In many cases an <b>example</b> valueset has been provided in this release. Financal Management wil be devoting effort in the 
+In many cases an <b>example</b> valueset has been provided in this release. Financal Management will be devoting effort in the
 preparation to Release 4 of FHIR to develop more representative example sets and to determine where global codesets exist such
-that some of the valuesets may be elevated in strength to extensible or required. 
+that some of the valuesets may be elevated in strength to extensible or required.
 </p>
 </div>
 

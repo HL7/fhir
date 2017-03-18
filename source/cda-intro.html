@@ -7,16 +7,16 @@
   </head>
   <body>
     [%file newnavbar%]
-    
+
     <div class="col-9">
-      
-      <a name="CDA"> </a> 
+
+      <a name="CDA"> </a>
       <h2>Clinical Document Architecture (CDA) on FHIR</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg sd%]">[%wgt sd%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Informative</a></td></tr></table>
       <h3>What is CDA on FHIR?</h3>
       <p>
-        CDA on FHIR specifies how to implement CDA R2 with the FHIR <a href="composition.html">Composition</a> resource.<br/>        
-        The original HL7 Clinical Document Architecture (CDA) defined the structure and semantics of &quot;clinical documents&quot; for the purpose of exchange. 
+        CDA on FHIR specifies how to implement CDA R2 with the FHIR <a href="composition.html">Composition</a> resource.<br/>
+        The original HL7 Clinical Document Architecture (CDA) defined the structure and semantics of &quot;clinical documents&quot; for the purpose of exchange.
         A clinical document is a documentation of clinical observations and services, with the following characteristics:
         <ul>
           <li>Persistence - A clinical document continues to exist in an unaltered state, for a time period defined by local and regulatory requirements (NOTE: There is a distinct scope of persistence for a clinical document, independent of the persistence of any XML-encoded CDA document instance).</li>
@@ -25,10 +25,10 @@
           <li>Context - A clinical document establishes the context for its contents.</li>
           <li>Wholeness - Authentication of a clinical document applies to the whole and does not apply to portions of the document without the full context of the document.</li>
           <li>Human readability - A clinical document is human readable.</li>
-        </ul>  
+        </ul>
         A CDA document on FHIR is a defined and complete information object that can include text, images, sounds, and other multimedia content.
      </p>
-      
+
       <h3>Scope of the CDA on FHIR</h3>
       <p>
         The scope of CDA on FHIR is the standardization of clinical documents for exchange.<br/><br/>
@@ -62,7 +62,7 @@
           <li>CDA documents must be human readable using widely-available and commonly-deployed XML-aware browsers and print drivers and a generic CDA style sheet written in a standard style sheet language.</li>
           <li>Use open standards.</li>
         </ul>
-                
+
       </p>
       <a name="general"> </a>
 
@@ -70,7 +70,7 @@
       <h3>Major Components of a CDA on FHIR Document</h3>
       <p>
         This section serves as a high-level introduction to the major components of a CDA document, all of which are described again and in greater detail later on. The intent here is to familiarize the reader with the high-level concepts to facilitate an understanding of the sections that follow.
-        
+
         [EDITORS: in CDA r2 there is a bunch of detail about how CDA is wrapped - and an example. Consider whether the discussion is relevant here: "A CDA document is wrapped by the &lt;ClinicalDocument&gt; element, and contains a header..."]
        </p>
       <h3>Human Readability and Rendering CDA Documents</h3>
@@ -83,14 +83,16 @@
           <li>When structured content is derived from narrative, there must be a mechanism to describe the process (e.g. by author, by human coder, by natural language processing algorithm, by specific software) by which machine-processable portions were derived from a block of narrative.</li>
           <li>When narrative is derived from structured content, there must be a mechanism to identify the process by which narrative was generated from structured data.</li>
         </ul>
-        These principles and requirements have led to the current approach, where the material to be rendered is placed into the Section.content...[EDITORS: current design doesn't make it clear where to consistently find narrative]
+        These principles and requirements have led to the current approach, where the material to be rendered is placed into the Section.content.
+
+        [EDITORS: The current design doesn't make it clear where to consistently find narrative.]
       </p>
-      
-      
+
+
 
     </div>
-    
+
     [%file newfooter%]
-    
+
   </body>
 </html>

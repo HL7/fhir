@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Implementation Details%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -23,15 +23,15 @@
 
   <tr>
     <td>FHIR Definitions</td>
-    <td>All the value sets, profiles, etc.defined as part of the FHIR specification, and the included implementation guides:
+    <td>All the value sets, profiles, etc defined as part of the FHIR specification, and the included implementation guides:
       <ul>
        <li><a href="definitions.xml.zip">XML</a></li>
        <li><a href="definitions.json.zip">JSON</a></li>
        <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="http://fhir.furore.com/Forge">Forge</a> (temporary)</li>
-      </ul>    
+      </ul>
       These is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
-      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers 
-      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.   
+      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
+      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
     </td>
   </tr>
   <tr>
@@ -80,7 +80,7 @@
   <tr>
     <td colspan="2"><hr/></td>
   </tr>
-  
+
   <tr>
     <td>FHIR Specification</td>
     <td><a href="fhir-spec.zip">The whole specification</a> so that you can host your own local copy (does not include the downloads)</td>
@@ -89,7 +89,7 @@
   <tr>
     <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
   </tr>
- 
+
   <tr>
     <td>Validator</td>
     <td>The <a href="validator.zip">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information</td>
@@ -102,7 +102,7 @@
 
   <tr>
     <td>IG Pack</td>
-    <td>The <a href="igpack.zip">Definitions File used by the IG Publisher</a>. This is a zip file that contains all the conformance &amp; example resources, a version marker, and a json file that lists 
+    <td>The <a href="igpack.zip">Definitions File used by the IG Publisher</a>. This is a zip file that contains all the conformance &amp; example resources, a version marker, and a json file that lists
       all the pages and URLs in the specification itself. This file can also be used by the validator</td>
   </tr>
 
@@ -131,57 +131,57 @@
     Here are a list of the more common implementations used by implementers:
     </td>
   </tr>
-    
+
   <tr>
    <td>Java</td>
    <td>
-     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>: 
+     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>:
      Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
    </td>
   </tr>
   <tr>
    <td>C#</td>
    <td>
-    <a href="http://www.nuget.org/packages/Hl7.Fhir">HL7.FHIR</a>: 
+    <a href="http://www.nuget.org/packages/Hl7.Fhir">HL7.FHIR</a>:
     Object models, Parsers/Serialisers, Utilities, and a Client. Source code on GitHub at <a href="http://github.com/ewoutkramer/fhir-net-api">http://github.com/ewoutkramer/fhir-net-api</a>
    </td>
   </tr>
   <tr>
    <td>Pascal</td>
    <td>
-    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>: 
+    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>:
     Object models, Parsers/Serialisers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (unicode versions)
    </td>
   </tr>
   <tr>
    <td>XML</td>
    <td>
-    <a href="fhir-<%version%>-XMLTools-0.01.zip">XML Tools</a>: 
+    <a href="fhir-<%version%>-XMLTools-0.01.zip">XML Tools</a>:
     Document Rendering Stylesheet, supplementary implementation schemas and transforms
    </td>
   </tr>
   <tr>
    <td>Javascript</td>
    <td>
-    <a href="https://github.com/FHIR/fhir.js">FHIR.js</a>: 
+    <a href="https://github.com/FHIR/fhir.js">FHIR.js</a>:
     Javascript Client and Utilities
    </td>
   </tr>
   <tr>
    <td>Swift</td>
    <td>
-    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>: 
+    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>:
     Object Model, Client and Utilities
    </td>
-  </tr>  
- </table>    
+  </tr>
+ </table>
 
 <p>
-Note: These reference implementations are provided for implementer interest and assistance. 
-While they may be used (and are) in production systems, HL7 and their various contributors accept no 
-liability for their use. <span style="color: Maroon">Note that these reference implementations are 
-provided to assist to implementers to adopt the specification, and some are maintained by the FHIR 
-project team, but are not part of the specification, and implementations are not required to 
+Note: These reference implementations are provided for implementer interest and assistance.
+While they may be used (and are) in production systems, HL7 and their various contributors accept no
+liability for their use. <span style="color: Maroon">Note that these reference implementations are
+provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
+project team, but are not part of the specification, and implementations are not required to
 conform to these, nor are they subject to the formal standards process.</span>
 </p>
 <hr/>
@@ -190,7 +190,7 @@ Full blown open source implementations for FHIR, some of which use these referen
 listed on the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 wiki</a>.
 </p>
 <p>
-It is not necessary to use these particular implementations in order to be conformant. Any other approach 
+It is not necessary to use these particular implementations in order to be conformant. Any other approach
 may be used, including code generated from the schemas.
 </p>
 

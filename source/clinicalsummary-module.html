@@ -2,9 +2,9 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
-      
+
 [%settitle Clinical Summary Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -22,18 +22,18 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"> </a>
 <h3>Introduction</h3>
 <p>
-This Clinical Summary Module focuses on the FHIR Resources that represent core clinical 
-information for a patient. The information contained in these Resources are those 
-frequently documented, created or retrieved by healthcare providers during the course 
-of clinical care. Resources generated during the course of diagnostic studies can be 
-found in the <a href="diagnostics-module.html">Diagnostics Module</a>, whereas the 
-Resources related to medication ordering and administration process can be found 
+This Clinical Summary Module focuses on the FHIR Resources that represent core clinical
+information for a patient. The information contained in these Resources are those
+frequently documented, created or retrieved by healthcare providers during the course
+of clinical care. Resources generated during the course of diagnostic studies can be
+found in the <a href="diagnostics-module.html">Diagnostics Module</a>, whereas the
+Resources related to medication ordering and administration process can be found
 in the <a href="medications-module.html">Medications Module</a>.
 </p>
 <p>
-As an introduction to FHIR APIs and Resources, please see the 
-<a href="overview-dev.html">Developer’s Introduction</a> or 
-<a href="overview-clinical.html">Clinical Introduction</a> in the 
+As an introduction to FHIR APIs and Resources, please see the
+<a href="overview-dev.html">Developer's Introduction</a> or
+<a href="overview-clinical.html">Clinical Introduction</a> in the
 Overview section of the <a href="foundation-module.html">Foundation Module</a>.
 </p>
 
@@ -60,22 +60,22 @@ The Clinical Summary Module covers the following resources:
  </ul></td>
 </tr></table>
 <p>
-FHIR Resources have a low, moderate or high levels of complexity with respect to the number 
-of primary and child elements as well as the number of referenced Resources, found in this 
-module and others. To better understand the relationships between Resources, we recommend 
-beginning with the lower complexity, core Resources such as 
-<a href="patient.html">Patient</a>, 
-<a href="condition.html">Condition</a>, and 
-<a href="familymemberhistory.html">FamilyMemberHistory</a> before addressing a high 
+FHIR Resources have a low, moderate or high levels of complexity with respect to the number
+of primary and child elements as well as the number of referenced Resources, found in this
+module and others. To better understand the relationships between Resources, we recommend
+beginning with the lower complexity, core Resources such as
+<a href="patient.html">Patient</a>,
+<a href="condition.html">Condition</a>, and
+<a href="familymemberhistory.html">FamilyMemberHistory</a> before addressing a high
 complexity Resource such as <a href="careplan.html">CarePlan</a>.
 </p>
 
 <a name="secpriv"> </a>
 <h3>Security and Privacy</h3>
 <p>
-The diagnostic resources often represent patient-related data, and as such are 
-susceptible to data breaching. Necessary privacy and security provision must be 
-in place for searching and fetching this information. For more general considerations, 
+The diagnostic resources often represent patient-related data, and as such are
+susceptible to data breaching. Necessary privacy and security provision must be
+in place for searching and fetching this information. For more general considerations,
 see the <a href="secpriv-module.html">Security and Privacy module</a>.
 </p>
 
@@ -83,28 +83,28 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
 <h3>Common use Cases</h3>
 <ul>
  <li>
-  <b>Documenting a patient’s condition</b> – The <a href="condition.html">Condition</a> Resource 
-  is used extensively throughout FHIR Resources to associate information and activities with 
-  specific conditions. The <a href="condition.html">Condition</a> Resource is broadly defined 
-  to include problems, diagnoses and health concerns. 
+  <b>Documenting a patient's condition</b> - The <a href="condition.html">Condition</a> Resource
+  is used extensively throughout FHIR Resources to associate information and activities with
+  specific conditions. The <a href="condition.html">Condition</a> Resource is broadly defined
+  to include problems, diagnoses and health concerns.
  </li>
  <li>
-	<b>Retrieving a list of the patient’s Problem List</b>
+	<b>Retrieving a list of the patient's Problem List</b>
  </li>
  <li>
-  <b>Documenting and retrieving the patient’s allergies</b> -  The <a href="allergyintolerance.html">AllergyIntolerance</a> Resource 
-  is used to represent the patient’s allergy or intolerance to a substance. There is vibrant debate within clinical community 
-  regarding what is appropriate to document as an allergy or intolerance. These terms are used both formally by the Allergy and 
-  Immunology community as well as informally by patients leading to confusion. Readers are referred to the Resource definition 
+  <b>Documenting and retrieving the patient's allergies</b> -  The <a href="allergyintolerance.html">AllergyIntolerance</a> Resource
+  is used to represent the patient's allergy or intolerance to a substance. There is vibrant debate within clinical community
+  regarding what is appropriate to document as an allergy or intolerance. These terms are used both formally by the Allergy and
+  Immunology community as well as informally by patients leading to confusion. Readers are referred to the Resource definition
   for the Scope and Usage of this resource. The AllergyIntolerance Resource also supports the documenting of the absence of an allergy.
  </li>
  <li>
- <b>Family History</b> – The <a href="familymemberhistory.html">FamilyMemberHistory</a> Resource can be used to document know conditions of family members and support 
+ <b>Family History</b> - The <a href="familymemberhistory.html">FamilyMemberHistory</a> Resource can be used to document know conditions of family members and support
  the creation of pedigrees.
  </li>
  <li>
-  <b>Care Plans</b> – The <a href="careplan.html">CarePlan</a> resource supports a problem based care plan with references 
-  to other Resources including <a href="careteam.html">CareTeam</a>, <a href="condition.html">Condition</a>, <a href="goal.html">Goal</a>, 
+  <b>Care Plans</b> - The <a href="careplan.html">CarePlan</a> resource supports a problem based care plan with references
+  to other Resources including <a href="careteam.html">CareTeam</a>, <a href="condition.html">Condition</a>, <a href="goal.html">Goal</a>,
   and activities such as <a href="referralrequest.html">ReferralRequest</a>
  </li>
 </ul>
@@ -112,11 +112,11 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 <p>
-Over the next 18 months, we will continue to advance the resources through the <a href="versions.html#maturity">Maturity Levels</a> 
-through the process of development and testing of the Resources. We anticipate more widespread implementation of core Resources such as Condition.  
-Complex Resources such as CarePlan are dependent on the maturation of its referred Resources and are expected to mature more gradually. 
+Over the next 18 months, we will continue to advance the resources through the <a href="versions.html#maturity">Maturity Levels</a>
+through the process of development and testing of the Resources. We anticipate more widespread implementation of core Resources such as Condition.
+Complex Resources such as CarePlan are dependent on the maturation of its referred Resources and are expected to mature more gradually.
 The clinical community will need to develop use cases to test further mature the <a href="referralrequest.html">ReferralRequest</a> and
-<a href="procedurerequest.html">ProcedureRequest</a> Resources at opportunities such as the 
+<a href="procedurerequest.html">ProcedureRequest</a> Resources at opportunities such as the
 <a href="http://wiki.hl7.org/index.php?title=Clinicians_on_FHIR">Clinicians on FHIR sessions</a> at the HL7 Working Group Meetings.
 </p>
 

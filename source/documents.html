@@ -28,7 +28,7 @@ A document is an immutable set of resources with a fixed presentation
 that is authored and/or attested by humans, organizations and devices.
 </p>
 <p>
-Documents built in this fashion may be exchanged between systems and also
+Documents built in this fashion may be exchanged between systems and
 persisted in document storage and management systems, including systems such as IHE
 XDS.
 </p>
@@ -46,7 +46,7 @@ documents (e.g. Consolidated CDA).
 </p>
 
 <p>
-Note that FHIR defines both this document format and also a <a href="documentreference.html">document reference resource</a>.
+Note that FHIR defines both this document format and a <a href="documentreference.html">document reference resource</a>.
 FHIR documents are for documents that are authored and assembled in FHIR, while the document reference resource is for
 general references to pre-existing documents.
 </p>
@@ -125,7 +125,7 @@ element</a> that contains a KeyName element whose value is a URI that matches th
 Once assembled into a bundle, the document is immutable - its content can never be changed,
 and the document id can never be reused. Note that the document may be represented in either
 XML or JSON, and interconverted between these or have its character encoding changed, all
-the while remaining the same document. However the directly referenced content within the 
+the while remaining the same document. However, the directly referenced content within the
 document and the presentation of the document cannot change substantially (such that it changes the clinical meaning of the content). Any additional
 documents derived from the same composition SHALL have a different document id.
 </p>
@@ -144,7 +144,7 @@ collated narrative portions in order:
 <p>
 The presentation of the document is called the 'attested content' of the document. Additional
 resources can be included in the bundle (e.g. resources referenced from the List that represent the section.content
-SHOULD be in the bundle, and other additional resources they reference can be included), but these (and any narrative) 
+SHOULD be in the bundle, and other additional resources they reference can be included), but these (and any narrative)
 are not attested content. Specifically, the <code>Composition.attester</code> attests to the presented form of the document.
 </p>
 <p>
@@ -154,8 +154,8 @@ right). To actually build the combined narrative, simply append all the narrativ
 together. <!-- todo: title -->
 </p>
 <p>
-If the document is presented in a different order from that given above, 
-it may not represent the original attested content. Implementation Guides may 
+If the document is presented in a different order from that given above,
+it may not represent the original attested content. Implementation Guides may
 restrict document narrative and display behaviour further.
 </p>
 <p>
@@ -186,18 +186,18 @@ CSS stylesheet. Stylesheet references can only refer to
 a CSS stylesheet - other forms of stylesheet are not acceptable.
 </p>
 <p>
-Relative (internal) references SHOULD be used for stylesheets, because the viewer may be unable to resolve 
+Relative (internal) references SHOULD be used for stylesheets, because the viewer may be unable to resolve
 external content at the time of viewing, due to technical problems or local policy decisions.
 </p>
 <p>
-Any stylesheet referenced or used SHALL NOT alter the presentation in such a way 
-that it changes the clinical meaning of the content. 
+Any stylesheet referenced or used SHALL NOT alter the presentation in such a way
+that it changes the clinical meaning of the content.
 </p>
 <p>
 Unless otherwise agreed in local trading partner agreements, applications
 displaying the collated narrative SHOULD use the stylesheets specified by the
 document (see <a href="security.html#stylesheet">security note</a>). Parties entering into a trading agreement to do otherwise should
-consider the implications this action will have on their long term scope for document
+consider the implications this action will have on their long-term scope for document
 exchange very carefully. If the parties agree to use stylesheets that are
 not contained in the document, then it may be that they will never be able
 to share their documents safely in a more general context, such as a regional
@@ -281,8 +281,8 @@ of posting to them:
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end-point
-   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle, 
-   an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed 
+   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle,
+   an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed
    using a <a href="http.html#create">create</a> interaction the Bundle.id will change, but the Bundle.identifier will not</td></tr>
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end-point for managing
    composition resources. This can be used while building a document or after breaking a document up into

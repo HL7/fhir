@@ -14,7 +14,7 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-This page documents how the <a href="parameters.html">Parameters</a> resource is used to define a set of <a href="http://hl7.org/fhirpath">FHIRPath</a> based patch operations. 
+This page documents how the <a href="parameters.html">Parameters</a> resource is used to define a set of <a href="http://hl7.org/fhirpath">FHIRPath</a> based patch operations.
 </p>
 
 <a name="concept"> </a>
@@ -91,7 +91,7 @@ There are a few base rules that apply for all operations:
 </p>
 <ul>
  <li>The FHIRPath statement must return elements from the resource being modified.
-     e.g. a FHIRPath could cross resources like <code>Observation.subject.resolve().identifier</code>. 
+     e.g. a FHIRPath could cross resources like <code>Observation.subject.resolve().identifier</code>.
      Servers SHALL not allow patch operations to alter other resources than the nominated target, and SHOULD return an error if the patch operation tries</li>
  <li>The type of the value must be correct for the place at which it will be added/inserted. Servers SHALL return an error if the type is wrong</li>
  <li>Servers SHALL return an error if the outcome of the patch operation is a not a valid resource</li>
@@ -106,7 +106,7 @@ The FHIRPath patch operations are encoded in a <a href="parameters.html">Paramet
 </p>
 <ul>
  <li>Each operation is a Parameter named "operation"</li>
- <li>Each operation has a series of parts, using the following paramter names from the table above with these types:</li>
+ <li>Each operation has a series of parts, using the following parameter names from the table above with these types:</li>
 </ul>
 
 <table class="grid">
@@ -169,7 +169,7 @@ Here is an example of adding an element:
       &lt;valueDate value=&quot;1930-01-01&quot;/&gt;
     &lt;/part&gt;
   &lt;/parameter&gt;
-&lt;/Parameters&gt;	  
+&lt;/Parameters&gt;
 </pre>
 </div>
 
@@ -178,8 +178,8 @@ Here is an example of adding an element:
 <p>
 Only some named data types (see <a href="datatypes.html#open">the list</a>) are allowed to be used
 directly in parameters. In order to add or insert other kinds of types - including anonymous
-elements (e.g. Observation.component, Timing.repeat), the content is defined by defining 
-the name as described above, and instead of providing a value, a set of parts that are values 
+elements (e.g. Observation.component, Timing.repeat), the content is defined by defining
+the name as described above, and instead of providing a value, a set of parts that are values
 are provided. Here is an example:
 </p>
 <div class="example">
@@ -209,7 +209,7 @@ are provided. Here is an example:
       &lt;/part&gt;
     &lt;/part&gt;
   &lt;/parameter&gt;
-&lt;/Parameters&gt;	  
+&lt;/Parameters&gt;
 </pre>
 </div>
 

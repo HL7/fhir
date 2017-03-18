@@ -115,8 +115,8 @@ particular situations. Similar profiles are published by jurisdictions, vendors,
 <p>
 For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
 Unless the element definition (either in this specification or the extension) defines a meaning
-to the order explicitly (using <a href="elementdefinition.html">ElementDefinition.orderMeaning</a>, 
-the meaning of the order is not defined, and implementations are allowed to reorder the elements. 
+to the order explicitly (using <a href="elementdefinition.html">ElementDefinition.orderMeaning</a>,
+the meaning of the order is not defined, and implementations are allowed to reorder the elements.
 Note that it is not possible to define a meaning for the order of the elements in
 a <a href="profiling.html">profile</a> using a <a href="structuredefinition.html">StructureDefinition</a>.
 When there is no definition of the meaning of the order, implementations that need to choose a
@@ -125,9 +125,9 @@ of the content of the elements that repeats. Profiles and Implementation guides 
 rules about this selection process.
 </p>
 <p>
-Clients should not depend on servers maintaining ordering of elements, unless the retrieved 
-resource conforms to a profile which mandates maintenance of ordering. If a server cannot 
-maintain ordering, it must strip off known profile tags which require maintenance of 
+Clients should not depend on servers maintaining ordering of elements, unless the retrieved
+resource conforms to a profile which mandates maintenance of ordering. If a server cannot
+maintain ordering, it must strip off known profile tags which require maintenance of
 ordering, and strip off unknown profiles (since they might require maintenance of ordering).
 </p>
 
@@ -173,7 +173,7 @@ Is-Modifier elements SHALL be represented in the narrative summary of the resour
 If the value of a modifier element is not explicit in the instance, or known by the context,
 the resource may not be able to be safely understood. Wherever possible, elements labeled
 "Is-Modifier = true" also have a minimum cardinality of 1, or a default value, in order to
-introduce certainty in their handling. However sometimes this is not possible - much legacy
+introduce certainty in their handling. However, sometimes this is not possible - much legacy
 data is not well described. Implementations producing resources SHOULD ensure that
 appropriate values for isModifier elements are provided at all times.
 </p>
@@ -205,8 +205,8 @@ and there are <a href="extensibility.html#modifierExtension">additional rules ab
 <p>
 Here is a list of all the modifier elements defined in the specification:
 </p>
-<ul> 
- <li>The <code>status</code> and <code>experimental</code> elements on the resources 
+<ul>
+ <li>The <code>status</code> and <code>experimental</code> elements on the resources
 <a href="activitydefinition-definitions.html#ActivityDefinition">ActivityDefinition</a>,
 <a href="capabilitystatement-definitions.html#CapabilityStatement">CapabilityStatement</a>,
 <a href="codesystem-definitions.html#CodeSystem">CodeSystem</a>,

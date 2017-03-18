@@ -48,10 +48,10 @@ to adding as part of the core specification.
 <h3>Core Elements</h3>
 <p>
 Elements are included as part of FHIR resources and data types principally on the basis of
-current world-wide usage patterns.  Policy is that if a significant majority of systems 
-throughout the world that would use a resource or data type would use an element, then 
-that element will be included as part of the resource/data type.  If not, it will be left 
-to an extension.  This holds even if the element is very common or even mandatory in one 
+current world-wide usage patterns.  Policy is that if a significant majority of systems
+throughout the world that would use a resource or data type would use an element, then
+that element will be included as part of the resource/data type.  If not, it will be left
+to an extension.  This holds even if the element is very common or even mandatory in one
 or two specific jurisdictions.
 </p>
 <p>
@@ -95,8 +95,8 @@ that they may be used to extend. The following are possible contexts for an exte
  </tr>
 </table>
 <p>
-Note: For type 'resource' and 'datatype', if the context is an element that can have multiple types, 
-then use the [x] qualified name (e.g. Observation.value[x]) if the extension works on all choice types, 
+Note: For type 'resource' and 'datatype', if the context is an element that can have multiple types,
+then use the [x] qualified name (e.g. Observation.value[x]) if the extension works on all choice types,
 or otherwise an enumeration of explicitly named elements if not (e.g. Observation.valueQuantity)
 </p>
 <p>
@@ -108,38 +108,38 @@ Extensions SHALL only be used on a target for which they are defined.
 <a name="cardinality"> </a>
 <h3>Cardinality</h3>
 <p>
-The cardinality constraints asserted by the extension definition itself 
+The cardinality constraints asserted by the extension definition itself
 apply to any contexts where the extension is used.
 </p>
 <p><b>Minimum Cardinality</b></p>
 <p>
-If the Extension minimum cardinality is 0, then the extension is 
-optional anywhere it appears. A <a href="profiling.html#resource">profile</a> that 
-defines the use of an extension may make the minimum cardinality any number up 
-to maximum cardinality of the extension itself. Example: Example: 
+If the Extension minimum cardinality is 0, then the extension is
+optional anywhere it appears. A <a href="profiling.html#resource">profile</a> that
+defines the use of an extension may make the minimum cardinality any number up
+to maximum cardinality of the extension itself. Example: Example:
 <a href="extension-birthplace.html">Patient birthplace</a>.
 </p>
 <p>
-If the Extension minimum cardinality is &gt; 1, then the extension must have a 
-minimum cardinality of at least the minimum cardinality in any <a href="profiling.html#resource">profile</a> 
-that defines the use of an extension. The the minimum cardinality may be any number up 
-to maximum cardinality of the extension. Even with a minimum cardinality &gt;0, the 
+If the Extension minimum cardinality is &gt; 1, then the extension must have a
+minimum cardinality of at least the minimum cardinality in any <a href="profiling.html#resource">profile</a>
+that defines the use of an extension. The the minimum cardinality may be any number up
+to maximum cardinality of the extension. Even with a minimum cardinality &gt;0, the
 extension is only required to be present in instances if the inatances explicitly
-or implicitly conform to a profile that defines the use of the extension. Example: 
-<a href="extension-capabilitystatement-expectation.html">Conformance Expection</a>.
+or implicitly conform to a profile that defines the use of the extension. Example:
+<a href="extension-capabilitystatement-expectation.html">Capabilitystatement Expectation</a>.
 </p>
 <p><b>Maximum Cardinality</b></p>
 <p>
-If the Extension maximum cardinality is 1, then the extension is only allowed once on 
-any element on which it appears. A <a href="profiling.html#resource">profile</a> that 
-defines the use of an extension can only make the maximum cardinality 1 (or zero if 
+If the Extension maximum cardinality is 1, then the extension is only allowed once on
+any element on which it appears. A <a href="profiling.html#resource">profile</a> that
+defines the use of an extension can only make the maximum cardinality 1 (or zero if
 the minimum cardinality is 0, and the profile constrains another profile that allows
-the extension). Example: <a href="extension-patient-mothersmaidenname.html">Mother's Maiden Name</a>. 
+the extension). Example: <a href="extension-patient-mothersmaidenname.html">Mother's Maiden Name</a>.
 </p>
 <p>
-If the Extension maximum cardinality is &gt;1, then the extension is allowed up to 
-the specified number of times on any element on which it appears. 
-A <a href="profiling.html#resource">profile</a> that defines the use of an 
+If the Extension maximum cardinality is &gt;1, then the extension is allowed up to
+the specified number of times on any element on which it appears.
+A <a href="profiling.html#resource">profile</a> that defines the use of an
 extension may make the maximum cardinality any value up to the specified maximum.
 Example: <a href="extension-patient-disability.html">Patient Disability</a>.
 </p>
@@ -149,7 +149,7 @@ Example: <a href="extension-patient-disability.html">Patient Disability</a>.
 <p>
 An extension is a wrapper for url and a value or other extensions. As such,
 some of the properties of the extension are defined on the extension
-itself, while others are defined on the Extension.value. This 
+itself, while others are defined on the Extension.value. This
 list provides guidance for the correct usage:
 </p>
 <ul>
@@ -179,8 +179,8 @@ list provides guidance for the correct usage:
  </li>
 </ul>
 <p>
-Note: Extensions are always sliced by their url property. It is allowed to re-slice extensions by
-additional properties (see <a href="profiling.html#slicing">Profiling/Slicing</a>). 
+Note: Extensions are always sliced by their url property. Re-slicing extensions by
+additional properties is allowed (see <a href="profiling.html#slicing">Profiling/Slicing</a>).
 </p>
 
 <a name="registration"> </a>
@@ -188,7 +188,7 @@ additional properties (see <a href="profiling.html#slicing">Profiling/Slicing</a
 <p>
 As well as defining the base element structure for resources, HL7 also publishes extensions, including as <a href="extensibility-registry.html">part of this specification</a>.
 HL7 publishes such data definitions as extensions rather than as part of the base resource structure
-in order to keep the base resource structure simple and concise, and to allow implementers not to
+to keep the base resource structure simple and concise, and to allow implementers not to
 engage with an entire world's worth of functionality up front. Note that HL7 does not generally define
 "modifier" extensions - if HL7 publishes an element that modifies the meaning of other elements, it
 will mostly be part of the resource content itself, since everyone has to understand the extension anyway.

@@ -15,10 +15,10 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-FHIR is described as a 'RESTful' specification based on common industry level use of the term REST. In practice, FHIR only supports Level 2 of the 
-<a href="https://martinfowler.com/articles/richardsonMaturityModel.html">REST Maturity model</a> as part of the core specification, though full Level 3 
-conformance is possible through the use of <a href="extensibility.html">extensions</a>. Because FHIR is a standard, it relies on the standardization of 
-resource structures and interfaces.  This may be considered a violation of REST principles but is key to ensuring consistent interoperability across 
+FHIR is described as a 'RESTful' specification based on common industry level use of the term REST. In practice, FHIR only supports Level 2 of the
+<a href="https://martinfowler.com/articles/richardsonMaturityModel.html">REST Maturity model</a> as part of the core specification, though full Level 3
+conformance is possible through the use of <a href="extensibility.html">extensions</a>. Because FHIR is a standard, it relies on the standardization of
+resource structures and interfaces.  This may be considered a violation of REST principles but is key to ensuring consistent interoperability across
 diverse systems.
 </p>
 <p>
@@ -451,7 +451,7 @@ A server SHOULD accept the resource as submitted when it accepts the update, and
 content when it is subsequently read. However systems may not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 Also, see <a href="updates.html">Variations between Submitted data and Retrieved data</a> for additional discussion
-around update behavior. Note that <code>update</code> genreally updates the whole content of the resource. For partial
+around update behavior. Note that <code>update</code> generally updates the whole content of the resource. For partial
 updates, see <a href="#patch"><code>patch</code></a> below.
 </p>
 <p>
@@ -608,7 +608,7 @@ The body of a PATCH operation SHALL be either:
 In either case, the server SHALL process its own copy of the resource in the format indicated, applying
 the operations specified in the document, following the relevant PATCH specification. When the operations
 have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
-operation; all the version and error handling etc applies as specified, as does the <a href="#prefer">Prefer Header</a>.
+operation; all the version and error handling etc. applies as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
 Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support
@@ -701,7 +701,7 @@ on how many matches are found:
  <li><b>No matches</b> or <b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
  <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough.
    A server indicates whether it can delete multiple resources in its <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalDelete">Capability Statement (.rest.resource.conditionalDelete)</a>.
-   if there are multiple matches, either all must deleted, or the server SHALL return an error</li>
+   if there are multiple matches, either all must be deleted, or the server SHALL return an error</li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
@@ -753,7 +753,7 @@ Servers SHOULD return an <code>ETag</code> header with the versionId (if version
 </p>
 <p>
 When the resource syntax or data is incorrect or invalid, and cannot be used to create a new resource, the server returns a <code>400</code> Bad Request HTTP status code.
-When the server rejects the content of the resource because of business rules, the server returns a <code>422</code> Unprocessible Entity error HTTP status code.
+When the server rejects the content of the resource because of business rules, the server returns a <code>422</code> Unprocessable Entity error HTTP status code.
 In either case, the server SHOULD include a response body containing an <a href="operationoutcome.html">OperationOutcome</a> with detailed error messages describing the reason for the error.
 </p>
 <p>

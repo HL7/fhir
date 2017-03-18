@@ -68,7 +68,7 @@ in order to support consistent definitions for schema and UML derived code.
             and/or implementations</li>
     </ul>
     <p>Note that because of the nature of the healthcare ecosystem, there may be multiple
-        overlapping sets of adaptations - by healthcare domain,by country, by institution, and/or by
+        overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by
         vendor/implementation.</p>
     <p>FHIR provides a set of resources that can be used to represent and share the adaptations
         listed above in a computable fashion. These resources are collectively called the
@@ -77,8 +77,8 @@ in order to support consistent definitions for schema and UML derived code.
             <em>Capability Statement</em>:</p>
     <ul>
         <li><em>Implementation Guides</em> are documents published by a domain, institution or
-            vendor that describe how FHIR is adapted to support a certain usecase (or set of
-            usecases). An implementation guide combines a set of conformance resources and
+            vendor that describe how FHIR is adapted to support a certain use case (or set of
+            use cases). An implementation guide combines a set of conformance resources and
             supporting narrative into a document for use by implementers.</li>
         <li>A <em>capability statement</em> which uses the conformance resources to document how a
             client or server has implemented FHIR, i.e. which aspects of the specification and API
@@ -152,7 +152,7 @@ running the risk of being misconfigured.</li>
 
     <ul>
         <li>An instance of a resource may reference one or more <code>StructureDefinitions</code> to
-            claim conformance to the rules layed out in those StructureDefinitions</li>
+            claim conformance to the rules laid out in those StructureDefinitions</li>
         <li>A server may serve <code>CapabilityStatement</code> resources, effectively functioning
             as a discovery endpoint for services within an organization</li>
         <li>A server may hold a set of DataElement resources to become a Data Dictionary of
@@ -168,7 +168,7 @@ running the risk of being misconfigured.</li>
 
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
-    <p>A subset of the conformance resources have been tested and used in production tooling and as
+    <p>A subset of the conformance resources has been tested and used in production tooling and as
         such have reached a maturity level where changes become less likely. These are
             <code>CapabilityStatement</code>, <code>StructureDefinition</code>,
             <code>ValueSet</code>, <code>OperationDefinition</code> and <code>SearchParameter</code>.</p>
@@ -182,7 +182,7 @@ running the risk of being misconfigured.</li>
     </ul>
     <p>Over the past two years, these resources have been mainly used in the tools used to build the FHIR
         publication, early-adopter implementation guides and the FHIR Foundation conformance
-        resource registry. In the 2016-2018 timeframe we expect to see more widespread use of these
+        resource registry. In the 2016-2018 timeframe, we expect to see more widespread use of these
         resources in validation tooling, code-generators and more extensive model-based guide
         authoring tools.</p>
 

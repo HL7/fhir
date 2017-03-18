@@ -226,7 +226,7 @@ Notes:
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
  <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
  <li>The data types code, string, and uri can be <a href="terminologies.html#strings">bound to a value set</a></li>
- <li>The precision of the decimal value has signficance:<a name="precision"> </a>
+ <li>The precision of the decimal value has significance:<a name="precision"> </a>
     <ul>
       <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
       <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes</li>
@@ -338,7 +338,7 @@ in xml, attributes are never present with a length of 0 (value=""), and properti
 <p>
 According to XML schema, leading and trailing whitespace in the value attribute is ignored for the types
 boolean, integer, decimal, base64Binary, instant, uri, date, dateTime, oid, and uri. Note that this means that the
-schema aware XML libraries give different attribute values to non schema aware libraries when reading the
+schema aware XML libraries give different attribute values to non-schema aware libraries when reading the
 XML instances. For this reason, the value attribute for these types SHOULD not have leading and trailing spaces.
 String values should only have leading and trailing spaces if they are part of the content of the value.
 In JSON and Turtle whitespace in string values is always significant. Primitive types other than string SHALL NOT have leading or trailing whitespace.
@@ -460,7 +460,7 @@ A Coding is a representation of a defined concept using a symbol from a defined 
 <p>
 The meaning of the Coding is defined by the code. The <code>system</code> provides
 the source of the definition of the code, along with an optional version reference.
-The display is a human display for the text defined by the system - it is not intended 
+The display is a human display for the text defined by the system - it is not intended
 for computation.
 </p>
 <p>
@@ -631,10 +631,10 @@ The unit may additionally be coded in some formal way using the <code>code</code
 (see <a href="#Coding">Coding</a> for further information about how to use the <code>system</code> element).
 </p>
 <p>
-If the unit is able to be coded in UCUM and a code is provided, it SHOULD be a UCUM code.
-If a UCUM unit is provided in the <code>code</code> then a canonical value can be generated for
+If the unit can be coded in UCUM and a code is provided, it SHOULD be a UCUM code.
+If a UCUM unit is provided in the <code>code</code>, then a canonical value can be generated for
 purposes of comparison between quantities. Note that the <code>unit</code> element will often
-contain text that is actually a valid UCUM unit, but it cannot be assumed that the unit actually contains a valid UCUM unit.
+contain text that is a valid UCUM unit, but it cannot be assumed that the unit actually contains a valid UCUM unit.
 </p>
 
 <div class="use">
@@ -870,7 +870,7 @@ Data that comes from a series of measurements taken by a device, with upper and 
 </p>
 <p>
 A SampledData provides a concise way to handle the data produced by devices that sample a physical particular state at a high frequency. A typical
-use for this is for the output of an ECG or EKG device. It has a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and 
+use for this is for the output of an ECG or EKG device. It has a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
 factor. These are interpreted such that
 </p>
 <pre>
@@ -927,7 +927,7 @@ example identifier namespaces:
 </ul>
 <p>
 If the system is a URL, it SHOULD resolve. Resolution might be to a web page that describes the identifier
-system and/or supports look-up of identifiers.  Alternatively it could be to a NamingSystem resource
+system and/or supports look-up of identifiers.  Alternatively, it could be to a NamingSystem resource
 instance. Resolvable URLs are generally preferred by implementers over non-resolvable URNs, particularly
 opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If used, OIDs and UUIDs may be registered in
 the <a href="http://hl7.org/oid">HL7 OID registry</a> and SHOULD be registered if the content is shared
@@ -952,13 +952,13 @@ then the <code>system</code> SHALL be "<code>urn:ietf:rfc:3986</code>", and the 
 In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode),
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers).
 In this case, no useful matching may be performed using the value unless the system can be safely inferred by the
-context. Applications should provide a <code>system</code> whereever possible, as information sharing in a wider context 
+context. Applications should provide a <code>system</code> wherever possible, as information sharing in a wider context
 is very likely to arise eventually, and values without a system are inherently limited in use.
 </p>
 <p>
 In addition to the <code>system</code> (which provides a uniqueness scope) and the <code>value</code>, identifiers may also have a
 <code>type</code>, which may be useful when a system encounters identifiers with unknown system values.
-Note, however, that the type of an identifier is not a well controlled vocabulary with wide variations
+Note, however, that the type of an identifier is not a well-controlled vocabulary with wide variations
 in practice. The <code>type</code> deals only with general categories of identifiers and SHOULD not be
 used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple
 categories due to variations in common usage.
@@ -1047,7 +1047,7 @@ and a decomposition of the name can be provided using the <code>family</code> ex
 </p>
 <p>
 For robust search, servers should search the parts of a family name independently.
-E.g. Searching either Carreno or Quinones should match a family name of "Carreño Quiñones".
+E.g. Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
 HL7 affiliates may make more specific recommendations about how search should work
 in their specific culture.
 </p>
@@ -1140,9 +1140,9 @@ Timing
 See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Timing">Mappings</a>, <a href="datatypes-extras.html#Timing">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Timing">R2 Conversions</a>.
 </p>
 <p>
-Specifies an event that may occur multiple times. Timing schedules are used for specifying when events are expected or requested to occur, and may 
-also be used to represent a schedule that was followed for past events. A Timing schedule can be a list of events and/or criteria for when the event happens, 
-which can be expressed in a structured form and/or as a code. When both event and a repeating specification are provided, the list of events should be 
+Specifies an event that may occur multiple times. Timing schedules are used for specifying when events are expected or requested to occur, and may
+also be used to represent a schedule that was followed for past events. A Timing schedule can be a list of events and/or criteria for when the event happens,
+which can be expressed in a structured form and/or as a code. When both event and a repeating specification are provided, the list of events should be
 understood as an interpretation of the information in the repeat structure.
 </p>
 [%dt Timing 13%]
@@ -1179,7 +1179,7 @@ Many systems avoid the complexity of the Timing structure by using a text field 
 Those systems do not use the Timing data type. Other systems use a set of 'common' codes - including, but usually
 not limited to, widely understood acronyms such as "BID". If a <code>code</code> is
 provided, the code is understood to be a complete statement of whatever is specified in the structured timing
-data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the 
+data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the
 data may be used to interpret the <code>Timing</code>. A structured timing specification SHOULD be provided whenever
 possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous meaning.
 </p>
@@ -1202,7 +1202,7 @@ part of the base specification</a>, and the structured data portions of the Timi
 <p>
 These codes SHALL be understood as having the formal meanings documented in this table. Note that BID etc are defined as 'at institutionally specified times'.
 For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID
-should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured 
+should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured
 representation should be used (in this case, <code>timeOfDay</code>).
 </p>
 
@@ -1259,9 +1259,9 @@ When the signature is an XML Digital Signature (contentType = application/signat
  <li>The Signature.blob is base64 encoded XML-Signature</li>
  <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
- <li>When FHIR Resources are signed, the signature is accross the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
+ <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
  <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
- <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as committmentTypeIndication</li>
+ <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as CommitmentTypeIndication element.</li>
 </ul>
 <p>
 There are three levels of signature verification:
@@ -1273,7 +1273,7 @@ There are three levels of signature verification:
 </p>
 <p>
 Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the XML-Signature block.
-For example some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary.
+For example, some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary.
 </p>
 
 <p>

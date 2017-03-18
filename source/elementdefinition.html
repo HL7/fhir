@@ -59,22 +59,22 @@ Content
 
 <p>
 The <code>path</code> element is the most important property of the element definition. It both names the element, and locates the element
-within a heirarchy of defined within a particular context. Within the FHIR specification, there is only one original
+within a hierarchy of defined within a particular context. Within the FHIR specification, there is only one original
 definition for each path (that is, an element definition with no base element). This is the master definition to which all the
 other definitions with the same path must conform.
 </p>
 <p>
-All elements defined wihin the FHIR specification itself are defined within a <a href="structuredefinition.html">StructureDefinition</a>
-that defines a resource, or a datatype. This defines the identity of the element amnd provides the context in which the meaning of
+All elements defined within the FHIR specification itself are defined within a <a href="structuredefinition.html">StructureDefinition</a>
+that defines a resource, or a datatype. This defines the identity of the element and provides the context in which the meaning of
 the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
- <li>Element names (the parts of a path delineated by the '.' character) SHALL not conain whitespace (i.e. unicode characters marked as whitespace)</li>
+ <li>Element names (the parts of a path delineated by the '.' character) SHALL not contain whitespace (i.e. unicode characters marked as whitespace)</li>
  <li>Element names SHALL not contain the characters ,:;'"/|?|!@#$%^&amp;*()[]{}</li>
  <li>Element names SHOULD not contain non-ASCII characters</li>
  <li>Element paths SHALL not exceed 64 characters in length</li>
  <li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
- <li>By convention, the paths starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical models are not required to do so</li>
+ <li>By convention, the paths start with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical models are not required to do so</li>
 </ul>
 <p>
 Elements may be defined in:
@@ -189,7 +189,7 @@ For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
       <li><code>min</code> and <code>max</code> govern the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice. </li>
     </ul>
  </li>
- <li>An element with a cardinality of 0..1 and a choice of multiple types can be sliced by type. This is in order to specify different constraints for different types. In this case, the discriminator SHALL be "@type"</li>
+ <li>An element with a cardinality of 0..1 and a choice of multiple types can be sliced by type. This is to specify different constraints for different types. In this case, the discriminator SHALL be "@type"</li>
  <li></li>
 </ul>
 

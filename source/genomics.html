@@ -64,7 +64,7 @@ table th {
    </p>
   <p>
     A current technical challenge exists in interoperability, the
-    ability to access and share clinical and genetics data. The challenges of 
+    ability to access and share clinical and genetics data. The challenges of
     interoperability includes collection, coding, and retrieval to scale. An
     individual's genetic data set is large, complex and requires curation.
     Unfortunately, incompatible systems and nomenclatures are already in use.
@@ -96,8 +96,8 @@ table th {
     STU3 moves beyond FHIR DSTU2 Standard Genetics profile on Observation allowing increased granularity and less ambiguity by creating a new resource to be called <strong>Sequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   Sequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
   </p>
   <p>
-    The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases, 
-    which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a 
+    The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases,
+    which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a
     second Project to develop a Sequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
   </p>
   <p>
@@ -189,7 +189,7 @@ The window selects a range from the reference sequence (or genome) that is used 
 Sequence.quality: Quality scores for bases in the sequence. Is is intended to be compliant with emerging regulatory needs needs (eg: those found at <a href="https://precision.fda.gov">PrecisionFDA</a>).
 </p>
 <p>
-Sequence.variant: This complex element is used for encoding sequence. When the information of reference sequence and variants are provided the observed sequence will be derived.
+Sequence.variant: This complex element is used for encoding sequence. When the information of reference sequence and variants are provided, the observed sequence will be derived.
 </p>
 
 <h4>Internal Pointers</h4>
@@ -233,7 +233,7 @@ We provide a detailed example to show how sequence resource can be used to repre
 <img src="genomics-image15.jpeg" alt="Sequence Graph" style="width:624px;height:468px;"/>
 
 <p>The diagram above describes 4 optional ways provided in the Sequence resource to encode sequencing data.
-Here is the corresponding examples
+Here are the corresponding examples
 <ul>
     <li> <a href="sequence-graphic-example-1.html">By referenceSeqId</a> Source:<a href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
     <li> <a href="sequence-graphic-example-2.html">By referenceSeqString</a> Source:<a href="sequence-graphic-example-2.xml.html">XML</a>,<a href="sequence-graphic-example-2.json.html">JSON</a>,<a href="sequence-graphic-example-2.ttl.html">TURTLE</a></li>
@@ -245,7 +245,7 @@ Here is the corresponding examples
 
 <h4>Example from precision FDA </h4>
 <p>
-We provide one <a href="sequence-example-fda.html">example</a> to show how precision FDA vcf data can be upload and comform FHIR specification, and how quality in sequence resource is represented by comparision between a reference sequence and the observed sequence.
+We provide one <a href="sequence-example-fda.html">example</a> to show how precision FDA vcf data can be upload and comform FHIR specification, and how quality in sequence resource is represented by comparison between a reference sequence and the observed sequence.
 </p>
 <p>
 Source: <a href="sequence-example-fda.xml.html">XML</a>, <a href="sequence-example-fda.json.html">JSON</a>, <a href="sequence-example-fda.ttl.html">Turtle</a>.
@@ -253,7 +253,7 @@ Source: <a href="sequence-example-fda.xml.html">XML</a>, <a href="sequence-examp
 
 <h4>Complex Variation example</h4>
 <p>
-We provide one <a href="sequence-complex-variant.html">example</a> to show how a complex variant can be represented with the help of cigar. The deletion, insertion and mutation will represented in charaters along with the number of repitition.
+We provide one <a href="sequence-complex-variant.html">example</a> to show how a complex variant can be represented with the help of cigar. The deletion, insertion and mutation is represented in characters along with the number of repetition.
 </p>
 <p>
 Source: <a href="sequence-complex-variant.xml.html">XML</a>, <a href="sequence-complex-variant.json.html">JSON</a>, <a href="sequence-complex-variant.ttl.html">Turtle</a>.
@@ -356,7 +356,7 @@ Source: <a href="observation-example-genetics-3.xml.html">XML</a>, <a href="obse
 
 <h4>Phenotype, Diplotype and Haplotye</h4>
 
-<p> We provide following examples to reveal how PGx data can be harmoinzed with specfication in FHIR. Detailed discussion will be put <a href="#PGx-example">here.</a>
+<p> We provide the following examples to reveal how PGx data can be harmonized within the FHIR specification. Detailed discussion will be put <a href="#PGx-example">here.</a>
 <ul>
     <li> <a href="observation-example-phenotype.html">Phenotype</a> Source:<a href="observation-example-phenotype.xml.html">XML</a>,<a href="observation-example-phenotype.json.html">JSON</a>,<a href="observation-example-phenotype.ttl.html">TURTLE</a></li>
     <li> <a href="observation-example-diplotype1.html">Diplotype</a> Source:<a href="observation-example-diplotype1.xml.html">XML</a>,<a href="observation-example-diplotype1.json.html">JSON</a>,<a href="observation-example-diplotype1.ttl.html">TURTLE</a></li>

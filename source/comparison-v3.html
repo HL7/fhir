@@ -58,7 +58,7 @@ that are limited to codes defined in the FHIR specification - those using the <a
 data type.  However, these are generally limited to attributes with business meaning - status, contact types, etc.
 </p>
 <p>Both FHIR and v3 make use of value sets to define the sets of codes that can be used for
-attributes in particular contexts.  However, in FHIR, a <a href="valueset.html">ValueSet</a>
+attributes within particular contexts.  However, in FHIR, a <a href="valueset.html">ValueSet</a>
 is just another type of resource, meaning it can be sent as part of an instance just like any
  other piece of data.  (The same is true of <a href="structuredefinition.html">StructureDefinition</a>, <a href="capabilitystatement.html">CapabilityStatement</a>
  and other meta-level resources.)</p>
@@ -68,7 +68,7 @@ payloads and Common Message Element Types (CMETs).  These are combined into inte
 define the set of content that can be sent over the wire at one time.  In some cases, the
 granularity of each of these models will exactly align with the granularity of FHIR resources,
 but not always.  v3 models are divided based on the expectation of re-use.  FHIR models are
-divided based on whether the objects they represent are considered to be able to "stand alone".
+divided based on whether the objects they represent can be considered to "stand alone".
 In HL7 v3, numerous models can exist to represent the same essential underlying healthcare
 information construct.  For example, at the HL7 International level, there are 10 different CMETs
 for the concept of "Patient".  In addition, some payload models represent patient directly without
@@ -83,7 +83,7 @@ The idea is that all data needed for any sort of healthcare communication is rep
 All other data models simply constrain the RIM to reflect the needs of particular domain spaces.
 This starts at the international level with further refinement happening in individual countries, projects
 and finally specific implementations.  As models become closer to the implementer, they become less abstract.
-The result is a tendency for v3 models to be extremely broad in their coverage and capability and 
+The result is a tendency for v3 models to be extremely broad in their coverage and capability and
 somewhat abstract.  They need to be this way to ensure that all possible implementations in the space
 covered by that model can be properly constrained.  As well, each model produces its own schema and,
 in most cases, constrained schemas are not strictly wire-compatible with the schemas of the model being
