@@ -146,15 +146,15 @@
   Element = GraphDefinition.link.min
   Card. = 0..1
   Type = integer
-  Short Name = Minimum occurences for this link
-  Definition = Minimum occurences for this link
+  Short Name = Minimum occurrences for this link
+  Definition = Minimum occurrences for this link
 
  -- Row 20 -----------------------------------
   Element = GraphDefinition.link.max
   Card. = 0..1
   Type = string
-  Short Name = Maximum occurences for this link
-  Definition = Maximum occurences for this link
+  Short Name = Maximum occurrences for this link
+  Definition = Maximum occurrences for this link
 
  -- Row 21 -----------------------------------
   Element = GraphDefinition.link.description

@@ -40,7 +40,7 @@
  -- Row 4 -----------------------------------
   Id = 4
   Code = entered-in-error
-  Display = Entered In Error
+  Display = Entered in Error
   Definition = This QuestionnaireResponse was entered in error and voided.
 
  -- Row 5 -----------------------------------

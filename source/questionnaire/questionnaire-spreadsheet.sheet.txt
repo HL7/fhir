@@ -125,7 +125,7 @@
  -- Row 12 -----------------------------------
   Id = 16
   Code = url
-  Definition = Question with a url (website, FTP site, etc.) answer
+  Definition = Question with a URL (website, FTP site, etc.) answer
   Parent = #17
 
  -- Row 13 -----------------------------------

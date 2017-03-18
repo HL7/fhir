@@ -1074,7 +1074,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Business Identifer for item</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Business Identifier for item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Identifiers assigned to this event performer or other systems</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

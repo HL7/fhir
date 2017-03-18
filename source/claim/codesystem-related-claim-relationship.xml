@@ -17,6 +17,6 @@
   <concept>
     <code value="associated"/>
     <display value="Associated Claim"/>
-    <definition value="A claim for a different suite of services which is related the the suite claimed here."/>
+    <definition value="A claim for a different suite of services which is related the suite claimed here."/>
   </concept>
 </CodeSystem>

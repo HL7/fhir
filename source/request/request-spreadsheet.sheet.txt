@@ -82,7 +82,7 @@
   Id = 7
   Code = unknown
   Display = Unknown
-  Definition = The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
+  Definition = The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" . One of the listed statuses is presumed to apply,  but the system creating the request doesn\'t know.
   v3 = =NullFlavor.unknown
 
 === Sheet request-intent =====================================

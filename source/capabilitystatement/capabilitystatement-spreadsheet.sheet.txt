@@ -429,7 +429,7 @@
   Id = 4
   Code = enforced
   Display = Reference Integrity Enforced
-  Definition = The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often no the case for middleware/proxy systems
+  Definition = The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems
 
  -- Row 5 -----------------------------------
   Id = 5

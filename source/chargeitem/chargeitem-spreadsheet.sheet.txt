@@ -137,7 +137,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifer for item
+  Short Name = Business Identifier for item
   Definition = Identifiers assigned to this event performer or other systems
   Requirements = Allows identification of the charge Item as it is known by various participating systems and in a way that remains consistent across servers
   v2 Mapping = FT1.2

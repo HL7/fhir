@@ -242,7 +242,7 @@
   Aliases = Prescription; Order
   Type = DomainResource
   Short Name = Ordering of medication for patient or group
-  Definition = An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings, including care plans, etc and to harmonize with workflow patterns.
+  Definition = An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
   Workflow Mapping = ..Request
   SCRIPT 10.6 Mapping = Message/Body/NewRx
   RIM Mapping = CombinedMedicationRequest

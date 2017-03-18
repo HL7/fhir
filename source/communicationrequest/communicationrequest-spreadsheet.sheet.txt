@@ -69,7 +69,7 @@
  -- Row 3 -----------------------------------
   Element = CommunicationRequest.basedOn
   Card. = 0..*
-  Aliases = fufills
+  Aliases = fulfills
   Summary = Y
   Type = Reference(Any)
   Short Name = Fulfills plan or proposal

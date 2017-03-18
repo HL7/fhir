@@ -75,7 +75,7 @@
   Aliases = diagnostic request
   Type = DomainResource
   Short Name = A request for a procedure or diagnostic to be performed
-  Definition = A record of a request for a diagnostic investigation service to be performed.
+  Definition = A record of a request for diagnostic investigations, treatments, or operations to be performed.
   Workflow Mapping = Request
   v2 Mapping = ORC
   RIM Mapping = Act[moodCode<=INT]

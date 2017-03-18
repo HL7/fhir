@@ -240,7 +240,7 @@
  -- Row 4 -----------------------------------
   Element = CarePlan.basedOn
   Card. = 0..*
-  Aliases = fufills
+  Aliases = fulfills
   Summary = Y
   Type = Reference(CarePlan)
   Short Name = Fulfills care plan

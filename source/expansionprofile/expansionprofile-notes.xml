@@ -32,7 +32,7 @@ with the matching parameter name:
  <tr><td><code>ExpansionProfile.activeOnly</code></td><td>activeOnly</td></tr>
  <tr><td><code>ExpansionProfile.excludeNotForUI</code></td><td>excludeNotForUI</td></tr>
  <tr><td><code>ExpansionProfile.excludePostCoordinated</code></td><td>excludePostCoordinated</td></tr>
- <tr><td><code>ExpansionProfile.limitedExpansion</code></td><td>limitedExpansion (in addition to the the extension <a href="extension-valueset-toocostly.html">http://hl7.org/fhir/StructureDefinition/valueset-toocostly</a>)</td></tr>
+ <tr><td><code>ExpansionProfile.limitedExpansion</code></td><td>limitedExpansion (in addition to the extension <a href="extension-valueset-toocostly.html">http://hl7.org/fhir/StructureDefinition/valueset-toocostly</a>)</td></tr>
 </table>
 
 </div>

@@ -1089,7 +1089,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="57.5625" ss:Hidden="1">
     <Cell ss:StyleID="s86"><Data ss:Type="String">CommunicationRequest.basedOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">fufills</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">fulfills</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
