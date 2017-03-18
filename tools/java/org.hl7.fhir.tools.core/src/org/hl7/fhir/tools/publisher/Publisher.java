@@ -4995,7 +4995,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (base == null)
       throw new Exception("Unable to find base profile for "+d.getId()+": "+p.getBaseDefinition()+" from "+page.getProfiles().keySet());
     new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSnapshot(base, p, p.getBaseDefinition(), p.getId());
-    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation"), null, "0"); // todo
+    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation"), null, "0", true); // todo
     pd.setId(p.getId());
     pd.setTitle(p.getName());
     Profile pack = new Profile("hspc");

@@ -356,7 +356,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setVersion(MAX_VER);
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
-    vs.setExperimental(true);
+    vs.setExperimental(false);
     vs.setDateElement(new DateTimeType(date));
     StringBuilder s = new StringBuilder();
     Set<String> sources = vsImports.get(id);
@@ -494,7 +494,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setVersion(MAX_VER);
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
-    vs.setExperimental(true);
+    vs.setExperimental(false);
     vs.setDateElement(new DateTimeType(date)); 
     
     

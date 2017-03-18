@@ -388,6 +388,14 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new CodeType(value)));
   }
 
+  public static void setIntegerExtension(DomainResource resource, String uri, int value) {
+    Extension ext = getExtension(resource, uri);
+    if (ext != null)
+      ext.setValue(new IntegerType(value));
+    else
+      resource.getExtension().add(new Extension(new UriType(uri)).setValue(new IntegerType(value)));
+  }
+
 //  public static String getOID(CodeSystem define) {
 //    return readStringExtension(define, EXT_OID);    
 //  }

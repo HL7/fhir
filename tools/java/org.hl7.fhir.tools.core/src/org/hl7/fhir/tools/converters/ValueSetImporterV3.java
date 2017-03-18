@@ -179,7 +179,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
   private void buildV3CodeSystem(VSPack vp, String id, String date, Element e, String csOid, String vsOid) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, "External");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));

@@ -922,6 +922,8 @@ public class ProfileGenerator {
     if (!p.hasPurpose() && pack.hasMetadata("requirements"))
       p.setPurpose(pack.metadata("requirements"));
 
+    p.setExperimental(Utilities.existsInList(pack.metadata("Experimental"), "y", "Y", "true", "TRUE", "1"));
+    
     if (pack.hasMetadata("date"))
       p.setDateElement(Factory.newDateTime(pack.metadata("date").substring(0, 10)));
     else
@@ -1625,7 +1627,7 @@ public class ProfileGenerator {
   }
 
   public ConstraintStructure wrapProfile(StructureDefinition profile) throws Exception {
-    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()), wg(ToolingExtensions.readStringExtension(profile, ToolingExtensions.EXT_WORKGROUP)), fmm(profile));
+    return new ConstraintStructure(profile, definitions.getUsageIG((String) profile.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE), "generating profile "+profile.getId()), wg(ToolingExtensions.readStringExtension(profile, ToolingExtensions.EXT_WORKGROUP)), fmm(profile), profile.getExperimental());
   }
 
   private String fmm(StructureDefinition ed) {

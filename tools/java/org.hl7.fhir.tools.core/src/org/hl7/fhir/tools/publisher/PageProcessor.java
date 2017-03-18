@@ -736,7 +736,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
           if (Utilities.noString(ss))
             ss = "Informative";
-          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
+          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss+"</a>"+s3;
         } else
           src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
@@ -770,10 +770,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("r2r3transform")) {
         src = s1+dtR2R3Transform(com[1])+s3;
       } else if (com[0].equals("fmm-style")) {
-        String fmm = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
-        src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+        String fmm = resource == null ? "N/A" :  ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
+        if ("External".equals(ss))
+          src = s1+"colse"+s3;
+        else
+          src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
+        String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
+        if ("External".equals(ss))
+          src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
+        else
+          src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("fmmna")) {
+        String fmm = "N/A";
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
@@ -7075,10 +7086,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("fmm-style"))  {
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
-        src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+        String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
+        if ("External".equals(ss))
+          src = s1+"colse"+s3;
+        else
+          src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
-        src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+        String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
+        if ("External".equals(ss))
+          src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
+        else
+          src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("sstatus")) {
         String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
         if (Utilities.noString(ss))

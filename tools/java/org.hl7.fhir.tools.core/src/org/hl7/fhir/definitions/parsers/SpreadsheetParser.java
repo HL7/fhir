@@ -1541,7 +1541,7 @@ public class SpreadsheetParser {
 
     if (profileIds.containsKey(n.toLowerCase()))
       throw new Exception("Duplicate Profile Name: "+n.toLowerCase()+" in "+ap.getId()+", already registered in "+profileIds.get(n.toLowerCase()).getOwner());
-		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name), wg, fmm);
+		ConstraintStructure p = new ConstraintStructure(n.toLowerCase(), resource.getRoot().getProfileName(), resource, ig != null ? ig : definitions.getUsageIG(usage, "Parsing "+name), wg, fmm, Utilities.existsInList(ap.metadata("Experimental"), "y", "Y", "true", "TRUE", "1"));
 		p.setOwner(ap.getId());
     profileIds.put(n.toLowerCase(), p);
     return p;

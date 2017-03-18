@@ -101,6 +101,18 @@ table.colsn td {
 	background-color: #e6ffe6;
 }
 
+table.colse {
+	width: 100%;
+}
+
+table.colse td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: #e6e6e6;
+}
+
 
 
 table.list td {

@@ -152,12 +152,12 @@ public class CodeSystemUtilities {
     if (status != null) {
       String ss = ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS);
       if (Utilities.noString(ss) || ssval(ss) < ssval(status)) 
-        ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, status);
+        ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, status);
     }
     if (fmm != null) {
       String sfmm = ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_FMM_LEVEL);
       if (Utilities.noString(sfmm) || Integer.parseInt(sfmm) < Integer.parseInt(fmm)) 
-        ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, fmm);
+        ToolingExtensions.setIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(fmm));
     }
   }
 

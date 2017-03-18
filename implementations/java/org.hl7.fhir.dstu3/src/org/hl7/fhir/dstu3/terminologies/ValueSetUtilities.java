@@ -64,12 +64,12 @@ public class ValueSetUtilities {
     if (status != null) {
       String ss = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS);
       if (Utilities.noString(ss) || ssval(ss) < ssval(status)) 
-        ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, status);
+        ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, status);
     }
     if (fmm != null) {
       String sfmm = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_FMM_LEVEL);
       if (Utilities.noString(sfmm) || Integer.parseInt(sfmm) < Integer.parseInt(fmm)) 
-        ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, fmm);
+        ToolingExtensions.setIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(fmm));
     }
     if (vs.hasUserData("cs"))
       CodeSystemUtilities.markStatus((CodeSystem) vs.getUserData("cs"), wg, status, fmm);

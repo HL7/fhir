@@ -14,8 +14,9 @@ public class ConstraintStructure {
   private ImplementationGuidePackageResourceComponent resourceInfo;
   private WorkGroup wg;
   private String fmm;
+  private boolean experimental;
     
-  public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage, WorkGroup wg, String fmm) {
+  public ConstraintStructure(StructureDefinition resource, ImplementationGuideDefn usage, WorkGroup wg, String fmm, boolean experimental) {
     this.id = resource.getId();
     this.title = resource.getName();
     this.resource = resource;
@@ -24,9 +25,10 @@ public class ConstraintStructure {
     this.usage = usage;
     this.wg = wg;
     this.fmm = fmm;
+    this.experimental = experimental;
   }
 
-  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuideDefn usage, WorkGroup wg, String fmm) {
+  public ConstraintStructure(String id, String title, ResourceDefn defn, ImplementationGuideDefn usage, WorkGroup wg, String fmm, boolean experimental) {
     this.id = id;
     this.title = title;
     this.defn = defn;
@@ -35,6 +37,7 @@ public class ConstraintStructure {
       throw new Error("No usage on profile "+id+" ("+title+"):");
     this.wg = wg;
     this.fmm = fmm;
+    this.experimental = experimental;
   }
 
   public String getTitle() {

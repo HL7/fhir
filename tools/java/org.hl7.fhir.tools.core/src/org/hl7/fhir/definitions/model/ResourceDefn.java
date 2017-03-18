@@ -53,7 +53,7 @@ public class ResourceDefn  {
       case INFORMATIVE:
         return "Informative";
       case EXTERNAL:
-        return "external";
+        return "External";
       }
       return "?";
     }
