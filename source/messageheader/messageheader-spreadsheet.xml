@@ -10,7 +10,7 @@
   <LastAuthor>Julian, Anthony J.</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-02-10T20:19:09Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,8 @@
   <WindowWidth>19140</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3802,7 +3803,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7173,7 +7173,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Fatal Error</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The message was rejected because of some content in it. There is no point in re-sending without change. The response narrative SHALL describe the issue.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The message was rejected because of a problem with the content. There is no point in re-sending without change. The response narrative SHALL describe the issue.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s142"/>
@@ -7693,6 +7693,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7712,7 +7713,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R7C3:R8C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
