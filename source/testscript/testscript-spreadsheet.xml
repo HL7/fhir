@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-03-16T05:41:45Z</LastSaved>
+  <LastSaved>2017-03-18T20:08:27Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>673</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1825,7 +1825,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The &quot;metadata.capabilities.required&quot; and &quot;metadata.capabilities.validated&quot; elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose &quot;metadata.capabilities.validated&quot; flag is true are the primary focus of the test script.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server's conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The &quot;metadata.capabilities.required&quot; and &quot;metadata.capabilities.validated&quot; elements only indicate whether the capabilities are the primary focus of the test script or not.  They do not impact the skipping logic.  Capabilities whose &quot;metadata.capabilities.validated&quot; flag is true are the primary focus of the test script.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2139,7 +2139,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Whether or not to implicitly delete the fixture during teardown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2236,7 +2236,7 @@
     <Cell><Data ss:Type="String">Variable is set based either on element value in response body or on header field value in the response headers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Variables would be set based either on XPath/JsonPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report error.  Variables would be used to perform clean replacements in &quot;operation.params&quot;, &quot;operation.requestHeader.value&quot;, and &quot;operation.url&quot; element values during operation calls and in &quot;assert.value&quot; during assertion evaluations. This limits the places that test engines would need to look for placeholders &quot;${}&quot;.  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in &quot;operation.params&quot;, &quot;operation.requestHeader.value&quot;, and &quot;operation.url&quot; element values during operation calls and in &quot;assert.value&quot; during assertion evaluations.  See example testscript-search.xml.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Variables would be set based either on XPath/JSONPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report an error.  Variables would be used to perform clean replacements in &quot;operation.params&quot;, &quot;operation.requestHeader.value&quot;, and &quot;operation.url&quot; element values during operation calls and in &quot;assert.value&quot; during assertion evaluations. This limits the places that test engines would need to look for placeholders &quot;${}&quot;.  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in &quot;operation.params&quot;, &quot;operation.requestHeader.value&quot;, and &quot;operation.url&quot; element values during operation calls and in &quot;assert.value&quot; during assertion evaluations.  See example testscript-search.xml.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2491,7 +2491,7 @@
     <Cell><Data ss:Type="String">Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">This can be a statically defined fixture (at the top of the testscript) or a dynamically set fixture created by responseId of the action.operation element.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">This can be a statically defined fixture (at the top of the TestScript) or a dynamically set fixture created by responseId of the `action.operation` element.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2522,7 +2522,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Assert rule to be used in one or more asserts within the test script</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Each rule should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Each rule should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is described elsewhere in the TestScript resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2648,7 +2648,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Parameter value defined either explicitly or dynamically</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The explict or dynamic value for the parameter that will be passed on to the external rule template.</Data><NamedCell
+    <Cell><Data ss:Type="String">The explicit or dynamic value for the parameter that will be passed on to the external rule template.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">This value can be overwritten by the assert.rule.param.value i.e. TestScript.rule.param.value will be used if assert.rule.param.value is not specified.  The param value can be a string-representation of a number, string, or boolean that is expected. Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before supplying this value to the external rule template.</Data><NamedCell
@@ -2682,7 +2682,7 @@
     <Cell><Data ss:Type="String">Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Each rule within a ruleset should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Each rule within a ruleset should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is described elsewhere in the TestScript resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3199,7 +3199,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will error as it cannot determine what destination to use for the exchange.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will report an error as it cannot determine what destination to use for the exchange.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3321,7 +3321,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Each operation can have one ore more header elements</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Each operation can have one or more header elements</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Header elements would be used to set HTTP headers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3391,7 +3391,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The value of the header e.g. &quot;application/fhir+xml&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. &quot;xml&quot; to &quot;application/fhir+xml&quot;.  The values will be set in HTTP headers &quot;as-is&quot;.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If header element is specified, then value is required.  No conversions will be done by the test engine e.g. &quot;xml&quot; to &quot;application/fhir+xml&quot;.  The values will be set in HTTP headers &quot;as-is&quot;.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3423,7 +3423,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The fixture id (maybe new) to map to the request.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If a requestId is supplied, then the resulting request (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by &quot;requestId&quot;.  If requestId is not specified, it is the Test Engine's responsibility to store the request and use it as requestId in subsequent assertions when assertion path and/or headerField is specified and direction is equal to request and requestId is not specified.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If a requestId is supplied, then the resulting request (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by &quot;requestId&quot;.  If requestId is not specified, it is the test engine's responsibility to store the request and use it as the requestId in subsequent assertions when assertion path and/or headerField is specified, direction is equal to request, and the requestId in not specified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3455,7 +3455,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The fixture id (maybe new) to map to the response.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If a responseId is supplied, and the server responds, then the resulting response (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by &quot;responseId&quot;.  If responseId is not specified, it is the Test Engine's responsibility to store the response and use it as sourceId in subsequent assertions when assertion path and/or headerField is specified and sourceId is not specified.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If a responseId is supplied, and the server responds, then the resulting response (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by &quot;responseId&quot;.  If responseId is not specified, it is the test engine's responsibility to store the response and use it as the responseId in subsequent assertions when assertion path and/or headerField is specified and the responseId is not specified.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6778,11 +6778,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>81</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6800,7 +6799,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>82</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6822,7 +6822,7 @@
    <Column ss:Index="2" ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="205.5"/>
    <Column ss:StyleID="s118" ss:Width="56.25"/>
    <Column ss:StyleID="s118" ss:Width="183.75"/>
-   <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s118" ss:Width="738.75"/>
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="330"/>
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="450.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s70">
@@ -6971,7 +6971,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">setup action assert direction</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">TestScript.setup.action.assert</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Setup action assert response and response and responseCode SHALL be empty when direction equals request</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Setup action assert response and responseCode SHALL be empty when direction equals request</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">(response.empty() and responseCode.empty() and direction = 'request') or direction.empty() or direction = 'response'</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value='request')) or (count(f:direction) = 0) or (f:direction/@value='response')</Data></Cell>
    </Row>
@@ -7116,6 +7116,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7136,7 +7137,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

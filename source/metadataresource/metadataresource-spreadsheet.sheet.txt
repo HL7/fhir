@@ -96,7 +96,7 @@
   Summary = y
   Type = dateTime
   Short Name = Date this was last changed
-  Definition = The date  (and optionally time) when the {{title}} was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes.
+  Definition = The date  (and optionally time) when the {{title}} was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
   w5 = when.recorded
 
@@ -125,7 +125,7 @@
   Card. = 0..*
   Summary = y
   Type = UsageContext
-  Short Name = Content intends to support these contexts
+  Short Name = Context the content is intended to support
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
   Comments = When multiple useContexts are specified, there is no expectation whether all or any of the contexts apply.

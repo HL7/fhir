@@ -463,7 +463,7 @@
  -- Row 4 -----------------------------------
   Id = 7
   Context = CapabilityStatement
-  English = The set of documents must be unique by the combination of profile & mode.
+  English = The set of documents must be unique by the combination of profile and mode.
   XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
   Expression = document.select(profile.reference&mode).isDistinct()
 
@@ -690,7 +690,7 @@
   Binding = MimeType
   Short Name = Patch formats supported
   Definition = A list of the patch formats supported by this implementation using their content types.
-  Comments = At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats matching the formats it supports, but this is not always possible or necessary.
+  Comments = At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats and match the formats it supports, but this is not always possible or necessary.
 
  -- Row 29 -----------------------------------
   Element = CapabilityStatement.implementationGuide
@@ -707,7 +707,7 @@
   Type = Reference(StructureDefinition)
   Short Name = Profiles for use cases supported
   Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses).
-  Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typically, supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource.
+  Comments = Supported profiles are different than the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typically, supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource.
 
  -- Row 31 -----------------------------------
   Element = CapabilityStatement.rest

@@ -40,7 +40,7 @@
   Binding = BasicResourceType
   Short Name = Kind of Resource
   Definition = Identifies the \'type\' of resource - equivalent to the resource name for other resources.
-  Requirements = Must be able to distinguish different types of \"basic\" resources.
+  Requirements = Must be able to distinguish different types of Basic resources.
   Comments = Because resource references will only be able to indicate \'Basic\', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code.
   RIM Mapping = ./code
   w5 = what
@@ -52,7 +52,7 @@
   Short Name = Identifies the focus of this resource
   Definition = Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resource.
   Requirements = Needed for partitioning the resource by Patient.
-  Comments = Optional as not all resources potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension.
+  Comments = Optional as not all potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension.
   RIM Mapping = ./participation[typeCode=\'SBJ\'] (possibly through a ControlAct and Role)
   w5 = who.focus
 

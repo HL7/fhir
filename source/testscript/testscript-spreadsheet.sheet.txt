@@ -376,7 +376,7 @@
  -- Row 12 -----------------------------------
   Id = 12
   Context = TestScript.setup.action.assert
-  English = Setup action assert response and response and responseCode SHALL be empty when direction equals request
+  English = Setup action assert response and responseCode SHALL be empty when direction equals request
   XPath = ((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value=\'request\')) or (count(f:direction) = 0) or (f:direction/@value=\'response\')
   Expression = (response.empty() and responseCode.empty() and direction = \'request\') or direction.empty() or direction = \'response\'
 
@@ -480,7 +480,7 @@
   UML = -120;220
   Short Name = An abstract server representing a destination or receiver in a message exchange
   Definition = An abstract server used in operations within this test script in the destination element.
-  Comments = The purpose of this element is to define the profile of an destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
+  Comments = The purpose of this element is to define the profile of a destination element used elsewhere in the script.  Test engines could then use the destination-profile mapping to offer a filtered list of test systems that can serve as the receiver for the interaction.
 
  -- Row 21 -----------------------------------
   Element = TestScript.destination.index
@@ -488,7 +488,7 @@
   Type = integer
   Short Name = The index of the abstract destination server starting at 1
   Definition = Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
-  Comments = A given destination index (e.g. 1) can appear only once in the list (e.g. Destination 1 cannot be specified twice ... once as Form-Manager and and again as Form-Processor within the same script as that could get confusing during test configuration). \n\nDifferent destination indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Manager).\n\nThe destination indices provided elsewhere in the test script must be one of these destination indices.
+  Comments = A given destination index (e.g. 1) can appear only once in the list (e.g. Destination 1 cannot be specified twice ... once as Form-Manager and again as Form-Processor within the same script as that could get confusing during test configuration). \n\nDifferent destination indices could play the same actor in the same test script (e.g. You could have two different test systems acting as Form-Manager).\n\nThe destination indices provided elsewhere in the test script must be one of these destination indices.
 
  -- Row 22 -----------------------------------
   Element = TestScript.destination.profile
@@ -534,7 +534,7 @@
   UML = -70;0
   Short Name = Capabilities  that are assumed to function correctly on the FHIR server being tested
   Definition = Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
-  Comments = When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  The do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.
+  Comments = When the metadata capabilities section is defined at TestScript.metadata or at TestScript.setup.metadata, and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then all the tests in the TestScript are skipped.  When the metadata capabilities section is defined at TestScript.test.metadata and the server\'s conformance statement does not contain the elements defined in the minimal conformance statement, then only that test is skipped.  The \"metadata.capabilities.required\" and \"metadata.capabilities.validated\" elements only indicate whether the capabilities are the primary focus of the test script or not.  They do not impact the skipping logic.  Capabilities whose \"metadata.capabilities.validated\" flag is true are the primary focus of the test script.
 
  -- Row 28 -----------------------------------
   Element = TestScript.metadata.capability.required
@@ -608,7 +608,7 @@
   Card. = 0..1
   Type = boolean
   Short Name = Whether or not to implicitly delete the fixture during teardown
-  Definition = Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
+  Definition = Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
   Default Value = False
 
  -- Row 38 -----------------------------------
@@ -633,7 +633,7 @@
   UML = 580;250
   Short Name = Placeholder for evaluated elements
   Definition = Variable is set based either on element value in response body or on header field value in the response headers.
-  Comments = Variables would be set based either on XPath/JsonPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report error.  Variables would be used to perform clean replacements in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations. This limits the places that test engines would need to look for placeholders \"${}\".  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations.  See example testscript-search.xml.
+  Comments = Variables would be set based either on XPath/JSONPath expressions against fixtures (static and response), or headerField evaluations against response headers. If variable evaluates to nodelist or anything other than a primitive value, then test engine would report an error.  Variables would be used to perform clean replacements in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations. This limits the places that test engines would need to look for placeholders \"${}\".  Variables are scoped to the whole script. They are NOT evaluated at declaration. They are evaluated by test engine when used for substitutions in \"operation.params\", \"operation.requestHeader.value\", and \"operation.url\" element values during operation calls and in \"assert.value\" during assertion evaluations.  See example testscript-search.xml.
 
  -- Row 41 -----------------------------------
   Element = TestScript.variable.name
@@ -695,7 +695,7 @@
   Type = id
   Short Name = Fixture Id of source expression or headerField within this variable
   Definition = Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
-  Comments = This can be a statically defined fixture (at the top of the testscript) or a dynamically set fixture created by responseId of the action.operation element.
+  Comments = This can be a statically defined fixture (at the top of the TestScript) or a dynamically set fixture created by responseId of the `action.operation` element.
 
  -- Row 49 -----------------------------------
   Element = TestScript.rule
@@ -703,7 +703,7 @@
   UML = 520;0
   Short Name = Assert rule used within the test script
   Definition = Assert rule to be used in one or more asserts within the test script
-  Comments = Each rule should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
+  Comments = Each rule should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is described elsewhere in the TestScript resource.
 
  -- Row 50 -----------------------------------
   Element = TestScript.rule.resource
@@ -734,7 +734,7 @@
   Card. = 0..1
   Type = string
   Short Name = Parameter value defined either explicitly or dynamically
-  Definition = The explict or dynamic value for the parameter that will be passed on to the external rule template.
+  Definition = The explicit or dynamic value for the parameter that will be passed on to the external rule template.
   Comments = This value can be overwritten by the assert.rule.param.value i.e. TestScript.rule.param.value will be used if assert.rule.param.value is not specified.  The param value can be a string-representation of a number, string, or boolean that is expected. Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before supplying this value to the external rule template.
 
  -- Row 54 -----------------------------------
@@ -743,7 +743,7 @@
   UML = 540;70
   Short Name = Assert ruleset used within the test script
   Definition = Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
-  Comments = Each rule within a ruleset should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
+  Comments = Each rule within a ruleset should be treated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is described elsewhere in the TestScript resource.
 
  -- Row 55 -----------------------------------
   Element = TestScript.ruleset.resource
@@ -876,7 +876,7 @@
   Type = integer
   Short Name = Server responding to the request
   Definition = The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.
-  Comments = If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will error as it cannot determine what destination to use for the exchange.
+  Comments = If multiple TestScript.destination elements are defined and operation.destination is undefined, test engine will report an error as it cannot determine what destination to use for the exchange.
 
  -- Row 71 -----------------------------------
   Element = TestScript.setup.action.operation.encodeRequestUrl
@@ -906,7 +906,7 @@
   Element = TestScript.setup.action.operation.requestHeader
   Card. = 0..*
   UML = -30;780
-  Short Name = Each operation can have one ore more header elements
+  Short Name = Each operation can have one or more header elements
   Definition = Header elements would be used to set HTTP headers.
   Comments = This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - \"If-Modified-Since\" and \"If-None-Match\" headers.  See http://build.fhir.org/http.html#2.1.0.5.1 - \"If-Match\" header.  See http://build.fhir.org/http.html#2.1.0.11 - Conditional Create using \"If-None-Exist\".  See http://build.fhir.org/http.html#2.1.0.13.1 - Invalid \"Content-Type\" header for negative testing. - etc.
 
@@ -924,7 +924,7 @@
   Type = string
   Short Name = HTTP headerfield value
   Definition = The value of the header e.g. \"application/fhir+xml\"
-  Comments = If header element is specified, then value is required.  No conversions will be done by Test Engine e.g. \"xml\" to \"application/fhir+xml\".  The values will be set in HTTP headers \"as-is\".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
+  Comments = If header element is specified, then value is required.  No conversions will be done by the test engine e.g. \"xml\" to \"application/fhir+xml\".  The values will be set in HTTP headers \"as-is\".  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before sending the request.
 
  -- Row 77 -----------------------------------
   Element = TestScript.setup.action.operation.requestId
@@ -932,7 +932,7 @@
   Type = id
   Short Name = Fixture Id of mapped request
   Definition = The fixture id (maybe new) to map to the request.
-  Comments = If a requestId is supplied, then the resulting request (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by \"requestId\".  If requestId is not specified, it is the Test Engine\'s responsibility to store the request and use it as requestId in subsequent assertions when assertion path and/or headerField is specified and direction is equal to request and requestId is not specified.
+  Comments = If a requestId is supplied, then the resulting request (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by \"requestId\".  If requestId is not specified, it is the test engine\'s responsibility to store the request and use it as the requestId in subsequent assertions when assertion path and/or headerField is specified, direction is equal to request, and the requestId in not specified.
 
  -- Row 78 -----------------------------------
   Element = TestScript.setup.action.operation.responseId
@@ -940,7 +940,7 @@
   Type = id
   Short Name = Fixture Id of mapped response
   Definition = The fixture id (maybe new) to map to the response.
-  Comments = If a responseId is supplied, and the server responds, then the resulting response (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by \"responseId\".  If responseId is not specified, it is the Test Engine\'s responsibility to store the response and use it as sourceId in subsequent assertions when assertion path and/or headerField is specified and sourceId is not specified.
+  Comments = If a responseId is supplied, and the server responds, then the resulting response (both headers and body) is mapped to the fixture ID (which may be entirely new and previously undeclared) designated by \"responseId\".  If responseId is not specified, it is the test engine\'s responsibility to store the response and use it as the responseId in subsequent assertions when assertion path and/or headerField is specified and the responseId is not specified.
 
  -- Row 79 -----------------------------------
   Element = TestScript.setup.action.operation.sourceId
