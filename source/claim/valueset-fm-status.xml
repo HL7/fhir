@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes STatus codes."/>
+  <description value="This value set includes Status codes."/>
   <copyright value="HL7 International."/>
   <compose>
     <include>

@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Service Modifier codes which may suport differential payment."/>
+  <description value="This value set includes sample Service Modifier codes which may support differential payment."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>
