@@ -68,7 +68,7 @@
     <concept>
       <code value="lower"/>
       <display value="Lower-bound"/>
-      <definition value="Text is displayed to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly diagree&#39;"/>
+      <definition value="Text is displayed to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly disagree&#39;"/>
     </concept>
     <concept>
       <code value="upper"/>

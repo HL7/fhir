@@ -10,7 +10,7 @@
 			<value value="http://www.hl7.org/Special/committees/patientcare"/>
 		</telecom>
 	</contact>
-	<description value="Example list of codes for questions and groups of questions. (Not necessariliy complete or appropriate.)"/>
+	<description value="Example list of codes for questions and groups of questions. (Not necessarily complete or appropriate.)"/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>

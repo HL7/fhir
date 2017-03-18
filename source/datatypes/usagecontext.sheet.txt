@@ -39,7 +39,7 @@
   Id = 4
   Code = user
   Display = User Type
-  Definition = The clinical speciality of the context in which the patient is bring treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomy value set http://hl7.org/fhir/ValueSet/provider-taxonomy.
+  Definition = The clinical specialty of the context in which the patient is being treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomy value set http://hl7.org/fhir/ValueSet/provider-taxonomy.
 
  -- Row 5 -----------------------------------
   Id = 5

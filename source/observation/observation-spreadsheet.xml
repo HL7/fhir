@@ -10,7 +10,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-02-20T01:30:20Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,7 +21,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>12</ActiveSheet>
+  <FirstVisibleSheet>10</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5200,7 +5201,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -6993,7 +6993,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7006,6 +7006,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
@@ -10662,7 +10663,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">1st Quintile</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The lowest of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The lowest of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s191"/>
@@ -10673,7 +10674,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">2nd Quintile</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The second of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The second of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s191"/>
@@ -10684,7 +10685,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">3rd Quintile</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The third of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The third of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s191"/>
@@ -10695,7 +10696,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s198"><Data ss:Type="String">4th Quintile</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">The fourth of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
+    <Cell ss:StyleID="s198"><Data ss:Type="String">The fourth of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s191"/>
@@ -11073,12 +11074,13 @@
     <HorizontalResolution>300</HorizontalResolution>
     <VerticalResolution>300</VerticalResolution>
    </Print>
+   <Selected/>
    <TopRowVisible>9</TopRowVisible>
    <LeftColumnVisible>1</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>25</ActiveRow>
+     <ActiveRow>14</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

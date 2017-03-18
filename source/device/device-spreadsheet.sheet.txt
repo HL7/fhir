@@ -29,7 +29,7 @@
   Binding Name = UDIEntryType
   Binding = code list
   Reference = #udi-entry-type
-  Definition = Codes to identify how udi data was entered
+  Definition = Codes to identify how UDI data was entered
   Conformance = required
 
  -- Row 5 -----------------------------------
@@ -89,13 +89,13 @@
   Id = 4
   Code = card
   Display = Card
-  Definition = The data orginated from a patient\'s implant card and read by an operator.
+  Definition = The data originated from a patient\'s implant card and read by an operator.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = self-reported
   Display = Self Reported
-  Definition = The data orginated from a patient source and not directly scanned or read from a label or card.
+  Definition = The data originated from a patient source and not directly scanned or read from a label or card.
 
  -- Row 6 -----------------------------------
   Id = 6

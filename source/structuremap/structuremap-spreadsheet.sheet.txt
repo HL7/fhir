@@ -26,7 +26,7 @@
   Binding Name = StructureMapTransform
   Binding = code list
   Reference = #map-transform
-  Definition = How data is copied / created
+  Definition = How data is copied/created
   Conformance = required
 
  -- Row 5 -----------------------------------
@@ -47,7 +47,7 @@
   Binding Name = StructureMapGroupTypeMode
   Binding = code list
   Reference = #map-group-type-mode
-  Definition = If this is the default rule set to apply for thie source type, or this combination of types
+  Definition = If this is the default rule set to apply for the source type, or this combination of types
   Conformance = required
 
 === Sheet map-model-mode =====================================
@@ -158,7 +158,7 @@
   Id = 9
   Code = dateOp
   Display = dateOp
-  Definition = Perform a date operation. Parameters to be documented
+  Definition = Perform a date operation. *Parameters to be documented*
 
  -- Row 10 -----------------------------------
   Id = 10
@@ -170,7 +170,7 @@
   Id = 11
   Code = pointer
   Display = pointer
-  Definition = Return the appropriate string to put in a Reference that refers to the resource provided as a parameter
+  Definition = Return the appropriate string to put in a reference that refers to the resource provided as a parameter
 
  -- Row 12 -----------------------------------
   Id = 12
@@ -194,7 +194,7 @@
   Id = 15
   Code = qty
   Display = qty
-  Definition = Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit
+  Definition = Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit
 
  -- Row 16 -----------------------------------
   Id = 16

@@ -5,7 +5,7 @@
   Binding Name = CompartmentType
   Binding = code list
   Reference = #compartment-type
-  Definition = Which compartment a compartmnet definition describes
+  Definition = Which compartment a compartment definition describes
   Conformance = required
 
 === Sheet compartment-type =====================================

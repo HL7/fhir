@@ -22,7 +22,7 @@
 			<value value="fhir@lists.hl7.org"/>
 		</telecom>
 	</contact>
-	<description value="Codes used to identify medical devices safety characterics. These codes are taken from the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/pages/home.jsf) and are provided here as a suggestive example."/>
+	<description value="Codes used to identify medical devices safety characteristics. These codes are taken from the [NCI Thesaurus](https://ncit.nci.nih.gov/ncitbrowser/pages/home.jsf) and are provided here as a suggestive example."/>
 	<immutable value="true"/>
 	<copyright value="MRI safety definitions reprinted, with permission, from F2503-08 Standard Practice for Marking Medical Devices and Other Items for Safety in the Magnetic Resonance Environment, copyright ASTM International, 100 Barr Harbor Drive, West Conshohocken, PA 19428.  See [ASTM F2503](https://www.astm.org/Standards/F2503.htm)."/>
 	<compose>

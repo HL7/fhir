@@ -43,13 +43,13 @@
   Id = 4
   Code = primitive-type
   Display = Primitive Data Type
-  Definition = A data type, which is a primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only tbe base specification can define primitive types.
+  Definition = A primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only the base specification can define primitive types.
 
  -- Row 2 -----------------------------------
   Id = 1
   Code = complex-type
   Display = Complex Data Type
-  Definition = A data type - either a complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.
+  Definition = A  complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.
 
  -- Row 3 -----------------------------------
   Id = 2
@@ -61,7 +61,7 @@
   Id = 3
   Code = logical
   Display = Logical Model
-  Definition = A logical model - a conceptual package of data that will be mapped to resources for implementation.
+  Definition = A conceptual package of data that will be mapped to resources for implementation.
 
 === Sheet extension-context =====================================
 

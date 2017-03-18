@@ -264,25 +264,25 @@
   Id = 15
   Code = 5-1
   Display = 1st Quintile
-  Definition = The lowest of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
+  Definition = The lowest of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 16 -----------------------------------
   Id = 16
   Code = 5-2
   Display = 2nd Quintile
-  Definition = The second of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
+  Definition = The second of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 17 -----------------------------------
   Id = 17
   Code = 5-3
   Display = 3rd Quintile
-  Definition = The third of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
+  Definition = The third of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 18 -----------------------------------
   Id = 18
   Code = 5-4
   Display = 4th Quintile
-  Definition = The fourth of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
+  Definition = The fourth of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 19 -----------------------------------
   Id = 19
