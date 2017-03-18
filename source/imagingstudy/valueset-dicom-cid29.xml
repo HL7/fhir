@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.10008.6.​1.​19"/>
+  </identifier>
   <version value="20121129"/>
   <name value="Acquisition Modality Codes"/>
   <status value="active"/>
