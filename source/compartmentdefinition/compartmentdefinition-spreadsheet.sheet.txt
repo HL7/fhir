@@ -104,7 +104,7 @@
   Binding = CompartmentType
   Short Name = Patient | Encounter | RelatedPerson | Practitioner | Device
   Definition = Which compartment this definition describes
-  Comments = Only the specification can define the compartments that can exist. Servers can choose to support them
+  Comments = Only the specification can define the compartments that can exist. Servers can choose to support them.
 
  -- Row 15 -----------------------------------
   Element = CompartmentDefinition.search
@@ -112,16 +112,16 @@
   Summary = y
   Type = boolean
   Short Name = Whether the search syntax is supported
-  Definition = Whether the search syntax is supported
-  Comments = Servers may define and use compartments to manage logical access without implementing the compoartment related syntax
+  Definition = Whether the search syntax is supported,
+  Comments = Servers may define and use compartments to manage logical access without implementing the compartment related syntax.
 
  -- Row 16 -----------------------------------
   Element = CompartmentDefinition.resource
   Card. = 0..*
   Summary = y
   UML = 350;260
-  Short Name = How resource is related to the compartment
-  Definition = Information about how a resource it related to the compartment
+  Short Name = How a resource is related to the compartment
+  Definition = Information about how a resource is related to the compartment.
 
  -- Row 17 -----------------------------------
   Element = CompartmentDefinition.resource.code
@@ -137,16 +137,16 @@
   Card. = 0..*
   Summary = y
   Type = string
-  Short Name = Search Parameter Name, or chained params
-  Definition = The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment more than one way
-  Comments = If no search parameters are listed, then the resource is not linked to the compartment
+  Short Name = Search Parameter Name, or chained parameters
+  Definition = The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,
+  Comments = If no search parameters are listed, then the resource is not linked to the compartment.
 
  -- Row 19 -----------------------------------
   Element = CompartmentDefinition.resource.documentation
   Card. = 0..1
   Type = string
-  Short Name = Additional doco about the resource and compartment
-  Definition = Additional doco about the resource and compartment
+  Short Name = Additional documentation about the resource and compartment
+  Definition = Additional documentation about the resource and compartment
 
 === Sheet Search =====================================
 

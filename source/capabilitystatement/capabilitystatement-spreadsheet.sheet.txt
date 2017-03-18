@@ -91,7 +91,7 @@
   Binding Name = ReferenceHandlingPolicy
   Binding = code list
   Reference = #reference-handling-policy
-  Definition = A set of flags that defines how references are supported
+  Definition = A set of flags that defines how references are supported.
 
 === Sheet restful-capability-mode =====================================
 
@@ -442,77 +442,77 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = CapabilityStatement
-  English = A Capability Statement SHALL have at least one of REST, messaging or document
+  English = A Capability Statement SHALL have at least one of REST, messaging or document element.
   XPath = exists(f:rest) or exists(f:messaging) or exists(f:document)
   Expression = rest.exists() or messaging.exists() or document.exists()
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = CapabilityStatement
-  English = A Capability Statement SHALL have at least one of description, software, or implementation
+  English = A Capability Statement SHALL have at least one of description, software, or implementation element.
   XPath = count(f:software | f:implementation | f:description) > 0
   Expression = (description.count() + software.count() + implementation.count()) > 0
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = CapabilityStatement
-  English = Messaging end-point is required (and is only permitted) when statement is for an implementation
+  English = Messaging end-point is required (and is only permitted) when a statement is for an implementation.
   XPath = not(exists(f:messaging/f:endpoint)) or f:kind/@value = \'instance\'
   Expression = messaging.endpoint.empty() or kind = \'instance\'
 
  -- Row 4 -----------------------------------
   Id = 7
   Context = CapabilityStatement
-  English = The set of documents must be unique by the combination of profile & mode
+  English = The set of documents must be unique by the combination of profile & mode.
   XPath = count(f:document[f:mode/@value=\'producer\'])=count(distinct-values(f:document[f:mode/@value=\'producer\']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=\'consumer\'])=count(distinct-values(f:document[f:mode/@value=\'consumer\']/f:profile/f:reference/@value))
   Expression = document.select(profile.reference&mode).isDistinct()
 
  -- Row 5 -----------------------------------
   Id = 8
   Context = CapabilityStatement
-  English = There can only be one REST declaration per mode
+  English = There can only be one REST declaration per mode.
   XPath = count(f:rest)=count(distinct-values(f:rest/f:mode/@value))
   Expression = rest.select(mode).isDistinct()
 
  -- Row 6 -----------------------------------
   Id = 9
   Context = CapabilityStatement.rest
-  English = A given resource can only be described once per RESTful mode
+  English = A given resource can only be described once per RESTful mode.
   XPath = count(f:resource)=count(distinct-values(f:resource/f:type/@value))
   Expression = resource.select(type).isDistinct()
 
  -- Row 7 -----------------------------------
   Id = !10
   Context = CapabilityStatement.rest
-  English = A given operation can only be described once per RESTful mode
+  English = A given operation can only be described once per RESTful mode.
   XPath = count(f:operation)=count(distinct-values(f:operation/f:name/@value))
   Expression = operation.select(name).isDistinct()
 
  -- Row 8 -----------------------------------
   Id = 12
   Context = CapabilityStatement.rest.resource
-  English = Search parameter names must be unique in the context of a resource
+  English = Search parameter names must be unique in the context of a resource.
   XPath = count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))
   Expression = searchParam.select(name).isDistinct()
 
  -- Row 9 -----------------------------------
   Id = 14
   Context = CapabilityStatement
-  English = Capability Statements of kind \'requirements\' do not have software or implementation elements
+  English = Capability Statements of kind \'requirements\' do not have software or implementation elements.
   XPath = not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != \'requirements\')
   Expression = (software.empty() and implementation.empty()) or kind != \'requirements\'
 
  -- Row 10 -----------------------------------
   Id = 15
   Context = CapabilityStatement
-  English = Capability Statements of kind \'instance\' do not have implementation elements
+  English = Capability Statements of kind \'instance\' do not have implementation elements.
   XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
   Expression = implementation.empty() or kind != \'capability\'
 
  -- Row 11 -----------------------------------
   Id = 16
   Context = CapabilityStatement.messaging
-  English = Must have either supportedMessage or event, but not both
+  English = A Capability Statement messaging element SHALL have either supportedMessage or event element, but not both.
   XPath = exists(f:supportedMessage) != exists(f:event)
   Expression = supportedMessage.empty() != event.empty()
 
@@ -523,7 +523,7 @@
   Card. = 1..1
   UML = 230;120
   Type = MetadataResource
-  Short Name = A statement of system Capabilities
+  Short Name = A statement of system capabilities
   Definition = A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
   RIM Mapping = n/a
   w5 = conformance.behavior
@@ -583,7 +583,7 @@
   Type = code
   Binding = CapabilityStatementKind
   Short Name = instance | capability | requirements
-  Definition = The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase)
+  Definition = The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
   Requirements = Allow searching the 3 modes
 
  -- Row 17 -----------------------------------
@@ -592,8 +592,8 @@
   Summary = y
   Type = uri
   Short Name = Canonical URL of another capability statement this implements
-  Definition = Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so
-  Comments = HL7 defines the following Services: [[[Terminology Service]]]\n\nMany [Implementation Guides](http://fhir.org/guides/registry) define additional services
+  Definition = Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.
+  Comments = HL7 defines the following Services: [[[Terminology Service]]].\n\nMany [Implementation Guides](http://fhir.org/guides/registry) define additional services.
 
  -- Row 18 -----------------------------------
   Element = CapabilityStatement.software
@@ -618,8 +618,8 @@
   Summary = y
   Type = string
   Short Name = Version covered by this statement
-  Definition = The version identifier for the software covered by this statement
-  Comments = If possible, version should be specified, as statements are likely to be different for different versions of software
+  Definition = The version identifier for the software covered by this statement.
+  Comments = If possible, a version should be specified, as statements are likely to be different for different versions of software.
 
  -- Row 21 -----------------------------------
   Element = CapabilityStatement.software.releaseDate
@@ -627,7 +627,7 @@
   Summary = y
   Type = dateTime
   Short Name = Date this version released
-  Definition = Date this version of the software released
+  Definition = Date this version of the software was released.
 
  -- Row 22 -----------------------------------
   Element = CapabilityStatement.implementation
@@ -636,7 +636,7 @@
   UML = 0;200
   Inv. = 2
   Short Name = If this describes a specific instance
-  Definition = Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program
+  Definition = Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.
 
  -- Row 23 -----------------------------------
   Element = CapabilityStatement.implementation.description
@@ -644,7 +644,7 @@
   Summary = y
   Type = string
   Short Name = Describes this specific instance
-  Definition = Information about the specific installation that this capability statement relates to
+  Definition = Information about the specific installation that this capability statement relates to.
 
  -- Row 24 -----------------------------------
   Element = CapabilityStatement.implementation.url
@@ -660,7 +660,7 @@
   Summary = y
   Type = id
   Short Name = FHIR Version the system uses
-  Definition = The version of the FHIR specification on which this capability statement is based
+  Definition = The version of the FHIR specification on which this capability statement is based.
 
  -- Row 26 -----------------------------------
   Element = CapabilityStatement.acceptUnknown
@@ -669,8 +669,8 @@
   Type = code
   Binding = UnknownContentCode
   Short Name = no | extensions | elements | both
-  Definition = A code that indicates whether the application accepts unknown elements or extensions when reading resources
-  Comments = Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.\n\nApplications are recommended to accept unknown extensions and elements (\'both\'), but this is not always possible
+  Definition = A code that indicates whether the application accepts unknown elements or extensions when reading resources.
+  Comments = Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.\n\nApplications are recommended to accept unknown extensions and elements (\'both\'), but this is not always possible.
 
  -- Row 27 -----------------------------------
   Element = CapabilityStatement.format
@@ -679,8 +679,8 @@
   Type = code
   Binding = MimeType
   Short Name = formats supported (xml | json | ttl | mime type)
-  Definition = A list of the formats supported by this implementation using their content types
-  Comments = \"xml\", \"json\" and \"ttl\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here
+  Definition = A list of the formats supported by this implementation using their content types.
+  Comments = \"xml\", \"json\" and \"ttl\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here.
 
  -- Row 28 -----------------------------------
   Element = CapabilityStatement.patchFormat
@@ -690,15 +690,15 @@
   Binding = MimeType
   Short Name = Patch formats supported
   Definition = A list of the patch formats supported by this implementation using their content types.
-  Comments = At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats matching the formats it supports, but this is not always possible or necessary
+  Comments = At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats matching the formats it supports, but this is not always possible or necessary.
 
  -- Row 29 -----------------------------------
   Element = CapabilityStatement.implementationGuide
   Card. = 0..*
   Summary = y
   Type = uri
-  Short Name = Implementation Guide supported
-  Definition = A list of implementation guides that the server does (or should) support in their entirety
+  Short Name = Implementation guides supported
+  Definition = A list of implementation guides that the server does (or should) support in their entirety.
 
  -- Row 30 -----------------------------------
   Element = CapabilityStatement.profile
@@ -706,8 +706,8 @@
   Summary = y
   Type = Reference(StructureDefinition)
   Short Name = Profiles for use cases supported
-  Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses)
-  Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typical supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource
+  Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses).
+  Comments = Supported profiles are different to the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typically, supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource.
 
  -- Row 31 -----------------------------------
   Element = CapabilityStatement.rest
@@ -716,8 +716,8 @@
   UML = 250;520
   Inv. = 1
   Short Name = If the endpoint is a RESTful one
-  Definition = A definition of the restful capabilities of the solution, if any
-  Comments = Multiple repetitions allow definition of both client and / or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements)
+  Definition = A definition of the restful capabilities of the solution, if any.
+  Comments = Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements).
 
  -- Row 32 -----------------------------------
   Element = CapabilityStatement.rest.mode
@@ -726,14 +726,14 @@
   Type = code
   Binding = RestfulCapabilityMode
   Short Name = client | server
-  Definition = Identifies whether this portion of the statement is describing ability to initiate or receive restful operations
+  Definition = Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.
 
  -- Row 33 -----------------------------------
   Element = CapabilityStatement.rest.documentation
   Card. = 0..1
   Type = string
   Short Name = General description of implementation
-  Definition = Information about the system\'s restful capabilities that apply across all applications, such as security
+  Definition = Information about the system\'s restful capabilities that apply across all applications, such as security.
 
  -- Row 34 -----------------------------------
   Element = CapabilityStatement.rest.security
@@ -741,7 +741,7 @@
   Summary = Y
   UML = 550;380
   Short Name = Information about security of implementation
-  Definition = Information about security implementation from an interface perspective - what a client needs to know
+  Definition = Information about security implementation from an interface perspective - what a client needs to know.
 
  -- Row 35 -----------------------------------
   Element = CapabilityStatement.rest.security.cors
@@ -749,8 +749,8 @@
   Summary = Y
   Type = boolean
   Short Name = Adds CORS Headers (http://enable-cors.org/)
-  Definition = Server adds CORS headers when responding to requests - this enables javascript applications to use the server
-  Comments = The easiest CORS headers to add are Access-Control-Allow-Origin: * & Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS
+  Definition = Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
+  Comments = The easiest CORS headers to add are Access-Control-Allow-Origin: * & Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS.
 
  -- Row 36 -----------------------------------
   Element = CapabilityStatement.rest.security.service
@@ -759,7 +759,7 @@
   Type = CodeableConcept
   Binding = RestfulSecurityService
   Short Name = OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates
-  Definition = Types of security services are supported/required by the system
+  Definition = Types of security services that are supported/required by the system.
 
  -- Row 37 -----------------------------------
   Element = CapabilityStatement.rest.security.description
@@ -780,8 +780,8 @@
   Card. = 0..1
   Type = code
   Binding = MimeType
-  Short Name = Mime type for certificate
-  Definition = Mime type for certificate
+  Short Name = Mime type for certificates
+  Definition = Mime type for a certificate
 
  -- Row 40 -----------------------------------
   Element = CapabilityStatement.rest.security.certificate.blob
@@ -814,15 +814,15 @@
   Summary = y
   Type = Reference(StructureDefinition)
   Short Name = Base System profile for all uses of resource
-  Definition = A specification of the profile that describes the solution\'s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles]{profiling.html#profile-uses}
-  Comments = The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system
+  Definition = A specification of the profile that describes the solution\'s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses).
+  Comments = The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system.
 
  -- Row 44 -----------------------------------
   Element = CapabilityStatement.rest.resource.documentation
   Card. = 0..1
   Type = markdown
   Short Name = Additional information about the use of the resource type
-  Definition = Additional information about the resource type is used by the system
+  Definition = Additional information about the resource type used by the system
 
  -- Row 45 -----------------------------------
   Element = CapabilityStatement.rest.resource.interaction
@@ -845,7 +845,7 @@
   Card. = 0..1
   Type = string
   Short Name = Anything special about operation behavior
-  Definition = Guidance specific to the implementation of this operation, such as \'delete is a logical delete\' or \'updates are only allowed with version id\' or \'creates permitted from pre-authorized certificates only\'
+  Definition = Guidance specific to the implementation of this operation, such as \'delete is a logical delete\' or \'updates are only allowed with version id\' or \'creates permitted from pre-authorized certificates only\'.
   Requirements = REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of.
 
  -- Row 48 -----------------------------------
@@ -854,32 +854,32 @@
   Type = code
   Binding = ResourceVersionPolicy
   Short Name = no-version | versioned | versioned-update
-  Definition = This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is \'versioned-update\', then the server supports all the versioning features, including using e-tags for version integrity in the API
-  Comments = If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so
+  Definition = This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is \'versioned-update\', then the server supports all the versioning features, including using e-tags for version integrity in the API.
+  Comments = If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so.
 
  -- Row 49 -----------------------------------
   Element = CapabilityStatement.rest.resource.readHistory
   Card. = 0..1
   Type = boolean
   Short Name = Whether vRead can return past versions
-  Definition = A flag for whether the server is able to return past versions as part of the vRead operation
-  Comments = It is useful to support the vRead operation for current operations, even if past versions aren\'t available
+  Definition = A flag for whether the server is able to return past versions as part of the vRead operation.
+  Comments = It is useful to support the vRead operation for current operations, even if past versions aren\'t available.
 
  -- Row 50 -----------------------------------
   Element = CapabilityStatement.rest.resource.updateCreate
   Card. = 0..1
   Type = boolean
   Short Name = If update can commit to a new identity
-  Definition = A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server
-  Comments = Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won\'t happen. While creating identities on the client means that the clients need to be managed, it\'s much more convenient for many scenarios if such management can be put in place
+  Definition = A flag to indicate that the server allows or needs to allow the client to create new identities on the server (e.g. that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server.
+  Comments = Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won\'t happen. While creating identities on the client means that the clients need to be managed, it\'s much more convenient for many scenarios if such management can be put in place.
 
  -- Row 51 -----------------------------------
   Element = CapabilityStatement.rest.resource.conditionalCreate
   Card. = 0..1
   Type = boolean
   Short Name = If allows/uses conditional create
-  Definition = A flag that indicates that the server supports conditional create
-  Comments = Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2
+  Definition = A flag that indicates that the server supports conditional create.
+  Comments = Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 
  -- Row 52 -----------------------------------
   Element = CapabilityStatement.rest.resource.conditionalRead
@@ -887,16 +887,16 @@
   Type = code
   Binding = ConditionalReadStatus
   Short Name = not-supported | modified-since | not-match | full-support
-  Definition = A code that indicates how the server supports conditional read
-  Comments = Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2
+  Definition = A code that indicates how the server supports conditional read.
+  Comments = Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 
  -- Row 53 -----------------------------------
   Element = CapabilityStatement.rest.resource.conditionalUpdate
   Card. = 0..1
   Type = boolean
   Short Name = If allows/uses conditional update
-  Definition = A flag that indicates that the server supports conditional update
-  Comments = Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2
+  Definition = A flag that indicates that the server supports conditional update.
+  Comments = Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 
  -- Row 54 -----------------------------------
   Element = CapabilityStatement.rest.resource.conditionalDelete
@@ -904,8 +904,8 @@
   Type = code
   Binding = ConditionalDeleteStatus
   Short Name = not-supported | single | multiple - how conditional delete is supported
-  Definition = A code that indicates how the server supports conditional delete
-  Comments = Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2
+  Definition = A code that indicates how the server supports conditional delete.
+  Comments = Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2.
 
  -- Row 55 -----------------------------------
   Element = CapabilityStatement.rest.resource.referencePolicy
@@ -913,7 +913,7 @@
   Type = code
   Binding = ReferenceHandlingPolicy
   Short Name = literal | logical | resolves | enforced | local
-  Definition = A set of flags that defines how references are supported
+  Definition = A set of flags that defines how references are supported.
 
  -- Row 56 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchInclude
@@ -921,7 +921,7 @@
   Type = string
   Short Name = _include values supported by the server
   Definition = A list of _include values supported by the server
-  Comments = If this list is empty, the server does not support includes
+  Comments = If this list is empty, the server does not support includes.
 
  -- Row 57 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchRevInclude
@@ -929,14 +929,14 @@
   Type = string
   Short Name = _revinclude values supported by the server
   Definition = A list of _revinclude (reverse include) values supported by the server
-  Comments = If this list is empty, the server does not support includes
+  Comments = If this list is empty, the server does not support reverse includes.
 
  -- Row 58 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam
   Card. = 0..*
   UML = right
-  Short Name = Search params supported by implementation
-  Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
+  Short Name = Search parameters supported by implementation
+  Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
 
  -- Row 59 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam.name
@@ -944,15 +944,15 @@
   Type = string
   Short Name = Name of search parameter
   Definition = The name of the search parameter used in the interface
-  Comments = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined
+  Comments = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined.
 
  -- Row 60 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam.definition
   Card. = 0..1
   Type = uri
   Short Name = Source of definition for parameter
-  Definition = An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])
-  Comments = This SHOULD be present, and matches refers to a SearchParameter by its canonical url. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource
+  Definition = An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
+  Comments = This SHOULD be present, and matches refers to a SearchParameter by its canonical url. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource.
 
  -- Row 61 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam.type
@@ -960,8 +960,8 @@
   Type = code
   Binding = SearchParamType
   Short Name = number | date | string | token | reference | composite | quantity | uri
-  Definition = The type of value a search parameter refers to, and how the content is interpreted
-  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition
+  Definition = The type of value a search parameter refers to, and how the content is interpreted.
+  Comments = While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition.
 
  -- Row 62 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam.documentation
@@ -991,7 +991,7 @@
   Card. = 0..1
   Type = string
   Short Name = Anything special about operation behavior
-  Definition = Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented
+  Definition = Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
 
  -- Row 66 -----------------------------------
   Element = !CapabilityStatement.rest.transactionMode
@@ -1007,9 +1007,9 @@
   Card. = 0..*
   UML = right
   Type = @CapabilityStatement.rest.resource.searchParam
-  Short Name = Search params for searching all resources
-  Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation
-  Comments = Typically, the only search parameters supported for all parameters are search parameters that apply to all resources - tags, profiles, text search etc.
+  Short Name = Search parameters for searching all resources
+  Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
+  Comments = Typically, the only search parameters supported for all searchse are those that apply to all resources - tags, profiles, text search etc.
 
  -- Row 68 -----------------------------------
   Element = CapabilityStatement.rest.operation
@@ -1017,15 +1017,15 @@
   Summary = Y
   UML = right
   Short Name = Definition of an operation or a custom query
-  Definition = Definition of an operation or a named query and with its parameters and their meaning and type
+  Definition = Definition of an operation or a named query together with its parameters and their meaning and type
 
  -- Row 69 -----------------------------------
   Element = CapabilityStatement.rest.operation.name
   Card. = 1..1
   Type = string
   Short Name = Name by which the operation/query is invoked
-  Definition = The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called
-  Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used. The name does not include the \"$\" portion that is always included in the URL
+  Definition = The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
+  Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used. The name does not include the \"$\" portion that is always included in the URL.
 
  -- Row 70 -----------------------------------
   Element = CapabilityStatement.rest.operation.definition
@@ -1033,16 +1033,16 @@
   Summary = Y
   Type = Reference(OperationDefinition)
   Short Name = The defined operation/query
-  Definition = Where the formal definition can be found
-  Comments = This can be used to build an HTML form to invoke the operation, for instance
+  Definition = Where the formal definition can be found.
+  Comments = This can be used to build an HTML form to invoke the operation, for instance.
 
  -- Row 71 -----------------------------------
   Element = CapabilityStatement.rest.compartment
   Card. = 0..*
   Type = uri
   Short Name = Compartments served/used by system
-  Definition = An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL
-  Comments = At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)
+  Definition = An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL .
+  Comments = At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html).
 
  -- Row 72 -----------------------------------
   Element = CapabilityStatement.messaging
@@ -1052,7 +1052,7 @@
   Inv. = 1
   Short Name = If messaging is supported
   Definition = A description of the messaging capabilities of the solution
-  Comments = Multiple repetitions allow the documentation of multiple endpoints per solution
+  Comments = Multiple repetitions allow the documentation of multiple endpoints per solution.
 
  -- Row 73 -----------------------------------
   Element = CapabilityStatement.messaging.endpoint
@@ -1068,14 +1068,14 @@
   Type = Coding
   Binding = MessageTransport
   Short Name = http | ftp | mllp +
-  Definition = A list of the messaging transport protocol(s) identifiers, supported by this endpoint
+  Definition = A list of the messaging transport protocol(s) identifiers, supported by this endpoint.
 
  -- Row 75 -----------------------------------
   Element = CapabilityStatement.messaging.endpoint.address
   Card. = 1..1
   Type = uri
   Short Name = Network address or identifier of the end-point
-  Definition = The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier
+  Definition = The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
 
  -- Row 76 -----------------------------------
   Element = CapabilityStatement.messaging.reliableCache
@@ -1083,14 +1083,14 @@
   Type = unsignedInt
   Short Name = Reliable Message Cache Length (min)
   Definition = Length if the receiver\'s reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)
-  Comments = If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging
+  Comments = If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging.
 
  -- Row 77 -----------------------------------
   Element = CapabilityStatement.messaging.documentation
   Card. = 0..1
   Type = string
   Short Name = Messaging interface behavior details
-  Definition = Documentation about the system\'s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, process for becoming an authorized messaging exchange partner.
+  Definition = Documentation about the system\'s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.
 
  -- Row 78 -----------------------------------
   Element = CapabilityStatement.messaging.supportedMessage
@@ -1099,7 +1099,7 @@
   UML = -20;0
   Short Name = Messages supported by this system
   Definition = References to message definitions for messages this system can send or receive
-  Comments = This is a proposed alternative to the messaging.event structure
+  Comments = This is a proposed alternative to the messaging.event structure.
 
  -- Row 79 -----------------------------------
   Element = CapabilityStatement.messaging.supportedMessage.mode
@@ -1150,7 +1150,7 @@
   Type = code
   Binding = EventCapabilityMode
   Short Name = sender | receiver
-  Definition = The mode of this event declaration - whether application is sender or receiver
+  Definition = The mode of this event declaration - whether an application is a sender or receiver
 
  -- Row 85 -----------------------------------
   Element = CapabilityStatement.messaging.event.focus
@@ -1159,7 +1159,7 @@
   Binding = ResourceType
   Short Name = Resource that\'s focus of message
   Definition = A resource associated with the event.  This is the resource that defines the event.
-  Comments = This SHALL be provided if the event type supports multiple different resource types
+  Comments = This SHALL be provided if the event type supports multiple different resource types.
 
  -- Row 86 -----------------------------------
   Element = CapabilityStatement.messaging.event.request
@@ -1199,14 +1199,14 @@
   Type = code
   Binding = DocumentMode
   Short Name = producer | consumer
-  Definition = Mode of this document declaration - whether application is producer or consumer
+  Definition = Mode of this document declaration - whether an application is a producer or consumer
 
  -- Row 91 -----------------------------------
   Element = CapabilityStatement.document.documentation
   Card. = 0..1
   Type = string
   Short Name = Description of document support
-  Definition = A description of how the application supports or uses the specified document profile.  For example, when are documents created, what action is taken with consumed documents, etc.
+  Definition = A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
 
  -- Row 92 -----------------------------------
   Element = CapabilityStatement.document.profile
@@ -1215,7 +1215,7 @@
   Type = Reference(StructureDefinition)
   Short Name = Constraint on a resource used in the document
   Definition = A constraint on a resource used in the document
-  Comments = The first resource is the document resource
+  Comments = The first resource is the document resource.
 
 === Sheet Search =====================================
 

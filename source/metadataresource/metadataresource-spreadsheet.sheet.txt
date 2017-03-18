@@ -20,7 +20,7 @@
   Summary = y
   Type = uri
   Short Name = Logical URI to reference this {{title}} (globally unique)
-  Definition = An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions)
+  Definition = An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions).
   Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
   Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
   w5 = id
@@ -53,9 +53,9 @@
   Summary = y
   Type = string
   Short Name = Name for this {{title}} (computer friendly)
-  Definition = A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation
+  Definition = A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation.
   Requirements = Support human navigation and code generation
-  Comments = The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure it is computable friendly
+  Comments = The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure that it is computable friendly.
 
  -- Row 6 -----------------------------------
   Element = MetadataResource.title
@@ -63,7 +63,7 @@
   Summary = y
   Type = string
   Short Name = Name for this {{title}} (human friendly)
-  Definition = A short, descriptive, user-friendly title for the {{title}}
+  Definition = A short, descriptive, user-friendly title for the {{title}}.
 
  -- Row 7 -----------------------------------
   Element = MetadataResource.status
@@ -73,8 +73,8 @@
   Type = code
   Binding = PublicationStatus
   Short Name = draft | active | retired | unknown
-  Definition = The status of this {{title}}. Enables tracking the life-cycle of the content
-  Comments = Allows filtering of {{title}} that are appropriate for use vs. not.  \nThis is labeled as \"Is Modifier\" because applications should not use a retired {{title}} without due consideration
+  Definition = The status of this {{title}}. Enables tracking the life-cycle of the content.
+  Comments = Allows filtering of {{title}}s that are appropriate for use vs. not.  \nThis is labeled as \"Is Modifier\" because applications should not use a retired {{title}} without due consideration
   w5 = status
 
  -- Row 8 -----------------------------------
@@ -84,9 +84,9 @@
   Summary = y
   Type = boolean
   Short Name = For testing purposes, not real usage
-  Definition = A boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Definition = A boolean value to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
   Requirements = Enables experimental content to be developed following the same lifecycle that would be used for a production-level {{title}}
-  Comments = Allows filtering of {{title}} that are appropriate for use vs. not. This is labeled as \"Is Modifier\" because applications should not use an experimental {{title}} in production
+  Comments = Allows filtering of {{title}} that are appropriate for use vs. not. This is labeled as \"Is Modifier\" because applications should not use an experimental {{title}} in production.
   w5 = class
 
  -- Row 9 -----------------------------------
@@ -96,7 +96,7 @@
   Summary = y
   Type = dateTime
   Short Name = Date this was last changed
-  Definition = The date  (and optionally time) when the {{title}} was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes
+  Definition = The date  (and optionally time) when the {{title}} was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes.
   Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.
   w5 = when.recorded
 
@@ -106,7 +106,7 @@
   Summary = y
   Type = string
   Short Name = Name of the publisher (organization or individual)
-  Definition = The name of the individual or organization that published the {{title}}
+  Definition = The name of the individual or organization that published the {{title}}.
   Requirements = Helps establish the \"authority/credibility\" of the {{title}}.  May also allow for contact
   Comments = Usually an organization, but may be an individual. The publisher (or steward) of the {{title}} is the organization or individual primarily responsible for the maintenance and upkeep of the {{title}}. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the {{title}}. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
@@ -128,7 +128,7 @@
   Short Name = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
-  Comments = When multiple useContexts are specified, there is no expectation for whether all or any of the contexts apply
+  Comments = When multiple useContexts are specified, there is no expectation whether all or any of the contexts apply.
 
  -- Row 13 -----------------------------------
   Element = MetadataResource.jurisdiction
@@ -137,23 +137,23 @@
   Type = CodeableConcept
   Binding = Jurisdiction
   Short Name = Intended jurisdiction for {{title}} (if applicable)
-  Definition = A jurisdiction in which the {{title}} is intended to be used
+  Definition = A jurisdiction in which the {{title}} is intended to be used.
 
  -- Row 14 -----------------------------------
   Element = MetadataResource.description
   Card. = 0..1
   Type = markdown
   Short Name = Natural language description of the {{title}}
-  Definition = A free text natural language description of the {{title}} from the consumer\'s perspective
-  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created)
+  Definition = A free text natural language description of the {{title}} from a consumer\'s perspective.
+  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created).
 
  -- Row 15 -----------------------------------
   Element = MetadataResource.purpose
   Card. = 0..1
   Type = markdown
   Short Name = Why this {{title}} is defined
-  Definition = Explains why this {{title}} is needed and why it has been designed as it has
-  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
+  Definition = Explains why this {{title}} is needed and why it has been designed as it has.
+  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}.
   Object Impl = no-gen-base
   w5 = why
 
@@ -163,8 +163,8 @@
   Aliases = License,Restrictions
   Type = markdown
   Short Name = Use and/or publishing restrictions
-  Definition = A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}
-  Requirements = Consumers of the library must be able to determine any legal restrictions on the use of the {{title}} and/or its content
+  Definition = A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}.
+  Requirements = Consumers must be able to determine any legal restrictions on the use of the {{title}} and/or its content.
   Object Impl = no-gen-base
 
  -- Row 17 -----------------------------------
@@ -172,8 +172,8 @@
   Card. = 0..1
   Type = date
   Short Name = When the {{title}} was approved by publisher
-  Definition = The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage
-  Comments = The date may be more recent than the approval date because of minor changes / editorial corrections
+  Definition = The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+  Comments = The date may be more recent than the approval date because of minor changes / editorial corrections.
   Object Impl = no-gen-base
 
  -- Row 18 -----------------------------------
@@ -182,7 +182,7 @@
   Type = date
   Short Name = When the {{title}} was last reviewed
   Definition = The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn\'t change the original approval date.
-  Comments = If specified, this is usually after the approval date
+  Comments = If specified, this is usually after the approval date.
   Object Impl = no-gen-base
 
  -- Row 19 -----------------------------------
@@ -191,8 +191,8 @@
   Summary = Y
   Type = Period
   Short Name = When the {{title}} is effective
-  Definition = The period during which the {{title}} content was or is planned to be effective
-  Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+  Definition = The period during which the {{title}} content was or is planned to be effective.
+  Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015.
   Object Impl = no-gen-base
 
 === Sheet Search =====================================
