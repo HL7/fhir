@@ -28,17 +28,17 @@ reversed resource.
 The Cancel is the formal request to cease processing an incomplete prior request or to reverse 
 and/or nullify a complete prior request or information submission. When nullify=true then all copies 
 of the original submission are to be purged, although audit logs may be retained. When Nullify=false 
-a copy of the original request may be retained. A ProcessResponse may be craeted or returned to indicate 
-whether the requestion action was accepted and scucessful.
+a copy of the original request may be retained. A ProcessResponse may be craeated or returned to indicate 
+whether the requestion action was accepted and successful.
 </p>
 
 <p>
 <b>Poll</b> provides supporting information for the poll request. The response to 
-this is a previously undelivered response or a StatusResponse (or other acknowledgement stype resource which may 
-contain errors). 
+this is a previously undelivered response or a ProcessResponse which may 
+contain errors. 
 </p>
 <p>
-This is a formal request for Payors or systems which require such and/or transports which don't 
+This is a formal request for payors or systems which require such and/or transports which don't 
 support a 'Get Operation', for the retrieval of pended, held, resources.
 </p>
 <p>
@@ -49,7 +49,7 @@ filtering elements, for example:
 <ul>
 <li>Get any pended resource - no filters specified</li>
 <li>Get deferred response to a Claim - specify the Claim in the 'request'</li>
-<li>Get all Supporting Documentation - specify 'SupportingDocumentation' as an 'include'</li>
+<li>Get all supporting information - specify 'Communication' as an 'include'</li>
 <li>Get an Explanation of Benefit - specify 'ExplanationOfBenefit' as an 'include'</li>
 <li>Get a payment reconciliation - specify a 'period' which contains the expected reconciliation 
 creation date, and specify 'PaymentReconciliation' as an 'include'</li> 
@@ -57,7 +57,7 @@ creation date, and specify 'PaymentReconciliation' as an 'include'</li>
 
 
 <p>
-<b>Reprocess</b> indicates the resource which is to be reprocessed, for example a claim to be readjudicated or a specemin or diagnostic image to be re-examined, 
+<b>Reprocess</b> indicates the resource which is to be reprocessed, for example a claim to be readjudicated or a specimen or diagnostic image to be re-examined, 
 and provides both supporting information for the reprocessing and the line items which are to be reprocessed.
 </p>
 <p>
@@ -71,7 +71,7 @@ provides supporting information for the status request.
 
 </p>
 <p>
-This is a formal request for Payors which require such and/or transports which don't support a
+This is a formal request for payors which require such and/or transports which don't support a
 'Get Operation', for the processing status of a previously submitted processing request.
 </p>
 

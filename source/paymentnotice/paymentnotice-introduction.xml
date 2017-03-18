@@ -5,14 +5,14 @@
 <h2>Scope and Usage</h2>
 <p>
 The PaymentNotice resource indicates the resource for which the payment has been indicated and 
-reports the current status information of that payment. The payment notice may be used by Providers and Payors 
-to advise the Provider or Regulatory bodies of the state of a payment (cheque in the mail/EFT sent, 
-payment cashed, payment cancelled). Employers or Insurance Exchanges may use this to advise Payors of 
+reports the current status information of that payment. The payment notice may be used by providers and payors 
+to advise the Provider or regulatory bodies of the state of a payment (cheque in the mail/EFT sent, 
+payment cashed, payment cancelled). Employers or Insurance Exchanges may use this to advise payors of 
 premium payment.
 </p>
 <p>
-Payors and /or Providers may have the need to advise Providers and/or regulators of the status of Claim settlement and payment completion. 
-This same resource may be used by employers and insurance exchanges to advise Payors that premium payments have been 
+Payors and /or providers may have the need to advise providers and/or regulators of the status of claim settlement and payment completion. 
+This same resource may be used by employers and insurance exchanges to advise payors that premium payments have been 
 issued and settled.
 </p>
 <p>

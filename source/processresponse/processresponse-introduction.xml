@@ -9,7 +9,7 @@ is taken over by the <a href="task.html">Task</a>
 resource as part of the FHIR Workflow refactoring.  Readers of this resource are encouraged to
 review the Task resource and consider using it instead and/or to provide feedback if they feel
 it will be inadequate to satisfy the use-cases associated with this resource and to express
-opinions about which purposes they feel ProcessRequest and ProcessResponse should be retained for.
+opinions about which purposes for they feel ProcessRequest and ProcessResponse should be retained.
 </p>		
 <p>
 The ProcessResponse resource indicates the resource for which the processing status is requested and 
@@ -17,8 +17,7 @@ provides simple acknowledgement and status information of application level erro
 convey additional processing requirements in a text form.
 </p>
 <p>
-This is the formal response to a ProcessRequest and may be used as a application level response to PaymentNotice 
-and SupportingDocumentation resources.
+This is the formal response to a ProcessRequest and may be used as a application level response to the PaymentNotice resource.
 </p>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
