@@ -165,7 +165,7 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = Appointment.participant
-  English = Either the type or actor on the participant MUST be specified
+  English = Either the type or actor on the participant SHALL be specified
   XPath = (exists(f:type) or exists(f:actor))
   Expression = type.exists() or actor.exists()
 
@@ -428,7 +428,7 @@
   Binding = ParticipantType
   Short Name = Role of participant in the appointment
   Definition = Role of participant in the appointment
-  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
+  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.
   v2 Mapping = AIP-4, AIG-4
   RIM Mapping = (performer | reusableDevice | subject | location).@typeCode
   iCal Mapping = n/a

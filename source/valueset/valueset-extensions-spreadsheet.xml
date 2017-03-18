@@ -4853,7 +4853,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">When the value set version should no longer be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value MUST present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date </Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The date when the value set version is no longer expected to be used to create new content. This is the first date-time when the value set version becomes Inactive, so this value SHALL present on all Inactive value set versions. The start Date_time is expected to be as of 0001 UTC of the Expiration Date </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>

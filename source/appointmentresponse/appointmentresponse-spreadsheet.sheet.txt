@@ -84,7 +84,7 @@
   Binding = ParticipantType
   Short Name = Role of participant in the appointment
   Definition = Role of participant in the appointment
-  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
+  Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value SHALL be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
   RIM Mapping = (performer | reusableDevice | subject | location).@typeCode
   iCal Mapping = n/a
 

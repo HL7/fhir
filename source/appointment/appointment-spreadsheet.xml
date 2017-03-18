@@ -1928,7 +1928,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Role of participant in the appointment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.&#13;&#13;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#13;&#13;This value MUST be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.&#13;&#13;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#13;&#13;This value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">(performer | reusableDevice | subject | location).@typeCode</Data><NamedCell
@@ -4274,7 +4274,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Appointment.participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Either the type or actor on the participant MUST be specified</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Either the type or actor on the participant SHALL be specified</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">type.exists() or actor.exists()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

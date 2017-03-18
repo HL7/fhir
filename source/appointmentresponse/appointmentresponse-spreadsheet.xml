@@ -1209,7 +1209,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Role of participant in the appointment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.&#13;&#13;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#13;&#13;This value MUST be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.&#13;&#13;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#13;&#13;This value SHALL be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">(performer | reusableDevice | subject | location).@typeCode</Data><NamedCell
