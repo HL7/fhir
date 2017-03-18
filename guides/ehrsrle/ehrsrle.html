@@ -40,10 +40,7 @@
     <a name="intro"> </a>
     <h3>Introduction</h3>
     <p>
-      This Implementation Guide offers a methodology to support trusted electronic health record (EHR) management using HL7 Fast Health Interoperable Resources (FHIR). 
-      This approach is based on the Record Infrastructure Section of ISO/HL7 10781 Electronic Health Record System Functional Model (EHR-S FM) Release 2 and ISO DTS 21089 
-      Trusted End-to-End Information Flows. (This IG is also intended to be applicable to upcoming ISO/HL7 16527 Personal Health Record System Functional Model (PHR-S FM) 
-      Release 2, which will incorporate the Record Infrastructure Section.)
+      This Implementation Guide offers a methodology to support trusted electronic health record (EHR) management using HL7 Fast Health Interoperable Resources (FHIR).  This approach is based on the Record Infrastructure Section of ISO/HL7 10781 Electronic Health Record System Functional Model (EHR-S FM) Release 2 and ISO 21089 Trusted End-to-End Information Flows.  ISO 10781 was published in 2014 and contains 24 lifecycle events, matching the first 24 in this IG.  ISO 21089 has passed ISO Technical Specification ballot and is to be published in 2017 and contains 27 lifecycle events, matching all those in this IG.  (This IG also intended applicable to upcoming ISO/HL7 16527 Personal Health Record System Functional Model (PHR-S FM) Release 2, which will incorporate the Record Infrastructure Section.)
     </p>
     <a name="actions-and-entries"> </a>
     <h3>Actions and Record Entries</h3>
@@ -86,8 +83,8 @@
     <p style="margin-left:13.5pt;">
       EHR, PHR and other Systems, designed to follow ISO/HL7 10781 and ISO 21089 record management methodology and incorporate FHIR resources natively, will create 
       Record Entries with one or more FHIR resource instances. These FHIR resources will be bound to an
-       <a href="../auditevent.html" shape="rect">AuditEvent</a>resource instance and, in the case where content is new or updated, a 
-       <a href="../provenance.html" shape="rect">Provenance</a>resource instance in the Record Entry.
+       <a href="../auditevent.html" shape="rect">AuditEvent</a> resource instance and, in the case where content is new or updated, a 
+       <a href="../provenance.html" shape="rect">Provenance</a> resource instance in the Record Entry.
      </p>
     <a name="rles"> </a>
     <h3>Record Lifecycle Events (RLEs)</h3>
@@ -99,149 +96,148 @@
       <col style="border:solid windowtext 1.0pt"/>
       <col style="border:solid windowtext 1.0pt"/>
       <tr style="border:solid windowtext 2.25pt">
-        <td style="font-weight:bold;transform: rotate(270deg);white-space:nowrap;display:block;bottom:0;width:20px;height:20px;">Sec RI.1.1.x</td>
+        <span style="font-weight:bold;transform: rotate(270deg) translate(-65px,30px);white-space:nowrap;display:block;height:100px;width:20px;padding-left:50px">Sec RI.1.1.x</span></td>
         <td style="font-weight:bold">Record Entry Lifecycle Event</td>
         <td style="font-weight:bold">
           <p>From ISO/HL7 10781 EHR-S Functional Model R2<br/>
              &#8226; RI - Record Infrastructure<br/>
              &#8226; RI.1 - Record Lifecycle and Lifespan</p>
-          <p>Occurs when Record Entry(ies)...</p></td>
+          <p>Occurs when an Agent...</p></td>
       </tr>
       <tr>
         <td>1</td>
         <td>Originate/Retain</td>
-        <td>Content is originated and retained - often during the course of an Action itself - to document the Action and its context</td>
+        <td>Causes the system to: a) initiate capture of potential record content, and b) incorporate that content into the storage considered a permanent part of the health record</td>
       </tr>
       <tr>
         <td>2</td>
         <td>Update/Amend</td>
-        <td>Content is modified (from its original or previously retained state) - typically upon conclusion of an Action - to correct, update or complete content</td>
+        <td>Makes any change to record entry content currently residing in storage considered permanent (persistent)</td>
       </tr>
       <tr>
         <td>3</td>
         <td>Transform/Translate</td>
-        <td>Content is transformed/translated - typically coded data from one coding/classification scheme to another, also from one human language to another - into a 
-          new version</td>
+        <td>Causes the system to change the form, language or code system used to represent record entry content</td>
       </tr>
       <tr>
         <td>4</td>
         <td>Attest</td>
-        <td>Content is attested for accuracy and completeness - typically during/after conclusion of an Action</td>
+        <td>Causes the system to capture the agent’s digital signature (or equivalent indication) during formal validation of record entry content</td>
       </tr>
       <tr>
         <td>5</td>
         <td>Access/View</td>
-        <td>Content is viewed or accessed</td>
+        <td>Causes the system to obtain and open a record entry for inspection or review</td>
       </tr>
       <tr>
         <td>6</td>
         <td>Output/Report</td>
-        <td>Content is output or reported</td>
+        <td>Causes the system to produce and deliver record entry content in a particular form and manner</td>
       </tr>
       <tr>
         <td>7</td>
         <td>Disclose</td>
-        <td>Content is disclosed according to organizational policy and/or jurisdictional law</td>
+        <td>Causes the system to release, transfer, provision access to, or otherwise divulge record entry content</td>
       </tr>
       <tr>
         <td>8</td>
         <td>Transmit</td>
-        <td>Content is transmitted - typically to an external entity or system</td>
+        <td>Causes the system to send record entry content from one (EHR/PHR/other) system to another</td>
       </tr>
       <tr>
         <td>9</td>
         <td>Receive/Retain</td>
-        <td>Content is received and retained - typically from an external entity or system</td>
+        <td>Causes the system to:  a) initiate capture of data content from elsewhere, and b) incorporate that content into the storage considered a permanent part of the health record</td>
       </tr>
       <tr>
         <td>10</td>
         <td>De-Identify</td>
-        <td>Content is transformed into de-identified version</td>
+        <td>Causes the system to scrub record entry content to reduce the association between a set of identifying data and the data subject in a way that may or may not be reversible</td>
       </tr>
       <tr>
         <td>11</td>
         <td>Pseudonymize</td>
-        <td>Content is transformed into an pseudomynized version</td>
+        <td>v</td>
       </tr>
       <tr>
         <td>12</td>
         <td>Re-Identify</td>
-        <td>Content is re-identified from a previously pseudomynized version</td>
+        <td>Causes the system to restore information to data that allows identification of information source and/or information subject</td>
       </tr>
       <tr>
         <td>13</td>
         <td>Extract</td>
-        <td>Content is extracted to render subsets, derivations, summaries or aggregations</td>
+        <td>Causes the system to selectively pull out a subset of record entry content, based on explicit criteria</td>
       </tr>
       <tr>
         <td>14</td>
         <td>Archive</td>
-        <td>Are archived - typically to off-line (less readily available) storage media</td>
+        <td>Causes the system to create and move archive artifacts containing record entry content, typically to long-term offline storage</td>
       </tr>
       <tr>
         <td>15</td>
         <td>Restore</td>
-        <td>Are restored from previous archive</td>
+        <td>Causes the system to recreate record entries and their content from a previous created archive artifact</td>
       </tr>
       <tr>
         <td>16</td>
         <td>Destroy/Delete</td>
-        <td>Are destroyed or identified as missing</td>
+        <td>Causes the system to permanently erase record entry content from the system</td>
       </tr>
       <tr>
         <td>17</td>
         <td>Deprecate</td>
-        <td>Are deprecated (e.g., improperly identified or otherwise invalid)</td>
+        <td>Causes the system to tag record entry(ies) as obsolete, erroneous or untrustworthy, to warn against its future use</td>
       </tr>
       <tr>
         <td>18</td>
         <td>Re-Activate</td>
-        <td>Are made active again after previous Destroy/Delete or Deprecate</td>
+        <td>Causes the system to recreate or restore full status to record entries previously deleted or deprecated</td>
       </tr>
       <tr>
         <td>19</td>
         <td>Merge</td>
-        <td>Are merged together</td>
+        <td>Causes the system to combine or join content from two or more record entries, resulting in a single logical record entry</td>
       </tr>
       <tr>
         <td>20</td>
         <td>Unmerge</td>
-        <td>Are unmerged from previous merge</td>
+        <td>Causes the system to reverse a previous record entry merge operation, rendering them separate again</td>
       </tr>
       <tr>
         <td>21</td>
         <td>Link</td>
-        <td>Are linked together</td>
+        <td>Causes the system to connect related record entries</td>
       </tr>
       <tr>
         <td>22</td>
         <td>Unlink</td>
-        <td>Are unlinked from previous linkage</td>
+        <td>Causes the system to disconnect two or more record entries previously connected, rendering them separate (disconnected) again</td>
       </tr>
       <tr>
         <td>23</td>
         <td>Add Legal Hold</td>
-        <td>Are marked (and held in an unaltered state) for purposes of a legal hold (typically as the result of court or legal action)</td>
+        <td>Causes the system to tag or otherwise indicate special access management and suspension of record entry deletion/destruction, if deemed relevant to a lawsuit or which are reasonably anticipated to be relevant or to fulfill organizational policy under the legal doctrine of "duty to preserve"</td>
       </tr>
       <tr>
         <td>24</td>
         <td>Remove Legal Hold</td>
-        <td>Are released from legal hold (previously marked and held in unaltered state)</td>
+        <td>Causes the system to remove a tag or other cues for special access management had required to fulfill organizational policy under the legal doctrine of "duty to preserve"</td>
       </tr>
       <tr>
         <td>25</td>
         <td>Verify</td>
-        <td>Content is reviewed and affirmed for accuracy, completeness</td>
+        <td>Causes the system to confirm compliance of data or data objects with regulations, requirements, specifications, or other imposed conditions based on organizational policy</td>
       </tr>
       <tr>
         <td>26</td>
         <td>Encrypt</td>
-        <td>Content is encoded in a cipher</td>
+        <td>Causes the system to encode record entry content in a cipher</td>
       </tr>
       <tr>
         <td>27</td>
         <td>Decrypt</td>
-        <td>Content is decoded from a cipher</td>
+        <td>Causes the system to decode record entry content from a cipher</td>
       </tr>
     </table>
     <a name="crude"> </a>
@@ -269,9 +265,11 @@
       <col style="width:300px"/>
       <col style="width:300px"/>
       <tr style="border:solid windowtext 2.25pt">
-        <td rowspan="2" style="border:solid windowtext 2.25pt;transform: rotate(270deg);font-weight:bold;white-space:nowrap">
+<td rowspan="2">
+        <span style="font-weight:bold;transform: rotate(270deg) translate(-95px,30px);white-space:nowrap;display:block;height:100px;width:20px;padding-left:50px">Sec RI.1.1.x</span></td>
+<!--        <td rowspan="2" style="border:solid windowtext 2.25pt;transform: rotate(270deg);font-weight:bold;white-space:nowrap">
           Sec RI.1.1.x
-        </td>
+        </td>-->
         <td rowspan="2" style="border:solid windowtext 2.25pt;font-weight:bold">
           <b>Record Lifecycle Event</b>
         </td>
@@ -297,31 +295,31 @@
         </td>
       </tr>
       <tr style="height:60pt;border:solid windowtext 2.25pt">
-        <td style="border:solid windowtext 1pt;transform: rotate(270deg)">
+        <td style="border:solid windowtext 1pt;transform: rotate(270deg) translate(0,20px)">
           Audit<br/>
           Event
         </td>
-        <td style="border:solid windowtext 1pt;transform: rotate(270deg)">
+        <td style="border:solid windowtext 1pt;transform: rotate(270deg) translate(0,20px)">
           Prove-<br/>
           nance
         </td>
-        <td style="border:solid windowtext 1pt;transform: rotate(270deg)">
+        <td style="border:solid windowtext 1pt;transform: rotate(270deg) translate(0,20px)">
           Action Related
         </td>
       </tr>
       <tr>
-        <td style="font-color:blue">1</td>
-        <td style="font-color:blue">Originate/Retain</td>
-        <td style="font-color:blue">1..1</td>
-        <td style="font-color:blue">1..1</td>
-        <td style="font-color:blue">1..*</td>
-        <td style="font-color:blue">C New Instance(s)</td>
-        <td style="font-color:blue">---</td>
+        <td style="color:blue">1</td>
+        <td style="color:blue">Originate/Retain</td>
+        <td style="color:blue">1..1</td>
+        <td style="color:blue">1..1</td>
+        <td style="color:blue">1..*</td>
+        <td style="color:blue">C New Instance(s)</td>
+        <td style="color:blue">---</td>
       </tr>
-      <tr style="font-color:blue">
+      <tr style="color:blue">
         <td>2</td>
         <td>Update/Amend</td>
-        <td style="font-color:blue">1..1</td>
+        <td style="color:blue">1..1</td>
         <td>1..1</td>
         <td>1..*</td>
         <td>C or U Instance(s)</td>
@@ -349,13 +347,13 @@
         <td>---</td>
       </tr>
       <tr>
-        <td style="font-color:blue">5</td>
-        <td style="font-color:blue">Access/View</td>
-        <td style="font-color:blue">1..1</td>
-        <td style="font-color:blue">1..1<sup>a</sup></td>
-        <td style="font-color:blue">1..*</td>
-        <td style="font-color:blue">R Instance(s)</td>
-        <td style="font-color:blue">C New extract artifact</td>
+        <td style="color:blue">5</td>
+        <td style="color:blue">Access/View</td>
+        <td style="color:blue">1..1</td>
+        <td style="color:blue">1..1<sup>a</sup></td>
+        <td style="color:blue">1..*</td>
+        <td style="color:blue">R Instance(s)</td>
+        <td style="color:blue">C New extract artifact</td>
       </tr>
       <tr>
         <td>6</td>
@@ -570,9 +568,9 @@
     <table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse;border:solid windowtext 1pt">
       <thead>
         <tr>
-          <td>Record Lifecycle Event Metadata</td>
-          <td>FHIR Resource</td>
-          <td>Resource Element(s)</td>
+          <td style="font-weight:bold">Record Lifecycle Event Metadata</td>
+          <td style="font-weight:bold">FHIR Resource</td>
+          <td style="font-weight:bold">Resource Element(s)</td>
         </tr>
       </thead>
       <tr>
@@ -632,7 +630,7 @@
         <td>Provenance.agent : 0..*</td>
         <td>
           role : Coding 1..1 « ProvenanceAgentRole+ »<br/>
-          actor : Reference (Device) 0..1<br/>
+          actor : Reference (Organization|Practitioner| Patient|Device|RelatedPerson) 0..1<br/>
           userId : Identifier 0..1
         </td>
       </tr>
@@ -640,7 +638,7 @@
         <td>AuditEvent.agent : 1..*</td>
         <td>
           role : CodeableConcept 0..* « ActiveParticipantRoleCode »<br/>
-          reference : Reference(Device) 0..1<br/>
+          reference : Reference(Organization|Practitioner| Patient|Device|RelatedPerson) 0..1<br/>
           userId : Identifier 0..1
         </td>
       </tr>
@@ -653,7 +651,7 @@
         <td>Provenance.agent : 0..*</td>
         <td>
           role : Coding 1..1 « ProvenanceAgentRole+ »<br/>
-          actor :Reference(Organization|Practitioner|Patient|Device|RelatedPerson) 0..1<br/>
+          actor :Reference(Device) 0..1<br/>
           userId : Identifier 0..1
         </td>
       </tr>
@@ -661,7 +659,7 @@
         <td>AuditEvent.agent : 1..*</td>
         <td>
           role : CodeableConcept 0..* « ActiveParticipantRoleCode »<br/>
-          reference : Reference(Organization|Practitioner|Patient|Device|RelatedPerson) 0..1<br/>
+          reference : Reference(Device) 0..1<br/>
           userId : Identifier 0..1
         </td>
       </tr>
@@ -713,7 +711,7 @@
         <td>recorded : instant 1..1</td>
       </tr>
       <tr>
-        <td>AuditEvent : 1..1</td>
+        <td>AuditEvent</td>
         <td>recorded : instant 1..1</td>
       </tr>
       <tr>
@@ -725,7 +723,7 @@
         <td>location : Reference(Location) 0..1</td>
       </tr>
       <tr>
-        <td>AuditEvent</td>
+        <td>AuditEvent.source : 1..1</td>
         <td>
           site : BackboneElement 0..1<br/>
           identifier : string 1..1<br/>
@@ -738,7 +736,7 @@
         <td>location : Reference(Location) 0..1</td>
       </tr>
       <tr>
-        <td>AuditEvent.agent.Network</td>
+        <td>AuditEvent.agent.network</td>
         <td>
           address : BackboneElement 0..1<br/>
           type : code 0..1 « AuditEventAgentNetworkType »
@@ -753,7 +751,7 @@
         <td>reason : Coding 0..*</td>
       </tr>
       <tr>
-        <td>AuditEvent</td>
+        <td>AuditEvent.agent</td>
         <td>purposeOfUse : Coding 0..* « AuditEventPurposeOfUse »</td>
       </tr>
       <tr>
@@ -765,7 +763,7 @@
         <td>policy : uri 0..*</td>
       </tr>
       <tr>
-        <td>AuditEvent : 1..1</td>
+        <td>AuditEvent</td>
         <td>purposeOfEvent : Coding 0..*</td>
       </tr>
       <tr>
@@ -905,7 +903,7 @@
           <span style="color:blue">one per source</span>
         </td>
         <td>
-          site ; BackboneElement 0..1<br/>
+          site : BackboneElement 0..1<br/>
           identifier : string 1..1<br/>
           type : Coding 0..* « AuditEventSourceType »
         </td>
@@ -977,7 +975,7 @@
       <tr>
         <td rowspan="2">Identifier/Version of Translation Tools</td>
         <td>
-          Provenance.entity : 1..*<br/>
+          Provenance.entity : 0..*<br/>
           <span style="color:blue">one per translation event</span>
         </td>
         <td>
@@ -1095,7 +1093,7 @@
       </tr>
       <tr style="height:16.6pt">
         <td>4 - Post</td>
-        <td style="font-color:blue">AuditEvent v4</td>
+        <td style="color:blue">AuditEvent v4</td>
         <td>All v1/2/3 Instances</td>
       </tr>
       <tr style="border:solid windowtext 2pt">
