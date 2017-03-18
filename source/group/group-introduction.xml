@@ -5,10 +5,10 @@
 <h2>Scope and Usage</h2>
 <a name="use"> </a>
 <h3>Use Cases</h3>
-<p>The group resource is used in one of two ways:</p>
+<p>The Group resource is used in one of two ways:</p>
 <ol>
   <li>To define a group of specific people, animals, devices, etc. that is being tracked, examined or otherwise referenced as part of healthcare-related activities</li>
-  <li>To define a set of *possible* people, animals, devices, etc. that are of interest for some intended future healthcare-related activities</li>
+  <li>To define a set of <i>possible</i> people, animals, devices, etc. that are of interest for some intended future healthcare-related activities</li>
 </ol>
 
 <p>Examples of the former could include group therapy or treatment sessions, exposed entities tracked as part of public health, etc.  The latter might be used to define expected subjects for a clinical study.</p>
@@ -26,11 +26,11 @@ There are five mechanisms in FHIR for communicating collections of resources:
 <li>
 The <a href="list.html">List</a> resource - enumerates a flat collection of resources and provides features for managing the collection.  
 While a particular List instance may represent a "snapshot", from a business process perspective the notion of "List" 
-is dynamic – items are added and removed over time.  The list resource references other resources.  Lists may be 
+is dynamic – items are added and removed over time.  The List resource references other resources.  Lists may be 
 curated and have specific business meaning.
 </li>
 <li>
-This Group resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+This Group resource - defines a group of specific people, animals, devices etc. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
 Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
 etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
@@ -52,10 +52,11 @@ often reference Lists as the focus of particular sections.
 The <a href="domainresource.html">DomainResource</a>.<code>contained</code> element - allows multiple resources to be nested
 inside any DomainResource.  This is a special type of grouping where the grouped resources lose independent existence - they
 no longer have their own identifiers, can't easily be queried independently, etc.  Use of this grouping is a technical 
-mechanism for managing the independence of resources and has no impact on meaning.  Contained, bundles and remotely referenced
-resources convey the same meaning.
+mechanism for managing the independence of resources and has no impact on meaning.  
 </li>
 </ul>
+Contained, bundled and remotely referenced
+resources convey the same meaning.
 
 </div>
 

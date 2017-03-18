@@ -4,40 +4,40 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The List resource is a flat, possibly ordered, collection of records. List resources are used in many places, 
+The List resource is a flat, possibly ordered collection of records. List resources are used in many places, 
 including allergies, medications, alerts, family history, medical history, etc. List resources can be used to 
 support patient-specific clinical lists as well as lists that manage workflows such as tracking patients, managing 
-teaching cases, etc. Resources supported by the List resource can be homogenous – consisting of only one type of 
-resource (e.g., allergy list); as well as heterogeneous – containing a variety of resources (e.g., a problem list 
+teaching cases, etc. Resources supported by the List resource can be homogeneous – consisting of only one type of 
+resource (e.g. allergy lists) as well as heterogeneous – containing a variety of resources (e.g. a problem list 
 including <a href="condition.html">Conditions</a>, <a href="allergyintolerance.html">AllergyIntolerances</a>, 
 recent <a href="procedure.html">Procedures</a>, etc.).
 </p>
 <p>
 Lists will typically include references to the resources that make up the list, however in some cases the details 
-of the content of the list might be expressed in narrative only; e.g., a text record of a family history.  The List 
+of the content of the list might be expressed in narrative only; e.g. a text record of a family history.  The List 
 resource is only needed if there is a need to filter the set of resources by a mechanism that cannot be accomplished 
-via a simple query; i.e. there is no need to have a list for all <a href="allergyintolerance.html">AllergyIntolerances</a>
+via a simple query; e.g. there is no need to have a list for all <a href="allergyintolerance.html">AllergyIntolerances</a>
 that exist on a server for a given patient.  However, List is an appropriate mechanism to provide a filtered list of the 
-subset of AllergyIntolerances that are deemed to be "current". Lists are allowed to contain other lists, so 
-that there is a nested collection of lists.
+subset of AllergyIntolerances that are deemed to be "current". Lists are allowed to contain other Lists, so 
+that there is a nested collection of Lists.
 </p>
 <p>
 Querying a List of resources such as AllergyIntolerance, Condition or Medication-related
-resources is different than querying the resource-specific end point. For example, a List of
-AllergyIntolerance would represent a curated point-in-time snapshot of the patient's allergies
+resources is different than querying the resource-specific endpoint. For example, a List of
+AllergyIntolerances would represent a curated point-in-time snapshot of the patient's allergies
 and intolerances. On the other hand, querying the AllergyIntolerance endpoint would typically
-produce a larger set of records as it would both be non-currated (potentially containing
-duplicate or out-of-date records) as well as current - generated based on information as of
+produce a larger set of records as it would both be non-curated (potentially containing
+duplicate or out-of-date records) and current - generated based on information as of
 "now" rather than the last time a human manually revised the List resource instance. Which
 mechanism is most appropriate for data retrieval will vary by use-case. In some cases, systems
-may not have an appropriate currated List to query.
+may not have an appropriate curated List to query.
 </p>
 <p>
 Note that the presence of an item in a List resource SHALL NOT change the meaning of any information that would be 
 understood by looking at the item outside the context of the List, because items may be accessed directly outside 
-the list by RESTful means, or after a document is processed. For example, a List with a code that means 
-"refuted conditions" can not have items that are Condition resources that do not have a 
-<a href="condition.html">Condition.clinicalStatus</a> of <a href="valueset-condition-clinical.html#refuted">refuted</a>.
+the List by RESTful means or after a document is processed. For example, a List with a code that means 
+"refuted conditions" cannot have items that are <a href="condition.html">Condition</a> resources that do not have a 
+<code>Condition.clinicalStatus</code> of <a href="valueset-condition-clinical.html#refuted">refuted</a>.
 </p>
 </div>
 
@@ -51,15 +51,14 @@ There are five mechanisms in FHIR for communicating collections of resources:
 <li>
 This List resource - enumerates a flat collection of resources and provides features for managing the collection.  
 While a particular List instance may represent a "snapshot", from a business process perspective the notion of "List" 
-is dynamic – items are added and removed over time.  The list resource references other resources.  Lists may be 
+is dynamic – items are added and removed over time.  The List resource references other resources.  Lists may be 
 curated and have specific business meaning.
 </li>
 <li>
 The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
-Groups are intended to be acted upon or observed as a whole; e.g., performing therapy on a group, calculating risk for a group, 
-etc.  This resource will commonly be used for public health (e.g., describing an at-risk population), clinical trials (e.g., 
-defining a test subject pool) and similar purposes.
+Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
+etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. defining a test subject pool) and similar purposes.
 </li>
 <li>
 The <a href="composition.html">Composition</a> resource - defines a set of healthcare-related information that is assembled 
@@ -77,10 +76,11 @@ query responses, etc.)  The content of bundles is typically algorithmically dete
 The <a href="domainresource.html">DomainResource</a>.<code>contained</code> element - allows multiple resources to be nested
 inside any DomainResource.  This is a special type of grouping where the grouped resources lose independent existence - they
 no longer have their own identifiers, can't easily be queried independently, etc.  Use of this grouping is a technical 
-mechanism for managing the independence of resources and has no impact on meaning.  Contained, bundles and remotely referenced
-resources convey the same meaning.
+mechanism for managing the independence of resources and has no impact on meaning.  
 </li>
 </ul>
+Contained, bundled and remotely referenced
+resources convey the same meaning.
 
 </div>
 

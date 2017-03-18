@@ -4,7 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-An "implementation guide" defines a particular scope of usage for FHIR, and sets a bounded set of expectations 
+An "implementation guide" defines a particular scope of usage for FHIR and sets a bounded set of expectations 
 for implementations to comply to. 
 </p>
 <p>
@@ -21,11 +21,11 @@ at once, but this requires that the implementation guides are compatible (see <a
 Implementation Guides contain two different types of resource references:
 </p>
 <ul>
- <li>Contents: A set of logical statements which implementations must conformn to. These are almost always <a href="conformance-module.html">conformance resources</a></li>
+ <li>Contents: A set of logical statements which implementations must conform to. These are almost always <a href="conformance-module.html">conformance resources</a></li>
  <li>Examples: Examples that illustrate the intent of the profiles defined in the implementation guide. These can be any kind of resource</li>
 </ul>
 <p>
-An applications <a href="capabilitystatement.html">Capability Statement</a> may identify one or more implementation guides that an application conforms to.
+An application's <a href="capabilitystatement.html">Capability Statement</a> may identify one or more implementation guides that an application conforms to.
 </p>
 </div>
 

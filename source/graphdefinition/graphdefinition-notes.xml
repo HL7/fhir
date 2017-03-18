@@ -22,7 +22,7 @@ Observation resources for atomic data items.
 </p>
 <p>
 One way to represent this is to profile each of the resources, creating 
-100s of profiles, and then leave it to the user to infer the overall pattern
+hundreds of profiles, and then leave it to the user to infer the overall pattern
 of the report from the detailed profiles for each observation in the report. 
 But it's not easy to see the forest for the trees. A GraphDefinition can 
 summarise the overall picture and present a summary to the user. 
@@ -36,11 +36,9 @@ and clone into the main spec)
 <a name="fetch"> </a>
 <h4>Fetching a graph of resources</h4>
 <p>
-As another example of using many resources, to describe a medication
-dispense, an application needs, in addition to the MedicationDispense resource
-that describes the actual dispense, and application will typically retrieve 
-resources for the patient, provider, organizations, and the prescription for
-the dispense. 
+As another example of using many resources, to completely represent a medication dispense, 
+an application needs not only the MedicationDispense resource, but also resources to represent the patient, 
+provider, organizations, and the associated prescription.
 </p>
 <p>
 A client can retrieve a single resource:
@@ -49,7 +47,7 @@ A client can retrieve a single resource:
   GET [base]/MedicationDispense/example
 </pre>
 <p>
-Then, when it reads the returned resource, if can fetch the referenced resources: 
+Then, when it reads the returned resource, it can fetch the referenced resources: 
 </p>
 <pre>
   GET [base]/Patient/example
@@ -63,13 +61,13 @@ approach is to do a search, and _include the required resources:
 </p>
 <pre>
   GET [base]/MedicationDispense?_id=example
-    &amp;_include=MedicationDispense.authorizingPrescription
-    &amp;_include=MedicationDispense.subject
+    &amp;_include=MedicationDispense:authorizingPrescription
+    &amp;_include=MedicationDispense:subject
 </pre>
 <p>
-But scaling up this approach to fetch a full package with its dependencies
+But scaling this approach to fetch a full package with its dependencies
 becomes increasingly difficult as the package gets deeper. A graph definition
-can be used instead of inform the server what to return as part of the search:
+can be used instead to inform the server what to return as part of the search:
 </p>
 <pre>
   GET [base]/MedicationDispense?_id=example&amp;_graph=med-package
@@ -92,8 +90,8 @@ MedicationDispense
 <a name="document"> </a>
 <h4>Building a document</h4>
 <p>
-A very similar issue applies when building a document using the <a href="composition-operations.html#document">$document 
-operation</a>. A document must include all the resources linked directly from the composition, but 
+A very similar issue applies when building a document using the <a href="composition-operations.html#document">$document operation</a>. 
+A document must include all the resources linked directly from the composition, but 
 whether to include additional linked resources is at the discretion of the document author. How does
 the user inform the $document operation which linked resources to include? One option is a boolean flag
 for including <b>all</b> linked data, but this may be extensive - up to an entire patient record - and 
@@ -103,7 +101,7 @@ may include resources that are not desired.
 An operation can use a graph definition as a parameter to the $document operation:
 </p>
 <pre>
-GET [base]/Composition/example/$document?graph=example
+GET [base]/Composition/example/$document?_graph=example
 </pre>
 <p>
 This tells the server to include the graph of resources defined 
