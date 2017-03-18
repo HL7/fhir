@@ -9,12 +9,6 @@
 	<item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<linkId value="Medication/header"/>
 		<item>
-			<text value="Form ID:"/>
-			<answer>
-				<valueString value="123"/>
-			</answer>
-		</item>
-		<item>
 			<linkId value="74080-3/74081-1"/>
 			<text value="Event ID:"/>
 			<answer>

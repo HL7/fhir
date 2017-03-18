@@ -11,8 +11,8 @@
 		<value value="DE42AHRQ"/>
 	</identifier>
 	<status value="draft"/>
-	<publisher value="Health Level Seven, International"/>
 	<date value="2015-02-04"/>
+	<publisher value="Health Level Seven, International"/>
 	<name value="Patient Gender"/>
 	<contact>
 		<telecom>

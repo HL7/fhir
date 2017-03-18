@@ -697,14 +697,14 @@
 		<system value="http://loinc.org/vs"/>
 		<value value="74080-3"/>
 	</identifier>
-	<status value="published"/>
-	<date value="2012-04-01"/>
-	<publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
 	<title value="Medication or Other Substance">
 		<extension url="http://hl7.org/fhir/StructureDefinition/rendering-style">
 			<valueString value="color:#0000FF"/>
 		</extension>
 	</title>
+	<status value="active"/>
+	<date value="2012-04-01"/>
+	<publisher value="Agency for Healthcare Research and Quality (AHRQ)"/>
 	<subjectType value="Patient"/>
 	<item>
 		<extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl">
@@ -721,6 +721,7 @@
 			<extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-hidden">
 				<valueBoolean value="true"/>
 			</extension>
+			<linkId value="0"/>
 			<text value="Form ID:"/>
 			<type value="string"/>
 			<required value="true"/>
@@ -746,6 +747,7 @@
 		<text value="Medication or Other Substance"/>
 		<type value="group"/>
 		<item>
+      <linkId value="Medication/SEC00.0"/>
 			<text value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF).">
 				<extension url="http://hl7.org/fhir/StructureDefinition/rendering-xhtml">
 					<valueString value="Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the &lt;i&gt;Device or Medical/Surgical Supply including Health Information Technology (HIT)&lt;/i&gt; form. Narrative detail can be captured on the &lt;i&gt;Healthcare Event Reporting Form (HERF)&lt;/i&gt;."/>
@@ -956,6 +958,7 @@
 			<type value="group"/>
 			<repeats value="true"/>
 			<item>
+        <linkId value="74080-3/74078-7.0"/>
 				<text value="Please provide the following medication details for any medications or other substances                directly involved in the event."/>
 				<type value="display"/>
 			</item>
@@ -1089,6 +1092,7 @@
 			<text value="Thank you for completing these questions."/>
 			<type value="group"/>
 			<item>
+        <linkId value="Medication/SEC04.0"/>
 				<text value="OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850."/>
 				<type value="display"/>
 			</item>
@@ -1124,6 +1128,7 @@
 		<linkId value="Medication/footer"/>
 		<type value="group"/>
 		<item>
+      <linkId value="Medication/footer.0"/>
 			<text value="AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance"/>
 			<type value="display"/>
 		</item>

@@ -60,6 +60,7 @@
 		<linkId value="3921066v1.0"/>
 		<text value="Conditional Diagnosis Questions"/>
 		<item>
+      <linkId value="3921066v1.0.0"/>
 			<text value="Diagnosis Time Point"/>
 			<answer>
 				<valueCoding>
