@@ -308,7 +308,7 @@
   Binding = QuestionnaireConcept
   Short Name = Concept that represents the overall questionnaire
   Definition = Identifies how this question or group of questions is known in a particular terminology such as LOINC.
-  Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"pannels\" of questions to be identified by a code.
+  Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"panels\" of questions to be identified by a code.
   RIM Mapping = .code
 
  -- Row 21 -----------------------------------
@@ -348,7 +348,7 @@
   Short Name = ElementDefinition - details for the item
   Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements on a Questionnaire Item overrides the information from the definition
   Requirements = A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition, and allows the content for the question to come from the underlying definition
-  Comments = The url refers to a an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources
+  Comments = the URI refers to an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it\\\'s id [Element.id](element-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources
   RIM Mapping = Not supported
 
  -- Row 25 -----------------------------------
@@ -358,8 +358,8 @@
   Inv. = 3
   Type = Coding
   Binding = QuestionnaireConcept
-  Short Name = Corresponding Concept for this item in a terminology
-  Definition = A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)
+  Short Name = Corresponding concept for this item in a terminology
+  Definition = A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)
   Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole. Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = .code
@@ -401,10 +401,10 @@
   Is Modifier = Y
   Summary = Y
   UML = down
-  Short Name = Only allow data when:
+  Short Name = Only allow data when
   Definition = If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true
   Requirements = Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions
-  Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. Treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
+  Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
   RIM Mapping = N/A - MIF rather than RIM level
 
  -- Row 30 -----------------------------------

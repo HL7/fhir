@@ -303,7 +303,7 @@ In a StructureDefinition, this will look like:
 </pre>  
 <p>
 Note: lots of definition detail has been left out, and only the parts relevant to the pattern are shown.
-E.g. A real blood pressure profile would fix unit, a overall Observation code etc.
+E.g. A real blood pressure profile would fix unit, an overall Observation code etc.
 </p>
 
 <a name="extensions"> </a>  
@@ -704,6 +704,7 @@ Note that this version isn't valid, because the slices are not in the correct or
   &lt;result&gt;
     &lt;reference value=&quot;Observation/triglyceride&quot;/&gt;
   &lt;/result&gt;
+    &lt;!-- Oops the last two are out of order --&gt;
   &lt;result&gt;
     &lt;reference value=&quot;Observation/hdlcholesterol&quot;/&gt;
   &lt;/result&gt;
@@ -778,7 +779,7 @@ An example of a Composition that meets these rules:
         &lt;coding&gt;                       
           &lt;system value=&quot;http://loinc.org&quot; /&gt;      
           &lt;use value=&quot;66150-4&quot; /&gt;          
-          &lt;value value=&quot;Over the counter medications&quot; /&gt;  
+          &lt;value value=&quot;O medications&quot; /&gt;  
         &lt;/coding&gt;                       
       &lt;/code&gt;                       
       ... snip ...

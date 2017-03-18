@@ -274,7 +274,7 @@
   Type = uri
   Short Name = Original Definition for the search parameter
   Definition = Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter
-  Comments = The intent of this is that a server can designate that it provides support for E.g. the \"value-quantity\" search parameter defined in the specification itself (http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server
+  Comments = The intent of this is that a server can designate that it provides support for a search parameter defined in the specification itself (e.g.  [`value-quantity`](http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server
 
  -- Row 17 -----------------------------------
   Element = SearchParameter.description
