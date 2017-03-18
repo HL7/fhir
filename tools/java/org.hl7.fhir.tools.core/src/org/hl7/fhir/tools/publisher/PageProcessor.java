@@ -1117,6 +1117,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
+      else if (com[0].equals("res-list-maturity"))
+        src = s1+buildResListByMaturity()+s3;
       else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
@@ -1126,6 +1128,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildResListByMaturity() {
+    List<String> res = new ArrayList<String>();
+    for (ResourceDefn rd : definitions.getBaseResources().values())
+      res.add(rd.getFmmLevel()+":" +rd.getName());
+    for (ResourceDefn rd : definitions.getResources().values())
+      res.add(rd.getFmmLevel()+":" +rd.getName());
+    Collections.sort(res);
+    
+    StringBuilder b = new StringBuilder();
+    for (int i = 5; i >= 0; i--) {
+      b.append("<p><b>Level ");
+      b.append(i);
+      b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+      for (String rn : res) {
+        if (rn.startsWith(Integer.toString(i))) {
+          String r = rn.substring(2);
+          b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
+        }
+      }
+      b.append("</ul>\r\n");
+    }
+    return b.toString();
   }
 
   private WorkGroup wg(String code) {
@@ -4869,6 +4895,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genWGReport() + s3;
       else if (com[0].equals("r2maps-summary"))
         src = s1 + genR2MapsSummary() + s3;
+      else if (com[0].equals("res-list-maturity"))
+        src = s1+buildResListByMaturity()+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
