@@ -151,6 +151,8 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 <h2>Operations defined for Observation</h2>
 <a name="lastn"> </a>
 <h3>Searching for the Last N Observations</h3>
+
+
 <p>
 The <em>lastn</em> query operation meets the common need for searching for the most recent or "last known" Observations for a subject.  Examples where this query could be used:</p>
 <ul>
@@ -158,8 +160,21 @@ The <em>lastn</em> query operation meets the common need for searching for the m
 <li>Get the most recent lab results for patient</li>
 <li>Fetch the last 3 results for all vitals for a patient</li>
 </ul>
-
+<p>
 See the <a href="observation-operations.html#10.1.20.2">Last N Observations Query</a> section in the Observation resource operations page for more information and examples
+</p>
+<div>
+<a name="lastn-stu-note"> </a>
+<blockquote class="stu-note">
+<p>
+<b>STU Note:</b> This is the first draft of this operation and we are seeking input from the implementer community on it and whether it should be extended to other resources such as DiagnosticReport. This operation could be the subject of future connectathon testing.
+</p>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+</p>
+</blockquote>
+</div>
+
 <p></p>
 <a name="stats"> </a>
 <h3>Retrieving Statistics for Laboratory Observations</h3>
