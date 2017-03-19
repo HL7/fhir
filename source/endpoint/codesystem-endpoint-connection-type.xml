@@ -55,11 +55,13 @@
 	<concept>
 		<code value="hl7-fhir-rest" />
 		<display value="HL7 FHIR" />
+    <definition value="Interact with the server interface using FHIR's RESTful interface. For details on its version/capabilities you should connect the the value in Endpoint.address and retrieve the FHIR CapabilityStatement." />
 	</concept>
 	<concept>
 		<code value="hl7-fhir-msg" />
 		<display value="HL7 FHIR Messaging" />
-	</concept>
+    <definition value="Use the servers FHIR Messaging interface. Details can be found on the messaging.html page in the FHIR Specification. The FHIR server's base address is specified in the Endpoint.address property." />
+  </concept>
 	<concept>
 		<code value="hl7v2-mllp" />
 		<display value="HL7 v2 MLLP" />
@@ -68,7 +70,7 @@
 	<concept>
 		<code value="secure-email" />
 		<display value="Secure email" />
-		<definition value="email delivery using a digital certificate to encrypt the content using the public key, receiver must have the private key to decrypt the content" />
+		<definition value="Email delivery using a digital certificate to encrypt the content using the public key, receiver must have the private key to decrypt the content" />
 	</concept>
 	<concept>
 		<code value="direct-project" />
