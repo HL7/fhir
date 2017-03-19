@@ -78,7 +78,7 @@
   Card. = 0..*
   UML = 400;0
   Type = =MessageDestination
-  Short Name = Message Destination Application(s)
+  Short Name = Message destination application(s)
   Definition = The destination application which the message is intended for
   Requirements = Indicates where message is to be sent for routing purposes.  Allows verification of \"am I the intended recipient\"
   Comments = There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system
@@ -156,7 +156,7 @@
   Card. = 0..1
   Type = Reference(Practitioner)
   Short Name = The source of the data entry
-  Definition = The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions
+  Definition = The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
   v2 Mapping = EVN-5 / ORC-10 / PRT-5:PRT-4=\'EP\' / ROL where ROL.3 is EP or ORC.10
@@ -168,7 +168,7 @@
   Card. = 0..1
   Type = Reference(Practitioner)
   Short Name = The source of the decision
-  Definition = The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions
+  Definition = The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions
   Requirements = Need to know for audit/traceback requirements and possibly for authorization.
   Comments = Usually only for the request, but can be used in a response
   v2 Mapping = ORC-19 / PRT-5:PRT-4=\'AUT\' / ROL where ROL.3 is IP or ORC.12
@@ -180,7 +180,7 @@
   Card. = 1..1
   UML = 420;95
   Type = =MessageSource
-  Short Name = Message Source Application
+  Short Name = Message source application
   Definition = The source application from which this message originated
   Requirements = Allows replies, supports audit.
   RIM Mapping = unique(./communicationFunction[typeCode=\"SND\"])
@@ -290,7 +290,7 @@
   Short Name = ok | transient-error | fatal-error
   Definition = Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not
   Requirements = Allows the sender of the acknowledge message to know if the request was successful or if action is needed.
-  Comments = This is a generic response to the request message. Specific data for the response will be found in MessageHeader.data
+  Comments = This is a generic response to the request message. Specific data for the response will be found in MessageHeader.focus.
   v2 Mapping = MSA-1
   RIM Mapping = ./typeCode[isNormalDatatype()]
 

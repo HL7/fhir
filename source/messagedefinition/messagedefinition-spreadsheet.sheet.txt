@@ -96,7 +96,7 @@
   Summary = Y
   Type = Reference(MessageDefinition)
   Short Name = Definition this one is based on
-  Definition = The MessageDefinition this new definition is a profile of
+  Definition = The MessageDefinition that is the basis for the contents of this resource.
 
  -- Row 18 -----------------------------------
   Element = MessageDefinition.parent
