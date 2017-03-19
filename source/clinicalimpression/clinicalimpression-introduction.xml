@@ -22,7 +22,7 @@ impression that this impression follows on from.
   
   <p>In FHIR, an assessment is typically an instrument or tool used to collect information about a patient.</p>
 <a name="dstu"> </a>
-<blockquote class="dstu-note">
+<blockquote class="stu-note">
 <p>
 <b>STU Note:</b> Unlike many other resources, there is little prior art with regard to exchanging records of 
 clinical assessments. For this reason, this resource should be regarded as particularly 
@@ -39,7 +39,7 @@ draw the attention of reviewers and implementers to the following issues:
  <li>Investigations - the specification needs a good value set for the code for the group, and will be considering the name "investigations" further</li>
 </ul> 
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
 </p>
 </blockquote>
 

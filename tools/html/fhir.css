@@ -12,6 +12,13 @@ body.book {
     background-color: #fff;
 }
 
+blockquote.stu-note {
+	margin: 5px;
+	padding:10px;
+  background-color: #fff2ff;
+  border-left-color: #ffa0ff;
+}
+
 .watermark
 {
    background-image: url(watermark.png);

@@ -935,19 +935,6 @@ GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=MyUserId
 Fetch all the patients that have an Observation where the observation has an audit event from a specific user.
 </p>
 
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
-<p>
-<b>STU Note:</b> the _has search parameter is a new
-addition that has generated significant discussion. if adopted, it may
-replace the <a href="#has">_list</a> parameter. Or not.
-</p>
-<p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
-
-
 <a name="composite"> </a>
 <a name="combining"> </a>
 <h4>Composite Search Parameters</h4>
@@ -1115,7 +1102,7 @@ This request returns all Condition resources with the word "metastases" and eith
 "bone" or "liver" in the narrative. The server MAY choose to search
 for related words as well.
 </p>
-<blockquote class="dstu-note">
+<blockquote class="stu-note">
 <a name="dstu2"> </a>
 <p>
 <b>STU Note:</b>  The issues around standardizing text search are not fully resolved.
@@ -1126,7 +1113,7 @@ Typical implementations would use Lucene, an sql-based full text search,
 or some indexing service.
 </p>
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
 </p>
 </blockquote>
 
@@ -1165,18 +1152,6 @@ and the <a href="list-operations.html#find">List Operation "Find"</a>.
 Note: Servers are not required to make these lists available to the clients as list resources,
 but may choose to do so.
 </p>
-
-<blockquote class="dstu-note">
-<a name="dstu3"> </a>
-<p>
-<b>STU Note:</b> the <a href="#has">_has</a> search parameter documented above is a new
-addition that has generated significant discussion. if adopted, it may
-replace the _list parameter. Or not.
-</p>
-<p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
 
 <a name="filter"> </a>
 <a name="_filter"> </a>
@@ -1559,17 +1534,6 @@ path may point to an attachment which is by reference, like this:
 The server can retrieve the target of this reference, and add it to the
 results for the convenience of the client.
 </p>
-
-<blockquote class="dstu-note">
-<a name="r4"> </a>
-<p>
-<b>STU Note:</b>  Should additional rules about how <code>_include</code> works be made?
-</p>
-<p>
-Feedback based on implementation experience is sought <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
-
 
 <h4>Paging</h4>
 <p>

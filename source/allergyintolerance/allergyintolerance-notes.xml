@@ -31,12 +31,16 @@ and reconciled.</p>
 The substanceExposureRisk extension is also available for use as a more completely structured and flexible alternative to the 'code' element for representing positive and negative allergy and intolerance statements (either the 'code' element or the substanceExposureRisk extension may be used, but not both).
 </p>
 
-<blockquote class="dstu-note">
+<blockquote class="stu-note">
 <a name="dstu"> </a>
 <p>
 <b>STU Note:</b>There are two primary ways of reporting "no known allergies" in the current specification: using the CodeableConcept,
-as described above, or using the <a href="list.html">List</a> resource with emptyReason. The third available option is using the substanceExposureRisk extension.  During the STU period, it is not recommended to use the <a href="list.html">List</a> resource for "no known allergies" reporting purposes. The principal reason for this is to allow all allergy or intolerance data to be found and to be consistently queryable from the single location of the AllergyIntolerance resource.  <a href="http://gforge.hl7.org/gf/project/fhir/tracker/">Feedback</a> is sought regarding the preferred approach.
+as described above, or using the <a href="list.html">List</a> resource with emptyReason. The third available option is using the substanceExposureRisk extension.  During the STU period, it is not recommended to use the <a href="list.html">List</a> resource for "no known allergies" reporting purposes. The principal reason for this is to allow all allergy or intolerance data to be found and to be consistently queryable from the single location of the AllergyIntolerance resource.
 </p>
+<p>
+Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+</p>
+
 </blockquote>
 
 <div class="example">

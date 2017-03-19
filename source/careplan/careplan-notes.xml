@@ -10,18 +10,5 @@ The <a href="provenance.html">Provenance</a> resource can be used for detailed r
 
 <!-- insert xhtml content here -->
 
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
-<p>
-<b>STU Note:</b>  During the Trial use period, feedback is welcome on the following issue:
-</p>
-<ul>
- <li>At present, the patient element is optional to allow experimentation with care plan templates, though the resource was not designed for this use</li>
-</ul>
-<p>
-Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-
-</blockquote>
 
 </div>

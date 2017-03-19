@@ -179,7 +179,7 @@ does not mandate that FHIR servers migrate information between such records on f
  <li>Health information administrators may call the process "merging", but it is often implemented as "linking" at the record level</li>
  <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
 </ul>
-<blockquote class="dstu-note">
+<blockquote class="stu-note">
 <a name="dstu"> </a>
 <p>
 <b>STU Note:</b>   We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
@@ -188,7 +188,7 @@ How should an unlink behavior be done? (Assuming that no data was "re-allocated"
 These suggested updated behaviors could be the subject of a future connectathon.
 </p>
 <p>
-Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
 </p>
 </blockquote>
 
@@ -260,29 +260,8 @@ record. Note that this parameter is used where the user would not be
 expected to log in to the MPI directly; whether this is appropriate or not is 
 a deployment choice.
 </p>-->
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
-<p>
-<b>STU Note:</b>   We are seeking input from the implementer community on the applicability of this new $match operation, and if
-it should become a standard operation that could be applicable to other resource types (e.g. Practitioner, RelatedPerson, Condition, Medication ...)
-These suggested updated behaviors could be the subject of a future connectathon.
-</p>
-<p>
-Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
 <p>
 A <a href="operation-patient-match.html">formal definition</a> for the MPI $match operation is published.
 </p>
-<blockquote class="dstu-note">
-<a name="dstu-2"> </a>
-<p>
-<b>STU Note:</b>  This is the first draft of this approach, as a result of 
-connectathon testing.
-</p>
-<p>
-Feedback is sought <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
 
 </div>

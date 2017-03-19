@@ -66,7 +66,7 @@
   Summary = Y
   Type = Reference(Patient)
   Short Name = Who this profile is for
-  Definition = The patient for whom the recommendations are for.
+  Definition = The patient the recommendations are for.
   v2 Mapping = PID-3
   RIM Mapping = .partipication[typeCode=SUBJ].role
   Committee Notes = PID, PD1, NK1 | #3706
@@ -121,7 +121,7 @@
   Summary = Y
   Type = positiveInt
   Short Name = Recommended dose number
-  Definition = This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).
+  Definition = The next recommended dose number (e.g. dose 2 is the next recommended dose).
   Comments = May need other dose concepts such as administered vs. valid
   v2 Mapping = OBX-5 : OBX-3 = 30973-2
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber

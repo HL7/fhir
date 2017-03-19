@@ -367,16 +367,6 @@ Some notes about use and interpretation of contained resources:
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
 </ul>
 
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
-<p>
-<b>STU Note:</b>
-It might be necessary to allow for the reverse (that is, for a contained resource to reference the container).
-However, this would cause many difficult consequences on the API.
-Feedback on this issue is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
-
 <p>
 Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
@@ -389,7 +379,7 @@ the contained resource. This is intended to ensure that the meaning of the conta
 is clear, and that there is no confusion as to its significance.
 </p>
 
-<blockquote class="dstu-note">
+<blockquote class="stu-note">
 <a name="dstu2"> </a>
 <p>
 <b>STU Note:</b> There are some identified use cases where it would be useful to include resources that refer
@@ -398,9 +388,10 @@ has a series of structural ramifications for the API. Whether these can be resol
 issue for investigation during the period of trial use.
 </p>
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
 </p>
 </blockquote>
+
 
 </div>
 
