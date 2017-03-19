@@ -4,13 +4,22 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-An "implementation guide" defines a particular scope of usage for FHIR and sets a bounded set of expectations 
-for implementations to comply to. 
+An implementation guide (IG) is a set of rules about how FHIR resources are used (or should be used) to solve
+a particular problem, with associated documentation to support and clarify the usage. Classically, FHIR
+implementation guides are published on the web after they are generated using the 
+<a href="http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation">FHIR Implementation Guide Publisher</a>.
 </p>
 <p>
-The significant conformance expectation introduced by the ImplementationGuide resource is the idea 
-of <a href="#default">Default Profiles</a>. Implementations may conform to multiple implementation guides
-at once, but this requires that the implementation guides are compatible (see <a href="#compatibility">below</a>).
+The <code>ImplementationGuide</code> resource is a single resource that defines the logical content
+of the IG, along with the important entry pages into the publication, so that the 
+logical package that the IG represents, so that the contents are computable. 
+</p>
+<p>
+In particular, validators are able to use the ImplementationGuide resource to validate content
+against the implementation guide as a whole. The significant conformance expectation introduced 
+by the ImplementationGuide resource is the idea of <a href="#default">Default Profiles</a>. 
+Implementations may conform to multiple implementation guides at once, but this requires that 
+the implementation guides are compatible (see <a href="#compatibility">below</a>).
 </p>
 </div>
 
@@ -29,16 +38,5 @@ An application's <a href="capabilitystatement.html">Capability Statement</a> may
 </p>
 </div>
 
-<div>
-<a name="bnc"> </a>
-<h2>Background and Context</h2>
-<p>
-The ImplementationGuide resource is defined for two principle reasons:
-</p>
-<ul>
- <li>As a logical statement of the implementation guide contents for conformance tools to use to evaluate conformance</li>
- <li>For the FHIR project tools, to support publishing implementation guides</li>
-</ul>
-</div>
 
 </div>
