@@ -48,20 +48,18 @@ that can then result in the creation of an <a href="observation.html">Observatio
 
 <h3>Structure of the Questionnaire</h3>
 <p>
-A Questionnaire is built out of two components:</p>
+A Questionnaire is built out of two components, Questionnaire and item:</p>
 <ul>
   <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
-  like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire.  (Zero items allows
-  for the possibility of narrative-only questionnaires, though obviously these provide little computable information.)</li>
+  like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though obviously these provide little computable information).</li>
   <li>Items have one of three sub-types, distinguished by the <code>type</code> element:
     <ul>
       <li><b>display</b> items convey text to be rendered on the form that won't capture data and which won't contain nested items.  This might include copyright or authorship information,
-        instructions or other background.</li>
+        instructions or other background information.</li>
       <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child 
         'question' items which do.  </li>
       <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single 
-        <code>type</code> for question items.  Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question.
-        and actual "question" information which allows a particular type of answer to be gathered (and which may also have nested items).  Questions may also have nested content - groups and/or 
+        <code>type</code> for question items.  Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question which allows a particular type of answer to be gathered.  Questions may also have nested content - groups and/or 
         other questions.  This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
@@ -77,7 +75,7 @@ are handled using extensions.</p>
 <p>There are three different "identifying" elements within Questionnaire: <code>identifier</code>, <code>id</code> and <code>linkId</code>.  Each serves very distinct
 purposes:</p>
 <ul>
-  <li><b>identifier</b> is used to reference the overall questionnaire in business terms.  It is the number printed across the top of the form or listed beside the form
+  <li>The <b>identifier</b> element is used to reference the overall questionnaire in business terms.  It is the number printed across the top of the form or listed beside the form
   when making a choice between alternate forms.</li>
   <li>The <b>id</b> attribute supported on each element is used for references within a resource, for example linking narrative to discrete elements.  Ids are not generally displayed to end users</li>
   <li>The <b>linkId</b> element on questions and groups establishes a link between elements in a <a href="questionnaireresponse.html">QuestionnaireResponse</a> and their
@@ -86,7 +84,7 @@ purposes:</p>
 
 <h3>Question Definitions</h3>
 <p>
-Questionnaires can be crafted using any questions the author can conceive phrased in whatever manner is appropriate or convenient.  However, standardization of
+Questionnaires can be crafted using any questions the author can conceive and can be phrased in whatever manner is appropriate or convenient.  However, standardization of
 questions and the constraints enforced on the accompanying answers increases the ability to compare data gathered across questionnaires.  <!--There are two
 mechanisms defined in the specification for linking a Question (or Group) to a standardized definition:
 </p>
@@ -125,7 +123,7 @@ The definitions may also be used to automatically pre-populate answers, or extra
 <p>
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
 data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire may not have access to or support the ability to look
-up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems may not be able to to render
+up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems may not be able to render
 or use the Questionnaire.
 </p>
 <p>
@@ -172,32 +170,31 @@ Many questionnaires place constraints on the allowed list of values for a given 
 <code>item.option</code> element.
 </p>
 <p>
-The "choice" mechanism is simplest - all options are listed in-line with the question.  Maintenance of the set of permitted question answers involves maintenance of
+The "option" mechanism is simplest - all options are listed in-line with the question using the <code>item.option</code> element.  Maintenance of the set of permitted question answers involves maintenance of
 the questionnaire itself.
 </p>
 <p>
-The "choices" mechanism is more sophisticated.  Rather than listing the choices directly, the choices element points to a <a href="valueset.html">ValueSet</a> resource.  This approach adds complexity for
-questionnaires having a simple list of strings as choices for a question, but provides several benefits:
+The "options" mechanism is more sophisticated.  Rather than listing the options directly, the <code>item.options</code> element points to a <a href="valueset.html">ValueSet</a> resource.  This approach adds complexity for
+questionnaires having a simple list of strings as choices for a question, but provides several benefits, including:
 </p>
 <ul>
   <li>Questionnaires that reference codes from externally defined code systems have a means of doing so</li>
   <li>Answer sets can be shared across questions (and there are many questionnaires where this capability is useful)</li>
   <li>The full capability of value sets can be brought into play, including the ability to use ConceptMap to link and translate from questionnaire-specific codes to
-  other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, the ability to allow choices from larger value sets
+  other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, and the ability to allow choices from larger value sets
   (e.g. "all SNOMED CT procedure codes")</li>
-  <li>etc.</li>
 </ul>
 <p>
 In many cases, the set of code choices will be specific to a given questionnaire and should be maintained as part of the questionnaire.  In this case, the referenced
 ValueSet can be included as a <a href="references.html#contained">contained</a> resource.  All contained ValueSets are listed together and then are referenced by the
-individual questions as necessary.  Alternatively, the "choices" element can reference the value set in a version-specific manner.  This ensures that the Questionnaire
+individual questions as necessary.  Alternatively, the <code>item.options</code> element can reference the value set in a version-specific manner.  This ensures that the Questionnaire
 will not adopt a new version of the referenced value set without revising the Questionnaire to point to that new version - putting the author of the Questionnaire
 in control of any changes.
 </p>
 
 <h3>Useful Value Sets</h3>
 <p>
-Many questions have a set of possible codes for their answer. These value sets may be useful to help,
+Many questions have a common set of possible codes for their answer. These value sets may be useful to help,
 and when referenced by full URL, do not need to be provided as part of the questionnaire:
 </p>
 <ul>
@@ -214,10 +211,13 @@ guidance is provided by the parent question or group.
 
 <h3>Questionnaires with Math</h3>
 <p>
-While not defined (yet) as part of the FHIR specification, extensions may be defined to perform mathematical functions on questionnaire responses.  For example,
-tabulating scores.  One extension that is defined that may be useful in this process is the Ordinal extension.  This allows a numeric value to be associated with a
-coded data element.  There are two extensions defined - one for defining the numeric weighting of a code defined in a value set - 
-<a href="extension-valueset-ordinalvalue.html">valueset-ordinalValue</a> and the other is a code that can appear within a Coding itself - 
+Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
+
+To help with associating numeric values to coded answers, there are two extensions defined - one for defining the numeric weighting of a code defined in a value set - 
+<a href="extension-valueset-ordinalvalue.html">valueset-ordinalValue</a> and the other for defining a code that can appear within a Coding itself - 
 <a href="extension-iso21090-co-value.html">iso21090-CO-value</a>.
 </p>
+
+<p>In addition, there are extensions for defining the dynamic value of an element usings expressions. For more information, see the <a href="cqif/cqif-topics-using-expressions.html">Using Expressions</a> and <a href="cqif/cqif-knowledge-artifact-representation.html#documentation-template">Documentation Template</a> topics in the Clinical Reasoning module.</p>
+
 </div>

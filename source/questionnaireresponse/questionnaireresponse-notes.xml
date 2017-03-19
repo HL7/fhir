@@ -5,9 +5,8 @@
 Notes
 </h2>
 <ul>
-<li>QuestionnaireResponses can be authored by clinicians, the patient or a patient's relatives (or even the owner in the case of animals). Clinicians
-may author questionnaire responses, where the answers are provided by others on behalf of the patient. Additionally, information gathered for the
-purpose of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, QuestionnaireResponse makes a distinction between the author,
+<li>QuestionnaireResponses can be authored by clinicians, patients, or patients' relatives (or even owners in the case of animals). Clinicians
+may author questionnaire responses, where the answers are provided by others on behalf of the patient. Additionally, information gathered on behalf of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, QuestionnaireResponse makes a distinction between the author,
 the subject and the source of information.</li>
 <li>A QuestionnaireResponse may be stand-alone or may point to the form that defines the questions in <a href="questionnaire.html">Questionnaire</a>.  In
 this second case, the linkage between the questions and groups in the two resources is established using the <code>linkId</code> element.</li>
