@@ -55,7 +55,7 @@ other patient records. It is not a requirement that such links are bilateral.
 </p>
 
 <a name="linking"> </a>
-<h2>Patient vs. Person vs. Patient.Link</h2>
+<h2>Patient vs. Person vs. Patient.Link vs. Linkage</h2>
 <p>
 The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
 to using the Patient.Link capability.<br/>
@@ -73,7 +73,16 @@ system is able to see that this data is changed and prompt the organization to f
 the person record if they want their details updated, or if they no longer need services and they should be cancelled, 
 as they've moved from the area.
 </p>
-  
+<p>
+The <a href="linkage.html">Linkage</a> resource and the Patient.link property conceptually perform similar functions in FHIR, 
+both provide an assertion of linkages between multiple resource instances that are referring to the same underlying individual.<br/>
+When a Patient resource is linked/merged then it needs to have an internal indication that there is another
+patient resource that should be considered when referencing other records, which is achieved using the patient.link property.<br/>
+Not detecting/checking for a potential linkage could mean that related clinical records are not discovered, potentially impacting patient safety.
+(which is why using the Linkage resource is not appropriate, as its use in this manner would force the use of either another
+query to potentially locate other patient resources to consider, or use _revInclude)
+</p>
+
 <a name="contact"> </a>
 <h2>Patient.contact vs. RelatedPerson</h2>
 <p>
