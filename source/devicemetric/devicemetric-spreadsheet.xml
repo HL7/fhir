@@ -16,11 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12435</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>4935</WindowHeight>
+  <WindowWidth>20505</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>674</TabRatio>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -360,7 +361,7 @@
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="138.75"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -388,7 +389,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -472,14 +472,14 @@
     <Cell ss:StyleID="s76"/>
     <Cell><Data ss:Type="String">Unit of Measure for the Metric</Data></Cell>
     <Cell><Data ss:Type="String">Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">DeviceMetric.unit can be referred to either UCUM or preferable RTMMS coding system.</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">DeviceMetric.unit can refer to either UCUM or preferable a RTMMS coding system.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s75">
     <Cell ss:StyleID="s77"><Data ss:Type="String">DeviceMetric.source</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">Reference(Device)</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Describes the link to the source Device</Data></Cell>
-    <Cell><Data ss:Type="String">Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.</Data></Cell>
+    <Cell><Data ss:Type="String">Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacturer, serial number, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s75">
     <Cell ss:StyleID="s77"><Data ss:Type="String">DeviceMetric.parent</Data></Cell>
@@ -565,12 +565,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -585,7 +586,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -971,7 +972,7 @@
  </Worksheet>
  <Worksheet ss:Name="metric-color">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="9" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
+   x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
    <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="99.75"/>
    <Column ss:Width="170.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
