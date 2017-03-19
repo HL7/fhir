@@ -12,8 +12,8 @@ The media resource contains several date/times:
 </ul>
 
 <p>
-This resource can embed the image information directly through the attachment.data element.  
-However, good practice is generally to use attachment.url to point to a Binary resource.  
-Servers will frequently be able to persist Binaries in purpose-dedicated repositories more suitable to potentially large artifacts.
+This resource can embed the image information directly through the <code>attachment.data</code> element.  
+However, good practice is generally to use the <code>attachment.url</code> element to point to a <a href="binary.html">Binary</a> resource.  
+Servers will frequently be able to persist Binary resources in purpose-dedicated repositories more suitable to potentially large artifacts.
 </p>
 </div>

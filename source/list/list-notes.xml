@@ -24,9 +24,9 @@ to provide a record of what data was received or seen by a clinician at a partic
 On the 
 other hand, lists are almost always curated.  They will include only those records deemed by the author of
 the list to be both current and accurate.  This can be both an advantage and a disadvantage.  Lists are
-less likely to include irrelevant content, but there's the risk that they won't be completely up-to-date
-(new content may have been added that's more recent than when a given list was last updated.  It's also possible
-that the list author's notion of "current" or "relevant" may differ the perspective of the user performing
+less likely to include irrelevant content, but there's a risk that they won't be completely up-to-date
+(new content may have been added that's more recent than when a given list was last updated).  It's also possible
+that the list author's notion of "current" or "relevant" may differ from the perspective of the user performing
 the query.  Also, there's the challenge that multiple lists may exist, with different author and different perspectives
 </p>
 <p>
@@ -39,8 +39,8 @@ exclude information that is of interest to the querying system.
 There's no right and wrong way to retrieve allergy, medication and other such information.  Sometimes retrieving
 the "current" medication list will provide the best results, sometimes querying the raw records will provide
 better results.  Sometimes providing the contents of the list plus a filtered view of the raw records may give
-the most useful information.  What approach is most appropriate will depend on the needs of the user as well
-as the types of data sources for information in the server and patterns of list maintenance.  Client systems may
+the most useful information.  Determining the most appropriate approach will depend on the needs of the user as well
+as the types of data sources for information held on the server and patterns of list maintenance.  Client systems may
 well need to adapt their behavior in different environments if they can't count on consistent server behavior.
 </p>
 
@@ -55,13 +55,13 @@ Reordering the items in a list may change the meaning of the list.
 While a list always contains an ordered set of items, the significance
 of the order may be unknown, or it may be insignificant. As an 
 example, consider a list of patients for a practitioner to visit.
-The list may be in order, where the patients are to be visited in
-the stated order, or just an unsorted list of patients to be visited
+The list may be in the order in which the patients are to be visited, 
+or it may be an unsorted list of patients to be visited
 in any order.
 </p>
 <p>
-The list resource has a property <code>orderedBy</code> that, if
-present, specifies the meaning of the item order. Note, though,
+The List resource has an <code>orderedBy</code> element that, if
+present, specifies the meaning of the item order. Note, however,
 that the meaning of the order may be known implicitly rather 
 than specified in the <code>orderedBy</code> element.
 </p>
@@ -103,7 +103,7 @@ from the list is consistent with the logical status of the resource and its cont
 </p>
 <p>
 A proper use of List.mode = "changes" with a deleted resource is in a medications list 
-for a discharge summary. See Example "med-list". An improper use would be if the list 
+section of a discharge summary. See Example "med-list". An improper use would be if the list 
 was a working list of patient medications in a clinical tracking system, and list item
 flags were used to implement version tracking history within the resource.
 </p>
@@ -140,7 +140,7 @@ the narrative of the list is part of the attested content of the document.
 </p>
 
 <p>
-In a dynamic environment, the narrative content of the list will be limited to the
+In a dynamic environment, the narrative content of a list will be limited to the
 version of the linked resources at the time the list was last updated. It may be
 even earlier if the narrative isn't updated to reflect the most recent version
 of all referenced resources at each update.  Best practice for 'working' lists is to update 
@@ -153,28 +153,28 @@ possible approaches to work around this issue:
  <li>Provide minimal information about the listed resources, possibly limited to only a link.  
  (Not recommended as this severely limits the usefulness of the narrative and is particularly
  problematic for things like documents where the only attested content might be the List
- narrative)</li>
+ narrative.)</li>
  <li>Include only "generated" narrative, so the retriever can easily generate their own "current"
  view of the list by retrieving the referenced resources, ignoring the fixed narrative.</li>
  <li>The server hosting the list can subscribe to all referenced resources and auto-update the
- narrative each time one of the referenced resources changes (or at least on a semi-frequent basis)</li>
+ narrative each time one of the referenced resources changes (or at least on a semi-frequent basis).</li>
 </ul>
 
 <a name="emptyReason"> </a>
 <h2>Empty Reason</h2>
 
 <p>
-If the list is empty, there could be several different reasons why this is so. For example:
+If a list is empty, there could be several different reasons why this is so. For example:
 </p>
 <ul>
  <li>There are no appropriate entries for the list (i.e. the patient has no known medications/allergies/history)</li>
  <li>The sender (human or system) deemed that these were not related to this context of patient care (usually for privacy related reasons)</li>
- <li>The source system doesn't support these type of entries</li>
+ <li>The source system doesn't support these types of entries</li>
  <li>The information to populate the list wasn't gathered - i.e. "Not asked"</li>
 </ul>
 <p>
-Given these possibilities, and the common and significant first case, source systems SHOULD 
-provide an empty reason if the list is empty for many kinds of lists. Because of the importance of this case, the 
+Given these possibilities - especially the common and significant first case - for many kinds of lists, source systems SHOULD 
+provide an empty reason if the list is empty. Because of the importance of the first case, the 
 <a href="valueset-list-empty-reason.html">special value "nil-known"</a> should be used when 
 there are no (significant) entries in this context of care. Note that this concept is 
 sometimes described differently, such as "patient denies taking medications", or 
@@ -187,10 +187,10 @@ arrangements in place or, if the list is empty, that there are actually nil know
 unless the "nil-known" code is present.
 </p>
 <p>
-If the list is empty, the narrative should contain text equivalent to the empty reason.
+If a list is empty, the narrative should contain text equivalent to the empty reason.
 </p>
 <p>
-Note that ther are many kinds of lists that can be just empty with no need for any
+Note that there are also many kinds of lists that can be empty with no need for an 
 empty reason (<a href="list-example-simple-empty.html">example</a>)
 </p>
 
