@@ -105,6 +105,7 @@
     <copy todir="${dir.pageincludes}">
       <fileset dir="${dir.framework.includes}"/>
     </copy>
+    <copy todir="${dir.pageincludes}" file="${dir.src}/menu.xml" failonerror="true"/>
     <copy todir="${dir.pagedata}" file="${dir.src}/refs.json" failonerror="false"/>
     <xslt basedir="${dir.src.pagecontent}" destdir="${dir.pageincludes}" includes="*.xml" style="${dir.xslt}/processPages.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>

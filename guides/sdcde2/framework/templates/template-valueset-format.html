@@ -2,10 +2,10 @@
 ---
 {% include fragment-pagebegin.html %}
 <div class="col-9">
-  <h2>
+  <h2 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
     </span> {{[title]}} - {{[fmt]}} <a title="link to here" class="self-link" href="valueset-{{[id]}}.{{[fmt]}}.html#{{site.data.pages[page.path].label}}">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h2>
   <p>

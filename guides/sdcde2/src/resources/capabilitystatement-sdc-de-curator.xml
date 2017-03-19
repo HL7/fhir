@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="capabilitystatement-sdc-de-curator"/>
+  <id value="sdc-de-curator"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <h2>SDC Data Element Curator</h2>
       <p>(Requirements Definition)</p>
-      <p>http://hl7.org/fhir/us/sdcde/CapabilityStatement/capabilitystatement-sdc-de-curator Published: 2014-07-06 (draft)</p>
+      <p>http://hl7.org/fhir/us/sdcde/CapabilityStatement/sdc-de-curator Published: 2014-07-06 (draft)</p>
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Data Element Curator</i> role when conforming to the S&amp;I Framework's <a href="{{site.data.fhir.sdc}}sdc.html">Structured Data Capture FHIR Data Element Exchange implementation guide</a>.  This role is responsible for defining and updating data elements stored in a repository.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Data Element Curator</i> role when conforming to the S&amp;I Framework's <a href="{{site.data.refs.sdc}}sdc.html">Structured Data Capture FHIR Data Element Exchange implementation guide</a>.  This role is responsible for defining and updating data elements stored in a repository.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -28,7 +28,7 @@
       <p>
         <b>Security:</b>
       </p>
-      <p>Implementations must meet the general security requirements documented in the <a href="{{site.data.fhir.sdc}}sdc-security.html">SDC implementation guide</a>.</p>
+      <p>Implementations must meet the general security requirements documented in the <a href="{{site.data.refs.sdc}}sdc-security.html">SDC implementation guide</a>.</p>
       <h3>Resource summary</h3>
       <table class="grid">
         <thead>
@@ -361,7 +361,7 @@
       </table>
     </div>
   </text>
-  <url value="http://hl7.org/fhir/us/sdcde/CapabilityStatement/capabilitystatement-sdc-de-curator"/>
+  <url value="http://hl7.org/fhir/us/sdcde/CapabilityStatement/sdc-de-curator"/>
   <name value="SDC Data Element Curator"/>
   <status value="draft"/>
   <date value="2014-07-06"/>
@@ -372,7 +372,7 @@
       <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
     </telecom>
   </contact>
-  <description value="This profile defines the expected capabilities of the ''SDC Data Element Curator'' role when conforming to the S&amp;I Framework's [[{{site.data.fhir.sdc}}sdc|Structured Data Capture FHIR Data Element Exchange implementation guide]].  This role is responsible for defining and updating data elements stored in a repository."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Data Element Curator'' role when conforming to the S&amp;I Framework's [[{{site.data.refs.sdc}}sdc|Structured Data Capture FHIR Data Element Exchange implementation guide]].  This role is responsible for defining and updating data elements stored in a repository."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
@@ -382,7 +382,7 @@
     <mode value="server"/>
     <documentation value="The primary focus of the curator is the definition and maintenance of [[DataElement]]s.  However, [[ValueSet]]s and [[CodeSystem]]s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)"/>
     <security>
-      <description value="Implementations must meet the general security requirements documented in the [[{{site.data.fhir.sdc}}sdc-security|SDC implementation guide]]."/>
+      <description value="Implementations must meet the general security requirements documented in the [[{{site.data.refs.sdc}}sdc-security|SDC implementation guide]]."/>
     </security>
     <resource>
       <type value="DataElement"/>

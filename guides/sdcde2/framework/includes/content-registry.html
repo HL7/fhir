@@ -11,9 +11,9 @@
 {% endfor %}
 {% if profiles == true %}
   <a name="profiles"> </a>
-  <h3>
+  <h3 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}.1</span> Profiles <a title="link to here" class="self-link" href="{{page.path}}#profiles">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h3>
   {% include table-profiles.xhtml %}
@@ -21,9 +21,9 @@
 
 {% if extensions == true %}
   <a name="extensions"> </a>
-  <h3>
+  <h3 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}.2</span> Extensions <a title="link to here" class="self-link" href="{{page.path}}#extensions">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h3>
   {% include table-extensions.xhtml %}
@@ -31,9 +31,9 @@
 
 {% if valuesets == true %}
   <a name="valuesets"> </a>
-  <h3>
+  <h3 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}.3</span> Value Sets <a title="link to here" class="self-link" href="{{page.path}}#valuesets">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h3>
   {% include table-valuesets.xhtml %}
@@ -41,9 +41,9 @@
 
 {% if site.data.pages['toc.html'].examples.size &gt; 0 %}
   <a name="examples"> </a>
-  <h3>
+  <h3 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}.4</span> Examples <a title="link to here" class="self-link" href="{{page.path}}#examples">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h3>
   <table style="grid">

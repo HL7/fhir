@@ -45,6 +45,7 @@
     </xsl:if>
     <xsl:element name="{local-name(.)}">
       <xsl:apply-templates select="@*"/>
+      <xsl:attribute name="class" select="'self-link-parent'"/>
       <span class="sectioncount">
         <xsl:value-of select="concat('{{site.data.pages[page.path].label}}.0.', $hierarchy)"/>
       </span>
@@ -53,7 +54,7 @@
       <xsl:text> </xsl:text>
       <a title="link to here" class="self-link">
         <xsl:attribute name="href" select="concat('{{page.path}}#', $link)"/>
-        <img src="target.png"/>
+        <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
       </a>
     </xsl:element>
   </xsl:template>

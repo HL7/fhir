@@ -3,9 +3,9 @@
 {% include fragment-pagebegin.html %}
 <div class="col-9">
   <a name="vs"> </a>
-  <h1>
+  <h1 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}</span> Value Set {{data.fhir.canonical}}/ValueSet/{{[id]}} <a title="link to here" class="self-link" href="valueset-{{[id]}}.html#vs">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h1>
   <p>
@@ -20,9 +20,9 @@
   {%include ValueSet-{{[id]}}-xref.xhtml%}
 
   <a name="definition"> </a>
-  <h2>
+  <h2 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}.1</span> Content Logical Definition <a title="link to here" class="self-link" href="valueset-{{[id]}}.html#definition">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h2>
 
@@ -30,18 +30,14 @@
   
   <p>&#160;</p>
   <a name="expansion"> </a>
-  <h2>
+  <h2 class="self-link-parent">
     <span class="sectioncount">{{site.data.pages[page.path].label}}.2</span> Expansion <a title="link to here" class="self-link" href="valueset-{{[id]}}.html#expansion">
-      <img src="target.png"/>
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h2>
 
   {%include ValueSet-{{[id]}}-expansion.xhtml%}
 
-  <p>&#160;</p>
-  <p>
-    See <a href="registry.html">the full registry of value sets</a> defined as part of the <i>{{data.fhir.igName}}</i> implementation guide.
-  </p>
   <hr/>
   <p>
     Explanation of the columns that may appear on this page:

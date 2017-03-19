@@ -2,7 +2,7 @@
   <a name="SDC"> </a>
   <h2>Structured Data Capture (SDC) - Data Element Exchange Implementation Guide</h2>
   <p>
-    This implementation guide is a supplement to the base <a href="{{site.data.fhir.sdc}}sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines 
+    This implementation guide is a supplement to the base <a href="{{site.data.refs.sdc}}sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines 
     expectations for <a href="{{site.data.fhir.path}}dataelement.html">Data Element</a> registries, as well as those systems that are responsible for the creation and 
     maintenance of data elements within those registries.  This capability is documented as a distinct implementation guide because the expectations for systems creating and 
     maintaining data elements are higher than for those systems that are merely responsible for referencing data elements when creating forms or configuring their
@@ -39,8 +39,8 @@
     approach also allows implementers to easily navigate to the information needed to perform a particular task.
   </p>
   <p>
-    A <a href="registry.html">Table of Contents</a> page is provided that lists all of the pages and artifacts
-    defined as part of this implementation guide.  (Do be aware that some pages have multiple tabs.)  A
+    A <a href="toc.html">Table of Contents</a> and <a href="artifacts.html">Artifact Index</a> are provided to help navigate the content within this guide.
+    (Do be aware that some pages have multiple tabs.)  A
     table of contents is also available for the full <a href="{{site.data.fhir.path}}toc.html">FHIR specification</a> if
     you really want to read absolutely everything.  Tooling may provide support for a PDF or other document-approach
     representation of this implementation guide in a future release.
@@ -114,7 +114,7 @@
     DataElement instances do not convey patient-specific information.  However, because the mappings associated with data elements can influence the
     data that might be automatically populated into forms and could also influence the security controls around data associated with the DataElement,
     security precautions should be taken to ensure that data elements are not created or revised by someone without the proper authority.  
-    <a href="{{site.data.fhir.sdc}}sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
+    <a href="{{site.data.refs.sdc}}sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
     SDC implementation guide.
   </p>
   <p>
@@ -131,9 +131,9 @@
   </p>
   <ul>
     <li>
-      <a href="capabilitystatement-sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
+      <a href="sdc-de-registry.html">SDC Data Element Registry</a> - Repository for data elements</li>
     <li>
-      <a href="capabilitystatement-sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
+      <a href="sdc-de-curator.html">SDC Data Element Curator</a> - System responsible for creating and updating data elements</li>
   </ul>
   <p>
     Systems supporting the <i>SDC Data Element Registry</i> role SHALL be capable of accepting, persisting and returning all DataElement properties marked as
@@ -158,7 +158,7 @@
           <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
         </td>
         <td>
-          <a href="dataelement-sdc-de.html">SDC Data Element Exchange Profile</a>
+          <a href="sdcde-dataelement.html">SDC Data Element Exchange Profile</a>
         </td>
         <td>Used to define data elements for exchange and maintenance within data element registries</td>
       </tr>
@@ -167,9 +167,18 @@
           <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
         </td>
         <td>
-          <a href="valueset-sdc-de.html">SDC Data Element Exchange Value Set Profile</a>
+          <a href="sdcde-valueset.html">SDC Data Element Exchange Value Set Profile</a>
         </td>
         <td>Used to define permitted values and meanings for data elements</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
+        </td>
+        <td>
+          <a href="sdcde-codesystem.html">SDC Data Element Exchange Code System Profile</a>
+        </td>
+        <td>Used to define the concepts used as permitted values and meanings for data elements</td>
       </tr>
     </tbody>
   </table>
