@@ -102,6 +102,7 @@
   Binding = LocationStatus
   Short Name = active | suspended | inactive
   Definition = The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .statusCode
   w5 = status
 
@@ -273,6 +274,7 @@
   Type = string
   Description = A portion of the location\'s name or alias
   Path = Location.name | Location.alias
+  Expression = Location.name | Location.alias
 
  -- Row 3 -----------------------------------
   Name = type

@@ -379,6 +379,7 @@
   Short Name = registered | preliminary | final | amended +
   Definition = The status of the result value
   Requirements = Need to track the status of individual results. Some results are finalized before the whole report is finalized
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
   SNOMED CT Concept Domain = < 445584004 |Report by finality status|
   v2 Mapping = OBX-11

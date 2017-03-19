@@ -279,7 +279,7 @@
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled | unknown
   Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Requirements = Allows clinicians to determine whether the plan is actionable or not
-  Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the care plan.
+  Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the care plan.\n\nThis element is labeled as a modifier because the status contains the code entered-in-error] that marks the plan as not currently valid
   Workflow Mapping = Request.status (uses different ValueSet)
   v2 Mapping = PTH-5
   RIM Mapping = .statusCode planned = new active = active completed = completed

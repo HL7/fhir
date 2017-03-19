@@ -74,6 +74,7 @@
   Binding = FlagStatus
   Short Name = active | inactive | entered-in-error
   Definition = Supports basic workflow
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status
   w5 = status
 

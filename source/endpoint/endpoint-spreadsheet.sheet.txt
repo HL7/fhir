@@ -104,6 +104,7 @@
   Binding = EndpointStatus
   Short Name = active | suspended | error | off | entered-in-error | test
   Definition = active | suspended | error | off | test
+  Comments = This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid
   RIM Mapping = n/a
   w5 = status
 

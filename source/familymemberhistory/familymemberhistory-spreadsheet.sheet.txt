@@ -160,6 +160,7 @@
   Binding = FamilyHistoryStatus
   Short Name = partial | completed | entered-in-error | health-unknown
   Definition = A code specifying the status of the record of the family history of a specific family member
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   w5 = status
 
  -- Row 5 -----------------------------------

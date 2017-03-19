@@ -158,7 +158,7 @@
   Binding = ProcedureRequestStatus
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the order
-  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Request.status
   v2 Mapping = ORC.5
   RIM Mapping = .status

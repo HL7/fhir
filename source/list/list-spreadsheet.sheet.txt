@@ -125,6 +125,7 @@
   Binding = ListStatus
   Short Name = current | retired | entered-in-error
   Definition = Indicates the current state of this list
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status[current=active;retired=obsolete;entered-in-error=nullified]
   w5 = status
 

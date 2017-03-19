@@ -168,6 +168,7 @@
   Binding = CommunicationStatus
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error
   Definition = The status of the transmission.
+  Comments = This element is labeled as a modifier because the status contains the codes aborted and entered-in-error that mark the communication as not currently valid
   Workflow Mapping = Event.status
   w5 = status
 

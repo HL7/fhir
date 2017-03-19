@@ -243,14 +243,14 @@
   Binding = MetricUnit
   Short Name = Unit of Measure for the Metric
   Definition = Describes the unit that an observed value determined for this metric will have. For example: Percent, Seconds, etc.
-  Comments = DeviceMetric.unit can be referred to either UCUM or preferable RTMMS coding system.
+  Comments = DeviceMetric.unit can refer to either UCUM or preferable a RTMMS coding system.
 
  -- Row 5 -----------------------------------
   Element = DeviceMetric.source
   Card. = 0..1
   Type = Reference(Device)
   Short Name = Describes the link to the source Device
-  Definition = Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacture, serial number, etc.
+  Definition = Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacturer, serial number, etc.
 
  -- Row 6 -----------------------------------
   Element = DeviceMetric.parent

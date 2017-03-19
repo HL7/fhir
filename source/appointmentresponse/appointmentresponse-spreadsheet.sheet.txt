@@ -109,6 +109,7 @@
   Binding = ParticipantStatus
   Short Name = accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
   Definition = Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
+  Comments = This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid
   RIM Mapping = (performer | reusableDevice | subject | location).statusCode
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 

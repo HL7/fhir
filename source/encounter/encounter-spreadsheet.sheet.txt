@@ -209,7 +209,7 @@
   Type = code
   Binding = EncounterStatus
   Short Name = planned | arrived | triaged | in-progress | onleave | finished | cancelled +
-  Comments = Note that internal business rules will detemine the appropraite transitions that may occur between statuses (and also classes)
+  Comments = Note that internal business rules will detemine the appropraite transitions that may occur between statuses (and also classes).\n\nThis element is labeled as a modifier because the status contains codes that mark the encounter as not currently valid
   v2 Mapping = No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16
   RIM Mapping = .statusCode
   w5 = status

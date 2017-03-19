@@ -125,6 +125,7 @@
   Binding = SpecimenStatus
   Short Name = available | unavailable | unsatisfactory | entered-in-error
   Definition = The availability of the specimen
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   v2 Mapping = SPM-20
   RIM Mapping = status
   Committee Notes = [#5829}

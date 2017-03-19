@@ -115,7 +115,7 @@
   Binding = SubscriptionStatus
   Short Name = requested | active | error | off
   Definition = The status of the subscription, which marks the server state for managing the subscription
-  Comments = A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off
+  Comments = A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   w5 = status
 
  -- Row 3 -----------------------------------

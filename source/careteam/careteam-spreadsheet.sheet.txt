@@ -136,6 +136,7 @@
   Binding = CareTeamStatus
   Short Name = proposed | active | suspended | inactive | entered-in-error
   Definition = Indicates the current state of the care team.
+  Comments = This element is labeled as a modifier because the status contains the code entered-in-error that marks the care team as not currently valid
   w5 = status
 
  -- Row 4 -----------------------------------

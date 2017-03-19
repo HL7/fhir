@@ -112,6 +112,7 @@
   Binding = CommunicationRequestStatus
   Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
   Definition = The status of the proposal or order.
+  Comments = This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid
   Workflow Mapping = Request.status
   w5 = status
 

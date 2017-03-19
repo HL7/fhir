@@ -135,7 +135,7 @@
   Binding = DocumentReferenceStatus
   Short Name = current | superseded | entered-in-error
   Definition = The status of this document reference
-  Comments = This is the status of the DocumentReference object, which might be independent from the docStatus element.
+  Comments = This is the status of the DocumentReference object, which might be independent from the docStatus element.\n\nThis element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid
   v2 Mapping = TXA-19
   RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
   XDS Mapping = DocumentEntry status
@@ -543,6 +543,7 @@
   Type = composite
   Description = Combination of relation and relatesTo
   Path = relatesto & relation
+  Expression = DocumentReference.relatesTo; code; target
 
  -- Row 14 -----------------------------------
   Name = description

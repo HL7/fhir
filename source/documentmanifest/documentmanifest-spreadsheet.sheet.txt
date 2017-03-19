@@ -49,6 +49,7 @@
   Binding = DocumentReferenceStatus
   Short Name = current | superseded | entered-in-error
   Definition = The status of this document manifest
+  Comments = This element is labeled as a modifier because the status contains the codes that mark the manifest as not currently valid
   RIM Mapping = .statusCode
   XDS Mapping = SubmissionSet status
   w5 = status

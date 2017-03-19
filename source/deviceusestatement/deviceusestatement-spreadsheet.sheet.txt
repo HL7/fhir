@@ -96,7 +96,7 @@
   Binding = DeviceUseStatementStatus
   Short Name = active | completed | entered-in-error +
   Definition = A code representing the patient or other source\'s judgment about the state of the device used that this statement is about.  Generally this will be active or completed.
-  Comments = DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).
+  Comments = DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).\n\nThis element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid
   RIM Mapping = .statusCode
   QUICK mapping = …status
   w5 = status

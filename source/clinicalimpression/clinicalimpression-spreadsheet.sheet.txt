@@ -93,6 +93,7 @@
   Binding = ClinicalImpressionStatus
   Short Name = draft | completed | entered-in-error
   Definition = Identifies the workflow status of the assessment
+  Comments = This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid
   v2 Mapping = PRB-14
   w5 = status
 

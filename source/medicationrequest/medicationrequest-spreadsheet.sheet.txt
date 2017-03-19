@@ -300,6 +300,7 @@
   Binding = MedicationRequestStatus
   Short Name = active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
   Definition = A code specifying the current state of the order.  Generally this will be active or completed state
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = …status
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .statusCode

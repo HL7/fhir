@@ -205,6 +205,7 @@
   Binding = MedicationAdministrationStatus
   Short Name = in-progress | on-hold | completed | entered-in-error | stopped | unknown
   Definition = Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = …status
   v2 Mapping = RXA-20-Completion Status
   RIM Mapping = .statusCode

@@ -192,6 +192,7 @@
   Short Name = proposed | accepted | planned | in-progress | on-target | ahead-of-target | behind-target | sustaining | achieved | on-hold | cancelled | entered-in-error | rejected
   Definition = Indicates whether the goal has been reached and is still considered relevant
   Requirements = Allows measuring outcome and whether goal needs to be further tracked.
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   v2 Mapping = GOL-18-goal life cycle status
   RIM Mapping = .statusCode in-progress = active (classCode = OBJ) achieved = complete sustaining = active (classCode=OBJC) cancelled = aborted
   w5 = status

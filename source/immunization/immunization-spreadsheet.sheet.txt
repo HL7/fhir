@@ -125,7 +125,7 @@
   Binding = ImmunizationStatus
   Short Name = completed | entered-in-error
   Definition = Indicates the current status of the vaccination event
-  Comments = Will generally be set to show that the immunization has been completed.
+  Comments = Will generally be set to show that the immunization has been completed.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
   RIM Mapping = statusCode
   Committee Notes = #7867

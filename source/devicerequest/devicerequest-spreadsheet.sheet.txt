@@ -121,6 +121,7 @@
   Binding = DeviceRequestStatus
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the request.
+  Comments = This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid
   v2 Mapping = ORC.5
   RIM Mapping = .status
   QUICK mapping = Action.currentStatus

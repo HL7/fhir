@@ -184,7 +184,7 @@
   Binding = NutritionOrderStatus
   Short Name = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
   Definition = The workflow status of the nutrition order/request.
-  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
+  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Request.status
   RIM Mapping = .statusCode
   Committee Notes = [#3720]

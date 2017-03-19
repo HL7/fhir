@@ -91,6 +91,7 @@
   Binding = DetectedIssueStatus
   Short Name = registered | preliminary | final | amended +
   Definition = Indicates the status of the detected issue
+  Comments = This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the issue as not currently valid
   Workflow Mapping = Event.status
   w5 = status
 

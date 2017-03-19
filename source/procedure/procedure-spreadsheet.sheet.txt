@@ -164,7 +164,7 @@
   Binding = ProcedureStatus
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown
   Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
-  Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the procedure.
+  Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the procedure.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = statusCode
   Committee Notes = GF#10626
   w5 = status

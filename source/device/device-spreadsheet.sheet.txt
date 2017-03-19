@@ -241,6 +241,7 @@
   Binding = FHIRDeviceStatus
   Short Name = active | inactive | entered-in-error | unknown
   Definition = Status of the Device availability.
+  Comments = This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the device (record)as not currently valid
   RIM Mapping = .statusCode
   w5 = status
 
