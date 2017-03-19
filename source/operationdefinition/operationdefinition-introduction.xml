@@ -12,7 +12,7 @@ The OperationDefinition serves two principal purposes:
  <li>To allow for dynamic generation of forms to drive the operations</li>
 </ul>
 <p>
-See below for further information about these, and about how Operations and Named Queries are executed.
+See below for further information about these, and about how operations and named queries are executed.
 </p>
 </div>
 
@@ -20,9 +20,9 @@ See below for further information about these, and about how Operations and Name
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Operation Definitions are published to define operations that servers can implement in a common fashion. 
-The FHIR specification itself describes a number (see below), and other organizations, including 
-IHE, national programs, jurisdictions and vendors are able to publish additional operation definitions.
+OperationDefinitions are published to define operations that servers can implement in a common fashion. 
+The FHIR specification itself describes some (see below), and other organizations (including 
+IHE, national programs, jurisdictions and vendors) are able to publish additional OperationDefinitions.
 </p>
 <p>
 OperationDefinition resources are referred to from two different places:

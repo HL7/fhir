@@ -8,27 +8,26 @@
 
 <p>
 Operations are executed by POSTing to a URL that is <a href="operations.html">defined by the operation definition</a>.
-Named Queries are executed by performing a <a href="search.html">search</a> with the value of the search parameter
+Named queries are executed by performing a <a href="search.html">search</a> with the value of the search parameter
 "_query" set to the name provided in the definition. 
 </p>
 <p>
 If the named query is to be performed over the RESTful API, all the parameters must be simple search parameters,
 so that they can be represented directly in the URL without tricky encoding issues. Named queries always 
 return a bundle containing a set of resources, so all the out parameters must be 
-resources, not data types etc.
+resources, not data types.
 </p>
  
 <h3>Passing Resources to Operations</h3> 
 
 <p>
-There are two ways to pass resources to an operation - directly, or by reference.
-Since the two forms have very different behaviors and consequences, the definition of 
-an Operation distinguishes between these two. 
+There are two ways to pass resources to an operation: directly or by reference.
+The definition of an operation distinguishes between these two, since they have very different behaviors and consequences.
 </p>
 <p>
 As an example, take the <a href="questionnaire-operations.html#populate">Questionnaire.$populate operation</a>.  
 This operation takes a questionnaire as a direct parameter. The type of the parameter is 
-defined as 'Questionnaire'. In a parameters resource, it would be represented like this:
+defined as 'Questionnaire'. In a <a href="parameters.html">Parameters</a> resource, it would be represented like this:
 </p>
 <pre class="xml">
   &lt;parameter&gt;
@@ -56,10 +55,10 @@ or, in JSON:
 </pre>
 
 <p>
-Other parameters are passed by reference. For example, populate takes a 
+Other parameters are passed by reference. For example, <code>$populate</code> takes a 
 set of references to other resources that should be used to pre-populate the 
 questionnaire. These are passed by reference, and the type of the 
-parameter is 'Reference(Any)' - a reference to any kind of resource.
+parameter is <code>Reference(Any)</code> - a reference to any kind of resource.
 In a parameters resource, it would be represented like this: 
 </p>
 <pre class="xml">
@@ -86,22 +85,21 @@ or, in JSON:
 </pre>
 
 <p>
-Some operations can take either form; in that case, two different parameters
-must be defined, one for a resource directly, and one for a reference.
+Some operations can take either form; in that case, two distinct parameters
+must be defined, one for a resource as a direct parameter, and one for a reference.
 </p>
 
 <h3>Renaming OperationDefinition.name</h3>
 
 <p>
-It's possible for two different organizations to create different operation definitions that 
-have the same name (or, perhaps more likely, to define equivalent operations that have the 
-same name but incompatible approaches in their parameter lists). 
+It is possible for two different organizations to create different operation definitions with the same name or, perhaps more likely, to define equivalent operations that have the 
+same name but incompatible approaches in their parameter lists. 
 </p>
 <p>
-It's also possible, though unlikely, that a server will be required to support both of 
-these operations. Should this be the case, the server is able to do this by giving one of them
-a new name, and then referring to it by definition in the capability statement. To illustrate
-this, let's assume that two different organizations (orgA and orgB) both define an operation 
+It is also possible, though unlikely, that a server will be required to support both of 
+these operations. If this is the case, the server is able to do this by giving one of them
+a new name and referring to it by definition in the capability statement. To illustrate
+this, assume that two different organizations, "orgA" and "orgB", both define an operation 
 called "dothis", and the definitions are incompatible. OrgA publishes its operation
 definition at http://orga.com/fhir/dothis.xml, and OrgB publishes its operation at 
 http://fhir.orgb.com/meta/OperationDefinition/dothis. The server is able to implement
@@ -131,43 +129,39 @@ both. Its capability statement will say:
 </pre>
 <p>
 If a general purpose cross server client is looking for the implementation of the 
-http://fhir.orgb.com/meta/OperationDefinition/dothis operation, and wants to be
+http://fhir.orgb.com/meta/OperationDefinition/dothis operation and wants to be
 robust against this name clash problem, instead of simply executing the $dothis
-operation, it can look at the server's capability statement for the underlying
-definition URI, and then execute the name given in the capability statement.
+operation, it can look at the server's <a href="capabilitystatement.html">CapabilityStatement</a> for the underlying
+definition URI and then execute the name given in the capability statement.
 </p>
 
 <h3>Determining System Compatibility</h3>
 
 <p>
-A client can determine the compatibility of the server by iterating its capability
-statement and seeing whether any of the operations it declares to support source
-from the same definitions as those the client depends on, and whether the server supports the parameters it uses. A client that does this can report a useful error to the user rather than allowing mystifying operational errors to occur.
+A client can determine the compatibility of the server by processing its capability
+statement and ensuring that the server implements the specific operation definitions and parameters required by the client. The client can then report a useful error to the user rather than allowing mystifying operational errors to occur.
 </p>
 <p>
-Note, however, that there are fundamental limitations to this approach because 
-there are many aspects of these operations that aren't (and can't be) defined 
-in a formal fashion.  (For example, co-occurrence constraints amongst parameters.)
+However, there are fundamental limitations to this approach because 
+there are many aspects of these operations that are not (or cannot be) defined 
+in a formal fashion using OperationDefinition, for example, co-occurrence constraints among parameters.
 </p>
 <p>
-In the same sense, a 3rd party tool can examine the capability statements from 
-a server and a client definition of an acceptable server and confirm whether
-those two system are would be unable to interoperate.
+In the same sense, a 3rd party tool can examine a server's CapabilityStatement and a client's definition of an acceptable server to determine whether
+those two system are interoperable or not.
 </p>
 
 <h3>Dynamically Generating Forms</h3>
 
 <p>
 Finally, it is possible to generate user interface forms automatically from 
-the operation definitions. The documentation in the form definition 
-and the parameter documentation should be sufficiently useful to allow
+the OperationDefinition. The documentation in the <code>OperationDefinition.description</code> 
+and <code>OperationDefinition.parameter.documentation</code> should be sufficient to allow
 moderately technical users to guess at the correct content of the form.
-For this reason, highly technical documentation should go in OperationDefinition.notes.
+For this reason, highly technical documentation should go in <code>OperationDefinition.comment</code>.
 </p>
 <p>
-Note also this is not expected to be a tool of use to typical healthcare
-end-users; such users will usually need more support than can be offered
-in a generated form. 
+It is anticipated that this would be used to automate development processes, rather than to generate end-user forms: such users will usually need more support than can be offered in a generated form.
 </p>
 
 </div>

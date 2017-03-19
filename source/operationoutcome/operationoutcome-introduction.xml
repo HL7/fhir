@@ -4,16 +4,16 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-Operation Outcomes are sets of error, warning and information messages that provide detailed information about the outcome of some attempted system operation.  
-They are provided as a direct system response, or component of one, where they provide information about the outcome of the operation.
+Operation outcomes are sets of error, warning and information messages that provide detailed information about the outcome of an attempted system operation.  
+They are provided as a direct system response or component of one and provide information about the outcome of the operation.
 </p>
 
 <p>
-OperationOutcomes are used in the following circumstances:
+The OperationOutcome resource is used in the following circumstances:
 </p>
 <ul>
  <li>When an <a href="http.html#operations">RESTful operation</a> fails</li>
- <li>As the response on a <a href="http.html#validate">validation operation</a>, to provide information about the outcomes</li>
+ <li>As the response on a <a href="http.html#validate">validation operation</a> to provide information about the outcome</li>
  <li>As part of a message response, usually when the message has not been processed correctly</li>
 </ul>
 </div>
@@ -28,7 +28,7 @@ these would be handled using <a href="detectedissue.html">DetectedIssue</a> or o
 is not designed to be persisted or referenced from other parts of the workflow. 
 </p>
 <p>
-It is possible to have both <code>OperationOutcome</code> and <a href="detectedissue.html">DetectedIssue</a> together, where the OperationOutcome might 
+It is possible to have both OperationOutcome and <a href="detectedissue.html">DetectedIssue</a> together, where the OperationOutcome might 
 indicate that a requested action was rejected due to a clinical issue and the DetectedIssue provides the details of the issue.
 </p>
 
