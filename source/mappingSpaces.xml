@@ -129,6 +129,7 @@
 		<title>iCalendar</title>
 		<id>ical</id>
 		<sort>11</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.omg.org/spec/ServD/1.0/</url>
@@ -136,6 +137,7 @@
 		<title>ServD</title>
 		<id>servd</id>
 		<sort>12</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://metadata-standards.org/11179/</url>
@@ -156,6 +158,7 @@
 		<title>IHE Data Element Exchange (DEX)</title>
 		<id>dex</id>
 		<sort>14</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://openehr.org</url>
@@ -171,6 +174,7 @@
 		<title>IHE Structured Data Capture</title>
 		<id>ihesdc</id>
 		<sort>16</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://wiki.siframework.org/CQF</url>
@@ -178,6 +182,7 @@
 		<title>Quality Improvement and Clinical Knowledge (QUICK)</title>
 		<id>quick</id>
 		<sort>17</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.cdisc.org/define-xml</url>
@@ -185,6 +190,7 @@
 		<title>CDISC Define XML 2.0 metadata standard</title>
 		<id>define.xml2.0</id>
 		<sort>18</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.cdisc.org/define-xml</url>
@@ -192,6 +198,7 @@
 		<title>CDISC Define XML 2.0 metadata standard</title>
 		<id>define.xml2.0</id>
 		<sort>19</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.cda-adc.ca/en/services/cdanet/</url>
@@ -199,6 +206,7 @@
 		<title>Canadian Dental Association eclaims standard</title>
 		<id>cdanetv4</id>
 		<sort>20</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.pharmacists.ca/</url>
@@ -206,6 +214,7 @@
 		<title>Canadian Pharmacy Associaiton eclaims standard</title>
 		<id>cpha3pharm</id>
 		<sort>21</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.healthit.gov/quality-data-model</url>
@@ -213,6 +222,7 @@
 		<title>Quality Data Model</title>
 		<id>qdm</id>
 		<sort>22</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/orim</url>
@@ -220,6 +230,7 @@
 		<title>Ontological RIM Mapping</title>
 		<id>orim</id>
 		<sort>23</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/w5</url>
@@ -234,6 +245,7 @@
 		<title>Logical Mapping</title>
 		<id>logical</id>
 		<sort>25</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/auditevent</url>
@@ -241,6 +253,7 @@
 		<title>FHIR AuditEvent</title>
 		<id>fhirauditevent</id>
 		<sort>26</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/provenance</url>
@@ -248,6 +261,7 @@
 		<title>FHIR Provenance</title>
 		<id>fhirprovenance</id>
 		<sort>27</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</url>
@@ -255,6 +269,7 @@
 		<title>Quality Improvement Domain Analysis Model</title>
 		<id>qidam</id>
 		<sort>28</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://cap.org/ecc</url>
@@ -262,6 +277,7 @@
 		<title>CAP Code</title>
 		<id>cap</id>
 		<sort>29</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm</url>
@@ -276,6 +292,7 @@
 	</p>
 		</preamble>
 		<sort>30</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://hl7.org/fhir/object-implementation</url>
@@ -306,6 +323,7 @@
 		<title>Workflow Mapping</title>
 		<id>workflow</id>
 		<sort>34</sort>
+		<publish>true</publish>
 	</space>
 	<space>
 		<url>http://clinicaltrials.gov</url>
@@ -313,5 +331,6 @@
 		<title>ClinicalTrials.gov Mapping</title>
 		<id>clinicaltrials-gov</id>
 		<sort>35</sort>
+		<publish>true</publish>
 	</space>
 </mappingSpaces>
