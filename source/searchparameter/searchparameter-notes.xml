@@ -3,13 +3,13 @@
 <h2>SearchParameters on Extensions</h2>
 <p>The SearchParameter resource may be used to define searches on extensions. Depending on the context of the extension
 (as defined in the <a href="structuredefinition.html">StructureDefinition</a>), this may require multiple instances of the
-SearchParameter.xpath element like so:</p>
+<code>SearchParameter.xpath</code> element like so:</p>
 <ul>
 <li>If the extension's context is scoped by a single resource, SearchParameter.base must be set to that resource,
-and there may be one or more xpath elements corresponding to the elements specified in the extension's context, e.g.
+and there may be one or more <code>xpath</code> elements corresponding to the elements specified in the extension's context, e.g.
 "f:Patient/f:name/f:extension[@url='extension url']"</li> 
-<li>If the extension's context specifies multiple resources, SearchParameter.base must be set to "DomainResource".</li>
-<li>You may use a single xpath element with the full url of the Extension to indicate that the SearchParameter
-would search in all elements of the given SearchParameter.base resource for the given extension.</li>
+<li>If the extension's context specifies multiple resources, <code>SearchParameter.base</code> must be set to "DomainResource".</li>
+<li>You may use a single <code>xpath</code> element with the full URL of the Extension to indicate that the SearchParameter
+would search in all elements of the given <code>SearchParameter.base</code> resource for the given extension.</li>
 </ul>
 </div>

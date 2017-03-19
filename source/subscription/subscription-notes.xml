@@ -23,7 +23,7 @@ Emails should generally be secured using some technique such as
 <a name="errors"> </a>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
-A subscription is defined by creating the subscription on the server.
+A subscription is defined by creating the Subscription resource on the server.
 When the subscription is created by the client, it sets the status
 to "requested". After POSTing the subscription, the client parses 
 the Location header and saves the new Subscription's logical id for 
@@ -66,7 +66,7 @@ deletes it at the specified time.
 <h3>REST Hook</h3>
 
 <p>
-This uses an empty POST message to alert the client that new results 
+This uses an empty POST message to alert the subscriber that new results 
 are available - POST to [base]/Subscription:
 </p>
 <pre class="json" fragment="Subscription">
@@ -85,8 +85,8 @@ When a resource is created or updated that meets the criteria, the server
 sends a POST request with no body to the nominated URL.
 </p>
 <p>
-When the client receives a POST to https://biliwatch.com/customers/mount-auburn-miu/on-result, 
-it re-issues the criteria as a query to the server, appending &amp;_since=:last (where :last is 
+When the subscriber receives a POST to <code>https://biliwatch.com/customers/mount-auburn-miu/on-result</code>, 
+it re-issues the criteria as a query to the server, appending <code>&amp;_since=:last</code> (where :last is 
 replaced by the time at which the client last checked). In this way it can fetch all new 
 relevant <a href="observation.html">Observations</a>.
 </p>
@@ -115,7 +115,7 @@ as a healthcare institution.
 
 <p>
 This requests that a server forward a copy of any
-matching resource in json format to the nominated server as an <a href="http.html#update">Update 
+matching resource in JSON format to the nominated server as an <a href="http.html#update">Update 
 operation</a> using the nominated URL as the <a href="http.html#root">service base</a>. 
 In order to execute this channel, the server must know how 
 to authenticate appropriately with the destination 
@@ -131,7 +131,7 @@ the nominated server.
 
 <p>
 Subscriptions are created exclusively via the FHIR REST API. But notifications need not 
-occur via REST. Indeed, some clients may be unable to expose an outward-facing HTTP 
+occur via REST. Indeed, some subscribers may be unable to expose an outward-facing HTTP 
 server to receive triggered notifications. For example, a pure client-side Web app or 
 mobile app may want to subscribe to a data feed without polling using the /history 
 operation. This can be accomplished using a websocket notification channel.
@@ -150,7 +150,7 @@ A client can declare its intention to listen via Web Sockets:
 </pre>
 
 <p>
-The client would then initiate a Web Socket connection to the server, at a URL advertised 
+The subscriber would then initiate a Web Socket connection to the server, at a URL advertised 
 in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A simple 
 protocol is used to listen for notifications:
 </p>

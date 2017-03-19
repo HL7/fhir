@@ -20,9 +20,9 @@ The server is able to send notifications without any information about the match
 Several different types of channels are supported:
 </p>
 <ul>
- <li><b>rest-hook</b>: A post is made to the URL. If the subscription requests that the whole resource is included, the URL is interpreted as the service base</li>
+ <li><b>rest-hook</b>: A post is made to the URL identified in the Subscription resource. If the subscription requests that the whole resource is included, the URL is interpreted as the service base</li>
  <li><b>websocket</b>: A PING message is sent to the designated URI</li>
- <li><b>email/sms</b>: A notification is send to nominated email address or SMS number</li>
+ <li><b>email/sms</b>: A notification is sent to the nominated email address or SMS number</li>
  <li><b>message</b>: The resource is sent to the application identified in the URI as a <a href="messaging.html">message</a></li>
 </ul>
 <p>

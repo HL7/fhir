@@ -63,12 +63,12 @@ find the structure when registered in profile repositories.
  <tr><td>requirements</td><td>The Scope and Usage that this structure was created to meet</td></tr>	
  <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
- <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage</td></tr>
+ <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>
  <tr><td>date</td><td>The date this version of the structure was published	</td></tr>
  <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this structure is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a structure against a particular version of FHIR can easily be checked by tooling.	</td></tr>
- <tr><td>type</td><td>todo</td></tr>
- <tr><td>contextType</td><td>todo</td></tr>
- <tr><td>context</td><td>todo</td></tr>
+ <tr><td>type</td><td>The type the structure describes.</td></tr>
+ <tr><td>contextType</td><td>For extensions, the types of contexts in which the extension can be used (resources, datatypes, or extensions).</td></tr>
+ <tr><td>context</td><td>For extensions, the specific types of resources or data types on which the extension can be used.</td></tr>
 </table>
 
 <p>Notes:</p>

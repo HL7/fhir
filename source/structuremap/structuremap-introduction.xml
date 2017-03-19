@@ -4,12 +4,12 @@
 <a name="snu"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The <i>StructureMap</i> resource defines a detailed set of of rules that describe 
+The <i>StructureMap</i> resource defines a detailed set of rules that describe 
 how one <a href="structuredefinition.html">Structure</a> is related to another,
-and provides sufficient detail to allow for autoamted conversion of instances. 
+and provides sufficient detail to allow for automated conversion of instances. 
 </p>
 <p>
-The intention of the structure map resource is to allow a specialist in a 
+The intention of the structure map resource is to allow a specialist in 
 formats and interoperability to specify the full relationships between 
 two structures (e.g. a CDA document and a set of FHIR resources), and 
 then many different systems - both testing and production clinical systems - can
@@ -23,7 +23,7 @@ that might additionally apply in the reverse direction.
 </p>
 <p>
 The mapping language, along with a concrete syntax, is defined in detail in <a href="mapping-language.html">the
-FHIR Mappping Language</a>, which defines a concrete syntax for the language. The StructureMap resource 
+FHIR Mapping Language</a>. The StructureMap resource 
 represents the abstract syntax, and the concrete syntax is the recommended narrative representation for 
 a StructureMap. See also the <a href="mapping-tutorial.html">Tutorial</a>.
 </p>
@@ -48,7 +48,7 @@ data from one structure to another.
 The <i>StructureMap</i> resource assumes that both the source and the
 target models are fully defined using <a href="structuredefinition.html">StructureDefinition</a> 
 resources - either resources, or logical models, and is described accordingly. 
-However there is no direct relationship between the mapping language contained 
+However, there is no direct relationship between the mapping language contained 
 in the StructureMap resource, and the existence of the appropriate structure 
 definitions, so that this mapping language could be used to define a map from 
 an HL7 v2 message to a CDA document. Note, that various implementation 
@@ -56,7 +56,7 @@ contexts may introduce a direct relationship (e.g. see xxxxxxx op to defined).
 </p>
 <p>
 It's possible to apply the mapping language to structures that do not even 
-have (or cannot have) formally defined types, though of course the type-related 
+have (or cannot have) formally defined types, although the type-related 
 parts of the mapping language cannot be used in these cases.
 </p>
 
@@ -67,7 +67,7 @@ parts of the mapping language cannot be used in these cases.
 <h2>Background and Context</h2>
 <p>
 Each structure map contains, in addition to the standard metadata that all 
-conformance resoures contain, the following information:
+conformance resources contain, the following information:
 </p>
 <ul>
  <li>A list of the structure definitions referenced by the map</li>
@@ -76,14 +76,14 @@ conformance resoures contain, the following information:
 </ul>
 <p>
 Each group of rules defines a set of input and output variables that must be passed when the group is invoked 
-in a particular context. When a gruop is invoked, all the rules in the group are checked to see whether they 
+in a particular context. When a group is invoked, all the rules in the group are checked to see whether they 
 apply.</p>
 <p>
-Each rule may has some or all of the following properties:
+Each rule may have some or all of the following properties:
 </p>
 <ul>
  <li>A name - used as the identity in internal references, and traces</li>
- <li>Contexts in both source and traget models that define where the rule applies</li>
+ <li>Contexts in both source and target models that define where the rule applies</li>
  <li>A set of source elements that provide data to be mapped</li>
  <li>Conditions that specify if the rule is to apply</li>
  <li>A set of target elements that will be created</li>

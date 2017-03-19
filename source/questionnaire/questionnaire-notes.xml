@@ -32,7 +32,7 @@ distill separate resources from it and capturing the data in a <b>Questionnaire<
 However, data captured only in <b>Questionnaires</b> can be difficult to query after-the-fact. Queries against other Resources will not return data captured only in <b>Questionnaires</b>, 
 and querying against <b>Questionnaires</b> directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians. 
 Moreover, interoperability of such <b>Questionnaires</b> is limited, as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from 
-such <b>Questionnaires</b> using other, more specific, Resources increases the ability and consistency with which it can be understood and queried.
+such <b>Questionnaires</b> using more specific resources increases the availability of the information they contain.
 </p> 
 
 <p>
@@ -41,9 +41,8 @@ It is entirely possible for data to exist in both QuestionnaireResponse and in o
 <a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>, 
 <a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original 
 <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance can be retained for traceability purposes.  If desired, a <a href="provenance.html">Provenance</a> resource
-can be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks "what is your weight", 
-that can then result in the creation of an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the 
-<code>Observation.valueQuantity</code>.
+can be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks "what is your weight", an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the 
+<code>Observation.valueQuantity</code> can be created.
 </p>
 
 <h3>Structure of the Questionnaire</h3>
@@ -51,7 +50,7 @@ that can then result in the creation of an <a href="observation.html">Observatio
 A Questionnaire is built out of two components, Questionnaire and item:</p>
 <ul>
   <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
-  like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though obviously these provide little computable information).</li>
+  like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though these provide little computable information).</li>
   <li>Items have one of three sub-types, distinguished by the <code>type</code> element:
     <ul>
       <li><b>display</b> items convey text to be rendered on the form that won't capture data and which won't contain nested items.  This might include copyright or authorship information,
@@ -59,8 +58,8 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
       <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child 
         'question' items which do.  </li>
       <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single 
-        <code>type</code> for question items.  Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question which allows a particular type of answer to be gathered.  Questions may also have nested content - groups and/or 
-        other questions.  This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
+        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or 
+        other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
         the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>

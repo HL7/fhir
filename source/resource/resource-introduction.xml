@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
 <div>
@@ -13,7 +13,7 @@ this specification defines several different ways of exchanging the resources.
 A resource is an entity that:
 </p>
 <ul>
- <li>has a known identity (a url) by which it can be addressed</li>
+ <li>has a known identity (a URL) by which it can be addressed</li>
  <li>identifies itself as one of the types of resource defined in this specification</li>
  <li>contains a set of structured data items as described by the definition of the resource type</li>
  <li>has an identified version that changes if the contents of the resource change</li>
