@@ -2,7 +2,7 @@
   <a name="SDC"> </a>
   <h2>Structured Data Capture (SDC) - Data Element Exchange Implementation Guide</h2>
   <p>
-    This implementation guide is a supplement to the base <a href="{{site.data.refs.sdc}}sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines 
+    This implementation guide is a supplement to the base <a href="{{site.data.fhir.sdc}}sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines 
     expectations for <a href="{{site.data.fhir.path}}dataelement.html">Data Element</a> registries, as well as those systems that are responsible for the creation and 
     maintenance of data elements within those registries.  This capability is documented as a distinct implementation guide because the expectations for systems creating and 
     maintaining data elements are higher than for those systems that are merely responsible for referencing data elements when creating forms or configuring their
@@ -114,7 +114,7 @@
     DataElement instances do not convey patient-specific information.  However, because the mappings associated with data elements can influence the
     data that might be automatically populated into forms and could also influence the security controls around data associated with the DataElement,
     security precautions should be taken to ensure that data elements are not created or revised by someone without the proper authority.  
-    <a href="{{site.data.refs.sdc}}sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
+    <a href="{{site.data.fhir.sdc}}sdc-security.html">Security practices</a> for systems complying with this implementation guide are the same as those for the primary
     SDC implementation guide.
   </p>
   <p>

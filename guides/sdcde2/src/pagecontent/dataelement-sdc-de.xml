@@ -5,7 +5,7 @@
 		<h3>Scope and Usage</h3>
 		<p>
       This profile is a placeholder and is not complete.  It will eventually set expectations for the capability of data element registry systems as well as systems that create 
-      and curate data elements.  It expands on the expectations of the <a href="{{site.data.refs.sdc}}dataelement-sdc.html">base SDC DataElement</a> profile by adding DataElement 
+      and curate data elements.  It expands on the expectations of the <a href="{{site.data.fhir.sdc}}dataelement-sdc.html">base SDC DataElement</a> profile by adding DataElement 
       properties relevant for maintenance of data elements, rather than merely what is sufficient to allow a data element to be referenced within a form.  Guidance found within 
       that profile also applies to this one.
     </p>

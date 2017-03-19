@@ -9,7 +9,7 @@
       <p>http://hl7.org/fhir/us/sdcde/CapabilityStatement/capabilitystatement-sdc-de-registry Published: 2014-07-06 (draft)</p>
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the S&amp;I Framework's <a href="{{site.data.refs.sdc}}sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Data Element Manager</i> role when conforming to the S&amp;I Framework's <a href="{{site.data.fhir.sdc}}sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -28,7 +28,7 @@
       <p>
         <b>Security:</b>
       </p>
-      <p>Implementations must meet the general security requirements documented in the <a href="{{site.data.refs.sdc}}sdc-security.html">SDC implementation guide</a>.</p>
+      <p>Implementations must meet the general security requirements documented in the <a href="{{site.data.fhir.sdc}}sdc-security.html">SDC implementation guide</a>.</p>
       <h3>Resource summary</h3>
       <table class="grid">
         <thead>
@@ -46,78 +46,78 @@
         </thead>
         <tbody>
           <tr>
-            <th>DataElement (<a href="http://hl7.org/fhir/StructureDefinition/dataelement-sdc">Profile</a>)</th>
+            <th>DataElement (<a href="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-dataelement.html">Profile</a>)</th>
             <td>
-              <a title="Allows a user to search for existing data elements" href="#DataElement-search-type">SHALL</a>
+              <a title="Allows a user to search for existing data elements" href="#DataElement-search-type">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific known data element" href="#DataElement-read">SHALL</a>
+              <a title="Allows retrieval of a specific known data element" href="#DataElement-read">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific version of a data element" href="#DataElement-vread">SHALL</a>
+              <a title="Allows retrieval of a specific version of a data element" href="#DataElement-vread">Yes</a>
             </td>
             <td>
-              <a title="Allows review of changes to a data element over time" href="#DataElement-history-instance">SHALL</a>
+              <a title="Allows review of changes to a data element over time" href="#DataElement-history-instance">Yes</a>
             </td>
             <td/>
             <td>
-              <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'." href="#DataElement-create">SHALL</a>
+              <a title="Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'." href="#DataElement-create">Yes</a>
             </td>
             <td>
-              <a title="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements." href="#DataElement-update">SHALL</a>
+              <a title="Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements." href="#DataElement-update">Yes</a>
             </td>
             <td>
-              <a title="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc." href="#DataElement-delete">MAY</a>
+              <a title="Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc." href="#DataElement-delete">Yes</a>
             </td>
           </tr>
           <tr>
-            <th>ValueSet (<a href="http://hl7.org/fhir/StructureDefinition/valueset-sdc">Profile</a>)</th>
+            <th>ValueSet (<a href="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-valueset.html">Profile</a>)</th>
             <td>
-              <a title="Allows discovery of existing value sets for use in authoring data elements" href="#ValueSet-search-type">SHALL</a>
+              <a title="Allows discovery of existing value sets for use in authoring data elements" href="#ValueSet-search-type">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific value set referenced within a data element" href="#ValueSet-read">SHALL</a>
+              <a title="Allows retrieval of a specific value set referenced within a data element" href="#ValueSet-read">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a value set as referenced within a data element" href="#ValueSet-vread">SHALL</a>
+              <a title="Allows retrieval of a historical version of a value set as referenced within a data element" href="#ValueSet-vread">Yes</a>
             </td>
             <td>
-              <a title="Allows review of changes to a value set over time" href="#ValueSet-history-instance">SHALL</a>
+              <a title="Allows review of changes to a value set over time" href="#ValueSet-history-instance">Yes</a>
             </td>
             <td/>
             <td>
-              <a title="Allows definition of a new value set used by one or more data elements" href="#ValueSet-create">SHALL</a>
+              <a title="Allows definition of a new value set used by one or more data elements" href="#ValueSet-create">Yes</a>
             </td>
             <td>
-              <a title="Allows existing value sets referenced by one or more data elements to be maintained" href="#ValueSet-update">SHALL</a>
+              <a title="Allows existing value sets referenced by one or more data elements to be maintained" href="#ValueSet-update">Yes</a>
             </td>
             <td>
-              <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." href="#ValueSet-delete">MAY</a>
+              <a title="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." href="#ValueSet-delete">Yes</a>
             </td>
           </tr>
           <tr>
-            <th>CodeSystem (<a href="http://hl7.org/fhir/StructureDefinition/codesystem-sdc">Profile</a>)</th>
+            <th>CodeSystem (<a href="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-codesystem.html">Profile</a>)</th>
             <td>
-              <a title="Allows discovery of existing code systems for use in authoring data elements" href="#CodeSystem-search-type">SHALL</a>
+              <a title="Allows discovery of existing code systems for use in authoring data elements" href="#CodeSystem-search-type">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a specific code system referenced within a data element" href="#CodeSystem-read">SHALL</a>
+              <a title="Allows retrieval of a specific code system referenced within a data element" href="#CodeSystem-read">Yes</a>
             </td>
             <td>
-              <a title="Allows retrieval of a historical version of a code system as referenced within a data element" href="#CodeSystem-vread">SHALL</a>
+              <a title="Allows retrieval of a historical version of a code system as referenced within a data element" href="#CodeSystem-vread">Yes</a>
             </td>
             <td>
-              <a title="Allows review of changes to a code system over time" href="#CodeSystem-history-instance">SHALL</a>
+              <a title="Allows review of changes to a code system over time" href="#CodeSystem-history-instance">Yes</a>
             </td>
             <td/>
             <td>
-              <a title="Allows definition of a new code system used by one or more data elements" href="#CodeSystem-create">SHALL</a>
+              <a title="Allows definition of a new code system used by one or more data elements" href="#CodeSystem-create">Yes</a>
             </td>
             <td>
-              <a title="Allows existing code systems referenced by one or more data element value sets to be maintained" href="#CodeSystem-update">SHALL</a>
+              <a title="Allows existing code systems referenced by one or more data element value sets to be maintained" href="#CodeSystem-update">Yes</a>
             </td>
             <td>
-              <a title="Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner." href="#CodeSystem-delete">MAY</a>
+              <a title="Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner." href="#CodeSystem-delete">Yes</a>
             </td>
           </tr>
         </tbody>
@@ -132,7 +132,6 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Conformance</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -142,7 +141,6 @@
               <a name="DataElement-search-type"> </a>
               <span>search-type</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows a user to search for existing data elements</p>
             </td>
@@ -152,7 +150,6 @@
               <a name="DataElement-read"> </a>
               <span>read</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific known data element</p>
             </td>
@@ -162,7 +159,6 @@
               <a name="DataElement-vread"> </a>
               <span>vread</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific version of a data element</p>
             </td>
@@ -172,7 +168,6 @@
               <a name="DataElement-history-instance"> </a>
               <span>history-instance</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows review of changes to a data element over time</p>
             </td>
@@ -182,7 +177,6 @@
               <a name="DataElement-create"> </a>
               <span>create</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows defining a new data element.  Repositories requiring curation of submitted data elements may require all new data elements to have a status of 'draft'.</p>
             </td>
@@ -192,7 +186,6 @@
               <a name="DataElement-update"> </a>
               <span>update</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows maintaining data elements while creating and editing forms.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new data element (and potentially the retiring of the existing data element).  Servers may also limit who can change particular data elements.</p>
             </td>
@@ -202,7 +195,6 @@
               <a name="DataElement-delete"> </a>
               <span>delete</span>
             </th>
-            <td>MAY</td>
             <td>
               <p>Allows removal of an existing data element.  Servers may choose to not support deletions or may limit deletions to data elements meeting certain requirements.  E.g. only elements with a status of draft or only elements that have been retired for at least two years, etc.</p>
             </td>
@@ -215,7 +207,6 @@
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -223,85 +214,71 @@
         <tbody>
           <tr>
             <th>code</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>context</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>date</th>
-            <td>SHALL</td>
             <td>date</td>
             <td/>
           </tr>
           <tr>
             <th>description</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>identifier</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>name</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>publisher</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>status</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>stringency</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>url</th>
-            <td>SHALL</td>
             <td>uri</td>
             <td/>
           </tr>
           <tr>
             <th>version</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>meaning</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>objectClass</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>property</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -317,7 +294,6 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Conformance</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -327,7 +303,6 @@
               <a name="ValueSet-search-type"> </a>
               <span>search-type</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows discovery of existing value sets for use in authoring data elements</p>
             </td>
@@ -337,7 +312,6 @@
               <a name="ValueSet-read"> </a>
               <span>read</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific value set referenced within a data element</p>
             </td>
@@ -347,7 +321,6 @@
               <a name="ValueSet-vread"> </a>
               <span>vread</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a historical version of a value set as referenced within a data element</p>
             </td>
@@ -357,7 +330,6 @@
               <a name="ValueSet-history-instance"> </a>
               <span>history-instance</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows review of changes to a value set over time</p>
             </td>
@@ -367,7 +339,6 @@
               <a name="ValueSet-create"> </a>
               <span>create</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows definition of a new value set used by one or more data elements</p>
             </td>
@@ -377,7 +348,6 @@
               <a name="ValueSet-update"> </a>
               <span>update</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows existing value sets referenced by one or more data elements to be maintained</p>
             </td>
@@ -387,7 +357,6 @@
               <a name="ValueSet-delete"> </a>
               <span>delete</span>
             </th>
-            <td>MAY</td>
             <td>
               <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>
             </td>
@@ -400,7 +369,6 @@
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -408,55 +376,46 @@
         <tbody>
           <tr>
             <th>code</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>date</th>
-            <td>SHALL</td>
             <td>date</td>
             <td/>
           </tr>
           <tr>
             <th>description</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>identifier</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>name</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>publisher</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>reference</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>status</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>version</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -472,7 +431,6 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Conformance</th>
             <th>Description</th>
           </tr>
         </thead>
@@ -482,7 +440,6 @@
               <a name="CodeSystem-search-type"> </a>
               <span>search-type</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows discovery of existing code systems for use in authoring data elements</p>
             </td>
@@ -492,7 +449,6 @@
               <a name="CodeSystem-read"> </a>
               <span>read</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a specific code system referenced within a data element</p>
             </td>
@@ -502,7 +458,6 @@
               <a name="CodeSystem-vread"> </a>
               <span>vread</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows retrieval of a historical version of a code system as referenced within a data element</p>
             </td>
@@ -512,7 +467,6 @@
               <a name="CodeSystem-history-instance"> </a>
               <span>history-instance</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows review of changes to a code system over time</p>
             </td>
@@ -522,7 +476,6 @@
               <a name="CodeSystem-create"> </a>
               <span>create</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows definition of a new code system used by one or more data elements</p>
             </td>
@@ -532,7 +485,6 @@
               <a name="CodeSystem-update"> </a>
               <span>update</span>
             </th>
-            <td>SHALL</td>
             <td>
               <p>Allows existing code systems referenced by one or more data element value sets to be maintained</p>
             </td>
@@ -542,7 +494,6 @@
               <a name="CodeSystem-delete"> </a>
               <span>delete</span>
             </th>
-            <td>MAY</td>
             <td>
               <p>Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner.</p>
             </td>
@@ -555,7 +506,6 @@
         <thead>
           <tr>
             <th>Parameter</th>
-            <th>Conformance</th>
             <th>Type</th>
             <th>Definition &amp; Chaining</th>
           </tr>
@@ -563,67 +513,56 @@
         <tbody>
           <tr>
             <th>code</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>context</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>date</th>
-            <td>SHALL</td>
             <td>date</td>
             <td/>
           </tr>
           <tr>
             <th>description</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>identifier</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>name</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>publisher</th>
-            <td>SHALL</td>
             <td>string</td>
             <td/>
           </tr>
           <tr>
             <th>status</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
           <tr>
             <th>system</th>
-            <td>SHALL</td>
             <td>uri</td>
             <td/>
           </tr>
           <tr>
             <th>url</th>
-            <td>SHALL</td>
             <td>uri</td>
             <td/>
           </tr>
           <tr>
             <th>version</th>
-            <td>SHALL</td>
             <td>token</td>
             <td/>
           </tr>
@@ -642,7 +581,7 @@
       <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
     </telecom>
   </contact>
-  <description value="This profile defines the expected capabilities of the ''SDC Data Element Manager'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Data Element Manager'' role when conforming to the S&amp;I Framework's [[{{site.data.fhir.sdc}}sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining maintaining a repository of data elements used in designing forms, profiles and templates in support of SDC use-cases, including the pre-population and auto-population of forms."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
@@ -652,12 +591,12 @@
     <mode value="server"/>
     <documentation value="The primary focus of the repository is the definition of [[DataElement]]s.  However, [[ValueSet]]s and [[CodeSystem]]s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)"/>
     <security>
-      <description value="Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."/>
+      <description value="Implementations must meet the general security requirements documented in the [[{{site.data.fhir.sdc}}sdc-security|SDC implementation guide]]."/>
     </security>
     <resource>
       <type value="DataElement"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/dataelement-sdc"/>
+        <reference value="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-dataelement"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -825,7 +764,7 @@
     <resource>
       <type value="ValueSet"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/valueset-sdc"/>
+        <reference value="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-valueset"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
@@ -954,7 +893,7 @@
     <resource>
       <type value="CodeSystem"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/codesystem-sdc"/>
+        <reference value="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-codesystem"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">

@@ -11,7 +11,7 @@
   </xsl:template>
   <xsl:template match="@xsi:schemaLocation"/>
   <xsl:template priority="10" match="/div">
-    <div class="col-9">
+    <div>
       <xsl:apply-templates select="@*|node()"/>
     </div>
   </xsl:template>

@@ -19,6 +19,10 @@
 			<code value="US"/>
 		</coding>
 	</jurisdiction>
+	<dependency>
+    <type value="reference"/>
+    <uri value="http://hl7.org/fhir/us/sdc"/>
+  </dependency>
 	<package>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="dataelement-sdc-de-profile-spreadsheet.xml"/>

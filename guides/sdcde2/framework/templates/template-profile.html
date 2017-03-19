@@ -32,6 +32,13 @@
   The official URL for this profile is:
   </p>
 	<pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
+
+  {% assign intro = site.data.pages[page.path].intro %}
+  {% if site.data.pages[page.path].intro != null %}
+  <div style="display:inline-block">
+  {% include {{intro}} %}
+  </div>
+  {% endif %}
 	<!-- no uri -->
 	<a name="profile"> </a>
 	<h4>
@@ -55,6 +62,7 @@
 			<li>
 				<a href="#tabs-snap">Snapshot Table</a>
 			</li>
+            <!--
 			<li>
 				<a href="#tabs-xml">Pseudo-XML</a>
 			</li>
@@ -64,6 +72,7 @@
 			<li>
 				<a href="#tabs-ttl">Pseudo-TTL</a>
 			</li>
+            -->
 			<li>
 				<a href="#tabs-all">All</a>
 			</li>
@@ -73,7 +82,7 @@
 			<div id="tbl-summ">
 				<p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
 				</p>
-				<div id="tbl-diff-inner">
+				<div id="tbl-summ-inner">
 					<a name="summary"> </a>
           {%include StructureDefinition-{{[id]}}-summary.xhtml%}
         </div>
@@ -97,6 +106,7 @@
         </div>
 			</div>
 		</div>
+        <!--
 		<a name="tabs-xml"> </a>
 		<div id="tabs-xml">
 			<div id="xml">
@@ -121,12 +131,13 @@
         </div>
 			</div>
 		</div>
+        -->
 		<a name="tabs-all"> </a>
 		<div id="tabs-all">
-			<div id="tbl-summ">
+			<div id="all-summ">
 				<p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
 				</p>
-				<div id="tbl-diff-inner">
+				<div id="all-summ-inner">
           {%include StructureDefinition-{{[id]}}-summary.xhtml%}
         </div>
 			</div>
@@ -148,6 +159,7 @@
           {%include StructureDefinition-{{[id]}}-snapshot.xhtml%}
         </div>
 			</div>
+            <!--
 			<div id="all-xml">
 				<p>
 					<b>XML Template</b>
@@ -172,6 +184,7 @@
           {%include StructureDefinition-{{[id]}}-pseudo-ttl.xhtml%}
         </div>
 			</div>
+           -->
 		</div>
 	</div>
 	<p>&#160;</p>
@@ -193,6 +206,14 @@
 		</a>
 	</h4>
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
+
+  {% assign notes = site.data.pages[page.path].notes %}
+  {% if site.data.pages[page.path].notes != null %}
+  <div style="display:inline-block">
+  {% include {{notes}} %}
+  </div>
+  {% endif %}
+
 </div>
 {% assign includetabscripts = 'true' %}
 {% include fragment-pageend.html %}

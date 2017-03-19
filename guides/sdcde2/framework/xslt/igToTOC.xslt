@@ -33,8 +33,8 @@
           <img style="background-color: inherit" alt="." class="hierarchy" src="tbl_vjoin.png"/>
         </xsl:if>
         <img style="background-color: white; background-color: inherit" alt="." class="hierarchy" src="icon_page.gif"/>
-        <a title="{title/@value}" href="{source/@value}">
-          <xsl:value-of select="concat($newLevel, ' ', if (kind/@value='example') then 'Example: ' else '', title/@value)"/>
+        <a title="{name/@value|title/@value}" href="{source/@value}">
+          <xsl:value-of select="concat($newLevel, ' ', title/@value, name/@value)"/>
         </a>
       </td>
     </tr>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
 	<id value="dataelement-sdc-profile-example-de"/>
+	<meta>
+    <profile value="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-dataelement"/>
+	</meta>
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
@@ -151,6 +154,23 @@
 			</contact>
 		</Organization>
 	</contained>
+	<contained>
+    <DocumentReference>
+      <id value="doc"/>
+      <status value="current"/>
+      <type>
+        <text value="CRF"/>
+      </type>
+      <indexed value="2010-03-31T12:00:00Z"/>
+      <content>
+        <attachment>
+          <contentType value="application/pdf"/>
+          <url value="http://example.org/someCRF.pdf"/>
+          <title value="Some CRF"/>
+        </attachment>
+      </content>
+    </DocumentReference>
+  </contained>
 	<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-document-reference">
 		<valueReference>
 			<reference value="#doc"/>
@@ -173,8 +193,8 @@
 	</identifier>
 	<version value="1.2"/>
 	<status value="draft"/>
-	<publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
 	<date value="2010-03-31"/>
+	<publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
 	<name value="Patient Gender"/>
 	<contact>
 		<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-contact-address">
@@ -189,11 +209,17 @@
 		</telecom>
 	</contact>
 	<useContext>
-		<coding>
-			<code value="Healthcare Event Reporting Form"/>
-			<!--       Wasn't clear if the above was a code       -->
-			<display value="Patient safety event report - hospital: healthcare event reporting form"/>
-		</coding>
+    <code>
+      <system value="http://example.org/fhir/CodeSystem/usage-contexts"/>
+      <code value="form-type"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <code value="Healthcare Event Reporting Form"/>
+        <!--       Wasn't clear if the above was a code       -->
+        <display value="Patient safety event report - hospital: healthcare event reporting form"/>
+      </coding>
+    </valueCodeableConcept>
 	</useContext>
 	<mapping>
 		<identity value="objclass"/>
@@ -227,7 +253,7 @@
 						<reference value="#pv-valueset"/>
 					</valueReference>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">
+				<extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
 					<valueReference>
 						<reference value="#pv-conceptmap"/>
 					</valueReference>

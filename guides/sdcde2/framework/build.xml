@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" basedir=".." default="local-publish-ig" xmlns:ivy="antlib:org.apache.ivy.ant">
   <property name="guidename" value="???"/>
+  <property name="version" value="???"/>
   <property name="spec" value="http://hl7-fhir.github.io/"/>
   <!-- Where the main FHIR build publish folder is -->
-  <property name="dir.publish" value="../../publish"/>
+  <property name="dir.publish" value="http://build.fhir.org/"/>
   <!-- Project-specific inputs -->
   <property name="dir.src" value="src"/>
+  <property name="dir.src.examples" value="${dir.src}/examples"/>
   <property name="dir.src.images" value="${dir.src}/images"/>
   <property name="dir.src.pagecontent" value="${dir.src}/pagecontent"/>
   <property name="dir.src.resources" value="${dir.src}/resources"/>
+  <property name="dir.src.vocabulary" value="${dir.src}/vocabulary"/>
   <!-- Working area -->
   <property name="dir.alltemp" value="temp"/>
   <property name="dir.imports" value="${dir.alltemp}/imports"/>
@@ -20,7 +23,7 @@
   <property name="dir.resources" value="${dir.alltemp}/resources"/>
   <property name="dir.qa" value="${dir.alltemp}/qa"/>
   <property name="dir.temp" value="${dir.alltemp}/temp"/>
-  <property name="dir.txcache" value="txcache"/>
+  <property name="dir.txcache" value="${dir.alltemp}/txcache"/>
   <!-- Standard infrastructure (generally the same across all IGs) -->
   <property name="dir.framework" value="framework"/>
   <property name="dir.framework.assets" value="${dir.framework}/assets"/>
@@ -74,17 +77,22 @@
     <ivy:retrieve type="jar,bundle" sync="true" pattern="${dir.imports}/[artifact]-[revision].[ext]"/>
   </target>
   <target name="local-setup" depends="dir-setup" description="--> grabs igpublisher from local build">
-    <copy file="${dir.publish}/org.hl7.fhir.igpublisher.jar" todir="${dir.alltemp}"/>
+    <get src="${dir.publish}/org.hl7.fhir.igpublisher.jar" dest="${dir.alltemp}" usetimestamp="true"/>
   </target>
   <target name="travis-setup" depends="dir-setup" description="--> Installs Jekyll, grabs publisher from CI website">
     <get src="http://hl7-fhir.github.io/org.hl7.fhir.igpublisher.jar" dest="${dir.alltemp}"/>
   </target>
   <target name="publisher-setup" depends="fetch-imports"  description="--> Generate setup files, then run IG build">
+    <xslt in="${dir.src}/${guidename}.xml" out="${dir.pageincludes}/content-artifacts.html" style="${dir.xslt}/createArtifactSummary.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.resources}/${guidename}.xml" style="${dir.xslt}/fixIg.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
     <copy todir="${dir.resources}">
+      <fileset dir="${dir.src.examples}"/>
       <fileset dir="${dir.src.resources}"/>
+      <fileset dir="${dir.src.vocabulary}"/>
     </copy>
     <copy todir="${dir.pages}">
       <fileset dir="${dir.src.images}"/>
@@ -97,6 +105,7 @@
     <copy todir="${dir.pageincludes}">
       <fileset dir="${dir.framework.includes}"/>
     </copy>
+    <copy todir="${dir.pagedata}" file="${dir.src}/refs.json" failonerror="false"/>
     <xslt basedir="${dir.src.pagecontent}" destdir="${dir.pageincludes}" includes="*.xml" style="${dir.xslt}/processPages.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
       <mapper type="glob" from="*.xml" to="content-*.html"/>
@@ -104,11 +113,12 @@
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.alltemp}/${guidename}.json" style="${dir.xslt}/igToConfig.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
       <param name="spec" expression="${spec}"/>
+      <param name="version" expression="${version}"/>
     </xslt>
-    <xslt in="${dir.src}/${guidename}.xml" out="${dir.pagedata}/pages.json" style="${dir.xslt}/igToData.xslt" classpathref="saxon.path">
+    <xslt in="${dir.resources}/${guidename}.xml" out="${dir.pagedata}/pages.json" style="${dir.xslt}/igToData.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
-    <xslt in="${dir.src}/${guidename}.xml" out="${dir.pageincludes}/content-toc.html" style="${dir.xslt}/igToTOC.xslt" classpathref="saxon.path">
+    <xslt in="${dir.resources}/${guidename}.xml" out="${dir.pageincludes}/content-toc.html" style="${dir.xslt}/igToTOC.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.pages}/empty.txt" style="${dir.xslt}/igToPages.xslt" classpathref="saxon.path">
@@ -118,6 +128,7 @@
   </target>
   <target name="publish-ig" depends="publisher-setup"  description="--> Run the IG build">
     <java jar="${dir.alltemp}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-ig ${basedir}/${dir.alltemp}/${guidename}.json"/>
     </java>
   </target>

@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Converts a FHIR IG stored as XML into a JSON file that drives the operation of the IG Publisher tool,
+  -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xpath-default-namespace="http://hl7.org/fhir">
   <xsl:param name="spec"/>
+  <xsl:param name="version"/>
+  <xsl:param name="fhirVersion" select="/ImplementationGuide/fhirVersion/@value"/>
+  <xsl:param name="snomedRelease" select="'UV'"/>
 	<xsl:output method="text" encoding="UTF-8"/>
   <xsl:template match="/ImplementationGuide">
+    <xsl:variable name="snomedReleaseNumber">
+      <xsl:choose>
+        <xsl:when test="$snomedRelease='AU'">32506021000036107</xsl:when>
+        <xsl:when test="$snomedRelease='CA'">20611000087101</xsl:when>
+        <xsl:when test="$snomedRelease='DK'">554471000005108</xsl:when>
+        <xsl:when test="$snomedRelease='ES'">449081005</xsl:when>
+        <xsl:when test="$snomedRelease='NL'">11000146104</xsl:when>
+        <xsl:when test="$snomedRelease='SE'">45991000052106</xsl:when>
+        <xsl:when test="$snomedRelease='UK'">999000041000000102</xsl:when>
+        <xsl:when test="$snomedRelease='US'">731000124108</xsl:when>
+        <xsl:when test="$snomedRelease='UV'">900000000000207008</xsl:when>
+        <xsl:otherwise>
+          <xsl:message terminate="yes" select="concat('ERROR: Unsupported snomedRelease: ', $snomedRelease)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:text>{
 	"tool": "jekyll",
-	"paths": {
+	"version": "</xsl:text>
+	<xsl:value-of select="$fhirVersion"/>
+	<xsl:text>",
+	</xsl:text>
+	<xsl:if test="$version!=''">
+    <xsl:value-of select="concat('&quot;fixed-business-version&quot;: &quot;', $version, '&quot;,&#xa;  ')"/>
+	</xsl:if>
+	<xsl:text>"paths": {
 		"resources": "resources",
 		"pages": "pages",
 		"temp": "temp",
 		"output": "../website",
-		"txCache": "../txcache",
+		"txCache": "txcache",
     "history" : "history.html",
 		"qa": "qa",
 		"specification": "</xsl:text>
@@ -49,6 +78,10 @@
 		  "format": "valueset-{{[id]}}.{{[fmt]}}.html"
 		}
 	},
+  "sct-edition" : "http://snomed.info/sct/</xsl:text>
+  <xsl:value-of select="$snomedReleaseNumber"/>
+  <xsl:text>",
+  "no-inactive-codes" : "true",
 	"canonicalBase": "</xsl:text>
     <xsl:value-of select="substring-before(url/@value, '/ImplementationGuide')"/>
     <xsl:text>",&#xa;	</xsl:text>
@@ -88,7 +121,7 @@
           </xsl:when>
         </xsl:choose>
       </xsl:if>
-      <xsl:if test="not(example/@value='true') and exists(ancestor::ImplementationGuide//page[source/@value=concat('extension-', $id, '.html')]) and $type='StructureDefinition'">
+      <xsl:if test="not(example/@value='true') and (exists(ancestor::ImplementationGuide//page[source/@value=concat('extension-', $id, '.html')]) or starts-with($id, 'ext-')) and $type='StructureDefinition'">
         <xsl:text>      "template-base": "../framework/templates/template-ext.html",&#xa;</xsl:text>
         <xsl:text>      "template-defns": "../framework/templates/template-ext-definitions.html",&#xa;</xsl:text>
         <xsl:text>      "template-mappings": "../framework/templates/template-ext-mappings.html",&#xa;</xsl:text>
