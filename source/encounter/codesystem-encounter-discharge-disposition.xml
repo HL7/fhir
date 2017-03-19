@@ -11,41 +11,51 @@
   <concept>
     <code value="home"/>
     <display value="Home"/>
+    <definition value="The patient was dicharged and has indicated that they are going to return home afterwards" />
   </concept>
   <concept>
     <code value="other-hcf"/>
     <display value="Other healthcare facility"/>
+    <definition value="The patient was transferred to another healthcare facility" />
   </concept>
   <concept>
     <code value="hosp"/>
     <display value="Hospice"/>
+    <definition value="" />
   </concept>
   <concept>
     <code value="long"/>
     <display value="Long-term care"/>
+    <definition value="The patient has been discharged into long-term care where is likely to be monitored through an ongoing episode-of-care" />
   </concept>
   <concept>
     <code value="aadvice"/>
     <display value="Left against advice"/>
+    <definition value="The patient self discharged against medical advice" />
   </concept>
   <concept>
     <code value="exp"/>
     <display value="Expired"/>
+    <definition value="The patient has deceased during this encounter" />
   </concept>
   <concept>
     <code value="psy"/>
     <display value="Psychiatric hospital"/>
+    <definition value="The patient has been transferred to a psychiatric facility" />
   </concept>
   <concept>
     <code value="rehab"/>
     <display value="Rehabilitation"/>
+    <definition value="The patient was discharged and is to receive post acute care rehabilitation services" />
   </concept>
   <concept>
     <code value="snf"/>
     <display value="Skilled nursing facility"/>
+    <definition value="The patient has been discharged to a skilled nursing facility for the patient to receive additional care" />
   </concept>
   <concept>
     <code value="oth"/>
     <display value="Other"/>
+    <definition value="The discharge disposition has not otherwise defined" />
   </concept>
 </CodeSystem>
