@@ -72,7 +72,7 @@ A characteristic (but non-exhaustive) set of states for the clinical workflow pr
 <ul>
  <li>proposed: An actor (e.g. a clinical decision support system) has proposed an action to be requested</li>
  <li>draft: The request is in preliminary form, prior to being requested</li>
- <li>requested: The request has been been made</li>
+ <li>requested: The request has been made</li>
  <li>rejected: The request receiver has declined the request</li>
  <li>accepted: The request receiver has accepted the request</li>
  <li>in-progress: Work to fulfill the request has begun</li>
@@ -155,7 +155,7 @@ might be published on the RESTful interface for the following reasons:
  <li>the resources were received from another system as part of a referral package, and were current for that system when they were received</li>
 </ul>
 <p>
-There is no element on the Condition resource than can convey the difference between these usages. In particular, there can be 
+There is no element on the Condition resource than can convey the difference between these usages. In particular, there can be
 no way to differentiate between current and past resources without having to retrospectively alter resources, which is
 problematic with regard to integrity and digital signatures.
 </p>
@@ -176,7 +176,7 @@ On the RESTful API, this is done using the <a href="search.html#current">list se
  GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
 </pre>
 <p>
-This is a request to fetch all the allergies in the patient 42's "Currrent Problem List".
+This is a request to fetch all the allergies in the patient 42's "Current Problem List".
 Note that the server is not required to actually make a resource representation of the current allergy list
 available, though doing so assists clients in their audit/integrity tasks. See
 <a href="list-operations.html#find">List Operation "Find"</a> for further information.
@@ -198,7 +198,7 @@ FHIR defines the following names for functional lists:
  <tr>
   <td>$current-problems</td>
   <td><a href="condition.html">Condition</a></td>
-  <td>The "Currrent Problem List" - A list of current and active diagnoses as well as past diagnoses relevant to the current care of the patient</td>
+  <td>The "Current Problem List" - A list of current and active diagnoses as well as past diagnoses relevant to the current care of the patient</td>
   <td>46105-3	(Problem conditions Set)</td>
  </tr>
  <tr>
@@ -226,7 +226,7 @@ FHIR defines the following names for functional lists:
 
 <hr/>
 <a name="error"> </a>
-<h3>Entered In Error Summary</h3>
+<h3>Entered in Error Summary</h3>
 
 <p>
 The entered-in-error state indicates the resource was created accidentally, and

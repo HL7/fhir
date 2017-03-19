@@ -155,8 +155,8 @@ entity that the target resource would describe.
 </div>
 
 <p>
-There is no requirement that a Reference.identifier point to something that is actually exposed as a 
-FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a 
+There is no requirement that a Reference.identifier point to something that is actually exposed as a
+FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a
 FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
 </p>
 
@@ -231,7 +231,7 @@ way to reference a conformance or knowledge resource</b>. The canonical URL is a
 the artifact is found.
 </p>
 <p>
-References to these resource may use the <code>Reference</code> type described above,
+References to these resources may use the <code>Reference</code> type described above,
 but they can also be referenced using a <a href="datatypes.html#uri"><code>uri</code></a>.
 </p>
 <p>
@@ -257,8 +257,8 @@ URLs but automatically detecting the presence of a |[version] and performing the
 search.
 </p>
 <p>
-Systems resolving references to resources that might have cannonical URLs SHOULD first
-try to resolve the reference using the cannonical URL, and then fall back to direct
+Systems resolving references to resources that might have canonical URLs SHOULD first
+try to resolve the reference using the canonical URL, and then fall back to direct
 resolution using the URL as a literal reference if a local version of the canonical
 resource cannot be found. This approach is safe because the local version cannot be
 a different artifact than the master copy, though implementations will need to make
@@ -356,7 +356,7 @@ Some notes about use and interpretation of contained resources:
 <ul>
   <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions).</li>
   <li>The contained resource can be put in any resource that inherits from DomainResource. The contained element is then located at the
-  beginnning of the resource after any text narrative and before any extension.</li>
+  beginning of the resource after any text narrative and before any extension.</li>
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below).</li>
   <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
   resources. Since there are no nested contained resources, there is only one container resource.</li>
@@ -372,7 +372,7 @@ Some notes about use and interpretation of contained resources:
 <p>
 <b>STU Note:</b>
 It might be necessary to allow for the reverse (that is, for a contained resource to reference the container).
-However this would cause many difficult consequences on the API.
+However, this would cause many difficult consequences on the API.
 Feedback on this issue is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>

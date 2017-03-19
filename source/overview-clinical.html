@@ -38,7 +38,7 @@ in these areas may be useful, but it is outside of FHIR's scope.
 </p>
 <p>
 Because of FHIR's focus on implementation, many aspects of the specification deal with the technical underpinnings of the
-exchange of clinical information between electronic systems.  This section provides an introduction to 
+exchange of clinical information between electronic systems.  This section provides an introduction to
 what FHIR provides, and tries to highlight those portions of the specification
 that are likely to be of most interest to the clinical community while skipping over some of the technical
 minutiae of interoperability.  However, clinical readers are welcome to explore some of the more
@@ -55,14 +55,14 @@ allergies, one for prescriptions, one for referrals, etc.
 </p>
 <p>
 FHIR data consists of repositories containing completed "forms" (resource instances).  The resource instances describe patient-related information (such as
-demographics, health conditions and procedures) as well as administrative information (such as practitioners, organizations and locations).  Some resources are infrastructure components used to 
+demographics, health conditions and procedures) as well as administrative information (such as practitioners, organizations and locations).  Some resources are infrastructure components used to
 support the technical exchange of information by describing what systems are able to do, defining allowed sets
 of codes, etc.  FHIR repositories might be electronic health record (EHR) systems, pharmacy systems,
 hospital information systems (HIS), etc.  Some systems, such as clinical decision support engines, may
 expose FHIR interfaces even though they don't actually store any patient or administrative information themselves.
 </p>
 <p>
-Each Resource defines a small amount of highly-focused data. A single resource doesn't say very much, but a collection of Resources 
+Each Resource defines a small amount of highly-focused data. A single resource doesn't say very much, but a collection of Resources
 taken together creates a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
 note in their history, etc.) to operations on the relevant resources.
 </p>
@@ -108,7 +108,7 @@ on each end of a healthcare information exchange can still get a full picture of
 </p>
 <p>
 Narrative is expected to exist for most resource instances, although it can be omitted in a few limited circumstances.
-In some cases the narrative will be generated from discrete information.  For example the narrative for a patient
+In some cases, the narrative will be generated from discrete information.  For example, the narrative for a patient
 might look like this:
 </p>
 <table>
@@ -135,7 +135,7 @@ discrete data.
 
 <h3>Interfaces</h3>
 <p>
-In addition to defining the "forms" for data exchange (Resources), FHIR also defines a set of interfaces by 
+In addition to defining the "forms" for data exchange (Resources), FHIR also defines a set of interfaces by
 which systems actually share that information.  There are four primary mechanisms
 or "paradigms" of exchange supported by FHIR: via a REST interface, by exchanging Documents, by sending and receiving Messages and by exposing and invoking Services.
 </p>
@@ -154,8 +154,8 @@ Note that a typical medical record is generally a big "folder-of-folders" with m
 types of 'forms' or 'reports' gathered together. This is convenient for someone who wants to review
 the whole record, but inconvenient for someone updating bits of it.  There's always contention for access
 to it to update the right part. In the computer application the record will be decomposed to its smallest components
-for management purposes, and a computer will (or should) assemble the correct bits as required, by 
-following references that exist from one piece of information to the next. 
+for management purposes, and a computer will (or should) assemble the correct bits as required, by
+following references that exist from one piece of information to the next.
 </p>
 <p>
 Now picture a clerk at the front door of that room.  You can pass the clerk a requisition to have them do something with
@@ -197,7 +197,7 @@ once.
 Much healthcare information exchange happens using a messaging paradigm.  In messaging, a set of information is sent
 from one system to another, typically triggered by an event in the sender system.  For example,
 a patient being admitted, a lab test being ordered, a drug being administered, the clock striking 12:00 or someone pressing a button.  The message serves to notify the receiver that the event occurred as well as
-provide details about any existing data that was modified or new data that was created.  Typically 
+provide details about any existing data that was modified or new data that was created.  Typically
 receiving a message means there's an expectation that the receiving system will "do something" in response.
 </p>
 <p>A message might request that a lab order be

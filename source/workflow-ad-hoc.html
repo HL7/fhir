@@ -30,7 +30,7 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="root"> </a>
         <h2>Ad-Hoc Workflow Communication Patterns</h2>
 
-        <p><i>TODO: Discussiion (or reference to one) on Polling and Subscription</i></p>
+        <p><i>TODO: Discussion (or reference to one) on Polling and Subscription</i></p>
 
         <a name="optiona"> </a>
         <h3>Option A: Simple RESTful POST or PUT</h3>
@@ -103,7 +103,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Steps</h4>
         <ol>
             <li>Placer system creates a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) by a system action or a POST on either its own system or a third party queue server system and places an "actionable" tag on the resource
-                that indicates the request is inteneded to be acted upon. The request explicitly identifies the intended fullfiller</li>
+                that indicates the request is intended to be acted upon. The request explicitly identifies the intended fullfiller</li>
             <li>The filler system uses polling (or a subscription) at the placer or queue server system to see if there are any "new" requests that: are tagged as "actionable", have the filler identified as the intended performer, and are a type of request
                 "of interest" to the filler.</li>
             <li>At some later point, the filler creates an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
@@ -186,7 +186,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Reduced number of communications</li>
             <li>All relevant data sent in one package</li>
-            <li>Responses can be asynchronous and content may routed</li>
+            <li>Responses can be asynchronous and content may be routed</li>
             <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
             <li>Can request things other than just fulfillment (e.g. please suspend)</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
@@ -233,7 +233,7 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="additional"> </a>
         <h3>Additional Scenarios</h3>
         <p>
-            <i>TODO: needs review and udate. Posibly add options about usiing messaging and/or services instead of polling/subscription in above scenarios</i>
+            <i>TODO: needs review and update. Possibly add options about using messaging and/or services instead of polling/subscription in above scenarios</i>
         </p>
         <h4>POST of "request" resource for filler system, response via Task</h4>
         <p>This is a variation of<a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request, and be made aware of the changes to

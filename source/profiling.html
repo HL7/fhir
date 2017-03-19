@@ -18,7 +18,7 @@
 
 <p>
 The base FHIR specification (this specification) describes a set of base resources, frameworks
-and APIs that are used in many different contexts in healthcare. However there is wide variability
+and APIs that are used in many different contexts in healthcare. However, there is wide variability
 between jurisdictions and across the healthcare ecosystem around
 practices, requirements, regulations, education and what actions are feasible
 and/or beneficial.
@@ -127,22 +127,22 @@ Some examples of the uses for these kind of profiles:
 </ul>
 <p>
 Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling
-the resources that represent them differently. These usecases described above all pertain to system that produce and publish
+the resources that represent them differently. These use cases described above all pertain to system that produce and publish
 data, but the same concept applies to systems that consume data. For instance:
 </p>
 <ul>
  <li>An expert service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
 </ul>
 <p>
-For producer and a consumer systems to exchange data successfully based on
-one of these system supported profiles, it's not enough to know that the
+For a producer system and a consumer system to exchange data successfully based on
+one of these supported system profiles, it's not enough to know that the
 systems happen to have system profiles that overlap for the use case
 of interest; the consumer must be able to filter the total set of resources
 made available by the producer system and deal only with the ones relevant
 to the use case.
 </p>
 <p>
-As an example consider a laboratory system generating thousands of reports
+As an example, consider a laboratory system generating thousands of reports
 a day. 1% of those reports are a particular endocrine report that a
 decision support system knows how to process. Both systems declare that
 they support the particular endocrine report profile, but how does the expert
@@ -479,11 +479,11 @@ discriminator is based is a restricted FHIRPath statement that is allowed to inc
 </ul>
 <p>
 Each slice must use the <a href="elementdefinition.html">element definition</a> for the
-element in the descriminator(s) to ensure that the slices are clearly differentiated (by
+element in the discriminator(s) to ensure that the slices are clearly differentiated (by
 assigning a fixed value, a specific type, or a profile, depending on the discriminator
 type. If the type is 'value', then the element definition must use either
-<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>),
-or if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a>
+<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>
+or, if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a>
 that enumerates the list of possible codes in the value set ("extensional definition").
 </p>
 <p>
@@ -583,13 +583,13 @@ but fixes the cardinality of type to 1..1 in the @default slice.
 <a name="reslicing"> </a>
 <h3>Re-profiling and Re-slicing</h3>
 <p>
-Profiles can be based on other profiles, and apply further constraints to those already 
+Profiles can be based on other profiles, and apply further constraints to those already
 specified. This is a useful technique, but implementers should be wary of over-use - humans
 have understanding the implications of deep stacks of constraining profiles.
 </p>
 <p>
 When a profile constrains another profile, it can make additional constrainta, including
-extending the discriminator, adding new slices (if the slices are not already closed), and 
+extending the discriminator, adding new slices (if the slices are not already closed), and
 slicing inside the existing slices.
 </p>
 <p>
@@ -597,13 +597,13 @@ The rules for changing the slicing are as follows:
 </p>
 <ul>
  <li>Rule = open can be changed to rule = closed, and unordered can be changed to ordered)</li>
- <li>If a discriminator for an element is declared in a parent profile, child profiles referencing that element must either declare the same discriminator or must declare a new discriminator that includes the 
+ <li>If a discriminator for an element is declared in a parent profile, child profiles referencing that element must either declare the same discriminator or must declare a new discriminator that includes the
    parent discriminator content. I.e. additional discriminator paths may be added, but none of the existing paths can be removed.</li>
 </ul>
 
 <p>
 It's sometimes necessary to slice data that has already been sliced in the base
-profile - that is, create new slices within the existing slices.  This is called 
+profile - that is, create new slices within the existing slices.  This is called
 "Re-slicing".  The rules for re-slicing are as follows:
 </p>
 
@@ -824,7 +824,7 @@ interface.
 <p>
 The impact of supporting two sets of profiles depends on whether resources
 are being created or consumed. When an application is creating content, it
-has to create content that conforms to both sets of profiles - that is, the
+must create content that conforms to both sets of profiles - that is, the
 intersection of the profiles. When an application is consuming information,
 then it must be able to consume content that conforms to either set of
 profiles - that is, the union of the profiles.

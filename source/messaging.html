@@ -98,7 +98,7 @@ and SHOULD not be returned for notifications.
 </p>
 <p>
 In principle, source applications are not required to wait for a response to
-a transaction before issuing a new transaction. However in many cases, the
+a transaction before issuing a new transaction. However, in many cases, the
 messages in a given stream are dependent on each other, and must be sent and
 processed in order. In addition, some transfer methods may require sequential
 delivery of messages.
@@ -279,7 +279,7 @@ When processing messages, a server may return one of several status codes:
     submitted message, that response SHALL be returned as the body of the 200 response.</li>
   <li><b>202 Accepted</b>: Indicates that the receiving system has accepted custody of the message</li>
   <li><b>204 No Content</b>: Indicates that the message has been fully processed and would normally have had an application-level response,
-    but because of instructions from the sender (e.g. the 
+    but because of instructions from the sender (e.g. the
     <a href="extension-messageheader-response-request.html">messageheader-response-request</a> extension), no response is being provided</li>
   <li><b>300+</b>: Indicates that the message was not successfully processed.  The server MAY return an
     <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD

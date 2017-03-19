@@ -33,7 +33,7 @@ in order to support consistent definitions for schema and UML derived code.
 
         <p>
             As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there is a number of mechanisms available. In addition
-            to managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource paterns</a> in an
+            to managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource patterns</a> in an
             ad-hoc fashion. In deciding how best to interoperate around workflow with FHIR, there are a number of considerations:
         </p>
         <ul>
@@ -91,7 +91,7 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             The combination of <a href="task-definitions.html#Task.status">Task.status</a>, <a href="task-definitions.html#Task.statusReason">Task.statusReason</a> and <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a> provide
             the mechanism for tracking the workflow state. The following two examples illustrate how that could be accomplished with regards of specific workflows. Note that these examples avoid any specificity on where the described resources exist,
-            or any reference to a specific communication pattern. The goal of the examples is to demostrate the use of the Task attributes to represent the workflow state.
+            or any reference to a specific communication pattern. The goal of the examples is to demonstrate the use of the Task attributes to represent the workflow state.
         </p>
         <h4>Example: Workflow states for a lab order for a blood test</h4>
         <p>The following table shows the steps for a simple blood test order, and the corresponding values of the Task attributes. A lot of details on other attributes have been omitted in order to focus on the state changes.</p>
@@ -234,7 +234,7 @@ in order to support consistent definitions for schema and UML derived code.
 -->
             </tr>
             <tr>
-                <td>Provider A is seeing a patient with a specific complaint. Based on the exam, Provider A refers the patient to a specialist at clinic B. It is an urgent referral, requesting to see the specialist within 4 days. A <a href="referralrequest.html">ReferralRequest</a>                    resource is created to represent the referral order, and a <a href="task.html">Task</a> resource is created with <a href="task-definitions.html#Task.priority">Task.priority</a> set to Urgent, and <a href="task-definitions.html#Task.restriction.period">Task.restriction.period.end</a>                    set to 4 days in the future.
+                <td>Provider A is seeing a patient with a specific complaint. Based on the exam, Provider A refers the patient to a specialist at clinic B. It is an urgent referral, requesting to see the specialist within 4 days. A <a href="referralrequest.html">ReferralRequest</a> resource is created to represent the referral order, and a <a href="task.html">Task</a> resource is created with <a href="task-definitions.html#Task.priority">Task.priority</a> set to Urgent, and <a href="task-definitions.html#Task.restriction.period">Task.restriction.period.end</a> set to 4 days in the future.
                 </td>
                 <td>
                     Requested
@@ -251,7 +251,7 @@ in order to support consistent definitions for schema and UML derived code.
             </tr>
             <tr>
                 <td>
-                    Clinic B receives the referral and puts it on the urgent queue to be reviewd.
+                    Clinic B receives the referral and puts it on the urgent queue to be reviewed.
                 </td>
                 <td>
                     Received
@@ -302,7 +302,7 @@ in order to support consistent definitions for schema and UML derived code.
             </tr>
             <tr>
                 <td>
-                    Clinic C accepts the referral and it is placed on a schedular's queue.
+                    Clinic C accepts the referral and it is placed on a scheduler's queue.
                 </td>
                 <td>
                     Accepted

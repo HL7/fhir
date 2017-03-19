@@ -60,12 +60,12 @@ When codes are carried in resources, one of 4 different data types is used:
  <tr><td><a href="datatypes.html#Quantity">Quantity</a></td><td>Special case: has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit</td></tr>
 </table>
 <p>
-Notes: 
+Notes:
 </p>
 <ul>
- <li>generally the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
+ <li>Generally, the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
 see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Designing_Resources#Choice_of_coding_data_type">advice about data type choice</a>.</li>
- <li>the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> can also be bound - <a href="#strings">see below</a></li>
+ <li>The types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> can also be bound - <a href="#strings">see below</a></li>
 </ul>
 
 <a name="valuesets"> </a>
@@ -97,11 +97,11 @@ data type where the namespace (e.g. the system element/property) is fixed in the
 represented explicitly.
 </p>
 <p>
-Note that for some code systems, there is a single correct machanism by which to represent
+Note that for some code systems, there is a single correct mechanism by which to represent
 codes defined by the system as a single URL. These single URLs are used in the context of
 the <a href="rdf.html#concept">RDF</a> format to enable ontological reasoning. The URL is
 often a direct reference to a web source that can provide additional definitional material
-about the concept. Where the mechanism is known and defined by the code system, it is
+about the concept. Where the mechanism is known, and defined by the code system, it is
 described in this specification.
 </p>
 
@@ -279,7 +279,7 @@ that this specification defines many value sets that have a logical URL that is 
 </p>
 <p>
 Using a logical reference which is a direct reference to the authoritative value set
-is the easiest and most reliable approach. However this requires suitable hosting
+is the easiest and most reliable approach. However, this requires suitable hosting
 arrangements, and cannot always be guaranteed, so it is not required.
 </p>
 <p><b>Version specific Logical References</b></p>
@@ -394,7 +394,7 @@ be provided in its place. If no codes, including local codes, are available, the
 </p>
 <p>
 If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/system SHALL be from the specified value set
-if a code applies, but if no suitable code exists in the value set, an alternate code may provided in its place.
+if a code applies, but if no suitable code exists in the value set, an alternate code may be provided in its place.
 </p>
 <p>
 Identified gaps in value sets should be submitted to the organization administering the value

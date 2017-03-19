@@ -106,7 +106,7 @@ special search for the most relevant context in which the
 search set is indeterminate: <a href="patient.html#mpi">Patient MPI Search</a>.
 </p>
 <p>
-Search using <code>GET</code> may include sensitive information in the search parameters.  Therefore
+Search using <code>GET</code> may include sensitive information in the search parameters.  Therefore,
 secure communications and endpoint management are recommended, see <a href="security.html#http">Security Communications</a>
 </p>
 
@@ -132,7 +132,7 @@ In some cases, parameters may cause an error. For instance:
 </ul>
 <p>
 Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
-However where the issue is a logical condition (e.g. unknown subject or code), the server
+However, where the issue is a logical condition (e.g. unknown subject or code), the server
 SHOULD process the search, including processing the parameter - with the result of returning
 an empty search set, since the parameter cannot be satisfied.
 </p>
@@ -153,7 +153,7 @@ for the following reasons:
 </p>
 <ul>
  <li>Various HTTP stacks and proxies may add parameters that aren't under the control of the client</li>
- <li>The client can determine what parameters the server used by examing the self link in the return (see <a href="#conformance">below</a>)</li>
+ <li>The client can determine what parameters the server used by examining the self link in the return (see <a href="#conformance">below</a>)</li>
 </ul>
 <p>
 Clients can specify how the server should behave, by using the prefer header
@@ -603,7 +603,7 @@ though only a few servers are expected to offer this facility.
 When a string search parameter refers to the types <a href="datatypes.html#HumanName">HumanName</a> and <a href="datatypes.html#Address">Address</a>,
 the search covers the elements of type string, and does not cover elements such as <code>use</code> and <code>period</code>.
 For robust search, servers should search the parts of a family name independently.
-E.g. Searching either Carreno or Quinones should match a family name of "Carreño Quiñones".
+E.g. Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
 HL7 affiliates may make more specific recommendations about how search should work
 in their specific culture.
 </p>
@@ -660,7 +660,7 @@ booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these 
 <p>
 For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features),
 but not case sensitive. To use subsumption based logic, use the modifiers below, or list
-all the codes in the heirarchy. The syntax for the value is one of the following:
+all the codes in the hierarchy. The syntax for the value is one of the following:
 </p>
 <ul>
  <li><b><code>[parameter]=[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
@@ -737,7 +737,7 @@ http://hl7.org/fhir/special-values, though there is usually no reason to use thi
 <table class="lines">
  <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
  <tr> <td><code>:text</code></td> <td>The search parameter is processed as a string that searches text associated with the code/value - either <i>CodeableConcept.text</i>, <i>Coding.display</i>, or <i>Identifier.type.text</i>.</td> </tr>
- <tr> <td><code>:not</code></td> <td>Reverse the code matching described in the paragraph above. Note that this includes resources that have no value for the parameter - e.g. ?gender:not=male includes all patients that do have have gender = male, including patients that do not have a gender at all</td> </tr>
+ <tr> <td><code>:not</code></td> <td>Reverse the code matching described in the paragraph above. Note that this includes resources that have no value for the parameter - e.g. ?gender:not=male includes all patients that do not have gender = male, including patients that do not have a gender at all</td> </tr>
  <tr> <td><code>:above</code><a name="subsumption"> </a></td> <td>The search parameter is a concept with the form <code>[system]|[code]</code>, and the search parameter tests whether the coding in a resource <a href="codesystem.html#subsumption">subsumes</a> the specified search code.  For example, the search concept has an is-a relationship with the coding in the resource, and this includes the coding itself.</td> </tr>
  <tr> <td><code>:below</code></td> <td>the search parameter is a concept with the form <code>[system]|[code]</code>, and the search parameter tests whether the coding in a resource is subsumed by the specified search code. For example, the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself.</td> </tr>
  <tr> <td><code>:in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.url). If the server can treat the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.</td> </tr>
@@ -952,7 +952,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 <a name="combining"> </a>
 <h4>Composite Search Parameters</h4>
 <p>
-Composite search parameters supports joining single values with a <code>$</code>. For example, the result
+Composite search parameters support joining single values with a <code>$</code>. For example, the result
 of the search operation is the intersection of the resources that match the criteria specified by each
 individual search parameter. If a parameter repeats, such as <code>/Patient?language=FR&amp;language=NL</code>, then
 this matches a patient who speaks both languages. This is known as an AND search parameter, since the
@@ -1016,7 +1016,7 @@ Consider the case of searching for all AllergyIntolerance resources:
 GET [base]/AllergyIntolerance?clinical-status=active
 </pre>
 <p>
-This search will only return resources the have a value for clinicalStatus:
+This search will only return resources that have a value for clinicalStatus:
 </p>
 <pre class="json" fragment="AllergyIntolerance">
 {
@@ -1026,8 +1026,8 @@ This search will only return resources the have a value for clinicalStatus:
 </pre>
 <p>
 Resources missing a clinicalStatus will not be returned. This is probably unsafe - it would not usually
-be appropriate to ignore AllergyIntolerance warnings with an unknown clinical status, and 
-only return resources with an explicit clinicalStatus. Instead, it might be desired to return 
+be appropriate to ignore AllergyIntolerance warnings with an unknown clinical status, and
+only return resources with an explicit clinicalStatus. Instead, it might be desired to return
 AllergyIntolerance resources with either an explicit value for clinicalStatus, or none:
 </p>
 <pre>
@@ -1035,15 +1035,15 @@ GET [base]/AllergyIntolerance?clinical-status=active
 GET [base]/AllergyIntolerance?clinical-status:exists=false
 </pre>
 <p>
-Note that this is 2 separate queries. They can be <a href="http.html#transaction">combined in a batch</a>, 
+Note that this is 2 separate queries. They can be <a href="http.html#transaction">combined in a batch</a>,
 but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
 </p>
 <pre>
 GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:exists=false
 </pre>
 <p>
-There is no way to use the :exists modifier and mix with a value using the 
-comma syntax documented above for for composite search parameters. 
+There is no way to use the :exists modifier and mix with a value using the
+comma syntax documented above for for composite search parameters.
 </p>
 <p>
 An alternative approach is to use the <a href="#filter"><code>_filter</code></a> parameter,
@@ -1216,7 +1216,7 @@ Normally, a search is initiated against a known type of resource, e.g.
 GET [base]/Observation?params...
 </pre>
 <p>
-However in some circumstances, a search is executed where there is no fixed
+However, in some circumstances, a search is executed where there is no fixed
 type of resource:
 </p>
 <ul>
@@ -1240,7 +1240,7 @@ implementation experience will be required to determine the correct behaviour in
 these cases.
 </p>
 <p>
-Technically, the <code>_type</code> parameter is a token parameter on the 
+Technically, the <code>_type</code> parameter is a token parameter on the
 <a href="valueset-resource-types.html">Resource Types</a> Value Set.
 </p>
 
@@ -1383,7 +1383,7 @@ For each returned resource, the server identifies the resources that meet
 the criteria expressed in the join, and adds to the results,
 with the <a href="bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode</a>
 set to "include" (in some searches, it is not obvious which resources are
-matches, and which are includes). If there is no reference, or no matching resource, the resource 
+matches, and which are includes). If there is no reference, or no matching resource, the resource
 cannot be retrieved (e.g. on a different server), then the resource is omitted, and no
 error is returned.
 </p>

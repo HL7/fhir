@@ -2,9 +2,9 @@
 
 <!--
 These elements SHALL always appear in this order. These basic elements shared by all resources come first
-in order to support consistent definitions for schema and UML derived code. 
+in order to support consistent definitions for schema and UML derived code.
 -->
-      
+
 [%settitle Medications Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -102,7 +102,7 @@ This module is concerned with resources and functionality in 2 main domains:
 		<td><a href="medication.html">Medication</a></td>
 		<td>The medication resource represents an actual medication that can be given to a patient, and referenced by the
 			other medication resources. In many cases, this resource is not needed and the drug is indicated by
-		 a reference to the appropriate terminology and so can be represented using a codeable concept. In other cases however,
+		 a reference to the appropriate terminology and so can be represented using a codeable concept. In other cases, however,
 		it may be desired to indicate more details than the simple drug (such as the packaging, whether it is a generic medication
 			or the active and inactive ingredients)
 		and so the Medication resource can be used for this.</td></tr>
@@ -135,7 +135,7 @@ This module is concerned with resources and functionality in 2 main domains:
 		managed by the common <a href="workflow-module.html">workflow functionality</a>, resulting in the creation
 		of the other medication resources (MedicationDispense, MedicationAdministration) as it executes.
 	</li>
-	<li>Listing a patients current medications. This is represented using the <a href="list.html">List</a> resource, which allows an author
+	<li>Listing a patient's current medications. This is represented using the <a href="list.html">List</a> resource, which allows an author
 		to construct a 'curated' list. This has features beyond a simple collection of resources - such as the ability
 		to state that the patient is not currently taking any medications at the time that the list is constructed,
 		or changes that are made at a point in time (sometimes called medication reconciliation). FHIR defines a number of specific
@@ -163,7 +163,7 @@ This module is concerned with resources and functionality in 2 main domains:
 	There are other resources that are of particular interest in the medication domain.
 	<ul>
 		<li> <a href="supplyrequest.html">SupplyRequest</a> and <a href="supplydelivery.html">SupplyDelivery</a> which,
-		like MedicationRequest, are 'detail' resources used as part of <a href="workflow-module.html">workflow</a>workflow. They are concerned with
+		like MedicationRequest, are 'detail' resources used as part of a <a href="workflow-module.html">workflow</a>. They are concerned with
 			the request of supplies used in the healthcare process. This includes supplies specifically used in the
 			treatment of patients as well as supply movement within an institution
 			(transport a set of supplies from materials management to a service unit (nurse station).</li>

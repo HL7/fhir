@@ -15,17 +15,17 @@
 <p>
 This specification includes support for the provision of a terminology service - that is, a
 service that lets healthcare applications make use of codes and value sets without having to become
-experts in the fine details of the code system, value set and concept map resources, and the underlying 
-code systems and terminological principles. A server that supports all the functionality described here 
+experts in the fine details of the code system, value set and concept map resources, and the underlying
+code systems and terminological principles. A server that supports all the functionality described here
 can be described as a "FHIR Terminology Service", and SHALL conform to the <a href="capabilitystatement-terminology-server.html">
-terminology server Capability statement</a>. Note that servers can declare that they provide 
+terminology server Capability statement</a>. Note that servers can declare that they provide
 terminology services in their Capability statement:
 </p>
 <div class="example">
 <pre class="xml">
 &lt;CapabilityStatement xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- snip --&gt;
-  &lt;instantiates value=&quot;http://hl7.org/fhir/CapabilityStatement/terminology-server&quot;/&gt;  
+  &lt;instantiates value=&quot;http://hl7.org/fhir/CapabilityStatement/terminology-server&quot;/&gt;
   &lt;!-- snip --&gt;
 &lt;/CapabilityStatement&gt;
 </pre>
@@ -77,30 +77,30 @@ framework</a>. Further useful information about terminologies may be found in:
 <h4>External Code Systems</h4>
 <p>
 In order to be used with a value set, code systems and their content must be defined somewhere. They can be defined explicitly
-using the <a href="codesystem.html">code system resource</a>, or they can be defined elsewhere, and then used in a value set 
+using the <a href="codesystem.html">code system resource</a>, or they can be defined elsewhere, and then used in a value set
 by quoting the correct system url. The FHIR specification defines a <a href="terminologies-systems.html">set of
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
 <a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
 These code systems are often large, and have many internally defined properties that are part of their
-formal definitions. The code systems resource is not an appropriate way to distribute the contents of 
-these code systems; the standard FHIR code system resource simply represents the properties of 
+formal definitions. The code systems resource is not an appropriate way to distribute the contents of
+these code systems; the standard FHIR code system resource simply represents the properties of
 the code system. Instead, these terminologies provide their own distribution formats, and it is assumed that the
 content of these code systems are externally known to the terminology server.
 </p>
 <p>
 Most useful terminology servers will make one or more of these external code systems available for use
 within the value sets that they manage. The list of additional terminologies that a terminology server supports
-beyond those defined in its value sets is published to clients by referencing code system resources in 
+beyond those defined in its value sets is published to clients by referencing code system resources in
 the server's <a href="capabilitystatement.html">Capability Statement</a>.
 </p>
 <pre class="json">
 {
  "resourceType" : "CapabilityStatement",
  "extension" : [
-   { 
+   {
      "url" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system",
-     "valueUri" : "http://loinc.org" 
-   }]  
+     "valueUri" : "http://loinc.org"
+   }]
 }
 </pre>
 <p>
@@ -139,7 +139,7 @@ outside the scope of the FHIR terminology service.
 <h4>Operations across all value sets</h4>
 <p>
 For some of the operations below, it can be useful to perform them across all value sets known to the system.
-For example, $expand using a text filter, and searching all value sets at once. A special value set is 
+For example, $expand using a text filter, and searching all value sets at once. A special value set is
 defined that means "all value sets known to the server":
 </p>
 <pre>
@@ -147,9 +147,9 @@ http://hl7.org/fhir/ValueSet/@all
 </pre>
 <p>
 Technically, this value set automatically imports all the existing value sets on the server.
-Note that this URL has no fixed meaning - its interpretation is server specific (e.g. whether 
-it includes all versions of all value sets). This URL can only be used as a parameter to the 
-operations described on this page. 
+Note that this URL has no fixed meaning - its interpretation is server specific (e.g. whether
+it includes all versions of all value sets). This URL can only be used as a parameter to the
+operations described on this page.
 </p>
 
 <h4>Terminology Maintenance</h4>
@@ -157,7 +157,7 @@ operations described on this page.
 The terminology service uses the code systems and value set resources defined on the system - both
 the implicit ones associated with the external code systems and those explicitly
 available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below.
-As code systems and value sets are created, updated or deleted, the outcomes of the operational 
+As code systems and value sets are created, updated or deleted, the outcomes of the operational
 services change. A terminology server should validate incoming resources, and ensure integrity
 of the terminology services. Typically, servers provide a test and production
 environment, but there is no explicit notion of this in the interface itself.
@@ -195,12 +195,12 @@ to reduce the number of codes returned - this may result in a valid expansion.
 For further information, consult the <a href="valueset-operations.html#expand">definition of the operation</a>.
 </p>
 <p>
-The $expand operation has support for paging - for a client to retrieve a big expansion 
-in a set of partial views, in order to present the most optimal user experience. 
-The client specifies both an offset and a count - how many codes per page, and where in the sequence 
-to start. The return expansion specifies the number of concepts in the expansion, and the offset 
+The $expand operation has support for paging - for a client to retrieve a big expansion
+in a set of partial views, in order to present the most optimal user experience.
+The client specifies both an offset and a count - how many codes per page, and where in the sequence
+to start. The return expansion specifies the number of concepts in the expansion, and the offset
 at which this partial view starts. Note that all expansions SHOULD include the total code count,
-but the offset element SHALL only exist when paging is being used. Expansions that are hierarchical 
+but the offset element SHALL only exist when paging is being used. Expansions that are hierarchical
 trees of concepts are not subject to paging and the server simply returns the entire expansion.
 </p>
 <p>
@@ -291,13 +291,13 @@ The server returns some or all of the following information:
  <li> Component properties of the specified code (e.g. to support reasoning) (e.g. decomposition)</li>
 </ul>
 <p>
-The recommended display for the code is a text representation of the code that the 
+The recommended display for the code is a text representation of the code that the
 terminology server recommends as the default choice to show to the user, though a
 client may choose out of the other designations if it has reason to.
 </p>
 <p>
 If the client does not ask for any particular properties to be returned, it is at the discretion
-of the server to decide which properties to return (though note that the "version" property is always 
+of the server to decide which properties to return (though note that the "version" property is always
 returned if the code system has a version).
 </p>
 
@@ -377,7 +377,7 @@ The following properties are defined for all code systems:
  </tr>
  <tr>
   <td>system</td>
-  <td>The name of the code ssystem</td>
+  <td>The name of the code system</td>
  </tr>
  <tr>
   <td>version</td>
@@ -401,11 +401,11 @@ The following properties are defined for all code systems:
  </tr>
  <tr>
   <td>parent</td>
-  <td>Parent codes for this code (for code systems with a defined heirarchy)</td>
+  <td>Parent codes for this code (for code systems with a defined hierarchy)</td>
  </tr>
  <tr>
   <td>child</td>
-  <td>child codes of this code (for code systems with a defined heirarchy)</td>
+  <td>child codes of this code (for code systems with a defined hierarchy)</td>
  </tr>
 </table>
 <p>
@@ -599,7 +599,7 @@ HTTP/1.1 200 OK
 
 <p>
 It is also possible to validate a set of concepts against their relevant value
-sets by using the <code>$validate-code</code> operation in a <a href="http.html#batch">Batch</a> 
+sets by using the <code>$validate-code</code> operation in a <a href="http.html#batch">Batch</a>
 interaction.
 </p>
 
@@ -694,7 +694,7 @@ context provided in the value sets.
 If there is no particular context, the appropriate value sets would be the value sets for the
 entire coding system at question (e.g. from http://snomed.info/sct to http://loinc.org/vs).
 The server performs the translation as it is able based on the concept maps that it knows about.
-If no single mapping can be determined then the
+If no single mapping can be determined, then the
 server returns an error. Some servers may require a concept map to use for the translation.
 </p>
 
@@ -740,7 +740,7 @@ HTTP/1.1 200 OK
 
 <p>
 It is also possible to translate a set of concepts against their relevant value
-sets by using the <code>$translate</code> operation in a <a href="http.html#batch">Batch</a> 
+sets by using the <code>$translate</code> operation in a <a href="http.html#batch">Batch</a>
 interaction.
 </p>
 
@@ -850,7 +850,7 @@ HTTP/1.1 200 OK
 
 <p>
 The 5 operations Expand, Lookup, Validate, Subsumes, and Translate account for most operational requirements
-associated with terminology use. However there is one difficult but important use case that
+associated with terminology use. However, there is one difficult but important use case that
 they do not address, which is integrating terminologically based logic into application searches.
 </p>
 <p>
@@ -863,7 +863,7 @@ In this case, both "diagnosis of gout" and "serum creatinine" involve value set 
 (e.g. against SNOMED CT and LOINC respectively). This search has to be executed by some
 logical processing engine that knows how to find patient related in a given persistence store.
 Often, this is some kind of SQL query, though many other technological choices are available.
-However this is done, the challenge with an operation like this is to integrate the
+However, this is done, the challenge with an operation like this is to integrate the
 terminological knowledge into a search execution that also covers other relationships expressed in the search criteria.
 </p>
 <p>
@@ -875,8 +875,8 @@ the search could generate expansions, and then search for these expansions. This
   <li> the expansion of the subsumption might not be closed, and so the search operation cannot be correct </li>
 </ul>
 <p>
-An alternative approach is to generate a <a href="https://en.wikipedia.org/wiki/Transitive_closure#In_graph_theory">transitive closure table</a> 
-which lists all the possible transitive subsumption relationships, and <a href="http://karwin.blogspot.com.au/2010/03/rendering-trees-with-closure-tables.html">allows for rapid execution of these kind of queries</a> . However this has other problems:
+An alternative approach is to generate a <a href="https://en.wikipedia.org/wiki/Transitive_closure#In_graph_theory">transitive closure table</a>
+which lists all the possible transitive subsumption relationships, and <a href="http://karwin.blogspot.com.au/2010/03/rendering-trees-with-closure-tables.html">allows for rapid execution of these kind of queries</a> . However, this has other problems:
 </p>
 <ul>
   <li> the subsumption table can be very large (&gt;500000 records for SNOMED CT), even though very few of the codes are used</li>
@@ -925,16 +925,16 @@ version in one of the delta responses. This is a request to replay all the mappi
 <h4>Initializing a Closure Table</h4>
 
 <p>
-Before it can be used, a closure table has to be initialised. To initialise a closure 
+Before it can be used, a closure table has to be initialised. To initialise a closure
 table, POST the following to [base]/ConceptMap/$closure:
 </p>
 <div class="example">
 <pre class="json">
-{ 
-  "resourceType" : "Parameters", 
-   "parameter" : [{ 
-     "name" : "name", 
-     "valueString" : "[name]" 
+{
+  "resourceType" : "Parameters",
+   "parameter" : [{
+     "name" : "name",
+     "valueString" : "[name]"
   }]
 }
 </pre>
@@ -978,7 +978,7 @@ If there is an error – usually involving the closure name, the server returns 
 </pre>
 </div>
 <p>
-What closure names are valid is at the discretion of the server. 
+What closure names are valid is at the discretion of the server.
 </p>
 
 <a name="closure-add"> </a>
@@ -1066,7 +1066,7 @@ Return a 422 Unprocessable Entity with
   "text": {
     "status": "generated",
     "div": "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;closure \&quot;[name\&quot; must be reinitialised&lt;/p&gt;&lt;/div&gt;"
-   },   
+   },
    "issue": [{
        "severity": "error",
        "details": {
@@ -1133,21 +1133,21 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
 <a name="closure-rerun"> </a>
 <h4>Re-running Closure operation</h4>
 <p>
-Given the way that the closure operation functions, it’s possible for a client to lose a response from 
-the server before it is committed to safe storage (or the client may not have particularly safe storage). 
-For this reason, when a client is starting up, it should check that there has been no missing operations. 
+Given the way that the closure operation functions, it’s possible for a client to lose a response from
+the server before it is committed to safe storage (or the client may not have particularly safe storage).
+For this reason, when a client is starting up, it should check that there has been no missing operations.
 It can do this by passing the last version (from the Concept Map response) it is sure it processed in the request:
 </p>
 <div class="example">
 <pre class="json">
-{ 
-  "resourceType" : "Parameters", 
-   "parameter" : [{ 
-     "name" : "name", 
-     "valueString" : "[name]" 
+{
+  "resourceType" : "Parameters",
+   "parameter" : [{
+     "name" : "name",
+     "valueString" : "[name]"
   }, {
-     "name" : "version", 
-     "valueString" : "3" 
+     "name" : "version",
+     "valueString" : "3"
   }]
  }
 </pre>
@@ -1167,7 +1167,7 @@ Notes:
 <h4>Making use of the Closure Table</h4>
 
 <p>
-The client uses the result of the closure operation to maintain a closure table. Simplistically, 
+The client uses the result of the closure operation to maintain a closure table. Simplistically,
 it might look like this:
 </p>
 <table class="grid">
@@ -1196,26 +1196,26 @@ it might look like this:
 
 <p>
 The client can then use a table like this as part of its general search conditions. Using the example from above:
-"Find any observations for male patients over the age of 50 who attended a particular clinic within a particular 
-2 week period, with a diagnosis of gout, and who had an elevated serum creatinine." This query could be done, for 
+"Find any observations for male patients over the age of 50 who attended a particular clinic within a particular
+2 week period, with a diagnosis of gout, and who had an elevated serum creatinine." This query could be done, for
 instance, with an SQL query like this:
 </p>
 <pre>
  Select * from Observations, Patients, Encounters, Conditions, Observations as Obs2 where
-   Observations.patient = Patients.Key and Patients.Age > 50 and 
-   Observations.encounter = Encounters.Key and Encounter.clinic = [key] 
+   Observations.patient = Patients.Key and Patients.Age > 50 and
+   Observations.encounter = Encounters.Key and Encounter.clinic = [key]
      and encounter.date >= [date] and encounter.date &lt;= [date] and
-   Conditions.patient = Patients.Key and Conditions.code 
-     in (<span style="color: DarkGreen">select Source From ClosureTable 
+   Conditions.patient = Patients.Key and Conditions.code
+     in (<span style="color: DarkGreen">select Source From ClosureTable
        where Scope = "patient-problems" and Target = "http://snomed.info/sct|90560007"</span>) and
-   Obs2.patient = Patients.Key and Obs2.value > 0.19 and Obs2.code 
-     in (<span style="color: DarkGreen">select Source From ClosureTable 
+   Obs2.patient = Patients.Key and Obs2.value > 0.19 and Obs2.code
+     in (<span style="color: DarkGreen">select Source From ClosureTable
        where Scope = "obs-code" and Target = "http://loinc.org|LP41281-4"</span>)
 </pre>
 <p>
-Note that in real clinical systems, tables are usually far more structured than this 
+Note that in real clinical systems, tables are usually far more structured than this
 example implies, and the query is correspondingly more complex. The closure table
-would usually be normalised - this example is kept simple to demonstrate the concept. 
+would usually be normalised - this example is kept simple to demonstrate the concept.
 </p>
 
 </div>

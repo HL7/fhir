@@ -20,58 +20,58 @@
 <h2>Narrative</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Trial Use</a></td></tr></table>
 <p>
-Any resource that is a <a href="domainresource.html">DomainResource</a> (almost all types 
+Any resource that is a <a href="domainresource.html">DomainResource</a> (almost all types
 of resource) may include a human-readable narrative that contains a summary of the resource,
 and may be used to represent the content of the resource to a human.
 </p>
 <p>
-If narrative is present with a status other than 'empty', it SHALL reflect all content 
-needed for a human to understand the essential clinical and business information for 
-the resource.  I.e. It must be safe to render only the narrative of the resource without 
+If narrative is present with a status other than 'empty', it SHALL reflect all content
+needed for a human to understand the essential clinical and business information for
+the resource.  I.e. It must be safe to render only the narrative of the resource without
 displaying any of the resource's discrete/encoded information.  Resource definitions and/or
-profiles on resources may define what content should be represented in the narrative to 
+profiles on resources may define what content should be represented in the narrative to
 ensure clinical safety.
 </p>
 <p>
-The narrative for a resource is allowed to contain additional information that is not in
+The narrative for a resource can contain additional information that is not in
 the structured data, including human-edited content. Such additional information SHALL be
 in the scope of the definition of the resource, though it is common for the narrative to
-include additional descriptional information extracted from other referenced resources
-when describing references. Narrative for a resource should include summary information 
-about any referenced resources that would be required for a consumer of the resource to 
-be able to understand the key, essential information about a resource without retrieving 
+include additional descriptive information extracted from other referenced resources
+when describing references. Narrative for a resource should include summary information
+about any referenced resources that would be required for a consumer of the resource to
+be able to understand the key, essential information about a resource without retrieving
 any additional resources.
 </p>
 <p>
-For example, the narrative for a MedicationRequest might include brief summary information 
-about the referenced patient, prescriber and medication.  Some resources (e.g. List, Composition) 
-may provide specific rules about what content must (or must not) be included in the resource narrative.  
-Consideration  should be given to the fact that referenced resources may be updated without updating 
-referencing resources, so the proportion of content of a referenced resource included 
-in a referencing resource should be limited. 
-Systems MAY choose how narrative is generated, including how much de-referencing to 
-perform, but SHALL NOT assume that the resource is rendered in any particular context 
+For example, the narrative for a MedicationRequest might include brief summary information
+about the referenced patient, prescriber and medication.  Some resources (e.g. List, Composition)
+may provide specific rules about what content must (or must not) be included in the resource narrative.
+Consideration  should be given to the fact that referenced resources may be updated without updating
+referencing resources, so the proportion of content of a referenced resource included
+in a referencing resource should be limited.
+Systems MAY choose how narrative is generated, including how much de-referencing to
+perform, but SHALL NOT assume that the resource is rendered in any particular context
 when generating narrative, since resources will be used in multiple contexts.
 </p>
 <p>
 Resources SHOULD always contain narrative to support human-consumption
-as a fallback.  Structured data SHOULD NOT generally contain information of 
-importance to human readers that is omitted from the narrative. Creators of FHIR 
-resources should not assume that systems will render (or that humans will see) 
-data that is not in the narrative. However, in strictly managed trading systems 
-where all systems share a common data model and additional text is unnecessary or 
-even a clinical safety risk, the narrative may be omitted. Implementers should 
-give careful consideration before doing this, as it will mean that such resources can 
-only be understood in the limited trading environment. Closed trading partner 
-environments are very likely to open up during the lifetime of the resources 
-they define. Also, many workflow steps involving finding and aggregating 
-resources are much more difficult or tedious if the resources involved do not have 
+as a fallback.  Structured data SHOULD NOT generally contain information of
+importance to human readers that is omitted from the narrative. Creators of FHIR
+resources should not assume that systems will render (or that humans will see)
+data that is not in the narrative. However, in strictly managed trading systems
+where all systems share a common data model and additional text is unnecessary or
+even a clinical safety risk, the narrative may be omitted. Implementers should
+give careful consideration before doing this, as it will mean that such resources can
+only be understood in the limited trading environment. Closed trading partner
+environments are very likely to open up during the lifetime of the resources
+they define. Also, many workflow steps involving finding and aggregating
+resources are much more difficult or tedious if the resources involved do not have
 their own text.
 </p>
 <p>
-In some cases, a resource may only have text with little or no additional discrete data 
-(as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from 
-legacy systems where information is captured as a "text blob" or where text is additionally 
+In some cases, a resource may only have text with little or no additional discrete data
+(as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from
+legacy systems where information is captured as a "text blob" or where text is additionally
 entered raw or narrated and encoded in formation is added later.
 </p>
 <p>
@@ -260,7 +260,7 @@ attribute, although appropriate interpretation is allowed in certain contexts (e
 rooms or a high-contrast display for the visually impaired may adjust colors accordingly).
 </p>
 <p>
-Note that rendering systems are allowed to ignore or override any of the internal or
+Note that rendering systems can ignore or override any of the internal or
 external styles described above, but SHOULD be careful to ensure that this is only done
 in the context of well maintained trading partner agreements, as altering the presentation
 of the text may create clinical safety issues.

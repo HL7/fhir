@@ -22,8 +22,8 @@
 
 <p>Status: <%status%>. <%pubdetails%></p>
 
-<p> 
-<%definition%> 
+<p>
+<%definition%>
 </p>
 
 <%context-info%>
@@ -59,7 +59,7 @@ Extension Content
   <div id="tabs-struc2">
 
 <div id="tbl1">
-<p><b>Fulle Structure</b></p>
+<p><b>Full Structure</b></p>
  <div id="tbl-inner">
   <%extension-table true%>
  </div>
@@ -120,11 +120,11 @@ Extension Content
   <%json%>
  </div>
 </div>
-  
+
  </div>
 </div>
-  
-<p>&nbsp;</p>  
+
+<p>&nbsp;</p>
 
 <a name="tx"> </a>
 <%tx%>
@@ -144,7 +144,7 @@ Extension Content
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
 }
-catch(exception){ 
+catch(exception){
 }
 
 if (!currentTabIndex)
@@ -159,11 +159,11 @@ $( '#tabs' ).tabs({
              try {
                sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
              }
-             catch(exception){ 
+             catch(exception){
              }
          }
      });
 </script>
-    
+
 </body>
 </html>
