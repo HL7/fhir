@@ -82,7 +82,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Limitations</h4>
         <ul>
             <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
-            <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints) and must each have a FHIR server and must have "write" permissions to each other's servers. This could become unmanageable if there are a
+            <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints), must each have a FHIR server, and must have "write" permissions to each other's servers. This could become unmanageable if there are a
                 large (or dynamic) number of placers and fillers that need to communicate</li>
             <li>No indication of agreement to act on the request</li>
             <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
@@ -98,7 +98,7 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
 
         <a name="optionc"> </a>
-        <h3>Option C: POST of request to placer/queue server system, receiver uses polling or subscribtion</h3>
+        <h3>Option C: POST of request to placer/queue server system, receiver uses polling or subscription</h3>
         <img alt="Diagram showing POST of request to placer/queue server system, receiver uses polling workflow" src="workflow-optionc.png" />
         <h4>Steps</h4>
         <ol>
@@ -128,7 +128,7 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            This pattern could be used when there's no support/need for complexity of Task, usually for simple two step wrkflows. This is a more typically RESTful approach where data resides on the server "owned" by the data creator and is accessed by other systems.
+            This pattern could be used when there's no support/need for complexity of Task, usually for simple two step workflows. This is a more typically RESTful approach where data resides on the server "owned" by the data creator and is accessed by other systems.
         </p>
         <h4>Usage Examples</h4>
         <!--
@@ -267,8 +267,8 @@ in order to support consistent definitions for schema and UML derived code.
 
         <h4>Cancellation of a Task using REST - placer owns</h4>
         <ol>
-            <li>Placer sends an update to the Task setting the status to "cancelled" signaling they are no longer concerned about the outcome of the task</li>
-            <li>Filler receives notification of the update (because the task is on their system or because they poll it or are subscribed to it) and ceases work if they are able</li>
+            <li>Placer sends an update to the Task setting the status to "cancelled" signalling they are no longer concerned about the outcome of the task</li>
+            <li>Filler receives notification of the update (because the task is on their system, or because they poll it, or are subscribed to it) and ceases work if they are able</li>
         </ol>
 
         <h4>Cancellation of a Task using REST - filler owns</h4>

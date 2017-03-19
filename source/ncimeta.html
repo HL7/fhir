@@ -44,7 +44,7 @@ requirements limiting use of NCI metathesaurus concepts in instances or systems.
 
 <h3>MCI Metathesaurus MySQL Database</h3>
 <p>
-Like <a href="rxnorm.html">RxNorm</a> the RRF files that are the distributed source of the NCI Metathesaurus can be used
+Like <a href="rxnorm.html">RxNorm</a>, the RRF files that are the distributed source of the NCI Metathesaurus can be used
 to populate a MySQL database that contains the data. This page provides SQL statements that describe how to implement 
 the features of the NCI Metathesaurus correctly against this database. They are provided only for implementer convenience, and 
 do not imply that any particular approach must be used in implementations. (Note: for consistency, the RxNorm table and column names 
@@ -65,7 +65,7 @@ This section documents the property filters that can be used with the RxNorm
 code system in value set composition statements.
 </p>
 <p>
-The base SQL statement for returning a list of CUIS that conform to these filters 
+The base SQL statement for returning a list of CUIs that conform to these filters 
 is:
 </p>
 <pre>
@@ -75,18 +75,18 @@ is:
 <h4>Semantic Type</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows to choose a set of CUIs based on their Semantic Type</td></tr>
+ <tr><td>Description</td><td>Allows for selection of a set of CUIs based on their Semantic Type</td></tr>
  <tr><td>Property Name</td><td>STY</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>[column:]value</td></tr>
- <tr><td>Comments</td><td>If not column is specified, the default column is TUI</td></tr>
+ <tr><td>Comments</td><td>If a column is not specified, the default is TUI</td></tr>
  <tr><td>SQL</td><td><pre>and RXCUI in (select RXCUI from RXNSTY where [:column] = :value)</pre></td></tr>
 </table>
 
 <h4>Source</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Allows for selection of the set of concepts that have mappings to a particular rxnorm source</td></tr>
+ <tr><td>Description</td><td>Allows for selection of the set of concepts that have mappings to a particular RxNorm source</td></tr>
  <tr><td>Property Name</td><td>SAB</td></tr>
  <tr><td>Operations Allowed</td><td>= / in</td></tr>
  <tr><td>Values Allowed</td><td>Values from the SAB table (e.g. select RSAB from RXNsab) </td></tr>

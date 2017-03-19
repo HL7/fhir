@@ -866,11 +866,11 @@ SampledData
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R2 Conversions</a>.
 </p>
 <p>
-Data that comes from a series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
+Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The data type also supports more than one dimension in the data.
 </p>
 <p>
-A SampledData provides a concise way to handle the data produced by devices that sample a physical particular state at a high frequency. A typical
-use for this is for the output of an ECG or EKG device. It has a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
+A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency. A typical
+use for this is for the output of an ECG or EKG device. The data type includes a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
 factor. These are interpreted such that
 </p>
 <pre>
@@ -921,13 +921,13 @@ FHIR defines <a href="identifier-registry.html">some useful or important system 
 example identifier namespaces:
 </p>
 <ul>
- <li><code>http://hl7.org/fhir/sid/us-ssn</code> identifiers US SSN values</li>
- <li><code>http://ns.electronichealth.net.au/id/hi/ihi/1.0</code> for Australian IHI numbers</li>
+ <li><code>http://hl7.org/fhir/sid/us-ssn</code> for United States Social Security Number (SSN) values</li>
+ <li><code>http://ns.electronichealth.net.au/id/hi/ihi/1.0</code> for Australian Individual Healthcare Identifier (IHI) numbers</li>
  <li><code>urn:ietf:rfc:3986</code> for when the value of the identifier is itself a globally unique URI</li>
 </ul>
 <p>
 If the system is a URL, it SHOULD resolve. Resolution might be to a web page that describes the identifier
-system and/or supports look-up of identifiers.  Alternatively, it could be to a NamingSystem resource
+system and/or supports look-up of identifiers.  Alternatively, it could be to a <a href="namingsystem.html">NamingSystem</a> resource
 instance. Resolvable URLs are generally preferred by implementers over non-resolvable URNs, particularly
 opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If used, OIDs and UUIDs may be registered in
 the <a href="http://hl7.org/oid">HL7 OID registry</a> and SHOULD be registered if the content is shared
@@ -1022,13 +1022,13 @@ these are different instances of <code>HumanName</code>.
 <p>
 The <code>text</code> element specifies the entire name as it should be represented. This
 may be provided instead of or as well as specific parts, and can be built from the parts, though
-the correct order of assembly is culture dependent: the order of the  parts within a given part type has
+the correct order of assembly of the parts is culture dependent: the order of the parts within a given part type has
 significance and SHALL be observed. The appropriate order between family name and given names depends on culture and context of use.
 Note that there is an <a href="extension-humanname-assembly-order.html">extension</a> for the few times name
 assembly order is not fixed by the culture.
 </p>
 <p>
-The given name parts may contain whitespace, though generally don't. Initials may be used in place of
+The given name parts may contain whitespace, though generally they don't. Initials may be used in place of
 the full name if that is all that is recorded. Systems that operate across cultures should
 generally rely on the text form for presentation, and use the parts for index/search functionality.
 For this reasons, applications SHOULD populate the text element for future robustness.
@@ -1111,8 +1111,8 @@ Details for all kinds of technology-mediated contact points for a person or orga
 If capturing a phone, fax or similar contact point, the value should be a properly formatted telephone number according to
 <a href="http://www.itu.int/rec/T-REC-E.123-200102-I/e">ITU-T E.123</a>.
 However, this is frequently not possible due to legacy data and/or clerical practices when recording contact details.
-For this reason, phone, fax, page and email addresses are not handled as formal URLs. For other kinds
-of contacts, the <code>system</code> is "other" and the <code>value</code> SHOULD be a URL so that its use can be determined automatically. Typical
+For this reason, phone, fax, pager, and email addresses are not handled as formal URLs. For other kinds
+of contact points, the <code>system</code> is "other" and the <code>value</code> SHOULD be a URL so that its use can be determined automatically. Typical
 URL schemes used in the value are http(s): for web addresses, and URL schemes for various kinds of messaging systems.
 If the value is not a URL, then human interpretation will be required.
 </p>
@@ -1200,7 +1200,7 @@ part of the base specification</a>, and the structured data portions of the Timi
  <tr><td>PM</td>                 <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>                 <td>AFT or EVE</td>  <td></td></tr>
 </table>
 <p>
-These codes SHALL be understood as having the formal meanings documented in this table. Note that BID etc are defined as 'at institutionally specified times'.
+These codes SHALL be understood as having the formal meanings documented in this table. Note that BID, etc. are defined as 'at institutionally specified times'.
 For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID
 should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured
 representation should be used (in this case, <code>timeOfDay</code>).
@@ -1212,7 +1212,7 @@ representation should be used (in this case, <code>timeOfDay</code>).
 
 <p>
 Note that these constraints still allow for non-sensical timing specifications such as "Once per day at 2:00 and 4:00" or "every 3 days on Friday".
-Implementers must take care to ensure that their configuration/data collection designs do not lead to these non-interpretable timing specifications.
+Implementers must take care to ensure that their configuration and data collection designs do not lead to these non-interpretable timing specifications.
 The elements <code>dayOfWeek</code>, <code>timeOfDay</code>, and <code>when</code> are particularly likely to be at issue here.
 </p>
 </div>
@@ -1261,14 +1261,14 @@ When the signature is an XML Digital Signature (contentType = application/signat
  <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
  <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
- <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as CommitmentTypeIndication element.</li>
+ <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
 </ul>
 <p>
 There are three levels of signature verification:
 <ol>
-   <li>	verifying that the Digital Signature block itself has integrity through verifying the signature across the XML-Signature, </li>
-   <li> confirming that the signer was authentic, not revoked, and appropriate to the signature purpose, </li>
-   <li> confirming that the signed content of interest is unmodified using the hash algorithm.</li>
+   <li>Verifying that the Digital Signature block itself has integrity through verifying the signature across the XML-Signature.</li>
+   <li>Confirming that the signer was authentic, not revoked, and appropriate to the signature purpose.</li>
+   <li>Confirming that the signed content of interest is unmodified using the hash algorithm.</li>
 </ol>
 </p>
 <p>

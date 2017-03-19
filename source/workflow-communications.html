@@ -32,9 +32,9 @@ in order to support consistent definitions for schema and UML derived code.
         <h2>Workflow Execution and Communication Patterns</h2>
 
         <p>
-            As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there is a number of mechanisms available. In addition
+            As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there are several mechanisms available. In addition
             to managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource patterns</a> in an
-            ad-hoc fashion. In deciding how best to interoperate around workflow with FHIR, there are a number of considerations:
+            ad-hoc fashion. In deciding how best to interoperate around workflow with FHIR, there are several considerations:
         </p>
         <ul>
             <li>Is sharing of the state of the workflow necessary among the participants?</li>
@@ -65,7 +65,7 @@ in order to support consistent definitions for schema and UML derived code.
             <a href="messaging.html">messaging</a>, <a href="operations.html">operations</a>, <a href="services.html">services</a> and the <a href="subscription.html">Subscription</a> resource.
         </p>
         <p>
-            The scenarios used to illusttrate the patterns below make use of a few conventions:
+            The scenarios used to illustrate the patterns below make use of a few conventions:
         </p>
         <ul>
             <li>The focus here is on a "request" and the actioning of that request. Almost all workflows can be broken down to a sequence of these steps, though the responsibilities of the different parties may shift for each interaction and there can be
@@ -75,15 +75,15 @@ in order to support consistent definitions for schema and UML derived code.
             <li>The requester is referred to as the "placer" and the performer is referred to as the "filler", which are often seen as order-specific terms. However, in this context, the terms hold whether the request is expressed as a proposal, plan or full-blown
                 order
             </li>
-            <li>Each of the patterns defines the set of steps involved in processing the request, lists some of the benefits and limitations associated with the approach, provides a scenario to illutrate the use of the pattern, and then makes recommendations
+            <li>Each of the patterns defines the set of steps involved in processing the request, lists some of the benefits and limitations associated with the approach, provides a scenario to illustrate the use of the pattern, and then makes recommendations
                 about when the pattern is most appropriate</li>
-            <li>The descriptions of these patterns focuses on the notion of requesting fulfillment of a request. However most of these patterns are also applicable to requests for status change, requests for information, etc. If a pattern is limited in the
+            <li>The descriptions of these patterns focus on the notion of requesting fulfillment of a request. However most of these patterns are also applicable to requests for status change, requests for information, etc. If a pattern is limited in the
                 types of execution it can trigger, this will be noted in the "limitations" section.</li>
         </ul>
 
         <h3>Workflow State</h3>
         <p>
-            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the wrokflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource. The <a href="task.html#statemachine">Task state machune</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastrcuture state of the Task resource.
+            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the workflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a> resource. The <a href="task.html#statemachine">Task state machine</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastructure state of the Task resource.
         </p>
 
         <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
@@ -120,7 +120,7 @@ in order to support consistent definitions for schema and UML derived code.
             <tr>
                 <td>
                     Provider orders a blood test for a patient. A <a href="procedurerequest.html">ProcedureRequest</a> resource is created to represent the order, and a <a href="task.html">Task</a> resource is created to represent the request to the
-                    lab. <a href="task-definitions.html#Task.basedOn">Task.baasedOn</a> points to the DiagnsticRequest instance.
+                    lab. <a href="task-definitions.html#Task.basedOn">Task.basedOn</a> points to the ProcedureRequest instance.
                 </td>
                 <td>
                     Requested
@@ -357,7 +357,7 @@ in order to support consistent definitions for schema and UML derived code.
             </tr>
             <tr>
                 <td>
-                    Clinic C confirms tha cancelation of the existing task.
+                    Clinic C confirms the cancellation of the existing task.
                 </td>
                 <td>
                     In progress<br /> Failed
@@ -376,7 +376,7 @@ in order to support consistent definitions for schema and UML derived code.
             </tr>
             <tr>
                 <td>
-                    Provider A changes the referral to Clinic D, which is located close to where the patient lives, and can be conveniently reached using public transportation. This creates a new <a href="task.html">Task</a> resource, wioth the appropriate
+                    Provider A changes the referral to Clinic D, which is located close to where the patient lives, and can be conveniently reached using public transportation. This creates a new <a href="task.html">Task</a> resource, with the appropriate
                     information.
                 </td>
                 <td>
@@ -394,7 +394,7 @@ in order to support consistent definitions for schema and UML derived code.
             </tr>
             <tr>
                 <td>
-                    Clinic D accepts the referral and it is placed on a schedular's queue.
+                    Clinic D accepts the referral and it is placed on a scheduler's queue.
                 </td>
                 <td>
                     Accepted
