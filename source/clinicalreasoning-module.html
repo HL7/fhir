@@ -199,8 +199,13 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>In particular, the use of Clinical Quality Language (CQL) as a foundational mechanism for representing clinical quality logic enables decision support and quality measurement artifacts to share common definitions. For example, a Chlamydia Screening measure and related decision support artifacts focused on improving the measure can share a common library that describes the criteria for detecting when Chlamydia Screening is required in a patient. The decision support rule applies these criteria to determine when and how to impact a workflow, while the quality measure uses these same criteria to determine whether the screening goal has been met for a patient or population. In addition, the resources defined in this module use common patterns for describing the structure of artifacts and their associated metadata, enabling a consistent approach to the sharing and distribution of clinical knowledge artifacts.</p>
 
-<p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing use case, as well as unification with the CDS Hooks specification in support of the evaluation use case. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year. We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:</p>
+<p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing use case, as well as unification with the CDS Hooks specification in support of the evaluation use case. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year.</p>
 
+<a name="crm-feedback"> </a>
+<blockquote class="stu-note">
+<p>
+<b>STU Note:</b> We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:
+</p>
 <ul>
 	<li>The use of FHIRPath and CQL to provide dynamic functionality throughout FHIR</li>
 	<li>FHIR-Based Knowledge Artifact Repository</li>
@@ -210,6 +215,10 @@ in order to support consistent definitions for schema and UML derived code.
 	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any service module evaluation, versus defining an evaluation specific to a given knowledge artifact.</li>
 	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge artifact repository and distribution functionality.</li>
 </ul>
+<p>
+Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+</p>
+</blockquote>
 
 <a name="background"> </a>
 <h3>Background</h3>
