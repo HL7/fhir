@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>9450</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -4689,7 +4689,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Value sets that share the same Use information can be grouped together by that information for implementation purposes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">This is likely to be a ???point in time??? view and should not be considered an authoritative listing of all uses of the value set</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">This is likely to be a point-in-time view and should not be considered an authoritative listing of all uses of the value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4788,7 +4788,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of ???Draft???,  these include ???Proposed???, ???Approved???, ???Ready to Publish???.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status ???Preliminary??? may be sufficient for some implementations</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The values that this element may assume include phrases that capture various stages in review and approval. In addition to the minimum of Draft,  these include Proposed, Approved, and Ready to Publish.  There may be additional states defined by different developers. This is an optional element because the use of Activity Status Preliminary may be sufficient for some implementations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5556,13 +5556,13 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">The expansion is incomplete (because post-coordination)</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">The expansion is incomplete (perhaps because of post-coordination)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Marks that the expansion is  incomplete, and other values that those listed may be valid. This may be used because post-coordinated codes are allowed, and no finite expansion can be produced. </Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Marks that the expansion is  incomplete, and values other than those listed may be valid. This may be used because post-coordinated codes are allowed, and no practical expansion can be produced. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">This extension exists to allow for definition and use of unboundable value sets, and to allow additional learning in this space, and exploration of consequences and alternatives (it is not well understood)</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">This extension exists to allow for definition and use of value sets that are currently unbounded, including those for which it may always be impractical to set bounds. This can be done to allow additional learning in this space, such as exploring poorly understsood consequences of alternatives.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5646,9 +5646,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5656,6 +5656,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5663,8 +5664,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>36</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

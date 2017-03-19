@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>20130</WindowHeight>
-  <WindowWidth>-19456</WindowWidth>
+  <WindowHeight>9450</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4497,7 +4497,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Minimum repetitions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The minimum number of times the group must appear or the minimum number of answers for a question - when greater than 1.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Default assumption for &quot;required&quot; elements is minOccurs=1</Data><NamedCell
@@ -4535,7 +4535,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Maximum repetitions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The maximum number of times the group must appear or the minimum number of answers for a question - when greater than 1 and not unlimited.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The maximum number of times the group must appear, or the minimum number of answers for a question - when greater than 1 and not unlimited.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Only relevant if the element has repeats=true and there's a need to constrain the number of allowed repetitions</Data><NamedCell
@@ -4947,7 +4947,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire to populate a reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">For items of type reference, the reference can be populated either by picking an existing entity or by creating a new one.  In the later case, this Questionnaire allows specifying the Questionnaire to use in creating the target instance.  This can be direct (if the Reference is to a Questionnaire) or indirect via mapping if the Reference is to some other sort of resource.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">For items of type reference, the reference can be populated either by picking an existing entity or by creating a new one.  In the latter case, this Questionnaire allows specifying the Questionnaire to use in creating the target instance.  This can be direct (if the Reference is to a Questionnaire) or indirect via mapping if the Reference is to some other sort of resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Allows creation of references to be Questionnaire-based</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5093,7 +5093,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Comparison value for ordinal codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score)</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. adding up components of a score)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5580,12 +5580,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5593,6 +5594,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5600,8 +5602,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6322,7 +6324,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

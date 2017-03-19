@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13410</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>9450</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1031,7 +1031,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4620,7 +4619,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">A code specifying the type of probability distribution for the uncertainty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">This is only meaningful if there is also an uncertainty extension. If there is and uncertainty extension with no type, this means  that the probability distribution type is unknown. In that case, the uncertainty has the meaning of an informal guess</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">This is only meaningful if there is also an uncertainty extension. If there is an uncertainty extension with no type, this means  that the probability distribution type is unknown. In that case, the uncertainty has the meaning of an informal guess</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">PPD.distributionType</Data><NamedCell
@@ -4883,7 +4882,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">deliveryInstallationQualifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">A number, letter or name identifying a delivery installation. E.g., for Station A, the delivery installation qualifier would be 'A'.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A number, letter or name identifying a delivery installation. For example, for Station A, the delivery installation qualifier would be 'A'.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5347,7 +5346,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Delimiters are printed without framing white space. If no value component is provided, the delimiter appears as a line break.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">This really has no rationale use in FHIR</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">This really has no rationale for use in FHIR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">ADXP[partType=DEL]</Data><NamedCell
@@ -5512,7 +5511,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">preferred</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Preferred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Flag denoting whether parent item is preferred - e.g., a preferred address or telephone number.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5578,7 +5577,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">RFC 3966 compliant telephone of fax number</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">RFC 3966 compliant telephone or fax number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">A V3 compliant, RFC 3966 conformant URI version of the telephone or fax number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5741,12 +5740,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5754,6 +5754,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5761,8 +5762,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
