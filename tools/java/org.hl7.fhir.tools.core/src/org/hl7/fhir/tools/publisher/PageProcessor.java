@@ -1165,20 +1165,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ResourceDefn rd : definitions.getResources().values())
       res.add(rd.getWg().getCode()+":" +rd.getName());
     Collections.sort(res);
-    
+
     StringBuilder b = new StringBuilder();
     for (String s : sorted(definitions.getWorkgroups().keySet())) {
       WorkGroup wg = definitions.getWorkgroups().get(s);
-      b.append("<p><b>");
-      b.append(Utilities.escapeXml(wg.getName()));
-      b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+      boolean first = true;
       for (String rn : res) {
         if (rn.startsWith(wg.getCode()+":")) {
+
+          if (first) {
+            b.append("<p><b>");
+            b.append(Utilities.escapeXml(wg.getName()));
+            b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+            first = false;
+          }
+
           String r = rn.substring(rn.indexOf(":")+1);
           b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
       }
-      b.append("</ul>\r\n");
+      if (!first)
+        b.append("</ul>\r\n");
     }
     return b.toString();
   }

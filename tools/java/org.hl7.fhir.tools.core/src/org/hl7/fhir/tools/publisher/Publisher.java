@@ -5324,7 +5324,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     }
 
-    if (buildFlags.get("all")) {
+    if (buildFlags.get("all") && false) {
       ei.validate("profiles-resources", "Bundle");
       ei.validate("profiles-types", "Bundle");
       ei.validate("profiles-others", "Bundle");
