@@ -48,12 +48,16 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="location.html">Location</a></li>
                         <li><a href="healthcareservice.html">HealthcareService</a></li>
                         <li><a href="endpoint.html">Endpoint</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="slot.html">Slot</a></li>
                     </ul>
                 </td>
                 <td>
                     <ul>
                         <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
                         <li><a href="encounter.html">Encounter</a></li>
+                        <li><a href="appointment.html">Appointment</a></li>
+                        <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
                         <li><a href="account.html">Account</a></li>
                         <li><a href="flag.html">Flag</a></li>
                     </ul>
@@ -98,7 +102,7 @@ in order to support consistent definitions for schema and UML derived code.
             </blockquote>
         </p>
 
-        <a name="patient-reg"> </a>
+        <a name="clinical-reg"> </a>
         <h4>Clinical Categorization Resources</h4>
         <p>
             Most clinical activities occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, where short term care by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)
@@ -120,7 +124,7 @@ in order to support consistent definitions for schema and UML derived code.
             </blockquote>
         </p>
 
-        <a name="patient-reg"> </a>
+        <a name="dir-reg"> </a>
         <h4>Service Provider Directory Resources</h4>
         <p>
             Service Directory resources are usually stored in the administration section of applications, and may even be synchronized from external systems.
@@ -137,8 +141,26 @@ in order to support consistent definitions for schema and UML derived code.
         <div>
             <img src="administration-module-prov-dir.png" alt="Image showing the provider directory resources" width="513px" />
         </div>
+        <p></p>
 
-        <a name="patient-reg"> </a>
+        <a name="sched"> </a>
+        <h4>Scheduling and Appointments</h4>
+        <p>
+            The Scheduling/Appointments resources permit the planning of encounters to occur and follow on with other clinical activities.
+        </p>
+        <table class="bare">
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item Schedule%]
+            [%res-item Slot%]
+            [%res-item Appointment%]
+            [%res-item AppointmentResponse%]
+        </table>
+        <div>
+            <img src="administration-module-scheduling.png" alt="Image showing the scheduling interactions" width="600px" />
+        </div>
+        <p></p>
+
+        <a name="dev-sub"> </a>
         <h4>Devices and Substances</h4>
         <p>
             Other assets are often registered in the administration system, and maintained as master files.
