@@ -1161,9 +1161,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String buildResListByCommittee() {
     List<String> res = new ArrayList<String>();
     for (ResourceDefn rd : definitions.getBaseResources().values()) 
-      res.add(rd.getWg().getCode()+":" +rd.getName());
+      res.add(rd.getWg().getName()+":" +rd.getName());
     for (ResourceDefn rd : definitions.getResources().values())
-      res.add(rd.getWg().getCode()+":" +rd.getName());
+      res.add(rd.getWg().getName()+":" +rd.getName());
     Collections.sort(res);
 
     StringBuilder b = new StringBuilder();
@@ -1171,7 +1171,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       WorkGroup wg = definitions.getWorkgroups().get(s);
       boolean first = true;
       for (String rn : res) {
-        if (rn.startsWith(wg.getCode()+":")) {
+        if (rn.startsWith(wg.getName()+":")) {
 
           if (first) {
             b.append("<p><b>");

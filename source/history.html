@@ -31,7 +31,7 @@ notes:
 <h3>Version History since DSTU #1</h3>
 
 <p>
-For background to this version hsitory, see <a href="versions.html">FHIR Version Management Policy</a>.
+For background to this version history, see <a href="versions.html">FHIR Version Management Policy</a>.
 </p>
 
 <a name="pubs"> </a>
@@ -89,11 +89,35 @@ notes: do not list revision in the version
 	<tr>
 		<td>3.0.0<a name="v3.0.0"> </a></td>
 		<td>
-      <p><b>Release 3</b>: STU3 Publication / Milestone Release</p>
+      <p><b>Release 3</b>: Mar 21, 2017. STU3</p>
       <p>
-        Todo: fill out version release notes
-
+        This is the full FHIR Release 3 (R3). R3 is a complete overhaul of the specification from R2, with over 2400 change proposals 
+        process, and applied in R3. Of those changes, 380+ are labelled as a breaking change. Given this level of change, there is no 
+        useful way to present a single change list. Users can use the <a href="diff.html">R2/R3 difference comparison</a>, the <a href="r2maps.html">R2 &lt;-&gt; R3 transforms</a>, 
+        or the "Compare to R2" link at the foot of every page to help visualise the differences between R2 and R3. 
       </p>
+      <p>
+        Many of the changes made in this release (since 1.8.0) are in response to Quality Assurance processes in HL7, 
+        with a goal of readying the specification for Normative processes in R4:
+      </p>
+      <ul>
+        <li>Reorder many resources and improve their definitions and bindings (Quality Assurance work)</li>
+        <li>Add draft resources <a href="adverseevent.html">AdverseEvent</a> and <a href="graphdefinition.html">GraphDefinition</a></li>
+        <li>Change to the <a href="profiling.html#discriminator">way discriminators work</a> in profiles (for profile/tooling authors)</li>
+        <li>Finalization of the <a href="rdf.html">Turtle (RDF) format, along with JSON-LD</a></li>
+        <li>Consolidation of Vresion management issues into a single <a href="versions.html">Version Policy</a> page, and update to current policy</li>
+        <li>Add <a href="search.html#missing">rules about how missing data</a> in search</li>
+      </ul>
+      <p>
+        Roll up: Of all the many changes (thousands) between R2 and R3, these are the most significant:
+      </p>
+      <ul>
+        <li>Change the <a href="http.html#mime-type">FHIR mime type</a> to application/fhir+xml|json instead of application/xml|json+fhir (<b>breaking change</b>, for conformance to W3C+IETF rules)</li>
+        <li>Rename the "Conformance" resource to "<a href="capabilitystatement.html">CapabilityStatement</a>" and Deprecate use of the OPTIONS command to retrieve the CapabilityStatement</li>
+        <li><a href="search.html">Search</a> Changes around <a href="search.html#errors">errors in search parameters</a>, <a href="search.html#missing">missing data</a>, <a href="search.html#sort">sorting</a></li>
+        <li>Change <a href="datatypes.html#HumanName">HumanName</a>.family from 0..* to 0..1</li>
+        <li><a href="codesystem.html">CodeSystem</a> now separated out from <a href="valueset.html">ValueSet</a></li>
+      </ul>
     </td>
 	</tr>
 	<tr>

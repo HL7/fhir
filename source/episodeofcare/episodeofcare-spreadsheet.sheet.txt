@@ -28,7 +28,7 @@
   Id = 1
   Code = planned
   Display = Planned
-  Definition = This episode of care is planned to start at the date specified in the period.start. During this status an organization may perform assessments to determine if they are eligible to receive services, or be organizing to make resources available to provide care services.
+  Definition = This episode of care is planned to start at the date specified in the period.start. During this status, an organization may perform assessments to determine if the patient is eligible to receive services, or be organizing to make resources available to provide care services.
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -52,7 +52,7 @@
   Id = 5
   Code = finished
   Display = Finished
-  Definition = This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms.
+  Definition = This episode of care is finished and the organization is not expecting to be providing further care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms.
 
  -- Row 6 -----------------------------------
   Id = 6

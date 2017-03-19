@@ -77,7 +77,7 @@
   Id = 4
   Code = semail
   Display = Secure Email
-  Definition = Referrals may be accepted via a secure email. To send please enrypt with the services public key.
+  Definition = Referrals may be accepted via a secure email. To send please encrypt with the services public key.
 
  -- Row 5 -----------------------------------
   Id = 5

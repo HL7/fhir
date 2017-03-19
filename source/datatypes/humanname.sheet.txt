@@ -131,7 +131,7 @@
   v2 Mapping = XPN.2 + XPN.3
   RIM Mapping = ./part[partType = GIV]
   ServD Mapping = ./GivenNames
-  Translatable = Given Names appear in the correct order for presenting then name
+  Translatable = Given Names appear in the correct order for presenting the name
 
  -- Row 6 -----------------------------------
   Element = HumanName.prefix
@@ -142,7 +142,7 @@
   v2 Mapping = XPN.5
   RIM Mapping = ./part[partType = PFX]
   ServD Mapping = ./TitleCode
-  Translatable = Prefixes appear in the correct order for presenting then name
+  Translatable = Prefixes appear in the correct order for presenting the name
 
  -- Row 7 -----------------------------------
   Element = HumanName.suffix
@@ -152,7 +152,7 @@
   Definition = Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name
   v2 Mapping = XPN/4
   RIM Mapping = ./part[partType = SFX]
-  Translatable = Suffixes appear in the correct order for presenting then name
+  Translatable = Suffixes appear in the correct order for presenting the name
 
  -- Row 8 -----------------------------------
   Element = HumanName.period
