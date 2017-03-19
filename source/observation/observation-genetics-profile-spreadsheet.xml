@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Yi Wang</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-22T22:00:34Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2017-03-19T19:09:40Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -891,7 +891,13 @@
    <Borders/>
    <Interior/>
   </Style>
-  <Style ss:ID="s168">
+  <Style ss:ID="s168" ss:Parent="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s169">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -899,10 +905,10 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s169">
+  <Style ss:ID="s170">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
-  <Style ss:ID="s170">
+  <Style ss:ID="s171">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -910,7 +916,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s172" ss:Parent="s63">
+  <Style ss:ID="s173" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -919,46 +925,46 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s173">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
   </Style>
   <Style ss:ID="s174">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s175">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s175" ss:Parent="s63">
+  <Style ss:ID="s176" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
-  </Style>
-  <Style ss:ID="s176">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Interior/>
   </Style>
   <Style ss:ID="s177">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s178">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s178" ss:Parent="s63">
+  <Style ss:ID="s179" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -968,18 +974,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s179">
+  <Style ss:ID="s180">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s181" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
    <Interior/>
   </Style>
  </Styles>
@@ -1321,7 +1321,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">DNA sequence variant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">A' is a variant (mutation) of A = definition every instance of A' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element is the Human Genome Variation Society ([HGVS](http://varnomen.hgvs.org/)) nomenclature for a single or set of DNA sequence variant(s) identified in testing. Reference sequence ID used for HGVS naming must be anotated. </Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A' is a variant (mutation) of A = definition every instance of A' is either an immediate mutation of some instance of A, or there is a chain of immediate mutation processes linking A' to some instance of A ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element is the Human Genome Variation Society ([HGVS](http://varnomen.hgvs.org/)) nomenclature for a single or set of DNA sequence variant(s) identified in testing. Reference sequence ID used for HGVS naming must be annotated. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1417,7 +1417,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Amino acid change </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be anotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)).</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be annotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1578,7 +1578,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">The level of occurrence of a single DNA sequence variant within a set of chromosomes: Heteroplasmic / Homoplasmic / Homozygous / Heterozygous / Hemizygous</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA sequence variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non- homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA sequence variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non-homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3155,9 +3155,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3173,8 +3173,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6762,7 +6760,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">HGVS nomenclature for observed DNA sequence variant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Human Genome Variation Society (HGVS) nomenclature for a single or set of DNA Sequence Variation(s) identified in testing.  The use of the nomenclature is also used to describe non-variations (aka. wild types). LONIC Code: ([48004-6](http://loinc.org/48004-6))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Human Genome Variation Society (HGVS) nomenclature for a single or set of DNA Sequence Variation(s) identified in testing.  The use of the nomenclature is also used to describe non-variations (aka. wild types). LOINC Code: ([48004-6](http://loinc.org/48004-6))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6794,7 +6792,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">DNA sequence variant ID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Identifier for DNA sequence variant.  If a germline variant, ClinVar or dbSNP identifier should be used.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used. Need to provide the code system used (ClinVar, dbSNP, COSMIC) LONIC Code: ([48003-8](http://loinc.org/48003-8))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Identifier for DNA sequence variant.  If a germline variant, ClinVar or dbSNP identifier should be used.  If a somatic variant, COSMIC identifier should be used, unless in ClinVar then either maybe used. Need to provide the code system used (ClinVar, dbSNP, COSMIC) LOINC Code: ([48003-8](http://loinc.org/48003-8))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6827,7 +6825,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">DNA sequence variant type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type. LONIC Code: ([48019-4](http://loinc.org/48019-4))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type. LOINC Code: ([48019-4](http://loinc.org/48019-4))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6862,7 +6860,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">HGVS nomenclature for observed Amino Acid Change</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be anotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)). LONIC Code: ([48005-3](http://loinc.org/48005-3))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Human Genome Variation Society (HGVS) nomenclature for an amino acid change. Reference sequence ID used for HGVS naming must be annotated. An amino acid is a sequence feature that corresponds to a single amino acid residue in a polypeptide ([SO:0001237](http://www.sequenceontology.org/browser/current_svn/term/SO:0001237)). LOINC Code: ([48005-3](http://loinc.org/48005-3))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6897,7 +6895,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Amino Acid Change Type </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Codified type for associated Amino Acid Change.  LONIC Code: ([48006-1](http://loinc.org/48006-1))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Codified type for associated Amino Acid Change.  LOINC Code: ([48006-1](http://loinc.org/48006-1))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6931,7 +6929,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">HGNC gene symbol</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)). LONIC Code: ([48018-6](http://loinc.org/48018-6))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions ([SO:0000704](http://www.sequenceontology.org/browser/current_svn/term/SO:0000704)). This element is the official gene symbol approved by the HGNC, which is a short abbreviated form of the gene name ([HGNC](http://www.genenames.org)). LOINC Code: ([48018-6](http://loinc.org/48018-6))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Other systems or genes not defined in HGNC (e.g., BCR-ABL fusion gene) can be added by using a local extension.</Data><NamedCell
@@ -6964,7 +6962,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">DNA region name </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">A human readable name for the region of interest. Typically Exon #, Intron # or other. NOTE: This is not standardized and is mainly for convenience and display purposes.  LONIC Code: ([47999-8](http://loinc.org/47999-8))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A human readable name for the region of interest. Typically Exon #, Intron # or other. NOTE: This is not standardized and is mainly for convenience and display purposes.  LOINC Code: ([47999-8](http://loinc.org/47999-8))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6999,7 +6997,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Name of allele</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). This element is the common name for the allele. LONIC Code: ([48008-7](http://loinc.org/48008-7))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). This element is the common name for the allele. LOINC Code: ([48008-7](http://loinc.org/48008-7))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7033,7 +7031,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">The level of occurrence of a single DNA sequence variant within a set of chromosomes: Heteroplasmic / Homoplasmic / Homozygous / Heterozygous / Hemizygous</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA sequence variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non- homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA. LONIC Code: ([53034-5](http://loinc.org/53034-5))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">The level of occurrence of a single DNA Sequence Variant within a set of chromosomes. Heterozygous indicates the DNA sequence variant is only present in one of the two genes contained in homologous chromosomes. Homozygous indicates the DNA Sequence Variant is present in both genes contained in homologous chromosomes. Hemizygous indicates the DNA Sequence Variant exists in the only single copy of a gene in a non-homologous chromosome (the male X and Y chromosome are non-homologous). Hemiplasmic indicates that the DNA Sequence Variant is present in some but not all of the copies of mitochondrial DNA. Homoplasmic indicates that the DNA Sequence Variant is present in all of the copies of mitochondrial DNA. LOINC Code: ([53034-5](http://loinc.org/53034-5))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7065,7 +7063,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Allele frequency</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">A physical quality which inheres to the allele by virtue of the number instances of the allele within a population. LONIC Code: ([81258-6](http://loinc.org/81258-6))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A physical quality which inheres to the allele by virtue of the number instances of the allele within a population. LOINC Code: ([81258-6](http://loinc.org/81258-6))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7131,7 +7129,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Genomic source class</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Source of sample used to determine the sequence in sequencing lab &#45;- germline, somatic, prenatal. LONIC Code: ([48002-0](http://loinc.org/48002-0))</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Source of sample used to determine the sequence in sequencing lab &#45;- germline, somatic, prenatal. LOINC Code: ([48002-0](http://loinc.org/48002-0))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -7246,7 +7244,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -7261,6 +7259,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8063,12 +8062,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s111"><Data ss:Type="String">ClinVar-variant-database</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">NCBI central respository of potentially clinically relevant variants</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">NCBI central repository of potentially clinically relevant variants</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s167" ss:HRef="http://www.ncbi.nlm.nih.gov/clinvar/variation"><Data
       ss:Type="String">http://www.ncbi.nlm.nih.gov/clinvar/variation</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">NCBI central respository for curating pathogenicity of potentially clinically relevant variants</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">NCBI central repository for curating pathogenicity of potentially clinically relevant variants</Data></Cell>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"/>
@@ -8145,7 +8144,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">DNA sequence variant type</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s181" ss:HRef="http://loinc.org/vs/LL379-9"><Data
+    <Cell ss:StyleID="s168" ss:HRef="http://loinc.org/vs/LL379-9"><Data
       ss:Type="String">http://loinc.org/vs/LL379-9</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Codified type for associated DNA sequence variant. DNA sequence variants use the HGVS notation, which implies the DNA sequence variant type.</Data></Cell>
     <Cell ss:StyleID="s154"/>
@@ -8424,7 +8423,7 @@
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -8461,8 +8460,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8479,15 +8478,15 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s169" ss:DefaultColumnWidth="64.5"
+   x:FullRows="1" ss:StyleID="s170" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s169" ss:Width="79.5"/>
-   <Column ss:StyleID="s169" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s169" ss:AutoFitWidth="0" ss:Width="154.5"/>
-   <Column ss:StyleID="s169" ss:AutoFitWidth="0" ss:Width="79.5" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s169" ss:AutoFitWidth="0" ss:Width="244.5"/>
-   <Column ss:StyleID="s169" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s169" ss:AutoFitWidth="0" ss:Width="241.5"/>
+   <Column ss:StyleID="s170" ss:Width="79.5"/>
+   <Column ss:StyleID="s170" ss:AutoFitWidth="0" ss:Width="34.5"/>
+   <Column ss:StyleID="s170" ss:AutoFitWidth="0" ss:Width="154.5"/>
+   <Column ss:StyleID="s170" ss:AutoFitWidth="0" ss:Width="79.5" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s170" ss:AutoFitWidth="0" ss:Width="244.5"/>
+   <Column ss:StyleID="s170" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s170" ss:AutoFitWidth="0" ss:Width="241.5"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s89"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8527,543 +8526,543 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s171"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s173"/>
+    <Cell ss:StyleID="s173"/>
+    <Cell ss:StyleID="s173"/>
+    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s174"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
+    <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
     <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s175"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s176"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s177"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s178"/>
-    <Cell ss:StyleID="s178"/>
-    <Cell ss:StyleID="s178"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s179"/>
+    <Cell ss:StyleID="s179"/>
+    <Cell ss:StyleID="s179"/>
+    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s180"/>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>

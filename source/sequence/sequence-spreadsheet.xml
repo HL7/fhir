@@ -7,11 +7,11 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Yi Wang</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <LastPrinted>2015-12-03T17:50:33Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-01T03:34:23Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2017-03-19T20:11:39Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -22,7 +22,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>796</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>20</ActiveSheet>
+  <FirstVisibleSheet>14</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3206,7 +3207,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -5948,7 +5948,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">repositoryType</Data></Cell>
-    <Cell><Data ss:Type="String">Type for access of external uri</Data></Cell>
+    <Cell><Data ss:Type="String">Type for access of external URI</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">#repository-type</Data></Cell>
@@ -6014,8 +6014,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>16</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7724,15 +7723,15 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s172"><Data ss:Type="String">Click and see </Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">When url is clicked, the resource can be seen directly (by webpage or by download link format)</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">When URL is clicked, the resource can be seen directly (by webpage or by download link format)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
     <Cell ss:StyleID="s141"><Data ss:Type="String">openapi</Data></Cell>
     <Cell ss:StyleID="s177"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s172"/>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">The url is the RESTful or other kind of API that can get access to the result.</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">When the api method (e.g. [base_url]/[parameter]) related with the url website is executed, the resource can be seen directly (usually in json or xml format)</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">The URL is the RESTful or other kind of API that can access to the result.</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">When the API method (e.g. [base_url]/[parameter]) related with the URL of the website is executed, the resource can be seen directly (usually in JSON or XML format)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">login</Data></Cell>
@@ -7743,14 +7742,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">oauth</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s172"><Data ss:Type="String">Result need to be fetched with API and need LOGIN( or cookies is required when visit the link of resource)</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">When logged in and follow the API in the website related with url, the resource can be seen.</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s172"><Data ss:Type="String">Result need to be fetched with API and need LOGIN( or cookies are required when visiting the link of resource)</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">When logged in and  follow the API in the website related with URL, the resource can be seen.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">other</Data></Cell>
     <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s172"><Data ss:Type="String">Some other complicated or particular way to get resource from url.</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">Some other complicated or particular way to get resource from url.</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s172"><Data ss:Type="String">Some other complicated or particular way to get resource from URL.</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">Some other complicated or particular way to get resource from URL.</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7766,11 +7765,12 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

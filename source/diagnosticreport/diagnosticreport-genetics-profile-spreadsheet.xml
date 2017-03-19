@@ -11,7 +11,7 @@
   <LastPrinted>2015-10-09T14:03:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-11-09T16:07:05Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -22,7 +22,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>788</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -830,17 +830,17 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s161">
+  <Style ss:ID="s161" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s162">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s162" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
    <Interior/>
   </Style>
   <Style ss:ID="s163">
@@ -5267,7 +5267,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Analysis type</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">Type of the analysis. E.g. for a drug, what's being analyzed &#45;- efficacy, reaction, the drug's effect on the user's metabolism, etc.</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Type of the analysis. E.g. for a drug, what is being analyzed - efficacy, reaction, the drug's effect on the user's metabolism, etc.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Analysis.interpretation</Data></Cell>
@@ -5289,12 +5289,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5302,6 +5303,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5309,7 +5311,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>9</ActiveRow>
-     <ActiveCol>10</ActiveCol>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6182,7 +6184,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">LOINC answer list for Genetic disease sequence variation interpretation</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s162" ss:HRef="http://loinc.org/vs/LL4034-6"><Data
+    <Cell ss:StyleID="s161" ss:HRef="http://loinc.org/vs/LL4034-6"><Data
       ss:Type="String">http://loinc.org/vs/LL4034-6</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:Index="8" ss:StyleID="s147"/>
@@ -6190,14 +6192,14 @@
     <Cell ss:StyleID="s147"><Data ss:Type="String">This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
+    <Cell ss:StyleID="s162"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s112"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s161"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s112"/>
-    <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
     <Cell ss:Index="8" ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6210,7 +6212,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:Index="8" ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6223,7 +6225,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6238,7 +6240,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6253,7 +6255,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6268,7 +6270,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6283,7 +6285,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6298,7 +6300,7 @@
     <Cell ss:StyleID="s105"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s162"/>
+    <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
@@ -6622,7 +6624,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

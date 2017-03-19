@@ -119,7 +119,7 @@
   Binding Name = repositoryType
   Binding = code list
   Reference = #repository-type
-  Definition = Type for access of external uri
+  Definition = Type for access of external URI
   Description = Type for repository
   Conformance = required
 
@@ -355,13 +355,13 @@
   Id = 1
   Code = directlink
   Display = Click and see
-  Definition = When url is clicked, the resource can be seen directly (by webpage or by download link format)
+  Definition = When URL is clicked, the resource can be seen directly (by webpage or by download link format)
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = openapi
-  Display = The url is the RESTful or other kind of API that can get access to the result.
-  Definition = When the api method (e.g. [base_url]/[parameter]) related with the url website is executed, the resource can be seen directly (usually in json or xml format)
+  Display = The URL is the RESTful or other kind of API that can access to the result.
+  Definition = When the API method (e.g. [base_url]/[parameter]) related with the URL of the website is executed, the resource can be seen directly (usually in JSON or XML format)
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -372,14 +372,14 @@
  -- Row 4 -----------------------------------
   Id = 4
   Code = oauth
-  Display = Result need to be fetched with API and need LOGIN( or cookies is required when visit the link of resource)
-  Definition = When logged in and follow the API in the website related with url, the resource can be seen.
+  Display = Result need to be fetched with API and need LOGIN( or cookies are required when visiting the link of resource)
+  Definition = When logged in and  follow the API in the website related with URL, the resource can be seen.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = other
-  Display = Some other complicated or particular way to get resource from url.
-  Definition = Some other complicated or particular way to get resource from url.
+  Display = Some other complicated or particular way to get resource from URL.
+  Definition = Some other complicated or particular way to get resource from URL.
 
 === Sheet Invariants =====================================
 
