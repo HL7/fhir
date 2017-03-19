@@ -41,3 +41,8 @@ INFORMATION: Appointment.appointmentType: Name of child (appointmentType) overla
 WARNING: CompartmentDefinition.jurisdiction: Search Parameter 'CompartmentDefinition.jurisdiction' had no found values in any example. Consider reviewing the expression (CompartmentDefinition.jurisdiction)
 WARNING: CompartmentDefinition.title: Search Parameter 'CompartmentDefinition.title' had no found values in any example. Consider reviewing the expression (CompartmentDefinition.title)
 WARNING: RiskAssessment.comment: MnM must have confirmed this should not be an Annotation
+WARNING: SearchParameter.component: Search Parameter 'SearchParameter.component' had no found values in any example. Consider reviewing the expression (SearchParameter.component.definition)
+WARNING: StructureDefinition.context-type: Search Parameter 'StructureDefinition.context-type' had no found values in any example. Consider reviewing the expression (StructureDefinition.contextType)
+WARNING: StructureDefinition.ext-context: Search Parameter 'StructureDefinition.ext-context' had no found values in any example. Consider reviewing the expression (StructureDefinition.context)
+WARNING: DataElement.stringency: Search Parameter 'DataElement.stringency' had no found values in any example. Consider reviewing the expression (DataElement.stringency)
+WARNING: DataElement.url: Search Parameter 'DataElement.url' had no found values in any example. Consider reviewing the expression (DataElement.url)
