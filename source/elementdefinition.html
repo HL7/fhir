@@ -20,11 +20,11 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-The definition of an element in a resource or extension. The definition includes:
+The definition of an element in a resource or an extension. The definition includes:
 </p>
 <ul>
  <li>Path (name), Cardinality, and data type</li>
- <li>Definitions, usage notes, requirements</li>
+ <li>Definitions, usage notes, and requirements</li>
  <li>Default or fixed values</li>
  <li>Constraints, Length limits, and other usage rules</li><li>Terminology Binding</li>
  <li>Mappings to other specifications</li>
@@ -59,7 +59,7 @@ Content
 
 <p>
 The <code>path</code> element is the most important property of the element definition. It both names the element, and locates the element
-within a hierarchy of defined within a particular context. Within the FHIR specification, there is only one original
+within a heirarchy defined within a particular context. Within the FHIR specification, there is only one original
 definition for each path (that is, an element definition with no base element). This is the master definition to which all the
 other definitions with the same path must conform.
 </p>
@@ -69,12 +69,12 @@ that defines a resource, or a datatype. This defines the identity of the element
 the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
- <li>Element names (the parts of a path delineated by the '.' character) SHALL not contain whitespace (i.e. unicode characters marked as whitespace)</li>
+ <li>Element names (the parts of a path delineated by the '.' character) SHALL not contain whitespace (i.e. Unicode characters marked as whitespace)</li>
  <li>Element names SHALL not contain the characters ,:;'"/|?|!@#$%^&amp;*()[]{}</li>
  <li>Element names SHOULD not contain non-ASCII characters</li>
  <li>Element paths SHALL not exceed 64 characters in length</li>
  <li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
- <li>By convention, the paths start with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical models are not required to do so</li>
+ <li>By convention, each path start with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical models are not required to do so</li>
 </ul>
 <p>
 Elements may be defined in:
@@ -111,7 +111,7 @@ be used as the target of external references into the definition, where necessar
 <a name="interpretation"> </a>
 <h2>Interpretation of ElementDefinition in different contexts</h2>
 
-<p>The data type <code>ElementDefinition</code> is used both in <a href="structuredefinition.html">StructureDefinition</a> and <a href="dataelement.html">DataElement</a>, and within those resources, the way its elements are to be used and interpreted depend on the context where <code>ElementDefinition</code> used:</p>
+<p>The data type <code>ElementDefinition</code> is used both in <a href="structuredefinition.html">StructureDefinition</a> and <a href="dataelement.html">DataElement</a>, and within those resources, the way its elements are to be used and interpreted depends on the context where <code>ElementDefinition</code> used:</p>
 
 <table class="grid">
  <tr> <td><b>ElementDefinition field</b></td> <td><b>DataElement</b></td> <td><b>Type definition, first element</b></td> <td><b>Type definition, following elements</b></td> <td><b>Constraint Definition, first element</b></td> <td><b>Constraint Definition, following elements</b></td> </tr>
@@ -181,9 +181,9 @@ For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
 </p>
 <ul>
  <li>Slicing is only allowed when constraining an existing structure</li>
- <li><code>slicing</code> can only be used on the first repeat of an element, this element is considered the slicing entry</li>
- <li>All elements following the first repeat that has a slicing SHALL have a <code>sliceName</code></li>
- <li>The first entry (the one having the <code>slicing</code> information) is understood to be the set of constraints to be used for the &quot;open&quot; slice. i.e. when the slice is open, this definition is used as a constraint on elements in the instance that are not part of a slice and belong to the open portion of the slice. Its use follows the &quot;normal case&quot;, except:
+ <li><code>slicing</code> can only be used on the first repeat of an element, this element is considered to be the slicing entry</li>
+ <li>All elements following the first repeat that containing a slicing SHALL have a <code>sliceName</code></li>
+ <li>The first entry (the one having the <code>slicing</code> information) is understood to be the set of constraints to be used for the &quot;open&quot; slice, i.e., when the slice is open, this definition is used as a constraint on elements in the instance that are not part of a slice and belong to the open portion of the slice. Its use follows the &quot;normal case&quot;, except:
     <ul>
       <li><code>slicing</code> must be present</li>
       <li><code>min</code> and <code>max</code> govern the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice. </li>
@@ -203,8 +203,8 @@ In a <a href="structuredefinition.html">StructureDefinition</a>:
 </p>
 <ul>
  <li><b>If there is no <code>StructureDefinition.base</code></b>: min and max are always required</li>
- <li>Else, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the base min and max</li>
- <li>and in <code>StructureDefinition.snapshot</code>: min and max are always required</li>
+ <li>Otherwise, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the base min and max</li>
+ <li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
 </ul>
 
 <a name="missing"> </a>
@@ -218,7 +218,7 @@ other hand, it may not have a value at all. All the application can say is that 
 <p>
 However, for some elements, this specification makes specific rules about what it means if the
 element is missing. For some elements, this takes the form of a default value, a value that should
-be assumed if on element is present. For example, here are some default values:
+be assumed if an element is present. For example, here are some default values:
 </p>
 <table class="grid">
  <tr><td><b>Element</b></td><td><b>Default Value</b></td></tr>
@@ -237,8 +237,7 @@ Default values are rarely used because:
  <li>The default value can never be changed.</li>
 </ul>
 <p>
-For other elements, the resource explicitly documents what
-the meaning of a missing element is, and the meaning is not
+For other elements, the resource explicitly documents the meaning of a missing element, and that meaning is not
 represented by a default value. Some examples:
 </p>
 <table class="grid">
@@ -251,7 +250,7 @@ represented by a default value. Some examples:
 <p>
 Like default values, and for the same reasons, assigning a meaning when an element is missing
 is something that is not done very often. Note that Profiles cannot change the default value
-or missing meaning of an element, since it can't be done in the base specification either.
+or missing meaning of an element, since this cannot be done in the base specification either.
 </p>
 <p>
 Here is a list of all elements with a default value or a missing meaning:

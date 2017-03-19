@@ -35,7 +35,7 @@ There are 3 kinds of descendent types that specialize <code>Element</code>:
  <li><a href="backboneelement.html">BackboneElement</a>, A specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
 </ul>
 <p>
-Note that resources themselves all specialise the base type <a href="resource.html">Resource</a>.
+Note that resources themselves all specialize the base type <a href="resource.html">Resource</a>.
 </p>
 
 <a name="definition"> </a>
@@ -259,20 +259,20 @@ element 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 <pre name="xml">
   &lt;code id=&quot;[internal id]&quot;&gt;
     &lt;extension url=&quot;...&quot;/&gt;
-      ... if there is any extensions
+      ... if there are any extensions
     &lt;extension&gt;
     .. elements of Coding type...
   &lt;/code&gt;
 </pre>
 <p>
 Primitive types have the same representation; the actual primitive value appears
-as an XML attributed named <code>value</code> on the XML element. For example,
+as an XML attribute named <code>value</code> on the XML element. For example,
 a string property named "name" will be represented like this:
 </p>
 <pre name="xml">
   &lt;code id=&quot;[internal id] value="[value of string]"&quot;&gt;
     &lt;extension url=&quot;...&quot;/&gt;
-      ... if there is any extensions
+      ... if there are any extensions
     &lt;extension&gt;
   &lt;/code&gt;
 </pre>
@@ -280,11 +280,11 @@ a string property named "name" will be represented like this:
 <a name="json"> </a>
 <h2>JSON Representation</h2>
 <p>
-Elements (except for primitive types, see below) are represented by a json
+Elements (except for primitive types, see below) are represented by a JSON
 object property. The name of the property comes from
 the context in which it is used, not from the type. The internal <code>id</code>
 is represented as a JSON string property named "_id". Extensions are represented
-in a JSON array of object named "extension". Here is the representation for a
+in a JSON array of objects named "extension". Here is the representation for a
 property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 </p>
 <pre class="json">
@@ -301,7 +301,7 @@ property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 <p>
 Primitive types are represented differently; the actual primitive value appears
 as a JSON string or number property. If an internal id or extensions are present,
-they appear in a json object with the name of the primitive value property with
+they appear in a JSON object with the name of the primitive value property with
 "_" appended. For example, a string property named "name" will be represented
 like this:
 </p>
@@ -335,7 +335,7 @@ Specifically, this means:
 </p>
 <ul>
  <li>The id SHALL be unique within a given resource</li>
- <li>the uniqueness boundary extends into contained resources. i.e. a contained resource cannot have the same id as any element in the resource that contains it or any other contained resource</li>
+ <li>The uniqueness boundary extends into contained resources. i.e. a contained resource cannot have the same id as any element in the resource that contains it or any other contained resource</li>
  <li>The uniqueness boundary is broken at Bundle.entry.resource and Parameters.parameter.resource, since these are elements that aggregate different resources</li>
 </ul>
 <p>
