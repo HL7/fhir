@@ -60,7 +60,7 @@
   Element = ResearchSubject
   Aliases = Study Subject
   Type = DomainResource
-  Short Name = Investigation increase healthcare-related patient-independent knowledge
+  Short Name = Investigation to increase healthcare-related patient-independent knowledge
   Definition = A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
   Comments = Need to make sure we encompass public health studies
   v2 Mapping = OBX
@@ -72,7 +72,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifier for event
+  Short Name = Business Identifier for research subject
   Definition = Identifiers assigned to this research study by the sponsor or other systems
   Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
   RIM Mapping = .identifier
@@ -86,7 +86,7 @@
   Type = code
   Binding = ResearchSubjectStatus
   Short Name = candidate | enrolled | active | suspended | withdrawn | completed
-  Definition = The current state of the event
+  Definition = The current state of the subject
   RIM Mapping = .status
   To Do = Should this be a common code system for all events?
   w5 = status

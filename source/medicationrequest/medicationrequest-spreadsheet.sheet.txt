@@ -573,6 +573,7 @@
   Type = boolean
   Short Name = Whether substitution is allowed or not
   Definition = True if the prescriber allows a different drug to be dispensed from what was prescribed.
+  Comments = This element is labeled as a modifer because whether substitution is allow or not cannot be ignored.
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code

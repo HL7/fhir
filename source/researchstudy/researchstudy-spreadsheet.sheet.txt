@@ -75,7 +75,7 @@
   Element = ResearchStudy
   Aliases = Clinical Trial, Study
   Type = DomainResource
-  Short Name = Investigation increase healthcare-related patient-independent knowledge
+  Short Name = Investigation to increase healthcare-related patient-independent knowledge
   Definition = A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
   Comments = Need to make sure we encompass public health studies
   v2 Mapping = OBX
@@ -244,7 +244,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner)
-  Short Name = Individual responsible for the study
+  Short Name = The individual responsible for the study
   Definition = Indicates the individual who has primary oversite of the execution of the study
   clinicaltrials.gov Mapping = Principal Investigator
   w5 = who.actor
@@ -296,8 +296,8 @@
   Element = ResearchStudy.arm.code
   Card. = 0..1
   Type = CodeableConcept
-  Short Name = Categorization of arm
-  Definition = E.g. Experimental, active comparator, placebo comparator
+  Short Name = Categorization of study arm
+  Definition = Categorization of study arm, e.g. experimental, active comparator, placebo comparater
   clinicaltrials.gov Mapping = Arm Type
 
  -- Row 24 -----------------------------------

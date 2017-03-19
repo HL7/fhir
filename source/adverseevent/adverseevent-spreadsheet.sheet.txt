@@ -5,7 +5,7 @@
   Binding Name = AdverseEventCategory
   Binding = code list
   Reference = #adverse-event-category
-  Definition = Overall categorisation of the event e.g. real or potential
+  Definition = Overall categorization of the event, e.g. real or potential
   Conformance = required
 
  -- Row 2 -----------------------------------
@@ -175,22 +175,24 @@
   Aliases = AE
   UML = 0;0
   Type = DomainResource
-  Short Name = Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death
+  Short Name = Medical care, research study or other healthcare event causing physical injury
+  Definition = Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = AdverseEvent.identifier
   Card. = 0..1
   Type = Identifier
-  Short Name = AdverseEvent.identifier
+  Short Name = Business identifier for the event
+  Definition = The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itsefl is not appropriate.
 
  -- Row 3 -----------------------------------
   Element = AdverseEvent.category
   Card. = 0..1
   Type = code
   Binding = AdverseEventCategory
-  Short Name = AE | PAE \nAn adverse event is an event that caused harm to a patient,  an adverse reaction is a something that is a subject-specific event that is a result of an exposure to a medication, food, device or environmental substance, a potential adverse event is something that occurred and that could have caused harm to a patient but did not
-  Definition = The type of event is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
+  Short Name = AE | PAE \rAn adverse event is an event that caused harm to a patient,  an adverse reaction is a something that is a subject-specific event that is a result of an exposure to a medication, food, device or environmental substance, a potential adverse event is something that occurred and that could have caused harm to a patient but did not
+  Definition = The type of event which is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
   w5 = class
 
  -- Row 4 -----------------------------------
@@ -199,7 +201,7 @@
   Type = CodeableConcept
   Binding = AdverseEventType
   Short Name = actual | potential
-  Definition = This element defines the specific type of event that occurred or that was prevented from occuring.
+  Definition = This element defines the specific type of event that occurred or that was prevented from occurring.
   w5 = what
 
  -- Row 5 -----------------------------------
@@ -208,14 +210,15 @@
   Aliases = patient
   Type = Reference(Patient|ResearchSubject|Medication|Device)
   Short Name = Subject or group impacted by event
-  Definition = This element defined the subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
+  Definition = This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
   w5 = who
 
  -- Row 6 -----------------------------------
   Element = AdverseEvent.date
   Card. = 0..1
   Type = dateTime
-  Short Name = AdverseEvent.date
+  Short Name = When the event occurred
+  Definition = The date (and perhaps time) when the adverse event occurred
   w5 = when.init
 
  -- Row 7 -----------------------------------
@@ -223,12 +226,14 @@
   Card. = 0..*
   Type = Reference(Condition)
   Short Name = Adverse Reaction Events linked to exposure to substance
+  Definition = Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical)
 
  -- Row 8 -----------------------------------
   Element = AdverseEvent.location
   Card. = 0..1
   Type = Reference(Location)
-  Short Name = AdverseEvent.location
+  Short Name = Location where adverse event occurred
+  Definition = The information about where the adverse event occurred.
 
  -- Row 9 -----------------------------------
   Element = AdverseEvent.seriousness
@@ -236,6 +241,7 @@
   Type = CodeableConcept
   Binding = AdverseEventSeriousness
   Short Name = Mild | Moderate | Severe
+  Definition = Describes the seriousness or severity of the adverse event
 
  -- Row 10 -----------------------------------
   Element = AdverseEvent.outcome
@@ -243,12 +249,14 @@
   Type = CodeableConcept
   Binding = AdverseEventOutcome
   Short Name = resolved | recovering | ongoing | resolvedWithSequelae | fatal | unknown
+  Definition = Describes the type of outcome from the adverse event
 
  -- Row 11 -----------------------------------
   Element = AdverseEvent.recorder
   Card. = 0..1
   Type = Reference(Patient|Practitioner|RelatedPerson)
-  Short Name = AdverseEvent.recorder
+  Short Name = Who recorded the adverse event
+  Definition = Information on who recorded the adverse event.  May be the patient or a practitioner.
   w5 = who.author
 
  -- Row 12 -----------------------------------
@@ -262,21 +270,24 @@
   Element = AdverseEvent.description
   Card. = 0..1
   Type = string
-  Short Name = AdverseEvent.description
+  Short Name = Description of the adverse event
+  Definition = Describes the adverse event in text
 
  -- Row 14 -----------------------------------
   Element = AdverseEvent.suspectEntity
   Card. = 0..*
   UML = 400;0
   Type = Backbone Element
-  Short Name = AdverseEvent.suspectEntity
+  Short Name = The suspected agent causing the adverse event
+  Definition = Describes the entity that is suspected to have caused the adverse event
 
  -- Row 15 -----------------------------------
   Element = AdverseEvent.suspectEntity.instance
   Card. = 1..1
   Aliases = Substance or Medication or Device
   Type = Reference(Substance|Medication|MedicationAdministration|MedicationStatement|Device)
-  Short Name = AdverseEvent.suspectEntity.instance
+  Short Name = Refers to the specific entity that caused the adverse event
+  Definition = Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device
 
  -- Row 16 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality
