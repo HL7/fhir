@@ -5,7 +5,7 @@
     <ul>
 			<li>Interaction with other Standards</li>
 			<p>
-				The strong desire is that implementers of this resource should consider providing this resource
+				There is a strong desire that implementers of this resource should consider providing the resource
 				in the iCalendar format as an alternative representation. Many 3rd party applications and component providers 
 				have parsers and user interface controls to display this information.
 				This may lower the entry point to integrate outside the health-care specific applications, and into the 

@@ -4,7 +4,7 @@
 	<h2>Typical Status Transition Examples:</h2>
 
 <a name="status-flow"> </a>
-	<h3>Typical Flow of statuses for an appointment:</h3>
+	<h3>Typical flow of statuses for an appointment:</h3>
 	<table  class="grid">
 		<tr>
 			<th>Activity Description</th>
@@ -15,7 +15,7 @@
 		</tr>
 		<tr>
 			<td>
-				The Schedule is created/published <br/>(Role: Scheduler)
+				The schedule is created/published <br/>(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = FREE</td>
@@ -91,7 +91,7 @@
 		<tr>
 			<td>
 				<i>
-					Optional: Preparation for the appointment begins – could be preparing a room for the appointment etc.<br />(Role: Participants/Admin)
+					Optional: Preparation for the appointment begins – could be preparing a room for the appointment, etc.<br />(Role: Participants/Admin)
 				</i>
 			</td>
 			<!-- Activity Description -->
@@ -126,7 +126,7 @@
 		</tr>
 		<tr>
 			<td>
-				The practitioner and the patient meet and the provision of the service begins, appointment is finished with now <br />(Role: Scheduler/Participant(s)/Admin)
+				The practitioner and the patient meet and the provision of the service begins<br />(Role: Scheduler/Participant(s)/Admin)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -165,7 +165,7 @@
 		</tr>
 		<tr>
 			<td>
-				The Schedule is created/published <br/>(Role: Scheduler)
+				The schedule is created/published <br/>(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = FREE</td>
@@ -177,7 +177,7 @@
 		</tr>
 		<tr>
 			<td>
-				 Appointment Request is created<br/>(Role: Requester)
+				 An appointment request is created<br/>(Role: Requester)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -204,7 +204,7 @@
 		</tr>
 		<tr>
 			<td>
-				Participant Declines the Appointment<br/>(Role: Participant)
+				Participant declines the Appointment<br/>(Role: Participant)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -242,7 +242,7 @@
 		</tr>
 		<tr>
 			<td>
-				The Schedule is created/published <br/>(Role: Scheduler)
+				The schedule is created/published <br/>(Role: Scheduler)
 			</td> <!-- Activity Description -->
 			<td>freeBusyType = FREE</td> <!-- Slot -->
 			<td></td> <!-- Appointment -->
@@ -250,7 +250,7 @@
 		</tr>
 		<tr>
 			<td>
-				An appointment is requested with Brian and Peter<br/>(Role: Requester)
+				An appointment is requested (e.g.,with Brian and Peter)<br/>(Role: Requester)
 			</td> <!-- Activity Description -->
 			<td></td> <!-- Slot -->
 			<td>
@@ -262,7 +262,7 @@
 		</tr>
 		<tr>
 			<td>
-				The Schedule is updated to inform others of interest in the slot<br/>(Role: Scheduler)
+				The schedule is updated to inform others of interest in the slot<br/>(Role: Scheduler)
 			</td> <!-- Activity Description -->
 			<td>freeBusyType = BUSY-TENTATIVE</td> <!-- Slot -->
 			<td></td> <!-- Appointment -->
@@ -393,7 +393,7 @@
 		<li>Placer/Filler (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>)</li>
 		<p>
 			The appointment information is effectively the same between the filler and placer, and given the nature of the
-			fhir resource, there is only a single resource for both purposes. The Placer is the actor that performs the
+			FHIR resource, there is only a single resource for both purposes. The placer is the actor that performs the
 			PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and
 			processes the information and makes a decision if the appointment can be used.
 		</p>
@@ -411,8 +411,8 @@
 <blockquote class="stu-note">
 <a name="dstu"> </a>
 <p>
-<b>STU Note:</b> Implementer feedback on is sought on the values for Appointment.priority and how interoperable they are.
-Using an extension to record a CodeableConcept for named values may be tested at a future connectathon.
+<b>STU Note:</b> Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
+Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.
 </p>
 <p>
 Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.

@@ -5,7 +5,7 @@
 		<h2>Scope and Usage</h2>
 		<p>
 Tracking Financial information is vital in Patient Administration and Finance systems in most Healthcare Organizations.
-The resource ChargeItem describes the provision of healthcare provider products for a certain patient, 
+The resource ChargeItem describes the charge for provision of healthcare provider products for a certain patient, 
 therefore referring not only to the product, but containing in addition details of the provision, 
 like date, time, amounts and participating organizations and persons. 
 Main Usage of the ChargeItem is to enable the billing process and internal cost allocation. 
@@ -21,10 +21,10 @@ Also, the systems posting the ChargeItems are not expected to apply the rules as
  not know the whole context of the patient/encounter to evaluate such rules.
 
 It lies within the responsibity of a billing engine, to collect the ChargeItems in the context of an Account or Encounter at a certain point in time 
-(e.g. discharge of the patient) and evaluate the associated rules resulting in some of the ChargeItems to be set to the status "not billable" 
-in case the rules exclude them from being billed or create financial transactions according to base price and factors. 
+(e.g. discharge of the patient) and to evaluate the associated rules resulting in some of the ChargeItems to be set to the status "not billable" 
+in case the rules exclude them from being billed, or to create financial transactions according to base price and factors. 
 Additional references to Encounter/EpisodeOfCare, Patient/Group and
- Services provide futher context to help billing systems determine the appropriate account and establish the clinical/financial context
+ Services provide further context to help billing systems determine the appropriate account and establish the clinical/financial context
  to evaluate the rules associated with the charge codes.
 		</p>
 	</div>
@@ -33,7 +33,7 @@ Additional references to Encounter/EpisodeOfCare, Patient/Group and
 	<div>
 		<h2>Boundaries and Relationships</h2>
 		<p>
-This resource is not an actual financial transaction (such as an item on an invoice or any concise monetary amout being transferred from one Account to another), 
+This resource is not an actual financial transaction (such as an item on an invoice or any concise monetary amount being transferred from one Account to another), 
 but is the base administrative data that may be used by 
 a billing engine to create the financial transactions based on rules, factors and base prices associated with the charge code.</p>
 <p>

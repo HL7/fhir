@@ -4,8 +4,8 @@
 		<h2>Scope and Usage</h2>
 		<p>
 			Appointment resources are used to provide information about
-			a planned meeting that may be in the future or past.  The resource only describes a single meeting,
-			a series of repeating visits would require multiple appointment resources be created for each instance.
+			a planned meeting that may be in the future or past. The resource only describes a single meeting,
+			a series of repeating visits would require multiple appointment resources to be created for each instance.
 			Examples include a scheduled surgery, a follow-up for a
 			clinical visit, a scheduled conference call between clinicians to discuss a case, the reservation
 			of a piece of diagnostic equipment for a particular use, etc.
@@ -16,7 +16,7 @@
 		</p>
 		<p>
 			This definition takes the concepts of appointments in a clinical setting and also extends
-			them to be relevant in the community healthcare space, and also ease exposure to other
+			them to be relevant in the community healthcare space, and to ease exposure to other
 			appointment / calendar standards widely used outside of healthcare.
 		</p>
 
@@ -26,24 +26,24 @@
 			<li>
 				<b>Discovery/Addressing</b>
 				<p>
-					Before an appointment can be made the address/endpoint details of the resource that we want 
-					to schedule an appointment with must be determined. This is often based on the healthcare Service Type,
-					any formatting information which indicates how to make the request.
+					Before an appointment can be made, the address/endpoint details of the resource that we want 
+					to schedule an appointment with must be determined. This is often based on the healthcare Service Type
+					and any formatting information which indicates how to make the request.
 					This is typically handled via the Schedule resource.
 				</p>
 			</li>
 			<li>
-				<b>Checking Availability on the Schedule(optional)</b>
+				<b>Checking Availability on the Schedule (optional)</b>
 				<p>
 					This optional step permits the checking of any existing available times 
 					(<a href="slot.html">slot</a> resources associated with a selected <a href="schedule.html">schedule</a>) that can be booked against.
-					Just because a time is indicated it is available doesn't guarantee that an appointment can be made.
+					Just because a time is indicated as available doesn't guarantee that an appointment can be made.
 					The booking system that is going to process the request may make other qualifying decisions to
 					determine if the appointment can be made, such as permissions, assessments, availability of other
-					resources etc.
+					resources, etc.
 				</p>
 				<p>
-					This step is optional as the creation of the appointment is never a guaranteed action.
+					This step is optional, as the creation of the appointment is never a guaranteed action.
 					But by performing this availability check, you can increase the chances of making a successful
 					booking.
 				</p>
@@ -61,8 +61,8 @@
 			<li>
 				<b>Replying to the request</b>
 				<p>
-					The reply process is simply performed by the person/system handing the requests updating
-					the participant statuses as needed. If there are multiple systems involved, then these
+					The reply process is simply performed by the person/system handing the requests, updating
+					the participant statuses on the appointment as needed. If there are multiple systems involved, then these
 					will create AppointmentResponse entries with the desired statuses.
 				</p>
 				<p>
@@ -90,8 +90,8 @@
 			<li>
 				<b>Outlook Style - Community</b>
 				<p>
-					These types of requests are typically handled by selecting a specific time from a list of available slots.
-					Then making the request for that timeslot.
+					These types of requests are typically handled by selecting a specific time from a list of available slots,
+					then making the request for that timeslot.
 				</p>
 			</li>
 			<li>
@@ -108,7 +108,7 @@
 				<blockquote>
 					<p>
 						Note: This type of clinical appointment scheduling has not been specifically covered
-						with this definition of the appointment (and the related resources), however if you
+						with this definition of the Appointment resource (and other related resources), however if you
 						would like to contribute to the modification of this resource to cover these use cases,
 						please contact the HL7 Patient Administration work-group.
 					</p>
@@ -121,15 +121,15 @@
     <h2>Boundaries and Relationships</h2>
 		<h3>Appointment Request/Response Pattern</h3>
 		<p>
-			When using a request response style of appointment this is done using Appointment 
+			When using a request-response style of appointment this is done using Appointment 
 			and AppointmentResponse resources.<br/>
 			The request is made in the form of an Appointment with a proposed or pending status,
 			and the list of actors with a participation status of "needs-action".
 		</p>
 		<p>
-			Participants in the appointment respond their acceptance (or not) to the appointment
+			Participants in the appointment respond with their acceptance (or not) to the appointment
 			by creating AppointmentResponse resources.<br/>
-			Once all the participants have replied, then the appointment resource is able to be
+			Once all the participants have replied, then the Appointment resource is able to be
 			updated with an overall status which collates the results of all the participants
 			and presents the approved details of the appointment.
 		</p>
@@ -146,21 +146,21 @@
     <h3>Appointment Statuses and Encounters</h3>
     <p>
       Appointments can be considered as Administrative only, and the Encounter is expected to have
-      Clinical implications.
+      clinical implications.
     </p>
     <p>
-      In general it is expected that appointments will result in the creation of an Encounter.
+      In general, it is expected that appointments will result in the creation of an Encounter.
       The encounter is typically created when the service starts, not when the patient arrives.
       When the patient arrives, an appointment can be marked with a status of Arrived.
     </p>
     <p>
-      In an Emergency Room context, this appointment resource is probably not appropriate to be used.
-      In these cases an encounter should be created.
+      In an Emergency Room context, the appointment Resource is probably not appropriate to be used.
+      In these cases an Encounter should be created.
     </p>
     <p>
-      The Appointment request pattern used is different to the order-response pattern used elsewhere in FHIR.<br/>
+      The Appointment request pattern used is different from the order-response pattern used elsewhere in FHIR.<br/>
       This is due to the close relationship to the iCAL standard. Many non-clinical systems use generic
-      non health appointment systems which implement this standard, and the desire to integrate
+      non-health appointment systems which implement this standard, and the desire to integrate
       with the consumer who has no access to health based software is highly desirable.<br/>
       The mappings to the iCAL standard have been provided to guide implementation of gateways between
       FHIR servers and iCAL systems.
@@ -168,8 +168,8 @@
 <a name="location"> </a>
 		<h3>Appointment Locations and Participation</h3>
 		<p>
-			The Location of the appointment is to be defined by using a participant that references a location
-			or HealthcareService.<br/>
+			The location of the appointment is to be defined by using a participant that references a Location
+			or HealthcareService resource.<br/>
 			This permits the location to also have its availability checked via a schedule and any
 			conflicts more easily managed.
 		</p>

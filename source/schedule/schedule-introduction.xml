@@ -11,7 +11,7 @@
 			to determine if an appointment might be available.
 		</p>
     <p>
-      Note: A schedule is not used for the delivery of medication, that is the <a href="datatypes.html#Timing">Timing</a> data type.
+      Note: A schedule is not used for the delivery of medication, the <a href="datatypes.html#Timing">Timing</a> data type should be used for that purpose.
     </p>
 
 		<h3>
@@ -34,7 +34,7 @@
 			appointment.
 		</p>
 		<p>
-			The real-world, non-automated analog of the schedule described above is a standard
+			The real-world, non-automated analogue of the schedule described above is a standard
 			appointment book.  These books are generally organized with rows of time slots, during
 			which a service or resource is available.
 		</p>
@@ -53,7 +53,7 @@
 			different services, potentially at different location, then the schedulable resource is considered the composite 
 			of the actors.  <br/>
 			For example, if a practitioner can provide services at multiple locations, they might have one schedule per location,
-			where each schedule included both the practitioner and location actors.  
+			where each schedule includes both the practitioner and location actors.  
 			
 			When booking an appointment with multiple schedulable resources, multiple schedules may need to be checked 
 			depending on the configuration of the system.
@@ -80,7 +80,7 @@
 		</p>
 		<p>
 			If all slots are busy, the caller may attempt to book an appointment into a already booked slot, but the server business rules
-			will dicate whether overbooking is allowed, or whether the appointment may be given a higher precedence and allocated 
+			will dictate whether overbooking is allowed, or whether the appointment may be given a higher precedence and allocated 
 			the overbooked slot.
 		</p>
 	</div>

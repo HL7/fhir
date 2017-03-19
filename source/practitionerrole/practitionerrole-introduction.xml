@@ -10,7 +10,7 @@ for an organization.
 <p>
 The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances
 of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
-single service and the list of locations it is available. Both are acceptable options for prepresenting this data.
+single service and the list of locations it is available. Both are acceptable options for representing this data.
 </p>
 </div>
 
@@ -18,14 +18,14 @@ single service and the list of locations it is available. Both are acceptable op
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-	Qualifications (from the Practitioner resource) do not imply a Roles, but might be considered when an Organization 
+	Qualifications (from the Practitioner resource) do not imply a Role, but might be considered when an Organization 
   allocates practitioners to roles within their organization, and could provide useful information (such as expiry information)
   which could need to be tracked in some situations to ensure they continue to be eligible for a specific role.
 </p>
 <p>
   The <a href="careteam.html">CareTeam</a> resource is also often used to provide details of a role that a practitioner is
   allocated to perform, but is usually scoped to a much finer granularity of care, and often within the specific context
-  of a <a href="patient.html">Patient</a>, or functional role (eg. Crisis planning team). In contrast the PractitionerRole
+  of a <a href="patient.html">Patient</a>, or functional role (e.g. Crisis planning team). In contrast the PractitionerRole
   is used in a more general sense to cover all the places that the practitioner is allocated to work (and specific details
   relevant to that role - such as a specific contact number, or electronic services endpoint).
 </p>
