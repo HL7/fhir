@@ -317,6 +317,7 @@
   Type = boolean
   Short Name = True if medication not administered
   Definition = Set this to true if the record is saying that the medication was NOT administered.
+  Comments = This element is labeled as a modifier because it indicates that a administration didn\'t happen
   Workflow Mapping = …notDone
   v2 Mapping = RXA-20-Completion Status=\'NA\'
   RIM Mapping = .actionNegationInd

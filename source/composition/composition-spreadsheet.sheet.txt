@@ -312,7 +312,7 @@
   Binding = DocumentConfidentiality
   Short Name = As defined by affinity domain
   Definition = The code specifying the level of confidentiality of the Composition
-  Comments = The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section)
+  Comments = The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section).\n\nThis element is labeled as a modifier because highly confidential documents must not be treated as if they are not
   RIM Mapping = .confidentialityCode
   CDA Mapping = .confidentialityCode
 
@@ -519,6 +519,7 @@
   Short Name = working | snapshot | changes
   Definition = How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
   Requirements = Sections are used in various ways, and it must be known in what way it is safe to use the entries in them
+  Comments = This element is labeled as a modifier because a change list must not be mis-understood as a complete list
   RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
   CDA Mapping = n/a
   w5 = class

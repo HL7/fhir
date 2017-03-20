@@ -404,7 +404,7 @@
   Short Name = Only allow data when
   Definition = If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true
   Requirements = Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions
-  Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
+  Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.\n\nThis element is labeled as a modifier because it indicates that the item should not be enabled unless the condition is met
   RIM Mapping = N/A - MIF rather than RIM level
 
  -- Row 30 -----------------------------------

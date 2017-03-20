@@ -315,7 +315,7 @@
   Binding = MedicationRequestIntent
   Short Name = proposal | plan | order | instance-order
   Definition = Whether the request is a proposal, plan, or an original order
-  Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Records
+  Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\n\nThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable
   Workflow Mapping = …intent
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   w5 = class

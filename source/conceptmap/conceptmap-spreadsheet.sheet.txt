@@ -229,6 +229,7 @@
   Binding = ConceptMapEquivalence
   Short Name = relatedto | equivalent | equal | wider | subsumes | narrower | specializes | inexact | unmatched | disjoint
   Definition = The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is \'wider\' than the source)
+  Comments = This element is labeled as a modifier because it may indicate that a target does not apply
   Default Value = equivalent
 
  -- Row 31 -----------------------------------

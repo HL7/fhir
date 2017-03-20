@@ -296,6 +296,7 @@
   Short Name = proposal | plan | order | option
   Definition = Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.
   Requirements = Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain.
+  Comments = This element is labeled as a modifier because the intent alters when and how the resource is actually applicable
   Workflow Mapping = Request.intent
 
  -- Row 9 -----------------------------------

@@ -337,6 +337,7 @@
   Binding = MedicationStatementTaken
   Short Name = y | n | unk | na
   Definition = Indicator of the certainty of whether the medication was taken by the patient
+  Comments = This element is labeled as a modifier because it indicates that the medication was not taken
   Workflow Mapping = …notDone
   RIM Mapping = .actionNegationInd
 

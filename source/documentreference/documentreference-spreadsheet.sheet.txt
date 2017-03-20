@@ -286,6 +286,7 @@
   UML = 400;0
   Short Name = Relationships to other documents
   Definition = Relationships that this document has with other document references that already exist
+  Comments = This element is labeled as a modifier because documents that append to other documents are incomplete on their own
   RIM Mapping = .outboundRelationship
 
  -- Row 17 -----------------------------------

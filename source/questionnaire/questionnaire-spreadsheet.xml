@@ -11,7 +11,7 @@
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-03-11T00:10:36Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">33910675-3029-4a81-89ed-b4847464b6bd</WorkbookGuid>
@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9675</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>13410</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>613</TabRatio>
@@ -1909,7 +1909,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.&#10;&#10;If enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.&#10;&#10;If enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met.&#10;&#10;This element is labeled as a modifier because it indicates that the item should not be enabled unless the condition is met</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -4391,7 +4391,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>29</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

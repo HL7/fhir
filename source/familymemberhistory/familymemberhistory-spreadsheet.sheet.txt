@@ -275,6 +275,7 @@
   Short Name = Age is estimated?
   Definition = If true, indicates that the age value specified is an estimated value
   Requirements = Clinicians often prefer to specify an estimaged age rather than an age range
+  Comments = This element is labeled as a modifier because the fact tha age is estimated can/should change the results of any algorithm that calculates based on the specified age
   Missing Meaning = It is unknown whether the age is an estimate or not
 
  -- Row 15 -----------------------------------

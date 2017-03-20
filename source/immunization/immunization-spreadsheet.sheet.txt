@@ -139,6 +139,7 @@
   Type = boolean
   Short Name = Flag for whether immunization was given
   Definition = Indicates if the vaccination was or was not given
+  Comments = This element is labeled as a modifier because it indicates that an immunization didn\'t happen
   Workflow Mapping = Event.notDone
   RIM Mapping = [actionNegationInd=true].reasonCode
   Committee Notes = #5169, #3762, #5351

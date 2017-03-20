@@ -175,6 +175,7 @@
   Binding = ProcedureRequestIntent
   Short Name = proposal | plan | order +
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
+  Comments = This element is labeled as a modifier because the intent alters when and how the resource is actually applicable
   Workflow Mapping = Request.intent
   v2 Mapping = N/A
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)

@@ -139,6 +139,7 @@
   Short Name = working | snapshot | changes
   Definition = How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
   Requirements = Lists are used in various ways, and it must be known in what way it is safe to use them
+  Comments = This element is labeled as a modifier because a change list must not be mis-understood as a complete list
   RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
   w5 = class
 
@@ -261,7 +262,7 @@
   Short Name = If this item is actually marked as deleted
   Definition = True if this item is marked as deleted in the list.
   Requirements = The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as \"deleted\"
-  Comments = If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is \"changes\". A deleted entry should be displayed in narrative as deleted
+  Comments = If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is \"changes\". A deleted entry should be displayed in narrative as deleted.\n\nThis element is labeled as a modifier because it indicates that an item is (to be) no longer in the list
   RIM Mapping = added: .updateMode=(\"A\",\"AR\")  retained: .updateMode=\"NC\"  updated: .updateMode=\"R\"  deleted: .updateMode=\"D\"
   Default Value = False
 

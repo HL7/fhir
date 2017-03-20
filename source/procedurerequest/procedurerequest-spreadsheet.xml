@@ -20,8 +20,8 @@
    <Path>/Users/ehaas/Documents/FHIR/build/source/request/\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>10710</WindowHeight>
-  <WindowWidth>19140</WindowWidth>
+  <WindowHeight>13410</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -1751,7 +1751,8 @@
     <Cell ss:StyleID="s101"><Data ss:Type="String">Whether the request is a proposal, plan, an original order or a reflex order.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">This element is labeled as a modifier because the intent alters when and how the resource is actually applicable</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">.moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5508,7 +5509,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>19</ActiveCol>
     </Pane>
    </Panes>

@@ -157,6 +157,7 @@
   Short Name = instance | kind
   Definition = Indicates whether a resource instance represents a specific location or a class of locations
   Requirements = When using a Location resource for scheduling or orders, we need to be able to refer to a class of Locations instead of a specific Location
+  Comments = This is labeled as a modifer because whether or not the location is a class of locations changes how it can be used and understood
   RIM Mapping = .playingEntity[classCode=PLC].determinerCode
   w5 = class
 
