@@ -129,6 +129,7 @@ import org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu3.model.Timing.UnitsOfTime;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.UsageContext;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent;
@@ -1391,6 +1392,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof Dosage) {
       return false;
     } else if (e instanceof Signature) {
+      return false;
+    } else if (e instanceof UsageContext) {
+      return false;
+    } else if (e instanceof ElementDefinition) {
       return false;
     } else if (!(e instanceof Attachment))
       throw new NotImplementedException("type "+e.getClass().getName()+" not handled yet");

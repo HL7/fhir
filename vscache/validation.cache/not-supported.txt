@@ -7,7 +7,6 @@ https://precision.fda.gov/files/
 https://precision.fda.gov/jobs/
 http://www.ncbi.nlm.nih.gov/nuccore
 urn:ietf:bcp:47
-http://orionhealth.com/fhir/apps/specialties
 urn:iso:std:iso:3166
 urn:ietf:bcp:13
 http://www.ensembl.org

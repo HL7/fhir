@@ -355,7 +355,8 @@ public class IgSpreadsheetParser {
     else
       sd.setStatus(PublicationStatus.DRAFT);
 
-    new ProfileUtilities(context, null, null).setIds(sd, false);
+    ProfileUtilities utils = new ProfileUtilities(this.context, issues, null);
+    utils.setIds(sd, false);
     return sd;
   }
 
