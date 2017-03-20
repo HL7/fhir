@@ -7,6 +7,7 @@ import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.OperationDefinition;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -80,6 +81,8 @@ public class ValidationServices implements IValidatorResourceFetcher {
       return StructureDefinition.class;
     if (url.contains("/CodeSystem/"))
       return CodeSystem.class;
+    if (url.contains("/OperationDefinition/"))
+      return OperationDefinition.class;
     return null;
   }
 

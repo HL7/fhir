@@ -35,10 +35,12 @@ import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.dstu3.model.OperationDefinition;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
@@ -213,6 +215,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       seeValueSet(url, (ValueSet) r);
     else if (r instanceof CodeSystem)
       seeCodeSystem(url, (CodeSystem) r);
+    else if (r instanceof OperationDefinition)
+      seeOperationDefinition(url, (OperationDefinition) r);
     else if (r instanceof ConceptMap)
       maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
     else if (r instanceof StructureMap)
@@ -221,7 +225,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     	systems.add((NamingSystem) r);
 	}
 	
-	private void seeValueSet(String url, ValueSet vs) throws DefinitionException {
+	private void seeOperationDefinition(String url, OperationDefinition r) {
+    operations.put(r.getUrl(), r);
+  }
+
+  public void seeValueSet(String url, ValueSet vs) throws DefinitionException {
 	  if (Utilities.noString(url))
 	    url = vs.getUrl();
 		if (valueSets.containsKey(vs.getUrl()) && !allowLoadingDuplicates)
@@ -236,7 +244,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		codeSystems.put(cs.getUrl(), cs);
 	}
 
-	private void seeProfile(String url, StructureDefinition p) throws FHIRException {
+	public void seeProfile(String url, StructureDefinition p) throws FHIRException {
     if (Utilities.noString(url))
       url = p.getUrl();
     
@@ -399,6 +407,12 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 					return (T) codeSystems.get(uri);
 				else
 					return null;      
+      } else if (class_ == OperationDefinition.class) {
+        OperationDefinition od = operations.get(uri);
+        return (T) od;
+      } else if (class_ == SearchParameter.class) {
+        SearchParameter od = searchParameters.get(uri);
+        return (T) od;
 			} else if (class_ == ConceptMap.class) {
 				if (maps.containsKey(uri))
 					return (T) maps.get(uri);

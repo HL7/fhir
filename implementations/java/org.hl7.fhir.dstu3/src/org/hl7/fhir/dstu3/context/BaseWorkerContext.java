@@ -27,14 +27,19 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
+import org.hl7.fhir.dstu3.model.OperationDefinition;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Parameters;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -69,6 +74,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   protected Map<String, StructureMap> transforms = new HashMap<String, StructureMap>();
+  protected Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
+  protected Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+  protected Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
+  protected Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
+  protected Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
+  protected Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
   
   protected ValueSetExpanderFactory expansionCache = new ValueSetExpansionCache(this);
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion
@@ -88,6 +99,77 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private int expandCodesLimit = 1000;
   protected ILoggingService logger;
   protected ExpansionProfile expProfile;
+
+  public Map<String, CodeSystem> getCodeSystems() {
+    return codeSystems;
+  }
+
+  public Map<String, DataElement> getDataElements() {
+    return dataElements;
+  }
+
+  public Map<String, ValueSet> getValueSets() {
+    return valueSets;
+  }
+
+  public Map<String, ConceptMap> getMaps() {
+    return maps;
+  }
+
+  public Map<String, StructureDefinition> getProfiles() {
+    return profiles;
+  }
+
+  public Map<String, StructureDefinition> getExtensionDefinitions() {
+    return extensionDefinitions;
+  }
+
+  public Map<String, Questionnaire> getQuestionnaires() {
+    return questionnaires;
+  }
+
+  public Map<String, OperationDefinition> getOperations() {
+    return operations;
+  }
+
+  public void seeExtensionDefinition(String url, StructureDefinition ed) throws Exception {
+    if (extensionDefinitions.get(ed.getUrl()) != null)
+      throw new Exception("duplicate extension definition: " + ed.getUrl());
+    extensionDefinitions.put(ed.getId(), ed);
+    extensionDefinitions.put(url, ed);
+    extensionDefinitions.put(ed.getUrl(), ed);
+  }
+
+  public void seeQuestionnaire(String url, Questionnaire theQuestionnaire) throws Exception {
+    if (questionnaires.get(theQuestionnaire.getId()) != null)
+      throw new Exception("duplicate extension definition: "+theQuestionnaire.getId());
+    questionnaires.put(theQuestionnaire.getId(), theQuestionnaire);
+    questionnaires.put(url, theQuestionnaire);
+  }
+
+  public void seeOperation(OperationDefinition opd) throws Exception {
+    if (operations.get(opd.getUrl()) != null)
+      throw new Exception("duplicate extension definition: "+opd.getUrl());
+    operations.put(opd.getUrl(), opd);
+    operations.put(opd.getId(), opd);
+  }
+
+  public void seeValueSet(String url, ValueSet vs) throws Exception {
+    if (valueSets.containsKey(vs.getUrl()))
+      throw new Exception("Duplicate value set "+vs.getUrl());
+    valueSets.put(vs.getId(), vs);
+    valueSets.put(url, vs);
+    valueSets.put(vs.getUrl(), vs);
+    throw new Error("this is not used");
+  }
+
+  public void seeProfile(String url, StructureDefinition p) throws Exception {
+    if (profiles.containsKey(p.getUrl()))
+      throw new Exception("Duplicate Profile "+p.getUrl());
+    profiles.put(p.getId(), p);
+    profiles.put(url, p);
+    profiles.put(p.getUrl(), p);
+  }
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {

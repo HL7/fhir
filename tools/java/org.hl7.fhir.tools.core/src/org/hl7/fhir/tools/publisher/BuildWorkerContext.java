@@ -114,19 +114,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private static final String SNOMED_EDITION = "900000000000207008"; // international
 //  private static final String SNOMED_EDITION = "731000124108"; // us edition
 
-  //  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
-//  private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
-//  private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
-  private Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
-  private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
-  private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
-  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   
   private UcumService ucum;
   private String version;
   private List<String> resourceNames = new ArrayList<String>();
-  private Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
-  private Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
   private Definitions definitions;
   private Map<String, Concept> snomedCodes = new HashMap<String, Concept>();
   private Map<String, Concept> loincCodes = new HashMap<String, Concept>();
@@ -163,77 +154,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public FHIRToolingClient getClient() {
     return txServer;
-  }
-
-  public Map<String, CodeSystem> getCodeSystems() {
-    return codeSystems;
-  }
-
-  public Map<String, DataElement> getDataElements() {
-    return dataElements;
-  }
-
-  public Map<String, ValueSet> getValueSets() {
-    return valueSets;
-  }
-
-  public Map<String, ConceptMap> getMaps() {
-    return maps;
-  }
-
-  public Map<String, StructureDefinition> getProfiles() {
-    return profiles;
-  }
-
-  public Map<String, StructureDefinition> getExtensionDefinitions() {
-    return extensionDefinitions;
-  }
-
-  public Map<String, Questionnaire> getQuestionnaires() {
-    return questionnaires;
-  }
-
-  public Map<String, OperationDefinition> getOperations() {
-    return operations;
-  }
-
-  public void seeExtensionDefinition(String url, StructureDefinition ed) throws Exception {
-    if (extensionDefinitions.get(ed.getUrl()) != null)
-      throw new Exception("duplicate extension definition: " + ed.getUrl());
-    extensionDefinitions.put(ed.getId(), ed);
-    extensionDefinitions.put(url, ed);
-    extensionDefinitions.put(ed.getUrl(), ed);
-  }
-
-  public void seeQuestionnaire(String url, Questionnaire theQuestionnaire) throws Exception {
-    if (questionnaires.get(theQuestionnaire.getId()) != null)
-      throw new Exception("duplicate extension definition: "+theQuestionnaire.getId());
-    questionnaires.put(theQuestionnaire.getId(), theQuestionnaire);
-    questionnaires.put(url, theQuestionnaire);
-  }
-
-  public void seeOperation(OperationDefinition opd) throws Exception {
-    if (operations.get(opd.getUrl()) != null)
-      throw new Exception("duplicate extension definition: "+opd.getUrl());
-    operations.put(opd.getUrl(), opd);
-    operations.put(opd.getId(), opd);
-  }
-
-  public void seeValueSet(String url, ValueSet vs) throws Exception {
-    if (valueSets.containsKey(vs.getUrl()))
-      throw new Exception("Duplicate value set "+vs.getUrl());
-    valueSets.put(vs.getId(), vs);
-    valueSets.put(url, vs);
-    valueSets.put(vs.getUrl(), vs);
-    throw new Error("this is not used");
-  }
-
-  public void seeProfile(String url, StructureDefinition p) throws Exception {
-    if (profiles.containsKey(p.getUrl()))
-      throw new Exception("Duplicate Profile "+p.getUrl());
-    profiles.put(p.getId(), p);
-    profiles.put(url, p);
-    profiles.put(p.getUrl(), p);
   }
 
   public StructureDefinition getExtensionStructure(StructureDefinition context, String url) throws Exception {
