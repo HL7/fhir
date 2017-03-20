@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -124,7 +124,7 @@
   Id = 4
   Code = classified-with
   Display = Classified With
-  Definition = Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise classified.\"
+  Definition = Child concepts in the hierarchy may have only one parent, and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise classified.\"
 
 === Sheet Invariants =====================================
 

@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -26,7 +26,7 @@
   Binding Name = ConsentExceptType
   Binding = code list
   Reference = #consent-except-type
-  Definition = How an exception is statement is applied, as adding additional consent, or removing consent
+  Definition = How an exception statement is applied, such as adding additional consent or removing consent
   Conformance = required
 
  -- Row 5 -----------------------------------
@@ -128,13 +128,13 @@
   Id = 2
   Code = related
   Display = Related
-  Definition = The consent applies directly to the instance of the resource, and instances it refers to
+  Definition = The consent applies directly to the instance of the resource and instances it refers to
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = dependents
   Display = Dependents
-  Definition = The consent applies directly to the instance of the resource, and instances that refer to it
+  Definition = The consent applies directly to the instance of the resource and instances that refer to it
 
  -- Row 4 -----------------------------------
   Id = 4

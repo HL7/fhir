@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -6065,7 +6065,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s98"><Data ss:Type="String">ConsentExceptType</Data></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">How an exception is statement is applied, as adding additional consent, or removing consent</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">How an exception statement is applied, such as adding additional consent or removing consent</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">#consent-except-type</Data></Cell>
@@ -7674,7 +7674,7 @@
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"><Data ss:Type="String">Related</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The consent applies directly to the instance of the resource, and instances it refers to </Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The consent applies directly to the instance of the resource and instances it refers to </Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s165"><Data ss:Type="String">The scope of the references needs to be clarified, but can't be…</Data></Cell>
@@ -7685,7 +7685,7 @@
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"><Data ss:Type="String">Dependents</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The consent applies directly to the instance of the resource, and instances that refer to it</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The consent applies directly to the instance of the resource and instances that refer to it</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s165"><Data ss:Type="String">The scope of the references needs to be clarified, but can't be…</Data></Cell>
