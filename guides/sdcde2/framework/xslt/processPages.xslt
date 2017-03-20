@@ -20,7 +20,7 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
-  <xsl:template match="a[@name]">
+  <xsl:template priority="10" match="a[@name]">
     <a>
       <xsl:apply-templates select="@*|node()"/>
       <xsl:text>&#x20;</xsl:text>

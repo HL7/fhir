@@ -1,6 +1,17 @@
 <ul>
-<li>ValueSet and DataElement resources including alignment of data elements and search criteria.</li>
-<li>Added a <a href="codesystem-sdcde.html">profile</a> for the new <a href="{{site.data.hl7.path}}codesystem.html">CodeSystem</a> resource which has now been split out from
-  <a href="{{site.data.hl7.path}}valueset.html">ValueSet</a>.  The new profile reflects the constraints and extensions that have been moved over from the
-  <a href="valueset-sdcde.html">SDC Valueset</a> profile</li>
+  <li><b>STU2 (FHIR STU3)</b>
+    <ul>
+      <li>Updated profiles on all resources to align with changes to underlying resources.</li>
+      <li>Revamped rendering of IG to be easier to navigate</li>
+      <li>Corrected examples and hyperlinks</li>
+    </ul>
+  </li>
+  <li><b>DSTU1 (FHIR DSTU2)</b>
+    <ul>
+      <li>ValueSet and DataElement resources including alignment of data elements and search criteria.</li>
+      <li>Added a <a href="codesystem-sdcde.html">profile</a> for the new <a href="{{site.data.hl7.path}}codesystem.html">CodeSystem</a> resource which has now been split out from
+        <a href="{{site.data.hl7.path}}valueset.html">ValueSet</a>.  The new profile reflects the constraints and extensions that have been moved over from the
+        <a href="valueset-sdcde.html">SDC Valueset</a> profile</li>
+    </ul>
+  </li>
 </ul>

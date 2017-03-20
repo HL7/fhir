@@ -28,7 +28,7 @@
           <page>
             <xsl:variable name="type" select="substring-before(sourceReference/reference/@value, '/')"/>
             <xsl:variable name="id" select="substring-after(sourceReference/reference/@value, '/')"/>
-            <source value="{if(starts-with($id, 'ext-')) then 'extension-' else if ($type='ValueSet') then 'valueset-' else ''}{$id}.html"/>
+            <source value="{if(starts-with($id, 'ext-')) then 'extension-' else if ($type='ValueSet' and not(example/@value='true' or purpose/@value='example')) then 'valueset-' else ''}{$id}.html"/>
             <xsl:element name="{$name}" namespace="http://hl7.org/fhir">
               <xsl:attribute name="value" select="name/@value"/>
             </xsl:element>

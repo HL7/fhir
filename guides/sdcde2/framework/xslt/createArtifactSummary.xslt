@@ -55,7 +55,7 @@
                   <xsl:when test="sourceReference">
                     <xsl:variable name="type" select="substring-before(sourceReference/reference/@value, '/')"/>
                     <xsl:variable name="id" select="substring-after(sourceReference/reference/@value, '/')"/>
-                    <a href="{if ($type='ValueSet') then 'valueset-' else if (starts-with($id, 'ext')) then 'extension-' else ''}{$id}.html">
+                    <a href="{if ($type='ValueSet' and not(example/@value='true' or purpose/@value='example')) then 'valueset-' else if (starts-with($id, 'ext')) then 'extension-' else ''}{$id}.html">
                       &#160;&#160;&#x2022;&#160;&#160;<xsl:value-of select="name/@value"/>
                     </a>
                   </xsl:when>

@@ -143,7 +143,7 @@
                     <td>
                       <xsl:for-each select="profile/@value">
                         <p>
-                          <a href="{.}">
+                          <a href="{.}.html">
                             <xsl:value-of select="."/>
                           </a>
                         </p>
@@ -165,94 +165,104 @@
               </p>
               <xsl:copy-of select="fn:handleMarkdownLines(.)"/>
             </xsl:for-each>
-            <h3>Resource summary</h3>
-            <table class="grid">
-              <thead>
-                <tr>
-                  <th>Resource</th>
-                  <th>Search</th>
-                  <th>Read</th>
-                  <th>Read Version</th>
-                  <th>Instance History</th>
-                  <th>Resource History</th>
-                  <th>Create</th>
-                  <th>Update</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                <xsl:for-each select="resource">
+            <xsl:if test="resource">
+              <h3>Resource summary</h3>
+              <table class="grid">
+                <thead>
                   <tr>
-                    <th>
-                      <xsl:value-of select="type/@value"/>
-                      <xsl:for-each select="profile/reference/@value">
-                        <xsl:text> (</xsl:text>
-                          <a href="{.}">Profile</a>
-                        <xsl:text>)</xsl:text>
-                      </xsl:for-each>
-                    </th>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='search-type']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='read']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='vread']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                      <xsl:if test="readHistory/@value='false'">(current only)</xsl:if>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='history-instance']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='history-type']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='create']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                      <xsl:if test="conditionalCreate/@value='true'">(conditional supported)</xsl:if>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='update']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                      <xsl:if test="updateCreate/@value='false'">(existing only)</xsl:if>
-                      <xsl:if test="conditionalUpdate/@value='true'">(conditional supported)</xsl:if>
-                    </td>
-                    <td>
-                      <xsl:for-each select="interaction[code/@value='delete']">
-                        <xsl:call-template name="doCapabilityStatement"/>
-                      </xsl:for-each>
-                      <xsl:if test="conditionalDelete/@value='true'">(conditional supported)</xsl:if>
-                    </td>
+                    <th>Resource</th>
+                    <th>Search</th>
+                    <th>Read</th>
+                    <th>Read Version</th>
+                    <th>Instance History</th>
+                    <th>Resource History</th>
+                    <th>Create</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
-                </xsl:for-each>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <xsl:for-each select="resource">
+                    <tr>
+                      <th>
+                        <xsl:value-of select="type/@value"/>
+                        <xsl:for-each select="profile/reference/@value">
+                          <xsl:text> (</xsl:text>
+                            <a href="{.}.html">Profile</a>
+                          <xsl:text>)</xsl:text>
+                        </xsl:for-each>
+                      </th>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='search-type']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='read']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='vread']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                        <xsl:if test="readHistory/@value='false'">(current only)</xsl:if>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='history-instance']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='history-type']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='create']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                        <xsl:if test="conditionalCreate/@value='true'">(conditional supported)</xsl:if>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='update']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                        <xsl:if test="updateCreate/@value='false'">(existing only)</xsl:if>
+                        <xsl:if test="conditionalUpdate/@value='true'">(conditional supported)</xsl:if>
+                      </td>
+                      <td>
+                        <xsl:for-each select="interaction[code/@value='delete']">
+                          <xsl:call-template name="doCapabilityStatement"/>
+                        </xsl:for-each>
+                        <xsl:if test="conditionalDelete/@value='true'">(conditional supported)</xsl:if>
+                      </td>
+                    </tr>
+                  </xsl:for-each>
+                </tbody>
+              </table>
+            </xsl:if>
             <xsl:if test="operation">
               <p>
                 <b>Operations:</b>
-                <xsl:for-each select="operation">
-                  <xsl:if test="position()!=1">, </xsl:if>
-                  <a title="{definition/display/@value}" href="{definition/reference/@value}">
-                    <xsl:value-of select="name/@value"/>
-                  </a>
-                  <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value">
-                    <xsl:value-of select="concat(' ', .)"/>
-                  </xsl:for-each>
-                </xsl:for-each>
               </p>
+              <ul>
+                <xsl:for-each select="operation">
+                  <li>
+                    <a href="{lower-case(definition/reference/@value)}">
+                      <xsl:value-of select="name/@value"/>
+                    </a>
+                    <xsl:for-each select="definition/display/@value">
+                      <xsl:value-of select="concat(' - ', .)"/>
+                    </xsl:for-each>
+                    <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value">
+                      <i>
+                        <xsl:value-of select="concat(' ', .)"/>
+                      </i>
+                    </xsl:for-each>
+                  </li>
+                </xsl:for-each>
+              </ul>
             </xsl:if>
             <xsl:if test="interaction">
               <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
@@ -285,7 +295,7 @@
               <xsl:for-each select="profile/@value">
                 <p>
                   <xsl:text>Profile: </xsl:text>
-                  <a href="{.}">
+                  <a href="{.}.html">
                     <xsl:value-of select="."/>
                   </a>
                 </p>
@@ -385,14 +395,14 @@
                     </td>
                     <td>
                       <xsl:for-each select="request/refereince/@value">
-                        <a href="{.}">
+                        <a href="{.}.html">
                           <xsl:value-of select="."/>
                         </a>
                       </xsl:for-each>
                     </td>
                     <td>
                       <xsl:for-each select="response/reference/@value">
-                        <a href="{.}">
+                        <a href="{.}.html">
                           <xsl:value-of select="."/>
                         </a>
                       </xsl:for-each>
@@ -428,7 +438,7 @@
                     </td>
                     <td>
                       <xsl:for-each select="profile/@value">
-                        <a href="{.}">
+                        <a href="{.}.html">
                           <xsl:value-of select="."/>
                         </a>
                       </xsl:for-each>

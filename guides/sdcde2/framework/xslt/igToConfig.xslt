@@ -110,14 +110,21 @@
       <xsl:if test="example/@value='true'">
         <xsl:choose>
           <xsl:when test="$type='ValueSet'">
-            <xsl:text>      "base": "{{[id]}}.html"&#xa;</xsl:text>
+            <xsl:text>		"template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
+            <xsl:text>		"template-format": "../framework/templates/template-instance-format.html",&#xa;</xsl:text>
+            <xsl:text>      "base": "{{[id]}}.html",&#xa;</xsl:text>
+            <xsl:text>	    "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
           </xsl:when>
           <xsl:when test="$type='StructureDefinition'">
+            <xsl:text>		"template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
+            <xsl:text>		"template-format": "../framework/templates/template-instance-format.html",&#xa;</xsl:text>
             <xsl:text>      "template-defns": "",&#xa;</xsl:text>
             <xsl:text>      "template-mappings": "",&#xa;</xsl:text>
             <xsl:text>      "template-examples": "",&#xa;</xsl:text>
             <xsl:text>      "template-profile-xml": "",&#xa;</xsl:text>
-            <xsl:text>      "template-profile-json": ""&#xa;</xsl:text>
+            <xsl:text>      "template-profile-json": "",&#xa;</xsl:text>
+            <xsl:text>      "base": "{{[id]}}.html",&#xa;</xsl:text>
+            <xsl:text>	    "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
           </xsl:when>
         </xsl:choose>
       </xsl:if>
