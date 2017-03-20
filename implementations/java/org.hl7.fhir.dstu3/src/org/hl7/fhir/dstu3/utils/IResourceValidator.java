@@ -34,6 +34,10 @@ public interface IResourceValidator {
     public boolean checkType() {
       return this == CHECK_TYPE_IF_EXISTS || this == CHECK_EXISTS_AND_TYPE || this == CHECK_VALID;
     }
+    
+    public boolean checkValid() {
+      return this == CHECK_VALID;
+    }
   }
   
   public interface IValidatorResourceFetcher {

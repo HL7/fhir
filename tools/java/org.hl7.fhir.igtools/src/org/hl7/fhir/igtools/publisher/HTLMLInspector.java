@@ -324,26 +324,31 @@ public class HTLMLInspector {
 
   private boolean checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages, String uuid) throws IOException {
     links++;
+    String rref = ref;
+    if ((rref.startsWith("http:") || rref.startsWith("https:") ) && (rref.endsWith(".sch") || rref.endsWith(".xsd") || rref.endsWith(".shex"))) { // work around for the fact that spec.internals does not track all these minor things 
+      rref = Utilities.changeFileExt(ref, ".html");
+    }
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref, "qa.html", "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/") || ref.startsWith("mailto:");
     if (!resolved)
-      resolved = manual.contains(ref);
+      resolved = manual.contains(rref);
     if (!resolved && specs != null){
       for (SpecMapManager spec : specs) {
-        resolved = resolved || spec.getBase().equals(ref) || (spec.getBase()).equals(ref+"/") || spec.hasTarget(ref); 
+        resolved = resolved || spec.getBase().equals(rref) || (spec.getBase()).equals(rref+"/") || spec.hasTarget(rref); 
       }
     }
+      
     if (!resolved) {
-      if (ref.startsWith("http://") || ref.startsWith("https://")) {
+      if (rref.startsWith("http://") || rref.startsWith("https://")) {
         resolved = true;
         if (specs != null) {
           for (SpecMapManager spec : specs) {
-            if (ref.startsWith(spec.getBase()))
+            if (rref.startsWith(spec.getBase()))
               resolved = false;
           }
         }
       } else { 
-        String page = ref;
+        String page = rref;
         String name = null;
         if (page.startsWith("#")) {
           name = page.substring(1);

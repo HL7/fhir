@@ -3284,7 +3284,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
           addCsRef(inc, li, e);
           li.tx(" where "+f.getProperty()+" "+describe(f.getOp())+" ");
           if (e != null && codeExistsInValueSet(e, f.getValue())) {
-            li.ah(prefix+getCsRef(e)+"#"+Utilities.nmtokenize(f.getValue())).addText(f.getValue());
+            String href = prefix+getCsRef(e);
+            if (href.contains("#"))
+              href = href + "-"+Utilities.nmtokenize(f.getValue());
+            else
+              href = href + "#"+e.getId()+"-"+Utilities.nmtokenize(f.getValue());
+            li.ah(href).addText(f.getValue());
           } else if ("concept".equals(f.getProperty()) && inc.hasSystem()) {
             li.addText(f.getValue());
             ValidationResult vr = context.validateCode(inc.getSystem(), f.getValue(), null);

@@ -1420,7 +1420,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, bt != null, "Unable to resolve the profile reference '" + pr + "'")) {
                 b.append(bt);
                 ok = bt.equals(ft);
-                if (ok && we!=null) {
+                if (ok && we!=null && pol.checkValid()) {
                   doResourceProfile(appContext, we, pr, errors, stack.push(we, -1, null, null), path, element);
                 }
               } else
