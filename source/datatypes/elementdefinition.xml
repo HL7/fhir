@@ -2180,7 +2180,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">either | independent | specific</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Whether this reference needs to be version specific or version independent, or whetehr either can be used</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Whether this reference needs to be version specific or version independent, or whether either can be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The base specification never makes a rule as to which form is allowed, but implementation guides may do this</Data><NamedCell
@@ -7615,7 +7615,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ReferenceVersionRules</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Whether a reference needs to be version specific or version independent, or whetehr either can be used</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Whether a reference needs to be version specific or version independent, or whether either can be used</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">#reference-version-rules</Data></Cell>

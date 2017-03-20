@@ -115,7 +115,7 @@
   Summary = Y
   Type = string
   Short Name = Why/how the assessment was performed
-  Definition = A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/status prompted it
+  Definition = A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it
 
  -- Row 6 -----------------------------------
   Element = ClinicalImpression.subject

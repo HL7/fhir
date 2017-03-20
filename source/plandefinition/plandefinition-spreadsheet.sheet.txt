@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -139,13 +139,13 @@
   Id = 2
   Code = protocol
   Display = Protocol
-  Definition = A set of activities that can be performed that have relationships in terms of order, pre-conditions, etc
+  Definition = A set of activities that can be performed that have relationships in terms of order, pre-conditions, etc.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = eca-rule
   Display = ECA Rule
-  Definition = A decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of a actions that should be taken whenever some condition is met in response to a particular event or events
+  Definition = A decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of actions that should be taken whenever some condition is met in response to a particular event or events
 
 === Sheet action-grouping-behavior =====================================
 

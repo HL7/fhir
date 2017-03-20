@@ -5,7 +5,7 @@
   <name value="Vaccination Protocol Dose Status Reason codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This code system supports describing the reason why an administered doses has been assigned a particular status. Often, this reason describes why a dose is considered invalid."/>
+  <description value="This code system supports describing the reason why an administered dose has been assigned a particular status. Often, this reason describes why a dose is considered invalid."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

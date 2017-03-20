@@ -40,7 +40,7 @@
   Binding Name = ReferenceVersionRules
   Binding = code list
   Reference = #reference-version-rules
-  Definition = Whether a reference needs to be version specific or version independent, or whetehr either can be used
+  Definition = Whether a reference needs to be version specific or version independent, or whether either can be used
   Conformance = required
 
  -- Row 7 -----------------------------------
@@ -646,7 +646,7 @@
   Type = code
   Binding = ReferenceVersionRules
   Short Name = either | independent | specific
-  Definition = Whether this reference needs to be version specific or version independent, or whetehr either can be used
+  Definition = Whether this reference needs to be version specific or version independent, or whether either can be used
   Comments = The base specification never makes a rule as to which form is allowed, but implementation guides may do this
   RIM Mapping = N/A (MIF territory)
   Default Value = either

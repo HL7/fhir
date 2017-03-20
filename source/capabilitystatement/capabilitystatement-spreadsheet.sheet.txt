@@ -255,7 +255,7 @@
   Id = 1
   Code = Consequence
   Display = Consequence
-  Definition = The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment.
+  Definition = The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment.
 
  -- Row 2 -----------------------------------
   Id = 2

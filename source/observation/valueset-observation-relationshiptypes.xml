@@ -54,7 +54,7 @@
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure which has no value)"/>
+          <valueString value="The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value)"/>
         </extension>
         <code value="INTF"/>
       </concept>

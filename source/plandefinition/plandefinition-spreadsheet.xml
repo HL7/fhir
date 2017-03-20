@@ -9125,7 +9125,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Protocol</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A set of activities that can be performed that have relationships in terms of order, pre-conditions, etc</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">A set of activities that can be performed that have relationships in terms of order, pre-conditions, etc.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -9136,7 +9136,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">ECA Rule</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">A decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of a actions that should be taken whenever some condition is met in response to a particular event or events</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">A decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of actions that should be taken whenever some condition is met in response to a particular event or events</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>

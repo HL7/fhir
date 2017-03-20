@@ -27,7 +27,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="UCUM Codes for units of measure. This value set includes all UCUM codes"/>
+  <description value="Unified Code for Units of Measure (UCUM). This value set includes all UCUM codes"/>
   <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
   <compose>
     <include>

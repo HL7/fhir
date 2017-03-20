@@ -12033,7 +12033,7 @@
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Consequence</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The message represents/requests a change that should not be processed more than once; e.g. Making a booking for an appointment.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s145"/>
