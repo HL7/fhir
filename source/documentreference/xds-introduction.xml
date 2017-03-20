@@ -23,7 +23,7 @@ The FHIR DocumentReference and DocumentManifest resources are based on the funct
 some significant ways:
 </p>
 <ul>
- <li>SubmissionSet = DocumentManifest, and DocumentEntry = DocumentReference. These renamings are appropriate in the wider context of how these resources are used in FHIR.</li>
+ <li>SubmissionSet = DocumentManifest and DocumentEntry = DocumentReference. This renaming is appropriate in the wider context of how these resources are used in FHIR.</li>
  <li>There is no direct association between a transaction and a DocumentManifest in FHIR, however a <a href="http.html#transaction">transaction</a> may be used to ensure consistent commits.</li>
  <li>Patient, Author and Authenticator are represented using standard <a href="patient.html">Patient</a> and <a href="practitioner.html">Practitioner</a> resources.</li>
  <li>The functionality expressed through the XDSFolder resource is implemented using the <a href="list.html">List</a> resource, or by <a href="resource.html#tags">tags.</a></li>

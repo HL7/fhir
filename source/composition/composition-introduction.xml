@@ -4,7 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p> 
-A Composition is also the basic structure from which <a href="documents.html">FHIR Documents</a> - 
+A Composition is the basic structure from which <a href="documents.html">FHIR Documents</a> - 
 immutable bundles with attested narrative - are built. A single logical composition may be 
 associated with a series of derived documents, each of which is a frozen copy of the 
 composition.
@@ -15,7 +15,7 @@ Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term
 to refer to a single commit to an EHR system, and offers some common examples: a composition 
 containing a consultation note, a progress note, a report or a letter, an investigation report, 
 a prescription form or a set of bedside nursing observations. Using Composition for an attested
-EHR commit is a valid uses of the Composition resource, but for FHIR purposes, it would be usual
+EHR commit is a valid use of the Composition resource, but for FHIR purposes, it would be usual
 to make more granular updates with individual provenance statements.
 </p>
 </div>
@@ -24,7 +24,7 @@ to make more granular updates with individual provenance statements.
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Composition is a structure for grouping information for purposes of persistance and attestability.  There
+Composition is a structure for grouping information for purposes of persistence and attestability.  There
 are several other grouping structures in FHIR with distinct purposes:
 </p>
 <ul>
