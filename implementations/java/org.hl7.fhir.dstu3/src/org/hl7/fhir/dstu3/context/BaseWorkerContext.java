@@ -447,7 +447,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     else if (display != null)
       res = new ValidationResult(new ConceptDefinitionComponent().setDisplay(display));
     else
-      res = new ValidationResult(null);
+      res = new ValidationResult(new ConceptDefinitionComponent());
     saveToCache(res, cacheName);
     return res;
   }
