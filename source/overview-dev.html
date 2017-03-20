@@ -56,7 +56,7 @@ Resource instances are represented as either <a href="xml.html">XML</a>, <a href
 different <a href="resourcelist.html">resource types defined</a> in the FHIR specification.
 </p>
 <p>
-This specification describes a set of resources - that is, a set of resource types that describe the set of resource instances that 
+This specification describes a set of resources - that is, a set of resource types that describe the set of resource instances that
 can actually be exchanged. The term 'Resource' is sometimes used without clarifying whether it specifically refers to types or instances - the context of use makes this clear.
 </p>
 <h3>Example Resource Instance</h3>
@@ -159,21 +159,21 @@ the FHIR specification defines an <a href="extensibility.html">extension framewo
 </p>
 <p>
 Another key aspect of the variability encountered in healthcare is that the
-same information may be represented differently and with different levels of 
-detail, granularity and nesting by various parties across the system. 
-For example, in some cases a blood pressure measurement may be just a simple observation, a 
-vital sign measure, while in other cases can be a rich set of highly defined 
-data that includes things like controlled vocabularies for posture, exercise, etc. 
-The <a href="resourcelist.html">resource types</a> defined in this specification 
-focus on the general, common use cases. Richer and more specific content 
-can be supported and standardized by <a href="profiling.html">defining "profiles"</a> on 
-the base resource types. 
+same information may be represented differently and with different levels of
+detail, granularity and nesting by various parties across the system.
+For example, in some cases a blood pressure measurement may be just a simple observation, a
+vital sign measure, while in other cases can be a rich set of highly defined
+data that includes things like controlled vocabularies for posture, exercise, etc.
+The <a href="resourcelist.html">resource types</a> defined in this specification
+focus on the general, common use cases. Richer and more specific content
+can be supported and standardized by <a href="profiling.html">defining "profiles"</a> on
+the base resource types.
 </p>
 
 <a name="versions"> </a>
 <h3>Managing Versions</h3>
 <p>
-FHIR Servers do not have to support versioning, though they are strongly encouraged to do so. 
+FHIR Servers do not have to support versioning, though they are strongly encouraged to do so.
 There are three different levels of versioning support for FHIR servers:
 </p>
 <ul>
@@ -182,16 +182,16 @@ There are three different levels of versioning support for FHIR servers:
  <li>Versioning and the	VersionId meta-property are supported, and a history of old versions is available</li>
 </ul>
 <p>
-In addition, servers may require that <a href="http.html#concurrency">version</a> aware updates are used, to prevent over-writing changes, 
+In addition, servers may require that <a href="http.html#concurrency">version</a> aware updates are used, to prevent over-writing changes,
 but this is not described on this page.
 </p>
- 
+
 <h3>Creating a resource</h3>
 <p>
 To <a href="http.html#create">create a resource</a>, send an HTTP POST request to the resource type's respective end
-point. 
+point.
 </p>
-<pre> 
+<pre>
   POST https://example.com/path/{resourceType}
 </pre>
 <p>
@@ -243,7 +243,7 @@ do so.
 <code>Content-Length: 161</code>
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
-<code>ETag: "1"</code>
+<code>ETag: W/"1"</code>
 <code>Location: http://example.com/Patient/347</code>
 <code> </code>
 <code>{</code>
@@ -306,7 +306,7 @@ Notes:
 <a href="http.html#read">Reading a resource</a> is done by sending HTTP GET requests to the desired Resource Type
 end-point.
 </p>
-<pre> 
+<pre>
   GET https://example.com/path/{resourceType}/{id}
 </pre>
 <p>
@@ -342,7 +342,7 @@ The response to a GET contains the Resource.
 <code>Content-Length: 729</code>
 <code>Content-Type: application/fhir+xml</code>
 <code>Last-Modified: Sun, 17 Aug 2014 15:43:30 GMT</code>
-<code>ETag: "1"</code>
+<code>ETag: W/"1"</code>
 <code> </code>
 <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code>
 <code>&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;</code>
@@ -456,11 +456,11 @@ Notes:
 <p>
 The client sends the server a new version of the resource to replace the existing version - it PUTs it to the location of the existing resource:
 </p>
-<pre> 
+<pre>
   PUT https://example.com/path/{resourceType}/{id}
 </pre>
 <p>
-Note that there does not need to be a resource already existing at {id} - the server may elect to automatically create the resource at the specified address. 
+Note that there does not need to be a resource already existing at {id} - the server may elect to automatically create the resource at the specified address.
 Here is an example of updating a patient:
 </p>
 
@@ -507,7 +507,7 @@ The response to an update request has metadata / status, and optionally an Opera
 <code>Content-Length: 161</code>
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
-<code>ETag: "2"</code>
+<code>ETag: W/"2"</code>
 <code>Location: https://example.com/Patient/347/_history/2</code>
 <code> </code>
 <code>{</code>
@@ -577,7 +577,7 @@ The base properties of all resources are defined on the resource types <a href="
 </p>
 
 <p>
-Want more information? 
+Want more information?
 </p>
 <ul>
  <li><a href="modules.html">Getting Started</a></li>
