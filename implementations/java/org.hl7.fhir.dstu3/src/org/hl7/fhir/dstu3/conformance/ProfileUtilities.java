@@ -346,16 +346,25 @@ public class ProfileUtilities extends TranslatingUtilities {
     setIds(derived, false);
     
     //Check that all differential elements have a corresponding snapshot element
-    HashMap<String, ElementDefinition> snapshotElements = new HashMap<String, ElementDefinition>();
-    for (ElementDefinition e : derived.getSnapshot().getElement()) {
-      snapshotElements.put(e.getId(), e);
-    }
     for (ElementDefinition e : derived.getDifferential().getElement()) {
-      if (!snapshotElements.containsKey(e.getId()))
+      if (!findMatchingElement(e.getId(), derived.getSnapshot().getElement()))
         throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
 //        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
     }
   }
+
+  private boolean findMatchingElement(String id, List<ElementDefinition> list) {
+    for (ElementDefinition ed : list) {
+      if (ed.getId().equals(id))
+        return true;
+      if (id.endsWith("[x]")) {
+        if (ed.getId().startsWith(id.substring(0, id.length()-3)) && !ed.getId().substring(id.length()-3).contains("."))
+          return true;
+      }
+    }
+    return false;
+  }
+
 
   /**
    * @param trimDifferential
