@@ -35,7 +35,7 @@
   <contact>
     <relationship>
       <coding>
-        <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+        <system value="http://hl7.org/fhir/v2/0131"/>
         <code value="E"/>
       </coding>
     </relationship>
