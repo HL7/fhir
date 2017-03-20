@@ -45,6 +45,7 @@
   Binding = EnrollmentRequestStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Comments = This element is labeled as a modifier because the status contains codes that mark the request as not currently valid
 
  -- Row 5 -----------------------------------
   Element = !EnrollmentRequest.ruleset

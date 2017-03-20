@@ -193,7 +193,7 @@
   Binding = TestReportStatus
   Short Name = completed | in-progress | waiting | stopped | entered-in-error
   Definition = The current state of this test report
-  Comments = The status represents where the execution is currently within the test script execution life cycle.
+  Comments = The status represents where the execution is currently within the test script execution life cycle.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   w5 = status
 
  -- Row 5 -----------------------------------

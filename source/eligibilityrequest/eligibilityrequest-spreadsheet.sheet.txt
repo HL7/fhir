@@ -87,6 +87,7 @@
   Binding = EligibilityRequestStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Requirements = This element is labeled as a modifier because the status contains codes that mark the request as not currently valid
   Workflow Mapping = Request.status
   w5 = status
 

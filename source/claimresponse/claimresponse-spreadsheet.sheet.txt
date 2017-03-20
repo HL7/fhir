@@ -142,6 +142,7 @@
   Binding = ClaimResponseStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Comments = This element is labeled as a modifier because the status contains the code cancelled and entered-in-error that mark the response as not currently valid
   Workflow Mapping = Event.status
   w5 = status
 

@@ -180,6 +180,7 @@
   Type = boolean
   Short Name = Whether this healthcareservice is in active use
   Definition = Whether this healthcareservice record is in active use
+  Comments = This element is labeled as a modifier because it may be used to mark that the resource was created in error
   RIM Mapping = .statusCode
   Default Value = True
   w5 = status

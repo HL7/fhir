@@ -78,6 +78,7 @@
   Binding = AccountStatus
   Short Name = active | inactive | entered-in-error
   Definition = Indicates whether the account is presently used/usable or not
+  Comments = This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the Account as not currently valid
   RIM Mapping = .statusCode
   w5 = status
 

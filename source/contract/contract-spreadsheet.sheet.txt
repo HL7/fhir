@@ -112,6 +112,7 @@
   Binding = ContractStatus
   Short Name = amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
   Definition = The status of the resource instance.
+  Comments = This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active
   Workflow Mapping = Event.status
 
  -- Row 4 -----------------------------------

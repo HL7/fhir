@@ -44,6 +44,7 @@
   Short Name = Whether this related person\'s record is in active use
   Definition = Whether this related person record is in active use
   Requirements = Need to be able to mark a related person record as not to be used, such as if it was created in error
+  Comments = This element is labeled as a modifier because it may be used to mark that the resource was created in error
   RIM Mapping = .statusCode
   Default Value = True
   w5 = status

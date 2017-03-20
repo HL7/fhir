@@ -133,6 +133,7 @@
   Binding = ResearchStudyStatus
   Short Name = draft | in-progress | suspended | stopped | completed | entered-in-error
   Definition = The current state of the study
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status
   To Do = Should this be a common code system for all events?
   w5 = status

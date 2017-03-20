@@ -98,6 +98,7 @@
   Binding = EpisodeOfCareStatus
   Short Name = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
   Definition = planned | waitlist | active | onhold | finished | cancelled
+  Comments = This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid
   w5 = status
 
  -- Row 4 -----------------------------------

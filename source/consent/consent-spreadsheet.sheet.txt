@@ -184,6 +184,7 @@
   Short Name = draft | proposed | active | rejected | inactive | entered-in-error
   Definition = Indicates the current state of this consent
   Requirements = The Consent Directive that is pointed to might be in various lifecycle states, e.g., a revoked Consent Directive
+  Comments = This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid
   v2 Mapping = HL7 Table 0498 - Consent Status
   RIM Mapping = .statusCode
   w5 = status

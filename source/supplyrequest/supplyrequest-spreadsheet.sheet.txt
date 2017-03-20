@@ -145,6 +145,7 @@
   Binding = SupplyRequestStatus
   Short Name = draft | active | suspended +
   Definition = Status of the supply request
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Request.status
   v2 Mapping = ORC.5
   RIM Mapping = .status

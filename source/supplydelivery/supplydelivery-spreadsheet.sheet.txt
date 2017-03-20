@@ -106,6 +106,7 @@
   Binding = SupplyDeliveryStatus
   Short Name = in-progress | completed | abandoned | entered-in-error
   Definition = A code specifying the state of the dispense event.
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
   RIM Mapping = .statusCode, also existence of fulfillment events
 

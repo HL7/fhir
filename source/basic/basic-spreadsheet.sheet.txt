@@ -41,7 +41,7 @@
   Short Name = Kind of Resource
   Definition = Identifies the \'type\' of resource - equivalent to the resource name for other resources.
   Requirements = Must be able to distinguish different types of Basic resources.
-  Comments = Because resource references will only be able to indicate \'Basic\', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code.
+  Comments = Because resource references will only be able to indicate \'Basic\', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code.\n\nThis element is labeled as a modifier because the it defines the meaning of the resource and cannot be ignored
   RIM Mapping = ./code
   w5 = what
 

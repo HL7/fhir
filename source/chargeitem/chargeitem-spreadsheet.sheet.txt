@@ -164,7 +164,7 @@
   Binding = ChargeItemStatus
   Short Name = planned | billable | not-billable | aborted | billed | entered-in-error | unknown
   Definition = The current state of the ChargeItem
-  Comments = Unknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+  Comments = Unknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.\n\nThis element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid
   v2 Mapping = Varies by domain
   RIM Mapping = .status
   w5 = status
