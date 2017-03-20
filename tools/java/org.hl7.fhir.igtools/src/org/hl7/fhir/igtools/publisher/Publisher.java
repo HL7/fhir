@@ -1953,6 +1953,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           String uc = ((MetadataResource) r.getResource()).getUrl();
           if (uc != null && !u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem) && !(r.getResource() instanceof ImplementationGuide))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
+          if (!uc.startsWith(igpkp.getCanonical()))
+            map.path(uc, igpkp.getLinkFor(r));
         }
         map.path(u, igpkp.getLinkFor(r));
       }
