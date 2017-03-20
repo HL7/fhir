@@ -171,12 +171,6 @@
     those may need to be retrieved from a <a href="{{site.data.refs.sdcde}}/sdc-de-registry.html"> Data Element Registry</a> in order to look
     up what mappings the data element has to other resources.
   </p>
-  <p>
-    There are additional simpler workflows around creating forms, updating forms, searching for appropriate forms, etc.  These make use of the base FHIR restful 
-    operations.  A summary of most of the operations performed by the different SDC actors can be seen in <a href="">Figure 2</a> and <a href="">Figure 3</a> below.
-  </p>
-  
-  
   <h3>SDC Specification</h3>
   <p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
   <a name="capabilitystatement"> </a>

@@ -207,7 +207,7 @@
       <name value="Questionnaire process response"/>
       <description value="Allows submission of a QuestionnaireRespone for 'processing' by the target server"/>
       <sourceReference>
-        <reference value="OperationDefinition/questionnaire-process-response"/>
+        <reference value="OperationDefinition/Questionnaire-process-response"/>
       </sourceReference>
     </resource>
   </package>

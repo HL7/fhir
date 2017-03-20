@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-	<id value="operationdefinition-questionnaire-process-response"/>
-	<url value="http://hl7.org/fhir/us/sdc/OperationDefinition/operationdefinition-questionnaire-process-response"/>
+	<id value="Questionnaire-process-response"/>
+	<url value="http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response"/>
 	<name value="Questionnaire Process Response"/>
 	<status value="draft"/>
 	<kind value="operation"/>

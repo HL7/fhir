@@ -4,12 +4,12 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <h2>SDC Form Receiver</h2>
+      <h2>SDC Form Response Manager</h2>
       <p>(Requirements Definition)</p>
-      <p>Published: 2014-07-06 (draft)</p>
+      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-response-manager Published: 2014-07-06 (draft)</p>
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Form Receiver</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for storing and returning completed and partially-completed forms.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Form Response Manager</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for providing read/write access to QuestionnaireResponses.  This is typically to support light-weight clients that want to be able to complete forms but don't have local storage to save work in progress.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -27,7 +27,7 @@
       <p>
         <b>Security:</b>
       </p>
-      <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.</p>
+      <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.  Systems may wish to ensure that QuestionnaireResponse instances are only accessible to the user (or at least the organization) who was responsible for creating them.</p>
       <h3>Resource summary</h3>
       <table class="grid">
         <thead>
@@ -45,24 +45,26 @@
         </thead>
         <tbody>
           <tr>
-            <th>QuestionnaireResponse (<a href="http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-dataelement">Profile</a>)</th>
+            <th>QuestionnaireResponse (<a href="http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse.html">Profile</a>)</th>
             <td>
-              <a title="Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update." href="#QuestionnaireResponse-search-type">SHALL</a>
+              <a title="This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response" href="#QuestionnaireResponse-search-type">Yes</a>
+            </td>
+            <td>
+              <a title="This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response" href="#QuestionnaireResponse-read">Yes</a>
             </td>
             <td/>
-            <td/>
             <td>
-              <a title="Allows review of prior versions of an answer set - allows reversion to previously recorded versions" href="#QuestionnaireResponse-history-instance">SHALL</a>
+              <a title="This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed" href="#QuestionnaireResponse-history-instance">Yes</a>
             </td>
             <td/>
             <td>
-              <a title="Allows recording a completed or partially-completed form" href="#QuestionnaireResponse-create">SHALL</a>
+              <a title="This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time" href="#QuestionnaireResponse-create">Yes</a>
             </td>
             <td>
-              <a title="Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)" href="#QuestionnaireResponse-update">SHALL</a>
+              <a title="This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users." href="#QuestionnaireResponse-update">Yes</a>
             </td>
             <td>
-              <a title="Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances." href="#QuestionnaireResponse-delete">SHALL</a>
+              <a title="This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response" href="#QuestionnaireResponse-delete">Yes</a>
             </td>
           </tr>
         </tbody>
@@ -77,29 +79,17 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Conformance</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th>
-              <a name="QuestionnaireResponse-search-type"> </a>
-              <span>search-type</span>
-            </th>
-            <td>SHALL</td>
-            <td>
-              <p>Allows a user to search for existing completed or partially-completed forms.  Generally used to find partially-completed forms for update.</p>
-            </td>
-          </tr>
-          <tr>
-            <th>
               <a name="QuestionnaireResponse-create"> </a>
               <span>create</span>
             </th>
-            <td>SHALL</td>
             <td>
-              <p>Allows recording a completed or partially-completed form</p>
+              <p>This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time</p>
             </td>
           </tr>
           <tr>
@@ -107,9 +97,8 @@
               <a name="QuestionnaireResponse-update"> </a>
               <span>update</span>
             </th>
-            <td>SHALL</td>
             <td>
-              <p>Allows updating an existing completed or partially-completed form.  (Systems may place rules on who can update forms and under what circumstances.)</p>
+              <p>This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users.</p>
             </td>
           </tr>
           <tr>
@@ -117,9 +106,26 @@
               <a name="QuestionnaireResponse-delete"> </a>
               <span>delete</span>
             </th>
-            <td>SHALL</td>
             <td>
-              <p>Allows removal of a completed form from a repository.  Note that the removal may be logical rather than physical.  Some systems may have rules for who can remove a completed form and under what circumstances.</p>
+              <p>This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-search-type"> </a>
+              <span>search-type</span>
+            </th>
+            <td>
+              <p>This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-read"> </a>
+              <span>read</span>
+            </th>
+            <td>
+              <p>This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response</p>
             </td>
           </tr>
           <tr>
@@ -127,78 +133,9 @@
               <a name="QuestionnaireResponse-history-instance"> </a>
               <span>history-instance</span>
             </th>
-            <td>SHALL</td>
             <td>
-              <p>Allows review of prior versions of an answer set - allows reversion to previously recorded versions</p>
+              <p>This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed</p>
             </td>
-          </tr>
-        </tbody>
-      </table>
-      <h4>Search</h4>
-      <p>Supported Includes: QuestionnaireResponse.questionnaire Questionnaire.group.question.options</p>
-      <table class="list">
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Conformance</th>
-            <th>Type</th>
-            <th>Definition &amp; Chaining</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>author</th>
-            <td>SHALL</td>
-            <td>reference</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>authored</th>
-            <td>SHALL</td>
-            <td>date</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>identifier</th>
-            <td>SHALL</td>
-            <td>token</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>patient</th>
-            <td>SHALL</td>
-            <td>reference</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>questionnaire</th>
-            <td>SHALL</td>
-            <td>reference</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>source</th>
-            <td>SHOULD</td>
-            <td>reference</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>status</th>
-            <td>SHALL</td>
-            <td>token</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>subject</th>
-            <td>SHALL</td>
-            <td>reference</td>
-            <td/>
-          </tr>
-          <tr>
-            <th>encounter</th>
-            <td>SHOULD</td>
-            <td>token</td>
-            <td/>
           </tr>
         </tbody>
       </table>
