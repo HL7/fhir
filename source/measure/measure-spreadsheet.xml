@@ -11172,7 +11172,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Weighted</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Weighted scoring gives an individual a score based on a weigthed factor for each component numerator in which they appear</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Weighted scoring gives an individual a score based on a weighted factor for each component numerator in which they appear</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>

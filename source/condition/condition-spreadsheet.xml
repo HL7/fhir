@@ -6911,7 +6911,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Differential</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s144"/>

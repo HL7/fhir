@@ -2916,7 +2916,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">SHOULD</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is strongly encouraged and failure to support it should only occur after careful consideration.</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is strongly encouraged, and failure to support it should only occur after careful consideration.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s135"/>
@@ -2927,7 +2927,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">MAY</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is not necessary to be considered conformant and the requirement should be considered strictly optional.</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Support for the specified capability is not necessary to be considered conformant, and the requirement should be considered strictly optional.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s135"/>

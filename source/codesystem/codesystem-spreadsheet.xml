@@ -7855,13 +7855,13 @@
     <Cell><Data ss:Type="String">part-of</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Part Of</Data></Cell>
-    <Cell><Data ss:Type="String">Child elements list the individual parts of a composite whole (e.g. bodysite)</Data></Cell>
+    <Cell><Data ss:Type="String">Child elements list the individual parts of a composite whole (e.g. body site)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">classified-with</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Classified With</Data></Cell>
-    <Cell><Data ss:Type="String">Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a &quot;closed world&quot; meaning all things must be in the hierarchy. This results in concepts such as &quot;not otherwise clasified.&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a &quot;closed world&quot; meaning all things must be in the hierarchy. This results in concepts such as &quot;not otherwise classified.&quot;</Data></Cell>
    </Row>
    <Row ss:Index="9" ss:AutoFitHeight="0">
     <Cell ss:Index="10" ss:StyleID="s148"/>

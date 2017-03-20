@@ -118,13 +118,13 @@
   Id = 3
   Code = part-of
   Display = Part Of
-  Definition = Child elements list the individual parts of a composite whole (e.g. bodysite)
+  Definition = Child elements list the individual parts of a composite whole (e.g. body site)
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = classified-with
   Display = Classified With
-  Definition = Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise clasified.\"
+  Definition = Child concepts in the hierarchy may have only one parent and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise classified.\"
 
 === Sheet Invariants =====================================
 

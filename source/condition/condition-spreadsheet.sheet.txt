@@ -77,7 +77,7 @@
   Id = 2
   Code = differential
   Display = Differential
-  Definition = One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment.
+  Definition = One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
 
  -- Row 3 -----------------------------------
   Id = 3

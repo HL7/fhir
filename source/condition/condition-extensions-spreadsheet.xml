@@ -3225,7 +3225,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">Inactive</Data></Cell>
-    <Cell ss:StyleID="s141"><Data ss:Type="String">The condition inactive but not resolved.</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">The condition is inactive, but not resolved.</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s142"/>

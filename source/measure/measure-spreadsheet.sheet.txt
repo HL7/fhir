@@ -195,7 +195,7 @@
   Id = 4
   Code = weighted
   Display = Weighted
-  Definition = Weighted scoring gives an individual a score based on a weigthed factor for each component numerator in which they appear
+  Definition = Weighted scoring gives an individual a score based on a weighted factor for each component numerator in which they appear
 
 === Sheet Invariants =====================================
 

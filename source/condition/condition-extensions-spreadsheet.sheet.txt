@@ -43,7 +43,7 @@
   Id = 2
   Code = inactive
   Display = Inactive
-  Definition = The condition inactive but not resolved.
+  Definition = The condition is inactive, but not resolved.
 
  -- Row 3 -----------------------------------
   Id = 3
