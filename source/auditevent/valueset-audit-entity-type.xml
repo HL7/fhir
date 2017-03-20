@@ -14,7 +14,7 @@
       <value value="fhir@lists.hl7.org"/> 
     </telecom> 
   </contact> 
-  <description value="Code for the entity type involved audited."/> 
+  <description value="Code for the entity type involved in the audit event."/> 
   <immutable value="true"/> 
 
   <compose> 

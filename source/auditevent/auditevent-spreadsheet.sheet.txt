@@ -43,7 +43,7 @@
   Binding Name = AuditEventEntityType
   Binding = value set
   Reference = valueset-audit-entity-type
-  Definition = Code for the entity type involved the audit event
+  Definition = Code for the entity type involved in the audit event
   Description = DICOM Audit Event Entity Type
   Conformance = extensible
   Uri = http://dicom.nema.org/resources/ontology/DCM
@@ -307,7 +307,7 @@
   Id = 15
   Code = 15
   Display = Practitioner
-  Definition = Any person or organization responsible for providing care.  This encompasses all forms of care, licensed or otherwise, and all sorts of teams and care groups. Note, the distinction between practitioners and the doctor that actually provided the care to the patient.
+  Definition = Any person or organization responsible for providing care.  This encompasses all forms of care, licensed or otherwise, and all sorts of teams and care groups. Note the distinction between practitioner and the doctor that actually provided the care to the patient.
 
  -- Row 16 -----------------------------------
   Id = 16
