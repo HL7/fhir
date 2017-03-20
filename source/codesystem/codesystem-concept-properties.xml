@@ -28,11 +28,11 @@
   <concept>
     <code value="parent"/>
     <display value="Parent"/>
-    <definition value="The concept identified in this property is a parent of the concept on which it is a property. The property type will be 'code'. The meaning of 'parent' is defined by the heirarchyMeaning attribute"/>
+    <definition value="The concept identified in this property is a parent of the concept on which it is a property. The property type will be 'code'. The meaning of 'parent' is defined by the hierarchyMeaning attribute"/>
   </concept>
   <concept>
     <code value="child"/>
     <display value="Child"/>
-    <definition value="The concept identified in this property is a child of the concept on which it is a property. The property type will be 'code'. The meaning of 'child' is defined by the heirarchyMeaning attribute"/>
+    <definition value="The concept identified in this property is a child of the concept on which it is a property. The property type will be 'code'. The meaning of 'child' is defined by the hierarchyMeaning attribute"/>
   </concept>
 </CodeSystem>

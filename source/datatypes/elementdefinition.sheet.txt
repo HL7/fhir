@@ -322,7 +322,7 @@
   Element = ElementDefinition.path
   Card. = 1..1
   Type = string
-  Short Name = Path of the element in the heirarchy of elements
+  Short Name = Path of the element in the hierarchy of elements
   Definition = The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension
   v2 Mapping = N/A
   RIM Mapping = N/A

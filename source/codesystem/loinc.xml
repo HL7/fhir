@@ -9,7 +9,7 @@ Note that the following set of codes constitute the
 LOINC code systems:
  - the main LOINC codes
  - the LOINC answer codes (both the list codes (LL-) and the Answer codes (LA-)
- - the Part codes in the Multi-Axial Heirarchy
+ - the Part codes in the Multi-Axial Hierarchy
  - the part codes for the properties. 
     Note: there are license restrictions on the use of LOINC Part codes
     Note: LOINC does not yet publish all of these part codes
@@ -65,11 +65,11 @@ they support
   -->
             
   <!-- 
-    it's at the discretion of servers whether to present fragments of LOINC heirarchically or not, when 
-    using the code system resource, but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship
-    The only place where this applies is the multi-axial Heirarchy
+    it's at the discretion of servers whether to present fragments of LOINC hierarchically or not, when 
+    using the code system resource, but if they are hierarchical, the hierarchy SHALL be based on the is-a relationship
+    The only place where this applies is the multi-axial hierarchy
     -->
-  <heirarchyMeaning value="subsumes"/> 
+  <hierarchyMeaning value="subsumes"/> 
   <compositional value="false"/> <!-- no compositional grammar in LOINC -->
   <versionNeeded value="false"/>
   
@@ -77,7 +77,7 @@ they support
     Servers may choose to include fragments (but not, due to size constraints, all of LOINC) -->
   <content value="not-present"/>
   
-<!-- <count value="65000"/>... if working with a specific version, you could nominate a count of the total number of concepts (including the answers, heirarchy etc -->  
+<!-- <count value="65000"/>... if working with a specific version, you could nominate a count of the total number of concepts (including the answers, hierarchy etc -->  
 
   <!-- 
     generally defined filters for specifying value sets
@@ -122,24 +122,24 @@ they support
     fhir: display, designation; these are not described here since they are inherent in the specification
     infrastructural: defined by FHIR, but documented here for LOINC 
     LOINC properties: defined by the main LOINC table
-    concept model: defined by the LOINC multi-axial heirarchy 
+    concept model: defined by the LOINC multi-axial hierarchy 
   -->
   <!-- first, the infrastructural properties - inherited from FHIR, but documented here -->
   <property>
     <code value="parent"/>
     <uri value="http://hl7.org/fhir/concept-properties#parent"/> 
-    <description value="A parent code in the Multi-Axial Heirarchy"/>
+    <description value="A parent code in the Multi-Axial Hierarchy"/>
     <type value=""/>
   </property>
   <property>
     <code value="child"/>
     <uri value="http://hl7.org/fhir/concept-properties#child"/>
-    <description value="A child code in the Multi-Axial Heirarchy"/>
+    <description value="A child code in the Multi-Axial Hierarchy"/>
     <type value=""/>
   </property>
   <!-- 
     LOINC properties. 
-    These apply to the main LOINC codes. e.g. not the multiaxial heirarchy, or the answer lists, or the part codes).
+    These apply to the main LOINC codes. e.g. not the multiaxial hierarchy, or the answer lists, or the part codes).
     note: SHORTNAME = display & LONG_COMMON_NAME = definition 
   -->
   <property>

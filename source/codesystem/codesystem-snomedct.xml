@@ -63,8 +63,8 @@ support a particular edition/version
   <valueSet value="http://snomed.info/sct/[edition]/version/[date]?fhir_vs"/>
   -->
             
-	  <!-- it's at the discretion of servers whether to present fragments of SNOMED CT heirarchically or not, when 
-    using the code system resource; but if they are heirarchical, the heirarchy SHALL be based on the is-a relationship
+	  <!-- it's at the discretion of servers whether to present fragments of SNOMED CT hierarchically or not, when 
+    using the code system resource; but if they are hierarchical, the hierarchy SHALL be based on the is-a relationship
 
     why present a fragment? It's not clear what the use case for doing that is, and is recommended not to do so.
     -->
@@ -110,7 +110,7 @@ support a particular edition/version
   <!-- properties. There are 3 kinds of properties:
     fhir: display, designation; these are not described here since they are inherent in the specification
     infrastructural: defined by the structure of SNOMED CT itself
-    concept model: defined by the qualifier heirarchy 
+    concept model: defined by the qualifier hierarchy 
   -->
   <!-- first, the infrastructural properties -->
   <property>

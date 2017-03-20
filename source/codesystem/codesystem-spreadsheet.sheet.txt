@@ -106,7 +106,7 @@
   Id = 1
   Code = grouped-by
   Display = Grouped By
-  Definition = No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the heirarchy have different meanings)
+  Definition = No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the hierarchy have different meanings)
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -224,7 +224,7 @@
   Type = code
   Binding = CodeSystemHierarchyMeaning
   Short Name = grouped-by | is-a | part-of | classified-with
-  Definition = The meaning of the heirarchy of concepts
+  Definition = The meaning of the hierarchy of concepts
 
  -- Row 20 -----------------------------------
   Element = CodeSystem.compositional

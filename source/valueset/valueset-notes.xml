@@ -141,14 +141,14 @@ the following process should be followed:
 <p>
 The final "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
 also provides support for a hierarchical tree of items. This specification does not fix the meaning of use of either
-the order or the heirarchy, and the conceptual approach described should not be understood to prohibit any implementation approach in
+the order or the hierarchy, and the conceptual approach described should not be understood to prohibit any implementation approach in
 these regards. In addition, note that the method described above is a conceptual approach; individual servers may choose to follow
 alternative approaches that are more efficient, as long as the outcome is the same.
 </p>
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
 for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
-<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no support for defining heirarchies and groups, 
+<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no support for defining hierarchies and groups, 
 but this does not exclude servers from using extensions or other knowledge to introduce such groups as an implementation feature. 
 </p>
 <p>
