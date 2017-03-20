@@ -107,53 +107,65 @@
   Short Name = The definition of a specific activity to be taken, independent of any particular patient or context
   Definition = This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context
   Workflow Mapping = Definition
+  RIM Mapping = Act[classCode=ACT; moodCode=DEFN]
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = ActivityDefinition.url
   Workflow Mapping = Definition.url
+  RIM Mapping = .identifier[scope=BUSN;reliability=ISS]
 
  -- Row 3 -----------------------------------
   Element = ActivityDefinition.identifier
   Card. = 0..*
   Workflow Mapping = Definition.identifier
+  RIM Mapping = .identifier
 
  -- Row 4 -----------------------------------
   Element = ActivityDefinition.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets
   Workflow Mapping = Definition.version
+  RIM Mapping = N/A (to add?)
 
  -- Row 5 -----------------------------------
   Element = ActivityDefinition.name
+  RIM Mapping = N/A
 
  -- Row 6 -----------------------------------
   Element = ActivityDefinition.title
   Workflow Mapping = Definition.title
+  RIM Mapping = .title
 
  -- Row 7 -----------------------------------
   Element = ActivityDefinition.status
   Workflow Mapping = Definitition.status (different ValueSet)
+  RIM Mapping = .status
 
  -- Row 8 -----------------------------------
   Element = ActivityDefinition.experimental
   Workflow Mapping = Definition.experimental
+  RIM Mapping = N/A (to add?)
 
  -- Row 9 -----------------------------------
   Element = ActivityDefinition.date
   Workflow Mapping = Definition.date
+  RIM Mapping = .participation[typeCode=AUT].time
 
  -- Row 10 -----------------------------------
   Element = ActivityDefinition.publisher
   Workflow Mapping = Definition.publisher (as string instead of CodeableConcept)
+  RIM Mapping = .participation[typeCode=AUT].role
 
  -- Row 11 -----------------------------------
   Element = ActivityDefinition.description
   Summary = Y
   Workflow Mapping = Definition.description
+  RIM Mapping = .text
 
  -- Row 12 -----------------------------------
   Element = ActivityDefinition.purpose
   Workflow Mapping = Definition.purpose
+  RIM Mapping = .reasonCode.text
 
  -- Row 13 -----------------------------------
   Element = ActivityDefinition.usage
@@ -161,26 +173,32 @@
   Type = string
   Short Name = Describes the clinical usage of the asset
   Definition = A detailed description of how the asset is used from a clinical perspective
+  RIM Mapping = N/A (to add?)
 
  -- Row 14 -----------------------------------
   Element = ActivityDefinition.approvalDate
   Workflow Mapping = Definition.approvalDate
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].act[classCode=CACT;moodCode=EVN;code=\"approval\"].effectiveTime
 
  -- Row 15 -----------------------------------
   Element = ActivityDefinition.lastReviewDate
   Workflow Mapping = Definition.lastReviewDate
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"; subsetCode=\"RECENT\"].act[classCode=CACT;moodCode=EVN;code=\"review\"].effectiveTime
 
  -- Row 16 -----------------------------------
   Element = ActivityDefinition.effectivePeriod
   Workflow Mapping = Definition.effectivePeriod
+  RIM Mapping = N/A (to add?)
 
  -- Row 17 -----------------------------------
   Element = ActivityDefinition.useContext
   Workflow Mapping = Definition.useContext
+  RIM Mapping = N/A (to add?)
 
  -- Row 18 -----------------------------------
   Element = ActivityDefinition.jurisdiction
   Workflow Mapping = Definition.jurisdiction
+  RIM Mapping = N/A (to add?)
 
  -- Row 19 -----------------------------------
   Element = ActivityDefinition.topic
@@ -190,6 +208,7 @@
   Short Name = E.g. Education, Treatment, Assessment, etc
   Definition = Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the asset  so that it can be found by topical searches
+  RIM Mapping = N/A (to add?)
 
  -- Row 20 -----------------------------------
   Element = ActivityDefinition.contributor
@@ -198,14 +217,17 @@
   Short Name = A content contributor
   Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge asset
+  RIM Mapping = .participation[typeCode=AUT,VRF] {No support yet for editor nor clear whether VRF best corresponds to reviewer or endorser}
 
  -- Row 21 -----------------------------------
   Element = ActivityDefinition.contact
   Workflow Mapping = Definition.contact
+  RIM Mapping = .participation[typeCode=CALLBCK].role
 
  -- Row 22 -----------------------------------
   Element = ActivityDefinition.copyright
   Workflow Mapping = Definition.copyright
+  RIM Mapping = N/A (to add?)
 
  -- Row 23 -----------------------------------
   Element = ActivityDefinition.relatedArtifact
@@ -215,6 +237,7 @@
   Definition = Related artifacts such as additional documentation, justification, or bibliographic references
   Requirements = Assets must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
+  RIM Mapping = .outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}
 
  -- Row 24 -----------------------------------
   Element = ActivityDefinition.library
@@ -222,6 +245,7 @@
   Type = Reference(Library)
   Short Name = Logic used by the asset
   Definition = A reference to a Library resource containing any formal logic used by the asset
+  RIM Mapping = .outboundRelationship[typeCode=USE].target[classCode=GROUPER,moodCode=EVN]
 
  -- Row 25 -----------------------------------
   Element = ActivityDefinition.kind
@@ -231,6 +255,7 @@
   Short Name = Kind of resource
   Definition = A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource
   Comments = May determine what types of extensions are permitted
+  RIM Mapping = .classCode
 
  -- Row 26 -----------------------------------
   Element = ActivityDefinition.code
@@ -242,6 +267,7 @@
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.
   Workflow Mapping = Definition.subjectCodeableConcept
+  RIM Mapping = .code
 
  -- Row 27 -----------------------------------
   Element = ActivityDefinition.timing[x]
@@ -250,6 +276,7 @@
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
+  RIM Mapping = .effectiveTime
 
  -- Row 28 -----------------------------------
   Element = ActivityDefinition.location
@@ -260,12 +287,14 @@
   Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
   Requirements = Helps in planning of activity
   Comments = May reference a specific clinical location or may just identify a type of location.
+  RIM Mapping = .participation[typeCode=LOC].role
 
  -- Row 29 -----------------------------------
   Element = ActivityDefinition.participant
   Card. = 0..*
   Short Name = Who should participate in the action
   Definition = Indicates who should participate in performing the action described
+  RIM Mapping = .participation[typeCode=PFM]
 
  -- Row 30 -----------------------------------
   Element = ActivityDefinition.participant.type
@@ -274,6 +303,7 @@
   Binding = ActivityParticipantType
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
+  RIM Mapping = .role.classCode
 
  -- Row 31 -----------------------------------
   Element = ActivityDefinition.participant.role
@@ -282,6 +312,7 @@
   Binding = ActivityParticipantRole
   Short Name = E.g. Nurse, Surgeon, Parent, etc
   Definition = The role the participant should play in performing the described action
+  RIM Mapping = .role.code
 
  -- Row 32 -----------------------------------
   Element = ActivityDefinition.product[x]
@@ -290,6 +321,7 @@
   Binding = ActivityProduct
   Short Name = What\'s administered/supplied
   Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
+  RIM Mapping = .participation[typeCode=CSM].role
 
  -- Row 33 -----------------------------------
   Element = ActivityDefinition.quantity
@@ -298,6 +330,7 @@
   Type = SimpleQuantity
   Short Name = How much is administered/consumed/supplied
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
+  RIM Mapping = .quantity {for classCode=SPLY]
 
  -- Row 34 -----------------------------------
   Element = ActivityDefinition.dosage
@@ -306,6 +339,7 @@
   Short Name = Detailed dosage instructions
   Definition = Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources
   Comments = If a dosage instruction is used, the definition should not specify timing or quantity
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM; moodCode=DEFN]
 
  -- Row 35 -----------------------------------
   Element = ActivityDefinition.bodySite
@@ -317,7 +351,7 @@
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in the code found in ProcedureRequest.type
   Workflow Mapping = Procedure.targetBodySite
-  RIM Mapping = targetSiteCode
+  RIM Mapping = .targetSiteCode {for classCode=PROC, SBADM}
 
  -- Row 36 -----------------------------------
   Element = !ActivityDefinition.description
@@ -325,6 +359,7 @@
   Type = string
   Short Name = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+  RIM Mapping = .text
 
  -- Row 37 -----------------------------------
   Element = ActivityDefinition.transform
@@ -332,12 +367,14 @@
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
+  RIM Mapping = N/A
 
  -- Row 38 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
   Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
+  RIM Mapping = N/A
 
  -- Row 39 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
@@ -345,6 +382,7 @@
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
+  RIM Mapping = N/A
 
  -- Row 40 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
@@ -352,6 +390,7 @@
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
+  RIM Mapping = N/A
 
  -- Row 41 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
@@ -359,6 +398,7 @@
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
+  RIM Mapping = N/A
 
  -- Row 42 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
@@ -367,6 +407,7 @@
   Short Name = An expression that provides the dynamic value for the customization
   Definition = An expression specifying the value of the customized element
   Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
+  RIM Mapping = N/A
 
 === Sheet Search =====================================
 

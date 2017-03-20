@@ -107,7 +107,7 @@
   Type = Identifier
   Short Name = Master Version Specific Identifier
   Definition = Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document
-  Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64 character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form \"oid^extension\", where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
+  Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64-character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form \"oid^extension\", where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
   Comments = CDA Document Id extension and root.
   v2 Mapping = TXA-12
   RIM Mapping = .id
@@ -213,7 +213,7 @@
   Card. = 1..1
   Summary = y
   Type = instant
-  Short Name = When this document reference created
+  Short Name = When this document reference was created
   Definition = When the document reference was created
   Comments = Referencing/indexing time is used for tracking, organizing versions and searching.
   RIM Mapping = .availabilityTime[type=\"TS\"]
@@ -353,7 +353,7 @@
   Summary = y
   Type = Attachment
   Short Name = Where to access the document
-  Definition = The document or url of the document along with critical metadata to prove content has integrity.
+  Definition = The document or URL of the document along with critical metadata to prove content has integrity.
   v2 Mapping = TXA-3 for mime type
   RIM Mapping = document.text
   XDS Mapping = DocumentEntry.mimeType DocumentEntry.languageCode DocumentEntry.URI DocumentEntry.size DocumentEntry.hash DocumentEntry.title
@@ -396,7 +396,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = DocumentEventType
-  Short Name = Main Clinical Acts Documented
+  Short Name = Main clinical acts documented
   Definition = This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a \"History and Physical Report\" in which the procedure being documented is necessarily a \"History and Physical\" act
   Comments = An event can further specialize the act inherent in the type, such as  where it is simply \"Procedure Report\" and the procedure was a \"colonoscopy\". If one or more event codes are included, they shall not conflict with the values inherent in the class or type elements as such a conflict would create an ambiguous situation.
   RIM Mapping = .code

@@ -96,7 +96,7 @@
  -- Row 4 -----------------------------------
   Id = 5
   Context = ValueSet
-  English = Value set SHALL contain at least one of a a compose, or an expansion element
+  English = Value set SHALL contain at least one of a compose or an expansion element
   XPath = exists(f:compose) or exists(f:expansion)
   Expression = compose.exists() or expansion.exists()
 
@@ -496,8 +496,8 @@
   Card. = 0..1
   Type = boolean
   Short Name = If concept is inactive in the code system
-  Definition = If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understnading legacy data
-  Comments = This shoulld only have a value if the concept is inactive
+  Definition = If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data
+  Comments = This should only have a value if the concept is inactive
   Default Value = False
 
  -- Row 51 -----------------------------------

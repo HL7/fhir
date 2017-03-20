@@ -346,8 +346,8 @@
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Name = When composition attested
-  Definition = When composition was attested by the party
+  Short Name = When the composition was attested
+  Definition = When the composition was attested by the party
   Requirements = Identifies when the information in the composition was deemed accurate.  (Things may have changed since then.)
   RIM Mapping = ./time[type=\"TS\" and isNormalDatatype()]
   CDA Mapping = .authenticator.time
@@ -372,7 +372,7 @@
   Short Name = Organization which maintains the composition
   Definition = Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information
   Requirements = Identifies where to go to find the current version, where to report issues, etc.
-  Comments = This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However it is important that this information be known when working with a derived document, so providing a custodian is encouraged
+  Comments = This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However, it is important that this information be known when working with a derived document, so providing a custodian is encouraged
   RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
   CDA Mapping = .custodian.assignedCustodian
 
@@ -471,7 +471,7 @@
   Short Name = Label for section (e.g. for ToC)
   Definition = The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents
   Requirements = Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized
-  Comments = The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element
+  Comments = The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents, it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element
   RIM Mapping = ./title
   CDA Mapping = .title
 

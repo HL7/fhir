@@ -22,7 +22,7 @@
   Short Name = Logical URI to reference this {{title}} (globally unique)
   Definition = An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions).
   Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
-  Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred
+  Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  Multiple instances may share the same url if they have a distinct version.
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -44,7 +44,7 @@
   Type = string
   Short Name = Business version of the {{title}}
   Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence
-  Comments = There may be different {{title}} instances that have the same identifier but different versions
+  Comments = There may be different {{title}} instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a refrence to a particular business version of the {{title} with the format [url]|[version]
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -64,6 +64,7 @@
   Type = string
   Short Name = Name for this {{title}} (human friendly)
   Definition = A short, descriptive, user-friendly title for the {{title}}.
+  Comments = This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.
 
  -- Row 7 -----------------------------------
   Element = MetadataResource.status
@@ -126,7 +127,7 @@
   Summary = y
   Type = UsageContext
   Short Name = Context the content is intended to support
-  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate {{title}} instances.
   Requirements = Assist in searching for appropriate content
   Comments = When multiple useContexts are specified, there is no expectation whether all or any of the contexts apply.
 
@@ -137,7 +138,8 @@
   Type = CodeableConcept
   Binding = Jurisdiction
   Short Name = Intended jurisdiction for {{title}} (if applicable)
-  Definition = A jurisdiction in which the {{title}} is intended to be used.
+  Definition = A legal or geographic region in which the {{title}} is intended to be used.
+  Comments = It may be possible for the {{title}} to be used in jurisdictions other than those for which it was originally designed or intended
 
  -- Row 14 -----------------------------------
   Element = MetadataResource.description
@@ -145,15 +147,15 @@
   Type = markdown
   Short Name = Natural language description of the {{title}}
   Definition = A free text natural language description of the {{title}} from a consumer\'s perspective.
-  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created).
+  Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the \'text\' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created).
 
  -- Row 15 -----------------------------------
   Element = MetadataResource.purpose
   Card. = 0..1
   Type = markdown
   Short Name = Why this {{title}} is defined
-  Definition = Explains why this {{title}} is needed and why it has been designed as it has.
-  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}.
+  Definition = Explaination of why this {{title}} is needed and why it has been designed as it has.
+  Comments = This element does not describe the usage of the {{title}} Instead  it provides traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}.
   Object Impl = no-gen-base
   w5 = why
 
@@ -172,8 +174,8 @@
   Card. = 0..1
   Type = date
   Short Name = When the {{title}} was approved by publisher
-  Definition = The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
-  Comments = The date may be more recent than the approval date because of minor changes / editorial corrections.
+  Definition = The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+  Comments = The \'date\' element may be more recent than the approval date because of minor changes / editorial corrections.
   Object Impl = no-gen-base
 
  -- Row 18 -----------------------------------
@@ -181,7 +183,8 @@
   Card. = 0..1
   Type = date
   Short Name = When the {{title}} was last reviewed
-  Definition = The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn\'t change the original approval date.
+  Definition = The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn\'t change the original approval date.
+  Requirements = Gives a sense of how \"current\" the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.
   Comments = If specified, this is usually after the approval date.
   Object Impl = no-gen-base
 
@@ -190,9 +193,10 @@
   Card. = 0..1
   Summary = Y
   Type = Period
-  Short Name = When the {{title}} is effective
-  Definition = The period during which the {{title}} content was or is planned to be effective.
-  Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015.
+  Short Name = When the {{title}} is expected to be used
+  Definition = The period during which the {{title}} content was or is planned to be in active use.
+  Requirements = Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of a the {{title}} are or are expected to be used instead
+  Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.
   Object Impl = no-gen-base
 
 === Sheet Search =====================================
@@ -212,7 +216,7 @@
  -- Row 3 -----------------------------------
   Name = name
   Type = string
-  Description = Name of the {{title}}
+  Description = Computationally friendly name of the {{title}}
   Path = MetadataResource.name
 
  -- Row 4 -----------------------------------
@@ -236,19 +240,19 @@
  -- Row 7 -----------------------------------
   Name = identifier
   Type = token
-  Description = External identifiers for the {{title}}
+  Description = External identifier for the {{title}}
   Path = MetadataResource.identifier
 
  -- Row 8 -----------------------------------
   Name = title
   Type = string
-  Description = Text search against the title of the {{title}}
+  Description = The human-friendly name of the {{title}}
   Path = MetadataResource.title
 
  -- Row 9 -----------------------------------
   Name = description
   Type = string
-  Description = Text search against the description of the {{title}}
+  Description = The description of the {{title}}
   Path = MetadataResource.description
 
  -- Row 10 -----------------------------------
@@ -260,13 +264,13 @@
  -- Row 11 -----------------------------------
   Name = jurisdiction
   Type = token
-  Description = Intended jurisdiction for {{title}}
+  Description = Intended jurisdiction for the {{title}}
   Path = MetadataResource.jurisdiction
 
  -- Row 12 -----------------------------------
   Name = effective
   Type = date
-  Description = Effective time associated with the {{title}}
+  Description = The time during which the {{title}} is intended to be in use
   Path = MetadataResource.effectivePeriod
 
 === Sheet Profiles =====================================

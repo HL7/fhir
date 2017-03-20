@@ -50,31 +50,39 @@
   Type = MetadataResource
   Short Name = Represents a library of quality improvement components
   Definition = The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets
+  RIM Mapping = Act[classCode=GROUPER;moodCode=EVN]
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = Library.url
+  RIM Mapping = .identifier[scope=BUSN;reliability=ISS]
 
  -- Row 3 -----------------------------------
   Element = Library.identifier
   Card. = 0..*
   Definition = & e.g. CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts
+  RIM Mapping = .identifier
 
  -- Row 4 -----------------------------------
   Element = Library.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
+  RIM Mapping = N/A (to add?)
 
  -- Row 5 -----------------------------------
   Element = Library.name
+  RIM Mapping = N/A
 
  -- Row 6 -----------------------------------
   Element = Library.title
+  RIM Mapping = .title
 
  -- Row 7 -----------------------------------
   Element = Library.status
+  RIM Mapping = .status
 
  -- Row 8 -----------------------------------
   Element = Library.experimental
+  RIM Mapping = N/A (to add?)
 
  -- Row 9 -----------------------------------
   Element = Library.type
@@ -84,20 +92,25 @@
   Binding = LibraryType
   Short Name = logic-library | model-definition | asset-collection | module-definition
   Definition = Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition
+  RIM Mapping = .code
   w5 = what
 
  -- Row 10 -----------------------------------
   Element = Library.date
+  RIM Mapping = .participation[typeCode=AUT].time
 
  -- Row 11 -----------------------------------
   Element = Library.publisher
+  RIM Mapping = .participation[typeCode=AUT].role
 
  -- Row 12 -----------------------------------
   Element = Library.description
   Summary = Y
+  RIM Mapping = .text
 
  -- Row 13 -----------------------------------
   Element = Library.purpose
+  RIM Mapping = .reasonCode.text
 
  -- Row 14 -----------------------------------
   Element = Library.usage
@@ -105,21 +118,27 @@
   Type = string
   Short Name = Describes the clinical usage of the library
   Definition = A detailed description of how the library is used from a clinical perspective
+  RIM Mapping = N/A (to add?)
 
  -- Row 15 -----------------------------------
   Element = Library.approvalDate
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].act[classCode=CACT;moodCode=EVN;code=\"approval\"].effectiveTime
 
  -- Row 16 -----------------------------------
   Element = Library.lastReviewDate
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"; subsetCode=\"RECENT\"].act[classCode=CACT;moodCode=EVN;code=\"review\"].effectiveTime
 
  -- Row 17 -----------------------------------
   Element = Library.effectivePeriod
+  RIM Mapping = N/A (to add?)
 
  -- Row 18 -----------------------------------
   Element = Library.useContext
+  RIM Mapping = N/A (to add?)
 
  -- Row 19 -----------------------------------
   Element = Library.jurisdiction
+  RIM Mapping = N/A (to add?)
 
  -- Row 20 -----------------------------------
   Element = Library.topic
@@ -129,6 +148,7 @@
   Short Name = E.g. Education, Treatment, Assessment, etc
   Definition = Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the library so that it can be found by topical searches
+  RIM Mapping = N/A (to add?)
 
  -- Row 21 -----------------------------------
   Element = Library.contributor
@@ -137,12 +157,15 @@
   Short Name = A content contributor
   Definition = A contributor to the content of the library, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the library
+  RIM Mapping = .participation[typeCode=AUT,VRF] {No support yet for editor nor clear whether VRF best corresponds to reviewer or endorser}
 
  -- Row 22 -----------------------------------
   Element = Library.contact
+  RIM Mapping = .participation[typeCode=CALLBCK].role
 
  -- Row 23 -----------------------------------
   Element = Library.copyright
+  RIM Mapping = N/A (to add?)
 
  -- Row 24 -----------------------------------
   Element = Library.relatedArtifact
@@ -152,6 +175,7 @@
   Definition = Related artifacts such as additional documentation, justification, or bibliographic references
   Requirements = Libraries must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
+  RIM Mapping = .outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}
 
  -- Row 25 -----------------------------------
   Element = Library.parameter
@@ -159,6 +183,7 @@
   Type = ParameterDefinition
   Short Name = Parameters defined by the library
   Definition = The parameter element defines parameters used by the library
+  RIM Mapping = N/A (to add?)
 
  -- Row 26 -----------------------------------
   Element = Library.dataRequirement
@@ -166,6 +191,7 @@
   Type = DataRequirement
   Short Name = What data is referenced by this library
   Definition = Describes a set of data that must be provided in order to be able to successfully perform the computations defined by the library
+  RIM Mapping = N/A (to add?)
 
  -- Row 27 -----------------------------------
   Element = Library.content
@@ -173,6 +199,7 @@
   Type = Attachment
   Short Name = Contents of the library, either embedded or referenced
   Definition = The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the contentType of the attachment determines how to interpret the content
+  RIM Mapping = .text
 
 === Sheet Search =====================================
 

@@ -244,7 +244,7 @@
   Type = markdown
   Short Name = Why this {{title}} is defined
   Definition = Explains why this {{title}} is needed and why it has been designed as it has
-  Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
+  Comments = This element does not describe the usage of the {{title}}.  Rather it is for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
   RIM Mapping = .reasonCode.text
   w5 = why
 
