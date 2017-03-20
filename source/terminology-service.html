@@ -15,11 +15,11 @@
 <p>
 This specification includes support for the provision of a terminology service - that is, a
 service that lets healthcare applications make use of codes and value sets without having to become
-experts in the fine details of the code system, value set and concept map resources, and the underlying
+experts in the fine details of code system, value set and concept map resources, and the underlying
 code systems and terminological principles. A server that supports all the functionality described here
 can be described as a "FHIR Terminology Service", and SHALL conform to the <a href="capabilitystatement-terminology-server.html">
-terminology server Capability statement</a>. Note that servers can declare that they provide
-terminology services in their Capability statement:
+Terminology Service Capability Statement</a>. Note that servers can declare that they provide
+terminology services in their capability statement:
 </p>
 <div class="example">
 <pre class="xml">
@@ -37,7 +37,7 @@ terminology services in their Capability statement:
 Generally, SSL SHOULD be used for all production health care data exchange.
 Even though terminology servers do not generally handle patient information directly,
 observers may still be able to infer information about patients by observing
-the codes and concepts that the terminology service is asked about, so
+the codes and concepts used in terminology service operations, so
 encryption is still recommended.
 </p>
 <p>
@@ -78,11 +78,11 @@ framework</a>. Further useful information about terminologies may be found in:
 <p>
 In order to be used with a value set, code systems and their content must be defined somewhere. They can be defined explicitly
 using the <a href="codesystem.html">code system resource</a>, or they can be defined elsewhere, and then used in a value set
-by quoting the correct system url. The FHIR specification defines a <a href="terminologies-systems.html">set of
+by referencing the correct system url. The FHIR specification defines a <a href="terminologies-systems.html">set of
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
 <a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
 These code systems are often large, and have many internally defined properties that are part of their
-formal definitions. The code systems resource is not an appropriate way to distribute the contents of
+formal definitions. The CodeSystem resource is not an appropriate way to distribute the contents of
 these code systems; the standard FHIR code system resource simply represents the properties of
 the code system. Instead, these terminologies provide their own distribution formats, and it is assumed that the
 content of these code systems are externally known to the terminology server.
@@ -121,7 +121,7 @@ logical information for a terminology:
 <p>
 The FHIR specification itself defines these things for common terminologies (including
 <a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>),
-  and provides the <a href="codesystem.html">CodeSysten</a> infrastructure for supporting typical relatively simple small code systems.
+  and provides the <a href="codesystem.html">CodeSystem</a> infrastructure for supporting typical relatively simple small code systems.
 </p>
 <p>
 <i>Implementers Note: Implementers interested in working with existing published terminologies for
@@ -861,7 +861,7 @@ diagnosis of gout, and who had an elevated serum creatinine.
 <p>
 In this case, both "diagnosis of gout" and "serum creatinine" involve value set and/or subsumption queries
 (e.g. against SNOMED CT and LOINC respectively). This search has to be executed by some
-logical processing engine that knows how to find patient related in a given persistence store.
+logical processing engine that knows how to find patient related data in a given persistence store.
 Often, this is some kind of SQL query, though many other technological choices are available.
 However, this is done, the challenge with an operation like this is to integrate the
 terminological knowledge into a search execution that also covers other relationships expressed in the search criteria.
@@ -889,7 +889,7 @@ of coded expressions.
 </p>
 <p>
 In FHIR, this problem is solved by building a closure table on the fly as new codes are seen.
-This technique leaves the FHIR terminology server responsible for the terminological reasoning,
+This technique leaves the FHIR terminology server responsible for the terminological reasoning
 and the client responsible for the closure table maintenance. To the client, it doesn't matter
 whether the concept is post-coordinated or not. Here's a description of how the process works:
 </p>
@@ -956,7 +956,7 @@ A successful response is a 200 OK from the server, with an associated ConceptMap
 </pre>
 </div>
 <p>
-If there is an error – usually involving the closure name, the server returns a HTTP status 400 with an operation outcome:
+If there is an error (usually involving the closure name) the server returns a HTTP status 400 with an operation outcome:
 </p>
 <div class="example">
 <pre class="json">

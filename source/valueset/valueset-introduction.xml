@@ -56,7 +56,7 @@ A value set has 3 identifiers:
 </p>
 <ul>
  <li><code>ValueSet.id</code>: the <a href="resource.html#id">logical id</a> on the system that holds the value set - this changes as it moves from server to server (this id, with the server address prepended, is called the 'literal identity' of the resource)</li>
- <li><code>ValueSet.url</code>: the canonical url that never changes for this value set - it is the same in every copy. Ideally, the URL should also be the location of the master version of the value set, though this is not always possible</li>
+ <li><code>ValueSet.url</code>: the canonical URL that never changes for this value set - it is the same in every copy. Ideally, the URL should also be the location of the master version of the value set, though this is not always possible</li>
  <li><code>ValueSet.identifier</code>: A system/value pair that is used to identify the value set in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specification)</li>
 </ul>
 <p>
