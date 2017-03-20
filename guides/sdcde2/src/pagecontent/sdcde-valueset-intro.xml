@@ -21,41 +21,4 @@
       It also makes use of the <a href="{{site.data.fhir.path}}rendering-extensions.html">rendering-extensions</a> which defines rendering information for display names and labels of codes.
     </p>
   </div>
-  <a name="content"> </a>
-  <h3>Content</h3>
-  <table class="lines">
-    <tr>
-      <td colspan="2">
-        <b>Profiles</b>: </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="sdcde-valueset.html">SDCDE-ValueSet</a>
-      </td>
-      <td>Defines how ValueSet is used to reflect code lists found in data element defintions for exchange and maintenance between data element registries according to requirements established by the ONC's Structured Data Capture standard.</td>
-    </tr>
-  </table>
-  <h3>Example List</h3>
-  <p>
-    Examples of this profile can be found as contained resources within the following examples:
-  </p>
-  <table class="list">
-    <tbody>
-      <tr>
-        <td>
-          <a href="dataelement-sdc-profile-example-de.html">SDC-Gender</a>
-        </td>
-        <td>
-          <a href="dataelement-sdc-profile-example-de.xml.html">XML</a>
-        </td>
-        <td>
-          <a href="dataelement-sdc-profile-example-de.json.html">JSON</a>
-        </td>
-        <td>Patient gender represented according to SDC rules</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>
-    Usage note: every effort has been made to ensure that the examples are correct and useful, but they are not a normative part of the specification.
-  </p>
 </div>

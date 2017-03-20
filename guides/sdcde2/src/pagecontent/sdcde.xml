@@ -1,6 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
   <a name="SDC"> </a>
-  <h2>Structured Data Capture (SDC) - Data Element Exchange Implementation Guide</h2>
+  <p>
+    This is the second <a href="{{site.data.fhir.path}}versions.html#std-process">STU</a> release of the Structured Data Capture - Data Exchange (SDC-DE) implementation guide.  
+    A list of changes from prior releases can be found <a href="changes.html">here</a>.  Other versions of the specification can be found in the FHIR.org 
+     <a href="http://hl7.org/fhir/us/sdc/history.html">IG registry</a>.
+  </p>
   <p>
     This implementation guide is a supplement to the base <a href="{{site.data.refs.sdc}}sdc.html">Structured Data Capture</a> (SDC) implementation guide.  It defines 
     expectations for <a href="{{site.data.fhir.path}}dataelement.html">Data Element</a> registries, as well as those systems that are responsible for the creation and 
@@ -146,37 +150,37 @@
     This implementation guide defines profiles on several resources.  Implementations are expected to be conformant with these profiles in order
     to be conformant with this implementation guide.
   </p>
-  <table>
+  <table class="grid">
     <tbody>
       <tr>
-        <th>Resource</th>
         <th>SDC Profile</th>
+        <th>Based on FHIR Resource</th>
         <th>Purpose</th>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
+          <a href="sdcde-dataelement.html">SDC Data Element Exchange Profile</a>
         </td>
         <td>
-          <a href="sdcde-dataelement.html">SDC Data Element Exchange Profile</a>
+          <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
         </td>
         <td>Used to define data elements for exchange and maintenance within data element registries</td>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
+          <a href="sdcde-valueset.html">SDC Data Element Exchange Value Set Profile</a>
         </td>
         <td>
-          <a href="sdcde-valueset.html">SDC Data Element Exchange Value Set Profile</a>
+          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
         </td>
         <td>Used to define permitted values and meanings for data elements</td>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
+          <a href="sdcde-codesystem.html">SDC Data Element Exchange Code System Profile</a>
         </td>
         <td>
-          <a href="sdcde-codesystem.html">SDC Data Element Exchange Code System Profile</a>
+          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
         </td>
         <td>Used to define the concepts used as permitted values and meanings for data elements</td>
       </tr>

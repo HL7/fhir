@@ -124,5 +124,10 @@
       <title value="Artifact List"/>
       <kind value="page"/>
     </page>
+    <page>
+      <source value="changes.html"/>
+      <title value="IG Change History"/>
+      <kind value="page"/>
+    </page>
   </page>
 </ImplementationGuide>

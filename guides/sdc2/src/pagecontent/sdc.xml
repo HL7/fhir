@@ -1,5 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
   <p>
+    This is the second <a href="{{site.data.fhir.path}}versions.html#std-process">STU</a> release of the Structured Data Capture (SDC) implementation guide.  A list of changes
+    from prior releases can be found <a href="changes.html">here</a>.  Other versions of the specification can be found in the FHIR.org 
+     <a href="http://hl7.org/fhir/us/sdc/history.html">IG registry</a>.
+  </p>
+  <p>
     The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.
   </p>
   <p>
@@ -207,55 +212,55 @@
     This implementation guide defines profiles on several resources.  Implementations are expected to be conformant with these profiles in order
     to be conformant with this implementation guide.
   </p>
-  <table>
+  <table class="grid">
     <tbody>
       <tr>
-        <th>Resource</th>
         <th>SDC Profile</th>
+        <th>Based on FHIR Resource</th>
         <th>Purpose</th>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
+          <a href="sdc-dataelement.html">SDC Data Element (DE) Profile</a>
         </td>
         <td>
-          <a href="sdc-dataelement.html">SDC Data Element (DE) Profile</a>
+          <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
         </td>
         <td>Used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</td>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
+          <a href="sdc-questionnaire.html">SDC Questionnaire Profile</a>
         </td>
         <td>
-          <a href="sdc-questionnaire.html">SDC Questionnaire Profile</a>
+          <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
         </td>
         <td>Used to define form definitions that may be downloaded for manual and/or automatic population</td>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
+          <a href="sdc-questionnaireresponse.html">SDC Questionnaire Response Profile</a>
         </td>
         <td>
-          <a href="sdc-questionnaireresponse.html">SDC Questionnaire Response Profile</a>
+          <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
         </td>
         <td>Used to share instance data captured using questionnaire forms</td>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
+          <a href="sdc-valueset.html">SDC Value Set Profile</a>
         </td>
         <td>
-          <a href="sdc-valueset.html">SDC Value Set Profile</a>
+          <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
         </td>
         <td>Used to define collections of allowed values for data elements and for questions in questionnaires</td>
       </tr>
       <tr>
         <td>
-          <a href="{{site.data.fhir.path}}codesystem.html">CodeSystem</a>
+          <a href="sdc-codesystem.html">SDC Code System Profile</a>
         </td>
         <td>
-          <a href="sdc-codesystem.html">SDC Code System Profile</a>
+          <a href="{{site.data.fhir.path}}codesystem.html">CodeSystem</a>
         </td>
         <td>Used to define allowed values for data elements and for questions in questionnaires</td>
       </tr>
@@ -284,7 +289,7 @@
     possibly automatically filling in some of the answers using existing system information.  This could be information passed to the system on which the operation is 
     invoked (as a CDA document, FHIR bundle or other recognized source) or using data the system already has locally. The three operations are as follows:
   </p>
-  <table cellpadding="5">
+  <table class="grid" cellpadding="5">
     <tbody>
       <tr>
         <th>Operation</th>

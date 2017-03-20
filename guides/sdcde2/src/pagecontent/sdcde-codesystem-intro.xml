@@ -24,19 +24,4 @@
       <a href="{{site.data.fhir.path}}rendering-extensions.html">rendering-extensions</a> which defines rendering information for display names and labels of codes.
     </p>
   </div>
-  <a name="content"> </a>
-  <h3>Content</h3>
-  <table class="lines">
-    <tr>
-      <td colspan="2">
-        <b>Profiles</b>: </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="sdcde-codesystem.html">SDCDE-CodeSystem</a>
-      </td>
-      <td>Defines how CodeSystem is used to reflect code lists found in data element defintions for exchange and maintenance between data element registries according to 
-      requirements established by the ONC's Structured Data Capture standard.</td>
-    </tr>
-  </table>
 </div>

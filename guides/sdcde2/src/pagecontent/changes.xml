@@ -1,0 +1,27 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
+  <p>
+    This provides a list of changes to the SDC-DE specification since its initial release
+  </p>
+  <p>
+    <b>2017-03-20 v2.0 - SDC-DE R2 (STU) Official Publication</b> based on FHIR R3 (STU)
+  </p>
+  <ul>
+    <li>Updated profiles on all resources to align with changes to underlying resources.</li>
+    <li>Revamped rendering of IG to be easier to navigate</li>
+    <li>Corrected examples and hyperlinks</li>
+  </ul>
+  <p>
+    <b>2016-08-11 v1.6 - SDC-DE R2 (STU) Ballot Candidate</b> based on FHIR R3 (STU) ballot candidate
+  </p>
+  <ul>
+    <li>ValueSet and DataElement resources including alignment of data elements and search criteria.</li>
+    <li>Added a profile for the new CodeSystem resource which has now been split out from
+      ValueSet.  The new profile reflects the constraints and extensions that have been moved over from the SDC Valueset profile</li>
+  </ul>
+  <p>
+    <b>2015-10-24 v1.0 - SDC-DE R2 (DSTU) Official Publication</b> based on FHIR R2 (DSTU) publication
+  </p>
+  <ul>
+    <li>First official release</li>
+  </ul>
+</div>

@@ -32,31 +32,4 @@
         relevant in some environment</li>
 		</ul>
 	</div>
-	<a name="content"> </a>
-	<h3>Content</h3>
-	<table class="lines">
-		<tr>
-			<td colspan="2">
-				<b>Profiles</b>: </td>
-		</tr>
-		<tr>
-			<td>
-				<a href="sdcde-dataelement.html">SDCDE-DataElement</a>
-			</td>
-			<td>Sets expectations for data elements exchanged or maintained within data element registries according to requirements established by the structured data capture 
-        project</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<b>Examples</b>: </td>
-		</tr>
-		<tr>
-			<td>
-				<a href="dataelement-sdc-profile-example-de.html">SDC-Gender</a>
-			</td>
-			<td>
-				<p>Patient gender represented according to SDC rules</p>
-			</td>
-		</tr>
-	</table>
 </div>
