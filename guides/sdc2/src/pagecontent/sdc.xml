@@ -32,7 +32,7 @@
   <p>
     A <a href="toc.html">Table of Contents</a> page is provided that lists all of the pages defined as part of this implementation guide.  (Do be aware that some pages 
     have multiple tabs.)  A table of contents is also available for the full <a href="{{site.data.fhir.path}}toc.html">FHIR specification</a> if you really want to read 
-    absolutely everything.  There's also an <a href="registry.html">Artifact registry</a> that lists all artifacts defined within this implementation guide.
+    absolutely everything.  There's also an <a href="artifacts.html">Artifact index</a> that lists all artifacts defined within this implementation guide.
   </p>
   <p>
     Bread-crumb navigation is provided in the gray bar just below the menu at the top of each page, allowing
@@ -117,12 +117,27 @@
   <a name="workflow"> </a>
   <h3>Workflows</h3>
   <p>
-    The generic SDC workflow is pictured in Figure 1.
+    There are two primary workflows that fall within the scope of the SDC implementation guide - form creation/curation and form filling.
+  </p>
+  <a name="fig1"> </a>
+  <img alt="Diagram showing interaction between Form Designer, Form Manager and Data Element Registry" src="sdc-form-curation.png"/>
+  <p>
+    <b>Figure 1: Form Curation Workflow</b>
   </p>
   <p>
-    <b>Figure 1: Generic Workflow</b>
+    In form curation, the Form Designer interacts with both the Form Manager and the Data Element Registry to create, edit and update forms,
+    including identifying and defining associated terminologies and data elements.  This is an iterative process where an initial version is
+    created and then subsequently updated and maintained, eventually changing status to <i>active</i> and later <i>retired</i>.
   </p>
+  <p/>
+  <p>
+    The more significant (and complex) workflow in SDC is to complete (and potentially submit) a completed questionnaire response.
+  </p>
+  <a name="fig2"> </a>
   <img alt="Generic Workflow" src="sdc-generic-workflow.png"/>
+  <p>
+    <b>Figure 2: Form Filling Workflow</b>
+  </p>
   <p>
     <i>
       <b>Note</b>: The diagram depicts the optional storage of the completed form by the EHR. This can occur when the EHR stores a copy of 
@@ -130,24 +145,38 @@
       the sender who can store an internal version of the form.
     </i>
   </p>
-  <p>
-    The fundamental workflow in FHIR is to complete (and potentially submit) a completed questionnaire response.  The driver of this workflow is the
-    <a href="capabilitystatement-sdc-form-filler.html">Form Filler</a> system.  It retrieves a form (Questionnaire) from the
-    <a href="capabilitystatement-sdc-form-manager.html">Form Manager</a>.  It may also request that the Form Manager generate an initial QuestionnaireResponse,
+  <p>The driver of this workflow is the
+    <a href="sdc-form-filler.html">Form Filler</a> system.  It retrieves a form (Questionnaire) from the
+    <a href="sdc-form-manager.html">Form Manager</a>.  It may also request that the Form Manager generate an initial QuestionnaireResponse,
     potentially partially populated with information known by the Form Manager or supplied by the Form Filler.  The Form Filler could generate the
     QuestionnaireResponse itself without the assistance of the Form Manager and in either case could partially fill in the response based on information
-    known by the form filler.  When as much of the questionnaire response as possible has been filled in by automated means, the form is displayed to
+    known by the form filler.
+  </p>
+  <p>
+    When as much of the questionnaire response as possible has been filled in by automated means, the form is displayed to
     an end-user who reviews and edits the automatically populated content as well as completing those portions of the form that were not populated
-    automatically.  Finally, the form filler submits the form to one or more target repositories 
-    (<a href="capabilitystatement-sdc-form-receiver.html">Form Receiver</a> allows the completed form to be subsequently retrieved,
-    <a href="capabilitystatement-sdc-form-archiver.html">Form Archiver</a> does not) and/or stores the completed form itself.
+    automatically.  In some cases, the form may be stored locally or using a <a href="sdc-form-response-manager.html">Form Response Manager</a> to allow a user to 
+    stop and resume editing at a later point.  
+  </p>
+  <p>
+    The Form Filler (possibly with help from the Form Manager) is responsible for verifying that a completed form is actually
+    complete and valid against the corresponding Questionnaire.  Once valid, the form filler submits the form to one or more target repositories 
+    (<a href="sdc-form-receiver.html">Form Receiver</a> allows the completed form to be subsequently retrieved,
+    <a href="sdc-form-archiver.html">Form Archiver</a> does not) and/or stores the completed form itself.  (Note - Form Receivers may perform validation on forms
+    prior to consumption, Form Archivers typically will not.)
   </p>
   <p>
     The pre-population process (done by the Form Manager) and the auto-population process (done by the Form Filler itself) can be done by
     a variety of means.  If using data elements referenced directly within the questionnaire or mapped via <a href="{{site.data.fhir.path}}conceptmap.html">ConceptMap</a>,
-    those may need to be retrieved from a <a href="{{site.data.refs.sdcde}}/capabilitystatement-sdc-de-registry.html"> Data Element Registry</a> in order to look
+    those may need to be retrieved from a <a href="{{site.data.refs.sdcde}}/sdc-de-registry.html"> Data Element Registry</a> in order to look
     up what mappings the data element has to other resources.
   </p>
+  <p>
+    There are additional simpler workflows around creating forms, updating forms, searching for appropriate forms, etc.  These make use of the base FHIR restful 
+    operations.  A summary of most of the operations performed by the different SDC actors can be seen in <a href="">Figure 2</a> and <a href="">Figure 3</a> below.
+  </p>
+  
+  
   <h3>SDC Specification</h3>
   <p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
   <a name="capabilitystatement"> </a>
@@ -158,38 +187,26 @@
   </p>
   <ul>
     <li>
-      <a href="capabilitystatement-sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing form designs</li>
+      <a href="sdc-form-designer.html">SDC Form Designer</a> - System responsible for creating and editing form designs</li>
     <li>
-      <a href="capabilitystatement-sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input to produce partially or fully completed forms</li>
+      <a href="sdc-form-filler.html">SDC Form Filler</a> - System responsible for capturing user form input to produce partially or fully completed forms</li>
     <li>
-      <a href="capabilitystatement-sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  May also perform pre-population</li>
+      <a href="sdc-form-manager.html">SDC Form Manager</a> - Repository for form definitions.  May also perform pre-population</li>
     <li>
-      <a href="capabilitystatement-sdc-form-receiver.html">SDC Form Receiver</a> - Repository for completed forms which support their subsequent retrieval</li>
+      <a href="sdc-form-response-manager.html">SDC Form Response Manager</a> - Searchable repository for storage and retrieval of completed and partially completed forms.</li>
     <li>
-      <a href="capabilitystatement-sdc-form-archiver.html">SDC Form Archiver</a> - System responsible for archiving and retrieving of completed forms</li>
+      <a href="sdc-form-receiver.html">SDC Form Receiver</a> - Write-only destination to which forms are sent for processing</li>
+    <li>
+      <a href="sdc-form-archiver.html">SDC Form Archiver</a> - Write-only system responsible for archiving completed forms as well as works in progress</li>
   </ul>
   <p>
     In addition to the above, there's another relevant role:<br/>
-    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.refs.sdcde}}/capabilitystatement-sdc-de-registry">SDC Data Element 
+    When looking up data elements, the <i>SDC Form Designer</i> will communicate use of the <a href="{{site.data.refs.sdcde}}/sdc-de-registry">SDC Data Element 
     Registry</a>, which is defined in the <a href="{{site.data.refs.sdcde}}/sdcde.html">SDC Data Element Exchange</a> implementation guide.
   </p>
   <p>
-    A summary of how these roles interact can be seen in Figure 2 and Figure 3 below:
+    A summary of how these roles interact can be seen in <a href="#fig1">Figure 1</a> and <a href="#fig2">Figure 2</a> above.
   </p>
-  <p>
-    <b>Figure 2: Form Curation</b>
-  </p>
-  <p>
-    <img alt="Diagram showing interaction between Form Designer, Form Manager and Data Element Registry" src="sdc-form-curation.png"/>
-  </p>
-  <p>
-    <br/>
-    <b>Figure 3: Form Population</b>
-  </p>
-  <p>
-   <img alt="Diagram showing interaction between Form Filler, Form Manager, Form Receiver, Form Archiver and Data Element Registry" src="sdc-form-population.png"/>
-  </p>
-  <br/>
   <a name="resources"> </a>
   <h4>Resources</h4>
   <p>
@@ -208,7 +225,7 @@
           <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a>
         </td>
         <td>
-          <a href="dataelement-sdc.html">SDC Data Element (DE) Profile</a>
+          <a href="sdc-dataelement.html">SDC Data Element (DE) Profile</a>
         </td>
         <td>Used to define data elements that can be referenced in questionnaires and can be used to auto-populate form data</td>
       </tr>
@@ -217,7 +234,7 @@
           <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
         </td>
         <td>
-          <a href="questionnaire-sdc.html">SDC Questionnaire Profile</a>
+          <a href="sdc-questionnaire.html">SDC Questionnaire Profile</a>
         </td>
         <td>Used to define form definitions that may be downloaded for manual and/or automatic population</td>
       </tr>
@@ -226,7 +243,7 @@
           <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
         </td>
         <td>
-          <a href="questionnaireresponse-sdc.html">SDC Questionnaire Response Profile</a>
+          <a href="sdc-questionnaireresponse.html">SDC Questionnaire Response Profile</a>
         </td>
         <td>Used to share instance data captured using questionnaire forms</td>
       </tr>
@@ -235,7 +252,7 @@
           <a href="{{site.data.fhir.path}}valueset.html">ValueSet</a>
         </td>
         <td>
-          <a href="valueset-sdc.html">SDC Value Set Profile</a>
+          <a href="sdc-valueset.html">SDC Value Set Profile</a>
         </td>
         <td>Used to define collections of allowed values for data elements and for questions in questionnaires</td>
       </tr>
@@ -244,7 +261,7 @@
           <a href="{{site.data.fhir.path}}codesystem.html">CodeSystem</a>
         </td>
         <td>
-          <a href="codesystem-sdc.html">SDC Code System Profile</a>
+          <a href="sdc-codesystem.html">SDC Code System Profile</a>
         </td>
         <td>Used to define allowed values for data elements and for questions in questionnaires</td>
       </tr>
@@ -301,10 +318,6 @@
         </td>
 	  </tr>
 	  <tr>
-		<td>
-		</td>
-	  </tr>
-	  <tr>
         <td>
           <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatelink">populatelink</a>
         </td>
@@ -319,7 +332,7 @@
   </table>
   <p>
     For SDC purposes, server systems claiming to support roles that require support for the <code>populate</code>, <code>populatehtml</code> or <code>populatelink</code>
-    operations (<a href="capabilitystatement-sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
+    operations (<a href="sdc-form-manager.html">SDC Form Manager</a>) SHALL, at minimum:
   </p>
   <ul>
     <li>Handle the input parameters <code>identifier</code>, <code>questionnaire</code>, <code>questionnaireRef</code>, <code>subject</code> and <code>content</code>
@@ -330,7 +343,7 @@
   </ul>
   <p>
     Similarly, client systems claiming to support the <code>populate</code>, <code>populatehtml</code> and/or <code>populatelink</code> operations
-    (<a href="capabilitystatement-sdc-form-filler.html">SDC Form Filler</a>) SHALL, at a minimum:
+    (<a href="sdc-form-filler.html">SDC Form Filler</a>) SHALL, at a minimum:
   </p>
   <ul>
     <li>Be capable of invoking the operation(s) on a selected questionnaire both directly (<code>Questionnaire/[identifier]/$populate</code>)
@@ -338,7 +351,7 @@
     </li>
     <li>Support passing a single C-CDA* document as a <a href="{{site.data.fhir.path}}http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
     <li>Be able to accept an incoming partially-populated <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> and render it as if they had retrieved a saved partially-completed <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a></li>
-    <li> It is the responsibility of the <a href="capabilitystatement-sdc-form-filler.html">SDC Form Filler</a> to ensure the form is valid after a human has reviewed and edited the form.</li>
+    <li> It is the responsibility of the <a href="sdc-form-filler.html">SDC Form Filler</a> to ensure the form is valid after a human has reviewed and edited the form.</li>
   </ul>
   <p>
     * While C-CDA is the focus for compliance with this release of the SDC specification, systems are encouraged to support additional formats.  Candidates
@@ -350,7 +363,7 @@
   </p>
   <p>
     Systems supporting one or more of the populate operations are encouraged to support using the 
-    <a href="{{site.data.fhir.path}}extension-questionnaire-dereference.html">deReference</a> extension to trace the linkage from Questionniare question to DataElement to 
+    <code>definition</code> element to trace the linkage from Questionniare question to DataElement or <a href="{{site.data.fhir.path}}structuredefinition.html">StructureDefinition</a> element to 
     support mapping.  As well, systems may also choose to support the use of the <a href="{{site.data.fhir.path}}extension-questionnaire-demap.html">deMap</a> extension to 
     support maintaining of question &lt;-&gt; data element links outside the questionnaire itself.  If using this approach, the 
     <a href="{{site.data.fhir.path}}conceptmap.html">ConceptMap</a>.<code>sourceUri</code> equal to the full resource id of the Questionnaire and
@@ -366,17 +379,45 @@
     documents.
   </p>
   <p>
-    <b>IMPORTANT:</b>
+    <b>IMPORTANT CONSIDERATIONS FOR MAPPING:</b>
   </p>
+  <ul>
+    <li>
+      Mapping can be dangerous because it can lead to the sharing of incorrect data or, occasionally, the failure to share correct data.  For this reason, it is essential that
+      human users be given the opportunity to review questionnaire responses that have been populated by automated means.
+    </li>
+    <li>
+      Even with this precaution, care should be taken when performing data mappings, including:
+      <ul>
+        <li>Be aware that the risk of incorrect mapping occurring can be significantly higher when mapping complex questionnaires and/or complex data structures and 
+          especially high when mapping both.</li>
+        <li>The degree of risk is implementation dependent (type of data, type of questionnaire, type of source, mapping mechanism, type of user, etc.)</li>
+        <li>Both mappings and the implementation of those mappings should be carefully verified and in some situations should be subject to certification or external 
+          verification</li>
+        <li>Mapping to data elements not specifically defined for use in the context of a particular questionnaire or set of questionnaires (i.e. with a defined 
+          context) magnifies the risk of erroneous population.  Defining data elements for "general purpose" mapping use carries a significant risk of inappropriate 
+          data population, particularly for complex structures.</li>
+      </ul>
+    </li>
+    <li>
+      Not all <a href="{{site.data.fhir.path}}dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
+      associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
+      because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
+      exactly what piece of information should be extracted from a source system, C-CDA document or other data source.
+    </li>
+    <li>
+      Mapping to C-CDA, where applicable, should be constrained and specific (e.g. for particular demographic sections) rather than making it open and generic.  These mappings 
+      should be per ONC's recommendations. Mapping to C-CDA is one of many options, not the only one.
+    </li>
+  </ul>
+  <a name="terminologyops"> </a>
+  <h3>Terminology Operations</h3>
   <p>
-    Not all <a href="{{site.data.fhir.path}}dataelement.html">DataElements</a> will be appropriate or safe to reference in a Questionnaire.  It is important that the definition
-    associated with the data element fully reflects the context of the question in the questionnaire.  For example, "gender" would not be a safe data element
-    because it would not be clear whether the gender was that of the patient or a fetus of the patient.  It must be clear from the data element definition
-    exactly what piece of information should be extracted from a source system, C-CDA document or other data source.
-  </p>
-  <p>
-    Mapping to C-CDA, where applicable, should be constrained and specific (e.g. for particular demographic sections) rather than making it open and generic.  These mappings 
-    should be per ONC's recommendations. Mapping to C-CDA is one of many options, not the only one.
+    In addition to the QuestionnaireResponse population operations, it will be useful for Form Filler and Form Manager systems to support some of FHIR's
+    <a href="{{site.data.fhir.path}}terminology-service.html">terminology service</a> capabilities - specifically the 
+    <a href="{{site.data.fhir.path}}operation-valueset-expand.html">Valueset Expand</a> and 
+    <a href="{{site.data.fhir.path}}operation-valueset-validate-code.html">Validate code</a>
+    operations.
   </p>
   <a name="ip"> </a>
   <h3>Intellectual Property Considerations</h3>

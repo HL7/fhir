@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-  <id value="capabilitystatement-sdc-form-archiver"/>
+  <id value="sdc-form-archiver"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +9,7 @@
       <p>Published: 2015-09-03 (draft)</p>
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Form Archiver</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for persisting (archiving) completed or partially completed forms (<a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> resource instances).  These instances may be submitted individually or in a bundle together with <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> information providing details about the completion of the questionnaire response.  In some cases <a href="{{site.data.fhir.path}}binary.html">Binary</a> or <a href="{{site.data.fhir.path}}documentreference.html">DocumentReference</a> resources might also be submitted to convey source information used in the population of the questionnaire response.&lt;br&gt;The focus of this role is on consuming form instances.  Examples might be applications accepting insurance coverage forms, research forms, etc.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format).</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Form Archiver</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for persisting (archiving) completed or partially completed forms (<a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> resource instances).  These instances may be submitted individually or in a bundle together with <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> information providing details about the completion of the questionnaire response.  In some cases <a href="{{site.data.fhir.path}}binary.html">Binary</a> or <a href="{{site.data.fhir.path}}documentreference.html">DocumentReference</a> resources might also be submitted to convey source information used in the population of the questionnaire response.&lt;br/&gt;The focus of this role is on consuming form instances.  Examples might be applications accepting insurance coverage forms, research forms, etc.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format).</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -46,7 +46,7 @@
         </thead>
         <tbody>
           <tr>
-            <th>QuestionnaireResponse (<a href="http://hl7.org/fhir/StructureDefinition/sdc-response">Profile</a>)</th>
+            <th>QuestionnaireResponse (<a href="http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse">Profile</a>)</th>
             <td/>
             <td/>
             <td/>
@@ -300,6 +300,7 @@
       </table>
     </div>
   </text>
+  <url value="http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-archiver"/>
   <name value="SDC Form Archiver"/>
   <status value="draft"/>
   <date value="2015-09-03"/>
@@ -310,7 +311,7 @@
       <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
     </telecom>
   </contact>
-  <description value="This profile defines the expected capabilities of the ''SDC Form Archiver'' role when conforming to the S&amp;I Framework's [[sdc.html|Structured Data Capture FHIR implementation guide]].  This role is responsible for persisting (archiving) completed or partially completed forms ([[QuestionnaireResponse]] resource instances).  These instances may be submitted individually or in a bundle together with [[Provenance]] information providing details about the completion of the questionnaire response.  In some cases [[Binary]] or [[DocumentReference]] resources might also be submitted to convey source information used in the population of the questionnaire response.&lt;br&gt;The focus of this role is on consuming form instances.  Examples might be applications accepting insurance coverage forms, research forms, etc.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format)."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Form Archiver'' role when conforming to the S&amp;I Framework's [[sdc.html|Structured Data Capture FHIR implementation guide]].  This role is responsible for persisting (archiving) completed or partially completed forms ([[QuestionnaireResponse]] resource instances).  These instances may be submitted individually or in a bundle together with [[Provenance]] information providing details about the completion of the questionnaire response.  In some cases [[Binary]] or [[DocumentReference]] resources might also be submitted to convey source information used in the population of the questionnaire response.&lt;br/&gt;The purpose of this role is to capture &quot;work in progress&quot; for archival reasons.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format), though it might be made available through out-of-band mechanisms."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>
@@ -325,7 +326,7 @@
     <resource>
       <type value="QuestionnaireResponse"/>
       <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/sdc-response"/>
+        <reference value="http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse"/>
       </profile>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">

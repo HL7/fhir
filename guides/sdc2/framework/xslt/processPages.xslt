@@ -11,7 +11,7 @@
   </xsl:template>
   <xsl:template match="@xsi:schemaLocation"/>
   <xsl:template priority="10" match="/div">
-    <div class="col-9">
+    <div>
       <xsl:apply-templates select="@*|node()"/>
     </div>
   </xsl:template>
@@ -20,7 +20,7 @@
       <xsl:apply-templates select="@*|node()"/>
     </xsl:element>
   </xsl:template>
-  <xsl:template match="a[@name]">
+  <xsl:template priority="10" match="a[@name]">
     <a>
       <xsl:apply-templates select="@*|node()"/>
       <xsl:text>&#x20;</xsl:text>
@@ -45,6 +45,7 @@
     </xsl:if>
     <xsl:element name="{local-name(.)}">
       <xsl:apply-templates select="@*"/>
+      <xsl:attribute name="class" select="'self-link-parent'"/>
       <span class="sectioncount">
         <xsl:value-of select="concat('{{site.data.pages[page.path].label}}.0.', $hierarchy)"/>
       </span>
@@ -53,7 +54,7 @@
       <xsl:text> </xsl:text>
       <a title="link to here" class="self-link">
         <xsl:attribute name="href" select="concat('{{page.path}}#', $link)"/>
-        <img src="target.png"/>
+        <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
       </a>
     </xsl:element>
   </xsl:template>

@@ -20,6 +20,58 @@
     </coding>
 	</jurisdiction>
 	<package>
+		<name value="Conformance Statements"/>
+		<description value="Capabilities of systems claiming to be conformant to the SDC implementation guide"/>
+		<resource>
+			<example value="true"/>
+			<name value="SDC Form Designer"/>
+			<description value="SDC Form authoring system"/>
+			<sourceReference>
+				<reference value="CapabilityStatement/sdc-form-designer"/>
+			</sourceReference>
+		</resource>
+    <resource>
+      <example value="true"/>
+      <name value="SDC Form Response Manager"/>
+      <description value="SDC Form response management system"/>
+      <sourceReference>
+        <reference value="CapabilityStatement/sdc-form-response-manager"/>
+      </sourceReference>
+    </resource>
+		<resource>
+			<example value="true"/>
+			<name value="SDC Form Filler"/>
+			<description value="SDC System for completing forms"/>
+			<sourceReference>
+				<reference value="CapabilityStatement/sdc-form-filler"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="SDC Form Manager"/>
+			<description value="SDC Repository for forms"/>
+			<sourceReference>
+				<reference value="CapabilityStatement/sdc-form-manager"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="SDC Form Receiver"/>
+			<description value="SDC Repository for completed forms"/>
+			<sourceReference>
+				<reference value="CapabilityStatement/sdc-form-receiver"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="SDC Form Archiver"/>
+			<description value="SDC System for archiving and retrieving the completed forms"/>
+			<sourceReference>
+				<reference value="CapabilityStatement/sdc-form-archiver"/>
+			</sourceReference>
+		</resource>
+  </package>
+  <package>
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="codesystem-sdc-profile-spreadsheet.xml"/>
 		</extension>
@@ -35,74 +87,67 @@
 		<extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
 			<valueUri value="valueset-sdc-profile-spreadsheet.xml"/>
 		</extension>
-		<name value="base"/>
+    <name value="Profiles"/>
+    <description value="Constraints on FHIR resources to be adhered to as part of the SDC implementation guide"/>
 		<resource>
-			<example value="true"/>
-			<name value="SDC Form Designer"/>
-			<description value="SDC Form authoring system"/>
-			<sourceReference>
-				<reference value="CapabilityStatement/capabilitystatement-sdc-form-designer"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="SDC Form Filler"/>
-			<description value="SDC System for completing forms"/>
-			<sourceReference>
-				<reference value="CapabilityStatement/capabilitystatement-sdc-form-filler"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="SDC Form Manager"/>
-			<description value="SDC Repository for forms"/>
-			<sourceReference>
-				<reference value="CapabilityStatement/capabilitystatement-sdc-form-manager"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="SDC Form Receiver"/>
-			<description value="SDC Repository for completed forms"/>
-			<sourceReference>
-				<reference value="CapabilityStatement/capabilitystatement-sdc-form-receiver"/>
-			</sourceReference>
-		</resource>
-		<resource>
-			<example value="true"/>
-			<name value="SDC Form Archiver"/>
-			<description value="SDC System for archiving and retrieving the completed forms"/>
-			<sourceReference>
-				<reference value="CapabilityStatement/capabilitystatement-sdc-form-archiver"/>
-			</sourceReference>
-		</resource>
-<!--    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
       <example value="false"/>
-      <name value="DEX mapping language mime types"/>
-      <description value="The list of mime types that identify mapping languages supported by DEX."/>
+      <name value="SDC Questionnaire"/>
+      <description value="Sets expectations for SDC-conformant systems around how to create questionnaires"/>
       <sourceReference>
-        <reference value="ValueSet/dex-mimetype"/>
+        <reference value="StructureDefinition/sdc-questionnaire"/>
       </sourceReference>
-    </resource>-->
-<!--    <resource>
-      <example value="false"/>
-      <name value="SDCDataElement"/>
-      <description value="Represents expectations for use of data elements by SDC conformant systems using data elements to support population of questionnaires."/>
-      <sourceReference>
-        <reference value="StructureDefinition/sdc-element"/>
-      </sourceReference>
-    </resource>-->
+    </resource>
 		<resource>
-			<example value="true"/>
-			<name value="C-CDA-Gender"/>
-			<description value="FHIR Gender with mapping to C-CDA"/>
-			<sourceReference>
-				<reference value="DataElement/dataelement-sdc-profile-example"/>
-			</sourceReference>
-			<exampleFor>
-				<reference value="StructureDefinition/sdc-element"/>
-			</exampleFor>
-		</resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
+      <example value="false"/>
+      <name value="SDC Questionnaire Response"/>
+      <description value="Sets expectations for SDC-conformant systems around how to create responses to questionnaires."/>
+      <sourceReference>
+        <reference value="StructureDefinition/sdc-questionnaireresponse"/>
+      </sourceReference>
+    </resource>
+		<resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
+      <example value="false"/>
+      <name value="SDC Value Set"/>
+      <description value="Sets expectations for SDC-conformant systems around the definition of value sets for use with questionnaires."/>
+      <sourceReference>
+        <reference value="StructureDefinition/sdc-valueset"/>
+      </sourceReference>
+    </resource>
+		<resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
+      <example value="false"/>
+      <name value="SDC Code System"/>
+      <description value="Sets expectations for SDC-conformant systems around the definition of code systems to provide values for choices within questionnaires."/>
+      <sourceReference>
+        <reference value="StructureDefinition/sdc-codesystem"/>
+      </sourceReference>
+    </resource>
+		<resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
+      <example value="false"/>
+      <name value="SDC Data Element"/>
+      <description value="Sets expectations for SDC-conformant systems around the creation of data elements that support population of questionnaires."/>
+      <sourceReference>
+        <reference value="StructureDefinition/sdc-dataelement"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Extensions"/>
+    <description value="Extensions defined as part of the SDC implementation guide"/>
     <resource>
       <example value="false"/>
       <name value="Endpoint"/>
@@ -127,20 +172,66 @@
         <reference value="StructureDefinition/sdc-questionnaire-provenanceSignatureRequired"/>
       </sourceReference>
     </resource>
-<!--    <resource>
+  </package>
+  <package>
+    <name value="Terminology"/>
+    <description value="ValueSets (and Code Systems) defined for use within the SDC implementation guide"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
       <example value="false"/>
-      <name value="SDC Questionnaire"/>
-      <description value="Sets minimum expectations for questionnaire support for SDC-conformant systems, including a number of extensions around display and behavior."/>
+      <name value="DEX mapping language mime types"/>
+      <description value="The list of mime types that identify mapping languages supported by DEX."/>
       <sourceReference>
-        <reference value="StructureDefinition/sdc-questionnaire"/>
+        <reference value="ValueSet/dex-mimetype"/>
       </sourceReference>
-    </resource>-->
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
+        <valueBoolean value="true"/>
+      </extension>
+      <example value="false"/>
+      <name value="Questionnaire Context Species"/>
+      <description value="Species for defining the context of Questionnaires"/>
+      <sourceReference>
+        <reference value="ValueSet/species"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Operation Definitions"/>
+    <description value="Additional operations defined for use within the SDC implementation guide"/>
+    <resource>
+      <example value="true"/>
+      <name value="Questionnaire process response"/>
+      <description value="Allows submission of a QuestionnaireRespone for 'processing' by the target server"/>
+      <sourceReference>
+        <reference value="OperationDefinition/questionnaire-process-response"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Search Parameters"/>
+    <description value="Additional search parameters defined for use within the SDC implementation guide"/>
+		<resource>
+			<example value="true"/>
+			<name value="Questionnaire Item definition"/>
+			<description value="Allows searching by 'definition' element within a Questionnaire's items"/>
+			<sourceReference>
+				<reference value="SearchParameter/questionnaire-definition"/>
+			</sourceReference>
+		</resource>
+  </package>
+  <package>
+    <name value="Example(s)"/>
+    <description value="Example(s) showing the use of the SDC profiles"/>
 		<resource>
 			<example value="true"/>
 			<name value="SDC - Combination"/>
 			<description value="Set of several examples - medication, AHRQ and NCI forms"/>
 			<sourceReference>
-				<reference value="Questionnaire/questionnaire-sdc-profile-example"/>
+				<reference value="Bundle/questionnaire-sdc-profile-example"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/sdc-questionnaire"/>
@@ -171,22 +262,14 @@
 		<resource>
 			<example value="true"/>
 			<name value="SDC-LOINC USSG Family History"/>
-			<description value="LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population"/>
+			<description value="LOINC US Surgeon General family history including data elements and value sets."/>
 			<sourceReference>
-				<reference value="Questionnaire/questionnaire-sdc-profile-example-ussg-fht"/>
+				<reference value="Bundle/questionnaire-sdc-profile-example-ussg-fht"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/sdc-questionnaire"/>
 			</exampleFor>
 		</resource>
-<!--		<resource>
-      <example value="false"/>
-      <name value="SDC Questionnaire Response"/>
-      <description value="Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems."/>
-      <sourceReference>
-        <reference value="StructureDefinition/sdc-response"/>
-      </sourceReference>
-    </resource>-->
 		<resource>
 			<example value="true"/>
 			<name value="SDC - Response to Diagnosis NCI Standard Template"/>
@@ -195,7 +278,7 @@
 				<reference value="QuestionnaireResponse/questionnaireresponse-sdc-profile-example"/>
 			</sourceReference>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-response"/>
+				<reference value="StructureDefinition/sdc-questionnaireresponse"/>
 			</exampleFor>
 		</resource>
 		<resource>
@@ -206,26 +289,29 @@
 				<reference value="QuestionnaireResponse/questionnaireresponse-sdc-example-ussg-fht-answers"/>
 			</sourceReference>
 			<exampleFor>
-				<reference value="StructureDefinition/sdc-response"/>
+				<reference value="StructureDefinition/sdc-questionnaireresponse"/>
 			</exampleFor>
 		</resource>
-<!--		<resource>
-      <example value="false"/>
-      <name value="SDC Data Element Valueset"/>
-      <description value="Sets expectations for SDC-conformant systems around value set support for representing permitted question answers."/>
-      <sourceReference>
-        <reference value="StructureDefinition/sdc-valueset"/>
-      </sourceReference>
-    </resource>-->
 		<resource>
 			<example value="true"/>
 			<name value="SDC-ValueSet AHRQ_Medication_Q1"/>
 			<description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
 			<sourceReference>
-				<reference value="ValueSet/valueset-sdc-profile-example"/>
+				<reference value="ValueSet/sdc-profile-example"/>
 			</sourceReference>
 			<exampleFor>
 				<reference value="StructureDefinition/sdc-valueset"/>
+			</exampleFor>
+		</resource>
+		<resource>
+			<example value="true"/>
+			<name value="C-CDA-Gender"/>
+			<description value="FHIR Gender with mapping to C-CDA"/>
+			<sourceReference>
+				<reference value="DataElement/dataelement-sdc-profile-example"/>
+			</sourceReference>
+			<exampleFor>
+				<reference value="StructureDefinition/sdc-dataelement"/>
 			</exampleFor>
 		</resource>
 	</package>
@@ -246,184 +332,10 @@
 			<title value="Security Details"/>
 			<kind value="page"/>
 		</page>
-		<page>
-			<source value="capabilitystatement-sdc-form-designer.html"/>
-			<title value="Form Designer"/>
-			<kind value="resource"/>
-			<format value="generated"/>
-		</page>
-		<page>
-			<source value="capabilitystatement-sdc-form-filler.html"/>
-			<title value="Form Filler"/>
-			<kind value="resource"/>
-			<format value="generated"/>
-		</page>
-		<page>
-			<source value="capabilitystatement-sdc-form-manager.html"/>
-			<title value="Form Manager"/>
-			<kind value="resource"/>
-			<format value="generated"/>
-		</page>
-		<page>
-			<source value="capabilitystatement-sdc-form-receiver.html"/>
-			<title value="Form Receiver"/>
-			<kind value="resource"/>
-			<format value="generated"/>
-		</page>
-		<page>
-			<source value="capabilitystatement-sdc-form-archiver.html"/>
-			<title value="Form Archiver"/>
-			<kind value="resource"/>
-			<format value="generated"/>
-		</page>
-		<page>
-			<source value="dataelement-sdc.html"/>
-			<title value="Data Element"/>
-			<kind value="page"/>
-			<format value="generated"/>
-			<page>
-				<source value="sdc-element.html"/>
-				<title value="Data Element Details"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-        <page>
-          <source value="dataelement-sdc-profile-example.html"/>
-          <title value="C-CDA-Gender"/>
-          <kind value="example"/>
-          <type value="DataElement"/>
-          <format value="generated"/>
-        </page>
-			</page>
-		</page>
-		<page>
-			<source value="questionnaire-sdc.html"/>
-			<title value="Questionnaire"/>
-			<kind value="page"/>
-			<format value="generated"/>
-			<page>
-				<source value="sdc-questionnaire.html"/>
-				<title value="Questionnaire Details"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-        <page>
-          <source value="questionnaire-sdc-profile-example.html"/>
-          <title value="SDC - Combination"/>
-          <kind value="example"/>
-          <type value="Questionnaire"/>
-          <format value="generated"/>
-        </page>
-        <page>
-          <source value="questionnaire-sdc-profile-example-cap.html"/>
-          <title value="SDC-Pathology"/>
-          <kind value="example"/>
-          <type value="Questionnaire"/>
-          <format value="generated"/>
-        </page>
-        <page>
-          <source value="questionnaire-sdc-profile-example-loinc.html"/>
-          <title value="SDC-LOINC AHRQ"/>
-          <kind value="example"/>
-          <type value="Questionnaire"/>
-          <format value="generated"/>
-        </page>
-        <page>
-          <source value="questionnaire-sdc-profile-example-ussg-fht.html"/>
-          <title value="SDC-LOINC USSG Family History"/>
-          <kind value="example"/>
-          <type value="Questionnaire"/>
-          <format value="generated"/>
-        </page>
-			</page>
-			<page>
-				<source value="extension-sdc-questionnaire-endpoint.html"/>
-				<title value="Extension: Where to send answers"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-			<page>
-				<source value="extension-sdc-questionnaire-optionalDisplay.html"/>
-				<title value="Extension: Can suppress from display to user"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-			<page>
-				<source value="extension-sdc-questionnaire-provenanceSignatureRequired.html"/>
-				<title value="Extension: Is associated Provenance needed?"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-		</page>
-		<page>
-			<source value="questionnaireresponse-sdc.html"/>
-			<title value="Questionnaire Response"/>
-			<kind value="page"/>
-			<format value="generated"/>
-			<page>
-				<source value="sdc-response.html"/>
-				<title value="Questionnaire Response Details"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-        <page>
-          <source value="questionnaireresponse-sdc-profile-example.html"/>
-          <title value="SDC - Response to Diagnosis NCI Standard Template"/>
-          <kind value="example"/>
-          <type value="QuestionnaireResponse"/>
-          <format value="generated"/>
-        </page>
-        <page>
-          <source value="questionnaireresponse-sdc-example-ussg-fht-answers.html"/>
-          <title value="SDC-LOINC USSG Familiy History Response"/>
-          <kind value="example"/>
-          <type value="QuestionnaireResponse"/>
-          <format value="generated"/>
-        </page>
-			</page>
-		</page>
-		<page>
-			<source value="valueset-sdc.html"/>
-			<title value="Value Set"/>
-			<kind value="page"/>
-			<format value="generated"/>
-			<page>
-				<source value="sdc-valueset.html"/>
-				<title value="Value Set Details"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-        <page>
-          <source value="valueset-sdc-profile-example.html"/>
-          <title value="SDC-ValueSet AHRQ_Medication_Q1"/>
-          <kind value="example"/>
-          <type value="ValueSet"/>
-          <format value="generated"/>
-        </page>
-			</page>
-		</page>
-		<page>
-			<source value="codesystem-sdc.html"/>
-			<title value="Code System"/>
-			<kind value="page"/>
-			<format value="generated"/>
-			<page>
-				<source value="sdc-codesystem.html"/>
-				<title value="Code System Details"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-		</page>
-		<page>
-			<source value="registry.html"/>
-			<title value="List of Artifacts"/>
-			<kind value="list"/>
-			<type value="CapabilityStatement"/>
-			<type value="StructureDefinition"/>
-			<type value="ValueSet"/>
-			<type value="ConceptMap"/>
-			<page>
-				<source value="valueset-dex-mimetype.html"/>
-				<title value="DEX Mimetype"/>
-				<kind value="resource"/>
-				<format value="generated"/>
-			</page>
-		</page>
+    <page>
+      <source value="artifacts.html"/>
+      <title value="Artifact List"/>
+      <kind value="page"/>
+    </page>
 	</page>
 </ImplementationGuide>
