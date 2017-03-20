@@ -71,8 +71,7 @@ see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to
 <a name="valuesets"> </a>
 <h2>Coded Values, Systems, and Value Sets</h2>
 <p>
-The set of coded values that is allowed to be used in an element of one of these
-4 coded data types is known as a <a href="valueset.html">"value set"</a>. Anywhere these data types are used, the
+The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these four data types are used, the
 specification "binds" a value set to the element.
 </p>
 <p>
@@ -90,10 +89,10 @@ the codes it defines are actually a pair ("Code Pair":  a name with a namespace)
 this mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org)
 and a local one (let's say it has been given the URL: http://example.com/codesystems/additional-test-codes).
 The application table is a single value set (a set of Code Pairs) that includes codes from each of
-those two namespaces. The value set itself is given its own URL as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes")
-- this identifies the set of Code Pairs, but is never used as the namespace in a actual code pair, or in an instance.
-In FHIR, Code Pairs are always represented as "code" and "system", except for the simple <a href="datatypes.html#code">"code"</a>
-data type where the namespace (e.g. the system element/property) is fixed in the schema and not
+those two namespaces. The value set itself is given its own URL as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes").
+This identifies the set of Code Pairs, but is never used as the namespace in a actual code pair, or in an instance.
+In FHIR, Code Pairs are always represented as "code" and "system", except for the simple data type <a href="datatypes.html#code">code</a>
+where the namespace (e.g. the system element/property) is fixed in the schema and not
 represented explicitly.
 </p>
 <p>
