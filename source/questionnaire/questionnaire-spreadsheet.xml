@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-03-20T06:11:16Z</LastSaved>
+  <LastSaved>2017-03-20T08:09:34Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -1050,9 +1050,9 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">A structured set of questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.</Data><NamedCell
+    <Cell ss:StyleID="s82"><Data ss:Type="String">To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1082,7 +1082,8 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">…  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.identifier[scope=BUSN;reliability=ISS]</Data><NamedCell
@@ -1612,7 +1613,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Concept that represents the overall questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies how this question or group of questions is known in a particular terminology such as LOINC.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An identifier for this question or group of questions in a particular terminology such as LOINC.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allows linking of the complete Questionnaire resources to formal terminologies.  It's common for &quot;panels&quot; of questions to be identified by a code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1648,7 +1649,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Resource that can be subject of QuestionnaireResponse</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the types of subjects that can be the subject of the questionnaire.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The types of subjects that can be the subject of responses created for the questionnaire.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If none are specified, then the subject is unlimited</Data><NamedCell
@@ -1682,10 +1683,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Questions and sections within the Questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The questions and groupings of questions that make up the questionnaire</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A particular question, question grouping or display text that is part of the questionnaire</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The content of the questionnaire is constructed from an ordered, hierarchical collection of items</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1753,9 +1755,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: &#10;&#10;* code (ElementDefinition.code)&#10;* type (ElementDefinition.type)&#10;* required (ElementDefinition.min)&#10;* repeats (ElementDefinition.max)&#10;* maxLength (ElementDefinition.maxLength)&#10;* options (ElementDefinition.binding)&#10;&#10;Any information provided in these elements on a Questionnaire Item overrides the information from the definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition, and allows the content for the question to come from the underlying definition</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A common pattern is to define a set of data elements and then build multiple questionnaires for different circumstances to gather the data. This element provides traceability to the common definition and allows the content for the question to come from the underlying definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">the URI refers to an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it\'s id [Element.id](element-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">the URI refers to an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](element-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.outboundRelationship[typeCode=INST].target[classCode=OBS, moodCode=DEF]</Data><NamedCell
@@ -1791,9 +1793,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Allows linking of groups of questions to formal terminologies</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The code(s) for the &quot;root&quot; group apply to the questionnaire as a whole. Value may come from the ElementDefinition referred to by .definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The value may come from the ElementDefinition referred to by .definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.code</Data><NamedCell
@@ -1822,11 +1824,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A short label for a particular group, question or set of display text within the questionnaire</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there's a need for the questionnaire design to have control over what labels are used.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.&#10;&#10;Typically these won't be used for &quot;text&quot; items, though such use is not prohibited.&#10;&#10;Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.&#10;&#10;Typically these won't be used for &quot;display&quot; items, though such use is not prohibited.&#10;&#10;Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not supported</Data><NamedCell
@@ -1858,7 +1860,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Primary text for the item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The name of a section, the text of a question or text content for a text item</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The name of a section, the text of a question or text content for a display item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1892,11 +1894,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">group | display | boolean | decimal | integer | date | dateTime +</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Defines the format in which the user is to be prompted for the answer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Additional constraints on the type of answer can be conveyed by extensions. Value may come from the ElementDefinition referred to by .definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -1925,11 +1927,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">Only allow data when</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.&#10;&#10;If enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat &quot;enableWhen&quot;s as being joined by an &quot;or&quot; clause.&#10;&#10;This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -1979,7 +1981,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">Enable when answered or not</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If present, indicates that this item should be enabled only if the specified question is answered or not answered</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An indication that this item should be enabled only if the specified question is answered (hasAnswer=true) or not answered (hasAnswer=false)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If answered=false and answer values are also provided, then they are treated as &quot;or&quot;.  I.e. &quot;Enable if the question is unanswered or the answer is one of the specified values&quot;.  If answered=true and answers are present, one of the specified answers must be met. (So there's little reason to specify answered=true if answers are present.)</Data><NamedCell
@@ -2007,10 +2009,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s88"><Data ss:Type="String">Value question must have</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An answer that the referenced question must match in order for the item to be enabled</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it's ok if the answer has a &quot;display&quot; element.&#10;&#10;The dataType of this element must be the same as the data type of the question being referenced.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Multiple answers are treated as &quot;or&quot;.  E.g. Enable if question 1 = A, C or E.  &#10;&#10;Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it is ok if the answer has a &quot;display&quot; element.  I.e. treat the answer as a 'pattern'.&#10;&#10;The dataType of this element must be the same as the data type of the question being referenced.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -2038,10 +2040,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Whether the item must be included in data results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If true, indicates that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element). Value may come from the ElementDefinition referred to by .definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element). The value may come from the ElementDefinition referred to by .definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -2074,11 +2076,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Whether the item may repeat</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the item may occur multiple times in the instance, containing multiple sets of answers</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An indication, if true, that the item may occur multiple times in the response, collecting multiple answers answers for questions or multiple sets of answers for groups</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition or to simply list each of the answers beneath the question.  (Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.). Value may come from the ElementDefinition referred to by .definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition or to simply list each of the answers beneath the question.  (Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.). The value may come from the ElementDefinition referred to by .definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -2107,7 +2109,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Don't allow human editing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If true, the value cannot be changed by a human respondent to the Questionnaire.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2141,7 +2143,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The maximum number of characters that are permitted in the answer to be considered a &quot;valid&quot; QuestionnaireResponse.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. Value may come from the ElementDefinition referred to by .definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. The value may come from the ElementDefinition referred to by .definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -2172,10 +2174,10 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Valueset containing permitted answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference to a value set containing a list of codes representing permitted answers for the question</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A reference to a value set containing a list of codes representing permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist). Value may come from the ElementDefinition referred to by .definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](loinc.html#alist). The value may come from the ElementDefinition referred to by .definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -2205,10 +2207,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Permitted answer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">For a &quot;choice&quot; question, identifies one of the permitted answers for the question.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">One of the permitted answers for a &quot;choice&quot; or &quot;open-choice&quot; question.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This element can be used when the value set machinery of options is deemed too cumbersome or when there's a need to capture options that are not codes.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2239,10 +2242,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Answer value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies a specific answer that's allowed as the answer to a question</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A potential answer that's allowed as the answer to this question</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The data type of the value must agree with the item.type</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2272,11 +2276,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Default value when item is first rendered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The value that should be defaulted when rendering the questionnaire for user input</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The value that should be defaulted when initially rendering the questionnaire for user input</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">In some workflows, having defaults saves time.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that default values can influence results.&#10;&#10;The data type of initial[x] must agree with the item.type.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell
@@ -2288,7 +2292,7 @@
     <Cell ss:Index="25"><Data ss:Type="String">GF#11003</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
+   <Row ss:Height="100.8">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Questionnaire.item.item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2308,11 +2312,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Nested questionnaire items</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Allows text, questions and other groups to be nested beneath a question or group</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Text, questions and other groups to be nested beneath a question or group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Reports can consist of complex nested groups</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4392,9 +4397,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4414,6 +4419,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5001,7 +5007,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s121"><Data ss:Type="String">Questionnaire.item.code</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">A code that corresponds to the questionnaire or one of its groups</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">A code that corresponds to one of its items in the questionnaire</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"/>
@@ -5178,8 +5184,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R3:R4</RangeSelection>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
