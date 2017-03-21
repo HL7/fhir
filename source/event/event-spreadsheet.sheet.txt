@@ -82,7 +82,7 @@
   Id = 1
   Context = Event
   English = Not Done Reason can only be specified if NotDone is \"true\"
-  XPath = f:notDone=\'true\' or not(exists(f:notDoneReason))
+  XPath = f:notDone/@value=true() or not(exists(f:notDoneReason))
   Expression = notDone or notDoneReason.exists().not()
 
 === Sheet Data Elements =====================================

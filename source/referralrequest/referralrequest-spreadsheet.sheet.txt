@@ -56,7 +56,7 @@
   Id = 1
   Context = ReferralRequest.requester
   English = onBehalfOf can only be specified if agent is practitioner or device
-  XPath = contains(f:agent, \'/Practitioner\') or contains(f:agent, \'/Device\') or not(exists(f:onBehalfOf))
+  XPath = contains(f:agent/f:reference/@value, \'/Practitioner/\') or contains(f:agent/f:reference/@value, \'/Device/\') or not(exists(f:onBehalfOf))
   Expression = (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()
 
 === Sheet Data Elements =====================================

@@ -131,7 +131,7 @@
   Id = 4
   Context = Condition
   English = If condition is abated, then clinicalStatus must be either inactive, resolved, or remission
-  XPath = not(f:abatementBoolean=\'true\' or (not(exists(f:abatementBoolean)) and exists(*[starts-with(local-name(.), \'abatement\')])) or f:clinicalStatus/@value=(\'resolved\', \'remission\', \'inactive\'))
+  XPath = not(f:abatementBoolean/@value=true() or (not(exists(f:abatementBoolean)) and exists(*[starts-with(local-name(.), \'abatement\')])) or f:clinicalStatus/@value=(\'resolved\', \'remission\', \'inactive\'))
   Expression = abatement.empty() or (abatement as boolean).not()  or clinicalStatus=\'resolved\' or clinicalStatus=\'remission\' or clinicalStatus=\'inactive\'
 
 === Sheet Data Elements =====================================

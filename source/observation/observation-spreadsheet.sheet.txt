@@ -322,7 +322,7 @@
   Id = 7
   Context = Observation
   English = If code is the same as a component code then the value element associated with the code SHALL NOT be present
-  XPath = not(exists(f:value)) or not(count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0)
+  XPath = not(exists(f:*[starts-with(local-name(.), \'value\')])) or not(count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0)
   Expression = value.empty() or code!=component.code
 
 === Sheet Data Elements =====================================

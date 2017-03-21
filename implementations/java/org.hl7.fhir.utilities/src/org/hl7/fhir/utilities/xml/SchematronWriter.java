@@ -32,6 +32,10 @@ public class SchematronWriter  extends TextStreamWriter  {
       a.message = message;
       asserts.add(a);
     }
+    
+    public boolean isSpecial() {
+      return name.contains("*") || name.contains("[");
+    }
   }
   public class Section {
     private String title;
@@ -56,13 +60,36 @@ public class SchematronWriter  extends TextStreamWriter  {
       return r;
     }
 
-    public boolean hasContent() {
+    public boolean hasRegularContent() {
       for (Rule r : rules) 
-        if (!r.asserts.isEmpty())
+        if (!r.asserts.isEmpty() && !r.isSpecial())
           return true;
       return false;
     }
-  }
+
+    public boolean hasSpecialContent() {
+      for (Rule r : rules) 
+        if (!r.asserts.isEmpty() && r.isSpecial())
+          return true;
+      return false;
+    }
+    
+    public List<Rule> getRegularRules() {
+      List<Rule> regular = new ArrayList<Rule>();
+      for (Rule r : rules) 
+        if (!r.asserts.isEmpty() && !r.isSpecial())
+          regular.add(r);
+      return regular;
+    }
+
+    public List<Rule> getSpecialRules() {
+      List<Rule> regular = new ArrayList<Rule>();
+      for (Rule r : rules) 
+        if (!r.asserts.isEmpty() && r.isSpecial())
+          regular.add(r);
+      return regular;
+    }
+}
 
   private SchematronType type;
   private String description;
@@ -94,10 +121,10 @@ public class SchematronWriter  extends TextStreamWriter  {
     addNote();
 
     for (Section s : sections) {
-      if (s.hasContent()) {
+      if (s.hasRegularContent()) {
         ln_i("<sch:pattern>");
         ln("<sch:title>"+Utilities.escapeXml(s.title)+"</sch:title>");
-        for (Rule r : s.rules) {
+        for (Rule r : s.getRegularRules()) {
           if (!r.asserts.isEmpty()) {
             ln_i("<sch:rule context=\""+Utilities.escapeXml(r.name)+"\">");
             for (Assert a : r.asserts) 
@@ -106,6 +133,21 @@ public class SchematronWriter  extends TextStreamWriter  {
           }
         }
         ln_o("</sch:pattern>");
+      }
+      if (s.hasSpecialContent()) {
+        int i = 1;
+        for (Rule r : s.getSpecialRules()) {
+          ln_i("<sch:pattern>");
+          ln("<sch:title>"+Utilities.escapeXml(s.title)+" "+i+"</sch:title>");
+          i++;
+          if (!r.asserts.isEmpty()) {
+            ln_i("<sch:rule context=\""+Utilities.escapeXml(r.name)+"\">");
+            for (Assert a : r.asserts) 
+              ln("<sch:assert test=\""+Utilities.escapeXml(a.test)+"\">"+Utilities.escapeXml(a.message)+"</sch:assert>");
+            ln_o("</sch:rule>");
+          }
+          ln_o("</sch:pattern>");
+        }
       }
     }  
     ln_o("</sch:schema>");

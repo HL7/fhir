@@ -298,7 +298,7 @@
   Id = 10
   Context = Timing.repeat
   English = If there\'s a timeOfDay, there cannot be be a when, or vice versa
-  XPath = not(exists(f:timeofDay)) or not(exists(f:when))
+  XPath = not(exists(f:timeOfDay)) or not(exists(f:when))
   Expression = timeOfDay.empty() or when.empty()
 
 === Sheet Data Elements =====================================

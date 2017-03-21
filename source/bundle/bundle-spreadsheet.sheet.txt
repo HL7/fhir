@@ -175,7 +175,7 @@
   Id = 8
   Context = Bundle.entry
   English = fullUrl cannot be a version specific reference
-  XPath = not(exists(f:fullUrl[contains(@value, \'/_history/\')]))
+  XPath = not(exists(f:fullUrl[contains(string(@value), \'/_history/\')]))
   Expression = fullUrl.contains(\'/_history/\').not()
   Severity = error
 

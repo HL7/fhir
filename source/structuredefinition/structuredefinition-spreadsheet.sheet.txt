@@ -240,7 +240,7 @@
   Requirements = custom types only in logical models
   Context = StructureDefinition
   English = Custom types can only be used in logical models
-  XPath = f:kind/@value = \'logical\' or count(f:differential/f:element/f:type/f:code[@value and not(matches(@value, \'^[a-zA-Z0-9]+$\'))]|f:snapshot/f:element/f:type/f:code[@value and not(matches(@value, \'^[a-zA-Z0-9]+$\'))]) =0
+  XPath = f:kind/@value = \'logical\' or count(f:differential/f:element/f:type/f:code[@value and not(matches(string(@value), \'^[a-zA-Z0-9]+$\'))]|f:snapshot/f:element/f:type/f:code[@value and not(matches(string(@value), \'^[a-zA-Z0-9]+$\'))]) =0
   Expression = kind = \'logical\' or (differential.element.type.code.all(hasValue() implies matches(\'^[a-zA-Z0-9]+$\')) and snapshot.element.type.code.all(hasValue() implies matches(\'^[a-zA-Z0-9]+$\')))
 
  -- Row 20 -----------------------------------

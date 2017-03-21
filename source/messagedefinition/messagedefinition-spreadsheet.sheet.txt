@@ -13,7 +13,7 @@
   Id = md-1
   Context = MessageDefinition.focus
   English = Max must be postive int or *
-  XPath = f:max/@value=\'*\' or f:max/@value > 0
+  XPath = f:max/@value=\'*\' or number(f:max/@value) > 0
   Expression = max=\'*\' or (max.toInteger() > 0)
 
 === Sheet Data Elements =====================================

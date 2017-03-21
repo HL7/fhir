@@ -156,7 +156,7 @@
   Id = 1
   Context = Goal.target
   English = Goal.target.measure is required if Goal.target.detail is populated
-  XPath = (exists(f:detail) and exists(f:measure)) or not(exists(f:detail))
+  XPath = (exists(f:*[starts-with(local-name(.), \'detail\')]) and exists(f:measure)) or not(exists(f:*[starts-with(local-name(.), \'detail\')]))
   Expression = (detail.exists() and measure.exists()) or detail.exists().not()
 
 === Sheet Data Elements =====================================

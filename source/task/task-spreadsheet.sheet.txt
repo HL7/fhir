@@ -180,8 +180,8 @@
   Id = inv-1
   Context = Task
   English = Last modified date must be greater than or equal to authored-on date.
-  XPath = f:lastModified >= f:authoredOn or not(exists(f:lastModified)) or not(exists(f:authoredOn))
-  Expression = lastModified >= authoredOn or lastModified.exists().not() or authoredOn.exists().not()
+  XPath = not(exists(f:lastModified/@value)) or not(exists(f:authoredOn/@value)) or f:lastModified/@value >= f:authoredOn/@value
+  Expression = lastModified.exists().not() or authoredOn.exists().not() or lastModified >= authoredOn
   Severity = error
 
 === Sheet Data Elements =====================================

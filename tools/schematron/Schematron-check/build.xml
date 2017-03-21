@@ -24,7 +24,8 @@
     
     <delete file="../../../temp/bundle-validate.txt"/>
     
-    <replace file="${xsl.invariants}" token="match=&quot;//" value="match=&quot;"/>
+    <replace file="${xsl.invariants}" token="match=&quot;f:extension&quot;" value="match=&quot;*/f:extension&quot;"/>
+    <replace file="${xsl.invariants}" token="match=&quot;f:modifierExtension&quot;" value="match=&quot;*/f:modifierExtension&quot;"/>
     <replace file="${xsl.invariants}" token="match=&quot;f:extension[" value="match=&quot;*/f:extension["/>
     
     <java jar="${dir.saxon}/saxon9ee.jar" fork="true">

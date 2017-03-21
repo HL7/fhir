@@ -137,7 +137,7 @@
   Id = 1
   Context = MedicationAdministration.dosage
   English = SHALL have at least one of dosage.dose or dosage.rate[x]
-  XPath = exists(f:dose) or exists(f:rateRatio) or exists(f:rateRange)
+  XPath = exists(f:dose) or exists(f:*[starts-with(local-name(.), \'rate\')])
   Expression = dose.exists() or rate.exists()
 
  -- Row 2 -----------------------------------

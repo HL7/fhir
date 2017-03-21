@@ -1,4 +1,4 @@
-
+﻿
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -197,7 +197,7 @@
 
  -- Row 16 -----------------------------------
   Element = CodeSystem.copyright
-  Comments = & Sometimes, the copyright differs between the code system and the codes that are included. The copyright statement should clearly differentiate between these when required
+  Comments = ... Sometimes, the copyright differs between the code system and the codes that are included. The copyright statement should clearly differentiate between these when required
 
  -- Row 17 -----------------------------------
   Element = CodeSystem.caseSensitive
@@ -215,7 +215,7 @@
   Type = uri
   Short Name = Canonical URL for value set with entire code system
   Definition = Canonical URL of value set that contains the entire code system
-  Comments = Thedefinition of the value set SHALL include all codes from this code system, and it SHALL be immutable
+  Comments = The definition of the value set SHALL include all codes from this code system, and it SHALL be immutable
 
  -- Row 19 -----------------------------------
   Element = CodeSystem.hierarchyMeaning
