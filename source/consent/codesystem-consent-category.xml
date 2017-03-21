@@ -16,22 +16,22 @@
   </concept>
   <concept>
     <code value="ACD"/>
-    <display value="advance directive"/>
+    <display value="Advance Directive"/>
     <definition value="Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential need for medical treatment. [2005 Honor My Wishes]"/>
   </concept>
   <concept>
     <code value="CRIC"/>
-    <display value="common rule informed consent"/>
+    <display value="Common Rule Informed Consent"/>
     <definition value="45 CFR part 46 Â§46.116 General requirements for informed consent; and Â§46.117 Documentation of informed consent. https://www.gpo.gov/fdsys/pkg/FR-2017-01-19/pdf/2017-01058.pdf"/>
   </concept>
   <concept>
     <code value="DNR"/>
-    <display value="do not resuscitate"/>
+    <display value="Do Not Resuscitate"/>
     <definition value="A legal document, signed by both the patient and their provider, stating a desire not to have CPR initiated in case of a cardiac event. Note: This form was replaced in 2003 with the Physician Orders for Life-Sustaining Treatment [POLST]."/>
   </concept>
   <concept>
     <code value="EMRGONLY"/>
-    <display value="emergency only"/>
+    <display value="Emergency Only"/>
     <definition value="Opt-in to disclosure of health information for emergency only consent directive. Comment: This general consent directive specifically limits disclosure of health information for purpose of emergency treatment. Additional parameters may further limit the disclosure to specific users, roles, duration, types of information, and impose uses obligations. [ActConsentDirective (2.16.840.1.113883.1.11.20425)]"/>
   </concept>
   <concept>
@@ -41,7 +41,7 @@
   </concept>
   <concept>
     <code value="HCD"/>
-    <display value="health care directive"/>
+    <display value="Health Care Directive"/>
     <definition value="Patientâ€™s document telling patientâ€™s health care provider what the patient wants or does not want if the patient is diagnosed as being terminally ill and in a persistent vegetative state or in a permanently unconscious condition.[2005 Honor My Wishes]"/>
   </concept>
   <concept>
@@ -81,7 +81,7 @@
   </concept>
   <concept>
     <code value="NPP"/>
-    <display value="notice of privacy practices"/>
+    <display value="Notice of Privacy Practices"/>
     <definition value="Acknowledgement of custodian notice of privacy practices. Usage Notes: This type of consent directive acknowledges a custodian's notice of privacy practices including its permitted collection, access, use and disclosure of health information to users and for purposes of use specified. [ActConsentDirective (2.16.840.1.113883.1.11.20425)]"/>
   </concept>
   <concept>
@@ -91,17 +91,17 @@
   </concept>
   <concept>
     <code value="RESEARCH"/>
-    <display value="research information access"/>
+    <display value="Research Information Access"/>
     <definition value="Consent to have healthcare information in an electronic health record accessed for research purposes. [VALUE SET: ActConsentType (2.16.840.1.113883.1.11.19897)]"/>
   </concept>
   <concept>
     <code value="RSDID"/>
-    <display value="de-identified information access"/>
+    <display value="De-identified Information Access"/>
     <definition value="Consent to have de-identified healthcare information in an electronic health record that is accessed for research purposes, but without consent to re-identify the information under any circumstance. [VALUE SET: ActConsentType (2.16.840.1.113883.1.11.19897)"/>
   </concept>
   <concept>
     <code value="RSREID"/>
-    <display value="re-identifiable information access"/>
+    <display value="Re-identifiable Information Access"/>
     <definition value="Consent to have de-identified healthcare information in an electronic health record that is accessed for research purposes re-identified under specific circumstances outlined in the consent. [VALUE SET: ActConsentType (2.16.840.1.113883.1.11.19897)]"/>
   </concept>
   <concept>
