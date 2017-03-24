@@ -85,6 +85,11 @@ public class TypeParser {
 
         typeString = typeString.substring(0, startPos);
       }
+      if (typeString.contains("~")) {
+        String v = typeString.substring(typeString.indexOf("~"));
+        typeString = typeString.substring(0, typeString.indexOf("~")-1);
+        t.setVersioning(org.hl7.fhir.dstu3.model.ElementDefinition.ReferenceVersionRules.fromCode(v));
+      }
 
       if (typeString.contains("{")) {
         if (!inProfile) {
@@ -148,6 +153,8 @@ public class TypeParser {
         if (t.getProfile() != null) {
           TypeRefComponent childType = new TypeRefComponent();
           childType.setCode(t.getName());
+          if (t.getVersioning() != null)
+            childType.setVersioning(t.getVersioning());
           if (t.getName().equals("Reference"))
             childType.setTargetProfile(t.getProfile());
           else
@@ -156,6 +163,8 @@ public class TypeParser {
         } else          
           for(String param : t.getParams()) {
             TypeRefComponent childType = new TypeRefComponent();
+            if (t.getVersioning() != null)
+              childType.setVersioning(t.getVersioning());
             childType.setCode(t.getName());
             if (t.getName().equals("Reference"))
               childType.setTargetProfile("http://hl7.org/fhir/StructureDefinition/"+param);
@@ -165,10 +174,16 @@ public class TypeParser {
           }
       } else if (t.isWildcardType()) {
         // this list is filled out manually because it may be running before the types referred to have been loaded
-        for (String n : wildcardTypes()) 
-          list.add(new TypeRefComponent().setCode(n));
+        for (String n : wildcardTypes()) {
+          TypeRefComponent tc = new TypeRefComponent().setCode(n);
+          if (t.getVersioning() != null)
+            tc.setVersioning(t.getVersioning());
+          list.add(tc);
+        }
       } else if (Utilities.noString(t.getName()) && t.getProfile() != null) {
         TypeRefComponent tc = new TypeRefComponent();
+        if (t.getVersioning() != null)
+          tc.setVersioning(t.getVersioning());
         if (t.getName().equals("Reference"))
           tc.setTargetProfile(t.getProfile());
         else  
@@ -188,6 +203,8 @@ public class TypeParser {
         if (sd == null)
           throw new Exception("Unknown type '"+t.getName()+"'");
         TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
+        if (t.getVersioning() != null)
+          tc.setVersioning(t.getVersioning());
         list.add(tc);
         if (t.getName().equals("Reference"))
           tc.setTargetProfile(t.getProfile());

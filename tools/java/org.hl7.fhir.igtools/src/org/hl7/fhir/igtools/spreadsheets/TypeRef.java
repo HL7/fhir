@@ -31,6 +31,7 @@ package org.hl7.fhir.igtools.spreadsheets;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.dstu3.model.ElementDefinition.ReferenceVersionRules;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -48,10 +49,12 @@ import org.hl7.fhir.utilities.Utilities;
  */
 
 public class TypeRef {
-	private String name;
+
+  private String name;
 	private String profile;
 	private List<String> params = new ArrayList<String>();
 	private List<String> aggregations = new ArrayList<String>();
+	private ReferenceVersionRules versioning;
 
 	public TypeRef()
 	{
@@ -206,4 +209,14 @@ public class TypeRef {
   public boolean hasProfile() {
     return !Utilities.noString(profile);
   }
+
+  public ReferenceVersionRules getVersioning() {
+    return versioning;
+  }
+
+  public void setVersioning(ReferenceVersionRules versioning) {
+    this.versioning = versioning;
+  }
+  
+  
 }
