@@ -343,12 +343,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public final static String DEF_TS_SERVER = "http://fhir3.healthintersections.com.au/open";
 //  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
 
-  public final static String WEB_PUB_NAME = "DSTU2";
+  public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
 
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
-       " This is the Current officially released version of FHIR, which is <a href=\"timelines.html\">DSTU 2</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
+       " This is the Current officially released version of FHIR, which is <a href=\"timelines.html\">STU3</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n";
 
   public final static String CI_PUB_NOTICE =
@@ -5523,6 +5523,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (Operation op : oplist) {
       b.append("<h3>").append(Utilities.escapeXml(op.getTitle())).append("<a name=\"").append(op.getName()).append("\"> </a></h3>\r\n");
       b.append(processMarkdown(n, op.getDoco(), prefix)+"\r\n");
+      b.append("<p>The official URL for this operation definition is</p>\r\n<pre> http://hl7.org/fhir/OperationDefinition/"+n+"-"+op.getName()+"</pre>\r\n");
       b.append("<p><a href=\"operation-"+id+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\""+prefix+"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
       if (op.isSystem())
         b.append("<p>URL: [base]/$").append(op.getName()).append("</p>\r\n");

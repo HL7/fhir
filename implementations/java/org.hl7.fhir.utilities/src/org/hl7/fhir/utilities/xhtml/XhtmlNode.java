@@ -480,6 +480,10 @@ public class XhtmlNode implements IBaseXhtml {
     return addTag("p");
   }
 
+  public XhtmlNode pre() {
+    return addTag("pre");
+  }
+
   public void br() {
     addTag("br");
   }

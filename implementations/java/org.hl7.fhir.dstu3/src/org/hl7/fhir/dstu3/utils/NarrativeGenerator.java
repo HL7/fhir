@@ -3569,6 +3569,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.h2().addText(opd.getName());
     x.para().addText(Utilities.capitalize(opd.getKind().toString())+": "+opd.getName());
+    x.para().tx("The official URL for this operation definition is: ");
+    x.pre().tx(opd.getUrl());
     addMarkdown(x, opd.getDescription());
 
     if (opd.getSystem())
