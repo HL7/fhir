@@ -1,0 +1,190 @@
+<TestScript xmlns="http://hl7.org/fhir"> 
+  <contained>
+    <!-- fixture for #1: no change in the differential -->
+    <StructureDefinition>
+      <id value="simple1"/>
+      <url value="urn:uuid:c7e52962-c322-4417-bd95-fb0dfc40fd62"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+    </StructureDefinition>
+  </contained>
+  <contained>
+    <!-- fixture for #2: no change in the differential, but a value set -->
+    <StructureDefinition>
+      <id value="simple2"/>
+      <url value="urn:uuid:4b8c9c27-9d93-4f66-84f1-c7ca98687792"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      <type value="ValueSet"/>
+      <derivation value="constraint"/>
+    </StructureDefinition>
+  </contained>
+  <contained>
+    <!-- fixture for #3: change a cardinality -->
+    <StructureDefinition>
+      <id value="simple3"/>
+      <url value="urn:uuid:c7e52962-c322-4417-bd95-fb0dfc40fd62"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.identifier"/>
+          <min value="1"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained> 
+  <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
+  <name value="SnapshotGenerationTests"/>
+  <title value="Snapshot generation test script"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2017-03-22"/>
+  <publisher value="FHIR Project"/>
+  <description value="These tests constitute the unit tests for snapshot generation"/>
+
+  <fixture id="patient">
+    <resource>
+      <reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    </resource>
+  </fixture>
+  <fixture id="valueset">
+    <resource>
+      <reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+    </resource>
+  </fixture>
+  
+  <!-- test #1: no change in the differential -->
+  <test>
+    <name value="Simple1"/>
+    <description value="an empty differential, generate the snapshot, and then insist it must match the base"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple1-output"/>
+        <sourceId value="simple1"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-element-order"/>
+        <description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
+      </assert>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The snapshot elements must be the same - check short description"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.all($this.short = fixture('patient').snapshot.element.where(path = $this(1).path).short)"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The snapshot elements must be the same - check min cardinality"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.all($this.min = fixture('patient').snapshot.element.where(path = $this(1).path).min)"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The snapshot elements must be the same - check max cardinality"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.all($this.max = fixture('patient').snapshot.element.where(path = $this(1).path).max)"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The snapshot elements must be the same - check binding"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.all($this.binding.valueSet = fixture('patient').snapshot.element.where(path = $this(1).path).binding.valueSet)"/>
+      </assert>
+    </action>
+  </test>
+
+  <!-- test #2: no change in the differential, but a resource with recursion -->
+  <test>
+    <name value="Simple2"/>
+    <description value="an empty differential, generate the snapshot, and then insist it must match the base - use a resource with recusion"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple1-output"/>
+        <sourceId value="simple2"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-element-order"/>
+        <description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.select(path).trace('o') = fixture('valueset').snapshot.element.select(path).trace('b')"/>
+      </assert>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The snapshot elements must be the same"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.all($this.short = fixture('valueset').snapshot.element.where(path = $this(1).path).short)"/>
+      </assert>
+    </action>
+  </test>
+
+  <!-- test #3: fix a cardinality -->
+  <test>
+    <name value="Simple3"/>
+    <description value="fix a cardinality"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple1-output"/>
+        <sourceId value="simple3"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-element-order"/>
+        <description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.select(path).trace('o') = fixture('patient').snapshot.element.select(path).trace('b')"/>
+      </assert>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The snapshot elements must be the same"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.all($this.short = fixture('patient').snapshot.element.where(path = $this(1).path).short)"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The patient.identifier cardinality must be right"/>
+        <direction value="response"/>
+        <expression value="fixture('simple1-output').snapshot.element.where(path = 'Patient.identifier').min = 1"/>
+      </assert>
+    </action>
+  </test>
+
+  
+</TestScript>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <status value="active"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="125901"/>
+    <display value="CARDIOsphere"/>
+    <definition value="CARDIOsphere&#153; ultrasonic contrast agent produced by POINT Biomedical"/>
+  </concept>
+</CodeSystem>

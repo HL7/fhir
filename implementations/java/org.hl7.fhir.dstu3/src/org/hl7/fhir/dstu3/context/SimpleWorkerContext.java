@@ -392,6 +392,23 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		if (uri.startsWith("http:") || uri.startsWith("urn:") ) {
 			if (uri.contains("#"))
 				uri = uri.substring(0, uri.indexOf("#"));
+			if (class_ == Resource.class) {
+        if (structures.containsKey(uri))
+          return (T) structures.get(uri);
+        if (valueSets.containsKey(uri))
+          return (T) valueSets.get(uri);
+        if (codeSystems.containsKey(uri))
+          return (T) codeSystems.get(uri);
+        if (operations.containsKey(uri))
+          return (T) operations.get(uri);
+        if (searchParameters.containsKey(uri))
+          return (T) searchParameters.get(uri);
+        if (maps.containsKey(uri))
+          return (T) maps.get(uri);
+        if (transforms.containsKey(uri))
+          return (T) transforms.get(uri);
+        return null;      
+			}
 			if (class_ == StructureDefinition.class) {
 				if (structures.containsKey(uri))
 					return (T) structures.get(uri);
@@ -663,6 +680,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public void setValidatorFactory(IValidatorFactory validatorFactory) {
     this.validatorFactory = validatorFactory;
   }
-  
+
+ 
   
 }

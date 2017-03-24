@@ -320,7 +320,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(null, base != null && base.isResource() ? base : null, base, base), list, ExpressionNode, true);
+    return execute(new ExecutionContext(null, base != null && base.isResource() ? base : null, base, null, base), list, ExpressionNode, true);
   }
 
   /**
@@ -338,7 +338,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(null, base.isResource() ? base : null, base, base), list, exp, true);
+    return execute(new ExecutionContext(null, base.isResource() ? base : null, base, null, base), list, exp, true);
   }
 
   /**
@@ -355,7 +355,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(appContext, resource, base, base), list, ExpressionNode, true);
+    return execute(new ExecutionContext(appContext, resource, base, null, base), list, ExpressionNode, true);
   }
 
   /**
@@ -372,7 +372,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(appContext, resource, base, base), list, ExpressionNode, true);
+    return execute(new ExecutionContext(appContext, resource, base, null, base), list, ExpressionNode, true);
   }
 
   /**
@@ -390,7 +390,7 @@ public class FHIRPathEngine {
     if (base != null)
       list.add(base);
     log = new StringBuilder();
-    return execute(new ExecutionContext(appContext, resource, base, base), list, exp, true);
+    return execute(new ExecutionContext(appContext, resource, base, null, base), list, exp, true);
   }
 
   /**
@@ -534,18 +534,27 @@ public class FHIRPathEngine {
     private Object appInfo;
     private Base resource;
     private Base context;
-    private Base thisItem;
-    public ExecutionContext(Object appInfo, Base resource, Base context, Base thisItem) {
+    private List<Base> thisItems;
+    
+    public ExecutionContext(Object appInfo, Base resource, Base context, List<Base> thisStack, Base thisItem) {
       this.appInfo = appInfo;
       this.context = context;
       this.resource = resource; 
-      this.thisItem = thisItem;
+      this.thisItems = new ArrayList<Base>();
+      if (thisStack != null)
+        thisItems.addAll(thisStack);
+      thisItems.add(thisItem);
     }
     public Base getResource() {
       return resource;
     }
     public Base getThisItem() {
-      return thisItem;
+      return thisItems.get(thisItems.size() - 1);
+    }
+    public Base getThisItem(int i1) throws FHIRException {
+      if (i1 >= thisItems.size())
+        throw new FHIRException("Except to read above the $this limit ("+Integer.toString(i1)+"/"+Integer.toString(thisItems.size())+")");
+      return thisItems.get(thisItems.size() - 1 - i1);
     }
   }
 
@@ -852,6 +861,7 @@ public class FHIRPathEngine {
     case Resolve: return checkParamCount(lexer, location, exp, 0);
     case Extension: return checkParamCount(lexer, location, exp, 1);
     case HasValue: return checkParamCount(lexer, location, exp, 0);
+    case This: return checkParamCount(lexer, location, exp, 1);
     case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
     }
     return false;
@@ -1954,6 +1964,8 @@ public class FHIRPathEngine {
     }
     case HasValue : 
       return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
+    case This : 
+      return anything(CollectionStatus.SINGLETON);
     case Custom : {
       return hostServices.checkFunction(context.appInfo, exp.getName(), paramTypes);
     }
@@ -2066,6 +2078,7 @@ public class FHIRPathEngine {
     case Resolve : return funcResolve(context, focus, exp);
     case Extension : return funcExtension(context, focus, exp);
     case HasValue : return funcHasValue(context, focus, exp);
+    case This : return funcThis(context, focus, exp);
     case Custom: { 
       List<List<Base>> params = new ArrayList<List<Base>>();
       for (ExpressionNode p : exp.getParameters()) 
@@ -2077,7 +2090,17 @@ public class FHIRPathEngine {
     }
   }
 
-	private List<Base> funcAll(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
+	private List<Base> funcThis(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
+    List<Base> result = new ArrayList<Base>();
+    List<Base> n1 = execute(context, focus, exp.getParameters().get(0), true);
+    int i1 = Integer.parseInt(n1.get(0).primitiveValue());
+    Base b = context.getThisItem(i1);
+    result.add(b);
+    return result;
+  }
+
+
+  private List<Base> funcAll(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     if (exp.getParameters().size() == 1) {
       List<Base> result = new ArrayList<Base>();
       List<Base> pc = new ArrayList<Base>();
@@ -2085,7 +2108,7 @@ public class FHIRPathEngine {
       for (Base item : focus) {
         pc.clear();
         pc.add(item);
-        if (!convertToBoolean(execute(changeThis(context, item), pc, exp.getParameters().get(0), false))) {
+        if (!convertToBoolean(execute(changeThis(context, item), pc, exp.getParameters().get(0), true))) {
           all = false;
           break;
         }
@@ -2113,7 +2136,7 @@ public class FHIRPathEngine {
 
 
   private ExecutionContext changeThis(ExecutionContext context, Base newThis) {
-    return new ExecutionContext(context.appInfo, context.resource, context.context, newThis);
+    return new ExecutionContext(context.appInfo, context.resource, context.context, context.thisItems, newThis);
   }
 
   private ExecutionTypeContext changeThis(ExecutionTypeContext context, TypeDetails newThis) {

@@ -154,6 +154,7 @@ public interface IWorkerContext {
   // -- profile services ---------------------------------------------------------
   
   public List<String> getResourceNames();
+  public Set<String> getResourceNamesAsSet();
   public List<String> getTypeNames();
   public List<StructureDefinition> allStructures();
   public List<MetadataResource> allConformanceResources();

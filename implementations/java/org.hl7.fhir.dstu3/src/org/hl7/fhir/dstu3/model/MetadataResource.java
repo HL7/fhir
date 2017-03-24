@@ -1005,6 +1005,18 @@ public abstract class MetadataResource extends DomainResource {
           );
       }
 
+      @Override
+      public ResourceType getResourceType() {
+        // TODO Auto-generated method stub
+        return null;
+      }
 
+      @Override
+      public String toString() {
+        return fhirType()+"["+getUrl()+"]";
+      }
+
+
+      
 }
 

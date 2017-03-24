@@ -24,15 +24,23 @@ import org.hl7.fhir.utilities.Utilities;
 public class OldVersionRedirector {
 
   public static void main(String[] args) throws Exception {
-    String currentVersion = "DSTU2, 1.0.2";
-//    new OldVersionRedirector().process("E:\\fhir\\web\\2012May", "E:\\fhir\\web", "Oldest archived version, 0.01", currentVersion);
-//    new OldVersionRedirector().process("E:\\fhir\\web\\2012Sep", "E:\\fhir\\web", "DSTU1 draft #1, 0.05", currentVersion);
-//    new OldVersionRedirector().process("E:\\fhir\\web\\2013Jan", "E:\\fhir\\web", "DSTU1 draft #2, 0.06", currentVersion);
-//    new OldVersionRedirector().process("E:\\fhir\\web\\2013Sep", "E:\\fhir\\web", "DSTU1 ballot, 0.11", currentVersion);
-//    new OldVersionRedirector().process("E:\\fhir\\web\\DSTU1",   "E:\\fhir\\web", "DSTU1 Publication, 0.0.82", currentVersion);
+    String currentVersion = "FHIR Release 3, 3.0.0";
+
+    new OldVersionRedirector().process("E:\\fhir\\web\\2012May", "E:\\fhir\\web", "Oldest archived version, 0.01", currentVersion);
+    new OldVersionRedirector().process("E:\\fhir\\web\\2012Sep", "E:\\fhir\\web", "DSTU1 draft #1, 0.05", currentVersion);
+    new OldVersionRedirector().process("E:\\fhir\\web\\2013Jan", "E:\\fhir\\web", "DSTU1 draft #2, 0.06", currentVersion);
+    new OldVersionRedirector().process("E:\\fhir\\web\\2013Sep", "E:\\fhir\\web", "DSTU1 ballot, 0.11", currentVersion);
+    new OldVersionRedirector().process("E:\\fhir\\web\\DSTU1",   "E:\\fhir\\web", "DSTU1 Publication, 0.0.82", currentVersion);
     new OldVersionRedirector().process("E:\\fhir\\web\\2015Jan", "E:\\fhir\\web", "DSTU2 draft, 0.4.0", currentVersion);
-//    new OldVersionRedirector().process("E:\\fhir\\web\\2015May", "E:\\fhir\\web", "DSTU2 ballot, 0.5.0", currentVersion);
-//    new OldVersionRedirector().process("E:\\fhir\\web\\2015Sep", "E:\\fhir\\web", "DSTU2 QA Preview, 1.0.0", currentVersion);
+    new OldVersionRedirector().process("E:\\fhir\\web\\2015May", "E:\\fhir\\web", "DSTU2 ballot, 0.5.0", currentVersion);
+    new OldVersionRedirector().process("E:\\fhir\\web\\2015Sep", "E:\\fhir\\web", "DSTU2 QA Preview, 1.0.0", currentVersion);
+    
+    
+//    new OldVersionRedirector().process("E:\\fhir\\web\\DSTU2", "E:\\fhir\\web\\fhir3", "DSTU2, 1.0.2", currentVersion);
+//    new OldVersionRedirector().process("E:\\fhir\\web\\2015Dec", "E:\\fhir\\web\\fhir3", "GAO Ballot, 1.1.0", currentVersion);
+//    new OldVersionRedirector().process("E:\\fhir\\web\\2016May", "E:\\fhir\\web\\fhir3", "CQF Ballot, 1.4.0", currentVersion);
+//    new OldVersionRedirector().process("E:\\fhir\\web\\2016Sep", "E:\\fhir\\web\\fhir3", "STU3 Ballot, 1.6.0", currentVersion);
+//    new OldVersionRedirector().process("E:\\fhir\\web\\2017Jan", "E:\\fhir\\web\\fhir3", "STU3 Candidate, 1.8.0", currentVersion);
   }
 
   private String upd_exists = "<!--old-s--><p style=\"background-color: #ffaaaa; border:1px solid black; padding: 5px;\">\r\n"+

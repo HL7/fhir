@@ -339,7 +339,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
     processPaths("", derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, 
-        derived.getDifferential().getElement().size()-1, url, derived.getId(), null, null, false, base.getUrl(), null, false);
+        derived.getDifferential().hasElement() ? derived.getDifferential().getElement().size()-1 : -1, url, derived.getId(), null, null, false, base.getUrl(), null, false);
     if (!derived.getSnapshot().getElementFirstRep().getType().isEmpty())
       throw new Error("type on first snapshot element for "+derived.getSnapshot().getElementFirstRep().getPath()+" in "+derived.getUrl()+" from "+base.getUrl());
     updateMaps(base, derived);
@@ -2918,6 +2918,12 @@ public class ProfileUtilities extends TranslatingUtilities {
       int depth = charCount(ed.getPath(), '.');
       String tail = tail(ed.getPath());
 
+      if (depth > paths.size()) {
+        // this means that we've jumped into a sparse thing. 
+        String[] pl = ed.getPath().split("\\.");
+        for (int i = paths.size(); i < pl.length-1; i++) // -1 because the last path is in focus
+          paths.add(pl[i]);
+      }
       while (depth < paths.size() && paths.size() > 0)
         paths.remove(paths.size() - 1);
       

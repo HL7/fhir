@@ -13,6 +13,8 @@ import org.junit.Test;
 public class ValidationEngineTests {
 
   private static final String DEF_TX = "http://fhir3.healthintersections.com.au/open";
+  private static final String US_CORE_PATH = "C:\\work\\org.hl7.fhir.us\\core\\output";
+  
 //  private static final String DEF_TX = "http://local.healthintersections.com.au:960/open";
   public static boolean inbuild;
 
@@ -29,7 +31,7 @@ public class ValidationEngineTests {
     if (!TestingUtilities.silent)
       System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 2);
+    Assert.assertTrue(w == 0);
     Assert.assertTrue(h == 0);
   }
 
@@ -44,7 +46,7 @@ public class ValidationEngineTests {
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 2);
+    Assert.assertTrue(w == 0);
     Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
@@ -83,8 +85,8 @@ public class ValidationEngineTests {
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 1);
-    Assert.assertTrue(h == 0);
+    Assert.assertTrue(w == 0);
+    Assert.assertTrue(h == 1);
     if (!TestingUtilities.silent)
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
@@ -121,7 +123,7 @@ public class ValidationEngineTests {
     ve.connectToTSServer(DEF_TX);
     if (!TestingUtilities.silent)
       System.out.println("  .. load IG from " +Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output"));
-    ve.loadIg(Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output"));
+    ve.loadIg(Utilities.path(US_CORE_PATH,  "output"));
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output\\Patient-example.xml"), null);
     if (!TestingUtilities.silent)
       for (OperationOutcomeIssueComponent issue : op.getIssue())

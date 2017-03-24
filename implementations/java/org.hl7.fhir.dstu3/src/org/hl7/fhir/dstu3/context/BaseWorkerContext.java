@@ -880,4 +880,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     this.name = name;
   }
 
+  @Override
+  public Set<String> getResourceNamesAsSet() {
+    Set<String> res = new HashSet<String>();
+    res.addAll(getResourceNames());
+    return res;
+  }
+
 }

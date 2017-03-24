@@ -2,6 +2,7 @@ package org.hl7.fhir.validation.dstu3.tests;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,11 +10,22 @@ import java.util.Map;
 
 import org.apache.commons.codec.Charsets;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.model.Base;
+import org.hl7.fhir.dstu3.model.ExpansionProfile;
+import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.test.support.TestingUtilities;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.dstu3.utils.formats.JsonTrackingParser;
 import org.hl7.fhir.dstu3.utils.formats.JsonTrackingParser.LocationData;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -24,7 +36,7 @@ import org.junit.Test;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public class InstanceValidatorTests {
+public class InstanceValidatorTests implements IEvaluationContext, IValidatorResourceFetcher {
 
 	private void parse(String path) throws Exception {
 		Map<JsonElement, LocationData> map = new HashMap<JsonElement, JsonTrackingParser.LocationData>();
@@ -38,12 +50,14 @@ public class InstanceValidatorTests {
 	  if (TestingUtilities.context == null) {
     	TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
       ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
+      TestingUtilities.context.setExpansionProfile(makeExpProfile());
     }
 
     if (!TestingUtilities.silent)
     System.out.println("Test "+path);
     FileInputStream file = new FileInputStream(Utilities.path(TestingUtilities.home(), path));
-		InstanceValidator val = new InstanceValidator(TestingUtilities.context, null);
+		InstanceValidator val = new InstanceValidator(TestingUtilities.context, this);
+		val.setFetcher(this);
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 		val.validate(null, errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
 		int ec = 0;
@@ -447,6 +461,64 @@ public class InstanceValidatorTests {
         "  ]\r\n"+
         "}\r\n", 1, true);
   }
+
+  @Override
+  public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    return null;
+  }
+
+  @Override
+  public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
+    return null;
+  }
+
+  @Override
+  public boolean log(String argument, List<Base> focus) {
+    System.out.println(argument);
+    return true;
+  }
+
+  @Override
+  public FunctionDetails resolveFunction(String functionName) {
+    return null;
+  }
+
+  @Override
+  public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
+    return null;
+  }
+
+  @Override
+  public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+    return null;
+  }
+
+  @Override
+  public Base resolveReference(Object appContext, String url) {
+    return null;
+  }
+
+  @Override
+  public Element fetch(Object appContext, String url) throws FHIRFormatError, DefinitionException, IOException, FHIRException {
+    return null;
+  }
+
+  @Override
+  public ReferenceValidationPolicy validationPolicy(Object appContext, String path, String url) {
+    return ReferenceValidationPolicy.IGNORE;
+  }
+
+  @Override
+  public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
+    return true;
+  }
   
+  private ExpansionProfile makeExpProfile() {
+    ExpansionProfile ep  = new ExpansionProfile();
+    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
+    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+    // all defaults....
+    return ep;
+  }
 
 }
