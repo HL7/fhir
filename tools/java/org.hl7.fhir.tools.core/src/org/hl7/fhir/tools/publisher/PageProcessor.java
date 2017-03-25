@@ -4517,7 +4517,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     vs1.setExpansion(null);
     vs1.setText(null);
     ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
-    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs1, null, false);
+    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, vs1, null, false);
     return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(vs1.getText().getDiv())+VS_INC_END;
   }
 
@@ -8211,7 +8211,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setText(null);
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
 
-      new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp, vs, false);
+      new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, exp, vs, false);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       e.printStackTrace();

@@ -522,7 +522,7 @@ public class ValidationEngine {
     for (ValidationMessage vm : filterMessages(messages)) {
       op.getIssue().add(OperationOutcomeUtilities.convertToIssue(vm, op));
     }
-    new NarrativeGenerator("", "", context).generate(op);
+    new NarrativeGenerator("", "", context).generate(null, op);
     return op;
 	}
   

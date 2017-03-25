@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Factory;
@@ -19,6 +20,8 @@ import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.TextFile;
+
+import com.sun.corba.se.impl.ior.NewObjectKeyTemplateBase;
 
 
 public class ObjectConverter  {
@@ -85,6 +88,18 @@ public class ObjectConverter  {
       }
     }
     return b;
+  }
+
+  public Resource convert(Element element) throws FHIRException {
+    ByteArrayOutputStream bo = new ByteArrayOutputStream();
+    try {
+      new JsonParser(context).compose(element, bo, OutputStyle.NORMAL, null);
+      return new org.hl7.fhir.dstu3.formats.JsonParser().parse(bo.toByteArray());
+    } catch (IOException e) {
+      // won't happen
+      throw new FHIRException(e);
+    }
+    
   }
 
 

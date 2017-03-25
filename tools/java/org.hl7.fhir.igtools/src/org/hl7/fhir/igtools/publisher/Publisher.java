@@ -60,11 +60,13 @@ import org.hl7.fhir.dstu3.elementmodel.TurtleParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.Composition;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.ContactDetail;
@@ -101,6 +103,7 @@ import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceContext;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
@@ -129,6 +132,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
@@ -237,6 +241,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private HashMap<String, FetchedResource> resources = new HashMap<String, FetchedResource>();
   private HashMap<String, ImplementationGuidePageComponent> igPages = new HashMap<String, ImplementationGuidePageComponent>();
   private List<String> logOptions = new ArrayList<String>();
+  private List<String> listedURLExemptions = new ArrayList<String>();
+  
   private long globalStart;
 
   private ILoggingService logger = this;
@@ -352,6 +358,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         } else {
           if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
             gen.generate(r.getElement(), true);
+          } else if (r.getElement().fhirType().equals("Bundle")) {
+            for (Element e : r.getElement().getChildrenByName("entry")) {
+              Element res = e.getNamedChild("resource");
+              if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
+                gen.generate(gen.new ResourceContext(r.getElement(), res), res, true);
+              }
+            }
           }
         }
       }
@@ -715,6 +728,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         loadIg((JsonObject) dep);
       }
     }
+    JsonArray urls = configuration.getAsJsonArray("special-urls");
+    if (urls != null) {
+      for (JsonElement url : urls) {
+        listedURLExemptions.add(url.getAsString());
+      }
+    }
+    
     log("Initialization complete");
     // now, do regeneration
     JsonArray regenlist = configuration.getAsJsonArray("regenerate");
@@ -1495,6 +1515,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res); 
         }
+        if (ver.equals(version)) { // in current version
+          if (r.getResource() == null)
+            r.setResource(new ObjectConverter(context).convert(r.getElement()));
+        }
       } catch ( Exception ex ) {
         throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
       }
@@ -1951,9 +1975,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         String u = igpkp.getCanonical()+r.getUrlTail();
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           String uc = ((MetadataResource) r.getResource()).getUrl();
-          if (uc != null && !u.equals(uc) && !u.startsWith("http://hl7.org/fhir/template-adhoc-ig") && !(r.getResource() instanceof CodeSystem) && !(r.getResource() instanceof ImplementationGuide))
+          if (uc != null && !u.equals(uc) && !isListedURLExemption(uc))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
-          if (!uc.startsWith(igpkp.getCanonical()))
+          if (uc != null && !uc.startsWith(igpkp.getCanonical()))
             map.path(uc, igpkp.getLinkFor(r));
         }
         map.path(u, igpkp.getLinkFor(r));
@@ -1974,6 +1998,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (generateExampleZip(FhirFormat.TURTLE))
       generateDefinitions(FhirFormat.TURTLE, df.getAbsolutePath());
     generateValidationPack();
+  }
+
+  private boolean isListedURLExemption(String uc) {
+    return listedURLExemptions.contains(uc);
   }
 
   private void generateDefinitions(FhirFormat fmt, String specFile)  throws Exception {
@@ -2834,7 +2862,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         gen.setTooCostlyNoteEmpty("This value set cannot be expanded because of the way it is defined - it has an infinite number of members");
         exp.getValueset().setCompose(null);
         exp.getValueset().setText(null);
-        gen.generate(exp.getValueset(), false);
+        gen.generate(null, exp.getValueset(), false);
         String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
         fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames(), r, vars, null);
       } else if (exp.getError() != null)
@@ -2964,7 +2992,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
   }
 
-  private XhtmlNode getXhtml(FetchedResource r) {
+  private XhtmlNode getXhtml(FetchedResource r) throws FHIRException {
     if (r.getResource() != null && r.getResource() instanceof DomainResource) {
       DomainResource dr = (DomainResource) r.getResource();
       if (dr.getText().hasDiv())
@@ -2974,15 +3002,40 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     if (r.getResource() != null && r.getResource() instanceof Bundle) {
       Bundle b = (Bundle) r.getResource();
-      if (b.hasEntry() && b.getEntryFirstRep().hasResource() && b.getEntryFirstRep().getResource() instanceof DomainResource) {
-        DomainResource dr = (DomainResource) b.getEntryFirstRep().getResource();
-        if ( dr.getText().hasDiv())
-          return dr.getText().getDiv();
-        else
-          return null;
+      if (b.getType() == BundleType.DOCUMENT) {
+        if (!b.hasEntry() || !(b.getEntryFirstRep().hasResource() && b.getEntryFirstRep().getResource() instanceof Composition))
+          throw new FHIRException("Invalid document - first entry is not a Composition");
+        Composition dr = (Composition) b.getEntryFirstRep().getResource();
+        return dr.getText().getDiv();
+      } else  {
+        XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
+        for (BundleEntryComponent be : b.getEntry()) {
+          if (be.hasResource() && be.getResource() instanceof DomainResource) {
+            DomainResource dr = (DomainResource) b.getEntryFirstRep().getResource();
+            if ( dr.getText().hasDiv())
+              root.getChildNodes().addAll(dr.getText().getDiv().getChildNodes());
+          }
+          root.hr();
+        }
+        return root;
       }
     }
-    Element text = r.getElement().getNamedChild("text");
+    if (r.getElement().fhirType().equals("Bundle")) {
+      XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
+      for (Base b : r.getElement().listChildrenByName("entry")) {
+        XhtmlNode c = getHtmlForResource(((Element) b).getNamedChild("resource"));
+        if (c != null)
+          root.getChildNodes().addAll(c.getChildNodes());
+        root.hr();
+      }
+      return root;
+    } else {
+      return getHtmlForResource(r.getElement());
+    }
+  }
+
+  private XhtmlNode getHtmlForResource(Element element) {
+    Element text = element.getNamedChild("text");
     if (text == null)
       return null;
     Element div = text.getNamedChild("div");
