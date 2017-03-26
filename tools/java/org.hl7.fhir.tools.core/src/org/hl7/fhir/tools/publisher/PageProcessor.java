@@ -7672,6 +7672,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public void setBaseURL(String baseURL) {
     this.baseURL = !baseURL.endsWith("/") ? baseURL : baseURL + "/";
+    if ("http://hl7-fhir.github.io".equals(this.baseURL)) // work around for a build script issue? see GF#12664
+      this.baseURL = "http://build.fhir.org";
   }
 
   @Override
