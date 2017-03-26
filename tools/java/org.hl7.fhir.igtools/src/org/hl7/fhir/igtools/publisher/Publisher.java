@@ -352,7 +352,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
             regen = gen.generate((DomainResource) r.getResource());
           if (r.getResource() instanceof Bundle)
-            regen = gen.generate((Bundle) r.getResource());
+            regen = gen.generate((Bundle) r.getResource(), false);
           if (regen)
             r.setElement(convertToElement(r.getResource()));
         } else {
@@ -3002,33 +3002,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     if (r.getResource() != null && r.getResource() instanceof Bundle) {
       Bundle b = (Bundle) r.getResource();
-      if (b.getType() == BundleType.DOCUMENT) {
-        if (!b.hasEntry() || !(b.getEntryFirstRep().hasResource() && b.getEntryFirstRep().getResource() instanceof Composition))
-          throw new FHIRException("Invalid document - first entry is not a Composition");
-        Composition dr = (Composition) b.getEntryFirstRep().getResource();
-        return dr.getText().getDiv();
-      } else  {
-        XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
-        for (BundleEntryComponent be : b.getEntry()) {
-          if (be.hasResource() && be.getResource() instanceof DomainResource) {
-            DomainResource dr = (DomainResource) b.getEntryFirstRep().getResource();
-            if ( dr.getText().hasDiv())
-              root.getChildNodes().addAll(dr.getText().getDiv().getChildNodes());
-          }
-          root.hr();
-        }
-        return root;
-      }
+      return new NarrativeGenerator("",  null, context).renderBundle(b);
     }
     if (r.getElement().fhirType().equals("Bundle")) {
-      XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
-      for (Base b : r.getElement().listChildrenByName("entry")) {
-        XhtmlNode c = getHtmlForResource(((Element) b).getNamedChild("resource"));
-        if (c != null)
-          root.getChildNodes().addAll(c.getChildNodes());
-        root.hr();
-      }
-      return root;
+      return new NarrativeGenerator("",  null, context).renderBundle(r.getElement());
     } else {
       return getHtmlForResource(r.getElement());
     }

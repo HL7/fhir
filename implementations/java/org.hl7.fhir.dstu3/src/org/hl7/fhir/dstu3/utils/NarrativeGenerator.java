@@ -59,6 +59,10 @@ import org.hl7.fhir.dstu3.model.Base64BinaryType;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryRequestComponent;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryResponseComponent;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntrySearchComponent;
+import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CapabilityStatement;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
@@ -87,6 +91,7 @@ import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.ContactDetail;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DiagnosticReport;
 import org.hl7.fhir.dstu3.model.DomainResource;
@@ -103,6 +108,7 @@ import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Meta;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.OperationDefinition;
@@ -114,6 +120,7 @@ import org.hl7.fhir.dstu3.model.Period;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Property;
 import org.hl7.fhir.dstu3.model.Quantity;
+import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Range;
 import org.hl7.fhir.dstu3.model.Ratio;
 import org.hl7.fhir.dstu3.model.Reference;
@@ -157,6 +164,7 @@ import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.w3c.dom.Element;
 
 import com.github.rjeschke.txtmark.Processor;
+import com.sun.webkit.BackForwardList;
 
 public class NarrativeGenerator implements INarrativeGenerator {
 
@@ -208,13 +216,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private Bundle bundle;
 
-  public boolean generate(Bundle b) throws EOperationOutcome, FHIRException, IOException {
+  public boolean generate(Bundle b, boolean evenIfAlreadyHasNarrative) throws EOperationOutcome, FHIRException, IOException {
     boolean res = false;
     this.bundle = b;
     for (BundleEntryComponent be : b.getEntry()) {
       if (be.hasResource() && be.getResource() instanceof DomainResource) {
         DomainResource dr = (DomainResource) be.getResource();
-        res = generate(new ResourceContext(b, dr), dr) || res;
+        if (evenIfAlreadyHasNarrative || !dr.getText().hasDiv())
+          res = generate(new ResourceContext(b, dr), dr) || res;
       }
     }
     return res;
@@ -3249,16 +3258,22 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private void AddVsRef(ResourceContext rcontext, String value, XhtmlNode li) {
     Resource res = rcontext.resolve(value); 
-    if (res != null && !(res instanceof ValueSet)) {
+    if (res != null && !(res instanceof MetadataResource)) {
       li.addText(value);
-      System.out.println("Value set "+value+" resolves to something that is not value set");
       return;      
     }      
-    ValueSet vs = (ValueSet) res;
+    MetadataResource vs = (MetadataResource) res;
     if (vs == null)
       context.fetchResource(ValueSet.class, value);
+    if (vs == null)
+      context.fetchResource(StructureDefinition.class, value);
+//    if (vs == null)
+//      context.fetchResource(DataElement.class, value);
+    if (vs == null)
+      context.fetchResource(Questionnaire.class, value);
     if (vs != null) {
       String ref = (String) vs.getUserData("path");
+      
       ref = adjustForPath(ref);
       XhtmlNode a = li.ah(ref == null ? "??" : ref.replace("\\", "/"));
       a.addText(value);
@@ -4105,6 +4120,101 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private List<ObservationNode> fetchObservations(List<BaseWrapper> list) {
     return new ArrayList<NarrativeGenerator.ObservationNode>();
+  }
+
+  public XhtmlNode renderBundle(Bundle b) throws FHIRException {
+    if (b.getType() == BundleType.DOCUMENT) {
+      if (!b.hasEntry() || !(b.getEntryFirstRep().hasResource() && b.getEntryFirstRep().getResource() instanceof Composition))
+        throw new FHIRException("Invalid document - first entry is not a Composition");
+      Composition dr = (Composition) b.getEntryFirstRep().getResource();
+      return dr.getText().getDiv();
+    } else  {
+      XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
+      root.para().addText("Bundle "+b.getId()+" of type "+b.getType().toCode());
+      int i = 0;
+      for (BundleEntryComponent be : b.getEntry()) {
+        root.hr();
+        root.para().addText("Entry "+Integer.toString(i)+(be.hasFullUrl() ? "Full URL = " + be.getFullUrl() : ""));
+        if (be.hasRequest())
+          renderRequest(root, be.getRequest());
+        if (be.hasSearch())
+          renderSearch(root, be.getSearch());
+        if (be.hasResponse())
+          renderResponse(root, be.getResponse());
+        if (be.hasResource()) {
+          root.para().addText("Resource "+be.getResource().fhirType()+":");
+          if (be.hasResource() && be.getResource() instanceof DomainResource) {
+            DomainResource dr = (DomainResource) be.getResource();
+            if ( dr.getText().hasDiv())
+              root.blockquote().getChildNodes().addAll(dr.getText().getDiv().getChildNodes());
+          }
+        }
+      }
+      return root;
+    }
+  }
+
+  private void renderSearch(XhtmlNode root, BundleEntrySearchComponent search) {
+    StringBuilder b = new StringBuilder();
+    b.append("Search: ");
+    if (search.hasMode())
+      b.append("mode = "+search.getMode().toCode());
+    if (search.hasScore()) {
+      if (search.hasMode())
+        b.append(",");
+      b.append("score = "+search.getScore());
+    }
+    root.para().addText(b.toString());    
+  }
+
+  private void renderResponse(XhtmlNode root, BundleEntryResponseComponent response) {
+    root.para().addText("Request:");
+    StringBuilder b = new StringBuilder();
+    b.append(response.getStatus()+"\r\n");
+    if (response.hasLocation())
+      b.append("Location: "+response.getLocation()+"\r\n");
+    if (response.hasEtag())
+      b.append("E-Tag: "+response.getEtag()+"\r\n");
+    if (response.hasLastModified())
+      b.append("LastModified: "+response.getEtag()+"\r\n");
+    root.pre().addText(b.toString());    
+  }
+
+  private void renderRequest(XhtmlNode root, BundleEntryRequestComponent request) {
+    root.para().addText("Response:");
+    StringBuilder b = new StringBuilder();
+    b.append(request.getMethod()+" "+request.getUrl()+"\r\n");
+    if (request.hasIfNoneMatch())
+      b.append("If-None-Match: "+request.getIfNoneMatch()+"\r\n");
+    if (request.hasIfModifiedSince())
+      b.append("If-Modified-Since: "+request.getIfModifiedSince()+"\r\n");
+    if (request.hasIfMatch())
+      b.append("If-Match: "+request.getIfMatch()+"\r\n");
+    if (request.hasIfNoneExist())
+      b.append("If-None-Exist: "+request.getIfNoneExist()+"\r\n");
+    root.pre().addText(b.toString());    
+  }
+
+  public XhtmlNode renderBundle(org.hl7.fhir.dstu3.elementmodel.Element element) throws FHIRException {
+    XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
+    for (Base b : element.listChildrenByName("entry")) {
+      XhtmlNode c = getHtmlForResource(((org.hl7.fhir.dstu3.elementmodel.Element) b).getNamedChild("resource"));
+      if (c != null)
+        root.getChildNodes().addAll(c.getChildNodes());
+      root.hr();
+    }
+    return root;
+  }
+
+  private XhtmlNode getHtmlForResource(org.hl7.fhir.dstu3.elementmodel.Element element) {
+    org.hl7.fhir.dstu3.elementmodel.Element text = element.getNamedChild("text");
+    if (text == null)
+      return null;
+    org.hl7.fhir.dstu3.elementmodel.Element div = text.getNamedChild("div");
+    if (div == null)
+      return null;
+    else
+      return div.getXhtml();
   }
 
 }

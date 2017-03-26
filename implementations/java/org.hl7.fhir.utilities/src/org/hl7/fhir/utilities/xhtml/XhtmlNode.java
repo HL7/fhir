@@ -532,4 +532,9 @@ public class XhtmlNode implements IBaseXhtml {
     addTag("code").tx(text);
   }
 
+
+  public XhtmlNode blockquote() {
+    return addTag("blockquote");
+  }
+
 }
