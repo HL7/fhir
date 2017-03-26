@@ -28,6 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 package org.hl7.fhir.utilities.xhtml;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -535,6 +536,29 @@ public class XhtmlNode implements IBaseXhtml {
 
   public XhtmlNode blockquote() {
     return addTag("blockquote");
+  }
+
+
+  @Override
+  public String toString() {
+    switch (nodeType) {
+    case Document: 
+    case Element:
+      try {
+        return new XhtmlComposer().compose(this);
+      } catch (IOException e) {
+        return super.toString();
+      }
+    case Text:
+      return this.content;
+    case Comment:
+      return "<!-- "+this.content+" -->";
+    case DocType: 
+      return "<? "+this.content+" />";
+    case Instruction:
+      return "<? "+this.content+" />";
+    }
+    return super.toString();
   }
 
 }

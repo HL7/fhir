@@ -83,7 +83,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same - check short description"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all($this.short = fixture('patient').snapshot.element.where(path = $this(1).path).short)"/>
+        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
       </assert>
     </action>
     <action> 
@@ -91,7 +91,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same - check min cardinality"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all($this.min = fixture('patient').snapshot.element.where(path = $this(1).path).min)"/>
+        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').min = fixture('patient').snapshot.element.where(path = alias('A').path).min)"/>
       </assert>
     </action>
     <action> 
@@ -99,7 +99,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same - check max cardinality"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all($this.max = fixture('patient').snapshot.element.where(path = $this(1).path).max)"/>
+        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').max = fixture('patient').snapshot.element.where(path = alias('A').path).max)"/>
       </assert>
     </action>
     <action> 
@@ -107,7 +107,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same - check binding"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all($this.binding.valueSet = fixture('patient').snapshot.element.where(path = $this(1).path).binding.valueSet)"/>
+        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').binding.valueSet = fixture('patient').snapshot.element.where(path = alias('A').path).binding.valueSet)"/>
       </assert>
     </action>
   </test>
@@ -140,7 +140,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all($this.short = fixture('valueset').snapshot.element.where(path = $this(1).path).short)"/>
+        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('valueset').snapshot.element.where(path = alias('A').path).short)"/>
       </assert>
     </action>
   </test>
@@ -173,7 +173,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all($this.short = fixture('patient').snapshot.element.where(path = $this(1).path).short)"/>
+        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
       </assert>
     </action>
     <action> 
@@ -186,5 +186,4 @@
     </action>
   </test>
 
-  
 </TestScript>
