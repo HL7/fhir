@@ -155,6 +155,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   public static final String DERIVATION_POINTER = "derived.pointer";
   public static final String IS_DERIVED = "derived.fact";
   public static final String UD_ERROR_STATUS = "error-status";
+  private static final String GENERATED_IN_SNAPSHOT = "profileutilities.snapshot.processed";
 
   // note that ProfileUtilities are used re-entrantly internally, so nothing with process state can be here
   private final IWorkerContext context;
@@ -340,6 +341,9 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (derived.hasDifferential() && !derived.getDifferential().getElementFirstRep().getPath().contains(".") && !derived.getDifferential().getElementFirstRep().getType().isEmpty())
       throw new Error("type on first differential element!");
 
+    for (ElementDefinition e : derived.getDifferential().getElement()) 
+      e.clearUserData(GENERATED_IN_SNAPSHOT);
+    
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
     processPaths("", derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, 
         derived.getDifferential().hasElement() ? derived.getDifferential().getElement().size()-1 : -1, url, derived.getId(), null, null, false, base.getUrl(), null, false);
@@ -350,7 +354,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     
     //Check that all differential elements have a corresponding snapshot element
     for (ElementDefinition e : derived.getDifferential().getElement()) {
-      if (!findMatchingElement(e.getId(), derived.getSnapshot().getElement())) {
+      if (!e.hasUserData(GENERATED_IN_SNAPSHOT)) {
         System.out.println("Error in snapshot generation: Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
         System.out.println("Differential: ");
         for (ElementDefinition ed : derived.getDifferential().getElement())
@@ -379,7 +383,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         b.append("|");
       b.append(d.getPath());
     }
-    return " (slicing = "+b.toString()+")";
+    return " (slicing by "+b.toString()+")";
   }
 
 
@@ -419,6 +423,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       int diffLimit, String url, String profileName, String contextPathSrc, String contextPathDst, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingDone) throws DefinitionException, FHIRException {
 
     System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
+    boolean testDoneFlag = false;
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
@@ -504,6 +509,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             }
           }
         } else {
+          testDoneFlag = true;
           // ok, the differential slices the item. Let's check our pre-conditions to ensure that this is correct
           if (!unbounded(currentBase) && !isSlicedToOneOnly(diffMatches.get(0)))
             // you can only slice an element that doesn't repeat if the sum total of your slices is limited to 1
@@ -716,6 +722,9 @@ public class ProfileUtilities extends TranslatingUtilities {
       }
     }
 
+    if (testDoneFlag)
+      testDoneFlag = false;
+    
     int i = 0;
     for (ElementDefinition e : result.getElement()) {
       i++;
@@ -1057,6 +1066,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
   private void updateFromDefinition(ElementDefinition dest, ElementDefinition source, String pn, boolean trimDifferential, String purl) throws DefinitionException, FHIRException {
+    source.setUserData(GENERATED_IN_SNAPSHOT, true);
     // we start with a clone of the base profile ('dest') and we copy from the profile ('source')
     // over the top for anything the source has
     ElementDefinition base = dest;

@@ -511,6 +511,9 @@
 					<sliceName value="latitude"/>
 				</element>
 				<element>
+					<path value="Patient.address.extension.extension.valueDecimal"/>
+				</element>
+				<element>
 					<path value="Patient.address.extension.extension.valueDecimal.extension"/>
 					<sliceName value="Geolocation.latitude.rendered"/>
 					<type>
@@ -526,6 +529,9 @@
 				<element>
 					<path value="Patient.address.extension.extension"/>
 					<sliceName value="longitude"/>
+				</element>
+				<element>
+					<path value="Patient.address.extension.extension.valueDecimal"/>
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension.valueDecimal.extension"/>
@@ -1332,7 +1338,7 @@
 			<assert>
 				<label value="test16-1"/>
 				<description value="element count increased by 11"/>
-				<expression value="fixture('simple16-output').snapshot.element.count() = fixture('simple15-output').snapshot.element.count() + 19"/>
+				<expression value="fixture('simple16-output').snapshot.element.count().trace('o') = fixture('simple15-output').snapshot.element.count().trace('b') + 15"/>
 			</assert>
 		</action>
 	</test>
