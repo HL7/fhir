@@ -487,7 +487,7 @@ public class FHIRPathEngine {
     if (item.isPrimitive())
       return item.primitiveValue();
     else 
-      return item.getClass().getName();
+      return item.toString();
   }
 
   /**

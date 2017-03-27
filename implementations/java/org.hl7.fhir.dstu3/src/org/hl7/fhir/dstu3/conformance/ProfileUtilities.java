@@ -89,6 +89,9 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  *  * generateTable: generate  the HTML for a hierarchical table presentation of a structure
  *  * generateSpanningTable: generate the HTML for a table presentation of a network of structures, starting at a nominated point
  *  * summarise: describe the contents of a profile
+ *  
+ * note to maintainers: Do not make modifications to the snapshot generation without first changing the snapshot generation test cases to demonstrate the grounds for your change
+ *  
  * @author Grahame
  *
  */
@@ -347,11 +350,52 @@ public class ProfileUtilities extends TranslatingUtilities {
     
     //Check that all differential elements have a corresponding snapshot element
     for (ElementDefinition e : derived.getDifferential().getElement()) {
-      if (!findMatchingElement(e.getId(), derived.getSnapshot().getElement()))
+      if (!findMatchingElement(e.getId(), derived.getSnapshot().getElement())) {
+        System.out.println("Error in snapshot generation: Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
+        System.out.println("Differential: ");
+        for (ElementDefinition ed : derived.getDifferential().getElement())
+          System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId());
+        System.out.println("Snapshot: ");
+        for (ElementDefinition ed : derived.getSnapshot().getElement())
+          System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId());
         throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
 //        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
+      }
     }
   }
+
+  private String sliceSummary(ElementDefinition ed) {
+    if (!ed.hasSlicing() && !ed.hasSliceName())
+      return "";
+    if (ed.hasSliceName())
+      return " (slicename = "+ed.getSliceName()+")";
+    
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (ElementDefinitionSlicingDiscriminatorComponent d : ed.getSlicing().getDiscriminator()) {
+      if (first) 
+        first = false;
+      else
+        b.append("|");
+      b.append(d.getPath());
+    }
+    return " (slicing = "+b.toString()+")";
+  }
+
+
+  private String typeSummary(ElementDefinition ed) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (TypeRefComponent tr : ed.getType()) {
+      if (first) 
+        first = false;
+      else
+        b.append("|");
+      b.append(tr.getCode());
+    }
+    return b.toString();
+  }
+
 
   private boolean findMatchingElement(String id, List<ElementDefinition> list) {
     for (ElementDefinition ed : list) {
@@ -374,13 +418,13 @@ public class ProfileUtilities extends TranslatingUtilities {
   private void processPaths(String indent, StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
       int diffLimit, String url, String profileName, String contextPathSrc, String contextPathDst, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingDone) throws DefinitionException, FHIRException {
 
-//    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
+    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
       ElementDefinition currentBase = base.getElement().get(baseCursor);
       String cpath = fixedPath(contextPathSrc, currentBase.getPath());
-//      System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
+      System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicingDone = "+slicingDone+")");
       List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit, profileName, url); // get a list of matching elements in scope
 
       // in the simple case, source is not sliced.
@@ -587,7 +631,7 @@ public class ProfileUtilities extends TranslatingUtilities {
               // now we process the base scope repeatedly for each instance of the item in the differential list
               processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, diffpos), contextPathSrc, contextPathDst, closed, contextName, resultPathBase, true);
               // ok, done with that - now set the cursors for if this is the end
-              baseCursor = nbl+1;
+              baseCursor = nbl;
               diffCursor = ndl+1;
               diffpos++;
             } else {

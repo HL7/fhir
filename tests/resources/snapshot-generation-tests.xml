@@ -448,6 +448,9 @@
 			<derivation value="constraint"/>
 			<differential>
 				<element>
+					<path value="Patient.address"/>
+				</element> 
+				<element>
 					<path value="Patient.address.extension"/>
 					<sliceName value="Geolocation"/>
 					<type>
@@ -458,7 +461,7 @@
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension"/>
-					<sliceName value="Geolocation.latitude"/>
+					<sliceName value="latitude"/>
 					<type>
             <code value="Extension"/>
             <profile value="latitude"/>
@@ -471,7 +474,7 @@
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension"/>
-					<sliceName value="Geolocation.longitude"/>
+					<sliceName value="longitude"/>
 					<type>
             <code value="Extension"/>
             <profile value="longitude"/>
@@ -501,7 +504,7 @@
       <differential>
 				<element>
 					<path value="Patient.address.extension.extension"/>
-					<sliceName value="Geolocation.latitude"/>
+					<sliceName value="latitude"/>
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension.valueDecimal.extension"/>
@@ -518,7 +521,7 @@
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension"/>
-					<sliceName value="Geolocation.longitude"/>
+					<sliceName value="longitude"/>
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension.valueDecimal.extension"/>
@@ -563,6 +566,12 @@
 			<reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
 		</resource>
 	</fixture>
+	<fixture id="organization">
+		<resource>
+			<reference value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+		</resource>
+	</fixture>
+  
 	<!-- test #1: no change in the differential -->
 	<test>
 		<name value="Simple1"/>
@@ -835,8 +844,8 @@
 			</assert>
 		</action>
 	</test>
+  
 	<!-- test #9: test walking into a type (sparsely) -->
-	<!-- not working at the moment 
   <test>
     <name value="Simple9"/>
     <description value="test mapping resolution"/>
@@ -868,7 +877,7 @@
       </assert>
     </action>
   </test>     
-  -->
+
 	<!-- test #10: simple slicing -->
 	<test>
 		<name value="Simple10"/>
@@ -1242,15 +1251,15 @@
 		<action>
 			<assert>
 				<label value="test13-23"/>
-				<description value="element 22.value path"/>
-				<expression value="fixture('simple13-output').snapshot.element[22].path = 'Patient.extension.value[x]'"/>
+				<description value="element 22.url path"/>
+				<expression value="fixture('simple13-output').snapshot.element[22].path = 'Patient.extension.url'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-24"/>
-				<description value="element 23.url path"/>
-				<expression value="fixture('simple13-output').snapshot.element[23].path = 'Patient.extension.url'"/>
+				<description value="element 22.value path"/>
+				<expression value="fixture('simple13-output').snapshot.element[23].path = 'Patient.extension.value[x]'"/>
 			</assert>
 		</action>
 	</test>
@@ -1273,7 +1282,7 @@
 			<assert>
 				<label value="test14-1"/>
 				<description value="element count increased by 13"/>
-				<expression value="fixture('simple14-output').snapshot.element.count() = fixture('patient').snapshot.element.count() + 13"/>
+				<expression value="fixture('simple14-output').snapshot.element.count() = fixture('organization').snapshot.element.count() + 13"/>
 			</assert>
 		</action>
 	</test>
@@ -1295,8 +1304,8 @@
 		<action>
 			<assert>
 				<label value="test15-1"/>
-				<description value="element count increased by 11"/>
-				<expression value="fixture('simple15-output').snapshot.element.count() = fixture('patient').snapshot.element.count() + 15"/>
+				<description value="element count increased by 27"/>
+				<expression value="fixture('simple15-output').snapshot.element.count() = fixture('patient').snapshot.element.count() + 27"/>
 			</assert>
 		</action>
 	</test>

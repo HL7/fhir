@@ -31,9 +31,10 @@ import org.hl7.fhir.dstu3.model.TestScript.TestScriptFixtureComponent;
 import org.hl7.fhir.dstu3.model.TestScript.TestScriptTestComponent;
 import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.test.support.TestingUtilities;
-import org.hl7.fhir.dstu3.util.CodingUtilities;
+import org.hl7.fhir.dstu3.utils.CodingUtilities;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -53,6 +54,7 @@ public class SnapShotGenerationTests {
 
   private static class SnapShotGenerationTestsContext implements IEvaluationContext {
     private Map<String, Resource> fixtures;
+    private Map<String, StructureDefinition> snapshots = new HashMap<String, StructureDefinition>();
     public TestScript tests;
 
     public void checkTestsDetails() {
@@ -229,12 +231,13 @@ public class SnapShotGenerationTests {
     
     SetupActionOperationComponent op = test.getActionFirstRep().getOperation();
     StructureDefinition source = (StructureDefinition) context.fetchFixture(op.getSourceId());
-    StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, source.getBaseDefinition());
+    StructureDefinition base = getSD(source.getBaseDefinition()); 
     StructureDefinition output = source.copy();
     ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
     pu.setIds(source, false);
     pu.generateSnapshot(base, output, source.getUrl(), source.getName());
     context.fixtures.put(op.getResponseId(), output);
+    context.snapshots.put(output.getUrl(), output);
     
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
     //ok, now the asserts:
@@ -244,6 +247,31 @@ public class SnapShotGenerationTests {
     }
   }
 
+
+  private StructureDefinition getSD(String url) throws DefinitionException, FHIRException {
+    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, url);
+    if (sd == null)
+      sd = context.snapshots.get(url);
+    if (sd == null)
+      sd = findContainedProfile(url);
+    return sd;
+  }
+
+  private StructureDefinition findContainedProfile(String url) throws DefinitionException, FHIRException {
+    for (Resource r : context.tests.getContained()) {
+      if (r instanceof StructureDefinition) {
+        StructureDefinition sd = (StructureDefinition) r;
+        if  (sd.getUrl().equals(url)) {
+          StructureDefinition p = sd.copy();
+          ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
+          pu.setIds(p, false);
+          pu.generateSnapshot(getSD(p.getBaseDefinition()), p, p.getUrl(), p.getName());
+          return p;
+        }
+      }
+    }
+    return null;
+  }
 
   private void resolveFixtures() {
     if (context.fixtures == null) {

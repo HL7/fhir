@@ -1,4 +1,4 @@
-package org.hl7.fhir.dstu3.util;
+package org.hl7.fhir.dstu3.utils;
 
 import java.util.List;
 
