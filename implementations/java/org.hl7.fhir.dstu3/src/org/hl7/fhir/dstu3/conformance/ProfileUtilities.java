@@ -484,14 +484,13 @@ public class ProfileUtilities extends TranslatingUtilities {
 
           // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
           int start = 0;
-          boolean skipSlicingElement = false;
           if (!diffMatches.get(0).hasSliceName()) {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
             if (!outcome.hasType()) {
               throw new DefinitionException("not done yet");
             }
-            result.getElement().remove(result.getElement().size()-1);
-            skipSlicingElement = true;
+            start++;
+            // result.getElement().remove(result.getElement().size()-1);
           } else 
             checkExtensionDoco(outcome);
 
@@ -2927,7 +2926,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       while (depth < paths.size() && paths.size() > 0)
         paths.remove(paths.size() - 1);
       
-      String t = ed.hasSliceName() ? tail+":"+checkName(ed.getSliceName()) : name != null ? tail + ":"+checkName(name) : tail;
+      String t = ed.hasSliceName() ? tail+":"+checkName(ed.getSliceName()) : /* why do this? name != null ? tail + ":"+checkName(name) : */ tail;
 //      if (isExtension(ed))
 //        t = t + describeExtension(ed);
       name = null;

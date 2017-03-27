@@ -578,7 +578,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-element-order"/>
+				<label value="test1-1"/>
 				<description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
 				<direction value="response"/>
 				<expression value="fixture('simple1-output').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
@@ -586,7 +586,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test1-2"/>
 				<description value="The snapshot elements must be the same - check short description"/>
 				<direction value="response"/>
 				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
@@ -594,7 +594,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test1-3"/>
 				<description value="The snapshot elements must be the same - check min cardinality"/>
 				<direction value="response"/>
 				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').min = fixture('patient').snapshot.element.where(path = alias('A').path).min)"/>
@@ -602,7 +602,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test1-4"/>
 				<description value="The snapshot elements must be the same - check max cardinality"/>
 				<direction value="response"/>
 				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').max = fixture('patient').snapshot.element.where(path = alias('A').path).max)"/>
@@ -610,7 +610,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test1-5"/>
 				<description value="The snapshot elements must be the same - check binding"/>
 				<direction value="response"/>
 				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').binding.valueSet = fixture('patient').snapshot.element.where(path = alias('A').path).binding.valueSet)"/>
@@ -634,7 +634,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-element-order"/>
+				<label value="test2-1"/>
 				<description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
 				<direction value="response"/>
 				<expression value="fixture('simple2-output').snapshot.element.select(path) = fixture('valueset').snapshot.element.select(path)"/>
@@ -642,7 +642,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test2-2"/>
 				<description value="The snapshot elements must be the same"/>
 				<direction value="response"/>
 				<expression value="fixture('simple2-output').snapshot.element.all(aliasAs('A').short = fixture('valueset').snapshot.element.where(path = alias('A').path).short)"/>
@@ -666,7 +666,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-element-order"/>
+				<label value="test3-1"/>
 				<description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
 				<direction value="response"/>
 				<expression value="fixture('simple3-output').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
@@ -674,7 +674,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test3-2"/>
 				<description value="The snapshot elements must be the same"/>
 				<direction value="response"/>
 				<expression value="fixture('simple3-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
@@ -682,7 +682,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test3-3"/>
 				<description value="The patient.identifier cardinality must be right"/>
 				<direction value="response"/>
 				<expression value="fixture('simple3-output').snapshot.element.where(path = 'Patient.identifier').min = 1"/>
@@ -706,7 +706,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test4-1"/>
 				<description value="The patient.identifier documentation must be right"/>
 				<direction value="response"/>
 				<expression value="fixture('simple4-output').snapshot.element.where(path = 'Patient.identifier').doco != '... some more doco'"/>
@@ -730,7 +730,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test5-1"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
 				<expression value="fixture('simple5-output').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
@@ -738,7 +738,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test5-2"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
 				<expression value="fixture('simple5-output').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
@@ -762,7 +762,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test6-1"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
 				<expression value="fixture('simple6-output').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
@@ -770,7 +770,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test6-1"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
 				<expression value="fixture('simple6-output').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
@@ -794,7 +794,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test7-1"/>
 				<description value="The mapping must be made"/>
 				<direction value="response"/>
 				<expression value="fixture('simple7-output').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() = fixture('simple1-output').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() + 1"/>
@@ -818,7 +818,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test8-1"/>
 				<description value="Mustsupport must be true on Patient.identifier"/>
 				<direction value="response"/>
 				<expression value="fixture('simple8-output').snapshot.element.where(path = 'Patient.identifier').mustSupport"/>
@@ -826,7 +826,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test8-2"/>
 				<description value="Mustsupport must be true on Patient.identifier.system"/>
 				<direction value="response"/>
 				<expression value="fixture('simple8-output').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
@@ -851,7 +851,7 @@
     </action> 
     <action> 
       <assert>  
-        <label value="check-elements"/>
+        <label value="test9-1"/>
         <description value="Mustsupport must be true on Patient.identifier"/>
         <direction value="response"/>
         <expression value="fixture('simple9-output').snapshot.element.where(path = 'Patient.identifier').mustSupport.not()"/>
@@ -859,7 +859,7 @@
     </action>
     <action> 
       <assert>  
-        <label value="check-elements"/>
+        <label value="test9-2"/>
         <description value="Mustsupport must be true on Patient.identifier.system"/>
         <direction value="response"/>
         <expression value="fixture('simple9-output').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
@@ -884,7 +884,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test10-1"/>
 				<description value="Patient.identifier must be sliced"/>
 				<direction value="response"/>
 				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().slicing.exists()"/>
@@ -892,7 +892,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test10-2"/>
 				<description value="Patient.identifier must not have a slice name"/>
 				<direction value="response"/>
 				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().sliceName.empty()"/>
@@ -900,31 +900,31 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test10-3"/>
 				<description value="Patient.identifier must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().slicing.count() = 3"/>
+				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').count() = 3"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test10-4"/>
+				<description value="Patient.identifier slice must not have a slice name"/>
 				<direction value="response"/>
 				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test10-5"/>
+				<description value="Patient.identifier tail must have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().all(sliceName.empty().not()"/>
+				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test10-6"/>
 				<description value="Patient.identifier.use must be fixed"/>
 				<direction value="response"/>
 				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier.use').all(fixed.empty().not())"/>
@@ -948,7 +948,7 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test11-1"/>
 				<description value="Patient.extension must be sliced"/>
 				<direction value="response"/>
 				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
@@ -956,50 +956,50 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test11-2"/>
+				<description value="Patient.extension first must not have a slice name"/>
 				<direction value="response"/>
 				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must be sliced into two slices"/>
+				<label value="test11-3"/>
+				<description value="Patient.extension must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().slicing.count() = 3"/>
+				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').count() = 3"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test11-4"/>
+				<description value="Patient.extension must not have a slice name"/>
 				<direction value="response"/>
 				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test11-5"/>
+				<description value="Patient.extension tail must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not()"/>
+				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test11-6"/>
 				<description value="Patient.extension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.identifier').first().max.exists()"/>
+				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().max.exists()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test11-7"/>
 				<description value="Patient.extension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.identifier')[1].min.exists()"/>
+				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension')[1].min.exists()"/>
 			</assert>
 		</action>
 	</test>
@@ -1018,9 +1018,10 @@
 				<sourceId value="simple12"/>
 			</operation>
 		</action>
+
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test12-1"/>
 				<description value="Patient.extension must be sliced"/>
 				<direction value="response"/>
 				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
@@ -1028,53 +1029,45 @@
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test12-2"/>
+				<description value="Patient.extension first must not have a slice name"/>
 				<direction value="response"/>
 				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must be sliced into two slices"/>
+				<label value="test12-3"/>
+				<description value="Patient.extension must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().slicing.count() = 3"/>
+				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').count() = 3"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test12-4"/>
+				<description value="Patient.extension must not have a slice name"/>
 				<direction value="response"/>
 				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.identifier must not have a slice name"/>
+				<label value="test12-5"/>
+				<description value="Patient.extension tail must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not()"/>
+				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
-				<label value="check-elements"/>
+				<label value="test12-7"/>
 				<description value="Patient.extension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.identifier').first().max.exists()"/>
+				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension')[1].min.exists()"/>
 			</assert>
 		</action>
-		<action>
-			<assert>
-				<label value="check-elements"/>
-				<description value="Patient.extension cardinality must be correct"/>
-				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.identifier')[1].min.exists()"/>
-			</assert>
-		</action>
-	</test>
+  </test>
 	<!-- test #13: slicing on extension (complex) -->
 	<test>
 		<name value="Simple13"/>
@@ -1247,15 +1240,15 @@
 		<action>
 			<assert>
 				<label value="test13-23"/>
-				<description value="element 22 (2nd slice).url path"/>
-				<expression value="fixture('simple13-output').snapshot.element[22].path = 'Patient.extension.url'"/>
+				<description value="element 22.value path"/>
+				<expression value="fixture('simple13-output').snapshot.element[22].path = 'Patient.extension.value[x]'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-24"/>
-				<description value="element 23 (2nd slice).url path"/>
-				<expression value="fixture('simple13-output').snapshot.element[23].path = 'Patient.extension.value[x]'"/>
+				<description value="element 23.url path"/>
+				<expression value="fixture('simple13-output').snapshot.element[23].path = 'Patient.extension.url'"/>
 			</assert>
 		</action>
 	</test>

@@ -240,7 +240,7 @@ public class SnapShotGenerationTests {
     //ok, now the asserts:
     for (int i = 1; i < test.getAction().size(); i++) {
       SetupActionAssertComponent a = test.getAction().get(i).getAssert();
-      Assert.assertTrue(a.getDescription(), fp.evaluateToBoolean(source, source, a.getExpression()));
+      Assert.assertTrue(a.getLabel()+": "+a.getDescription(), fp.evaluateToBoolean(source, source, a.getExpression()));
     }
   }
 
