@@ -443,8 +443,8 @@
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
-			<type value="Basic"/>
-			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 			<derivation value="constraint"/>
 			<differential>
 				<element>
@@ -494,7 +494,7 @@
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
-			<type value="Basic"/>
+			<type value="Patient"/>
 			<!-- Building on #15 -->
 			<baseDefinition value="urn:uuid:78efa570-6e30-410d-ac5a-16ea423d13d4"/>
 			<derivation value="constraint"/>
