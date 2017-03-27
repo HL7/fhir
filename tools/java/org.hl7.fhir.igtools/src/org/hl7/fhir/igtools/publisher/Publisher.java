@@ -1515,7 +1515,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res); 
         }
-        if (ver.equals(version)) { // in current version
+        if (ver.equals(Constants.VERSION)) { // in current version
           if (r.getResource() == null)
             r.setResource(new ObjectConverter(context).convert(r.getElement()));
         }
