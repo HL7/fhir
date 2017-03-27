@@ -35,6 +35,41 @@
       </differential>
     </StructureDefinition>
   </contained> 
+  <contained>
+    <!-- fixture for #4: test appending documentation -->
+    <StructureDefinition>
+      <id value="simple4"/>
+      <url value="urn:uuid:bd88753d-72e7-4338-bac7-7c47fa56dcd8"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.identifier"/>
+          <definition value="... some more doco"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained> 
+  <contained>
+    <!-- fixture for #5: type narrowing #1 -->
+    <StructureDefinition>
+      <id value="simple5"/>
+      <url value="urn:uuid:bd88753d-72e7-4338-bac7-7c47fa56dcd8"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.deceased[x]"/>
+          <type>
+            <code value="dateTime"/>
+          </type>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
   <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
   <title value="Snapshot generation test script"/>
@@ -123,7 +158,7 @@
           <code value="snapshot"/>
         </type>
         <resource value="StructureDefinition"/>
-        <responseId value="simple1-output"/>
+        <responseId value="simple2-output"/>
         <sourceId value="simple2"/>
       </operation>
     </action> 
@@ -132,7 +167,7 @@
         <label value="check-element-order"/>
         <description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.select(path).trace('o') = fixture('valueset').snapshot.element.select(path).trace('b')"/>
+        <expression value="fixture('simple2-output').snapshot.element.select(path) = fixture('valueset').snapshot.element.select(path)"/>
       </assert>
     </action> 
     <action> 
@@ -140,7 +175,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('valueset').snapshot.element.where(path = alias('A').path).short)"/>
+        <expression value="fixture('simple2-output').snapshot.element.all(aliasAs('A').short = fixture('valueset').snapshot.element.where(path = alias('A').path).short)"/>
       </assert>
     </action>
   </test>
@@ -156,7 +191,7 @@
           <code value="snapshot"/>
         </type>
         <resource value="StructureDefinition"/>
-        <responseId value="simple1-output"/>
+        <responseId value="simple3-output"/>
         <sourceId value="simple3"/>
       </operation>
     </action> 
@@ -165,7 +200,7 @@
         <label value="check-element-order"/>
         <description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.select(path).trace('o') = fixture('patient').snapshot.element.select(path).trace('b')"/>
+        <expression value="fixture('simple3-output').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
       </assert>
     </action> 
     <action> 
@@ -173,7 +208,7 @@
         <label value="check-elements"/>
         <description value="The snapshot elements must be the same"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
+        <expression value="fixture('simple3-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
       </assert>
     </action>
     <action> 
@@ -181,9 +216,60 @@
         <label value="check-elements"/>
         <description value="The patient.identifier cardinality must be right"/>
         <direction value="response"/>
-        <expression value="fixture('simple1-output').snapshot.element.where(path = 'Patient.identifier').min = 1"/>
+        <expression value="fixture('simple3-output').snapshot.element.where(path = 'Patient.identifier').min = 1"/>
       </assert>
     </action>
   </test>
 
+  <!-- test #4: test appending documentation -->
+  <test>
+    <name value="Simple4"/>
+    <description value="fix a cardinality"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple4-output"/>
+        <sourceId value="simple4"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The patient.identifier documentation must be right"/>
+        <direction value="response"/>
+        <expression value="fixture('simple4-output').snapshot.element.where(path = 'Patient.identifier').doco != '... some more doco'"/>
+      </assert>
+    </action>
+  </test>
+
+  <!-- test #5: test type narrowing -->
+  <test>
+    <name value="Simple5"/>
+    <description value="fix a cardinality"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple5-output"/>
+        <sourceId value="simple5"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The patient.deceased type must be right"/>
+        <direction value="response"/>
+        <expression value="fixture('simple5-output').snapshot.element.where(path = 'Patient.identifier').type.code.trace('type') = 'dateTime'"/>
+      </assert>
+    </action>
+  </test>
+
+  
 </TestScript>

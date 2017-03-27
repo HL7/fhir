@@ -3257,7 +3257,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
   private void AddVsRef(ResourceContext rcontext, String value, XhtmlNode li) {
-    Resource res = rcontext.resolve(value); 
+    Resource res = rcontext == null ? null : rcontext.resolve(value); 
     if (res != null && !(res instanceof MetadataResource)) {
       li.addText(value);
       return;      
