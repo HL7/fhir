@@ -1,4 +1,23 @@
 <TestScript xmlns="http://hl7.org/fhir"> 
+<!--
+ in this test script, are a set of test cases for snapshot generation
+ 
+ 1. No change made by differential
+ 2. No change in differntial, but use a resource with recursion in the definitions
+ 3. change a cardinaliy
+ 4. test appending documentation
+ 5. test constraining the type (with renaming)
+ 6. test constraining the type (without renaming)
+ 7. test adding a mapping 
+ 8. test walking into a new type
+ 9. test walking into a new type sparsely
+ 10. Test slicing - simple case
+ 11. Test slicing - extension
+ 12. Test slicing - extension, but without setting the slicing up
+ 13. Test slicing - a complex case
+ 14. Test Slicing see task 8742
+--> 
+
   <contained>
     <!-- fixture for #1: no change in the differential -->
     <StructureDefinition>
@@ -39,7 +58,7 @@
     <!-- fixture for #4: test appending documentation -->
     <StructureDefinition>
       <id value="simple4"/>
-      <url value="urn:uuid:bd88753d-72e7-4338-bac7-7c47fa56dcd8"/>
+      <url value="urn:uuid:71e0a5a6-95bf-4e04-aa6a-4af0ebef3f29"/>
       <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       <type value="Patient"/>
       <derivation value="constraint"/>
@@ -55,7 +74,7 @@
     <!-- fixture for #5: type narrowing #1 -->
     <StructureDefinition>
       <id value="simple5"/>
-      <url value="urn:uuid:bd88753d-72e7-4338-bac7-7c47fa56dcd8"/>
+      <url value="urn:uuid:5dfe34b3-58ed-43bd-a677-1612246a8f1b"/>
       <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       <type value="Patient"/>
       <derivation value="constraint"/>
@@ -69,7 +88,307 @@
       </differential> 
     </StructureDefinition>
   </contained> 
+
+  <contained>
+    <!-- fixture for #6: type narrowing #2 - this renames  the type element -->
+    <StructureDefinition>
+      <id value="simple6"/>
+      <url value="urn:uuid:977f7fee-448e-4090-8c3a-441b3b3cca7a"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.deceasedDateTime"/>
+          <type>
+            <code value="dateTime"/>
+          </type>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
   
+  <contained>
+    <!-- fixture for #7: type mapping resolution -->
+    <StructureDefinition>
+      <id value="simple7"/>
+      <url value="urn:uuid:7a1d096b-bb61-40f7-880a-8cc4ba0329b9"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.identifier"/>
+          <mapping>
+            <identity value="rim"/>
+            <map value="test"/>
+          </mapping>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+  <contained>
+    <!-- fixture for #8: walking into a type -->
+    <StructureDefinition>
+      <id value="simple8"/>
+      <url value="urn:uuid:d2cb3b87-8f73-46fd-821c-cf39f0512757"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.identifier"/>
+          <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="Patient.identifier.system"/>
+          <mustSupport value="true"/>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+  <contained>
+    <!-- fixture for #9: walking into a type (sparsely) -->
+    <StructureDefinition>
+      <id value="simple9"/>
+      <url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.identifier.system"/>
+          <mustSupport value="true"/>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+  <contained>
+    <!-- fixture for #10: Simple slicing -->
+    <StructureDefinition>
+      <id value="simple10"/>
+      <url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.identifier"/>
+          <slicing>
+             <ordered value="false"/>
+             <rules value="open"/>
+             <discriminator>
+               <type value="value"/>
+               <path value="use"/>
+             </discriminator>
+          </slicing>
+        </element>
+        <element>
+           <path value="Patient.identifier"/>
+           <sliceName value="name1"/>
+        </element>
+        <element>
+           <path value="Patient.identifier.use"/>
+           <fixedCode value="usual"/>
+        </element>
+        <element>
+           <path value="Patient.identifier"/>
+           <sliceName value="name2"/>
+        </element>
+        <element>
+           <path value="Patient.identifier.use"/>
+           <fixedCode value="official"/>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+  <contained>
+    <!-- fixture for #11: slicing on extensions -->
+    <StructureDefinition>
+      <id value="simple11"/>
+      <url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.extension"/>
+          <slicing>
+             <ordered value="false"/>
+             <rules value="open"/>
+             <discriminator>
+               <type value="value"/>
+               <path value="url"/>
+             </discriminator>
+          </slicing>
+          <max value="3"/>
+        </element>
+        <element>
+          <path value="Patient.extension"/>
+           <sliceName value="name1"/>
+           <min value="1"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+           </type>
+        </element>
+        <element>
+          <path value="Patient.extension"/>
+           <sliceName value="name2"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
+           </type>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+  <contained>
+    <!-- fixture for #12: slicing on extensions, no set up of slicing -->
+    <StructureDefinition>
+      <id value="simple12"/>
+      <url value="urn:uuid:01e790b6-b67b-4173-9b2b-31a0fb8c3180"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.extension"/>
+           <sliceName value="name1"/>
+           <min value="1"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+           </type>
+        </element>
+        <element>
+          <path value="Patient.extension"/>
+           <sliceName value="name2"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
+           </type>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+  <contained>
+    <!-- fixture for #13: complex slicing -->
+    <StructureDefinition>
+      <id value="simple13"/>
+      <url value="urn:uuid:4f21d695-b60f-4c4f-8412-15d12d18fa5e"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Patient.extension"/>
+          <slicing>
+             <ordered value="false"/>
+             <rules value="open"/>
+             <discriminator>
+               <type value="value"/>
+               <path value="url"/>
+             </discriminator>
+          </slicing>
+        </element>
+        <element>
+          <path value="Patient.extension"/>
+           <sliceName value="simple"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+           </type>
+        </element>
+        <element>
+          <path value="Patient.extension"/>
+           <sliceName value="complex"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-nationality"/>
+           </type>
+        </element>
+        <element>
+          <path value="Patient.extension.extension"/>
+          <slicing>
+             <ordered value="false"/>
+             <rules value="open"/>
+             <discriminator>
+               <type value="value"/>
+               <path value="url"/>
+             </discriminator>
+          </slicing>
+        </element>
+        <element>
+          <path value="Patient.extension.extension"/>
+           <sliceName value="code"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-nationality#code"/>
+           </type>
+           <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="Patient.extension.extension"/>
+           <sliceName value="period"/>
+           <type>
+              <code value="Extension"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/patient-nationality#period"/>
+           </type>
+           <max value="0"/>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+
+  <contained>
+    <!-- fixture for #14: see task 8742 -->
+    <StructureDefinition>
+      <id value="simple14"/>
+      <url value="urn:uuid:02035b8d-d61f-4d56-a917-28178ea95e9c"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      <type value="Patient"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Organization.address"/>
+          <min value="1"/>
+          <max value="1"/>
+          <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="Organization.address.extension"/>
+          <sliceName value="USLabCountycodes"/>
+          <sliceName value="complex"/>
+          <short value="County/Parish FIPS codes"/>
+          <definition value="County/Parish FIPS codes"/>
+          <requirements value="County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009)."/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Extension"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/us-core-county"/>
+          </type>
+          <binding>
+            <strength value="required"/>
+            <description value="FIPS codes for US counties and county equivalent entities."/>
+            <valueSetReference>
+              <reference value="http://hl7.org/fhir/ValueSet/fips-county"/>
+            </valueSetReference>
+          </binding>
+          <mustSupport value="true"/>
+        </element>
+      </differential> 
+    </StructureDefinition>
+  </contained> 
+  
+
   <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
   <title value="Snapshot generation test script"/>
@@ -249,7 +568,7 @@
   <!-- test #5: test type narrowing -->
   <test>
     <name value="Simple5"/>
-    <description value="fix a cardinality"/>
+    <description value="fix a type"/>
     <action> 
       <operation> 
         <type>
@@ -266,10 +585,563 @@
         <label value="check-elements"/>
         <description value="The patient.deceased type must be right"/>
         <direction value="response"/>
-        <expression value="fixture('simple5-output').snapshot.element.where(path = 'Patient.identifier').type.code.trace('type') = 'dateTime'"/>
+        <expression value="fixture('simple5-output').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The patient.deceased type must be right"/>
+        <direction value="response"/>
+        <expression value="fixture('simple5-output').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
       </assert>
     </action>
   </test>
 
+  <!-- test #6: test type narrowing -->
+  <test>
+    <name value="Simple6"/>
+    <description value="fix a type (with renaming)"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple6-output"/>
+        <sourceId value="simple6"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The patient.deceased type must be right"/>
+        <direction value="response"/>
+        <expression value="fixture('simple6-output').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The patient.deceased type must be right"/>
+        <direction value="response"/>
+        <expression value="fixture('simple6-output').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
+      </assert>
+    </action>
+  </test>
+
+  <!-- test #7: test mapping resolution -->
+  <test>
+    <name value="Simple7"/>
+    <description value="test mapping resolution"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple7-output"/>
+        <sourceId value="simple7"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="The mapping must be made"/>
+        <direction value="response"/>
+        <expression value="fixture('simple7-output').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() = fixture('simple1-output').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() + 1"/>
+      </assert>
+    </action>
+  </test>
+  
+  <!-- test #8: test walking into a type -->
+  <test>
+    <name value="Simple8"/>
+    <description value="test mapping resolution"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple8-output"/>
+        <sourceId value="simple8"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Mustsupport must be true on Patient.identifier"/>
+        <direction value="response"/>
+        <expression value="fixture('simple8-output').snapshot.element.where(path = 'Patient.identifier').mustSupport"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Mustsupport must be true on Patient.identifier.system"/>
+        <direction value="response"/>
+        <expression value="fixture('simple8-output').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
+      </assert>
+    </action>
+  </test>
+     
+  <!-- test #9: test walking into a type (sparsely) -->
+  <!-- not working at the moment 
+  <test>
+    <name value="Simple9"/>
+    <description value="test mapping resolution"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple9-output"/>
+        <sourceId value="simple9"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Mustsupport must be true on Patient.identifier"/>
+        <direction value="response"/>
+        <expression value="fixture('simple9-output').snapshot.element.where(path = 'Patient.identifier').mustSupport.not()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Mustsupport must be true on Patient.identifier.system"/>
+        <direction value="response"/>
+        <expression value="fixture('simple9-output').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
+      </assert>
+    </action>
+  </test>     
+  -->
+  
+  <!-- test #10: simple slicing -->
+  <test>
+    <name value="Simple10"/>
+    <description value="test slicing - simple"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple10-output"/>
+        <sourceId value="simple10"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must be sliced"/>
+        <direction value="response"/>
+        <expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().slicing.exists()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().sliceName.empty()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must be sliced into two slices"/>
+        <direction value="response"/>
+        <expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().slicing.count() = 3"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().slicing.empty()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().all(sliceName.empty().not()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier.use must be fixed"/>
+        <direction value="response"/>
+        <expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier.use').all(fixed.empty().not())"/>
+      </assert>
+    </action>
+  </test>     
+ 
+  <!-- test #11: slicing on extension -->
+  <test>
+    <name value="Simple11"/>
+    <description value="test slicing - simple"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple11-output"/>
+        <sourceId value="simple11"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.extension must be sliced"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must be sliced into two slices"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().slicing.count() = 3"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.extension cardinality must be correct"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.identifier').first().max.exists()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.extension cardinality must be correct"/>
+        <direction value="response"/>
+        <expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.identifier')[1].min.exists()"/>
+      </assert>
+    </action>
+  </test>     
+     
+  <!-- test #12: slicing on extension -->
+  <test>
+    <name value="Simple12"/>
+    <description value="test slicing - simple"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple12-output"/>
+        <sourceId value="simple12"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.extension must be sliced"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must be sliced into two slices"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().slicing.count() = 3"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.identifier must not have a slice name"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.extension cardinality must be correct"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.identifier').first().max.exists()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="check-elements"/>
+        <description value="Patient.extension cardinality must be correct"/>
+        <direction value="response"/>
+        <expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.identifier')[1].min.exists()"/>
+      </assert>
+    </action>
+  </test>    
+  
+  <!-- test #13: slicing on extension (complex) -->
+  <test>
+    <name value="Simple13"/>
+    <description value="test slicing - complex"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple13-output"/>
+        <sourceId value="simple13"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="test13-1"/>
+        <description value="element 7 (base) path"/>
+        <expression value="fixture('simple13-output').snapshot.element[7].path = 'Patient.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-2"/>
+        <description value="element 7 slicing"/>
+        <expression value="fixture('simple13-output').snapshot.element[7].slicing.exists()"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-3"/>
+        <description value="element 8 (1st slice) path"/>
+        <expression value="fixture('simple13-output').snapshot.element[8].path = 'Patient.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-4"/>
+        <description value="element 8 (1st slice) name"/>
+        <expression value="fixture('simple13-output').snapshot.element[8].sliceName = 'simple'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-5"/>
+        <description value="element 9 (2nd slice) profile name"/>
+        <expression value="fixture('simple13-output').snapshot.element[8].type[0].profile = 'http://hl7.org/fhir/StructureDefinition/patient-birthTime'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-6"/>
+        <description value="element 9 (2nd slice) path"/>
+        <expression value="fixture('simple13-output').snapshot.element[9].path = 'Patient.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-7"/>
+        <description value="element 8 (1st slice) name"/>
+        <expression value="fixture('simple13-output').snapshot.element[9].sliceName = 'complex'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-8"/>
+        <description value="element 9 (2nd slice) profile name"/>
+        <expression value="fixture('simple13-output').snapshot.element[9].type[0].profile = 'http://hl7.org/fhir/StructureDefinition/patient-nationality'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-9"/>
+        <description value="element 10 (2nd slice).id path"/>
+        <expression value="fixture('simple13-output').snapshot.element[10].path = 'Patient.extension.id'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-10"/>
+        <description value="element 11 (2nd slice).extension path"/>
+        <expression value="fixture('simple13-output').snapshot.element[11].path = 'Patient.extension.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-11"/>
+        <description value="element 12 (2nd slice).extension path"/>
+        <expression value="fixture('simple13-output').snapshot.element[12].path = 'Patient.extension.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-12"/>
+        <description value="element 12 (2nd slice).extension must support"/>
+        <expression value="fixture('simple13-output').snapshot.element[12].mustSupport"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-13"/>
+        <description value="element 13 (2nd slice).extension.id path"/>
+        <expression value="fixture('simple13-output').snapshot.element[13].path = 'Patient.extension.extension.id'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-14"/>
+        <description value="element 14 (2nd slice).extension.extension path"/>
+        <expression value="fixture('simple13-output').snapshot.element[14].path = 'Patient.extension.extension.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-15"/>
+        <description value="element 15 (2nd slice).extension.url path"/>
+        <expression value="fixture('simple13-output').snapshot.element[15].path = 'Patient.extension.extension.url'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-16"/>
+        <description value="element 16 (2nd slice).extension.valueCodeableConcept path"/>
+        <expression value="fixture('simple13-output').snapshot.element[16].path = 'Patient.extension.extension.valueCodeableConcept'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-17"/>
+        <description value="element 17 (2nd slice).extension path"/>
+        <expression value="fixture('simple13-output').snapshot.element[17].path = 'Patient.extension.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-18"/>
+        <description value="element 17 (2nd slice).extension cardinality"/>
+        <expression value="fixture('simple13-output').snapshot.element[17].max = '0'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-19"/>
+        <description value="element 18 (2nd slice).extension.id path"/>
+        <expression value="fixture('simple13-output').snapshot.element[18].path = 'Patient.extension.extension.id'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-20"/>
+        <description value="element 19 (2nd slice).extension.extension path"/>
+        <expression value="fixture('simple13-output').snapshot.element[19].path = 'Patient.extension.extension.extension'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-21"/>
+        <description value="element 20 (2nd slice).extension.url path"/>
+        <expression value="fixture('simple13-output').snapshot.element[20].path = 'Patient.extension.extension.url'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-22"/>
+        <description value="element 21 (2nd slice).extension.valuePeriod path"/>
+        <expression value="fixture('simple13-output').snapshot.element[21].path = 'Patient.extension.extension.valuePeriod'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-23"/>
+        <description value="element 22 (2nd slice).url path"/>
+        <expression value="fixture('simple13-output').snapshot.element[22].path = 'Patient.extension.url'"/>
+      </assert>
+    </action>
+    <action> 
+      <assert>  
+        <label value="test13-24"/>
+        <description value="element 23 (2nd slice).url path"/>
+        <expression value="fixture('simple13-output').snapshot.element[23].path = 'Patient.extension.value[x]'"/>
+      </assert>
+    </action>
+  </test>    
+  
+  <!-- test #14: slicing on extension (complex) -->
+  <test>
+    <name value="Simple14"/>
+    <description value="test slicing - complex"/>
+    <action> 
+      <operation> 
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="simple14-output"/>
+        <sourceId value="simple14"/>
+      </operation>
+    </action> 
+    <action> 
+      <assert>  
+        <label value="test14-1"/>
+        <description value="element 7 (base) path"/>
+        <expression value="fixture('simple14-output').snapshot.element.count() = fixture('patient').snapshot.element.count() + 13"/>
+      </assert>
+    </action>
+  </test>    
   
 </TestScript>

@@ -2,6 +2,7 @@ package org.hl7.fhir.dstu3.test;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -64,10 +66,12 @@ public class SnapShotGenerationTests {
       for (Resource r : tests.getContained()) {
         if (ids.contains(r.getId()))
           throw new Error("Unsupported: duplicate contained resource or fixture id  "+r.getId());
+        ids.add(r.getId());
       }
       for (TestScriptFixtureComponent r : tests.getFixture()) {
         if (ids.contains(r.getId()))
           throw new Error("Unsupported: duplicate contained resource or fixture id  "+r.getId());
+        ids.add(r.getId());
       }
       Set<String> names = new HashSet<String>();
       for (TestScriptTestComponent test : tests.getTest()) {
@@ -232,6 +236,7 @@ public class SnapShotGenerationTests {
     pu.generateSnapshot(base, output, source.getUrl(), source.getName());
     context.fixtures.put(op.getResponseId(), output);
     
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
     //ok, now the asserts:
     for (int i = 1; i < test.getAction().size(); i++) {
       SetupActionAssertComponent a = test.getAction().get(i).getAssert();
