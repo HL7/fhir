@@ -420,9 +420,6 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       en = en.replace("[x]", upFirst(type.getCode()));
     boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
 
-    if (!unbounded)
-      throw new Exception("slicing on non-lists not supported yet");
-    
     String indentS = "";
     for (int i = 0; i < indent; i++) {
       indentS += "  ";
