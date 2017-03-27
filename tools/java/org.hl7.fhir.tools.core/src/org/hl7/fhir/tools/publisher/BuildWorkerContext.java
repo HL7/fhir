@@ -566,13 +566,14 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private ValidationResult verifyUcum(String code, String display) {
     String s = ucum.validate(code);
     if (s != null)
-      return new ValidationResult(IssueSeverity.ERROR, s);
-    else {
+      System.out.println("UCUM eror: "+s);
+//      return new ValidationResult(IssueSeverity.ERROR, s);
+//    else {
       ConceptDefinitionComponent def = new ConceptDefinitionComponent();
       def.setCode(code);
       def.setDisplay(ucum.getCommonDisplay(code));
       return new ValidationResult(def);
-    }
+//    }
   }
 
   public void loadSnomed(String filename) throws Exception {
