@@ -503,6 +503,10 @@
 			<derivation value="constraint"/>
       <differential>
 				<element>
+					<path value="Patient.address.extension"/>
+					<sliceName value="Geolocation"/>
+        </element>
+				<element>
 					<path value="Patient.address.extension.extension"/>
 					<sliceName value="latitude"/>
 				</element>
