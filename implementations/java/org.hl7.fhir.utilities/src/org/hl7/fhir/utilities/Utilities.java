@@ -1039,6 +1039,16 @@ public class Utilities {
   }
 
 
+  public static int countFilesInDirectory(String dirName) {
+    File dir = new File(dirName);
+    int i = 0;
+    for (File f : dir.listFiles())
+      if (!f.isDirectory())
+        i++;
+    return i;
+  }
+
+
 
 
 }

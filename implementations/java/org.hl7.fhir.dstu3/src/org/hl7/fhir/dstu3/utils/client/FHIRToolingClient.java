@@ -125,12 +125,12 @@ public class FHIRToolingClient {
 	  base = baseServiceUrl;
 		resourceAddress = new ResourceAddress(baseServiceUrl);
 		this.maxResultSetSize = -1;
-		checkConformance();
+		checkCapabilities();
 	}
 	
-	private void checkConformance() {
+	private void checkCapabilities() {
 	  try {
-      capabilities = getConformanceStatementQuick();
+      capabilities = getCapabilitiesStatementQuick();
 	  } catch (Throwable e) {
 	  }
    }
@@ -151,7 +151,7 @@ public class FHIRToolingClient {
 		this.maxResultSetSize = maxResultSetSize;
 	}
 	
-	public CapabilityStatement getConformanceStatement() {
+	public CapabilityStatement getCapabilitiesStatement() {
 	  CapabilityStatement conformance = null;
 		try {
   		conformance = (CapabilityStatement)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(false), getPreferredResourceFormat(), proxy).getReference();
@@ -161,24 +161,15 @@ public class FHIRToolingClient {
 		return conformance;
 	}
 	
-  public CapabilityStatement getConformanceStatementQuick() throws EFhirClientException {
+  public CapabilityStatement getCapabilitiesStatementQuick() throws EFhirClientException {
     if (capabilities != null)
       return capabilities;
-    return getConformanceStatementQuick();
-  }
-  
-  public CapabilityStatement getConformanceStatementQuick(boolean useOptionsVerb) {
-    CapabilityStatement conformance = null;
     try {
-      if(useOptionsVerb) {
-        conformance = (CapabilityStatement)ClientUtils.issueOptionsRequest(resourceAddress.getBaseServiceUri(), getPreferredResourceFormat(), proxy).getReference();//TODO fix this
-      } else {
-        conformance = (CapabilityStatement)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
-      }
+      capabilities = (CapabilityStatement)ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataUri(true), getPreferredResourceFormat(), proxy).getReference();
     } catch(Exception e) {
       handleException("An error has occurred while trying to fetch the server's conformance statement", e);
     }
-    return conformance;
+    return capabilities;
   }
   
 	public <T extends Resource> T read(Class<T> resourceClass, String id) {//TODO Change this to AddressableResource

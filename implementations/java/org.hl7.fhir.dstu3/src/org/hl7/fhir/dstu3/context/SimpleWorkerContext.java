@@ -155,8 +155,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       loadBytes(name, stream);
   }
 
-	public void connectToTSServer(String url) throws URISyntaxException {
+	public String connectToTSServer(String url) throws URISyntaxException {
 	  txServer = new FHIRToolingClient(url);
+	  return txServer.getCapabilitiesStatementQuick().getSoftware().getVersion();
 	}
 
 	private void loadFromFile(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {

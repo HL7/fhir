@@ -112,6 +112,7 @@ import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
@@ -181,6 +182,10 @@ import javafx.collections.transformation.TransformationList;
 
 public class Publisher implements IWorkerContext.ILoggingService, IReferenceResolver {
   
+  public enum CacheOption {
+    LEAVE, CLEAR_ERRORS, CLEAR_ALL;
+  }
+
   public static final boolean USE_COMMONS_EXEC = true;
 
   public enum GenerationTool {
@@ -266,10 +271,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String businessVersion;
 
   private boolean allowBrokenHtml;
+  private CacheOption cacheOption;
 
-  public void execute(boolean clearCache) throws Exception {
+  public void execute() throws Exception {
     globalStart = System.nanoTime();
-    initialize(clearCache);
+    initialize();
     log("Load Content");
     load();
 
@@ -312,6 +318,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else
       log("Done");
   }
+
+  
+  public CacheOption getCacheOption() {
+    return cacheOption;
+  }
+
+
+  public void setCacheOption(CacheOption cacheOption) {
+    this.cacheOption = cacheOption;
+  }
+
 
   @Override
   public ResourceWithReference resolve(String url) {
@@ -546,7 +563,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return res;
   }
 
-  public void initialize(boolean clearCache) throws Exception {
+  public void initialize() throws Exception {
     first = true;
     boolean copyTemplate = false;
     if (configFile == null) {
@@ -631,11 +648,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     forceDir(qaDir);
 
     Utilities.createDirectory(vsCache);
-    if (clearCache || autoBuildMode) {
+    if (cacheOption == CacheOption.CLEAR_ALL || autoBuildMode) {
       log("Terminology Cache is at "+vsCache+". Clearing now");
       Utilities.clearDirectory(vsCache);
+    } else if (cacheOption == CacheOption.CLEAR_ERRORS) {
+        log("Terminology Cache is at "+vsCache+". Clearing Errors now");
+        log("Deleted "+Integer.toString(clearErrors(vsCache))+" files");
     } else
-      log("Terminology Cache is at "+vsCache);
+      log("Terminology Cache is at "+vsCache+". "+Integer.toString(Utilities.countFilesInDirectory(vsCache))+" files in cache");
     if (!new File(vsCache).exists())
       throw new Exception("Unable to access or create the cache directory at "+vsCache);
     
@@ -692,7 +712,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       log("WARNING: Running without terminology server - terminology content will likely not publish correctly");
       context.setCanRunWithoutTerminology(true);
     } else
-      context.connectToTSServer(txServer);
+      checkTSVersion(vsCache, context.connectToTSServer(txServer));
     
     // ;
     validator = new InstanceValidator(context, null); // todo: host services for reference resolution....
@@ -741,6 +761,36 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (regenlist != null)
       for (JsonElement regen : regenlist)
         regenList.add(((JsonPrimitive) regen).getAsString());
+  }
+
+  private void checkTSVersion(String dir, String version) throws FileNotFoundException, IOException {
+    if (Utilities.noString(version))
+      return;
+    
+    // we wipe the terminology cache if the terminology server cersion has changed
+    File verFile = new File(Utilities.path(dir, "version.ctl"));
+    if (verFile.exists()) {
+      String ver = TextFile.fileToString(verFile);
+      if (!ver.equals(version)) {
+        log("Terminology Server Version has changed from "+ver+" to "+version+", so clearing txCache");
+        Utilities.clearDirectory(dir);
+      }
+    }
+    TextFile.stringToFile(version, verFile);
+  }
+
+
+  private int clearErrors(String dirName) throws FileNotFoundException, IOException {
+    File dir = new File(dirName);
+    int i = 0;
+    for (File f : dir.listFiles()) {
+      String s = TextFile.fileToString(f);
+      if (s.contains("OperationOutcome")) {
+        f.delete();
+        i++;
+      }
+    }
+    return i;
   }
 
   public class FoundResource {
@@ -3252,8 +3302,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           self.setConfigFile(ig);
           self.setTxServer(getNamedParam(args, "-tx"));
           self.filelog = new StringBuilder();
+          if (hasParam(args, "-resetTx"))
+            self.setCacheOption(CacheOption.CLEAR_ALL);
+          else if (hasParam(args, "-resetTxErrors"))
+            self.setCacheOption(CacheOption.CLEAR_ERRORS);
+          else 
+            self.setCacheOption(CacheOption.LEAVE);
           try {
-            self.execute(hasParam(args, "-resetTx"));
+              self.execute();
           } catch (Exception e) {
             exitCode = 1;
             System.out.println("Publishing Implementation Guide Failed: "+e.getMessage());
@@ -3289,8 +3345,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       self.setAutoBuildMode(hasNamedParam(args, "-auto-ig-build"));
       self.watch = hasParam(args, "-watch");
       self.filelog = new StringBuilder();
+      if (hasParam(args, "-resetTx"))
+        self.setCacheOption(CacheOption.CLEAR_ALL);
+      else if (hasParam(args, "-resetTxErrors"))
+        self.setCacheOption(CacheOption.CLEAR_ERRORS);
+      else 
+        self.setCacheOption(CacheOption.LEAVE);
       try {
-        self.execute(hasParam(args, "-resetTx"));
+        self.execute();
       } catch (Exception e) {
         exitCode = 1;
         self.log("Publishing Content Failed: "+e.getMessage());

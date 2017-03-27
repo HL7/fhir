@@ -20,6 +20,7 @@ import javax.swing.SwingWorker;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.igtools.publisher.Publisher;
+import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -244,8 +245,9 @@ public class IGPublisherFrame extends javax.swing.JFrame {
       Publisher pu = new Publisher();
       pu.setConfigFile((String) cbxIGName.getSelectedItem());
       pu.setLogger(this);
+      pu.setCacheOption(CacheOption.LEAVE);
       try {
-        pu.execute(false);
+        pu.execute();
         qa = pu.getQAFile();
       } catch (Exception e) {
         logMessage("Error : "+e.getMessage());

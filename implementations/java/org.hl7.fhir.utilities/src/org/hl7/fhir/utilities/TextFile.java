@@ -129,7 +129,7 @@ public class TextFile {
       char c = (char) i;
       b.append(c);
     }
-//    sr.close();
+    sr.close();
     
     return  b.toString().replace("\uFEFF", ""); 
   }
