@@ -559,20 +559,20 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     } catch (Exception e) {
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
     }
-     return new ValidationResult(IssueSeverity.WARNING, "Unknown code system "+system);
+    return super.validateCode(system, code, display);
   }
 
   
   private ValidationResult verifyUcum(String code, String display) {
     String s = ucum.validate(code);
-//    if (s != null)
-//      return new ValidationResult(IssueSeverity.ERROR, s);
-//    else {
+    if (s != null)
+      return new ValidationResult(IssueSeverity.ERROR, s);
+    else {
       ConceptDefinitionComponent def = new ConceptDefinitionComponent();
       def.setCode(code);
       def.setDisplay(ucum.getCommonDisplay(code));
       return new ValidationResult(def);
-//    }
+    }
   }
 
   public void loadSnomed(String filename) throws Exception {
