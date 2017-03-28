@@ -511,9 +511,6 @@
 					<sliceName value="latitude"/>
 				</element>
 				<element>
-					<path value="Patient.address.extension.extension.valueDecimal"/>
-				</element>
-				<element>
 					<path value="Patient.address.extension.extension.valueDecimal.extension"/>
 					<sliceName value="Geolocation.latitude.rendered"/>
 					<type>
@@ -529,9 +526,6 @@
 				<element>
 					<path value="Patient.address.extension.extension"/>
 					<sliceName value="longitude"/>
-				</element>
-				<element>
-					<path value="Patient.address.extension.extension.valueDecimal"/>
 				</element>
 				<element>
 					<path value="Patient.address.extension.extension.valueDecimal.extension"/>
