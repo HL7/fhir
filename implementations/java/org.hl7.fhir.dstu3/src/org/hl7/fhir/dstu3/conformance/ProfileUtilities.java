@@ -331,15 +331,6 @@ public class ProfileUtilities extends TranslatingUtilities {
     snapshotStack.add(derived.getUrl());
     
 
-    try {
-      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:", "temp", "in,xml")), derived);
-    } catch (FileNotFoundException e1) {
-      // TODO Auto-generated catch block
-      e1.printStackTrace();
-    } catch (IOException e1) {
-      // TODO Auto-generated catch block
-      e1.printStackTrace();
-    }
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
 
     // so we have two lists - the base list, and the differential list
