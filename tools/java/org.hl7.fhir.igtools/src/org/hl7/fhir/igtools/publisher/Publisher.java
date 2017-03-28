@@ -361,11 +361,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void generateNarratives() throws IOException, EOperationOutcome, FHIRException {
     dlog(LogCategory.PROGRESS, "gen narratives");
     gen = new NarrativeGenerator("", "", context, this);
+    gen.setCorePath(checkAppendSlash(specPath));
+    gen.setDestDir(Utilities.path(tempDir));
+    gen.setPkp(igpkp);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
           boolean regen = false;
+          gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
           if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
             regen = gen.generate((DomainResource) r.getResource());
           if (r.getResource() instanceof Bundle)

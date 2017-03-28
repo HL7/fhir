@@ -47,6 +47,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
@@ -215,7 +216,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private Bundle bundle;
-
+  private String definitionsTarget;
+  private String corePath;
+  private String destDir;
+  private ProfileKnowledgeProvider pkp;
+  
   public boolean generate(Bundle b, boolean evenIfAlreadyHasNarrative) throws EOperationOutcome, FHIRException, IOException {
     boolean res = false;
     this.bundle = b;
@@ -251,6 +256,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return generate(rcontext, (CompartmentDefinition) r);   // Maintainer = Grahame
     } else if (r instanceof OperationDefinition) {
       return generate(rcontext, (OperationDefinition) r);   // Maintainer = Grahame
+    } else if (r instanceof StructureDefinition) {
+      return generate(rcontext, (StructureDefinition) r);   // Maintainer = Grahame
     } else if (r instanceof DiagnosticReport) {
       inject(r, generateDiagnosticReport(new ResourceWrapperDirect(r)),  NarrativeStatus.GENERATED);   // Maintainer = Grahame
       return true;
@@ -3646,6 +3653,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  return null;
   }
 
+  public boolean generate(ResourceContext rcontext, StructureDefinition sd) throws EOperationOutcome, FHIRException, IOException {
+    ProfileUtilities pu = new ProfileUtilities(context, null, pkp);
+    inject(sd, pu.generateTable(definitionsTarget, sd, true, destDir, false, sd.getId(), false, corePath, "", false, false), NarrativeStatus.GENERATED);
+    return true;
+  }
 	public boolean generate(ResourceContext rcontext, OperationDefinition opd) throws EOperationOutcome, FHIRException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.h2().addText(opd.getName());
@@ -4217,4 +4229,37 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return div.getXhtml();
   }
 
+  public String getDefinitionsTarget() {
+    return definitionsTarget;
+  }
+
+  public void setDefinitionsTarget(String definitionsTarget) {
+    this.definitionsTarget = definitionsTarget;
+  }
+
+  public String getCorePath() {
+    return corePath;
+  }
+
+  public void setCorePath(String corePath) {
+    this.corePath = corePath;
+  }
+
+  public String getDestDir() {
+    return destDir;
+  }
+
+  public void setDestDir(String destDir) {
+    this.destDir = destDir;
+  }
+
+  public ProfileKnowledgeProvider getPkp() {
+    return pkp;
+  }
+
+  public void setPkp(ProfileKnowledgeProvider pkp) {
+    this.pkp = pkp;
+  }
+
+  
 }

@@ -18,13 +18,15 @@
  14. Test slicing see task 8742
  15. Test slicing - complex extensions with children
  16. Test slicing - extending a complex extension's children in derived profile
+ 17. Modifier Extension
+ 18. Modifier Extension, but without setting the slicing up
 -->
 	<contained>
 		<!-- fixture for #1: no change in the differential -->
 		<StructureDefinition>
-			<id value="simple1"/>
+			<id value="t1"/>
 			<url value="urn:uuid:c7e52962-c322-4417-bd95-fb0dfc40fd62"/>
-			<name value="simple1"/>
+			<name value="t1"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -36,9 +38,9 @@
 	<contained>
 		<!-- fixture for #2: no change in the differential, but a value set -->
 		<StructureDefinition>
-			<id value="simple2"/>
+			<id value="t2"/>
 			<url value="urn:uuid:4b8c9c27-9d93-4f66-84f1-c7ca98687792"/>
-			<name value="simple2"/>
+			<name value="t2"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -50,9 +52,9 @@
 	<contained>
 		<!-- fixture for #3: change a cardinality -->
 		<StructureDefinition>
-			<id value="simple3"/>
+			<id value="t3"/>
 			<url value="urn:uuid:b3f56cfa-98a3-422c-9584-738e09881ac9"/>
-			<name value="simple3"/>
+			<name value="t3"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -70,9 +72,9 @@
 	<contained>
 		<!-- fixture for #4: test appending documentation -->
 		<StructureDefinition>
-			<id value="simple4"/>
+			<id value="t4"/>
 			<url value="urn:uuid:71e0a5a6-95bf-4e04-aa6a-4af0ebef3f29"/>
-			<name value="simple4"/>
+			<name value="t4"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -90,9 +92,9 @@
 	<contained>
 		<!-- fixture for #5: type narrowing #1 -->
 		<StructureDefinition>
-			<id value="simple5"/>
+			<id value="t5"/>
 			<url value="urn:uuid:5dfe34b3-58ed-43bd-a677-1612246a8f1b"/>
-			<name value="simple5"/>
+			<name value="t5"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -112,9 +114,9 @@
 	<contained>
 		<!-- fixture for #6: type narrowing #2 - this renames  the type element -->
 		<StructureDefinition>
-			<id value="simple6"/>
+			<id value="t6"/>
 			<url value="urn:uuid:977f7fee-448e-4090-8c3a-441b3b3cca7a"/>
-			<name value="simple6"/>
+			<name value="t6"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -134,9 +136,9 @@
 	<contained>
 		<!-- fixture for #7: type mapping resolution -->
 		<StructureDefinition>
-			<id value="simple7"/>
+			<id value="t7"/>
 			<url value="urn:uuid:7a1d096b-bb61-40f7-880a-8cc4ba0329b9"/>
-			<name value="simple7"/>
+			<name value="t7"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -157,9 +159,9 @@
 	<contained>
 		<!-- fixture for #8: walking into a type -->
 		<StructureDefinition>
-			<id value="simple8"/>
+			<id value="t8"/>
 			<url value="urn:uuid:d2cb3b87-8f73-46fd-821c-cf39f0512757"/>
-			<name value="simple8"/>
+			<name value="t8"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -181,9 +183,9 @@
 	<contained>
 		<!-- fixture for #9: walking into a type (sparsely) -->
 		<StructureDefinition>
-			<id value="simple9"/>
+			<id value="t9"/>
 			<url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
-			<name value="simple9"/>
+			<name value="t9"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -201,9 +203,9 @@
 	<contained>
 		<!-- fixture for #10: Simple slicing -->
 		<StructureDefinition>
-			<id value="simple10"/>
+			<id value="t10"/>
 			<url value="urn:uuid:772b9182-39d3-45fd-b01c-e09df0a5cf6c"/>
-			<name value="simple10"/>
+			<name value="t10"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -244,9 +246,9 @@
 	<contained>
 		<!-- fixture for #11: slicing on extensions -->
 		<StructureDefinition>
-			<id value="simple11"/>
+			<id value="t11"/>
 			<url value="urn:uuid:f119d7d3-81e3-4432-8c68-11baafa5f986"/>
-			<name value="simple11"/>
+			<name value="t11"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -289,9 +291,9 @@
 	<contained>
 		<!-- fixture for #12: slicing on extensions, no set up of slicing -->
 		<StructureDefinition>
-			<id value="simple12"/>
+			<id value="t12"/>
 			<url value="urn:uuid:01e790b6-b67b-4173-9b2b-31a0fb8c3180"/>
-			<name value="simple12"/>
+			<name value="t12"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -320,11 +322,36 @@
 		</StructureDefinition>
 	</contained>
 	<contained>
+		<!-- fixture for #12a: slicing on extensions, no set up of slicing, single slice -->
+		<StructureDefinition>
+			<id value="t12a"/>
+			<url value="urn:uuid:37c463da-eac0-4b17-b15d-a3e524d9ebdf"/>
+			<name value="t12a"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient.extension"/>
+					<sliceName value="name1"/>
+					<min value="1"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+					</type>
+				</element>
+			</differential>
+		</StructureDefinition>
+	</contained>
+	<contained>
 		<!-- fixture for #13: complex slicing -->
 		<StructureDefinition>
-			<id value="simple13"/>
+			<id value="t13"/>
 			<url value="urn:uuid:4f21d695-b60f-4c4f-8412-15d12d18fa5e"/>
-			<name value="simple13"/>
+			<name value="t13"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -345,7 +372,7 @@
 				</element>
 				<element>
 					<path value="Patient.extension"/>
-					<sliceName value="simple"/>
+					<sliceName value="t"/>
 					<type>
 						<code value="Extension"/>
 						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
@@ -394,9 +421,9 @@
 	<contained>
 		<!-- fixture for #14: see task 8742 -->
 		<StructureDefinition>
-			<id value="simple14"/>
+			<id value="t14"/>
 			<url value="urn:uuid:17a816a1-0196-4eb4-86c3-2f6e05944598"/>
-			<name value="simple14"/>
+			<name value="t14"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -437,9 +464,9 @@
 	<contained>
 		<!-- fixture for #15: complex extensions with children -->
 		<StructureDefinition>
-			<id value="simple15"/>
+			<id value="t15"/>
 			<url value="urn:uuid:78efa570-6e30-410d-ac5a-16ea423d13d4"/>
-			<name value="simple15"/>
+			<name value="t15"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -491,9 +518,9 @@
   <contained>
 		<!-- fixture for #16: extending a complex extension's children in derived profile -->
     <StructureDefinition>
-			<id value="simple16"/>
+			<id value="t16"/>
 			<url value="urn:uuid:b94f9d67-5ad1-44df-850d-33a933800f40"/>
-			<name value="simple16"/>
+			<name value="t16"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -555,9 +582,9 @@
 	<contained>
 		<!-- fixture for #17: use a modifier extension instead -->
 		<StructureDefinition>
-			<id value="simple17"/>
-			<url value="urn:uuid:14b4442c-ef9f-4630-bb44-681b65f758ac"/>
-			<name value="simple17"/>
+			<id value="t17"/>
+			<url value="urn:uuid:1313b735-ddb1-4bd4-aa8e-a3156d2919a8"/>
+			<name value="t17"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -597,8 +624,66 @@
 				</element>
 			</differential>
 		</StructureDefinition>
+	</contained>  
+	<contained>
+		<!-- fixture for #18: use a modifier extension, with no set up-->
+		<StructureDefinition>
+			<id value="t18"/>
+			<url value="urn:uuid:14b4442c-ef9f-4630-bb44-681b65f758ac"/>
+			<name value="t18"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+        <!-- these aren't valid as modifer extensions, but the snapshot generator doesn't check that -->
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name1"/>
+					<min value="1"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+					</type>
+				</element>
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name2"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
+					</type>
+				</element>
+			</differential>
+		</StructureDefinition>
 	</contained>
-  
+	<contained>
+		<!-- fixture for #19: use a modifier extension, with no set up, and only one slice-->
+		<StructureDefinition>
+			<id value="t19"/>
+			<url value="urn:uuid:6d245aa4-fa65-44e7-8177-cb15b09854f4"/>
+			<name value="t19"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name1"/>
+					<min value="1"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+					</type>
+				</element>
+			</differential>
+		</StructureDefinition>
+	</contained>
   
 	<url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
 	<name value="SnapshotGenerationTests"/>
@@ -635,8 +720,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple1-output"/>
-				<sourceId value="simple1"/>
+				<responseId value="t1o"/>
+				<sourceId value="t1"/>
 			</operation>
 		</action>
 		<action>
@@ -644,7 +729,7 @@
 				<label value="test1-1"/>
 				<description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
 				<direction value="response"/>
-				<expression value="fixture('simple1-output').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
+				<expression value="fixture('t1o').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
 			</assert>
 		</action>
 		<action>
@@ -652,7 +737,7 @@
 				<label value="test1-2"/>
 				<description value="The snapshot elements must be the same - check short description"/>
 				<direction value="response"/>
-				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
+				<expression value="fixture('t1o').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
 			</assert>
 		</action>
 		<action>
@@ -660,7 +745,7 @@
 				<label value="test1-3"/>
 				<description value="The snapshot elements must be the same - check min cardinality"/>
 				<direction value="response"/>
-				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').min = fixture('patient').snapshot.element.where(path = alias('A').path).min)"/>
+				<expression value="fixture('t1o').snapshot.element.all(aliasAs('A').min = fixture('patient').snapshot.element.where(path = alias('A').path).min)"/>
 			</assert>
 		</action>
 		<action>
@@ -668,7 +753,7 @@
 				<label value="test1-4"/>
 				<description value="The snapshot elements must be the same - check max cardinality"/>
 				<direction value="response"/>
-				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').max = fixture('patient').snapshot.element.where(path = alias('A').path).max)"/>
+				<expression value="fixture('t1o').snapshot.element.all(aliasAs('A').max = fixture('patient').snapshot.element.where(path = alias('A').path).max)"/>
 			</assert>
 		</action>
 		<action>
@@ -676,7 +761,7 @@
 				<label value="test1-5"/>
 				<description value="The snapshot elements must be the same - check binding"/>
 				<direction value="response"/>
-				<expression value="fixture('simple1-output').snapshot.element.all(aliasAs('A').binding.valueSet = fixture('patient').snapshot.element.where(path = alias('A').path).binding.valueSet)"/>
+				<expression value="fixture('t1o').snapshot.element.all(aliasAs('A').binding.valueSet = fixture('patient').snapshot.element.where(path = alias('A').path).binding.valueSet)"/>
 			</assert>
 		</action>
 	</test>
@@ -691,8 +776,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple2-output"/>
-				<sourceId value="simple2"/>
+				<responseId value="t2o"/>
+				<sourceId value="t2"/>
 			</operation>
 		</action>
 		<action>
@@ -700,7 +785,7 @@
 				<label value="test2-1"/>
 				<description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
 				<direction value="response"/>
-				<expression value="fixture('simple2-output').snapshot.element.select(path) = fixture('valueset').snapshot.element.select(path)"/>
+				<expression value="fixture('t2o').snapshot.element.select(path) = fixture('valueset').snapshot.element.select(path)"/>
 			</assert>
 		</action>
 		<action>
@@ -708,7 +793,7 @@
 				<label value="test2-2"/>
 				<description value="The snapshot elements must be the same"/>
 				<direction value="response"/>
-				<expression value="fixture('simple2-output').snapshot.element.all(aliasAs('A').short = fixture('valueset').snapshot.element.where(path = alias('A').path).short)"/>
+				<expression value="fixture('t2o').snapshot.element.all(aliasAs('A').short = fixture('valueset').snapshot.element.where(path = alias('A').path).short)"/>
 			</assert>
 		</action>
 	</test>
@@ -723,8 +808,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple3-output"/>
-				<sourceId value="simple3"/>
+				<responseId value="t3o"/>
+				<sourceId value="t3"/>
 			</operation>
 		</action>
 		<action>
@@ -732,7 +817,7 @@
 				<label value="test3-1"/>
 				<description value="The snapshot must have the same number of elements, in the same order, with matching paths"/>
 				<direction value="response"/>
-				<expression value="fixture('simple3-output').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
+				<expression value="fixture('t3o').snapshot.element.select(path) = fixture('patient').snapshot.element.select(path)"/>
 			</assert>
 		</action>
 		<action>
@@ -740,7 +825,7 @@
 				<label value="test3-2"/>
 				<description value="The snapshot elements must be the same"/>
 				<direction value="response"/>
-				<expression value="fixture('simple3-output').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
+				<expression value="fixture('t3o').snapshot.element.all(aliasAs('A').short = fixture('patient').snapshot.element.where(path = alias('A').path).short)"/>
 			</assert>
 		</action>
 		<action>
@@ -748,7 +833,7 @@
 				<label value="test3-3"/>
 				<description value="The patient.identifier cardinality must be right"/>
 				<direction value="response"/>
-				<expression value="fixture('simple3-output').snapshot.element.where(path = 'Patient.identifier').min = 1"/>
+				<expression value="fixture('t3o').snapshot.element.where(path = 'Patient.identifier').min = 1"/>
 			</assert>
 		</action>
 	</test>
@@ -763,8 +848,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple4-output"/>
-				<sourceId value="simple4"/>
+				<responseId value="t4o"/>
+				<sourceId value="t4"/>
 			</operation>
 		</action>
 		<action>
@@ -772,7 +857,7 @@
 				<label value="test4-1"/>
 				<description value="The patient.identifier documentation must be right"/>
 				<direction value="response"/>
-				<expression value="fixture('simple4-output').snapshot.element.where(path = 'Patient.identifier').doco != '... some more doco'"/>
+				<expression value="fixture('t4o').snapshot.element.where(path = 'Patient.identifier').doco != '... some more doco'"/>
 			</assert>
 		</action>
 	</test>
@@ -787,8 +872,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple5-output"/>
-				<sourceId value="simple5"/>
+				<responseId value="t5o"/>
+				<sourceId value="t5"/>
 			</operation>
 		</action>
 		<action>
@@ -796,7 +881,7 @@
 				<label value="test5-1"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
-				<expression value="fixture('simple5-output').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
+				<expression value="fixture('t5o').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
 			</assert>
 		</action>
 		<action>
@@ -804,7 +889,7 @@
 				<label value="test5-2"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
-				<expression value="fixture('simple5-output').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
+				<expression value="fixture('t5o').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
 			</assert>
 		</action>
 	</test>
@@ -819,8 +904,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple6-output"/>
-				<sourceId value="simple6"/>
+				<responseId value="t6o"/>
+				<sourceId value="t6"/>
 			</operation>
 		</action>
 		<action>
@@ -828,7 +913,7 @@
 				<label value="test6-1"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
-				<expression value="fixture('simple6-output').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
+				<expression value="fixture('t6o').snapshot.element.where(base.path = 'Patient.deceased[x]').type.code = 'dateTime'"/>
 			</assert>
 		</action>
 		<action>
@@ -836,7 +921,7 @@
 				<label value="test6-1"/>
 				<description value="The patient.deceased type must be right"/>
 				<direction value="response"/>
-				<expression value="fixture('simple6-output').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
+				<expression value="fixture('t6o').snapshot.element.where(base.path = 'Patient.deceased[x]').path = 'Patient.deceasedDateTime'"/>
 			</assert>
 		</action>
 	</test>
@@ -851,8 +936,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple7-output"/>
-				<sourceId value="simple7"/>
+				<responseId value="t7o"/>
+				<sourceId value="t7"/>
 			</operation>
 		</action>
 		<action>
@@ -860,7 +945,7 @@
 				<label value="test7-1"/>
 				<description value="The mapping must be made"/>
 				<direction value="response"/>
-				<expression value="fixture('simple7-output').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() = fixture('simple1-output').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() + 1"/>
+				<expression value="fixture('t7o').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() = fixture('t1o').snapshot.element.where(base.path = 'Patient.identifier').mapping.count() + 1"/>
 			</assert>
 		</action>
 	</test>
@@ -875,8 +960,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple8-output"/>
-				<sourceId value="simple8"/>
+				<responseId value="t8o"/>
+				<sourceId value="t8"/>
 			</operation>
 		</action>
 		<action>
@@ -884,7 +969,7 @@
 				<label value="test8-1"/>
 				<description value="Mustsupport must be true on Patient.identifier"/>
 				<direction value="response"/>
-				<expression value="fixture('simple8-output').snapshot.element.where(path = 'Patient.identifier').mustSupport"/>
+				<expression value="fixture('t8o').snapshot.element.where(path = 'Patient.identifier').mustSupport"/>
 			</assert>
 		</action>
 		<action>
@@ -892,7 +977,7 @@
 				<label value="test8-2"/>
 				<description value="Mustsupport must be true on Patient.identifier.system"/>
 				<direction value="response"/>
-				<expression value="fixture('simple8-output').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
+				<expression value="fixture('t8o').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
 			</assert>
 		</action>
 	</test>
@@ -908,8 +993,8 @@
           <code value="snapshot"/>
         </type>
         <resource value="StructureDefinition"/>
-        <responseId value="simple9-output"/>
-        <sourceId value="simple9"/>
+        <responseId value="t9o"/>
+        <sourceId value="t9"/>
       </operation>
     </action> 
     <action> 
@@ -917,7 +1002,7 @@
         <label value="test9-1"/>
         <description value="Mustsupport must be true on Patient.identifier"/>
         <direction value="response"/>
-        <expression value="fixture('simple9-output').snapshot.element.where(path = 'Patient.identifier').mustSupport.not()"/>
+        <expression value="fixture('t9o').snapshot.element.where(path = 'Patient.identifier').mustSupport.not()"/>
       </assert>
     </action>
     <action> 
@@ -925,7 +1010,7 @@
         <label value="test9-2"/>
         <description value="Mustsupport must be true on Patient.identifier.system"/>
         <direction value="response"/>
-        <expression value="fixture('simple9-output').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
+        <expression value="fixture('t9o').snapshot.element.where(path = 'Patient.identifier.system').mustSupport"/>
       </assert>
     </action>
   </test>     
@@ -941,8 +1026,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple10-output"/>
-				<sourceId value="simple10"/>
+				<responseId value="t10o"/>
+				<sourceId value="t10"/>
 			</operation>
 		</action>
 		<action>
@@ -950,7 +1035,7 @@
 				<label value="test10-1"/>
 				<description value="Patient.identifier must be sliced"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().slicing.exists()"/>
+				<expression value="fixture('t10o').snapshot.element.where(path = 'Patient.identifier').first().slicing.exists()"/>
 			</assert>
 		</action>
 		<action>
@@ -958,7 +1043,7 @@
 				<label value="test10-2"/>
 				<description value="Patient.identifier must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').first().sliceName.empty()"/>
+				<expression value="fixture('t10o').snapshot.element.where(path = 'Patient.identifier').first().sliceName.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -966,7 +1051,7 @@
 				<label value="test10-3"/>
 				<description value="Patient.identifier must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').count() = 3"/>
+				<expression value="fixture('t10o').snapshot.element.where(path = 'Patient.identifier').count() = 3"/>
 			</assert>
 		</action>
 		<action>
@@ -974,7 +1059,7 @@
 				<label value="test10-4"/>
 				<description value="Patient.identifier slice must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().slicing.empty()"/>
+				<expression value="fixture('t10o').snapshot.element.where(path = 'Patient.identifier').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -982,7 +1067,7 @@
 				<label value="test10-5"/>
 				<description value="Patient.identifier tail must have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier').tail().all(sliceName.empty().not())"/>
+				<expression value="fixture('t10o').snapshot.element.where(path = 'Patient.identifier').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
@@ -990,7 +1075,7 @@
 				<label value="test10-6"/>
 				<description value="Patient.identifier.use must be fixed"/>
 				<direction value="response"/>
-				<expression value="fixture('simple10-output').snapshot.element.where(path = 'Patient.identifier.use').all(fixed.empty().not())"/>
+				<expression value="fixture('t10o').snapshot.element.where(path = 'Patient.identifier.use').all(fixed.empty().not())"/>
 			</assert>
 		</action>
 	</test>
@@ -1005,8 +1090,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple11-output"/>
-				<sourceId value="simple11"/>
+				<responseId value="t11o"/>
+				<sourceId value="t11"/>
 			</operation>
 		</action>
 		<action>
@@ -1014,7 +1099,7 @@
 				<label value="test11-1"/>
 				<description value="Patient.extension must be sliced"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
 			</assert>
 		</action>
 		<action>
@@ -1022,7 +1107,7 @@
 				<label value="test11-2"/>
 				<description value="Patient.extension first must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -1030,7 +1115,7 @@
 				<label value="test11-3"/>
 				<description value="Patient.extension must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').count() = 3"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension').count() = 3"/>
 			</assert>
 		</action>
 		<action>
@@ -1038,7 +1123,7 @@
 				<label value="test11-4"/>
 				<description value="Patient.extension must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -1046,7 +1131,7 @@
 				<label value="test11-5"/>
 				<description value="Patient.extension tail must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
@@ -1054,7 +1139,7 @@
 				<label value="test11-6"/>
 				<description value="Patient.extension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension').first().max.exists()"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension').first().max.exists()"/>
 			</assert>
 		</action>
 		<action>
@@ -1062,7 +1147,7 @@
 				<label value="test11-7"/>
 				<description value="Patient.extension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple11-output').snapshot.element.where(path = 'Patient.extension')[1].min.exists()"/>
+				<expression value="fixture('t11o').snapshot.element.where(path = 'Patient.extension')[1].min.exists()"/>
 			</assert>
 		</action>
 	</test>
@@ -1077,8 +1162,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple12-output"/>
-				<sourceId value="simple12"/>
+				<responseId value="t12o"/>
+				<sourceId value="t12"/>
 			</operation>
 		</action>
 
@@ -1087,7 +1172,7 @@
 				<label value="test12-1"/>
 				<description value="Patient.extension must be sliced"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
+				<expression value="fixture('t12o').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
 			</assert>
 		</action>
 		<action>
@@ -1095,7 +1180,7 @@
 				<label value="test12-2"/>
 				<description value="Patient.extension first must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
+				<expression value="fixture('t12o').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -1103,7 +1188,7 @@
 				<label value="test12-3"/>
 				<description value="Patient.extension must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').count() = 3"/>
+				<expression value="fixture('t12o').snapshot.element.where(path = 'Patient.extension').count() = 3"/>
 			</assert>
 		</action>
 		<action>
@@ -1111,7 +1196,7 @@
 				<label value="test12-4"/>
 				<description value="Patient.extension must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
+				<expression value="fixture('t12o').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -1119,7 +1204,7 @@
 				<label value="test12-5"/>
 				<description value="Patient.extension tail must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
+				<expression value="fixture('t12o').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
@@ -1127,7 +1212,63 @@
 				<label value="test12-7"/>
 				<description value="Patient.extension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple12-output').snapshot.element.where(path = 'Patient.extension')[1].min.exists()"/>
+				<expression value="fixture('t12o').snapshot.element.where(path = 'Patient.extension')[1].min.exists()"/>
+			</assert>
+		</action>
+  </test>
+	<!-- test #12a: slicing on extension -->
+	<test>
+		<name value="Simple12a"/>
+		<description value="test slicing - simple"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t12ao"/>
+				<sourceId value="t12a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test12a-1"/>
+				<description value="Patient.extension must be sliced"/>
+				<direction value="response"/>
+				<expression value="fixture('t12ao').snapshot.element.where(path = 'Patient.extension').first().slicing.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test12a-2"/>
+				<description value="Patient.extension first must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t12ao').snapshot.element.where(path = 'Patient.extension').first().sliceName.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test12a-3"/>
+				<description value="Patient.extension must be sliced into two slices"/>
+				<direction value="response"/>
+				<expression value="fixture('t12ao').snapshot.element.where(path = 'Patient.extension').count() = 2"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test12a-4"/>
+				<description value="Patient.extension must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t12ao').snapshot.element.where(path = 'Patient.extension').tail().slicing.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test12a-5"/>
+				<description value="Patient.extension tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t12ao').snapshot.element.where(path = 'Patient.extension').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
   </test>
@@ -1142,176 +1283,176 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple13-output"/>
-				<sourceId value="simple13"/>
+				<responseId value="t13o"/>
+				<sourceId value="t13"/>
 			</operation>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-1"/>
 				<description value="element 7 (base) path"/>
-				<expression value="fixture('simple13-output').snapshot.element[7].path = 'Patient.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[7].path = 'Patient.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-2"/>
 				<description value="element 7 slicing"/>
-				<expression value="fixture('simple13-output').snapshot.element[7].slicing.exists()"/>
+				<expression value="fixture('t13o').snapshot.element[7].slicing.exists()"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-3"/>
 				<description value="element 8 (1st slice) path"/>
-				<expression value="fixture('simple13-output').snapshot.element[8].path = 'Patient.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[8].path = 'Patient.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-4"/>
 				<description value="element 8 (1st slice) name"/>
-				<expression value="fixture('simple13-output').snapshot.element[8].sliceName = 'simple'"/>
+				<expression value="fixture('t13o').snapshot.element[8].sliceName = 't'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-5"/>
 				<description value="element 9 (2nd slice) profile name"/>
-				<expression value="fixture('simple13-output').snapshot.element[8].type[0].profile = 'http://hl7.org/fhir/StructureDefinition/patient-birthTime'"/>
+				<expression value="fixture('t13o').snapshot.element[8].type[0].profile = 'http://hl7.org/fhir/StructureDefinition/patient-birthTime'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-6"/>
 				<description value="element 9 (2nd slice) path"/>
-				<expression value="fixture('simple13-output').snapshot.element[9].path = 'Patient.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[9].path = 'Patient.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-7"/>
 				<description value="element 8 (1st slice) name"/>
-				<expression value="fixture('simple13-output').snapshot.element[9].sliceName = 'complex'"/>
+				<expression value="fixture('t13o').snapshot.element[9].sliceName = 'complex'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-8"/>
 				<description value="element 9 (2nd slice) profile name"/>
-				<expression value="fixture('simple13-output').snapshot.element[9].type[0].profile = 'http://hl7.org/fhir/StructureDefinition/patient-nationality'"/>
+				<expression value="fixture('t13o').snapshot.element[9].type[0].profile = 'http://hl7.org/fhir/StructureDefinition/patient-nationality'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-9"/>
 				<description value="element 10 (2nd slice).id path"/>
-				<expression value="fixture('simple13-output').snapshot.element[10].path = 'Patient.extension.id'"/>
+				<expression value="fixture('t13o').snapshot.element[10].path = 'Patient.extension.id'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-10"/>
 				<description value="element 11 (2nd slice).extension path"/>
-				<expression value="fixture('simple13-output').snapshot.element[11].path = 'Patient.extension.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[11].path = 'Patient.extension.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-11"/>
 				<description value="element 12 (2nd slice).extension path"/>
-				<expression value="fixture('simple13-output').snapshot.element[12].path = 'Patient.extension.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[12].path = 'Patient.extension.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-12"/>
 				<description value="element 12 (2nd slice).extension must support"/>
-				<expression value="fixture('simple13-output').snapshot.element[12].mustSupport"/>
+				<expression value="fixture('t13o').snapshot.element[12].mustSupport"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-13"/>
 				<description value="element 13 (2nd slice).extension.id path"/>
-				<expression value="fixture('simple13-output').snapshot.element[13].path = 'Patient.extension.extension.id'"/>
+				<expression value="fixture('t13o').snapshot.element[13].path = 'Patient.extension.extension.id'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-14"/>
 				<description value="element 14 (2nd slice).extension.extension path"/>
-				<expression value="fixture('simple13-output').snapshot.element[14].path = 'Patient.extension.extension.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[14].path = 'Patient.extension.extension.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-15"/>
 				<description value="element 15 (2nd slice).extension.url path"/>
-				<expression value="fixture('simple13-output').snapshot.element[15].path = 'Patient.extension.extension.url'"/>
+				<expression value="fixture('t13o').snapshot.element[15].path = 'Patient.extension.extension.url'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-16"/>
 				<description value="element 16 (2nd slice).extension.valueCodeableConcept path"/>
-				<expression value="fixture('simple13-output').snapshot.element[16].path = 'Patient.extension.extension.valueCodeableConcept'"/>
+				<expression value="fixture('t13o').snapshot.element[16].path = 'Patient.extension.extension.valueCodeableConcept'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-17"/>
 				<description value="element 17 (2nd slice).extension path"/>
-				<expression value="fixture('simple13-output').snapshot.element[17].path = 'Patient.extension.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[17].path = 'Patient.extension.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-18"/>
 				<description value="element 17 (2nd slice).extension cardinality"/>
-				<expression value="fixture('simple13-output').snapshot.element[17].max = '0'"/>
+				<expression value="fixture('t13o').snapshot.element[17].max = '0'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-19"/>
 				<description value="element 18 (2nd slice).extension.id path"/>
-				<expression value="fixture('simple13-output').snapshot.element[18].path = 'Patient.extension.extension.id'"/>
+				<expression value="fixture('t13o').snapshot.element[18].path = 'Patient.extension.extension.id'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-20"/>
 				<description value="element 19 (2nd slice).extension.extension path"/>
-				<expression value="fixture('simple13-output').snapshot.element[19].path = 'Patient.extension.extension.extension'"/>
+				<expression value="fixture('t13o').snapshot.element[19].path = 'Patient.extension.extension.extension'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-21"/>
 				<description value="element 20 (2nd slice).extension.url path"/>
-				<expression value="fixture('simple13-output').snapshot.element[20].path = 'Patient.extension.extension.url'"/>
+				<expression value="fixture('t13o').snapshot.element[20].path = 'Patient.extension.extension.url'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-22"/>
 				<description value="element 21 (2nd slice).extension.valuePeriod path"/>
-				<expression value="fixture('simple13-output').snapshot.element[21].path = 'Patient.extension.extension.valuePeriod'"/>
+				<expression value="fixture('t13o').snapshot.element[21].path = 'Patient.extension.extension.valuePeriod'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-23"/>
 				<description value="element 22.url path"/>
-				<expression value="fixture('simple13-output').snapshot.element[22].path = 'Patient.extension.url'"/>
+				<expression value="fixture('t13o').snapshot.element[22].path = 'Patient.extension.url'"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<label value="test13-24"/>
 				<description value="element 22.value path"/>
-				<expression value="fixture('simple13-output').snapshot.element[23].path = 'Patient.extension.value[x]'"/>
+				<expression value="fixture('t13o').snapshot.element[23].path = 'Patient.extension.value[x]'"/>
 			</assert>
 		</action>
 	</test>
@@ -1326,15 +1467,15 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple14-output"/>
-				<sourceId value="simple14"/>
+				<responseId value="t14o"/>
+				<sourceId value="t14"/>
 			</operation>
 		</action>
 		<action>
 			<assert>
 				<label value="test14-1"/>
 				<description value="element count increased by 13"/>
-				<expression value="fixture('simple14-output').snapshot.element.count() = fixture('organization').snapshot.element.count() + 13"/>
+				<expression value="fixture('t14o').snapshot.element.count() = fixture('organization').snapshot.element.count() + 13"/>
 			</assert>
 		</action>
 	</test>
@@ -1349,15 +1490,15 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple15-output"/>
-				<sourceId value="simple15"/>
+				<responseId value="t15o"/>
+				<sourceId value="t15"/>
 			</operation>
 		</action>
 		<action>
 			<assert>
 				<label value="test15-1"/>
 				<description value="element count increased by 27"/>
-				<expression value="fixture('simple15-output').snapshot.element.count() = fixture('patient').snapshot.element.count() + 27"/>
+				<expression value="fixture('t15o').snapshot.element.count() = fixture('patient').snapshot.element.count() + 27"/>
 			</assert>
 		</action>
 	</test>
@@ -1372,15 +1513,15 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple16-output"/>
-				<sourceId value="simple16"/>
+				<responseId value="t16o"/>
+				<sourceId value="t16"/>
 			</operation>
 		</action>
 		<action>
 			<assert>
 				<label value="test16-1"/>
-				<description value="element count increased by 11"/>
-				<expression value="fixture('simple16-output').snapshot.element.count().trace('o') = fixture('simple15-output').snapshot.element.count().trace('b') + 15"/>
+				<description value="element count increased by 17"/>
+				<expression value="fixture('t16o').snapshot.element.count() = fixture('t15o').snapshot.element.count() + 17"/>
 			</assert>
 		</action>
 	</test>
@@ -1396,8 +1537,8 @@
 					<code value="snapshot"/>
 				</type>
 				<resource value="StructureDefinition"/>
-				<responseId value="simple17-output"/>
-				<sourceId value="simple17"/>
+				<responseId value="t17o"/>
+				<sourceId value="t17"/>
 			</operation>
 		</action>
 		<action>
@@ -1405,7 +1546,7 @@
 				<label value="test17-1"/>
 				<description value="Patient.modifierExtension must be sliced"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').first().slicing.exists()"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension').first().slicing.exists()"/>
 			</assert>
 		</action>
 		<action>
@@ -1413,7 +1554,7 @@
 				<label value="test17-2"/>
 				<description value="Patient.modifierExtension first must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').first().sliceName.empty()"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension').first().sliceName.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -1421,7 +1562,7 @@
 				<label value="test17-3"/>
 				<description value="Patient.modifierExtension must be sliced into two slices"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').count() = 3"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension').count() = 3"/>
 			</assert>
 		</action>
 		<action>
@@ -1429,7 +1570,7 @@
 				<label value="test17-4"/>
 				<description value="Patient.modifierExtension must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').tail().slicing.empty()"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension').tail().slicing.empty()"/>
 			</assert>
 		</action>
 		<action>
@@ -1437,7 +1578,7 @@
 				<label value="test17-5"/>
 				<description value="Patient.modifierExtension tail must not have a slice name"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').tail().all(sliceName.empty().not())"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
 		<action>
@@ -1445,7 +1586,7 @@
 				<label value="test17-6"/>
 				<description value="Patient.modifierExtension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').first().max.exists()"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension').first().max.exists()"/>
 			</assert>
 		</action>
 		<action>
@@ -1453,9 +1594,139 @@
 				<label value="test17-7"/>
 				<description value="Patient.modifierExtension cardinality must be correct"/>
 				<direction value="response"/>
-				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension')[1].min.exists()"/>
+				<expression value="fixture('t17o').snapshot.element.where(path = 'Patient.modifierExtension')[1].min.exists()"/>
 			</assert>
 		</action>
 	</test>
+	<!-- test #18: slicing on modifierExtension, no set up -->
+	<test>
+		<name value="Simple18"/>
+		<description value="slicing on modifierExtension, no extension"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t18o"/>
+				<sourceId value="t18"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-1"/>
+				<description value="Patient.modifierExtension must be sliced"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension').first().slicing.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-2"/>
+				<description value="Patient.modifierExtension first must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension').first().sliceName.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-3"/>
+				<description value="Patient.modifierExtension must be sliced into two slices"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension').count() = 3"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-4"/>
+				<description value="Patient.modifierExtension must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension').tail().slicing.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-5"/>
+				<description value="Patient.modifierExtension tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension').tail().all(sliceName.empty().not())"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-6"/>
+				<description value="Patient.modifierExtension cardinality must be correct"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension').first().max.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test18-7"/>
+				<description value="Patient.modifierExtension cardinality must be correct"/>
+				<direction value="response"/>
+				<expression value="fixture('t18o').snapshot.element.where(path = 'Patient.modifierExtension')[1].min.exists()"/>
+			</assert>
+		</action>
+	</test>
+	<!-- test #19: slicing on modifierExtension, no set up -->
+	<test>
+		<name value="Simple19"/>
+		<description value="slicing on modifierExtension, no extension, one slice"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t19o"/>
+				<sourceId value="t19"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test19-1"/>
+				<description value="Patient.modifierExtension must be sliced"/>
+				<direction value="response"/>
+				<expression value="fixture('t19o').snapshot.element.where(path = 'Patient.modifierExtension').first().slicing.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test19-2"/>
+				<description value="Patient.modifierExtension first must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t19o').snapshot.element.where(path = 'Patient.modifierExtension').first().sliceName.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test19-3"/>
+				<description value="Patient.modifierExtension must be sliced into one slices"/>
+				<direction value="response"/>
+				<expression value="fixture('t19o').snapshot.element.where(path = 'Patient.modifierExtension').count() = 2"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test19-4"/>
+				<description value="Patient.modifierExtension must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t19o').snapshot.element.where(path = 'Patient.modifierExtension').tail().slicing.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test19-5"/>
+				<description value="Patient.modifierExtension tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t19o').snapshot.element.where(path = 'Patient.modifierExtension').tail().all(sliceName.empty().not())"/>
+			</assert>
+		</action>
+	</test>
+
+
   
 </TestScript>
