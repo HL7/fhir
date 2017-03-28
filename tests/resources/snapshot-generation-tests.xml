@@ -20,6 +20,8 @@
  16. Test slicing - extending a complex extension's children in derived profile
  17. Modifier Extension
  18. Modifier Extension, but without setting the slicing up
+ 19. Use a modifier extension, with no set up, and only one slice
+ 20. Test slicing - Constrain base element before slicing
 -->
 	<contained>
 		<!-- fixture for #1: no change in the differential -->
@@ -624,7 +626,7 @@
 				</element>
 			</differential>
 		</StructureDefinition>
-	</contained>  
+	</contained>
 	<contained>
 		<!-- fixture for #18: use a modifier extension, with no set up-->
 		<StructureDefinition>
@@ -681,6 +683,179 @@
 						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
 					</type>
 				</element>
+			</differential>
+		</StructureDefinition>
+	</contained>
+	<contained>
+		<!-- fixture for #18: use a modifier extension, with no set up-->
+		<StructureDefinition>
+			<id value="t18"/>
+			<url value="urn:uuid:14b4442c-ef9f-4630-bb44-681b65f758ac"/>
+			<name value="t18"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+        <!-- these aren't valid as modifer extensions, but the snapshot generator doesn't check that -->
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name1"/>
+					<min value="1"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+					</type>
+				</element>
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name2"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
+					</type>
+				</element>
+			</differential>
+		</StructureDefinition>
+	</contained>
+	<contained>
+		<!-- fixture for #20: Constrain base element before slicing -->
+		<StructureDefinition>
+			<id value="t20"/>
+			<url value="urn:uuid:acf3d0b7-f9db-4dea-8dea-9fc7d0fc38ae"/>
+			<name value="t20"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient.identifier"/>
+					<slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="type.coding.code"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+					<mustSupport value="true"/>
+				</element>
+				<element>
+					<path value="Patient.identifier.extension"/>
+					<sliceName value="validDate"/>
+					<max value="1"/>
+					<type>
+            <code value="Extension"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/identifier-validDate"/>
+          </type>
+					<mustSupport value="true"/>
+				</element>
+				<element>
+          <path value="Patient.identifier.type"/>
+          <min value="1"/>
+          <mustSupport value="true"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding"/>
+          <min value="1"/>
+          <mustSupport value="true"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding.system"/>
+          <min value="1"/>
+          <mustSupport value="true"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding.code"/>
+          <min value="1"/>
+          <mustSupport value="true"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.system"/>
+          <min value="1"/>
+          <mustSupport value="true"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.value"/>
+          <min value="1"/>
+          <mustSupport value="true"/>
+        </element>
+				<element>
+          <path value="Patient.identifier"/>
+          <sliceName value="MRN"/>
+          <min value="1"/>
+          <max value="1"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="system"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding"/>
+          <sliceName value="preferredCoding"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding.system"/>
+          <fixedUri value="http://hl7.org/fhir/v2/0203"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding.code"/>
+          <fixedCode value="MR"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.extension"/>
+					<sliceName value="validDate"/>
+					<min value="1"/>
+        </element>
+				<element>
+          <path value="Patient.identifier"/>
+          <sliceName value="JHN"/>
+          <min value="1"/>
+          <max value="1"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="system"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding"/>
+          <sliceName value="preferredCoding"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding.system"/>
+          <fixedUri value="http://hl7.org/fhir/v2/0203"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.type.coding.code"/>
+          <fixedCode value="JHN"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.extension"/>
+					<sliceName value="validDate"/>
+					<max value="0"/>
+        </element>
 			</differential>
 		</StructureDefinition>
 	</contained>
@@ -1727,6 +1902,27 @@
 		</action>
 	</test>
 
-
-  
+  <!-- Test slicing - Constrain base element before slicing -->
+	<test>
+		<name value="Simple20"/>
+		<description value="test slicing - Constrain base element before slicing"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t20o"/>
+				<sourceId value="t20"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test20-1"/>
+				<description value="element count increased by 59"/>
+				<expression value="fixture('t20o').snapshot.element.count() = fixture('t20o').snapshot.element.count() + 59"/>
+			</assert>
+		</action>
+	</test>  
 </TestScript>
