@@ -432,11 +432,11 @@ public class ProfileUtilities extends TranslatingUtilities {
    * @throws DefinitionException, FHIRException 
    * @throws Exception
    */
-  private void processPaths(String indent, StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
+  private ElementDefinition processPaths(String indent, StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
       int diffLimit, String url, String profileName, String contextPathSrc, String contextPathDst, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingDone) throws DefinitionException, FHIRException {
 
 //    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
-    boolean testDoneFlag = false; // the only purpose of this line is to give us a line to put a break point on after the println is happened
+    ElementDefinition res = null; 
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
@@ -506,6 +506,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
+          res = outcome;
           updateFromBase(outcome, currentBase);
           if (diffMatches.get(0).hasSliceName())
             outcome.setSliceName(diffMatches.get(0).getSliceName());
@@ -552,7 +553,6 @@ public class ProfileUtilities extends TranslatingUtilities {
             }
           }
         } else {
-          testDoneFlag = true;
           // ok, the differential slices the item. Let's check our pre-conditions to ensure that this is correct
           if (!unbounded(currentBase) && !isSlicedToOneOnly(diffMatches.get(0)))
             // you can only slice an element that doesn't repeat if the sum total of your slices is limited to 1
@@ -562,34 +562,40 @@ public class ProfileUtilities extends TranslatingUtilities {
             throw new DefinitionException("differential does not have a slice: "+currentBase.getPath()+" in profile "+url);
 
           // well, if it passed those preconditions then we slice the dest.
-          // we're just going to accept the differential slicing at face value
-          ElementDefinition outcome = updateURLs(url, currentBase.copy());
-          outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
-          updateFromBase(outcome, currentBase);
-
-          if (!diffMatches.get(0).hasSlicing())
-            outcome.setSlicing(makeExtensionSlicing());
-          else
-            outcome.setSlicing(diffMatches.get(0).getSlicing().copy());
-          if (!outcome.getPath().startsWith(resultPathBase))
-            throw new DefinitionException("Adding wrong path");
-          result.getElement().add(outcome);
-
-          // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
           int start = 0;
-          if (!diffMatches.get(0).hasSliceName()) {
-            updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
-            if (!outcome.hasContentReference() && !outcome.hasType()) {
-              throw new DefinitionException("not done yet");
-            }
+          int nbl = findEndOfElement(base, baseCursor);
+          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1) {
+            int ndc = differential.getElement().indexOf(diffMatches.get(0));
+            int ndl = findEndOfElement(differential, ndc);
+            processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true).setSlicing(diffMatches.get(0).getSlicing());
             start++;
-            // result.getElement().remove(result.getElement().size()-1);
-          } else 
-            checkExtensionDoco(outcome);
+          } else {
+            // we're just going to accept the differential slicing at face value
+            ElementDefinition outcome = updateURLs(url, currentBase.copy());
+            outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
+            updateFromBase(outcome, currentBase);
 
+            if (!diffMatches.get(0).hasSlicing())
+              outcome.setSlicing(makeExtensionSlicing());
+            else
+              outcome.setSlicing(diffMatches.get(0).getSlicing().copy());
+            if (!outcome.getPath().startsWith(resultPathBase))
+              throw new DefinitionException("Adding wrong path");
+            result.getElement().add(outcome);
+
+            // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
+            if (!diffMatches.get(0).hasSliceName()) {
+              updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
+              if (!outcome.hasContentReference() && !outcome.hasType()) {
+                throw new DefinitionException("not done yet");
+              }
+              start++;
+              // result.getElement().remove(result.getElement().size()-1);
+            } else 
+              checkExtensionDoco(outcome);
+          }
           // now, for each entry in the diff matches, we're going to process the base item
           // our processing scope for base is all the children of the current path
-          int nbl = findEndOfElement(base, baseCursor);
           int ndc = diffCursor;
           int ndl = diffCursor;
           for (int i = start; i < diffMatches.size(); i++) {
@@ -646,6 +652,9 @@ public class ProfileUtilities extends TranslatingUtilities {
              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - disciminator @ "+path+" ("+contextName+")");
             if (!ruleMatches(dSlice.getRules(), bSlice.getRules()))
              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - rule @ "+path+" ("+contextName+")");
+          }
+          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1) {
+            throw new Error("Not done yet");
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
@@ -766,9 +775,6 @@ public class ProfileUtilities extends TranslatingUtilities {
         }
       }
     }
-
-    if (testDoneFlag)
-      testDoneFlag = false;
     
     int i = 0;
     for (ElementDefinition e : result.getElement()) {
@@ -776,6 +782,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       if (e.hasMinElement() && e.getMinElement().getValue()==null)
         throw new Error("null min");
     }
+    return res;
   }
 
 

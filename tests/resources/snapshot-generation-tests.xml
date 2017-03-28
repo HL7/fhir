@@ -883,6 +883,11 @@
           <max value="1"/>
         </element>
 				<element>
+          <path value="Patient.identifier.extension"/>
+					<sliceName value="validDate"/>
+					<min value="1"/>
+        </element>
+				<element>
           <path value="Patient.identifier.type"/>
         </element>
 				<element>
@@ -908,15 +913,15 @@
           <fixedCode value="MR"/>
         </element>
 				<element>
-          <path value="Patient.identifier.extension"/>
-					<sliceName value="validDate"/>
-					<min value="1"/>
-        </element>
-				<element>
           <path value="Patient.identifier"/>
           <sliceName value="JHN"/>
           <min value="1"/>
           <max value="1"/>
+        </element>
+				<element>
+          <path value="Patient.identifier.extension"/>
+					<sliceName value="validDate"/>
+					<max value="0"/>
         </element>
 				<element>
           <path value="Patient.identifier.type"/>
@@ -942,11 +947,6 @@
 				<element>
           <path value="Patient.identifier.type.coding.code"/>
           <fixedCode value="JHN"/>
-        </element>
-				<element>
-          <path value="Patient.identifier.extension"/>
-					<sliceName value="validDate"/>
-					<max value="0"/>
         </element>
 			</differential>
 		</StructureDefinition>
@@ -2127,7 +2127,7 @@
 			<assert>
 				<label value="test22-1"/>
 				<description value="element count increased by 59"/>
-				<expression value="fixture('t22o').snapshot.element.count() = fixture('t22o').snapshot.element.count() + 59"/>
+				<expression value="fixture('t22o').snapshot.element.count().trace('o') = fixture('patient').snapshot.element.count().trace('o') + 76"/>
 			</assert>
 		</action>
 	</test> 
