@@ -1,5 +1,7 @@
 package org.hl7.fhir.dstu3.conformance;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.formats.IParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeType;
@@ -327,6 +331,15 @@ public class ProfileUtilities extends TranslatingUtilities {
     snapshotStack.add(derived.getUrl());
     
 
+    try {
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:", "temp", "in,xml")), derived);
+    } catch (FileNotFoundException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
+    } catch (IOException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
+    }
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
 
     // so we have two lists - the base list, and the differential list
@@ -422,14 +435,14 @@ public class ProfileUtilities extends TranslatingUtilities {
   private void processPaths(String indent, StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
       int diffLimit, String url, String profileName, String contextPathSrc, String contextPathDst, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingDone) throws DefinitionException, FHIRException {
 
-    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
+//    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
     boolean testDoneFlag = false; // the only purpose of this line is to give us a line to put a break point on after the println is happened
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
       ElementDefinition currentBase = base.getElement().get(baseCursor);
       String cpath = fixedPath(contextPathSrc, currentBase.getPath());
-      System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicingDone = "+slicingDone+")");
+//      System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicingDone = "+slicingDone+")");
       List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit, profileName, url); // get a list of matching elements in scope
 
       // in the simple case, source is not sliced.
@@ -495,7 +508,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
           updateFromBase(outcome, currentBase);
           if (diffMatches.get(0).hasSliceName())
-          outcome.setSliceName(diffMatches.get(0).getSliceName());
+            outcome.setSliceName(diffMatches.get(0).getSliceName());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
           if (outcome.getPath().endsWith("[x]") && outcome.getType().size() == 1 && !outcome.getType().get(0).getCode().equals("*")) // if the base profile allows multiple types, but the profile only allows one, rename it
@@ -507,7 +520,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           result.getElement().add(outcome);
           baseCursor++;
           diffCursor = differential.getElement().indexOf(diffMatches.get(0))+1;
-          if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && isDataType(outcome.getType())) {  // don't want to do this for the root, since that's base, and we're already processing it
+          if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && (isDataType(outcome.getType()) || outcome.hasContentReference())) {  // don't want to do this for the root, since that's base, and we're already processing it
             if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor)) {
               if (outcome.getType().size() > 1) {
                 for (TypeRefComponent t : outcome.getType()) {
@@ -515,15 +528,27 @@ public class ProfileUtilities extends TranslatingUtilities {
                     throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
                 }
               }
-              StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
-              if (dt == null)
-                throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
-              contextName = dt.getUrl();
               int start = diffCursor;
               while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
                 diffCursor++;
-              processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
-                  diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
+              if (outcome.hasContentReference()) {
+                ElementDefinition tgt = getElementById(base.getElement(), outcome.getContentReference());
+                if (tgt == null)
+                  throw new DefinitionException("Unable to resolve reference to "+outcome.getContentReference());
+                replaceFromContentReference(outcome, tgt);
+                int nbc = base.getElement().indexOf(tgt)+1;
+                int nbl = nbc;
+                while (nbl < base.getElement().size() && base.getElement().get(nbl).getPath().startsWith(tgt.getPath()+"."))
+                  nbl++;
+                processPaths(indent+"  ", result, base, differential, nbc, start - 1, nbl-1, diffCursor - 1, url, profileName, tgt.getPath(), diffMatches.get(0).getPath(), trimDifferential, contextName, resultPathBase, false);
+              } else {
+                StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+                if (dt == null)
+                  throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
+                contextName = dt.getUrl();
+                processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
+                    diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
+              }
             }
           }
         } else {
@@ -554,7 +579,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           int start = 0;
           if (!diffMatches.get(0).hasSliceName()) {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
-            if (!outcome.hasType()) {
+            if (!outcome.hasContentReference() && !outcome.hasType()) {
               throw new DefinitionException("not done yet");
             }
             start++;
@@ -751,6 +776,13 @@ public class ProfileUtilities extends TranslatingUtilities {
       if (e.hasMinElement() && e.getMinElement().getValue()==null)
         throw new Error("null min");
     }
+  }
+
+
+  private void replaceFromContentReference(ElementDefinition outcome, ElementDefinition tgt) {
+    outcome.setContentReference(null);
+    outcome.getType().clear(); // though it should be clear anyway
+    outcome.getType().addAll(tgt.getType());    
   }
 
 
@@ -1811,6 +1843,13 @@ public class ProfileUtilities extends TranslatingUtilities {
     return null;
   }
 
+  private ElementDefinition getElementById(List<ElementDefinition> elements, String contentReference) {
+    for (ElementDefinition ed : elements)
+      if (ed.hasId() && ("#"+ed.getId()).equals(contentReference))
+        return ed;
+    return null;
+  }
+
 
   public static String describeExtensionContext(StructureDefinition ext) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -2697,7 +2736,11 @@ public class ProfileUtilities extends TranslatingUtilities {
         }
         if (p.endsWith("[x]") && actual.startsWith(p.substring(0, p.length()-3)) && !(actual.endsWith("[x]")) && !actual.substring(p.length()-3).contains(".")) {
           return i;
-      }
+        }
+        if (path.startsWith(p+".") && snapshot.get(i).hasContentReference()) {
+          actual = base+(snapshot.get(i).getContentReference().substring(1)+"."+path.substring(p.length()+1)).substring(prefixLength);
+          i = 0;
+        }
       }
       if (prefixLength == 0)
         errors.add("Differential contains path "+path+" which is not found in the base");

@@ -14,14 +14,17 @@
  10. Test slicing - simple case
  11. Test slicing - extension
  12. Test slicing - extension, but without setting the slicing up
+ 12a. Test slicing - extension, but without setting the slicing up (one slice only)
  13. Test slicing - a complex case
  14. Test slicing see task 8742
  15. Test slicing - complex extensions with children
  16. Test slicing - extending a complex extension's children in derived profile
  17. Modifier Extension
  18. Modifier Extension, but without setting the slicing up
- 19. Use a modifier extension, with no set up, and only one slice
- 20. Test slicing - Constrain base element before slicing
+ 19. Modifier Extension, but without setting the slicing up (one slice only)
+ 20. Slicing a backbone element 
+ 21. Slicing a backbone element on it's nested use
+ 22. Test slicing - Constrain base element before slicing
 -->
 	<contained>
 		<!-- fixture for #1: no change in the differential -->
@@ -626,7 +629,7 @@
 				</element>
 			</differential>
 		</StructureDefinition>
-	</contained>
+	</contained>  
 	<contained>
 		<!-- fixture for #18: use a modifier extension, with no set up-->
 		<StructureDefinition>
@@ -687,45 +690,134 @@
 		</StructureDefinition>
 	</contained>
 	<contained>
-		<!-- fixture for #18: use a modifier extension, with no set up-->
+		<!-- fixture for #20: Slicing a backbone element -->
 		<StructureDefinition>
-			<id value="t18"/>
-			<url value="urn:uuid:14b4442c-ef9f-4630-bb44-681b65f758ac"/>
-			<name value="t18"/>
-			<status value="draft"/>
-			<kind value="resource"/>
-			<abstract value="false"/>
-			<type value="Patient"/>
-			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-			<derivation value="constraint"/>
-			<differential>
-        <!-- these aren't valid as modifer extensions, but the snapshot generator doesn't check that -->
-				<element>
-					<path value="Patient.modifierExtension"/>
-					<sliceName value="name1"/>
-					<min value="1"/>
-					<type>
-						<code value="Extension"/>
-						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
-					</type>
-				</element>
-				<element>
-					<path value="Patient.modifierExtension"/>
-					<sliceName value="name2"/>
-					<type>
-						<code value="Extension"/>
-						<profile value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
-					</type>
-				</element>
-			</differential>
+      <id value="t20"/>
+      <url value="urn:uuid:29645106-1e27-4820-996c-d48c1e932329"/>
+      <name value="t20"/>
+      <status value="draft"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="PlanDefinition"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="PlanDefinition:ordertemplate">
+          <path value="PlanDefinition"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action">
+          <path value="PlanDefinition.action"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="label"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+          <min value="1"/>
+          <max value="*"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action:subtask1">
+          <path value="PlanDefinition.action"/>
+          <sliceName value="subtask1"/>
+          <min value="0"/>
+          <max value="1"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action:subtask1.label">
+          <path value="PlanDefinition.action.label"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="string"/>
+          </type>
+          <fixedString value="slice1"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action:subtask2">
+          <path value="PlanDefinition.action"/>
+          <sliceName value="subtask2"/>
+          <min value="0"/>
+          <max value="1"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action:subtask2.label">
+          <path value="PlanDefinition.action.label"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="string"/>
+          </type>
+          <fixedString value="slice2"/>
+        </element>
+      </differential>    
 		</StructureDefinition>
 	</contained>
 	<contained>
-		<!-- fixture for #20: Constrain base element before slicing -->
+		<!-- fixture for #21: Slicing a backbone element on it's nested use -->
 		<StructureDefinition>
-			<id value="t20"/>
-			<url value="urn:uuid:acf3d0b7-f9db-4dea-8dea-9fc7d0fc38ae"/>
-			<name value="t20"/>
+      <id value="t21"/>
+      <url value="urn:uuid:ea08f7c0-97f2-44bb-8ef5-f36d9e53148c"/>
+      <name value="t21"/>
+      <status value="draft"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="PlanDefinition"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="PlanDefinition:ordertemplate">
+          <path value="PlanDefinition"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action.action">
+          <path value="PlanDefinition.action.action"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="label"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+          <min value="1"/>
+          <max value="*"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action.action:subtask1">
+          <path value="PlanDefinition.action.action"/>
+          <sliceName value="subtask1"/>
+          <min value="0"/>
+          <max value="1"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action.action:subtask1.label">
+          <path value="PlanDefinition.action.action.label"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="string"/>
+          </type>
+          <fixedString value="slice1"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action.action:subtask2">
+          <path value="PlanDefinition.action.action"/>
+          <sliceName value="subtask2"/>
+          <min value="0"/>
+          <max value="1"/>
+        </element>
+        <element id="PlanDefinition:ordertemplate.action.action:subtask2.label">
+          <path value="PlanDefinition.action.action.label"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="string"/>
+          </type>
+          <fixedString value="slice2"/>
+        </element>
+      </differential>    
+		</StructureDefinition>
+	</contained>
+  
+	<contained>
+		<!-- fixture for #22: Constrain base element before slicing -->
+		<StructureDefinition>
+			<id value="t22"/>
+			<url value="urn:uuid:a690d8bf-7b93-4785-b5d7-74bc3452a24b"/>
+			<name value="t22"/>
 			<status value="draft"/>
 			<kind value="resource"/>
 			<abstract value="false"/>
@@ -858,7 +950,7 @@
         </element>
 			</differential>
 		</StructureDefinition>
-	</contained>
+	</contained>  
   
 	<url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
 	<name value="SnapshotGenerationTests"/>
@@ -886,7 +978,7 @@
   
 	<!-- test #1: no change in the differential -->
 	<test>
-		<name value="Simple1"/>
+		<name value="Test1"/>
 		<description value="an empty differential, generate the snapshot, and then insist it must match the base"/>
 		<action>
 			<operation>
@@ -942,7 +1034,7 @@
 	</test>
 	<!-- test #2: no change in the differential, but a resource with recursion -->
 	<test>
-		<name value="Simple2"/>
+		<name value="Test2"/>
 		<description value="an empty differential, generate the snapshot, and then insist it must match the base - use a resource with recusion"/>
 		<action>
 			<operation>
@@ -974,7 +1066,7 @@
 	</test>
 	<!-- test #3: fix a cardinality -->
 	<test>
-		<name value="Simple3"/>
+		<name value="Test3"/>
 		<description value="fix a cardinality"/>
 		<action>
 			<operation>
@@ -1014,7 +1106,7 @@
 	</test>
 	<!-- test #4: test appending documentation -->
 	<test>
-		<name value="Simple4"/>
+		<name value="Test4"/>
 		<description value="fix a cardinality"/>
 		<action>
 			<operation>
@@ -1038,7 +1130,7 @@
 	</test>
 	<!-- test #5: test type narrowing -->
 	<test>
-		<name value="Simple5"/>
+		<name value="Test5"/>
 		<description value="fix a type"/>
 		<action>
 			<operation>
@@ -1070,7 +1162,7 @@
 	</test>
 	<!-- test #6: test type narrowing -->
 	<test>
-		<name value="Simple6"/>
+		<name value="Test6"/>
 		<description value="fix a type (with renaming)"/>
 		<action>
 			<operation>
@@ -1102,7 +1194,7 @@
 	</test>
 	<!-- test #7: test mapping resolution -->
 	<test>
-		<name value="Simple7"/>
+		<name value="Test7"/>
 		<description value="test mapping resolution"/>
 		<action>
 			<operation>
@@ -1126,7 +1218,7 @@
 	</test>
 	<!-- test #8: test walking into a type -->
 	<test>
-		<name value="Simple8"/>
+		<name value="Test8"/>
 		<description value="test mapping resolution"/>
 		<action>
 			<operation>
@@ -1159,7 +1251,7 @@
   
 	<!-- test #9: test walking into a type (sparsely) -->
   <test>
-    <name value="Simple9"/>
+    <name value="Test9"/>
     <description value="test mapping resolution"/>
     <action> 
       <operation> 
@@ -1192,7 +1284,7 @@
 
 	<!-- test #10: simple slicing -->
 	<test>
-		<name value="Simple10"/>
+		<name value="Test10"/>
 		<description value="test slicing - simple"/>
 		<action>
 			<operation>
@@ -1256,7 +1348,7 @@
 	</test>
 	<!-- test #11: slicing on extension -->
 	<test>
-		<name value="Simple11"/>
+		<name value="Test11"/>
 		<description value="test slicing - simple"/>
 		<action>
 			<operation>
@@ -1328,7 +1420,7 @@
 	</test>
 	<!-- test #12: slicing on extension -->
 	<test>
-		<name value="Simple12"/>
+		<name value="Test12"/>
 		<description value="test slicing - simple"/>
 		<action>
 			<operation>
@@ -1393,7 +1485,7 @@
   </test>
 	<!-- test #12a: slicing on extension -->
 	<test>
-		<name value="Simple12a"/>
+		<name value="Test12a"/>
 		<description value="test slicing - simple"/>
 		<action>
 			<operation>
@@ -1449,7 +1541,7 @@
   </test>
 	<!-- test #13: slicing on extension (complex) -->
 	<test>
-		<name value="Simple13"/>
+		<name value="Test13"/>
 		<description value="test slicing - complex"/>
 		<action>
 			<operation>
@@ -1633,7 +1725,7 @@
 	</test>
 	<!-- test #14: slicing on extension (complex) -->
 	<test>
-		<name value="Simple14"/>
+		<name value="Test14"/>
 		<description value="test slicing - complex"/>
 		<action>
 			<operation>
@@ -1656,7 +1748,7 @@
 	</test>
 	<!-- Test #15 - complex extensions with children -->
 	<test>
-		<name value="Simple15"/>
+		<name value="Test15"/>
 		<description value="test slicing - complex extensions with children"/>
 		<action>
 			<operation>
@@ -1679,7 +1771,7 @@
 	</test>
 	<!-- Test #16 - extending a complex extension's children in derived profile -->
 	<test>
-		<name value="Simple16"/>
+		<name value="Test16"/>
 		<description value="test slicing - extending a complex extension's children in derived profile"/>
 		<action>
 			<operation>
@@ -1703,7 +1795,7 @@
   
 	<!-- test #17: slicing on modifierExtension -->
 	<test>
-		<name value="Simple17"/>
+		<name value="Test17"/>
 		<description value="test slicing - simple"/>
 		<action>
 			<operation>
@@ -1775,7 +1867,7 @@
 	</test>
 	<!-- test #18: slicing on modifierExtension, no set up -->
 	<test>
-		<name value="Simple18"/>
+		<name value="Test18"/>
 		<description value="slicing on modifierExtension, no extension"/>
 		<action>
 			<operation>
@@ -1847,7 +1939,7 @@
 	</test>
 	<!-- test #19: slicing on modifierExtension, no set up -->
 	<test>
-		<name value="Simple19"/>
+		<name value="Test19"/>
 		<description value="slicing on modifierExtension, no extension, one slice"/>
 		<action>
 			<operation>
@@ -1902,10 +1994,10 @@
 		</action>
 	</test>
 
-  <!-- Test slicing - Constrain base element before slicing -->
-<!--	<test>
-		<name value="Simple20"/>
-		<description value="test slicing - Constrain base element before slicing"/>
+	<!-- test #20: Slicing a backbone element on it's nested use -->
+	<test>
+		<name value="Test20"/>
+		<description value="slicing on modifierExtension, no extension, one slice"/>
 		<action>
 			<operation>
 				<type>
@@ -1920,9 +2012,124 @@
 		<action>
 			<assert>
 				<label value="test20-1"/>
-				<description value="element count increased by 59"/>
-				<expression value="fixture('t20o').snapshot.element.count() = fixture('t20o').snapshot.element.count() + 59"/>
+				<description value="PlanDefinition.action must be sliced"/>
+				<direction value="response"/>
+				<expression value="fixture('t20o').snapshot.element.where(path = 'PlanDefinition.action').first().slicing.exists()"/>
 			</assert>
 		</action>
-	</test>  -->
+		<action>
+			<assert>
+				<label value="test20-2"/>
+				<description value="PlanDefinition.action first must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t20o').snapshot.element.where(path = 'PlanDefinition.action').first().sliceName.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test20-3"/>
+				<description value="PlanDefinition.action must be sliced into two slices"/>
+				<direction value="response"/>
+				<expression value="fixture('t20o').snapshot.element.where(path = 'PlanDefinition.action').count() = 3"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test20-4"/>
+				<description value="PlanDefinition.action tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t20o').snapshot.element.where(path = 'PlanDefinition.action').tail().slicing.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test20-5"/>
+				<description value="PlanDefinition.action tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t20o').snapshot.element.where(path = 'PlanDefinition.action').tail().all(sliceName.empty().not())"/>
+			</assert>
+		</action>
+	</test>
+
+	<!-- test #21: Slicing a backbone element on it's nested use -->
+	<test>
+		<name value="Test21"/>
+		<description value="slicing on modifierExtension, no extension, one slice"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t21o"/>
+				<sourceId value="t21"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test21-1"/>
+				<description value="PlanDefinition.action.action must be sliced"/>
+				<direction value="response"/>
+				<expression value="fixture('t21o').snapshot.element.where(path = 'PlanDefinition.action.action').first().slicing.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test21-2"/>
+				<description value="PlanDefinition.action.action first must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t21o').snapshot.element.where(path = 'PlanDefinition.action.action').first().sliceName.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test21-3"/>
+				<description value="PlanDefinition.action.action must be sliced into two slices"/>
+				<direction value="response"/>
+				<expression value="fixture('t21o').snapshot.element.where(path = 'PlanDefinition.action.action').count() = 3"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test21-4"/>
+				<description value="PlanDefinition.action.action tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t21o').snapshot.element.where(path = 'PlanDefinition.action.action').tail().slicing.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test21-5"/>
+				<description value="PlanDefinition.action.action tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('t21o').snapshot.element.where(path = 'PlanDefinition.action.action').tail().all(sliceName.empty().not())"/>
+			</assert>
+		</action>
+	</test>
+
+  <!-- #22. Test slicing - Constrain base element before slicing -->
+	<test>
+		<name value="Test22"/>
+		<description value="test slicing - Constrain base element before slicing"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t22o"/>
+				<sourceId value="t22"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test22-1"/>
+				<description value="element count increased by 59"/>
+				<expression value="fixture('t22o').snapshot.element.count() = fixture('t22o').snapshot.element.count() + 59"/>
+			</assert>
+		</action>
+	</test> 
+  
 </TestScript>
