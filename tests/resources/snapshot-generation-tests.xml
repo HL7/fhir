@@ -1903,7 +1903,7 @@
 	</test>
 
   <!-- Test slicing - Constrain base element before slicing -->
-	<test>
+<!--	<test>
 		<name value="Simple20"/>
 		<description value="test slicing - Constrain base element before slicing"/>
 		<action>
@@ -1924,5 +1924,5 @@
 				<expression value="fixture('t20o').snapshot.element.count() = fixture('t20o').snapshot.element.count() + 59"/>
 			</assert>
 		</action>
-	</test>  
+	</test>  -->
 </TestScript>
