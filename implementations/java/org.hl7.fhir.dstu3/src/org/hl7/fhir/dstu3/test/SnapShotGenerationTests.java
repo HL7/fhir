@@ -20,6 +20,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Resource;
@@ -65,10 +66,17 @@ public class SnapShotGenerationTests {
       if (!tests.getTeardown().isEmpty())
         throw new Error("Teardown is not supported");
       Set<String> ids = new HashSet<String>();
+      Set<String> urls = new HashSet<String>();
       for (Resource r : tests.getContained()) {
         if (ids.contains(r.getId()))
-          throw new Error("Unsupported: duplicate contained resource or fixture id  "+r.getId());
+          throw new Error("Unsupported: duplicate contained resource on fixture id  "+r.getId());
         ids.add(r.getId());
+        if (r instanceof MetadataResource) {
+          MetadataResource md = (MetadataResource) r;
+          if (urls.contains(md.getUrl()))
+            throw new Error("Unsupported: duplicate canonical url "+md.getUrl()+" on fixture id  "+r.getId());
+          urls.add(md.getUrl());
+        }
       }
       for (TestScriptFixtureComponent r : tests.getFixture()) {
         if (ids.contains(r.getId()))

@@ -51,7 +51,7 @@
 		<!-- fixture for #3: change a cardinality -->
 		<StructureDefinition>
 			<id value="simple3"/>
-			<url value="urn:uuid:c7e52962-c322-4417-bd95-fb0dfc40fd62"/>
+			<url value="urn:uuid:b3f56cfa-98a3-422c-9584-738e09881ac9"/>
 			<name value="simple3"/>
 			<status value="draft"/>
 			<kind value="resource"/>
@@ -202,7 +202,7 @@
 		<!-- fixture for #10: Simple slicing -->
 		<StructureDefinition>
 			<id value="simple10"/>
-			<url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
+			<url value="urn:uuid:772b9182-39d3-45fd-b01c-e09df0a5cf6c"/>
 			<name value="simple10"/>
 			<status value="draft"/>
 			<kind value="resource"/>
@@ -245,7 +245,7 @@
 		<!-- fixture for #11: slicing on extensions -->
 		<StructureDefinition>
 			<id value="simple11"/>
-			<url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
+			<url value="urn:uuid:f119d7d3-81e3-4432-8c68-11baafa5f986"/>
 			<name value="simple11"/>
 			<status value="draft"/>
 			<kind value="resource"/>
@@ -395,7 +395,7 @@
 		<!-- fixture for #14: see task 8742 -->
 		<StructureDefinition>
 			<id value="simple14"/>
-			<url value="urn:uuid:02035b8d-d61f-4d56-a917-28178ea95e9c"/>
+			<url value="urn:uuid:17a816a1-0196-4eb4-86c3-2f6e05944598"/>
 			<name value="simple14"/>
 			<status value="draft"/>
 			<kind value="resource"/>
@@ -552,6 +552,54 @@
       </differential>
     </StructureDefinition>
   </contained>
+	<contained>
+		<!-- fixture for #17: use a modifier extension instead -->
+		<StructureDefinition>
+			<id value="simple17"/>
+			<url value="urn:uuid:14b4442c-ef9f-4630-bb44-681b65f758ac"/>
+			<name value="simple17"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<slicing>
+						<discriminator>
+							<type value="value"/>
+							<path value="url"/>
+						</discriminator>
+						<ordered value="false"/>
+						<rules value="open"/>
+					</slicing>
+					<max value="3"/>
+				</element>
+        <!-- actually these aren't valid as modifer extensions, but the snapshot generator doesn't check that -->
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name1"/>
+					<min value="1"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-birthTime"/>
+					</type>
+				</element>
+				<element>
+					<path value="Patient.modifierExtension"/>
+					<sliceName value="name2"/>
+					<type>
+						<code value="Extension"/>
+						<profile value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
+					</type>
+				</element>
+			</differential>
+		</StructureDefinition>
+	</contained>
+  
+  
 	<url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
 	<name value="SnapshotGenerationTests"/>
 	<title value="Snapshot generation test script"/>
@@ -1336,4 +1384,78 @@
 			</assert>
 		</action>
 	</test>
+  
+	<!-- test #17: slicing on modifierExtension -->
+	<test>
+		<name value="Simple17"/>
+		<description value="test slicing - simple"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="simple17-output"/>
+				<sourceId value="simple17"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-1"/>
+				<description value="Patient.modifierExtension must be sliced"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').first().slicing.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-2"/>
+				<description value="Patient.modifierExtension first must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').first().sliceName.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-3"/>
+				<description value="Patient.modifierExtension must be sliced into two slices"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').count() = 3"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-4"/>
+				<description value="Patient.modifierExtension must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').tail().slicing.empty()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-5"/>
+				<description value="Patient.modifierExtension tail must not have a slice name"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').tail().all(sliceName.empty().not())"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-6"/>
+				<description value="Patient.modifierExtension cardinality must be correct"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension').first().max.exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<label value="test17-7"/>
+				<description value="Patient.modifierExtension cardinality must be correct"/>
+				<direction value="response"/>
+				<expression value="fixture('simple17-output').snapshot.element.where(path = 'Patient.modifierExtension')[1].min.exists()"/>
+			</assert>
+		</action>
+	</test>
+  
 </TestScript>
