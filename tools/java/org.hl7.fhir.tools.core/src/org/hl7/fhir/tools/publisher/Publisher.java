@@ -610,8 +610,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         try {
           processWarnings(e instanceof EValidationFailed);
         } catch (Exception e2) {
-          page.log("  ERROR: Unable to process warnings: " + e.getMessage(), LogMessageType.Error);
-          e.printStackTrace();
+          page.log("  ERROR: Unable to process warnings: " + e2.getMessage(), LogMessageType.Error);
+          e2.printStackTrace();
         }
       }
       if (buildFlags.containsKey("all") && !buildFlags.get("all")) {
