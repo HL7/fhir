@@ -3331,7 +3331,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else {
       System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
-      System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+". "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
+      System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
       Publisher self = new Publisher();
       if (hasParam(args, "-source")) {
         // run with standard template. this is publishing lite
