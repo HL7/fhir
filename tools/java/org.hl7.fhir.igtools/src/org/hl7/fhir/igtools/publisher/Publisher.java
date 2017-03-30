@@ -3331,7 +3331,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else {
       System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
-      System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch"));
+      System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+". "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
       Publisher self = new Publisher();
       if (hasParam(args, "-source")) {
         // run with standard template. this is publishing lite
@@ -3377,6 +3377,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     System.exit(exitCode);
   }
+
+  private static String toMB(long maxMemory) {
+    return Long.toString(maxMemory / (1024*1024));
+  }
+
 
   private void setAutoBuildMode(boolean value) {
     autoBuildMode = value;
