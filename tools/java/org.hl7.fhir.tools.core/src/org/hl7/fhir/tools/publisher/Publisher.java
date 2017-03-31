@@ -1660,7 +1660,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       System.out.println(e.toString());
       for (ValidationMessage err : page.getValidationErrors()) {
         if (!page.getSuppressedMessages().contains(err.getDisplay()))
-          s.write(err.summary());
+          System.out.println(err.summary());
       }
       throw new Exception("Unable to create warnings file - one or more profiles-* files unavailable or invalid");
     }
