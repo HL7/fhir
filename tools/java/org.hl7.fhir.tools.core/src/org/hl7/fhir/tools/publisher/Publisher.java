@@ -1652,9 +1652,18 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (PageInformation pn : page.getDefinitions().getPageInfo().values()) {
       s.write("<page name=\""+pn.getName()+"\" wg=\""+pn.getWgCode()+"\" fmm=\""+pn.getFmm()+"\"/>\r\n");
     }
-    s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
-    s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
-    s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
+    try {
+      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-resources.xml", xslt)));
+      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
+      s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
+    } catch (Exception e) {
+      System.out.println(e.toString());
+      for (ValidationMessage err : page.getValidationErrors()) {
+        if (!page.getSuppressedMessages().contains(err.getDisplay()))
+          s.write(err.summary());
+      }
+      throw new Exception("Unable to create warnings file - one or more profiles-* files unavailable or invalid");
+    }
 
     
     for (ValidationMessage e : page.getValidationErrors()) {
