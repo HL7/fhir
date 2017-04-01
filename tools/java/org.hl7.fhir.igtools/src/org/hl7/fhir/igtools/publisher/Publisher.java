@@ -200,7 +200,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String configFile;
   private String sourceDir;
   private String destDir;
-  private static String txServer = "http://fhir3.healthintersections.com.au/open";
+  private static String txServer = "http://tx.fhir.org/r3";
 //  private static String txServer = "http://local.healthintersections.com.au:960/open";
   private String igPack = "";
   private boolean watch;
@@ -3279,7 +3279,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       System.out.println("-ig: a path or a url where the implementation guide control file is found");
       System.out.println("  see Wiki for Documentation");
       System.out.println("-tx: (optional) Address to use for terminology server ");
-      System.out.println("  (default is http://fhir3.healthintersections.com.au)");
+      System.out.println("  (default is http://tx.fhir.org/r3)");
       System.out.println("  use 'n/a' to run without a terminology server");
       System.out.println("-watch (optional): if this is present, the publisher will not terminate;");
       System.out.println("  instead, it will stay running, an watch for changes to the IG or its ");

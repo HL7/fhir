@@ -49,7 +49,7 @@ public class InstanceValidatorTests implements IEvaluationContext, IValidatorRes
 	private void validate(String path, int errorCount, boolean json) throws Exception {
 	  if (TestingUtilities.context == null) {
     	TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
-      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
+      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://tx.fhir.org/r3");
       TestingUtilities.context.setExpansionProfile(makeExpProfile());
     }
 
@@ -76,7 +76,7 @@ public class InstanceValidatorTests implements IEvaluationContext, IValidatorRes
   private void validateCnt(String cnt, int errorCount, boolean json) throws Exception {
     if (TestingUtilities.context == null) {
       TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "igpack.zip"));
-      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://fhir3.healthintersections.com.au/open");
+      ((SimpleWorkerContext) TestingUtilities.context).connectToTSServer("http://tx.fhir.org/r3");
     }
 
     if (!TestingUtilities.silent)

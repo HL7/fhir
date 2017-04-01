@@ -102,7 +102,7 @@ public class Validator {
       System.out.println("     implementation guide or a local folder that contains a set of conformance resources.");
       System.out.println("     no default value. This parameter can appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
-      System.out.println("     Default value is http://fhir3.healthintersections.com.au/open");
+      System.out.println("     Default value is http://tx.fhir.org/r3");
       System.out.println("     To run without terminology value, specific n/a as the URL");
       System.out.println("-profile [url]: a canonical URL to validate against (same as if it was specified in Resource.meta.profile)");
       System.out.println("     no default value. This parameter can appear any number of times");
@@ -140,7 +140,7 @@ public class Validator {
       String definitions = "http://build.fhir.org/";
       List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
-      String txServer = "http://fhir3.healthintersections.com.au/open";
+      String txServer = "http://tx.fhir.org/r3";
       boolean doNative = false;
       List<String> profiles = new ArrayList<String>();
       boolean transform = false;
