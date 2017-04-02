@@ -597,6 +597,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else
       log("Load Configuration from "+configFile);
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    if (configuration.has("redirect"))  // redirect to suport auto-build for complex projects with IG folder in subdirectory
+      configuration = (JsonObject) new com.google.gson.JsonParser().parse(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString()));
     if (configuration.has("logging")) {
       for (JsonElement n : configuration.getAsJsonArray("logging")) {
         String level = ((JsonPrimitive) n).getAsString();
