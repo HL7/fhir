@@ -63,11 +63,21 @@ public class SimpleFetcher implements IFetchFile {
   }
 
   @Override
-  public FetchedFile fetchFlexible(String path) throws Exception {
-    File f = new File(path+".xml");
-    if (!f.exists())
-      f = new File(path+".json");
-    if (!f.exists())
+  public FetchedFile fetchFlexible(String name) throws Exception {
+    File f = null;
+    String path = null;
+    for (String dir : resourceDirs) {
+      path = Utilities.path(dir, name);
+      f = new File(path+".xml");
+      if (f.exists())
+        break;
+      else {
+        f = new File(path+".json");
+        if (f.exists())
+          break;
+      }
+    }
+    if (f==null)
       throw new Exception("Unable to find file "+path+".xml or "+path+".json");
     FetchedFile ff = new FetchedFile();
     ff.setPath(path);
@@ -86,6 +96,18 @@ public class SimpleFetcher implements IFetchFile {
     return ff;
   }
 
+  @Override
+  public FetchedFile fetchResourceFile(String name) throws Exception {
+    for (String dir: resourceDirs) {
+      try {
+        return fetch(Utilities.path(dir, name));
+      } catch (Exception e) {
+        // If we didn't find it, keep trying
+      }
+    }
+    throw new Exception("Unable to find resource file "+name);
+  }
+  
   private String fileTitle(String path) {
     if (path.contains(".")) {
       String ext = path.substring(path.lastIndexOf(".")+1);
@@ -98,11 +120,14 @@ public class SimpleFetcher implements IFetchFile {
   }
 
   @Override
-  public boolean canFetchFlexible(String path) throws Exception {
-    File f = new File(path+".xml");
-    if (!f.exists())
-      f = new File(path+".json");
-    return f.exists();
+  public boolean canFetchFlexible(String name) throws Exception {
+    for (String dir : resourceDirs) {
+      if (new File(dir + File.separator + name + ".xml").exists())
+        return true;
+      else if(new File(dir + File.separator + name + ".json").exists())
+        return true;
+    }
+    return false;
   }
 
   @Override

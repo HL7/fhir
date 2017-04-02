@@ -12,9 +12,10 @@ public interface IFetchFile {
   FetchedFile fetchFlexible(String path) throws Exception;
   boolean canFetchFlexible(String path) throws Exception;
   FetchedFile fetch(Type source, FetchedFile base) throws Exception;
+  FetchedFile fetchResourceFile(String name) throws Exception; 
   void setPkp(IGKnowledgeProvider pkp);
   List<FetchedFile> scan(String sourceDir, IWorkerContext context);
 
   public ILoggingService getLogger();
-  public void setLogger(ILoggingService log); 
+  public void setLogger(ILoggingService log);
 }

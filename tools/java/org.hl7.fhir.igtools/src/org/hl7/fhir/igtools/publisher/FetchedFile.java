@@ -1,5 +1,6 @@
 package org.hl7.fhir.igtools.publisher;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -17,8 +18,10 @@ public class FetchedFile {
   public final static int PROCESS_NONE = 2;
   
   private String path;
+  private String relativePath;
   private String name;
   private String title;
+  private byte[] xslt;
   
   private byte[] source;
   private long hash;
@@ -40,11 +43,23 @@ public class FetchedFile {
   public void setPath(String path) {
     this.path = path;
   }
+  public String getRelativePath() {
+    return relativePath;
+  }
+  public void setRelativePath(String relativePath) {
+    this.relativePath = relativePath;
+  }
   public String getName() {
     return name;
   }
   public void setName(String name) {
     this.name = name;
+  }
+  public byte[] getXslt() {
+    return xslt;
+  }
+  public void setXslt(byte[] xslt) {
+    this.xslt = xslt;
   }
 
   public long getTime() {
@@ -132,6 +147,4 @@ public class FetchedFile {
   public void setTitle(String title) {
     this.title = title;
   }
-
-  
 }
