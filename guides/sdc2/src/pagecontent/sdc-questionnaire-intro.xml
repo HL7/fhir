@@ -4,7 +4,7 @@
     <h3>Scope and Usage</h3>
     <p>
       This profile sets expectations for use of the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource within the 
-      <a href="sdc.html">Structured Data Capture</a> implementation guide.  This includes
+      <a href="index.html">Structured Data Capture</a> implementation guide.  This includes
       identifying which core elements and extensions must be supported.
     </p>
     <p>

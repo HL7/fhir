@@ -1,7 +1,7 @@
 ---
 ---
 {% include fragment-pagebegin.html %}
-<div class="col-9">
+<div class="col-12">
 	<ul class="nav nav-tabs">
 		<li class="active">
 			<a href="#">Content</a>
@@ -21,6 +21,9 @@
 		<li>
 			<a href="{{[id]}}.profile.json.html">JSON</a>
 		</li>
+    <li>
+      <a href="{{[id]}}.profile.ttl.html">Turtle</a>
+    </li>
 	</ul>
 	<h3 class="self-link-parent">
 		<span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>

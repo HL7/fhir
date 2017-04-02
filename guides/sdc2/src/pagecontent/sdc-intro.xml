@@ -18,6 +18,7 @@
     Interoperability Framework Use Case</a> document.  Users of this implementation guide will benefit greatly from review 
     of the SDC Use Case document.
   </p>
+  <a name="overview"> </a>
   <h2>Initiative Overview</h2>
   <p>
     The Structured Data Capture (SDC) Initiative identifies and recommends standards for the interoperable representation and 
@@ -53,6 +54,7 @@
     <li>encouraging consistency around how common data elements are captured and used in healthcare systems</li>
     <li>allowing data elements to be clearly identified in forms for the purpose of auto-population and data-extraction</li>
   </ul>
+  <a name="purpose"> </a>
   <h2>Purpose</h2>
   <p>
     This implementation guide provides implementers with guidance on how to achieve conformance with the standards recommended 

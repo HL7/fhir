@@ -9,7 +9,7 @@
       <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-designer Published: 2014-07-06 (draft)</p>
       <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
       </p>
-      <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="sdc.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
+      <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href="index.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource instances) that include references to <a href="{{site.data.fhir.path}}dataelement.html">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>
       <h2>General</h2>
       <table>
         <tbody>
@@ -476,7 +476,7 @@
       <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
     </telecom>
   </contact>
-  <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&amp;I Framework's [[sdc|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
+  <description value="This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&amp;I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
   <acceptUnknown value="extensions"/>

@@ -30,7 +30,7 @@
     </li>
   </ul>
   <a name="general"> </a>
-  <h3>General Security Considerations</h3>
+  <h2>General Security Considerations</h2>
   <p>
     For the purposes of SDC, security conformance rules are as follows:
   </p>
@@ -58,7 +58,7 @@
       <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> resource to record such signatures.</li>
   </ul>
   <a name="integrity"> </a>
-  <h3>Transaction Integrity</h3>
+  <h2>Transaction Integrity</h2>
   <p>
     In some cases, the recipient of a completed <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> may require that the response
     be accompanied by a <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> or, more rarely an <a href="{{site.data.fhir.path}}auditevent.html">AuditEvent</a>
@@ -71,7 +71,7 @@
     <code>Provenance.entity.reference</code> and <code>AuditEvent.object.reference</code> elements.
   </p>
   <a name="consent"> </a>
-  <h4>Consent</h4>
+  <h3>Consent</h3>
   <p>
     The SDC workflow envisions the sharing of patient-identifiable healthcare information from 
     <a href="sdc-form-filler.html">SDC Form Filler</a> systems to <a href="sdc-form-manager.html">SDC Form Manager</a>.
@@ -84,7 +84,7 @@
     as discussed above under <a href="#general">General Security Considerations.</a>
   </p>
   <a name="workflow"> </a>
-  <h4>Security Workflow</h4>
+  <h3>Security Workflow</h3>
   <p>
     When communicating RESTfully, <a href="{{site.data.fhir.path}}auditevent.html">AuditEvent</a> and <a href="{{site.data.fhir.path}}provenance.html">Provenance</a> resources are 
     typically submitted separately from the resource versions they're manipulating.  This is for a couple of reasons:

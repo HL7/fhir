@@ -1,0 +1,39 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="{{[id]}}.html">Content</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-definitions.html">Detailed Descriptions</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-mappings.html">Mappings</a>
+    </li>
+		<li>
+			<a href="{{[id]}}-examples.html">Examples</a>
+		</li>
+    <li>
+      <a href="{{[id]}}.profile.xml.html">XML</a>
+    </li>
+    <li>
+      <a href="{{[id]}}.profile.json.html">JSON</a>
+    </li>
+    <li class="active">
+      <a href="#">Turtle</a>
+    </li>
+  </ul>
+  <a name="root"> </a>
+  <h4 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.11</span> StructureDefinition: {{[title]}} - Turtle Profile 
+    <a title="link to here" class="self-link" href="{{[id]}}.profile.ttl.html#root">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h4>
+  <p>Turtle representation of the {{[id]}} Profile.</p>
+  {%include StructureDefinition-{{[id]}}-ttl-html.xhtml%}
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

@@ -27,7 +27,7 @@
     extensions used should all have broad applicability.
   </p>
   <a name="toc"/>
-  <h3>Navigation</h3>
+  <h2>Navigation</h2>
   <p>
     This implementation guide follows the FHIR pattern of being published as a web-based specification.  This
     allows easy navigation between the SDC-specific portion of the implementation guide and the resources,
@@ -65,7 +65,7 @@
   </ul>
   <br/>
   <a name="fhir"> </a>
-  <h3>Understanding FHIR</h3>
+  <h2>Understanding FHIR</h2>
   <p>
     This implementation guide is based on the HL7 <a href="{{site.data.fhir.path}}index.html">FHIR</a> standard.  It uses terminology, notations and design principles that are
     specific to FHIR.  Before reading this implementation guide, it's important to be familiar with some of the basic principles of FHIR as well 
@@ -106,7 +106,7 @@
     Feel free to explore other aspects of the FHIR specification that you feel may be relevant or of interest.
   </p>
   <a name="background"> </a>
-  <h3>Background</h3>
+  <h2>Background</h2>
   <p>
     The following links provide additional context for the SDC specification.
   </p>
@@ -120,7 +120,7 @@
     </li>
   </ul>
   <a name="workflow"> </a>
-  <h3>Workflows</h3>
+  <h2>Workflows</h2>
   <p>
     There are two primary workflows that fall within the scope of the SDC implementation guide - form creation/curation and form filling.
   </p>
@@ -176,10 +176,11 @@
     those may need to be retrieved from a <a href="{{site.data.refs.sdcde}}/sdc-de-registry.html"> Data Element Registry</a> in order to look
     up what mappings the data element has to other resources.
   </p>
-  <h3>SDC Specification</h3>
+  <a name="spec"> </a>
+  <h2>SDC Specification</h2>
   <p>The following sections describe the artifacts that set expectations for systems wishing to be conformant to the FHIR SDC implementation guide.</p>
   <a name="capabilitystatement"> </a>
-  <h4>Capability Statements</h4>
+  <h3>Capability Statements</h3>
   <p>
     FHIR Capability statements define the expectations for particular system "roles" within an SDC environment.  To be considered SDC-conformant, a system 
     must adhere to the requirements defined by at least one of these statements.  Some systems might choose to comply with more than one.
@@ -207,7 +208,7 @@
     A summary of how these roles interact can be seen in <a href="#fig1">Figure 1</a> and <a href="#fig2">Figure 2</a> above.
   </p>
   <a name="resources"> </a>
-  <h4>Resources</h4>
+  <h3>Resources</h3>
   <p>
     This implementation guide defines profiles on several resources.  Implementations are expected to be conformant with these profiles in order
     to be conformant with this implementation guide.
@@ -283,7 +284,7 @@
       of the element SHALL be performed</li>
   </ul>
   <a name="population"> </a>
-  <h4>Pre-population service</h4>
+  <h3>Pre-population service</h3>
   <p>
     The <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a> resource defines a set of custom operations to support generation of completed questionnaires,
     possibly automatically filling in some of the answers using existing system information.  This could be information passed to the system on which the operation is 
@@ -410,7 +411,7 @@
     </li>
   </ul>
   <a name="terminologyops"> </a>
-  <h3>Terminology Operations</h3>
+  <h2>Terminology Operations</h2>
   <p>
     In addition to the QuestionnaireResponse population operations, it will be useful for Form Filler and Form Manager systems to support some of FHIR's
     <a href="{{site.data.fhir.path}}terminology-service.html">terminology service</a> capabilities - specifically the 
@@ -419,7 +420,7 @@
     operations.
   </p>
   <a name="ip"> </a>
-  <h3>Intellectual Property Considerations</h3>
+  <h2>Intellectual Property Considerations</h2>
   <p>
     While this implementation guide and the underlying FHIR are licensed as public domain, this guide mandates the use of terminologies including LOINC, SNOMED CT and
     RxNorm which have more restrictive licensing requirements.  Implementers should make themselves familiar with licensing and any other constraints of terminologies,

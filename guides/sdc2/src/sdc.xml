@@ -188,9 +188,6 @@
       </sourceReference>
     </resource>
     <resource>
-      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-spreadsheet-profile">
-        <valueBoolean value="true"/>
-      </extension>
       <example value="false"/>
       <name value="Questionnaire Context Species"/>
       <description value="Species for defining the context of Questionnaires"/>
@@ -319,9 +316,14 @@
 	<binary value="sdc-form-population.png"/>
 	<binary value="sdc-generic-workflow.png"/>
 	<page>
-		<source value="sdc.html"/>
-		<title value="SDC Home Page"/>
+		<source value="toc.html"/>
+		<title value="Table of Contents"/>
 		<kind value="page"/>
+		<page>
+      <source value="index.html"/>
+      <title value="SDC Home Page"/>
+      <kind value="page"/>
+    </page>
 		<page>
 			<source value="sdc-intro.html"/>
 			<title value="Introduction"/>
@@ -335,6 +337,11 @@
     <page>
       <source value="artifacts.html"/>
       <title value="Artifact List"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="downloads.html"/>
+      <title value="Useful Downloads"/>
       <kind value="page"/>
     </page>
     <page>
