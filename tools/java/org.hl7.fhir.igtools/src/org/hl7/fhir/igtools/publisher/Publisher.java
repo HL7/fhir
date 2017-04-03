@@ -510,7 +510,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           MetadataResource bc = (MetadataResource) r.getResource();
-          if (bc.getUrl().equals(uri))
+          if (bc.getUrl() != null && bc.getUrl().equals(uri))
           return r;
         }
       }
@@ -1214,6 +1214,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private boolean loadPrePages() throws Exception {
+    boolean changed = false;
     if (prePagesDirs.isEmpty())
       return false;
 
@@ -1222,10 +1223,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       dir.setRelativePath("");
       if (!dir.isFolder())
         throw new Exception("pre-processed page reference is not a folder");
-      if (!loadPrePages(dir, dir.getPath()))
-        return false;
+      if (loadPrePages(dir, dir.getPath()))
+        changed = true;
     }
-    return true;
+    return changed;
   }
 
   private boolean loadPrePages(FetchedFile dir, String basePath) throws Exception {
@@ -1272,15 +1273,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private boolean loadPages() throws Exception {
+    boolean changed = false;
     for (String pagesDir: pagesDirs) {
       FetchedFile dir = fetcher.fetch(pagesDir);
       dir.setRelativePath("");
       if (!dir.isFolder())
         throw new Exception("page reference is not a folder");
-      if (!loadPages(dir, dir.getPath()))
-        return false;
+      if (loadPages(dir, dir.getPath()))
+        changed = true;
     }
-    return true;
+    return changed;
   }
 
   private boolean loadPages(FetchedFile dir, String basePath) throws Exception {
