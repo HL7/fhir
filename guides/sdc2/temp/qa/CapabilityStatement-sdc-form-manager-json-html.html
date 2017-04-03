@@ -1,0 +1,1110 @@
+﻿<html>
+<head>
+  <title>CapabilityStatement-sdc-form-manager-json-html</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<pre class="json">
+{
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement">resourceType</a>" : "CapabilityStatement",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.id">id</a>" : "sdc-form-manager",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.text">text</a>" : {
+    "<a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.status">status</a>" : "generated",
+    "<a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;h2&gt;SDC Form Manager&lt;/h2&gt;
+      &lt;p&gt;(Requirements Definition)&lt;/p&gt;
+      &lt;p&gt;http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager Published: 2014-07-06 (draft)&lt;/p&gt;
+      &lt;p&gt;Published by: &lt;b&gt;U.S. Office of the National Coordinator (ONC)&lt;/b&gt;
+      &lt;/p&gt;
+      &lt;p&gt;This profile defines the expected capabilities of the &lt;i&gt;SDC Form Manager&lt;/i&gt; role when conforming to the S&amp;amp;I Framework's &lt;a href=&quot;index.html&quot;&gt;Structured Data Capture FHIR implementation guide&lt;/a&gt;.  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data.&lt;/p&gt;
+      &lt;h2&gt;General&lt;/h2&gt;
+      &lt;table&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;FHIR Version:&lt;/th&gt;
+            &lt;td&gt;$ver$&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Supported formats:&lt;/th&gt;
+            &lt;td&gt;xml, json&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;h2&gt;REST  behavior&lt;/h2&gt;
+      &lt;p&gt;The primary focus of the repository is the definition of &lt;a href=&quot;{{site.data.fhir.path}}questionnaire.html&quot;&gt;Questionnaire&lt;/a&gt;s.  However, &lt;a href=&quot;{{site.data.fhir.path}}valueset.html&quot;&gt;ValueSet&lt;/a&gt;s and &lt;a href=&quot;{{site.data.fhir.path}}codesystem.html&quot;&gt;CodeSystem&lt;/a&gt;s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing &lt;a href=&quot;{{site.data.fhir.path}}questionnaire.html&quot;&gt;Questionnaire&lt;/a&gt;.)&lt;/p&gt;
+      &lt;p&gt;
+        &lt;b&gt;Security:&lt;/b&gt;
+      &lt;/p&gt;
+      &lt;p&gt;Implementations must meet the general security requirements documented in the &lt;a href=&quot;sdc-security.html&quot;&gt;SDC implementation guide&lt;/a&gt;.&lt;/p&gt;
+      &lt;h3&gt;Resource summary&lt;/h3&gt;
+      &lt;table class=&quot;grid&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Resource&lt;/th&gt;
+            &lt;th&gt;Search&lt;/th&gt;
+            &lt;th&gt;Read&lt;/th&gt;
+            &lt;th&gt;Read Version&lt;/th&gt;
+            &lt;th&gt;Instance History&lt;/th&gt;
+            &lt;th&gt;Resource History&lt;/th&gt;
+            &lt;th&gt;Create&lt;/th&gt;
+            &lt;th&gt;Update&lt;/th&gt;
+            &lt;th&gt;Delete&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Questionnaire (&lt;a href=&quot;http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire.html&quot;&gt;Profile&lt;/a&gt;)&lt;/th&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-search-type&quot; title=&quot;Allows a user to search for existing forms&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-read&quot; title=&quot;Allows retrieval of a specific known form&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-vread&quot; title=&quot;Allows retrieval of a specific version of a form&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-history-instance&quot; title=&quot;Allows review of changes to a form over time&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td/&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-create&quot; title=&quot;Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'.&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-update&quot; title=&quot;Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms.&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#Questionnaire-delete&quot; title=&quot;Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc.&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;CodeSystem (&lt;a href=&quot;http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem.html&quot;&gt;Profile&lt;/a&gt;)&lt;/th&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-search-type&quot; title=&quot;Allows discovery of existing code systems for use in authoring questionnaires&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-read&quot; title=&quot;Allows retrieval of a specific code system referenced within a questionnaire&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-vread&quot; title=&quot;Allows retrieval of a historical version of a code system as referenced within a questionnaire&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-history-instance&quot; title=&quot;Allows review of changes to a code system over time&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td/&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-create&quot; title=&quot;Allows definition of a new code system used by one or more questionnaires&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-update&quot; title=&quot;Allows existing code systems referenced by one or more questionnaires to be maintained&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#CodeSystem-delete&quot; title=&quot;Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner.&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;ValueSet (&lt;a href=&quot;http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset.html&quot;&gt;Profile&lt;/a&gt;)&lt;/th&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-search-type&quot; title=&quot;Allows discovery of existing value sets for use in authoring questionnaires&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-read&quot; title=&quot;Allows retrieval of a specific value set referenced within a questionnaire&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-vread&quot; title=&quot;Allows retrieval of a historical version of a value set as referenced within a questionnaire&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-history-instance&quot; title=&quot;Allows review of changes to a value set over time&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td/&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-create&quot; title=&quot;Allows definition of a new value set used by one or more questionnaires&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-update&quot; title=&quot;Allows existing value sets referenced by one or more questionnaires to be maintained&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+              &lt;a href=&quot;#ValueSet-delete&quot; title=&quot;Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.&quot;&gt;Yes&lt;/a&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;p&gt;
+        &lt;b&gt;Operations:&lt;/b&gt;
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://hl7.org/fhir/operationdefinition/valueset-expand&quot;&gt;expand&lt;/a&gt; - Generate expansion for specified value set&lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://hl7.org/fhir/operationdefinition/valueset-validate-code&quot;&gt;expand&lt;/a&gt; - Check to see whether a specific code is valid against a specified value set&lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://hl7.org/fhir/operationdefinition/questionnaire-populate&quot;&gt;populate&lt;/a&gt; - Populate Questionnaire returning QuestionnaireResponse to review/edit/submit&lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://hl7.org/fhir/operationdefinition/questionnaire-populatehtml&quot;&gt;populatehtml&lt;/a&gt; - Populate Questionnaire returning HTML page to render locally for reviewing/editing/submitting&lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://hl7.org/fhir/operationdefinition/questionnaire-populatelink&quot;&gt;populatelink&lt;/a&gt; - Populate questionnaire returning URL to page to review/edit/submit&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;br/&gt;
+      &lt;br/&gt;
+      &lt;h3&gt;
+        &lt;a href=&quot;{{site.data.fhir.path}}questionnaire.html&quot;&gt;Questionnaire&lt;/a&gt;
+      &lt;/h3&gt;
+      &lt;h4&gt;Interactions&lt;/h4&gt;
+      &lt;table class=&quot;list&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-search-type&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;search-type&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows a user to search for existing forms&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-read&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;read&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows retrieval of a specific known form&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-vread&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;vread&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows retrieval of a specific version of a form&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-history-instance&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;history-instance&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows review of changes to a form over time&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-create&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;create&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'.&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-update&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;update&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms.&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;Questionnaire-delete&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;delete&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc.&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;h4&gt;Search&lt;/h4&gt;
+      &lt;p&gt;Supported Includes: Questionnaire.group.question.options&lt;/p&gt;
+      &lt;table class=&quot;list&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Parameter&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Definition &amp;amp; Chaining&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;code&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;context&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;date&lt;/th&gt;
+            &lt;td&gt;date&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;identifier&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;publisher&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;status&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;title&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;version&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;definition&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;br/&gt;
+      &lt;br/&gt;
+      &lt;h3&gt;
+        &lt;a href=&quot;{{site.data.fhir.path}}codesystem.html&quot;&gt;CodeSystem&lt;/a&gt;
+      &lt;/h3&gt;
+      &lt;h4&gt;Interactions&lt;/h4&gt;
+      &lt;table class=&quot;list&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-search-type&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;search-type&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows discovery of existing code systems for use in authoring questionnaires&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-read&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;read&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows retrieval of a specific code system referenced within a questionnaire&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-vread&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;vread&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows retrieval of a historical version of a code system as referenced within a questionnaire&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-history-instance&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;history-instance&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows review of changes to a code system over time&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-create&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;create&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows definition of a new code system used by one or more questionnaires&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-update&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;update&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows existing code systems referenced by one or more questionnaires to be maintained&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;CodeSystem-delete&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;delete&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner.&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;h4&gt;Search&lt;/h4&gt;
+      &lt;table class=&quot;list&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Parameter&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Definition &amp;amp; Chaining&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;code&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;date&lt;/th&gt;
+            &lt;td&gt;date&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;description&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;name&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;status&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;system&lt;/th&gt;
+            &lt;td&gt;uri&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;url&lt;/th&gt;
+            &lt;td&gt;uri&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;br/&gt;
+      &lt;br/&gt;
+      &lt;h3&gt;
+        &lt;a href=&quot;{{site.data.fhir.path}}valueset.html&quot;&gt;ValueSet&lt;/a&gt;
+      &lt;/h3&gt;
+      &lt;h4&gt;Interactions&lt;/h4&gt;
+      &lt;table class=&quot;list&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-search-type&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;search-type&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows discovery of existing value sets for use in authoring questionnaires&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-read&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;read&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows retrieval of a specific value set referenced within a questionnaire&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-vread&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;vread&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows retrieval of a historical version of a value set as referenced within a questionnaire&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-history-instance&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;history-instance&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows review of changes to a value set over time&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-create&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;create&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows definition of a new value set used by one or more questionnaires&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-update&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;update&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Allows existing value sets referenced by one or more questionnaires to be maintained&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;
+              &lt;a name=&quot;ValueSet-delete&quot;&gt; &lt;/a&gt;
+              &lt;span&gt;delete&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;td&gt;
+              &lt;p&gt;Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.&lt;/p&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;h4&gt;Search&lt;/h4&gt;
+      &lt;p&gt;Supported Includes: ValueSet.compose.import&lt;/p&gt;
+      &lt;table class=&quot;list&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Parameter&lt;/th&gt;
+            &lt;th&gt;Type&lt;/th&gt;
+            &lt;th&gt;Definition &amp;amp; Chaining&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;th&gt;date&lt;/th&gt;
+            &lt;td&gt;date&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;description&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;name&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;reference&lt;/th&gt;
+            &lt;td&gt;string&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;th&gt;status&lt;/th&gt;
+            &lt;td&gt;token&lt;/td&gt;
+            &lt;td/&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;"
+  },
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.url">url</a>" : "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.version">version</a>" : "2.0",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.name">name</a>" : "SDC Form Manager",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.status">status</a>" : "draft",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.date">date</a>" : "2014-07-06",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.publisher">publisher</a>" : "U.S. Office of the National Coordinator (ONC)",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.contact">contact</a>" : [
+    {
+      "<a href="http://build.fhir.org/datatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>" : [
+        {
+          "<a href="http://build.fhir.org/datatypes.html#ContactPoint#ContactPoint.system">system</a>" : "other",
+          "<a href="http://build.fhir.org/datatypes.html#ContactPoint#ContactPoint.value">value</a>" : "http://wiki.siframework.org/Structured+Data+Capture+Initiative"
+        }
+      ]
+    }
+  ],
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.description">description</a>" : "This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&amp;I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data.",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.kind">kind</a>" : "requirements",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.fhirVersion">fhirVersion</a>" : "1.0.0",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.acceptUnknown">acceptUnknown</a>" : "extensions",
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.format">format</a>" : [
+    "xml",
+    "json"
+  ],
+  "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest">rest</a>" : [
+    {
+      "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.mode">mode</a>" : "server",
+      "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.documentation">documentation</a>" : "The primary focus of the repository is the definition of [[Questionnaire]]s.  However, [[ValueSet]]s and [[CodeSystem]]s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)",
+      "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.security">security</a>" : {
+        "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.security.description">description</a>" : "Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."
+      },
+      "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource">resource</a>" : [
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.type">type</a>" : "Questionnaire",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.profile">profile</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire"
+          },
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>" : [
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "search-type",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows a user to search for existing forms"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "read",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows retrieval of a specific known form"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "vread",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows retrieval of a specific version of a form"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "history-instance",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows review of changes to a form over time"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "create",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'."
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "update",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms."
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "MAY"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "delete",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc."
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchInclude">searchInclude</a>" : [
+            "Questionnaire.group.question.options"
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>" : [
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "code",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-code",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "context",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-context",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "date",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-date",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "date"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "identifier",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-identifier",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "publisher",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-publisher",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "status",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-status",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "title",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-title",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "version",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Questionnaire-version",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "definition",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/us/sdc/SearchParameter/questionnaire-definition",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            }
+          ]
+        },
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.type">type</a>" : "CodeSystem",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.profile">profile</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem"
+          },
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>" : [
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "search-type",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows discovery of existing code systems for use in authoring questionnaires"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "read",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows retrieval of a specific code system referenced within a questionnaire"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "vread",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows retrieval of a historical version of a code system as referenced within a questionnaire"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "history-instance",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows review of changes to a code system over time"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "create",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows definition of a new code system used by one or more questionnaires"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "update",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows existing code systems referenced by one or more questionnaires to be maintained"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "MAY"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "delete",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner."
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>" : [
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "code",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-code",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "date",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-date",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "date"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "description",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-description",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "name",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-name",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "status",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-status",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "system",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-system",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "uri"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "url",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/CodeSystem-url",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "uri"
+            }
+          ]
+        },
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.type">type</a>" : "ValueSet",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.profile">profile</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset"
+          },
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction">interaction</a>" : [
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "search-type",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows discovery of existing value sets for use in authoring questionnaires"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "read",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows retrieval of a specific value set referenced within a questionnaire"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "vread",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows retrieval of a historical version of a value set as referenced within a questionnaire"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "history-instance",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows review of changes to a value set over time"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "create",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows definition of a new value set used by one or more questionnaires"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "update",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Allows existing value sets referenced by one or more questionnaires to be maintained"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "MAY"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.code">code</a>" : "delete",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.interaction.documentation">documentation</a>" : "Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchInclude">searchInclude</a>" : [
+            "ValueSet.compose.import"
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam">searchParam</a>" : [
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "date",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/ValueSet-date",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "date"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "description",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/ValueSet-description",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "name",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/ValueSet-name",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "reference",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/ValueSet-reference",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "string"
+            },
+            {
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.extension">extension</a>" : [
+                {
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHALL"
+                }
+              ],
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.name">name</a>" : "status",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/ValueSet-status",
+              "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.resource.searchParam.type">type</a>" : "token"
+            }
+          ]
+        }
+      ],
+      "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation">operation</a>" : [
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHOULD"
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.name">name</a>" : "expand",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.definition">definition</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/OperationDefinition/ValueSet-expand",
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.display">display</a>" : "Generate expansion for specified value set"
+          }
+        },
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "SHOULD"
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.name">name</a>" : "expand",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.definition">definition</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code",
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.display">display</a>" : "Check to see whether a specific code is valid against a specified value set"
+          }
+        },
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "MAY"
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.name">name</a>" : "populate",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.definition">definition</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/OperationDefinition/Questionnaire-populate",
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.display">display</a>" : "Populate Questionnaire returning QuestionnaireResponse to review/edit/submit"
+          }
+        },
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "MAY"
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.name">name</a>" : "populatehtml",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.definition">definition</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/OperationDefinition/Questionnaire-populatehtml",
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.display">display</a>" : "Populate Questionnaire returning HTML page to render locally for reviewing/editing/submitting"
+          }
+        },
+        {
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueCode</a>" : "MAY"
+            }
+          ],
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.name">name</a>" : "populatelink",
+          "<a href="http://build.fhir.org/capabilitystatement.html#CapabilityStatement.rest.operation.definition">definition</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/OperationDefinition/Questionnaire-populatelink",
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.display">display</a>" : "Populate questionnaire returning URL to page to review/edit/submit"
+          }
+        }
+      ]
+    }
+  ]
+}</pre>
+</body>
+</html>

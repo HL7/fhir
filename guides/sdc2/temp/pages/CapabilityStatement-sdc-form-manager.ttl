@@ -1,0 +1,573 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager> a fhir:CapabilityStatement;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "sdc-form-manager"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <h2>SDC Form Manager</h2>\n      <p>(Requirements Definition)</p>\n      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager Published: 2014-07-06 (draft)</p>\n      <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>\n      </p>\n      <p>This profile defines the expected capabilities of the <i>SDC Form Manager</i> role when conforming to the S&amp;I Framework's <a href=\"index.html\">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data.</p>\n      <h2>General</h2>\n      <table>\n        <tbody>\n          <tr>\n            <th>FHIR Version:</th>\n            <td>$ver$</td>\n          </tr>\n          <tr>\n            <th>Supported formats:</th>\n            <td>xml, json</td>\n          </tr>\n        </tbody>\n      </table>\n      <h2>REST  behavior</h2>\n      <p>The primary focus of the repository is the definition of <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a>s.  However, <a href=\"{{site.data.fhir.path}}valueset.html\">ValueSet</a>s and <a href=\"{{site.data.fhir.path}}codesystem.html\">CodeSystem</a>s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a>.)</p>\n      <p>\n        <b>Security:</b>\n      </p>\n      <p>Implementations must meet the general security requirements documented in the <a href=\"sdc-security.html\">SDC implementation guide</a>.</p>\n      <h3>Resource summary</h3>\n      <table class=\"grid\">\n        <thead>\n          <tr>\n            <th>Resource</th>\n            <th>Search</th>\n            <th>Read</th>\n            <th>Read Version</th>\n            <th>Instance History</th>\n            <th>Resource History</th>\n            <th>Create</th>\n            <th>Update</th>\n            <th>Delete</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>Questionnaire (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#Questionnaire-search-type\" title=\"Allows a user to search for existing forms\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-read\" title=\"Allows retrieval of a specific known form\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-vread\" title=\"Allows retrieval of a specific version of a form\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-history-instance\" title=\"Allows review of changes to a form over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#Questionnaire-create\" title=\"Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-update\" title=\"Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-delete\" title=\"Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>CodeSystem (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#CodeSystem-search-type\" title=\"Allows discovery of existing code systems for use in authoring questionnaires\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-read\" title=\"Allows retrieval of a specific code system referenced within a questionnaire\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-vread\" title=\"Allows retrieval of a historical version of a code system as referenced within a questionnaire\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-history-instance\" title=\"Allows review of changes to a code system over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#CodeSystem-create\" title=\"Allows definition of a new code system used by one or more questionnaires\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-update\" title=\"Allows existing code systems referenced by one or more questionnaires to be maintained\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-delete\" title=\"Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>ValueSet (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#ValueSet-search-type\" title=\"Allows discovery of existing value sets for use in authoring questionnaires\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-read\" title=\"Allows retrieval of a specific value set referenced within a questionnaire\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-vread\" title=\"Allows retrieval of a historical version of a value set as referenced within a questionnaire\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-history-instance\" title=\"Allows review of changes to a value set over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#ValueSet-create\" title=\"Allows definition of a new value set used by one or more questionnaires\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-update\" title=\"Allows existing value sets referenced by one or more questionnaires to be maintained\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-delete\" title=\"Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.\">Yes</a>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <p>\n        <b>Operations:</b>\n      </p>\n      <ul>\n        <li>\n          <a href=\"http://hl7.org/fhir/operationdefinition/valueset-expand\">expand</a> - Generate expansion for specified value set</li>\n        <li>\n          <a href=\"http://hl7.org/fhir/operationdefinition/valueset-validate-code\">expand</a> - Check to see whether a specific code is valid against a specified value set</li>\n        <li>\n          <a href=\"http://hl7.org/fhir/operationdefinition/questionnaire-populate\">populate</a> - Populate Questionnaire returning QuestionnaireResponse to review/edit/submit</li>\n        <li>\n          <a href=\"http://hl7.org/fhir/operationdefinition/questionnaire-populatehtml\">populatehtml</a> - Populate Questionnaire returning HTML page to render locally for reviewing/editing/submitting</li>\n        <li>\n          <a href=\"http://hl7.org/fhir/operationdefinition/questionnaire-populatelink\">populatelink</a> - Populate questionnaire returning URL to page to review/edit/submit</li>\n      </ul>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows a user to search for existing forms</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific known form</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific version of a form</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to a form over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <h4>Search</h4>\n      <p>Supported Includes: Questionnaire.group.question.options</p>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Parameter</th>\n            <th>Type</th>\n            <th>Definition &amp; Chaining</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>code</th>\n            <td>token</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>context</th>\n            <td>token</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>date</th>\n            <td>date</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>identifier</th>\n            <td>token</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>publisher</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>status</th>\n            <td>token</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>title</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>version</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>definition</th>\n            <td>token</td>\n            <td/>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}codesystem.html\">CodeSystem</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows discovery of existing code systems for use in authoring questionnaires</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific code system referenced within a questionnaire</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a historical version of a code system as referenced within a questionnaire</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to a code system over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows definition of a new code system used by one or more questionnaires</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows existing code systems referenced by one or more questionnaires to be maintained</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <h4>Search</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Parameter</th>\n            <th>Type</th>\n            <th>Definition &amp; Chaining</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>code</th>\n            <td>token</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>date</th>\n            <td>date</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>description</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>name</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>status</th>\n            <td>token</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>system</th>\n            <td>uri</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>url</th>\n            <td>uri</td>\n            <td/>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}valueset.html\">ValueSet</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"ValueSet-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows discovery of existing value sets for use in authoring questionnaires</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific value set referenced within a questionnaire</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a historical version of a value set as referenced within a questionnaire</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to a value set over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows definition of a new value set used by one or more questionnaires</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows existing value sets referenced by one or more questionnaires to be maintained</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <h4>Search</h4>\n      <p>Supported Includes: ValueSet.compose.import</p>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Parameter</th>\n            <th>Type</th>\n            <th>Definition &amp; Chaining</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>date</th>\n            <td>date</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>description</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>name</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>reference</th>\n            <td>string</td>\n            <td/>\n          </tr>\n          <tr>\n            <th>status</th>\n            <td>token</td>\n            <td/>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+  ];
+  fhir:CapabilityStatement.url [ fhir:value "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager"];
+  fhir:CapabilityStatement.version [ fhir:value "2.0"];
+  fhir:CapabilityStatement.name [ fhir:value "SDC Form Manager"];
+  fhir:CapabilityStatement.status [ fhir:value "draft"];
+  fhir:CapabilityStatement.date [ fhir:value "2014-07-06"^^xsd:date];
+  fhir:CapabilityStatement.publisher [ fhir:value "U.S. Office of the National Coordinator (ONC)"];
+  fhir:CapabilityStatement.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://wiki.siframework.org/Structured+Data+Capture+Initiative" ]
+     ]
+  ];
+  fhir:CapabilityStatement.description [ fhir:value "This profile defines the expected capabilities of the ''SDC Form Manager'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for maintaining a repository of form definitions and also of performing pre-population of form data."];
+  fhir:CapabilityStatement.kind [ fhir:value "requirements"];
+  fhir:CapabilityStatement.fhirVersion [ fhir:value "1.0.0"];
+  fhir:CapabilityStatement.acceptUnknown [ fhir:value "extensions"];
+  fhir:CapabilityStatement.format [
+     fhir:value "xml";
+     fhir:index 0
+  ], [
+     fhir:value "json";
+     fhir:index 1
+  ];
+  fhir:CapabilityStatement.rest [
+     fhir:index 0;
+     fhir:CapabilityStatement.rest.mode [ fhir:value "server" ];
+     fhir:CapabilityStatement.rest.documentation [ fhir:value "The primary focus of the repository is the definition of [[Questionnaire]]s.  However, [[ValueSet]]s and [[CodeSystem]]s must also be supported to allow definition of coded data elements.  Some data elements will choose to maintain value sets as 'contained' resources, meaning the value set exists only in the context of the data element and cannot be referenced or maintained without also updating the data element.  However, systems should support value set re-use across data elements.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)" ];
+     fhir:CapabilityStatement.rest.security [
+       fhir:CapabilityStatement.rest.security.description [ fhir:value "Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]." ]
+     ];
+     fhir:CapabilityStatement.rest.resource [
+       fhir:index 0;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "Questionnaire" ];
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:link <http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire" ]
+       ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "search-type" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows a user to search for existing forms" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "read" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows retrieval of a specific known form" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "vread" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows retrieval of a specific version of a form" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "history-instance" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows review of changes to a form over time" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows defining a new form.  Repositories requiring curation of submitted forms may require all new data elements to have a status of 'draft'." ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows an existing form to be updated.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new questionnaire (and potentially the retiring of the existing questionnaire).  Servers may also limit who can change particular forms." ]
+       ], [
+         fhir:index 6;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows removal of an existing form.  Servers may choose to not support deletions and instead require that the form's status be changed to 'retired'.  Other systems support deletions but limit them to forms meeting certain requirements.  E.g. only forms with a status of draft or only forms that have been retired for at least two years, etc." ]
+       ];
+       fhir:CapabilityStatement.rest.resource.searchInclude [
+         fhir:value "Questionnaire.group.question.options";
+         fhir:index 0
+       ];
+       fhir:CapabilityStatement.rest.resource.searchParam [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "code" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-code" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "context" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-context" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "date" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-date" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "date" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "identifier" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-identifier" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "publisher" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-publisher" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "status" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-status" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ], [
+         fhir:index 6;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "title" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-title" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 7;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "version" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/Questionnaire-version" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 8;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "definition" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/us/sdc/SearchParameter/questionnaire-definition" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "CodeSystem" ];
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:link <http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem" ]
+       ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "search-type" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows discovery of existing code systems for use in authoring questionnaires" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "read" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows retrieval of a specific code system referenced within a questionnaire" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "vread" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows retrieval of a historical version of a code system as referenced within a questionnaire" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "history-instance" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows review of changes to a code system over time" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows definition of a new code system used by one or more questionnaires" ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows existing code systems referenced by one or more questionnaires to be maintained" ]
+       ], [
+         fhir:index 6;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft code systems may keep repositories cleaner." ]
+       ];
+       fhir:CapabilityStatement.rest.resource.searchParam [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "code" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-code" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "date" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-date" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "date" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "description" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-description" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "name" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-name" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "status" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-status" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "system" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-system" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "uri" ]
+       ], [
+         fhir:index 6;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "url" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/CodeSystem-url" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "uri" ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "ValueSet" ];
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:link <http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset" ]
+       ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "search-type" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows discovery of existing value sets for use in authoring questionnaires" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "read" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows retrieval of a specific value set referenced within a questionnaire" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "vread" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows retrieval of a historical version of a value set as referenced within a questionnaire" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "history-instance" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows review of changes to a value set over time" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows definition of a new value set used by one or more questionnaires" ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows existing value sets referenced by one or more questionnaires to be maintained" ]
+       ], [
+         fhir:index 6;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner." ]
+       ];
+       fhir:CapabilityStatement.rest.resource.searchInclude [
+         fhir:value "ValueSet.compose.import";
+         fhir:index 0
+       ];
+       fhir:CapabilityStatement.rest.resource.searchParam [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "date" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/ValueSet-date" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "date" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "description" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/ValueSet-description" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "name" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/ValueSet-name" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "reference" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/ValueSet-reference" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "string" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.searchParam.name [ fhir:value "status" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.definition [ fhir:value "http://hl7.org/fhir/SearchParameter/ValueSet-status" ];
+         fhir:CapabilityStatement.rest.resource.searchParam.type [ fhir:value "token" ]
+       ]
+     ];
+     fhir:CapabilityStatement.rest.operation [
+       fhir:index 0;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+         fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+       ];
+       fhir:CapabilityStatement.rest.operation.name [ fhir:value "expand" ];
+       fhir:CapabilityStatement.rest.operation.definition [
+         fhir:link <http://hl7.org/fhir/OperationDefinition/ValueSet-expand>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/OperationDefinition/ValueSet-expand" ];
+         fhir:Reference.display [ fhir:value "Generate expansion for specified value set" ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+         fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+       ];
+       fhir:CapabilityStatement.rest.operation.name [ fhir:value "expand" ];
+       fhir:CapabilityStatement.rest.operation.definition [
+         fhir:link <http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code" ];
+         fhir:Reference.display [ fhir:value "Check to see whether a specific code is valid against a specified value set" ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+         fhir:Extension.valueCode [ fhir:value "MAY" ]
+       ];
+       fhir:CapabilityStatement.rest.operation.name [ fhir:value "populate" ];
+       fhir:CapabilityStatement.rest.operation.definition [
+         fhir:link <http://hl7.org/fhir/OperationDefinition/Questionnaire-populate>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/OperationDefinition/Questionnaire-populate" ];
+         fhir:Reference.display [ fhir:value "Populate Questionnaire returning QuestionnaireResponse to review/edit/submit" ]
+       ]
+     ], [
+       fhir:index 3;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+         fhir:Extension.valueCode [ fhir:value "MAY" ]
+       ];
+       fhir:CapabilityStatement.rest.operation.name [ fhir:value "populatehtml" ];
+       fhir:CapabilityStatement.rest.operation.definition [
+         fhir:link <http://hl7.org/fhir/OperationDefinition/Questionnaire-populatehtml>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/OperationDefinition/Questionnaire-populatehtml" ];
+         fhir:Reference.display [ fhir:value "Populate Questionnaire returning HTML page to render locally for reviewing/editing/submitting" ]
+       ]
+     ], [
+       fhir:index 4;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+         fhir:Extension.valueCode [ fhir:value "MAY" ]
+       ];
+       fhir:CapabilityStatement.rest.operation.name [ fhir:value "populatelink" ];
+       fhir:CapabilityStatement.rest.operation.definition [
+         fhir:link <http://hl7.org/fhir/OperationDefinition/Questionnaire-populatelink>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/OperationDefinition/Questionnaire-populatelink" ];
+         fhir:Reference.display [ fhir:value "Populate questionnaire returning URL to page to review/edit/submit" ]
+       ]
+     ]
+  ] .
+
+<http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire> a fhir:us .
+
+<http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem> a fhir:us .
+
+<http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset> a fhir:us .
+
+<http://hl7.org/fhir/OperationDefinition/ValueSet-expand> a fhir:OperationDefinition .
+
+<http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code> a fhir:OperationDefinition .
+
+<http://hl7.org/fhir/OperationDefinition/Questionnaire-populate> a fhir:OperationDefinition .
+
+<http://hl7.org/fhir/OperationDefinition/Questionnaire-populatehtml> a fhir:OperationDefinition .
+
+<http://hl7.org/fhir/OperationDefinition/Questionnaire-populatelink> a fhir:OperationDefinition .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/us/sdc/CapabilityStatement/sdc-form-manager.ttl> .
+
+# -------------------------------------------------------------------------------------
+

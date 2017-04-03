@@ -1,0 +1,17 @@
+﻿swagger: 2.0
+
+info:  title: SDC Form Archiver
+  description: This profile defines the expected capabilities of the ''SDC Form Archiver'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for persisting (archiving) completed or partially completed forms ([[QuestionnaireResponse]] resource instances).  These instances may be submitted individually or in a bundle together with [[Provenance]] information providing details about the completion of the questionnaire response.  In some cases [[Binary]] or [[DocumentReference]] resources might also be submitted to convey source information used in the population of the questionnaire response.<br/>The purpose of this role is to capture "work in progress" for archival reasons.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format), though it might be made available through out-of-band mechanisms.
+  version: 2.0
+  # contact:
+    # end user to fill out
+  license:
+    name: null
+
+# host: [user to provide]
+# basePath: [user to provide]
+schemes:
+  - https
+  # - http this would not normally be allowed (see doco)
+consumes:
+produces:

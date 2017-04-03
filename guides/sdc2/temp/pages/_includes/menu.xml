@@ -1,0 +1,7 @@
+<ul class="nav navbar-nav">
+  <li><a href="index.html">IG Home</a></li>
+  <li><a href="toc.html">Table of Contents</a></li>
+  <li><a href="artifacts.html">Artifact Index</a></li>
+  <li><a href="downloads.html">Downloads</a></li>
+  <li><a href="{{site.data.fhir.path}}index.html">FHIR Spec</a></li>
+</ul>      

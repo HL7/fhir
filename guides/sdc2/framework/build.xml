@@ -8,37 +8,37 @@
   <!-- Project-specific inputs -->
   <property name="dir.src" value="src"/>
   <!-- Working area -->
-  <property name="dir.alltemp" value="temp"/>
-  <property name="dir.pages" value="${dir.alltemp}/pages"/>
-  <property name="dir.pageincludes" value="${dir.pages}/_includes"/>
-  <property name="dir.resources" value="${dir.alltemp}/resources"/>
+  <property name="dir.srcgenned" value="src-generated"/>
+  <property name="dir.pages" value="${dir.srcgenned}/pages"/>
+  <property name="dir.includes" value="${dir.pages}/_includes"/>
+  <property name="dir.resources" value="${dir.srcgenned}/resources"/>
   <!-- Standard infrastructure (generally the same across all IGs) -->
   <property name="dir.framework" value="framework"/>
   <property name="dir.framework.assets" value="${dir.framework}/assets"/>
   <property name="dir.xslt" value="${dir.framework}/xslt"/>
   <target name="local-setup" description="-- grabs igpublisher from local build">
-    <mkdir dir="${dir.alltemp}"/>
-    <get src="${jar.publisher}" dest="${dir.alltemp}" usetimestamp="true"/>
+    <mkdir dir="${dir.srcgenned}"/>
+    <get src="${jar.publisher}" dest="${dir.srcgenned}" usetimestamp="true"/>
   </target>
   <target name="publisher-setup" depends="local-setup"  description="--> Generate setup files, then run IG build">
     <copy todir="${dir.pages}"> <!-- This needs to be in two places to work properly -->
       <file file="${basedir}/${dir.framework.assets}/js/jquery.js"/>
     </copy>
-    <xslt in="${dir.src}/${guidename}.xml" out="${dir.pageincludes}/artifacts.xml" style="${dir.xslt}/createArtifactSummary.xslt"/>
+    <xslt in="${dir.src}/${guidename}.xml" out="${dir.includes}/artifacts.xml" style="${dir.xslt}/createArtifactSummary.xslt"/>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.resources}/${guidename}.xml" style="${dir.xslt}/fixIg.xslt"/>
-    <xslt in="${dir.src}/${guidename}.xml" out="${dir.alltemp}/${guidename}.json" style="${dir.xslt}/igToConfig.xslt">
+    <xslt in="${dir.src}/${guidename}.xml" out="${dir.srcgenned}/${guidename}.json" style="${dir.xslt}/igToConfig.xslt">
       <param name="spec" expression="${spec}"/>
       <param name="version" expression="${version}"/>
     </xslt>
   </target>
   <target name="publish-ig" depends="publisher-setup"  description="--> Run the IG build">
-    <java jar="${dir.alltemp}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
+    <java jar="${dir.srcgenned}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
-      <arg line="-ig ${basedir}/${dir.alltemp}/${guidename}.json"/>
+      <arg line="-ig ${basedir}/${dir.srcgenned}/${guidename}.json"/>
     </java>
   </target>
   <target name="clean">
-    <delete dir="${dir.alltemp}"/>
+    <delete dir="${dir.srcgenned}"/>
     <delete dir="${dir.output}"/>
   </target>
 </project>

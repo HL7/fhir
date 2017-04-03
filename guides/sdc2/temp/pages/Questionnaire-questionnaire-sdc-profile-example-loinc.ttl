@@ -1,0 +1,1286 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-loinc> a fhir:Questionnaire;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "questionnaire-sdc-profile-example-loinc"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>title</b>: Medication or Other Substance</p><p><b>status</b>: ACTIVE</p><p><b>date</b>: 1-Apr-2012</p><p><b>publisher</b>: Agency for Healthcare Research and Quality (AHRQ)</p><p><b>identifier</b>: 74080-3</p><p><b>title</b>: Medication or Other Substance</p><p><b>status</b>: ACTIVE</p><p><b>date</b>: 1-Apr-2012</p><p><b>publisher</b>: Agency for Healthcare Research and Quality (AHRQ)</p><p><b>subjectType</b>: Patient</p><blockquote><p><b>item</b></p><p><b>linkId</b>: Medication/header</p><p><b>type</b>: GROUP</p><h3>Items</h3><table class=\"grid\"><tr><td>-</td><td><b>LinkId</b></td><td><b>Text</b></td><td><b>Type</b></td><td><b>Required</b></td></tr><tr><td>*</td><td>0</td><td>Form ID:</td><td>STRING</td><td>true</td></tr><tr><td>*</td><td>74080-3/74081-1</td><td>Event ID:</td><td>STRING</td><td>true</td></tr><tr><td>*</td><td>74080-3/30947-6</td><td>Initial Report Date (HERF Q1)</td><td>STRING</td><td>true</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: Medication/SEC00</p><p><b>text</b>: Medication or Other Substance</p><p><b>type</b>: GROUP</p><blockquote><p><b>item</b></p></blockquote><blockquote><p><b>item</b></p></blockquote><blockquote><p><b>item</b></p></blockquote><blockquote><p><b>item</b></p></blockquote><blockquote><p><b>item</b></p></blockquote></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: Reporting</p><p><b>text</b>: Reporting information</p><p><b>type</b>: GROUP</p><h3>Items</h3><table class=\"grid\"><tr><td>-</td><td><b>LinkId</b></td><td><b>Text</b></td><td><b>Type</b></td></tr><tr><td>*</td><td>Reporting/who</td><td>Reported by:</td><td>STRING</td></tr><tr><td>*</td><td>Reporting/when</td><td>Reported date:</td><td>DATE</td></tr></table></blockquote><blockquote><p><b>item</b></p><p><b>linkId</b>: Medication/footer</p><p><b>type</b>: GROUP</p><h3>Items</h3><table class=\"grid\"><tr><td>-</td><td><b>LinkId</b></td><td><b>Text</b></td><td><b>Type</b></td></tr><tr><td>*</td><td>Medication/footer.0</td><td>AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance</td><td>DISPLAY</td></tr></table></blockquote></div>"
+  ];
+  fhir:DomainResource.contained [
+     a fhir:ValueSet;
+     fhir:index 0;
+     fhir:Resource.id [ fhir:value "ll2654-3" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q1" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 1 on the AHRQ \"Medication or Other Substance\" form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "1"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "a." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20271-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Medications" ]
+         ], [
+           fhir:index 1;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "2"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "b." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20335-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Biological products" ]
+         ], [
+           fhir:index 2;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "3"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "c." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20336-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Nutritional products" ]
+         ], [
+           fhir:index 3;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "4"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "d." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20337-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Expressed human breast milk" ]
+         ], [
+           fhir:index 4;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "5"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "e." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20338-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Medical gases (e.g., oxygen, nitrogen, nitrous oxide)" ]
+         ], [
+           fhir:index 5;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "6"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "f." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20339-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Contrast media" ]
+         ], [
+           fhir:index 6;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "7"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "g." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20340-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Radiopharmaceuticals" ]
+         ], [
+           fhir:index 7;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "8"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "h." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20341-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Patient food (not suspected in drug-food interactions)" ]
+         ], [
+           fhir:index 8;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "9"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "i." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20342-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Drug-drug, drug-food, or adverse drug reaction as a result of a prescription and/or administration of a drug and/or food prior to admission" ]
+         ], [
+           fhir:index 9;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "10"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "j." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20343-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 1;
+     fhir:Resource.id [ fhir:value "ll2655-0" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q2" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 2 on the AHRQ \"Medication or Other Substance\" form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2655-0" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "1"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "a." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20278-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Prescription or over-the-counter (including herbal supplements)" ]
+         ], [
+           fhir:index 1;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "2"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "b." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20298-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Compounded preparations" ]
+         ], [
+           fhir:index 2;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "3"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "c." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20299-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Investigational drugs" ]
+         ], [
+           fhir:index 3;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "4"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "d." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 2;
+     fhir:Resource.id [ fhir:value "ll2657-6" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q4" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 4 on the AHRQ \"Medication or Other Substance\" form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2657-6" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20283-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Vaccines" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20287-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other biological products (e.g., thrombolytic)" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 3;
+     fhir:Resource.id [ fhir:value "ll2659-2" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q6" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 6 on the AHRQ \"Medication or Other Substance\" form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "1"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "a." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20273-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Dietary supplements (other than vitamins or minerals)" ]
+         ], [
+           fhir:index 1;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "2"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "b." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA16117-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Vitamins or minerals" ]
+         ], [
+           fhir:index 2;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "3"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "c." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20320-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Enteral nutritional products, including infant formula" ]
+         ], [
+           fhir:index 3;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "4"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "d." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20321-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Parenteral nutritional products" ]
+         ], [
+           fhir:index 4;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder" ];
+             fhir:Extension.valueInteger [ fhir:value "5"^^xsd:integer ]
+           ], [
+             fhir:index 1;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/valueset-label" ];
+             fhir:Extension.valueString [ fhir:value "e." ]
+           ];
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20318-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 4;
+     fhir:Resource.id [ fhir:value "ll2660-0" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q7" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 7 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20275-6" ];
+           fhir:ValueSet.compose.include.concept.display [
+             fhir:value "Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)";
+             fhir:Element.extension [
+               fhir:index 0;
+               fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/rendering-xhtml" ];
+               fhir:Extension.valueString [ fhir:value "Incorrect action (process failure or error) <i>(e.g., such as administering overdose or incorrect medication)</i>" ]
+             ]
+           ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20314-3" ];
+           fhir:ValueSet.compose.include.concept.display [
+             fhir:value "Unsafe condition";
+             fhir:Element.extension [
+               fhir:index 0;
+               fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/rendering-style" ];
+               fhir:Extension.valueString [ fhir:value "color:green" ]
+             ]
+           ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20315-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Adverse reaction in patient to the administered substance without any apparent incorrect                  action" ]
+         ], [
+           fhir:index 3;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 5;
+     fhir:Resource.id [ fhir:value "ll2661-8" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q8" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 8 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20276-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect patient" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20302-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect medication/substance" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20303-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect dose(s)" ]
+         ], [
+           fhir:index 3;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20304-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect route of administration" ]
+         ], [
+           fhir:index 4;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20305-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect timing" ]
+         ], [
+           fhir:index 5;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20306-9" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect rate" ]
+         ], [
+           fhir:index 6;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20307-7" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect duration of administration or course of therapy" ]
+         ], [
+           fhir:index 7;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20308-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect dosage form (e.g., sustained release instead of immediate release)" ]
+         ], [
+           fhir:index 8;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20309-3" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect strength or concentration" ]
+         ], [
+           fhir:index 9;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20310-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect preparation, including inappropriate cutting of tablets, error in compounding,                  mixing, etc." ]
+         ], [
+           fhir:index 10;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20311-9" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Expired or deteriorated medication/substance" ]
+         ], [
+           fhir:index 11;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20312-7" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Medication/substance that is known to be an allergen to the patient" ]
+         ], [
+           fhir:index 12;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20345-7" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Medication/substance that is known to be contraindicated for the patient" ]
+         ], [
+           fhir:index 13;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20313-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Incorrect patient/family action (e.g., self-administration error)" ]
+         ], [
+           fhir:index 14;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20318-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 6;
+     fhir:Resource.id [ fhir:value "ll2662-6" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q9" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 9 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2662-6" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20277-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Overdose" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20300-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Underdose" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20301-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Missed or omitted dose" ]
+         ], [
+           fhir:index 3;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA7271-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Extra dose" ]
+         ], [
+           fhir:index 4;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 7;
+     fhir:Resource.id [ fhir:value "ll2663-4" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q10" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 10 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2663-4" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20280-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Too early" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20290-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Too late" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 8;
+     fhir:Resource.id [ fhir:value "ll2664-2" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q11" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 11 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2664-2" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20282-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Too quickly" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20288-" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Too slowly" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 9;
+     fhir:Resource.id [ fhir:value "ll2665-9" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q12" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 12 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2665-9" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20281-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Too high" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20289-7" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Too low" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 10;
+     fhir:Resource.id [ fhir:value "ll2817-6" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Y/N/UNK" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "AHRQ Common Format Answer list for Yes (A15), No (A18), Unknown (UNK)" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2817-6" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA33-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Yes" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA32-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "No" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unkown" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 11;
+     fhir:Resource.id [ fhir:value "ll2668-3" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q15" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 15 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2668-3" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20274-9" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Drug-drug" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20316-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Drug-food" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20317-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Drug-disease" ]
+         ], [
+           fhir:index 3;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20318-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 12;
+     fhir:Resource.id [ fhir:value "ll2669-1" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q16" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for question 16 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2669-1" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20279-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Purchasing" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20291-3" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Storing" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20292-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Prescribing/ordering" ]
+         ], [
+           fhir:index 3;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20293-9" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Transcribing" ]
+         ], [
+           fhir:index 4;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20294-7" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Preparing" ]
+         ], [
+           fhir:index 5;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20295-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Dispensing" ]
+         ], [
+           fhir:index 6;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20296-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Administering" ]
+         ], [
+           fhir:index 7;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20297-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Monitoring" ]
+         ], [
+           fhir:index 8;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ], [
+           fhir:index 9;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20318-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 13;
+     fhir:Resource.id [ fhir:value "ll2828-3" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Y/N" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "AHRQ Common Format Answer list for Yes (A15) and No (A18)" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org/vs/LL2828-3" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA33-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Yes" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA32-8" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "No" ]
+         ]
+       ]
+     ]
+  ], [
+     a fhir:ValueSet;
+     fhir:index 14;
+     fhir:Resource.id [ fhir:value "ll2682-4" ];
+     fhir:ValueSet.name [ fhir:value "AHRQ_Medication_Q28_Q29" ];
+     fhir:ValueSet.status [ fhir:value "active" ];
+     fhir:ValueSet.description [ fhir:value "The answer list for questions 28 and 29 on the AHRQ 'Medication or Other Substance' form" ];
+     fhir:ValueSet.copyright [ fhir:value "This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use" ];
+     fhir:ValueSet.compose [
+       fhir:ValueSet.compose.include [
+         fhir:index 0;
+         fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ];
+         fhir:ValueSet.compose.include.concept [
+           fhir:index 0;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20272-3" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Cutaneous, topical application, including ointment, spray, patch" ]
+         ], [
+           fhir:index 1;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9451-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Subcutaneous" ]
+         ], [
+           fhir:index 2;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9444-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Ophthalmic" ]
+         ], [
+           fhir:index 3;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20324-2" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Oral, including sublingual or buccal" ]
+         ], [
+           fhir:index 4;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9445-" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Otic" ]
+         ], [
+           fhir:index 5;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9263-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Nasal" ]
+         ], [
+           fhir:index 6;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9427-1" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Inhalation" ]
+         ], [
+           fhir:index 7;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9437-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Intravenous" ]
+         ], [
+           fhir:index 8;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9429-7" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Intramuscular" ]
+         ], [
+           fhir:index 9;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9435-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Intrathecal" ]
+         ], [
+           fhir:index 10;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9418-0" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Epidural" ]
+         ], [
+           fhir:index 11;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20332-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Gastric" ]
+         ], [
+           fhir:index 12;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9369-5" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Rectal" ]
+         ], [
+           fhir:index 13;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA9459-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Vaginal" ]
+         ], [
+           fhir:index 14;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA4489-6" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Unknown" ]
+         ], [
+           fhir:index 15;
+           fhir:ValueSet.compose.include.concept.code [ fhir:value "LA20318-4" ];
+           fhir:ValueSet.compose.include.concept.display [ fhir:value "Other" ]
+         ]
+       ]
+     ]
+  ];
+  fhir:Questionnaire.identifier [
+     fhir:index 0;
+     fhir:Identifier.system [ fhir:value "http://loinc.org/vs" ];
+     fhir:Identifier.value [ fhir:value "74080-3" ]
+  ];
+  fhir:Questionnaire.title [
+     fhir:value "Medication or Other Substance";
+     fhir:Element.extension [
+       fhir:index 0;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/rendering-style" ];
+       fhir:Extension.valueString [ fhir:value "color:#0000FF" ]
+     ]
+  ];
+  fhir:Questionnaire.status [ fhir:value "active"];
+  fhir:Questionnaire.date [ fhir:value "2012-04-01"^^xsd:date];
+  fhir:Questionnaire.publisher [ fhir:value "Agency for Healthcare Research and Quality (AHRQ)"];
+  fhir:Questionnaire.subjectType [
+     fhir:value "Patient";
+     fhir:index 0
+  ];
+  fhir:Questionnaire.item [
+     fhir:index 0;
+     fhir:Element.extension [
+       fhir:index 0;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl" ];
+       fhir:Extension.valueCodeableConcept [
+         fhir:CodeableConcept.coding [
+           fhir:index 0;
+           fhir:Coding.system [ fhir:value "http://hl7.org/fhir/questionnaire-item-control" ];
+           fhir:Coding.code [ fhir:value "header" ]
+         ]
+       ]
+     ];
+     fhir:Questionnaire.item.linkId [ fhir:value "Medication/header" ];
+     fhir:Questionnaire.item.type [ fhir:value "group" ];
+     fhir:Questionnaire.item.item [
+       fhir:index 0;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden" ];
+         fhir:Extension.valueBoolean [ fhir:value "true"^^xsd:boolean ]
+       ];
+       fhir:Questionnaire.item.linkId [ fhir:value "0" ];
+       fhir:Questionnaire.item.text [ fhir:value "Form ID:" ];
+       fhir:Questionnaire.item.type [ fhir:value "string" ];
+       fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 1;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+         fhir:Extension.valueInteger [ fhir:value "3"^^xsd:integer ]
+       ];
+       fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74081-1" ];
+       fhir:Questionnaire.item.text [ fhir:value "Event ID:" ];
+       fhir:Questionnaire.item.type [ fhir:value "string" ];
+       fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+     ], [
+       fhir:index 2;
+       fhir:Questionnaire.item.linkId [ fhir:value "74080-3/30947-6" ];
+       fhir:Questionnaire.item.text [ fhir:value "Initial Report Date (HERF Q1)" ];
+       fhir:Questionnaire.item.type [ fhir:value "string" ];
+       fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+     ]
+  ], [
+     fhir:index 1;
+     fhir:Questionnaire.item.linkId [ fhir:value "Medication/SEC00" ];
+     fhir:Questionnaire.item.text [ fhir:value "Medication or Other Substance" ];
+     fhir:Questionnaire.item.type [ fhir:value "group" ];
+     fhir:Questionnaire.item.item [
+       fhir:index 0;
+       fhir:Questionnaire.item.linkId [ fhir:value "Medication/SEC00.0" ];
+       fhir:Questionnaire.item.text [
+         fhir:value "Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF).";
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/rendering-xhtml" ];
+           fhir:Extension.valueString [ fhir:value "Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the <i>Device or Medical/Surgical Supply including Health Information Technology (HIT)</i> form. Narrative detail can be captured on the <i>Healthcare Event Reporting Form (HERF)</i>." ]
+         ]
+       ];
+       fhir:Questionnaire.item.type [ fhir:value "display" ]
+     ], [
+       fhir:index 1;
+       fhir:Questionnaire.item.linkId [ fhir:value "Medication/SEC01/74080-3" ];
+       fhir:Questionnaire.item.type [ fhir:value "group" ];
+       fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+       fhir:Questionnaire.item.item [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "1"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74076-1" ];
+         fhir:Questionnaire.item.definition [ fhir:value "http://loinc.org/74076-1" ];
+         fhir:Questionnaire.item.text [ fhir:value "What type of medication/substance was involved?" ];
+         fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2654-3" ]
+         ];
+         fhir:Questionnaire.item.item [
+           fhir:index 0;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+             fhir:Extension.valueInteger [ fhir:value "7"^^xsd:integer ]
+           ];
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74075-3" ];
+           fhir:Questionnaire.item.definition [ fhir:value "http://loinc.org/vs/74075-3" ];
+           fhir:Questionnaire.item.text [ fhir:value "What type of medication?" ];
+           fhir:Questionnaire.item.type [ fhir:value "choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2655-0" ]
+           ];
+           fhir:Questionnaire.item.item [
+             fhir:index 0;
+             fhir:Element.extension [
+               fhir:index 0;
+               fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+               fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+             ];
+             fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74077-9-q" ];
+             fhir:Questionnaire.item.definition [ fhir:value "http://loinc.org/74077-9" ];
+             fhir:Questionnaire.item.text [ fhir:value "Please list all ingredients:" ];
+             fhir:Questionnaire.item.type [ fhir:value "string" ];
+             fhir:Questionnaire.item.repeats [ fhir:value "true"^^xsd:boolean ]
+           ]
+         ], [
+           fhir:index 1;
+           fhir:Element.extension [
+             fhir:index 0;
+             fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+             fhir:Extension.valueInteger [ fhir:value "8"^^xsd:integer ]
+           ];
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74074-6" ];
+           fhir:Questionnaire.item.text [ fhir:value "What type of biological product?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2657-6" ]
+           ];
+           fhir:Questionnaire.item.item [
+             fhir:index 0;
+             fhir:Questionnaire.item.linkId [ fhir:value "74080-3/30959-1" ];
+             fhir:Questionnaire.item.text [ fhir:value "What was the lot number of the vaccine?" ];
+             fhir:Questionnaire.item.type [ fhir:value "string" ];
+             fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+           ]
+         ], [
+           fhir:index 2;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74073-8" ];
+           fhir:Questionnaire.item.text [ fhir:value "What type of nutritional product?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2659-2" ]
+           ];
+           fhir:Questionnaire.item.item [
+             fhir:index 0;
+             fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74073-8/Other/Specify" ];
+             fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+             fhir:Questionnaire.item.type [ fhir:value "string" ];
+             fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+           ]
+         ], [
+           fhir:index 3;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74076-1/Other/Specify" ];
+           fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+           fhir:Questionnaire.item.type [ fhir:value "string" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+         ]
+       ], [
+         fhir:index 1;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74072-0" ];
+         fhir:Questionnaire.item.text [ fhir:value "Which of the following best characterizes the event?" ];
+         fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2660-0" ]
+         ]
+       ], [
+         fhir:index 2;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74071-2" ];
+         fhir:Questionnaire.item.text [ fhir:value "What was the incorrect action?" ];
+         fhir:Questionnaire.item.type [ fhir:value "choice" ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2661-8" ]
+         ];
+         fhir:Questionnaire.item.item [
+           fhir:index 0;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74070-4" ];
+           fhir:Questionnaire.item.text [ fhir:value "Which best describes the incorrect dose(s)?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2662-6" ]
+           ]
+         ], [
+           fhir:index 1;
+           fhir:Questionnaire.item.linkId [ fhir:value "Medication/74069-6" ];
+           fhir:Questionnaire.item.text [ fhir:value "Which best describes the incorrect timing?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2663-4" ]
+           ]
+         ], [
+           fhir:index 2;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74068-8" ];
+           fhir:Questionnaire.item.text [ fhir:value "Which best describes the incorrect rate?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2664-2" ]
+           ]
+         ], [
+           fhir:index 3;
+           fhir:Questionnaire.item.linkId [ fhir:value "Medication/74067-0" ];
+           fhir:Questionnaire.item.text [ fhir:value "Which best describes the incorrect strength or concentration?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2665-9" ]
+           ]
+         ], [
+           fhir:index 4;
+           fhir:Questionnaire.item.linkId [ fhir:value "Medication/74066-2" ];
+           fhir:Questionnaire.item.text [ fhir:value "What was the expiration date?" ];
+           fhir:Questionnaire.item.type [ fhir:value "string" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+         ], [
+           fhir:index 5;
+           fhir:Questionnaire.item.linkId [ fhir:value "Medication/74065-4" ];
+           fhir:Questionnaire.item.text [ fhir:value "Was there a documented history of allergies or sensitivities to the medication/substance                      administered?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2817-6" ]
+           ]
+         ], [
+           fhir:index 6;
+           fhir:Questionnaire.item.linkId [ fhir:value "Medication/74064-7" ];
+           fhir:Questionnaire.item.text [ fhir:value "What was the contraindication (potential or actual interaction)?" ];
+           fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+           fhir:Questionnaire.item.options [
+             fhir:Reference.reference [ fhir:value "#ll2668-3" ]
+           ];
+           fhir:Questionnaire.item.item [
+             fhir:index 0;
+             fhir:Questionnaire.item.linkId [ fhir:value "Medication/74064-7/Other/Specify" ];
+             fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+             fhir:Questionnaire.item.type [ fhir:value "string" ];
+             fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+           ]
+         ], [
+           fhir:index 7;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74071-2/Other/Specify" ];
+           fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+           fhir:Questionnaire.item.type [ fhir:value "string" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+         ]
+       ], [
+         fhir:index 3;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74063-9" ];
+         fhir:Questionnaire.item.text [ fhir:value "At what stage in the process did the event originate, regardless of the stage at which                  it was discovered?" ];
+         fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2669-1" ]
+         ];
+         fhir:Questionnaire.item.item [
+           fhir:index 0;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74063-9/Other/Specify" ];
+           fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+           fhir:Questionnaire.item.type [ fhir:value "string" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+         ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs" ];
+         fhir:Extension.valueInteger [ fhir:value "5"^^xsd:integer ]
+       ];
+       fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7" ];
+       fhir:Questionnaire.item.type [ fhir:value "group" ];
+       fhir:Questionnaire.item.repeats [ fhir:value "true"^^xsd:boolean ];
+       fhir:Questionnaire.item.item [
+         fhir:index 0;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7.0" ];
+         fhir:Questionnaire.item.text [ fhir:value "Please provide the following medication details for any medications or other substances                directly involved in the event." ];
+         fhir:Questionnaire.item.type [ fhir:value "display" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74062-1" ];
+         fhir:Questionnaire.item.text [ fhir:value "Generic name or investigational drug name" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74061-3" ];
+         fhir:Questionnaire.item.text [ fhir:value "Ingredient RXCUI (if known)" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74060-5" ];
+         fhir:Questionnaire.item.text [ fhir:value "Brand name (if known)" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74059-7" ];
+         fhir:Questionnaire.item.text [ fhir:value "Brand name RXCUI (if known)" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74058-9" ];
+         fhir:Questionnaire.item.text [ fhir:value "Manufacturer (if known)" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 6;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74057-1" ];
+         fhir:Questionnaire.item.text [ fhir:value "Strength or concentration of product" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 7;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74056-3" ];
+         fhir:Questionnaire.item.text [ fhir:value "Clinical drug component RXCUI (if known)" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 8;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74055-5" ];
+         fhir:Questionnaire.item.text [ fhir:value "Dosage form of Product" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 9;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/minLength" ];
+           fhir:Extension.valueInteger [ fhir:value "0"^^xsd:integer ]
+         ];
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74054-8" ];
+         fhir:Questionnaire.item.text [ fhir:value "Dose form RXCUI (if known)" ];
+         fhir:Questionnaire.item.type [ fhir:value "string" ]
+       ], [
+         fhir:index 10;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74078-7/74053-0" ];
+         fhir:Questionnaire.item.text [ fhir:value "Was this medication/substance prescribed for this patient?" ];
+         fhir:Questionnaire.item.type [ fhir:value "choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2828-3" ]
+         ]
+       ], [
+         fhir:index 11;
+         fhir:Questionnaire.item.linkId [ fhir:value "Medication/74052-2" ];
+         fhir:Questionnaire.item.text [ fhir:value "Was this medication/substance given to this patient?" ];
+         fhir:Questionnaire.item.type [ fhir:value "choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2828-3" ]
+         ]
+       ]
+     ], [
+       fhir:index 3;
+       fhir:Questionnaire.item.linkId [ fhir:value "Medication/SEC03" ];
+       fhir:Questionnaire.item.type [ fhir:value "group" ];
+       fhir:Questionnaire.item.item [
+         fhir:index 0;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74051-4" ];
+         fhir:Questionnaire.item.text [ fhir:value "What was the intended route of administration?" ];
+         fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2682-4" ]
+         ];
+         fhir:Questionnaire.item.item [
+           fhir:index 0;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74051-4/Other/Specify" ];
+           fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+           fhir:Questionnaire.item.type [ fhir:value "string" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+         ]
+       ], [
+         fhir:index 1;
+         fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74050-6" ];
+         fhir:Questionnaire.item.text [ fhir:value "What was the actual route of administration (attempted or completed)?" ];
+         fhir:Questionnaire.item.type [ fhir:value "open-choice" ];
+         fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ];
+         fhir:Questionnaire.item.options [
+           fhir:Reference.reference [ fhir:value "#ll2682-4" ]
+         ];
+         fhir:Questionnaire.item.item [
+           fhir:index 0;
+           fhir:Questionnaire.item.linkId [ fhir:value "74080-3/74050-6/Other/Specify" ];
+           fhir:Questionnaire.item.text [ fhir:value "PLEASE SPECIFY" ];
+           fhir:Questionnaire.item.type [ fhir:value "string" ];
+           fhir:Questionnaire.item.required [ fhir:value "true"^^xsd:boolean ]
+         ]
+       ]
+     ], [
+       fhir:index 4;
+       fhir:Questionnaire.item.linkId [ fhir:value "Medication/SEC04" ];
+       fhir:Questionnaire.item.text [ fhir:value "Thank you for completing these questions." ];
+       fhir:Questionnaire.item.type [ fhir:value "group" ];
+       fhir:Questionnaire.item.item [
+         fhir:index 0;
+         fhir:Questionnaire.item.linkId [ fhir:value "Medication/SEC04.0" ];
+         fhir:Questionnaire.item.text [ fhir:value "OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850." ];
+         fhir:Questionnaire.item.type [ fhir:value "display" ]
+       ]
+     ]
+  ], [
+     fhir:index 2;
+     fhir:Element.extension [
+       fhir:index 0;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/questionnaire-hidden" ];
+       fhir:Extension.valueBoolean [ fhir:value "true"^^xsd:boolean ]
+     ];
+     fhir:Questionnaire.item.linkId [ fhir:value "Reporting" ];
+     fhir:Questionnaire.item.text [ fhir:value "Reporting information" ];
+     fhir:Questionnaire.item.type [ fhir:value "group" ];
+     fhir:Questionnaire.item.item [
+       fhir:index 0;
+       fhir:Questionnaire.item.linkId [ fhir:value "Reporting/who" ];
+       fhir:Questionnaire.item.text [ fhir:value "Reported by:" ];
+       fhir:Questionnaire.item.type [ fhir:value "string" ]
+     ], [
+       fhir:index 1;
+       fhir:Questionnaire.item.linkId [ fhir:value "Reporting/when" ];
+       fhir:Questionnaire.item.text [ fhir:value "Reported date:" ];
+       fhir:Questionnaire.item.type [ fhir:value "date" ]
+     ]
+  ], [
+     fhir:index 3;
+     fhir:Element.extension [
+       fhir:index 0;
+       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl" ];
+       fhir:Extension.valueCodeableConcept [
+         fhir:CodeableConcept.coding [
+           fhir:index 0;
+           fhir:Coding.system [ fhir:value "http://hl7.org/fhir/questionnaire-item-control" ];
+           fhir:Coding.code [ fhir:value "footer" ]
+         ]
+       ]
+     ];
+     fhir:Questionnaire.item.linkId [ fhir:value "Medication/footer" ];
+     fhir:Questionnaire.item.type [ fhir:value "group" ];
+     fhir:Questionnaire.item.item [
+       fhir:index 0;
+       fhir:Questionnaire.item.linkId [ fhir:value "Medication/footer.0" ];
+       fhir:Questionnaire.item.text [ fhir:value "AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance" ];
+       fhir:Questionnaire.item.type [ fhir:value "display" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-loinc.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/us/sdc/Questionnaire/questionnaire-sdc-profile-example-loinc.ttl> .
+
+# -------------------------------------------------------------------------------------
+

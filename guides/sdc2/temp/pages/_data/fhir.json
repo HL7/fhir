@@ -1,0 +1,29 @@
+﻿{
+  "path": "http://build.fhir.org/",
+  "canonical": "http://hl7.org/fhir/us/sdc",
+  "igId": "sdc",
+  "igName": "Structured Data Capture",
+  "errorCount": 3,
+  "version": "3.0.0",
+  "revision": "11681",
+  "versionFull": "3.0.0-11681",
+  "totalFiles": 24,
+  "processedFiles": 101,
+  "genDate": "Sun, Apr 2, 2017 21:53-0600",
+  "ig": {
+    "id": "sdc",
+    "name": "Structured Data Capture",
+    "url": "http://hl7.org/fhir/us/sdc/ImplementationGuide/sdc",
+    "status": "draft",
+    "experimental": false,
+    "publisher": "Health Level Seven International (Orders and Observations - Structured Data Capture)",
+    "contact": [
+      {
+        "telecom": [
+          "http://www.hl7.org/Special/committees/orders/index.cfm"
+        ]
+      }
+    ],
+    "description": "The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.\u003cbr/\u003eThis includes two components:\u003cbr/\u003e* Support more sophisticated questionnaire/form use-cases such as those needed for research, oncology, pathology and other clinical domains.\u003cbr/\u003e*Support pre-population and auto-population of EHR data into forms/questionnaires for uses outside direct clinical care (patient safety, adverse event reporting, public health reporting, etc.)."
+  }
+}

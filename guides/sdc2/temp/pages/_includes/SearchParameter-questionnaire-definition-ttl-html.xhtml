@@ -1,0 +1,40 @@
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# - resource -------------------------------------------------------------------
+
+ a fhir:SearchParameter;
+  <a href="http://build.fhir.org/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot;
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;questionnaire-definition&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.meta">fhir:Resource.meta</a> [
+     <a href="http://build.fhir.org/datatypes.html#Meta#Meta.lastUpdated">fhir:Meta.lastUpdated</a> [ <a href="http://build.fhir.org/datatypes.html#instant">fhir:value</a> &quot;2016-05-30T00:48:02.872-06:00&quot;^^xsd:dateTime ]
+  ];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.text">fhir:DomainResource.text</a> [
+     <a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.status">fhir:Narrative.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;generated&quot; ];
+     fhir:Narrative.div &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;\n			&lt;h2&gt;Questionnaire Item definition&lt;/h2&gt;\n			&lt;p&gt;http://hl7.org/fhir/us/sdc/SearchParameter/questionnaire-definition Published: 2016-03-31T08:01:25+11:00 (draft)&lt;/p&gt;\n			&lt;p&gt;Published by: &lt;b&gt;Health Level Seven&lt;/b&gt;\n			&lt;/p&gt;\n			&lt;p&gt;Allows searching by 'definition' element within a Questionnaire's items&lt;/p&gt;\n			&lt;table&gt;\n				&lt;tbody&gt;\n					&lt;tr&gt;\n						&lt;th&gt;Code:&lt;/th&gt;\n						&lt;td&gt;definition&lt;/td&gt;\n					&lt;/tr&gt;\n					&lt;tr&gt;\n						&lt;th&gt;Type:&lt;/th&gt;\n						&lt;td&gt;token&lt;/td&gt;\n					&lt;/tr&gt;\n					&lt;tr&gt;\n						&lt;th&gt;XPath:&lt;/th&gt;\n						&lt;td&gt;\n							&lt;code&gt;f:Questionnaire/f:item/f:definition&lt;/code&gt;\n						&lt;/td&gt;\n					&lt;/tr&gt;\n				&lt;/tbody&gt;\n			&lt;/table&gt;\n		&lt;/div&gt;&quot;
+  ];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.url">fhir:SearchParameter.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/us/sdc/SearchParameter/questionnaire-definition&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.name">fhir:SearchParameter.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Questionnaire Item definition&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.status">fhir:SearchParameter.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;draft&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.date">fhir:SearchParameter.date</a> [ <a href="http://build.fhir.org/datatypes.html#dateTime">fhir:value</a> &quot;2016-03-31T08:01:25+11:00&quot;^^xsd:dateTime];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.publisher">fhir:SearchParameter.publisher</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Health Level Seven&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.code">fhir:SearchParameter.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;definition&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.base">fhir:SearchParameter.base</a> [
+     <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;Questionnaire&quot;;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0
+  ];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.type">fhir:SearchParameter.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;token&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.description">fhir:SearchParameter.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;Allows searching by 'definition' element within a Questionnaire's items&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.xpath">fhir:SearchParameter.xpath</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;f:Questionnaire/f:item/f:definition&quot;];
+  <a href="http://build.fhir.org/searchparameter.html#SearchParameter.xpathUsage">fhir:SearchParameter.xpathUsage</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;normal&quot;].
+
+# - ontology header ------------------------------------------------------------
+
+ a owl:Ontology;
+  owl:imports fhir:fhir.ttl.
+
+</pre>
+

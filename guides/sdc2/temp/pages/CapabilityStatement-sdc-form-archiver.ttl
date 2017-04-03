@@ -1,0 +1,179 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-archiver> a fhir:CapabilityStatement;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "sdc-form-archiver"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <h2>SDC Form Archiver</h2>\n      <p>(Requirements Definition)</p>\n      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-archiver Published: 2015-09-03 (draft)</p>\n      <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>\n      </p>\n      <p>This profile defines the expected capabilities of the <i>SDC Form Archiver</i> role when conforming to the S&amp;I Framework's <a href=\"index.html\">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for persisting (archiving) completed or partially completed forms (<a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a> resource instances).  These instances may be submitted individually or in a bundle together with <a href=\"{{site.data.fhir.path}}provenance.html\">Provenance</a> information providing details about the completion of the questionnaire response.  In some cases <a href=\"{{site.data.fhir.path}}binary.html\">Binary</a> or <a href=\"{{site.data.fhir.path}}documentreference.html\">DocumentReference</a> resources might also be submitted to convey source information used in the population of the questionnaire response.</p>\n      <p>The purpose of this role is to capture &quot;work in progress&quot; for archival reasons.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format), though it might be made available through out-of-band mechanisms.</p>\n      <h2>General</h2>\n      <table>\n        <tbody>\n          <tr>\n            <th>FHIR Version:</th>\n            <td>$ver$</td>\n          </tr>\n          <tr>\n            <th>Supported formats:</th>\n            <td>xml, json</td>\n          </tr>\n        </tbody>\n      </table>\n      <h2>REST  behavior</h2>\n      <p>The <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a> may be sent as a single instance or as a FHIR <a href=\"{{site.data.fhir.path}}bundle.html\">Bundle</a> also containing <a href=\"{{site.data.fhir.path}}provenance.html\">Provenance</a> resources providing details on the sources of information.  A Bundle submission might also include <a href=\"{{site.data.fhir.path}}binary.html\">Binary</a> and/or <a href=\"{{site.data.fhir.path}}documentreference.html\">DocumentReference</a> instances referring to the data used to populate the form.  A Form Archiver must support persisting, searching and retrieving those resources.</p>\n      <p>\n        <b>Security:</b>\n      </p>\n      <p>Implementations must meet the general security requirements documented in the <a href=\"sdc-security.html\">SDC implementation guide</a>.</p>\n      <h3>Resource summary</h3>\n      <table class=\"grid\">\n        <thead>\n          <tr>\n            <th>Resource</th>\n            <th>Search</th>\n            <th>Read</th>\n            <th>Read Version</th>\n            <th>Instance History</th>\n            <th>Resource History</th>\n            <th>Create</th>\n            <th>Update</th>\n            <th>Delete</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>QuestionnaireResponse (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse.html\">Profile</a>)</th>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td>\n              <a href=\"#QuestionnaireResponse-create\" title=\"Allows archiving (storing) a completed or partially-completed form\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#QuestionnaireResponse-update\" title=\"Allows updating a previously archived form.  (Systems may place rules on who can update forms and under what circumstances).\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#QuestionnaireResponse-delete\" title=\"Allows removal of an archived form from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove a submitted response and under what circumstances.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>Binary</th>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td>\n              <a href=\"#Binary-create\" title=\"Allows storage of a binary (generally containing information used in the completion of a QuestionnaireResponse).  The data might be in a variety of forms.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Binary-update\" title=\"Allows updating a previously submitted binary data.  (Systems may place rules on who can update binary data and under what circumstances).\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Binary-delete\" title=\"Allows removal of binary data from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove binary data and under what circumstances.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>DocumentReference</th>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td>\n              <a href=\"#DocumentReference-create\" title=\"Allows storage of a document reference (generally containing information used in the completion of a QuestionnaireResponse).\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DocumentReference-update\" title=\"Allows updating a previously submitted document reference.  (Systems may place rules on who can update document references and under what circumstances).\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DocumentReference-delete\" title=\"Allows removal of document references from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove document references and under what circumstances.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>Provenance</th>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td/>\n            <td>\n              <a href=\"#Provenance-create\" title=\"Allows submitting a Provenance record associated with a particular QuestionnaireResponse.\">Yes</a>\n            </td>\n            <td/>\n            <td/>\n          </tr>\n        </tbody>\n      </table>\n      <h3>General interactions</h3>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"-transaction\"> </a>\n              <span>transaction</span>\n            </th>\n            <td>\n              <p>Modes: </p>\n              <p>Allows submission of a <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a> together with <a href=\"{{site.data.fhir.path}}provenance.html\">Provenance</a> and other supporting resources as a single unit of work.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows archiving (storing) a completed or partially-completed form</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows updating a previously archived form.  (Systems may place rules on who can update forms and under what circumstances).</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Allows removal of an archived form from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove a submitted response and under what circumstances.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}binary.html\">Binary</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"Binary-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows storage of a binary (generally containing information used in the completion of a <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a>).  The data might be in a variety of forms.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Binary-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows updating a previously submitted binary data.  (Systems may place rules on who can update binary data and under what circumstances).</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Binary-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Allows removal of binary data from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove binary data and under what circumstances.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}documentreference.html\">DocumentReference</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"DocumentReference-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows storage of a document reference (generally containing information used in the completion of a <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a>).</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DocumentReference-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows updating a previously submitted document reference.  (Systems may place rules on who can update document references and under what circumstances).</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DocumentReference-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Allows removal of document references from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove document references and under what circumstances.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}provenance.html\">Provenance</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"Provenance-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows submitting a Provenance record associated with a particular <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a>.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+  ];
+  fhir:CapabilityStatement.url [ fhir:value "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-archiver"];
+  fhir:CapabilityStatement.version [ fhir:value "2.0"];
+  fhir:CapabilityStatement.name [ fhir:value "SDC Form Archiver"];
+  fhir:CapabilityStatement.status [ fhir:value "draft"];
+  fhir:CapabilityStatement.date [ fhir:value "2015-09-03"^^xsd:date];
+  fhir:CapabilityStatement.publisher [ fhir:value "U.S. Office of the National Coordinator (ONC)"];
+  fhir:CapabilityStatement.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://wiki.siframework.org/Structured+Data+Capture+Initiative" ]
+     ]
+  ];
+  fhir:CapabilityStatement.description [ fhir:value "This profile defines the expected capabilities of the ''SDC Form Archiver'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for persisting (archiving) completed or partially completed forms ([[QuestionnaireResponse]] resource instances).  These instances may be submitted individually or in a bundle together with [[Provenance]] information providing details about the completion of the questionnaire response.  In some cases [[Binary]] or [[DocumentReference]] resources might also be submitted to convey source information used in the population of the questionnaire response.<br/>The purpose of this role is to capture \"work in progress\" for archival reasons.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format), though it might be made available through out-of-band mechanisms."];
+  fhir:CapabilityStatement.kind [ fhir:value "requirements"];
+  fhir:CapabilityStatement.fhirVersion [ fhir:value "1.0.0"];
+  fhir:CapabilityStatement.acceptUnknown [ fhir:value "extensions"];
+  fhir:CapabilityStatement.format [
+     fhir:value "xml";
+     fhir:index 0
+  ], [
+     fhir:value "json";
+     fhir:index 1
+  ];
+  fhir:CapabilityStatement.rest [
+     fhir:index 0;
+     fhir:CapabilityStatement.rest.mode [ fhir:value "client" ];
+     fhir:CapabilityStatement.rest.documentation [ fhir:value "The [[QuestionnaireResponse]] may be sent as a single instance or as a FHIR [[Bundle]] also containing [[Provenance]] resources providing details on the sources of information.  A Bundle submission might also include [[Binary]] and/or [[DocumentReference]] instances referring to the data used to populate the form.  A Form Archiver must support persisting, searching and retrieving those resources." ];
+     fhir:CapabilityStatement.rest.security [
+       fhir:CapabilityStatement.rest.security.description [ fhir:value "Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]." ]
+     ];
+     fhir:CapabilityStatement.rest.resource [
+       fhir:index 0;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "QuestionnaireResponse" ];
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:link <http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse" ]
+       ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows archiving (storing) a completed or partially-completed form" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows updating a previously archived form.  (Systems may place rules on who can update forms and under what circumstances)." ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows removal of an archived form from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove a submitted response and under what circumstances." ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "Binary" ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows storage of a binary (generally containing information used in the completion of a [[QuestionnaireResponse]]).  The data might be in a variety of forms." ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows updating a previously submitted binary data.  (Systems may place rules on who can update binary data and under what circumstances)." ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows removal of binary data from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove binary data and under what circumstances." ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "DocumentReference" ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows storage of a document reference (generally containing information used in the completion of a [[QuestionnaireResponse]])." ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows updating a previously submitted document reference.  (Systems may place rules on who can update document references and under what circumstances)." ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows removal of document references from a repository.  Note that the removal may be logical rather than physical. Some systems may have rules for who can remove document references and under what circumstances." ]
+       ]
+     ], [
+       fhir:index 3;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "Provenance" ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "Allows submitting a Provenance record associated with a particular [[QuestionnaireResponse]]." ]
+       ]
+     ];
+     fhir:CapabilityStatement.rest.interaction [
+       fhir:index 0;
+       fhir:Element.extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+         fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+       ];
+       fhir:CapabilityStatement.rest.interaction.code [ fhir:value "transaction" ];
+       fhir:CapabilityStatement.rest.interaction.documentation [ fhir:value "Allows submission of a [[QuestionnaireResponse]] together with [[Provenance]] and other supporting resources as a single unit of work." ]
+     ]
+  ] .
+
+<http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse> a fhir:us .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-archiver.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/us/sdc/CapabilityStatement/sdc-form-archiver.ttl> .
+
+# -------------------------------------------------------------------------------------
+

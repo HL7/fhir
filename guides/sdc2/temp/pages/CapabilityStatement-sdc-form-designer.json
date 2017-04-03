@@ -1,0 +1,355 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "sdc-form-designer",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <h2>SDC Form Designer</h2>\n      <p>(Requirements Definition)</p>\n      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-designer Published: 2014-07-06 (draft)</p>\n      <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>\n      </p>\n      <p>This profile defines the expected capabilities of the <i>SDC Form Designer</i> role when conforming to the S&amp;I Framework's <a href=\"index.html\">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for defining forms (<a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a> resource instances) that include references to <a href=\"{{site.data.fhir.path}}dataelement.html\">DataElement</a> resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.</p>\n      <h2>General</h2>\n      <table>\n        <tbody>\n          <tr>\n            <th>FHIR Version:</th>\n            <td>$ver$</td>\n          </tr>\n          <tr>\n            <th>Supported formats:</th>\n            <td>xml, json</td>\n          </tr>\n        </tbody>\n      </table>\n      <h2>REST  behavior</h2>\n      <p>The <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a> resource is used to create and maintain SDC-compliant forms.  The <a href=\"{{site.data.fhir.path}}dataelement.html\">DataElement</a> resource is used to look-up existing data elements that can be referenced in forms.  Optionally, <a href=\"{{site.data.fhir.path}}dataelement.html\">DataElement</a>s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The <a href=\"{{site.data.fhir.path}}valueset.html\">ValueSet</a> and <a href=\"{{site.data.fhir.path}}codesystem.html\">CodeSystem</a> resources are used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets (and possibly code systems) will be handled as 'contained' resources, meaning the value set exists only in the context of the <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a> and cannot be referenced or maintained without also updating the form.  However, systems should support value set and code system re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a>.)</p>\n      <p>\n        <b>Security:</b>\n      </p>\n      <p>Implementations must meet the general security requirements documented in the <a href=\"sdc-security.html\">SDC implementation guide</a>.</p>\n      <h3>Resource summary</h3>\n      <table class=\"grid\">\n        <thead>\n          <tr>\n            <th>Resource</th>\n            <th>Search</th>\n            <th>Read</th>\n            <th>Read Version</th>\n            <th>Instance History</th>\n            <th>Resource History</th>\n            <th>Create</th>\n            <th>Update</th>\n            <th>Delete</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>Questionnaire (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#Questionnaire-search-type\" title=\"Allows discovery of existing questionnaires for editing\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-read\" title=\"Allows retrieval of a specific questionnaire by id\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-vread\" title=\"Allows retrieval of a historical version of a questionnaire\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-history-instance\" title=\"Allows review of changes to questionnaire over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#Questionnaire-create\" title=\"Allows submission of a new form design\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-update\" title=\"Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#Questionnaire-delete\" title=\"Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>ValueSet (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#ValueSet-search-type\" title=\"Allows discovery of existing value sets for use by questions in a form\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-read\" title=\"Allows retrieval of a specific value set by id\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-vread\" title=\"Allows retrieval of a historical version of a value set\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-history-instance\" title=\"Allows review of changes to a value set over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#ValueSet-create\" title=\"Allows definition of a new value set used by one or more questions\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-update\" title=\"Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#ValueSet-delete\" title=\"Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>CodeSystem (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#CodeSystem-search-type\" title=\"Allows discovery of existing code systems for use by questions in a form\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-read\" title=\"Allows retrieval of a specific code system by id\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-vread\" title=\"Allows retrieval of a historical version of a code system\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-history-instance\" title=\"Allows review of changes to a code system over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#CodeSystem-create\" title=\"Allows definition of a new code system used by one or more questions\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-update\" title=\"Allows existing code systems referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing code system and defining a new one.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#CodeSystem-delete\" title=\"Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.\">Yes</a>\n            </td>\n          </tr>\n          <tr>\n            <th>DataElement (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-dataelement.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#DataElement-search-type\" title=\"Allows a user to search for existing data elements for re-use in a form design\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DataElement-read\" title=\"Allows retrieval of data elements referenced in an existing form design\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DataElement-vread\" title=\"Allows viewing of specific versions of a data element if the form references a specific version\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DataElement-history-instance\" title=\"Allows review of changes to a data element over time\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#DataElement-create\" title=\"Allows defining new data elements for subsequent re-use while creating and editing forms\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DataElement-update\" title=\"Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#DataElement-delete\" title=\"Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements.\">Yes</a>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}questionnaire.html\">Questionnaire</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows discovery of existing questionnaires for editing</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific questionnaire by id</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows submission of a new form design</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to questionnaire over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a historical version of a questionnaire</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"Questionnaire-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}valueset.html\">ValueSet</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"ValueSet-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows discovery of existing value sets for use by questions in a form</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific value set by id</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows definition of a new value set used by one or more questions</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to a value set over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a historical version of a value set</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"ValueSet-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}codesystem.html\">CodeSystem</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows discovery of existing code systems for use by questions in a form</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a specific code system by id</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows definition of a new code system used by one or more questions</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows existing code systems referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing code system and defining a new one.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to a code system over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows retrieval of a historical version of a code system</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"CodeSystem-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}dataelement.html\">DataElement</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"DataElement-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>Allows a user to search for existing data elements for re-use in a form design</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DataElement-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>Allows retrieval of data elements referenced in an existing form design</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DataElement-vread\"> </a>\n              <span>vread</span>\n            </th>\n            <td>\n              <p>Allows viewing of specific versions of a data element if the form references a specific version</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DataElement-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>Allows review of changes to a data element over time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DataElement-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>Allows defining new data elements for subsequent re-use while creating and editing forms</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DataElement-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"DataElement-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements.</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+  },
+  "url": "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-designer",
+  "version": "2.0",
+  "name": "SDC Form Designer",
+  "status": "draft",
+  "date": "2014-07-06",
+  "publisher": "U.S. Office of the National Coordinator (ONC)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://wiki.siframework.org/Structured+Data+Capture+Initiative"
+        }
+      ]
+    }
+  ],
+  "description": "This profile defines the expected capabilities of the ''SDC Form Designer'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for defining forms ([[Questionnaire]] resource instances) that include references to [[DataElement]] resouces which define the meaning of particular questions and can be used to aid in pre-populating and auto-populating forms.",
+  "kind": "requirements",
+  "fhirVersion": "1.0.0",
+  "acceptUnknown": "extensions",
+  "format": [
+    "xml",
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "client",
+      "documentation": "The [[Questionnaire]] resource is used to create and maintain SDC-compliant forms.  The [[DataElement]] resource is used to look-up existing data elements that can be referenced in forms.  Optionally, [[DataElement]]s can also be created and maintained in conjunction with form editing.  This is an optional feature as not all environments will provide support for data element definitions from form authors.  The [[ValueSet]] and [[CodeSystem]] resources are used to capture allowed values for questions that are to be answered from a pre-defined list of values.  For some forms, some or all of the referenced value sets (and possibly code systems) will be handled as 'contained' resources, meaning the value set exists only in the context of the [[Questionnaire]] and cannot be referenced or maintained without also updating the form.  However, systems should support value set and code system re-use across questionnaires.  (Version-specific referencing can be used to avoid value sets from changing independent of the referencing [[Questionnaire]].)",
+      "security": {
+        "description": "Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]."
+      },
+      "resource": [
+        {
+          "type": "Questionnaire",
+          "profile": {
+            "reference": "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire"
+          },
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type",
+              "documentation": "Allows discovery of existing questionnaires for editing"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read",
+              "documentation": "Allows retrieval of a specific questionnaire by id"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "create",
+              "documentation": "Allows submission of a new form design"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "update",
+              "documentation": "Allows revision of an existing form design.  Note that certain types of updates may necessitate retiring the existing form and defining a new one."
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "history-instance",
+              "documentation": "Allows review of changes to questionnaire over time"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "vread",
+              "documentation": "Allows retrieval of a historical version of a questionnaire"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "code": "delete",
+              "documentation": "Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."
+            }
+          ]
+        },
+        {
+          "type": "ValueSet",
+          "profile": {
+            "reference": "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset"
+          },
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type",
+              "documentation": "Allows discovery of existing value sets for use by questions in a form"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read",
+              "documentation": "Allows retrieval of a specific value set by id"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "create",
+              "documentation": "Allows definition of a new value set used by one or more questions"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "update",
+              "documentation": "Allows existing value sets referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing value set and defining a new one."
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "history-instance",
+              "documentation": "Allows review of changes to a value set over time"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "vread",
+              "documentation": "Allows retrieval of a historical version of a value set"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "code": "delete",
+              "documentation": "Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
+            }
+          ]
+        },
+        {
+          "type": "CodeSystem",
+          "profile": {
+            "reference": "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-codesystem"
+          },
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type",
+              "documentation": "Allows discovery of existing code systems for use by questions in a form"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read",
+              "documentation": "Allows retrieval of a specific code system by id"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "create",
+              "documentation": "Allows definition of a new code system used by one or more questions"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "update",
+              "documentation": "Allows existing code systems referenced by a form to be maintained.  Note that certain types of updates may necessitate retiring the existing code system and defining a new one."
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "history-instance",
+              "documentation": "Allows review of changes to a code system over time"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "vread",
+              "documentation": "Allows retrieval of a historical version of a code system"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "code": "delete",
+              "documentation": "Not all servers will support deletion of code systems.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."
+            }
+          ]
+        },
+        {
+          "type": "DataElement",
+          "profile": {
+            "reference": "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-dataelement"
+          },
+          "interaction": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "search-type",
+              "documentation": "Allows a user to search for existing data elements for re-use in a form design"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ],
+              "code": "read",
+              "documentation": "Allows retrieval of data elements referenced in an existing form design"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "vread",
+              "documentation": "Allows viewing of specific versions of a data element if the form references a specific version"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHOULD"
+                }
+              ],
+              "code": "history-instance",
+              "documentation": "Allows review of changes to a data element over time"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "code": "create",
+              "documentation": "Allows defining new data elements for subsequent re-use while creating and editing forms"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "code": "update",
+              "documentation": "Allows maintaining data elements while creating and editing forms.  Note that certain types of updates may necessitate retiring the existing data element and defining a new one."
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "MAY"
+                }
+              ],
+              "code": "delete",
+              "documentation": "Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

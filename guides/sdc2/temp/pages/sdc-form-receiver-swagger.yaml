@@ -1,0 +1,17 @@
+﻿swagger: 2.0
+
+info:  title: SDC Form Receiver
+  description: This profile defines the expected capabilities of the ''SDC Form Receiver'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for accepting and processing completed and partially-completed forms.
+  version: 2.0
+  # contact:
+    # end user to fill out
+  license:
+    name: null
+
+# host: [user to provide]
+# basePath: [user to provide]
+schemes:
+  - https
+  # - http this would not normally be allowed (see doco)
+consumes:
+produces:

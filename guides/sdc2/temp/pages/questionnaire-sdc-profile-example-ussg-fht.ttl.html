@@ -1,0 +1,19 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <h2 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
+    </span> {{site.data.pages[page.path].title}} <a title="link to here" class="self-link" href="questionnaire-sdc-profile-example-ussg-fht.ttl.html#{{site.data.pages[page.path].label}}">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h2>
+  <p>
+    <a href="questionnaire-sdc-profile-example-ussg-fht.html">(back to narrative)</a>
+  </p>
+  <p>
+    <a href="Bundle-questionnaire-sdc-profile-example-ussg-fht.ttl">Raw ttl</a>
+  </p>
+  {% include Bundle-questionnaire-sdc-profile-example-ussg-fht-ttl-html.xhtml %}
+</div>
+{% include fragment-pageend.html %}

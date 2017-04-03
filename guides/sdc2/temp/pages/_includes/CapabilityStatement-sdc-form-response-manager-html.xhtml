@@ -1,0 +1,137 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>SDC Form Response Manager</h2>
+      <p>(Requirements Definition)</p>
+      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-response-manager Published: 2014-07-06 (draft)</p>
+      <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>
+      </p>
+      <p>This profile defines the expected capabilities of the <i>SDC Form Response Manager</i> role when conforming to the S&amp;I Framework's <a href="index.html">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for providing read/write access to QuestionnaireResponses.  This is typically to support light-weight clients that want to be able to complete forms but don't have local storage to save work in progress.</p>
+      <h2>General</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>FHIR Version:</th>
+            <td>$ver$</td>
+          </tr>
+          <tr>
+            <th>Supported formats:</th>
+            <td>xml, json</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>REST  behavior</h2>
+      <p>
+        <b>Security:</b>
+      </p>
+      <p>Implementations must meet the general security requirements documented in the <a href="sdc-security.html">SDC implementation guide</a>.  Systems may wish to ensure that QuestionnaireResponse instances are only accessible to the user (or at least the organization) who was responsible for creating them.</p>
+      <h3>Resource summary</h3>
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>Search</th>
+            <th>Read</th>
+            <th>Read Version</th>
+            <th>Instance History</th>
+            <th>Resource History</th>
+            <th>Create</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>QuestionnaireResponse (<a href="http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse.html">Profile</a>)</th>
+            <td>
+              <a href="#QuestionnaireResponse-search-type" title="This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response">Yes</a>
+            </td>
+            <td>
+              <a href="#QuestionnaireResponse-read" title="This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response">Yes</a>
+            </td>
+            <td/>
+            <td>
+              <a href="#QuestionnaireResponse-history-instance" title="This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed">Yes</a>
+            </td>
+            <td/>
+            <td>
+              <a href="#QuestionnaireResponse-create" title="This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time">Yes</a>
+            </td>
+            <td>
+              <a href="#QuestionnaireResponse-update" title="This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users.">Yes</a>
+            </td>
+            <td>
+              <a href="#QuestionnaireResponse-delete" title="This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response">Yes</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+      <br/>
+      <h3>
+        <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
+      </h3>
+      <h4>Interactions</h4>
+      <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-create">&nbsp;</a>
+              <span>create</span>
+            </th>
+            <td>
+              <p>This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-update">&nbsp;</a>
+              <span>update</span>
+            </th>
+            <td>
+              <p>This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users.</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-delete">&nbsp;</a>
+              <span>delete</span>
+            </th>
+            <td>
+              <p>This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-search-type">&nbsp;</a>
+              <span>search-type</span>
+            </th>
+            <td>
+              <p>This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-read">&nbsp;</a>
+              <span>read</span>
+            </th>
+            <td>
+              <p>This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response</p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <a name="QuestionnaireResponse-history-instance">&nbsp;</a>
+              <span>history-instance</span>
+            </th>
+            <td>
+              <p>This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

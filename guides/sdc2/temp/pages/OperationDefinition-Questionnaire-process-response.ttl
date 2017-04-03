@@ -1,0 +1,71 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response> a fhir:OperationDefinition;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "Questionnaire-process-response"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Questionnaire Process Response</h2><p>OPERATION: Questionnaire Process Response</p><p>The official URL for this operation definition is: </p><pre>http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response</pre><div><p>This operation allows a system to 'receive' a QuestionnaireResponse for a particular Questionnaire.  It is intended to be used by systems that expect to receive completed questionnaires but which don't necessarily want to host a RESTful endpoint where those responses are subsequently queryable.  The receiver may choose to perform validation of the received response or against local business rules.  There no response beyond an HTTP 200 OK if the response is consumed successfully, though an OperationOutcome can optionally be returned identifying warnings.  If there are validation or other issues, the operation will fail with details in an OperationOutcome.  The specific action that occurs on receipt of a form will depend on both the type of form and the submitter.  It could trigger admission to a clinical trial, the beginning of an product investigation, the consideration of a patient's eligibility for coverage, etc.  Alternatively, the data may simply be consumed and aggregated with other information for analysis or other use.</p>\n</div><p>URL: [base]/Questionnaire/$process-response</p><p>URL: [base]/Questionnaire/[id]/$process-response</p><p>Parameters</p><table class=\"grid\"><tr><td><b>Use</b></td><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Documentation</b></td></tr><tr><td>IN</td><td>response</td><td>1..1</td><td>QuestionnaireResponse</td><td/><td><div><p>The questionnaire response to be accepted/processed</p>\n</div></td></tr><tr><td>OUT</td><td>warnings</td><td>0..1</td><td>OperationOutcome</td><td/><td><div><p>If the response is successfully procssed, an OperationOutcome may still be returned indicating warnings.  For example, identifying questions that were incomplete, answers that were defaulted, etc.  It may also convey 'information' messages about the processing of the questionnaire response.</p>\n</div></td></tr></table><div><p>Some receivers may accept responses that are still 'in progress', but others may reject instances with a status other than 'final' or possibly 'amended'.  If the operation is invoked on a particular Questionnaire, the submitted QuestionnaireResponse must be a response to the specified Questionnaire.  Otherwise, the QuestionnaireResponse will be validated against whatever Questionnaire the QuestionnaireResponse references.  It is an error for a QuestionnaireResponse that does not declare a questionnaire to be invoked directly on the Questionnaire endpoint.</p>\n</div></div>"
+  ];
+  fhir:OperationDefinition.url [ fhir:value "http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response"];
+  fhir:OperationDefinition.version [ fhir:value "2.0"];
+  fhir:OperationDefinition.name [ fhir:value "Questionnaire Process Response"];
+  fhir:OperationDefinition.status [ fhir:value "draft"];
+  fhir:OperationDefinition.kind [ fhir:value "operation"];
+  fhir:OperationDefinition.date [ fhir:value "2017-03-19"^^xsd:date];
+  fhir:OperationDefinition.publisher [ fhir:value "Health Level Seven"];
+  fhir:OperationDefinition.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://hl7.org" ]
+     ]
+  ];
+  fhir:OperationDefinition.description [ fhir:value "This operation allows a system to 'receive' a QuestionnaireResponse for a particular Questionnaire.  It is intended to be used by systems that expect to receive completed questionnaires but which don't necessarily want to host a RESTful endpoint where those responses are subsequently queryable.  The receiver may choose to perform validation of the received response or against local business rules.  There no response beyond an HTTP 200 OK if the response is consumed successfully, though an OperationOutcome can optionally be returned identifying warnings.  If there are validation or other issues, the operation will fail with details in an OperationOutcome.  The specific action that occurs on receipt of a form will depend on both the type of form and the submitter.  It could trigger admission to a clinical trial, the beginning of an product investigation, the consideration of a patient's eligibility for coverage, etc.  Alternatively, the data may simply be consumed and aggregated with other information for analysis or other use."];
+  fhir:OperationDefinition.code [ fhir:value "process-response"];
+  fhir:OperationDefinition.comment [ fhir:value "Some receivers may accept responses that are still 'in progress', but others may reject instances with a status other than 'final' or possibly 'amended'.  If the operation is invoked on a particular Questionnaire, the submitted QuestionnaireResponse must be a response to the specified Questionnaire.  Otherwise, the QuestionnaireResponse will be validated against whatever Questionnaire the QuestionnaireResponse references.  It is an error for a QuestionnaireResponse that does not declare a questionnaire to be invoked directly on the Questionnaire endpoint."];
+  fhir:OperationDefinition.resource [
+     fhir:value "Questionnaire";
+     fhir:index 0
+  ];
+  fhir:OperationDefinition.system [ fhir:value "false"^^xsd:boolean];
+  fhir:OperationDefinition.type [ fhir:value "true"^^xsd:boolean];
+  fhir:OperationDefinition.instance [ fhir:value "true"^^xsd:boolean];
+  fhir:OperationDefinition.parameter [
+     fhir:index 0;
+     fhir:OperationDefinition.parameter.name [ fhir:value "response" ];
+     fhir:OperationDefinition.parameter.use [ fhir:value "in" ];
+     fhir:OperationDefinition.parameter.min [ fhir:value "1"^^xsd:integer ];
+     fhir:OperationDefinition.parameter.max [ fhir:value "1" ];
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "The questionnaire response to be accepted/processed" ];
+     fhir:OperationDefinition.parameter.type [ fhir:value "QuestionnaireResponse" ];
+     fhir:OperationDefinition.parameter.profile [
+       fhir:link <http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse>;
+       fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse" ]
+     ]
+  ], [
+     fhir:index 1;
+     fhir:OperationDefinition.parameter.name [ fhir:value "warnings" ];
+     fhir:OperationDefinition.parameter.use [ fhir:value "out" ];
+     fhir:OperationDefinition.parameter.min [ fhir:value "0"^^xsd:integer ];
+     fhir:OperationDefinition.parameter.max [ fhir:value "1" ];
+     fhir:OperationDefinition.parameter.documentation [ fhir:value "If the response is successfully procssed, an OperationOutcome may still be returned indicating warnings.  For example, identifying questions that were incomplete, answers that were defaulted, etc.  It may also convey 'information' messages about the processing of the questionnaire response." ];
+     fhir:OperationDefinition.parameter.type [ fhir:value "OperationOutcome" ]
+  ] .
+
+<http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse> a fhir:us .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/us/sdc/OperationDefinition/Questionnaire-process-response.ttl> .
+
+# -------------------------------------------------------------------------------------
+

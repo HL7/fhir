@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+  <title>StructureDefinition-sdc-dataelement-tx</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<h4>Terminology Bindings</h4>
+<table class="list">
+<tr><td><b>Path</b></td><td><b>Name</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td></tr>
+<tr><td>DataElement.language</td><td>Common Languages</td><td><a href="http://build.fhir.org/terminologies.html#extensible">extensible</a></td><td><a href="http://build.fhir.org/valueset-languages.html">Common Languages</a></td></tr>
+<tr><td>DataElement.status</td><td>PublicationStatus</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-publication-status.html">PublicationStatus</a></td></tr>
+<tr><td>DataElement.jurisdiction</td><td>Jurisdiction ValueSet</td><td><a href="http://build.fhir.org/terminologies.html#extensible">extensible</a></td><td><a href="http://build.fhir.org/valueset-jurisdiction.html">Jurisdiction ValueSet</a></td></tr>
+<tr><td>DataElement.stringency</td><td>DataElementStringency</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-dataelement-stringency.html">DataElementStringency</a></td></tr>
+<tr><td>DataElement.element.extension.value[x]</td><td>UCUM Codes</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-ucum-units.html">UCUM Codes</a></td></tr>
+<tr><td>DataElement.element.representation</td><td>PropertyRepresentation</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-property-representation.html">PropertyRepresentation</a></td></tr>
+<tr><td>DataElement.element.code</td><td>LOINC Codes</td><td><a href="http://build.fhir.org/terminologies.html#example">example</a></td><td><a href="http://build.fhir.org/valueset-observation-codes.html">LOINC Codes</a></td></tr>
+<tr><td>DataElement.element.slicing.discriminator.type</td><td>DiscriminatorType</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-discriminator-type.html">DiscriminatorType</a></td></tr>
+<tr><td>DataElement.element.slicing.rules</td><td>SlicingRules</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-resource-slicing-rules.html">SlicingRules</a></td></tr>
+<tr><td>DataElement.element.type.aggregation</td><td>AggregationMode</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-resource-aggregation-mode.html">AggregationMode</a></td></tr>
+<tr><td>DataElement.element.constraint.severity</td><td>ConstraintSeverity</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-constraint-severity.html">ConstraintSeverity</a></td></tr>
+<tr><td>DataElement.element.binding.strength</td><td>BindingStrength</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-binding-strength.html">BindingStrength</a></td></tr>
+<tr><td>DataElement.element.mapping.extension.valueCode</td><td>ConceptMapEquivalence</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="http://build.fhir.org/valueset-concept-map-equivalence.html">ConceptMapEquivalence</a></td></tr>
+<tr><td>DataElement.element.mapping.language</td><td>DEX mapping language mime types</td><td><a href="http://build.fhir.org/terminologies.html#required">required</a></td><td><a href="valueset-dex-mimetype.html">DEX mapping language mime types</a></td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <h2 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
+    </span> {{site.data.pages[page.path].title}} <a title="link to here" class="self-link" href="sdc-dataelement.xml.html#{{site.data.pages[page.path].label}}">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h2>
+  <p>
+    <a href="sdc-dataelement.html">(back to narrative)</a>
+  </p>
+  <p>
+    <a href="StructureDefinition-sdc-dataelement.xml">Raw xml</a>
+  </p>
+  {% include StructureDefinition-sdc-dataelement-xml-html.xhtml %}
+</div>
+{% include fragment-pageend.html %}

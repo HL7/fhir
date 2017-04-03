@@ -1,0 +1,113 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "questionnaireresponse-sdc-profile-example",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\t\t\t<h1>Diagnosis NCI Standard Template</h1>\n\t\t\t<h2>Mandatory Diagnosis Questions</h2>\n\t\t\t<pre>These items must be included when this data is collected for reporting.\n\n  <b>Date of Current Pathologic Diagnosis</b>: 02/18/2003\n  <b>Diagnosis Type</b>                      : Primary Diagnosis__\n  <b>Primary Site</b>                        : Left Ovary\n</pre>\n\t\t\t<h2>Conditional Diagnosis Questions</h2>\n\t\t\t<pre>There are business rules to indicate situations under which these elements should be used on a case report form.\n\n  <b>Diagnosis Time Point</b>: Restaging\n</pre>\n\t\t\t<h2>Optional Diagnosis Conditions</h2>\n\t\t\t<pre>There is no requirement for inclusion of these elements on the case report form. If the design and scientific questions posed in the study dictate the need to collect this type of data, these elements should be included.\n\n  <b>Reviewing Pathologist</b>: Harold Ornada\n  <b>MedDRA Source Code</b>   : __________\n  <b>Assessment Method</b>    : Histological Procedure\n  <b>Tumor Grade</b>          : Moderately Differentiated</pre>\n\t\t</div>"
+  },
+  "status": "completed",
+  "authored": "2014-01-21",
+  "item": [
+    {
+      "linkId": "3921053v1.0",
+      "text": "Mandatory Diagnosis Questions",
+      "item": [
+        {
+          "linkId": "3921059v1.0",
+          "text": "Date of Current Pathologic Diagnosis",
+          "answer": [
+            {
+              "valueDate": "2003-02-18"
+            }
+          ]
+        },
+        {
+          "linkId": "3921060v1.0",
+          "text": "Diagnosis Type",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921060v1.0-cs",
+                "code": "1",
+                "display": "Primary Diagnosis"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "3921053v1.0",
+          "text": "Primary Site",
+          "answer": [
+            {
+              "valueString": "Left Ovary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "3921066v1.0",
+      "text": "Conditional Diagnosis Questions",
+      "item": [
+        {
+          "linkId": "3921066v1.0.0",
+          "text": "Diagnosis Time Point",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921066v1.0-cs",
+                "code": "3",
+                "display": "Restaging"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "3921077v1.0",
+      "text": "Optional Diagnosis Questions",
+      "item": [
+        {
+          "linkId": "3921079v1.0",
+          "text": "Reviewing Pathologist",
+          "answer": [
+            {
+              "valueString": "Harold Ornada"
+            }
+          ]
+        },
+        {
+          "linkId": "3921080v1.0",
+          "text": "MedDRA disease code"
+        },
+        {
+          "linkId": "3921081v1.0",
+          "text": "Assessment Method",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921081v1.0-cs",
+                "code": "2",
+                "display": "Histological Procedure"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "3921085v1.0",
+          "text": "Tumor grade",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://nci.nih.gov/xml/owl/cadsr/data_element_scoped_identifier#3921085v1.0-cs",
+                "code": "2",
+                "display": "Moderately Differentiated"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

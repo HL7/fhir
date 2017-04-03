@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+  <title>StructureDefinition-sdc-codesystem-inv</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<h4>Constraints</h4>
+<table class="list">
+<tr><td width="60"><b>Id</b></td><td><b>Path</b></td><td><b>Details</b></td><td><b>Requirements</b></td></tr>
+<tr><td>dom-2</td><td>CodeSystem</td><td>If the resource is contained in another resource, it SHALL NOT contain nested Resources<br/>: contained.contained.empty()</td><td></td></tr>
+<tr><td>dom-1</td><td>CodeSystem</td><td>If the resource is contained in another resource, it SHALL NOT contain any narrative<br/>: contained.text.empty()</td><td></td></tr>
+<tr><td>dom-4</td><td>CodeSystem</td><td>If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated<br/>: contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()</td><td></td></tr>
+<tr><td>dom-3</td><td>CodeSystem</td><td>If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource<br/>: contained.where(('#'+id in %resource.descendants().reference).not()).empty()</td><td></td></tr>
+<tr><td>csd-1</td><td>CodeSystem</td><td>Within a code system definition, all the codes SHALL be unique<br/>: (concept.code | descendants().concept.code).isDistinct()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.filter</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.property</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.extension.valueString.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.extension.valueString.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.extension.valueString.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.extension.valueString.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.extension.valueString.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.extension.valueString.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.display.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.display.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.display.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.display.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.display.extension</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ext-1</td><td>CodeSystem.concept.display.extension</td><td>Must have either extensions or value[x], not both<br/>: extension.exists() != value.exists()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.designation</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+<tr><td>ele-1</td><td>CodeSystem.concept.property</td><td>All FHIR elements must have a @value or children<br/>: children().count() &gt; id.count()</td><td></td></tr>
+</table>
+</body>
+</html>

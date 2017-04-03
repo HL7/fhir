@@ -1,0 +1,1167 @@
+<table class="dict">
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement"> </a><a name="DataElement"> </a><b>DataElement(SDCDataElement)</b></td></tr>
+  <tr><td>Definition</td><td><p>Represents expectations for use of data elements by SDC conformant systems using data elements to support population of questionnaires.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Master Observation, Data Element, CDE</td></tr>
+  <tr><td>Comments</td><td><p>Often called a clinical template.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">dom-1</b>: If the resource is contained in another resource, it SHALL NOT contain any narrative (: contained.text.empty())<br/><b title="Formal Invariant Identifier">dom-2</b>: If the resource is contained in another resource, it SHALL NOT contain nested Resources (: contained.contained.empty())<br/><b title="Formal Invariant Identifier">dom-3</b>: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource (: contained.where(('#'+id in %resource.descendants().reference).not()).empty())<br/><b title="Formal Invariant Identifier">dom-4</b>: If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated (: contained.meta.versionId.empty() and contained.meta.lastUpdated.empty())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.id"> </a><a name="DataElement.id"> </a><b>DataElement.id</b></td></tr>
+  <tr><td>Definition</td><td><p>The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td>Comments</td><td><p>The only time that a resource does not have an id is when it is being submitted to the server using a create operation.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.meta"> </a><a name="DataElement.meta"> </a><b>DataElement.meta</b></td></tr>
+  <tr><td>Definition</td><td><p>The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.implicitRules"> </a><a name="DataElement.implicitRules"> </a><b>DataElement.implicitRules</b></td></tr>
+  <tr><td>Definition</td><td><p>A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element.</p>
+<p>This element is labelled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.language"> </a><a name="DataElement.language"> </a><b>DataElement.language</b></td></tr>
+  <tr><td>Definition</td><td><p>The base language in which the resource is written.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>A human language.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-languages.html">Common Languages</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.text"> </a><a name="DataElement.text"> </a><b>DataElement.text</b></td></tr>
+  <tr><td>Definition</td><td><p>A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: dom-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Narrative">Narrative</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>narrative, html, xhtml, display</td></tr>
+  <tr><td>Comments</td><td><p>Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.contained"> </a><a name="DataElement.contained"> </a><b>DataElement.contained</b></td></tr>
+  <tr><td>Definition</td><td><p>These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/resource.html">Resource</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>inline resources, anonymous resources, contained resources</td></tr>
+  <tr><td>Comments</td><td><p>This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.extension"> </a><a name="DataElement.extension"> </a><b>DataElement.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.modifierExtension"> </a><a name="DataElement.modifierExtension"> </a><b>DataElement.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.url"> </a><a name="DataElement.url"> </a><b>DataElement.url</b></td></tr>
+  <tr><td>Definition</td><td><p>An absolute URI that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this data element is (or will be) published. The URL SHOULD include the major version of the data element. For more information see <a href="http://build.fhir.org/resource.html#versions">Technical and Business Versions</a>.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Allows the data element to be referenced by a single globally unique identifier.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  Multiple instances may share the same url if they have a distinct version.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.identifier"> </a><a name="DataElement.identifier"> </a><b>DataElement.identifier</b></td></tr>
+  <tr><td>Definition</td><td><p>A formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business identifer, not a resource identifier (see <a href="http://build.fhir.org/resource.html#identifiers">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Allows externally provided and/or usable business identifiers to be easily associated with the module.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, e.g., to identify this data element outside of FHIR, where it is not possible to use the logical URI.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>LOINC_NUM (the code is the identifier)</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.version"> </a><a name="DataElement.version"> </a><b>DataElement.version</b></td></tr>
+  <tr><td>Definition</td><td><p>The identifier that is used to identify this version of the data element when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the data element author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="http://build.fhir.org/resource.html#versions">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>There may be different data element instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a refrence to a particular business version of the data element with the format [url]|[version].</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>N/A</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.status"> </a><a name="DataElement.status"> </a><b>DataElement.status</b></td></tr>
+  <tr><td>Definition</td><td><p>The status of this data element. Enables tracking the life-cycle of the content.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The lifecycle status of a Value Set or Concept Map.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-publication-status.html">PublicationStatus</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Allows filtering of data elements that are appropriate for use vs. not.<br  />
+This is labeled as &quot;Is Modifier&quot; because applications should not use a retired data element without due consideration.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>STATUS</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.experimental"> </a><a name="DataElement.experimental"> </a><b>DataElement.experimental</b></td></tr>
+  <tr><td>Definition</td><td><p>A boolean value to indicate that this data element is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Enables experimental content to be developed following the same lifecycle that would be used for a production-level data element.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Allows filtering of data element that are appropriate for use vs. not. This is labeled as &quot;Is Modifier&quot; because applications should not use an experimental data element in production.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.date"> </a><a name="DataElement.date"> </a><b>DataElement.date</b></td></tr>
+  <tr><td>Definition</td><td><p>The date  (and optionally time) when the data element was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the data element changes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Revision Date</td></tr>
+  <tr><td>Comments</td><td><p>Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the data element. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>DATE_LAST_CHANGED</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.publisher"> </a><a name="DataElement.publisher"> </a><b>DataElement.publisher</b></td></tr>
+  <tr><td>Definition</td><td><p>The name of the individual or organization that published the data element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Helps establish the &quot;authority/credibility&quot; of the data element.  May also allow for contact.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Usually an organization, but may be an individual. The publisher (or steward) of the data element is the organization or individual primarily responsible for the maintenance and upkeep of the data element. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the data element. This item SHOULD be populated unless the information is available from context.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>Fixed to Regenstrief or SOURCE</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.name"> </a><a name="DataElement.name"> </a><b>DataElement.name</b></td></tr>
+  <tr><td>Definition</td><td><p>A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Support human navigation and code generation.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure that it is computable friendly.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.title"> </a><a name="DataElement.title"> </a><b>DataElement.title</b></td></tr>
+  <tr><td>Definition</td><td><p>A short, descriptive, user-friendly title for the data element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc. This may be similar to the question used to prompt someone for a data element value, but the purpose is communicating about the data element, not asking the question.  (Refer to the 'question' element for the latter.).</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>LONG_COMMON_NAME</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.contact"> </a><a name="DataElement.contact"> </a><b>DataElement.contact</b></td></tr>
+  <tr><td>Definition</td><td><p>Contact details to assist a user in finding and communicating with the publisher.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#ContactDetail">ContactDetail</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>May be a web site, an email address, a telephone number, etc.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>N/A</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.contact.id"> </a><a name="DataElement.contact.id"> </a><b>DataElement.contact.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.contact.extension"> </a><a name="DataElement.contact.extension"> </a><b>DataElement.contact.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.contact.name"> </a><a name="DataElement.contact.name"> </a><b>DataElement.contact.name</b></td></tr>
+  <tr><td>Definition</td><td><p>The name of an individual to contact.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>If there is no named individual, the telecom information is for the organization as a whole.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.contact.telecom"> </a><a name="DataElement.contact.telecom"> </a><b>DataElement.contact.telecom</b></td></tr>
+  <tr><td>Definition</td><td><p>The contact details for the individual (if a name was provided) or the organization.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#ContactPoint">ContactPoint</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.useContext"> </a><a name="DataElement.useContext"> </a><b>DataElement.useContext</b></td></tr>
+  <tr><td>Definition</td><td><p>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate data element instances.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#UsageContext">UsageContext</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Assist in searching for appropriate content.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>When multiple useContexts are specified, there is no expectation whether all or any of the contexts apply.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.jurisdiction"> </a><a name="DataElement.jurisdiction"> </a><b>DataElement.jurisdiction</b></td></tr>
+  <tr><td>Definition</td><td><p>A legal or geographic region in which the data element is intended to be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Countries and regions within which this artifact is targeted for use<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-jurisdiction.html">Jurisdiction ValueSet</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  <tr><td>Comments</td><td><p>It may be possible for the data element to be used in jurisdictions other than those for which it was originally designed or intended.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.copyright"> </a><a name="DataElement.copyright"> </a><b>DataElement.copyright</b></td></tr>
+  <tr><td>Definition</td><td><p>A copyright statement relating to the data element and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the data element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Consumers must be able to determine any legal restrictions on the use of the data element and/or its content.</p>
+</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>License, Restrictions</td></tr>
+  <tr><td>Comments</td><td><p>null The copyright statement does not apply to values for the data element, only to its definition.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.stringency"> </a><a name="DataElement.stringency"> </a><b>DataElement.stringency</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how precise the data element is in its definition.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Indicates the degree of precision of the data element definition.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-dataelement-stringency.html">DataElementStringency</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Allows determining the degree of comparability of data element instances. Less granular data elements result in data that is less comparable (or at least requires more work to compare).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping"> </a><a name="DataElement.mapping"> </a><b>DataElement.mapping</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: dae-3</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">dae-3</b>: At least one of  name or uri SHALL be present (: uri.exists() or name.exists())<br/><b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.id"> </a><a name="DataElement.mapping.id"> </a><b>DataElement.mapping.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.extension"> </a><a name="DataElement.mapping.extension"> </a><b>DataElement.mapping.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.modifierExtension"> </a><a name="DataElement.mapping.modifierExtension"> </a><b>DataElement.mapping.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.identity"> </a><a name="DataElement.mapping.identity"> </a><b>DataElement.mapping.identity</b></td></tr>
+  <tr><td>Definition</td><td><p>An internal id that is used to identify this mapping set when specific mappings are made on a per-element basis.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The specification is described once, with general comments, and then specific mappings are made that reference this declaration.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.uri"> </a><a name="DataElement.mapping.uri"> </a><b>DataElement.mapping.uri</b></td></tr>
+  <tr><td>Definition</td><td><p>An absolute URI that identifies the specification that this mapping is expressed to.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>A formal identity for the specification being mapped to helps with identifying maps consistently.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.name"> </a><a name="DataElement.mapping.name"> </a><b>DataElement.mapping.name</b></td></tr>
+  <tr><td>Definition</td><td><p>A name for the specification that is being mapped to.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.mapping.comment"> </a><a name="DataElement.mapping.comment"> </a><b>DataElement.mapping.comment</b></td></tr>
+  <tr><td>Definition</td><td><p>Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element"> </a><a name="DataElement.element"> </a><b>DataElement.element</b></td></tr>
+  <tr><td>Definition</td><td><p>Defines the structure, type, allowed values and other constraining characteristics of the data element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#ElementDefinition">ElementDefinition</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>For simple data types there will only be one repetition.  For complex data types, multiple repetitions will be present defining a nested structure using the &quot;path&quot; element.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">dae-1</b>: No base allowed (: base.empty())<br/><b title="Formal Invariant Identifier">dae-2</b>: No slicing allowed (: slicing.empty())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.id"> </a><a name="DataElement.element.id"> </a><b>DataElement.element.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension"> </a><a name="DataElement.element.extension"> </a><b>DataElement.element.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:question"> </a><b>DataElement.element.extension (<a href="http://build.fhir.org/extension-elementdefinition-question.html">http://hl7.org/fhir/StructureDefinition/elementdefinition-question</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>The default/suggested phrasing to use when prompting a human to capture the data element in question form (e.g. In a survey).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>Question and label serve similar purposes in they both can be used to prompt for capturing a data element.  Whether the question form or label form should be used will depend on the type of instrument being used to capture the information.  The ordering is in order of preference.  I.e. Most preferred question form is listed first.  Note that this is for alternate phrasings of the question.  Language translations are handled using the ISO 21090 string translation extensions.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:question.id"> </a><a name="DataElement.element.extension.id"> </a><b>DataElement.element.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:question.extension"> </a><a name="DataElement.element.extension.extension"> </a><b>DataElement.element.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:question.url"> </a><a name="DataElement.element.extension.url"> </a><b>DataElement.element.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/elementdefinition-question</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:question.valueString"> </a><a name="DataElement:sdcdataelement.element.extension:question.value[x]"> </a><a name="DataElement:sdcdataelement.element.extension:question.value[x]"> </a><b>DataElement.element.extension.valueString</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:allowedunits"> </a><b>DataElement.element.extension (<a href="http://build.fhir.org/extension-elementdefinition-allowedunits.html">http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the units of measure in which the element should be captured or expressed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: Choice of: <a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a>, <a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>(<a href="http://build.fhir.org/valueset.html" title="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSet</a>))</td></tr>
+  <tr><td>Comments</td><td><p>Use a value set if more than one unit of measure is possible.  Value sets will typically be short enough to display in a drop-down selection list.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:allowedunits.id"> </a><a name="DataElement.element.extension.id"> </a><b>DataElement.element.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:allowedunits.extension"> </a><a name="DataElement.element.extension.extension"> </a><b>DataElement.element.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:allowedunits.url"> </a><a name="DataElement.element.extension.url"> </a><b>DataElement.element.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:allowedunits.value[x]"> </a><a name="DataElement:sdcdataelement.element.extension:allowedunits.valueCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.extension:allowedunits.valueReference"> </a><a name="DataElement:sdcdataelement.element.extension:allowedunits.valueCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.extension:allowedunits.valueReference"> </a><b>DataElement.element.extension.value[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Units of measure allowed for an element<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-ucum-units.html">UCUM Codes</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a>, <a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>(<a href="http://build.fhir.org/valueset.html" title="http://hl7.org/fhir/StructureDefinition/ValueSet">ValueSet</a>)</td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:minlength"> </a><b>DataElement.element.extension (<a href="http://build.fhir.org/extension-minlength.html">http://hl7.org/fhir/StructureDefinition/minLength</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>The minimum number of characters that must be present in the simple data type to be considered a &quot;valid&quot; instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>)</td></tr>
+  <tr><td>Comments</td><td><p>For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:minlength.id"> </a><a name="DataElement.element.extension.id"> </a><b>DataElement.element.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:minlength.extension"> </a><a name="DataElement.element.extension.extension"> </a><b>DataElement.element.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:minlength.url"> </a><a name="DataElement.element.extension.url"> </a><b>DataElement.element.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/minLength</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:minlength.valueInteger"> </a><a name="DataElement:sdcdataelement.element.extension:minlength.value[x]"> </a><a name="DataElement:sdcdataelement.element.extension:minlength.value[x]"> </a><b>DataElement.element.extension.valueInteger</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#integer">integer</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:regex"> </a><b>DataElement.element.extension (<a href="http://build.fhir.org/extension-regex.html">http://hl7.org/fhir/StructureDefinition/regex</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>A regular expression that defines the syntax for the data element to be considered valid.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:regex.id"> </a><a name="DataElement.element.extension.id"> </a><b>DataElement.element.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:regex.extension"> </a><a name="DataElement.element.extension.extension"> </a><b>DataElement.element.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:regex.url"> </a><a name="DataElement.element.extension.url"> </a><b>DataElement.element.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/regex</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:regex.valueString"> </a><a name="DataElement:sdcdataelement.element.extension:regex.value[x]"> </a><a name="DataElement:sdcdataelement.element.extension:regex.value[x]"> </a><b>DataElement.element.extension.valueString</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:entryformat"> </a><b>DataElement.element.extension (<a href="http://build.fhir.org/extension-entryformat.html">http://hl7.org/fhir/StructureDefinition/entryFormat</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Additional instructions for the user to guide their input (i.e. a human readable version of a regular expression like &quot;nnn-nnn-nnn&quot;). In most UIs this is the placeholder (or 'ghost') text placed directly inside the edit controls and that disappear when the control gets the focus.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:entryformat.id"> </a><a name="DataElement.element.extension.id"> </a><b>DataElement.element.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:entryformat.extension"> </a><a name="DataElement.element.extension.extension"> </a><b>DataElement.element.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:entryformat.url"> </a><a name="DataElement.element.extension.url"> </a><b>DataElement.element.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/entryFormat</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:entryformat.valueString"> </a><a name="DataElement:sdcdataelement.element.extension:entryformat.value[x]"> </a><a name="DataElement:sdcdataelement.element.extension:entryformat.value[x]"> </a><b>DataElement.element.extension.valueString</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces"> </a><b>DataElement.element.extension (<a href="http://build.fhir.org/extension-maxdecimalplaces.html">http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the maximum number of decimal places that may be specified for the data element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces.id"> </a><a name="DataElement.element.extension.id"> </a><b>DataElement.element.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces.extension"> </a><a name="DataElement.element.extension.extension"> </a><b>DataElement.element.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces.url"> </a><a name="DataElement.element.extension.url"> </a><b>DataElement.element.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces.valueInteger"> </a><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces.value[x]"> </a><a name="DataElement:sdcdataelement.element.extension:maxdecimalplaces.value[x]"> </a><b>DataElement.element.extension.valueInteger</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#integer">integer</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.path"> </a><a name="DataElement.element.path"> </a><b>DataElement.element.path</b></td></tr>
+  <tr><td>Definition</td><td><p>The path identifies the element and is expressed as a &quot;.&quot;-separated list of ancestor elements, beginning with the name of the resource or extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.representation"> </a><a name="DataElement.element.representation"> </a><b>DataElement.element.representation</b></td></tr>
+  <tr><td>Definition</td><td><p>Codes that define how this element is represented in instances, when the deviation varies from the normal case.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>How a property is represented when serialized.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-property-representation.html">PropertyRepresentation</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.sliceName"> </a><a name="DataElement.element.sliceName"> </a><b>DataElement.element.sliceName</b></td></tr>
+  <tr><td>Definition</td><td><p>The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Requirements</td><td><p>May also be used for code generation purposes.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>The name SHALL be unique within the structure within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.label"> </a><a name="DataElement.element.label"> </a><b>DataElement.element.label</b></td></tr>
+  <tr><td>Definition</td><td><p>A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>See also the extension (http://hl7.org/fhir/StructureDefinition/elementdefinition-question)[extension-elementdefinition-question.html].</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.code"> </a><a name="DataElement.element.code"> </a><b>DataElement.element.code</b></td></tr>
+  <tr><td>Definition</td><td><p>A code that has the same meaning as the element in a particular terminology.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Codes that indicate the meaning of a data element.<br/>For example codes, see <a href="http://build.fhir.org/valueset-observation-codes.html">LOINC Codes</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Coding">Coding</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Links the meaning of an element to an external terminology, and is very useful for searching and indexing.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>LOINC_NUM</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing"> </a><a name="DataElement.element.slicing"> </a><b>DataElement.element.slicing</b></td></tr>
+  <tr><td>Definition</td><td><p>Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td>Comments</td><td><p>The first element in the sequence, the one that carries the slicing, is the definition that applies to all the slices. This is based on the unconstrained element, but can apply any constraints as appropriate. This may include the common constraints on the children of the element.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">eld-1</b>: If there are no discriminators, there must be a definition (: discriminator.exists() or description.exists())<br/><b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.id"> </a><a name="DataElement.element.slicing.id"> </a><b>DataElement.element.slicing.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.extension"> </a><a name="DataElement.element.slicing.extension"> </a><b>DataElement.element.slicing.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.discriminator"> </a><a name="DataElement.element.slicing.discriminator"> </a><b>DataElement.element.slicing.discriminator</b></td></tr>
+  <tr><td>Definition</td><td><p>Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td>Comments</td><td><p>If there is no discriminator, the content is hard to process, so this should be avoided. If the base element has a cardinality of ..1, and there is a choice of types, the discriminator must be &quot;@type&quot;.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.discriminator.id"> </a><a name="DataElement.element.slicing.discriminator.id"> </a><b>DataElement.element.slicing.discriminator.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.discriminator.extension"> </a><a name="DataElement.element.slicing.discriminator.extension"> </a><b>DataElement.element.slicing.discriminator.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.discriminator.type"> </a><a name="DataElement.element.slicing.discriminator.type"> </a><b>DataElement.element.slicing.discriminator.type</b></td></tr>
+  <tr><td>Definition</td><td><p>How the element value is interpreted when discrimination is evaluated.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>How an element value is interpreted when discrimination is evaluated<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-discriminator-type.html">DiscriminatorType</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.discriminator.path"> </a><a name="DataElement.element.slicing.discriminator.path"> </a><b>DataElement.element.slicing.discriminator.path</b></td></tr>
+  <tr><td>Definition</td><td><p>A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>The only FHIRPath functions that are allowed are resolve(), and extension(url).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.description"> </a><a name="DataElement.element.slicing.description"> </a><b>DataElement.element.slicing.description</b></td></tr>
+  <tr><td>Definition</td><td><p>A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: eld-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>If it's really not possible to differentiate them, the design should be re-evaluated to make the content usable.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.ordered"> </a><a name="DataElement.element.slicing.ordered"> </a><b>DataElement.element.slicing.ordered</b></td></tr>
+  <tr><td>Definition</td><td><p>If the matching elements have to occur in the same order as defined in the profile.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td>Comments</td><td><p>Order should only be required when it is a pressing concern for presentation. Profile authors should consider making the order a feature of the rules about the narrative, not the rules about the data - requiring ordered data makes the profile much less re-usable.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>false</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.slicing.rules"> </a><a name="DataElement.element.slicing.rules"> </a><b>DataElement.element.slicing.rules</b></td></tr>
+  <tr><td>Definition</td><td><p>Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>How slices are interpreted when evaluating an instance.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-resource-slicing-rules.html">SlicingRules</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>Allowing additional elements makes for a much for flexible template - it's open for use in wider contexts, but also means that the content of the resource is not closed, and applications have to decide how to handle content not described by the profile.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.short"> </a><a name="DataElement.element.short"> </a><b>DataElement.element.short</b></td></tr>
+  <tr><td>Definition</td><td><p>A concise description of what this element means (e.g. for use in autogenerated summaries).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>May change the term to provide language more appropriate to the context of the profile or to reflect slicing.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.definition"> </a><a name="DataElement.element.definition"> </a><b>DataElement.element.definition</b></td></tr>
+  <tr><td>Definition</td><td><p>Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>To allow a user to state the usage of an element in a particular context.</p>
+</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Description</td></tr>
+  <tr><td>Comments</td><td><p>If the definition is omitted, the meaning of the data element must be explicit in either the name of the data element, the definitional concept referenced by the data element or some set of extensions that formally define the meaning.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>TERM DEFINITION/DESCRIPTION(S)</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.comment"> </a><a name="DataElement.element.comment"> </a><b>DataElement.element.comment</b></td></tr>
+  <tr><td>Definition</td><td><p>Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>If it is possible to capture usage rules using constraints, that mechanism should be used in preference to this element.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>COMMENTS</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.requirements"> </a><a name="DataElement.element.requirements"> </a><b>DataElement.element.requirements</b></td></tr>
+  <tr><td>Definition</td><td><p>This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>This element does not describe the usage of the element (that's done in comments), rather it's for traceability of <em>why</em> the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>R/O/C</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.alias"> </a><a name="DataElement.element.alias"> </a><b>DataElement.element.alias</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies additional names by which this element might also be known.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Allows for better easier recognition of the element by multiple communities, including international communities.</p>
+</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>synonym, other name</td></tr>
+  <tr><td>LOINC Code</td><td>RELATED NAMES (only some of these apply)</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.min"> </a><a name="DataElement.element.min"> </a><b>DataElement.element.min</b></td></tr>
+  <tr><td>Definition</td><td><p>The minimum number of times this element SHALL appear in the instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0 This element is affected by the following invariants: eld-2</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.max"> </a><a name="DataElement.element.max"> </a><b>DataElement.element.max</b></td></tr>
+  <tr><td>Definition</td><td><p>The maximum number of times this element is permitted to appear in the instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0 This element is affected by the following invariants: eld-3, eld-2</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">eld-3</b>: Max SHALL be a number or &quot;*&quot; (: empty() or ($this = '*') or (toInteger() &gt;= 0))</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.base"> </a><a name="DataElement.element.base"> </a><b>DataElement.element.base</b></td></tr>
+  <tr><td>Definition</td><td><p>Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is provided when the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td>Comments</td><td><p>The base information does not carry any information that could not be determined from the path and related profiles, but making this determination requires both that the related profiles are available, and that the algorithm to determine them be available. So they are deformalised into this location for tooling convenience, and to ensure that the base information is available without dependencies.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.base.id"> </a><a name="DataElement.element.base.id"> </a><b>DataElement.element.base.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.base.extension"> </a><a name="DataElement.element.base.extension"> </a><b>DataElement.element.base.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.base.path"> </a><a name="DataElement.element.base.path"> </a><b>DataElement.element.base.path</b></td></tr>
+  <tr><td>Definition</td><td><p>The Path that identifies the base element - this matches the ElementDefinition.path for that element. Across FHIR, there is only one base definition of any element - that is, an element definition on a <a href="http://build.fhir.org/structuredefinition.html#">StructureDefinition</a> without a StructureDefinition.base.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.base.min"> </a><a name="DataElement.element.base.min"> </a><b>DataElement.element.base.min</b></td></tr>
+  <tr><td>Definition</td><td><p>Minimum cardinality of the base element identified by the path.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a></td></tr>
+  <tr><td>Comments</td><td><p>This is provided for consistency with max, and may affect code generation of mandatory elements of the base resource are generated differently (some reference implementations have done this).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.base.max"> </a><a name="DataElement.element.base.max"> </a><b>DataElement.element.base.max</b></td></tr>
+  <tr><td>Definition</td><td><p>Maximum cardinality of the base element identified by the path.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>This is provided to code generation, since the serialization representation in JSON differs depending on whether the base element has max &gt; 1. Also, some forms of code generation may differ.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.contentReference"> </a><a name="DataElement.element.contentReference"> </a><b>DataElement.element.contentReference</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0 This element is affected by the following invariants: eld-5</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type"> </a><a name="DataElement.element.type"> </a><b>DataElement.element.type</b></td></tr>
+  <tr><td>Definition</td><td><p>The data type or resource that the value of this element is permitted to be.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: eld-13</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The Type of the element can be left blank in a differential constraint, in which case the type is inherited from the resource. Abstract types are not permitted to appear as a type when multiple types are listed.  (I.e. Abstract types cannot be part of a choice).</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">eld-4</b>: Aggregation may only be specified if one of the allowed types for the element is a resource (: aggregation.empty() or (code = 'Reference'))<br/><b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td>LOINC Code</td><td>HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.id"> </a><a name="DataElement.element.type.id"> </a><b>DataElement.element.type.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.extension"> </a><a name="DataElement.element.type.extension"> </a><b>DataElement.element.type.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.code"> </a><a name="DataElement.element.type.code"> </a><b>DataElement.element.type.code</b></td></tr>
+  <tr><td>Definition</td><td><p>URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient). There would be one pair of type/code for each allowed target resource type.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.profile"> </a><a name="DataElement.element.type.profile"> </a><b>DataElement.element.type.profile</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.targetProfile"> </a><a name="DataElement.element.type.targetProfile"> </a><b>DataElement.element.type.targetProfile</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.aggregation"> </a><a name="DataElement.element.type.aggregation"> </a><b>DataElement.element.type.aggregation</b></td></tr>
+  <tr><td>Definition</td><td><p>If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: eld-4</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>How resource references can be aggregated.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-resource-aggregation-mode.html">AggregationMode</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.type.versioning"> </a><a name="DataElement.element.type.versioning"> </a><b>DataElement.element.type.versioning</b></td></tr>
+  <tr><td>Definition</td><td><p>Whether this reference needs to be version specific or version independent, or whether either can be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Whether a reference needs to be version specific or version independent, or whether either can be used<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-reference-version-rules.html">ReferenceVersionRules</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>The base specification never makes a rule as to which form is allowed, but implementation guides may do this.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>either</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.defaultValue[x]"> </a><a name="DataElement:sdcdataelement.element.defaultValueBase64Binary"> </a><a name="DataElement:sdcdataelement.element.defaultValueBoolean"> </a><a name="DataElement:sdcdataelement.element.defaultValueCode"> </a><a name="DataElement:sdcdataelement.element.defaultValueDate"> </a><a name="DataElement:sdcdataelement.element.defaultValueDateTime"> </a><a name="DataElement:sdcdataelement.element.defaultValueDecimal"> </a><a name="DataElement:sdcdataelement.element.defaultValueId"> </a><a name="DataElement:sdcdataelement.element.defaultValueInstant"> </a><a name="DataElement:sdcdataelement.element.defaultValueInteger"> </a><a name="DataElement:sdcdataelement.element.defaultValueMarkdown"> </a><a name="DataElement:sdcdataelement.element.defaultValueOid"> </a><a name="DataElement:sdcdataelement.element.defaultValuePositiveInt"> </a><a name="DataElement:sdcdataelement.element.defaultValueString"> </a><a name="DataElement:sdcdataelement.element.defaultValueTime"> </a><a name="DataElement:sdcdataelement.element.defaultValueUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.defaultValueUri"> </a><a name="DataElement:sdcdataelement.element.defaultValueAddress"> </a><a name="DataElement:sdcdataelement.element.defaultValueAge"> </a><a name="DataElement:sdcdataelement.element.defaultValueAnnotation"> </a><a name="DataElement:sdcdataelement.element.defaultValueAttachment"> </a><a name="DataElement:sdcdataelement.element.defaultValueCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.defaultValueCoding"> </a><a name="DataElement:sdcdataelement.element.defaultValueContactPoint"> </a><a name="DataElement:sdcdataelement.element.defaultValueCount"> </a><a name="DataElement:sdcdataelement.element.defaultValueDistance"> </a><a name="DataElement:sdcdataelement.element.defaultValueDuration"> </a><a name="DataElement:sdcdataelement.element.defaultValueHumanName"> </a><a name="DataElement:sdcdataelement.element.defaultValueIdentifier"> </a><a name="DataElement:sdcdataelement.element.defaultValueMoney"> </a><a name="DataElement:sdcdataelement.element.defaultValuePeriod"> </a><a name="DataElement:sdcdataelement.element.defaultValueQuantity"> </a><a name="DataElement:sdcdataelement.element.defaultValueRange"> </a><a name="DataElement:sdcdataelement.element.defaultValueRatio"> </a><a name="DataElement:sdcdataelement.element.defaultValueReference"> </a><a name="DataElement:sdcdataelement.element.defaultValueSampledData"> </a><a name="DataElement:sdcdataelement.element.defaultValueSignature"> </a><a name="DataElement:sdcdataelement.element.defaultValueTiming"> </a><a name="DataElement:sdcdataelement.element.defaultValueMeta"> </a><a name="DataElement:sdcdataelement.element.defaultValueBase64Binary"> </a><a name="DataElement:sdcdataelement.element.defaultValueBoolean"> </a><a name="DataElement:sdcdataelement.element.defaultValueCode"> </a><a name="DataElement:sdcdataelement.element.defaultValueDate"> </a><a name="DataElement:sdcdataelement.element.defaultValueDateTime"> </a><a name="DataElement:sdcdataelement.element.defaultValueDecimal"> </a><a name="DataElement:sdcdataelement.element.defaultValueId"> </a><a name="DataElement:sdcdataelement.element.defaultValueInstant"> </a><a name="DataElement:sdcdataelement.element.defaultValueInteger"> </a><a name="DataElement:sdcdataelement.element.defaultValueMarkdown"> </a><a name="DataElement:sdcdataelement.element.defaultValueOid"> </a><a name="DataElement:sdcdataelement.element.defaultValuePositiveInt"> </a><a name="DataElement:sdcdataelement.element.defaultValueString"> </a><a name="DataElement:sdcdataelement.element.defaultValueTime"> </a><a name="DataElement:sdcdataelement.element.defaultValueUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.defaultValueUri"> </a><a name="DataElement:sdcdataelement.element.defaultValueAddress"> </a><a name="DataElement:sdcdataelement.element.defaultValueAge"> </a><a name="DataElement:sdcdataelement.element.defaultValueAnnotation"> </a><a name="DataElement:sdcdataelement.element.defaultValueAttachment"> </a><a name="DataElement:sdcdataelement.element.defaultValueCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.defaultValueCoding"> </a><a name="DataElement:sdcdataelement.element.defaultValueContactPoint"> </a><a name="DataElement:sdcdataelement.element.defaultValueCount"> </a><a name="DataElement:sdcdataelement.element.defaultValueDistance"> </a><a name="DataElement:sdcdataelement.element.defaultValueDuration"> </a><a name="DataElement:sdcdataelement.element.defaultValueHumanName"> </a><a name="DataElement:sdcdataelement.element.defaultValueIdentifier"> </a><a name="DataElement:sdcdataelement.element.defaultValueMoney"> </a><a name="DataElement:sdcdataelement.element.defaultValuePeriod"> </a><a name="DataElement:sdcdataelement.element.defaultValueQuantity"> </a><a name="DataElement:sdcdataelement.element.defaultValueRange"> </a><a name="DataElement:sdcdataelement.element.defaultValueRatio"> </a><a name="DataElement:sdcdataelement.element.defaultValueReference"> </a><a name="DataElement:sdcdataelement.element.defaultValueSampledData"> </a><a name="DataElement:sdcdataelement.element.defaultValueSignature"> </a><a name="DataElement:sdcdataelement.element.defaultValueTiming"> </a><a name="DataElement:sdcdataelement.element.defaultValueMeta"> </a><b>DataElement.element.defaultValue[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0 This element is affected by the following invariants: eld-15</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#base64Binary">base64Binary</a>, <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>, <a href="http://build.fhir.org/datatypes.html#code">code</a>, <a href="http://build.fhir.org/datatypes.html#date">date</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#id">id</a>, <a href="http://build.fhir.org/datatypes.html#instant">instant</a>, <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#markdown">markdown</a>, <a href="http://build.fhir.org/datatypes.html#oid">oid</a>, <a href="http://build.fhir.org/datatypes.html#positiveInt">positiveInt</a>, <a href="http://build.fhir.org/datatypes.html#string">string</a>, <a href="http://build.fhir.org/datatypes.html#time">time</a>, <a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a>, <a href="http://build.fhir.org/datatypes.html#uri">uri</a>, <a href="http://build.fhir.org/datatypes.html#Address">Address</a>, <a href="http://build.fhir.org/datatypes.html#Age">Age</a>, <a href="http://build.fhir.org/datatypes.html#Annotation">Annotation</a>, <a href="http://build.fhir.org/datatypes.html#Attachment">Attachment</a>, <a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a>, <a href="http://build.fhir.org/datatypes.html#Coding">Coding</a>, <a href="http://build.fhir.org/datatypes.html#ContactPoint">ContactPoint</a>, <a href="http://build.fhir.org/datatypes.html#Count">Count</a>, <a href="http://build.fhir.org/datatypes.html#Distance">Distance</a>, <a href="http://build.fhir.org/datatypes.html#Duration">Duration</a>, <a href="http://build.fhir.org/datatypes.html#HumanName">HumanName</a>, <a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a>, <a href="http://build.fhir.org/datatypes.html#Money">Money</a>, <a href="http://build.fhir.org/datatypes.html#Period">Period</a>, <a href="http://build.fhir.org/datatypes.html#Quantity">Quantity</a>, <a href="http://build.fhir.org/datatypes.html#Range">Range</a>, <a href="http://build.fhir.org/datatypes.html#Ratio">Ratio</a>, <a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>, <a href="http://build.fhir.org/datatypes.html#SampledData">SampledData</a>, <a href="http://build.fhir.org/datatypes.html#Signature">Signature</a>, <a href="http://build.fhir.org/datatypes.html#Timing">Timing</a>, <a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td>Comments</td><td><p>Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.meaningWhenMissing"> </a><a name="DataElement.element.meaningWhenMissing"> </a><b>DataElement.element.meaningWhenMissing</b></td></tr>
+  <tr><td>Definition</td><td><p>The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing'.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0 This element is affected by the following invariants: eld-15</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td>Comments</td><td><p>Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.orderMeaning"> </a><a name="DataElement.element.orderMeaning"> </a><b>DataElement.element.orderMeaning</b></td></tr>
+  <tr><td>Definition</td><td><p>If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>This element can only be asserted on repeating elements and can only be introduced when defining resources or data types.  It can be further refined profiled elements but if absent in the base type, a profile cannot assert meaning.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.fixed[x]"> </a><a name="DataElement:sdcdataelement.element.fixedBase64Binary"> </a><a name="DataElement:sdcdataelement.element.fixedBoolean"> </a><a name="DataElement:sdcdataelement.element.fixedCode"> </a><a name="DataElement:sdcdataelement.element.fixedDate"> </a><a name="DataElement:sdcdataelement.element.fixedDateTime"> </a><a name="DataElement:sdcdataelement.element.fixedDecimal"> </a><a name="DataElement:sdcdataelement.element.fixedId"> </a><a name="DataElement:sdcdataelement.element.fixedInstant"> </a><a name="DataElement:sdcdataelement.element.fixedInteger"> </a><a name="DataElement:sdcdataelement.element.fixedMarkdown"> </a><a name="DataElement:sdcdataelement.element.fixedOid"> </a><a name="DataElement:sdcdataelement.element.fixedPositiveInt"> </a><a name="DataElement:sdcdataelement.element.fixedString"> </a><a name="DataElement:sdcdataelement.element.fixedTime"> </a><a name="DataElement:sdcdataelement.element.fixedUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.fixedUri"> </a><a name="DataElement:sdcdataelement.element.fixedAddress"> </a><a name="DataElement:sdcdataelement.element.fixedAge"> </a><a name="DataElement:sdcdataelement.element.fixedAnnotation"> </a><a name="DataElement:sdcdataelement.element.fixedAttachment"> </a><a name="DataElement:sdcdataelement.element.fixedCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.fixedCoding"> </a><a name="DataElement:sdcdataelement.element.fixedContactPoint"> </a><a name="DataElement:sdcdataelement.element.fixedCount"> </a><a name="DataElement:sdcdataelement.element.fixedDistance"> </a><a name="DataElement:sdcdataelement.element.fixedDuration"> </a><a name="DataElement:sdcdataelement.element.fixedHumanName"> </a><a name="DataElement:sdcdataelement.element.fixedIdentifier"> </a><a name="DataElement:sdcdataelement.element.fixedMoney"> </a><a name="DataElement:sdcdataelement.element.fixedPeriod"> </a><a name="DataElement:sdcdataelement.element.fixedQuantity"> </a><a name="DataElement:sdcdataelement.element.fixedRange"> </a><a name="DataElement:sdcdataelement.element.fixedRatio"> </a><a name="DataElement:sdcdataelement.element.fixedReference"> </a><a name="DataElement:sdcdataelement.element.fixedSampledData"> </a><a name="DataElement:sdcdataelement.element.fixedSignature"> </a><a name="DataElement:sdcdataelement.element.fixedTiming"> </a><a name="DataElement:sdcdataelement.element.fixedMeta"> </a><a name="DataElement:sdcdataelement.element.fixedBase64Binary"> </a><a name="DataElement:sdcdataelement.element.fixedBoolean"> </a><a name="DataElement:sdcdataelement.element.fixedCode"> </a><a name="DataElement:sdcdataelement.element.fixedDate"> </a><a name="DataElement:sdcdataelement.element.fixedDateTime"> </a><a name="DataElement:sdcdataelement.element.fixedDecimal"> </a><a name="DataElement:sdcdataelement.element.fixedId"> </a><a name="DataElement:sdcdataelement.element.fixedInstant"> </a><a name="DataElement:sdcdataelement.element.fixedInteger"> </a><a name="DataElement:sdcdataelement.element.fixedMarkdown"> </a><a name="DataElement:sdcdataelement.element.fixedOid"> </a><a name="DataElement:sdcdataelement.element.fixedPositiveInt"> </a><a name="DataElement:sdcdataelement.element.fixedString"> </a><a name="DataElement:sdcdataelement.element.fixedTime"> </a><a name="DataElement:sdcdataelement.element.fixedUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.fixedUri"> </a><a name="DataElement:sdcdataelement.element.fixedAddress"> </a><a name="DataElement:sdcdataelement.element.fixedAge"> </a><a name="DataElement:sdcdataelement.element.fixedAnnotation"> </a><a name="DataElement:sdcdataelement.element.fixedAttachment"> </a><a name="DataElement:sdcdataelement.element.fixedCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.fixedCoding"> </a><a name="DataElement:sdcdataelement.element.fixedContactPoint"> </a><a name="DataElement:sdcdataelement.element.fixedCount"> </a><a name="DataElement:sdcdataelement.element.fixedDistance"> </a><a name="DataElement:sdcdataelement.element.fixedDuration"> </a><a name="DataElement:sdcdataelement.element.fixedHumanName"> </a><a name="DataElement:sdcdataelement.element.fixedIdentifier"> </a><a name="DataElement:sdcdataelement.element.fixedMoney"> </a><a name="DataElement:sdcdataelement.element.fixedPeriod"> </a><a name="DataElement:sdcdataelement.element.fixedQuantity"> </a><a name="DataElement:sdcdataelement.element.fixedRange"> </a><a name="DataElement:sdcdataelement.element.fixedRatio"> </a><a name="DataElement:sdcdataelement.element.fixedReference"> </a><a name="DataElement:sdcdataelement.element.fixedSampledData"> </a><a name="DataElement:sdcdataelement.element.fixedSignature"> </a><a name="DataElement:sdcdataelement.element.fixedTiming"> </a><a name="DataElement:sdcdataelement.element.fixedMeta"> </a><b>DataElement.element.fixed[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: eld-5, eld-6, eld-8</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#base64Binary">base64Binary</a>, <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>, <a href="http://build.fhir.org/datatypes.html#code">code</a>, <a href="http://build.fhir.org/datatypes.html#date">date</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#id">id</a>, <a href="http://build.fhir.org/datatypes.html#instant">instant</a>, <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#markdown">markdown</a>, <a href="http://build.fhir.org/datatypes.html#oid">oid</a>, <a href="http://build.fhir.org/datatypes.html#positiveInt">positiveInt</a>, <a href="http://build.fhir.org/datatypes.html#string">string</a>, <a href="http://build.fhir.org/datatypes.html#time">time</a>, <a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a>, <a href="http://build.fhir.org/datatypes.html#uri">uri</a>, <a href="http://build.fhir.org/datatypes.html#Address">Address</a>, <a href="http://build.fhir.org/datatypes.html#Age">Age</a>, <a href="http://build.fhir.org/datatypes.html#Annotation">Annotation</a>, <a href="http://build.fhir.org/datatypes.html#Attachment">Attachment</a>, <a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a>, <a href="http://build.fhir.org/datatypes.html#Coding">Coding</a>, <a href="http://build.fhir.org/datatypes.html#ContactPoint">ContactPoint</a>, <a href="http://build.fhir.org/datatypes.html#Count">Count</a>, <a href="http://build.fhir.org/datatypes.html#Distance">Distance</a>, <a href="http://build.fhir.org/datatypes.html#Duration">Duration</a>, <a href="http://build.fhir.org/datatypes.html#HumanName">HumanName</a>, <a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a>, <a href="http://build.fhir.org/datatypes.html#Money">Money</a>, <a href="http://build.fhir.org/datatypes.html#Period">Period</a>, <a href="http://build.fhir.org/datatypes.html#Quantity">Quantity</a>, <a href="http://build.fhir.org/datatypes.html#Range">Range</a>, <a href="http://build.fhir.org/datatypes.html#Ratio">Ratio</a>, <a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>, <a href="http://build.fhir.org/datatypes.html#SampledData">SampledData</a>, <a href="http://build.fhir.org/datatypes.html#Signature">Signature</a>, <a href="http://build.fhir.org/datatypes.html#Timing">Timing</a>, <a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td>Comments</td><td><p>This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.pattern[x]"> </a><a name="DataElement:sdcdataelement.element.patternBase64Binary"> </a><a name="DataElement:sdcdataelement.element.patternBoolean"> </a><a name="DataElement:sdcdataelement.element.patternCode"> </a><a name="DataElement:sdcdataelement.element.patternDate"> </a><a name="DataElement:sdcdataelement.element.patternDateTime"> </a><a name="DataElement:sdcdataelement.element.patternDecimal"> </a><a name="DataElement:sdcdataelement.element.patternId"> </a><a name="DataElement:sdcdataelement.element.patternInstant"> </a><a name="DataElement:sdcdataelement.element.patternInteger"> </a><a name="DataElement:sdcdataelement.element.patternMarkdown"> </a><a name="DataElement:sdcdataelement.element.patternOid"> </a><a name="DataElement:sdcdataelement.element.patternPositiveInt"> </a><a name="DataElement:sdcdataelement.element.patternString"> </a><a name="DataElement:sdcdataelement.element.patternTime"> </a><a name="DataElement:sdcdataelement.element.patternUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.patternUri"> </a><a name="DataElement:sdcdataelement.element.patternAddress"> </a><a name="DataElement:sdcdataelement.element.patternAge"> </a><a name="DataElement:sdcdataelement.element.patternAnnotation"> </a><a name="DataElement:sdcdataelement.element.patternAttachment"> </a><a name="DataElement:sdcdataelement.element.patternCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.patternCoding"> </a><a name="DataElement:sdcdataelement.element.patternContactPoint"> </a><a name="DataElement:sdcdataelement.element.patternCount"> </a><a name="DataElement:sdcdataelement.element.patternDistance"> </a><a name="DataElement:sdcdataelement.element.patternDuration"> </a><a name="DataElement:sdcdataelement.element.patternHumanName"> </a><a name="DataElement:sdcdataelement.element.patternIdentifier"> </a><a name="DataElement:sdcdataelement.element.patternMoney"> </a><a name="DataElement:sdcdataelement.element.patternPeriod"> </a><a name="DataElement:sdcdataelement.element.patternQuantity"> </a><a name="DataElement:sdcdataelement.element.patternRange"> </a><a name="DataElement:sdcdataelement.element.patternRatio"> </a><a name="DataElement:sdcdataelement.element.patternReference"> </a><a name="DataElement:sdcdataelement.element.patternSampledData"> </a><a name="DataElement:sdcdataelement.element.patternSignature"> </a><a name="DataElement:sdcdataelement.element.patternTiming"> </a><a name="DataElement:sdcdataelement.element.patternMeta"> </a><a name="DataElement:sdcdataelement.element.patternBase64Binary"> </a><a name="DataElement:sdcdataelement.element.patternBoolean"> </a><a name="DataElement:sdcdataelement.element.patternCode"> </a><a name="DataElement:sdcdataelement.element.patternDate"> </a><a name="DataElement:sdcdataelement.element.patternDateTime"> </a><a name="DataElement:sdcdataelement.element.patternDecimal"> </a><a name="DataElement:sdcdataelement.element.patternId"> </a><a name="DataElement:sdcdataelement.element.patternInstant"> </a><a name="DataElement:sdcdataelement.element.patternInteger"> </a><a name="DataElement:sdcdataelement.element.patternMarkdown"> </a><a name="DataElement:sdcdataelement.element.patternOid"> </a><a name="DataElement:sdcdataelement.element.patternPositiveInt"> </a><a name="DataElement:sdcdataelement.element.patternString"> </a><a name="DataElement:sdcdataelement.element.patternTime"> </a><a name="DataElement:sdcdataelement.element.patternUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.patternUri"> </a><a name="DataElement:sdcdataelement.element.patternAddress"> </a><a name="DataElement:sdcdataelement.element.patternAge"> </a><a name="DataElement:sdcdataelement.element.patternAnnotation"> </a><a name="DataElement:sdcdataelement.element.patternAttachment"> </a><a name="DataElement:sdcdataelement.element.patternCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.patternCoding"> </a><a name="DataElement:sdcdataelement.element.patternContactPoint"> </a><a name="DataElement:sdcdataelement.element.patternCount"> </a><a name="DataElement:sdcdataelement.element.patternDistance"> </a><a name="DataElement:sdcdataelement.element.patternDuration"> </a><a name="DataElement:sdcdataelement.element.patternHumanName"> </a><a name="DataElement:sdcdataelement.element.patternIdentifier"> </a><a name="DataElement:sdcdataelement.element.patternMoney"> </a><a name="DataElement:sdcdataelement.element.patternPeriod"> </a><a name="DataElement:sdcdataelement.element.patternQuantity"> </a><a name="DataElement:sdcdataelement.element.patternRange"> </a><a name="DataElement:sdcdataelement.element.patternRatio"> </a><a name="DataElement:sdcdataelement.element.patternReference"> </a><a name="DataElement:sdcdataelement.element.patternSampledData"> </a><a name="DataElement:sdcdataelement.element.patternSignature"> </a><a name="DataElement:sdcdataelement.element.patternTiming"> </a><a name="DataElement:sdcdataelement.element.patternMeta"> </a><b>DataElement.element.pattern[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: eld-5, eld-7, eld-8</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#base64Binary">base64Binary</a>, <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>, <a href="http://build.fhir.org/datatypes.html#code">code</a>, <a href="http://build.fhir.org/datatypes.html#date">date</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#id">id</a>, <a href="http://build.fhir.org/datatypes.html#instant">instant</a>, <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#markdown">markdown</a>, <a href="http://build.fhir.org/datatypes.html#oid">oid</a>, <a href="http://build.fhir.org/datatypes.html#positiveInt">positiveInt</a>, <a href="http://build.fhir.org/datatypes.html#string">string</a>, <a href="http://build.fhir.org/datatypes.html#time">time</a>, <a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a>, <a href="http://build.fhir.org/datatypes.html#uri">uri</a>, <a href="http://build.fhir.org/datatypes.html#Address">Address</a>, <a href="http://build.fhir.org/datatypes.html#Age">Age</a>, <a href="http://build.fhir.org/datatypes.html#Annotation">Annotation</a>, <a href="http://build.fhir.org/datatypes.html#Attachment">Attachment</a>, <a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a>, <a href="http://build.fhir.org/datatypes.html#Coding">Coding</a>, <a href="http://build.fhir.org/datatypes.html#ContactPoint">ContactPoint</a>, <a href="http://build.fhir.org/datatypes.html#Count">Count</a>, <a href="http://build.fhir.org/datatypes.html#Distance">Distance</a>, <a href="http://build.fhir.org/datatypes.html#Duration">Duration</a>, <a href="http://build.fhir.org/datatypes.html#HumanName">HumanName</a>, <a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a>, <a href="http://build.fhir.org/datatypes.html#Money">Money</a>, <a href="http://build.fhir.org/datatypes.html#Period">Period</a>, <a href="http://build.fhir.org/datatypes.html#Quantity">Quantity</a>, <a href="http://build.fhir.org/datatypes.html#Range">Range</a>, <a href="http://build.fhir.org/datatypes.html#Ratio">Ratio</a>, <a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>, <a href="http://build.fhir.org/datatypes.html#SampledData">SampledData</a>, <a href="http://build.fhir.org/datatypes.html#Signature">Signature</a>, <a href="http://build.fhir.org/datatypes.html#Timing">Timing</a>, <a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td>Comments</td><td><p>Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.example"> </a><a name="DataElement.element.example"> </a><b>DataElement.element.example</b></td></tr>
+  <tr><td>Definition</td><td><p>A sample value for this element demonstrating the type of information that would typically be found in the element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Examples will most commonly be present for data where it's not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.example.id"> </a><a name="DataElement.element.example.id"> </a><b>DataElement.element.example.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.example.extension"> </a><a name="DataElement.element.example.extension"> </a><b>DataElement.element.example.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.example.label"> </a><a name="DataElement.element.example.label"> </a><b>DataElement.element.example.label</b></td></tr>
+  <tr><td>Definition</td><td><p>Describes the purpose of this example amoung the set of examples.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.example.value[x]"> </a><a name="DataElement:sdcdataelement.element.example.valueBase64Binary"> </a><a name="DataElement:sdcdataelement.element.example.valueBoolean"> </a><a name="DataElement:sdcdataelement.element.example.valueCode"> </a><a name="DataElement:sdcdataelement.element.example.valueDate"> </a><a name="DataElement:sdcdataelement.element.example.valueDateTime"> </a><a name="DataElement:sdcdataelement.element.example.valueDecimal"> </a><a name="DataElement:sdcdataelement.element.example.valueId"> </a><a name="DataElement:sdcdataelement.element.example.valueInstant"> </a><a name="DataElement:sdcdataelement.element.example.valueInteger"> </a><a name="DataElement:sdcdataelement.element.example.valueMarkdown"> </a><a name="DataElement:sdcdataelement.element.example.valueOid"> </a><a name="DataElement:sdcdataelement.element.example.valuePositiveInt"> </a><a name="DataElement:sdcdataelement.element.example.valueString"> </a><a name="DataElement:sdcdataelement.element.example.valueTime"> </a><a name="DataElement:sdcdataelement.element.example.valueUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.example.valueUri"> </a><a name="DataElement:sdcdataelement.element.example.valueAddress"> </a><a name="DataElement:sdcdataelement.element.example.valueAge"> </a><a name="DataElement:sdcdataelement.element.example.valueAnnotation"> </a><a name="DataElement:sdcdataelement.element.example.valueAttachment"> </a><a name="DataElement:sdcdataelement.element.example.valueCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.example.valueCoding"> </a><a name="DataElement:sdcdataelement.element.example.valueContactPoint"> </a><a name="DataElement:sdcdataelement.element.example.valueCount"> </a><a name="DataElement:sdcdataelement.element.example.valueDistance"> </a><a name="DataElement:sdcdataelement.element.example.valueDuration"> </a><a name="DataElement:sdcdataelement.element.example.valueHumanName"> </a><a name="DataElement:sdcdataelement.element.example.valueIdentifier"> </a><a name="DataElement:sdcdataelement.element.example.valueMoney"> </a><a name="DataElement:sdcdataelement.element.example.valuePeriod"> </a><a name="DataElement:sdcdataelement.element.example.valueQuantity"> </a><a name="DataElement:sdcdataelement.element.example.valueRange"> </a><a name="DataElement:sdcdataelement.element.example.valueRatio"> </a><a name="DataElement:sdcdataelement.element.example.valueReference"> </a><a name="DataElement:sdcdataelement.element.example.valueSampledData"> </a><a name="DataElement:sdcdataelement.element.example.valueSignature"> </a><a name="DataElement:sdcdataelement.element.example.valueTiming"> </a><a name="DataElement:sdcdataelement.element.example.valueMeta"> </a><a name="DataElement:sdcdataelement.element.example.valueBase64Binary"> </a><a name="DataElement:sdcdataelement.element.example.valueBoolean"> </a><a name="DataElement:sdcdataelement.element.example.valueCode"> </a><a name="DataElement:sdcdataelement.element.example.valueDate"> </a><a name="DataElement:sdcdataelement.element.example.valueDateTime"> </a><a name="DataElement:sdcdataelement.element.example.valueDecimal"> </a><a name="DataElement:sdcdataelement.element.example.valueId"> </a><a name="DataElement:sdcdataelement.element.example.valueInstant"> </a><a name="DataElement:sdcdataelement.element.example.valueInteger"> </a><a name="DataElement:sdcdataelement.element.example.valueMarkdown"> </a><a name="DataElement:sdcdataelement.element.example.valueOid"> </a><a name="DataElement:sdcdataelement.element.example.valuePositiveInt"> </a><a name="DataElement:sdcdataelement.element.example.valueString"> </a><a name="DataElement:sdcdataelement.element.example.valueTime"> </a><a name="DataElement:sdcdataelement.element.example.valueUnsignedInt"> </a><a name="DataElement:sdcdataelement.element.example.valueUri"> </a><a name="DataElement:sdcdataelement.element.example.valueAddress"> </a><a name="DataElement:sdcdataelement.element.example.valueAge"> </a><a name="DataElement:sdcdataelement.element.example.valueAnnotation"> </a><a name="DataElement:sdcdataelement.element.example.valueAttachment"> </a><a name="DataElement:sdcdataelement.element.example.valueCodeableConcept"> </a><a name="DataElement:sdcdataelement.element.example.valueCoding"> </a><a name="DataElement:sdcdataelement.element.example.valueContactPoint"> </a><a name="DataElement:sdcdataelement.element.example.valueCount"> </a><a name="DataElement:sdcdataelement.element.example.valueDistance"> </a><a name="DataElement:sdcdataelement.element.example.valueDuration"> </a><a name="DataElement:sdcdataelement.element.example.valueHumanName"> </a><a name="DataElement:sdcdataelement.element.example.valueIdentifier"> </a><a name="DataElement:sdcdataelement.element.example.valueMoney"> </a><a name="DataElement:sdcdataelement.element.example.valuePeriod"> </a><a name="DataElement:sdcdataelement.element.example.valueQuantity"> </a><a name="DataElement:sdcdataelement.element.example.valueRange"> </a><a name="DataElement:sdcdataelement.element.example.valueRatio"> </a><a name="DataElement:sdcdataelement.element.example.valueReference"> </a><a name="DataElement:sdcdataelement.element.example.valueSampledData"> </a><a name="DataElement:sdcdataelement.element.example.valueSignature"> </a><a name="DataElement:sdcdataelement.element.example.valueTiming"> </a><a name="DataElement:sdcdataelement.element.example.valueMeta"> </a><b>DataElement.element.example.value[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value for the element, which must be one of the types allowed for this element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#base64Binary">base64Binary</a>, <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>, <a href="http://build.fhir.org/datatypes.html#code">code</a>, <a href="http://build.fhir.org/datatypes.html#date">date</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#id">id</a>, <a href="http://build.fhir.org/datatypes.html#instant">instant</a>, <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#markdown">markdown</a>, <a href="http://build.fhir.org/datatypes.html#oid">oid</a>, <a href="http://build.fhir.org/datatypes.html#positiveInt">positiveInt</a>, <a href="http://build.fhir.org/datatypes.html#string">string</a>, <a href="http://build.fhir.org/datatypes.html#time">time</a>, <a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a>, <a href="http://build.fhir.org/datatypes.html#uri">uri</a>, <a href="http://build.fhir.org/datatypes.html#Address">Address</a>, <a href="http://build.fhir.org/datatypes.html#Age">Age</a>, <a href="http://build.fhir.org/datatypes.html#Annotation">Annotation</a>, <a href="http://build.fhir.org/datatypes.html#Attachment">Attachment</a>, <a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a>, <a href="http://build.fhir.org/datatypes.html#Coding">Coding</a>, <a href="http://build.fhir.org/datatypes.html#ContactPoint">ContactPoint</a>, <a href="http://build.fhir.org/datatypes.html#Count">Count</a>, <a href="http://build.fhir.org/datatypes.html#Distance">Distance</a>, <a href="http://build.fhir.org/datatypes.html#Duration">Duration</a>, <a href="http://build.fhir.org/datatypes.html#HumanName">HumanName</a>, <a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a>, <a href="http://build.fhir.org/datatypes.html#Money">Money</a>, <a href="http://build.fhir.org/datatypes.html#Period">Period</a>, <a href="http://build.fhir.org/datatypes.html#Quantity">Quantity</a>, <a href="http://build.fhir.org/datatypes.html#Range">Range</a>, <a href="http://build.fhir.org/datatypes.html#Ratio">Ratio</a>, <a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>, <a href="http://build.fhir.org/datatypes.html#SampledData">SampledData</a>, <a href="http://build.fhir.org/datatypes.html#Signature">Signature</a>, <a href="http://build.fhir.org/datatypes.html#Timing">Timing</a>, <a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>LOINC Code</td><td>EXMPL_ANSWERS</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.minValue[x]"> </a><a name="DataElement:sdcdataelement.element.minValueInteger"> </a><a name="DataElement:sdcdataelement.element.minValueDecimal"> </a><a name="DataElement:sdcdataelement.element.minValueInstant"> </a><a name="DataElement:sdcdataelement.element.minValueDate"> </a><a name="DataElement:sdcdataelement.element.minValueTime"> </a><a name="DataElement:sdcdataelement.element.minValueDateTime"> </a><a name="DataElement:sdcdataelement.element.minValueQuantity"> </a><a name="DataElement:sdcdataelement.element.minValueInteger"> </a><a name="DataElement:sdcdataelement.element.minValueDecimal"> </a><a name="DataElement:sdcdataelement.element.minValueInstant"> </a><a name="DataElement:sdcdataelement.element.minValueDate"> </a><a name="DataElement:sdcdataelement.element.minValueTime"> </a><a name="DataElement:sdcdataelement.element.minValueDateTime"> </a><a name="DataElement:sdcdataelement.element.minValueQuantity"> </a><b>DataElement.element.minValue[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#instant">instant</a>, <a href="http://build.fhir.org/datatypes.html#date">date</a>, <a href="http://build.fhir.org/datatypes.html#time">time</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a>, <a href="http://build.fhir.org/datatypes.html#Quantity">Quantity</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a <a href="http://build.fhir.org/datatypes.html#duration">Duration</a> which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.maxValue[x]"> </a><a name="DataElement:sdcdataelement.element.maxValueInteger"> </a><a name="DataElement:sdcdataelement.element.maxValueDecimal"> </a><a name="DataElement:sdcdataelement.element.maxValueInstant"> </a><a name="DataElement:sdcdataelement.element.maxValueDate"> </a><a name="DataElement:sdcdataelement.element.maxValueTime"> </a><a name="DataElement:sdcdataelement.element.maxValueDateTime"> </a><a name="DataElement:sdcdataelement.element.maxValueQuantity"> </a><a name="DataElement:sdcdataelement.element.maxValueInteger"> </a><a name="DataElement:sdcdataelement.element.maxValueDecimal"> </a><a name="DataElement:sdcdataelement.element.maxValueInstant"> </a><a name="DataElement:sdcdataelement.element.maxValueDate"> </a><a name="DataElement:sdcdataelement.element.maxValueTime"> </a><a name="DataElement:sdcdataelement.element.maxValueDateTime"> </a><a name="DataElement:sdcdataelement.element.maxValueQuantity"> </a><b>DataElement.element.maxValue[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#instant">instant</a>, <a href="http://build.fhir.org/datatypes.html#date">date</a>, <a href="http://build.fhir.org/datatypes.html#time">time</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a>, <a href="http://build.fhir.org/datatypes.html#Quantity">Quantity</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a <a href="http://build.fhir.org/datatypes.html#duration">Duration</a> which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.maxLength"> </a><a name="DataElement.element.maxLength"> </a><b>DataElement.element.maxLength</b></td></tr>
+  <tr><td>Definition</td><td><p>Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#integer">integer</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Receivers are not required to reject instances that exceed the maximum length.  The full length could be stored.  In some cases, data might be truncated, though truncation should be undertaken with care and an understanding of the consequences of doing so. If not specified, there is no conformance expectation for length support.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.condition"> </a><a name="DataElement.element.condition"> </a><b>DataElement.element.condition</b></td></tr>
+  <tr><td>Definition</td><td><p>A reference to an invariant that may make additional statements about the cardinality or value in the instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint"> </a><a name="DataElement.element.constraint"> </a><b>DataElement.element.constraint</b></td></tr>
+  <tr><td>Definition</td><td><p>Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Constraints should be declared on the &quot;context&quot; element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.id"> </a><a name="DataElement.element.constraint.id"> </a><b>DataElement.element.constraint.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.extension"> </a><a name="DataElement.element.constraint.extension"> </a><b>DataElement.element.constraint.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.key"> </a><a name="DataElement.element.constraint.key"> </a><b>DataElement.element.constraint.key</b></td></tr>
+  <tr><td>Definition</td><td><p>Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1 This element is affected by the following invariants: eld-14</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.requirements"> </a><a name="DataElement.element.constraint.requirements"> </a><b>DataElement.element.constraint.requirements</b></td></tr>
+  <tr><td>Definition</td><td><p>Description of why this constraint is necessary or appropriate.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>To be used if the reason for the constraint may not be intuitive to all implementers.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.severity"> </a><a name="DataElement.element.constraint.severity"> </a><b>DataElement.element.constraint.severity</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the impact constraint violation has on the conformance of the instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>SHALL applications comply with this constraint?<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-constraint-severity.html">ConstraintSeverity</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>This allows constraints to be asserted as &quot;shall&quot; (error) and &quot;should&quot; (warning).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.human"> </a><a name="DataElement.element.constraint.human"> </a><b>DataElement.element.constraint.human</b></td></tr>
+  <tr><td>Definition</td><td><p>Text that can be used to describe the constraint in messages identifying that the constraint has been violated.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>Should be expressed in business terms as much as possible.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.expression"> </a><a name="DataElement.element.constraint.expression"> </a><b>DataElement.element.constraint.expression</b></td></tr>
+  <tr><td>Definition</td><td><p>A <a href="http://hl7.org/fluentpath">FHIRPath</a> expression of constraint that can be executed to see if this constraint is met.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Requirements</td><td><p>Used by validation tooling tests of the validity of the resource.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.xpath"> </a><a name="DataElement.element.constraint.xpath"> </a><b>DataElement.element.constraint.xpath</b></td></tr>
+  <tr><td>Definition</td><td><p>An XPath expression of constraint that can be executed to see if this constraint is met.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Requirements</td><td><p>Used in Schematron tests of the validity of the resource.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Elements SHALL use &quot;f&quot; as the namespace prefix for the FHIR namespace, and &quot;x&quot; for the xhtml namespace, and SHALL NOT use any other prefixes.</p>
+<p>Note: we are considering deprecating the xpath element. Implementer feedback is welcome.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.constraint.source"> </a><a name="DataElement.element.constraint.source"> </a><b>DataElement.element.constraint.source</b></td></tr>
+  <tr><td>Definition</td><td><p>A reference to the original source of the constraint, for traceability purposes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mustSupport"> </a><a name="DataElement.element.mustSupport"> </a><b>DataElement.element.mustSupport</b></td></tr>
+  <tr><td>Definition</td><td><p>If true, implementations that produce or consume resources SHALL provide &quot;support&quot; for the element in some meaningful way.  If false, the element may be ignored and not supported.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td>Requirements</td><td><p>Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>&quot;Something useful&quot; is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.</p>
+<p>This is done in <a href="http://build.fhir.org/profiling.html#mustsupport">Resource Profiles</a>, where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of &quot;support&quot; is required, as this can mean many things.</p>
+<p>Note that an element that has the property IsModifier is not necessarily a &quot;key&quot; element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>false</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.isModifier"> </a><a name="DataElement.element.isModifier"> </a><b>DataElement.element.isModifier</b></td></tr>
+  <tr><td>Definition</td><td><p>If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td>Requirements</td><td><p>Allows elements to be introduced into a specification that can't safely be ignored by applications that don't recognize them.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles. An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>false</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.isSummary"> </a><a name="DataElement.element.isSummary"> </a><b>DataElement.element.isSummary</b></td></tr>
+  <tr><td>Definition</td><td><p>Whether the element should be included if a client requests a search with the parameter _summary=true.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td>Requirements</td><td><p>Allow clients to search through large resources quickly.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance, so servers may not support per-profile use of the isSummary flag. When a request is made with _summary=true, serailisers only include elements marked as 'isSummary = true'. Other than Attachment.data, all data type properties are included in the summary form. Modifier elements or elements with minimum cardinality = 1 must be marked as summary elements.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>false</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.binding"> </a><a name="DataElement.element.binding"> </a><b>DataElement.element.binding</b></td></tr>
+  <tr><td>Definition</td><td><p>Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: eld-11</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>For a CodeableConcept, when no codes are allowed - only text, use a binding of strength &quot;required&quot; with a description explaining that no coded values are allowed and what sort of information to put in the &quot;text&quot; element.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">eld-10</b>: provide either a reference or a description (or both) (: valueSet.exists() or description.exists())<br/><b title="Formal Invariant Identifier">eld-12</b>: ValueSet as a URI SHALL start with http:// or https:// or urn: (: valueSet.is(uri).not() or valueSet.as(uri).startsWith('http:') or valueSet.as(uri).startsWith('https') or valueSet.as(uri).startsWith('urn:'))<br/><b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td>LOINC Code</td><td>ANSWER LIST, NORMATIVE ANSWER LIST</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.binding.id"> </a><a name="DataElement.element.binding.id"> </a><b>DataElement.element.binding.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.binding.extension"> </a><a name="DataElement.element.binding.extension"> </a><b>DataElement.element.binding.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.binding.strength"> </a><a name="DataElement.element.binding.strength"> </a><b>DataElement.element.binding.strength</b></td></tr>
+  <tr><td>Definition</td><td><p>Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Indication of the degree of conformance expectations associated with a binding.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-binding-strength.html">BindingStrength</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>conformance, extensibility</td></tr>
+  <tr><td>Comments</td><td><p>For further discussion, see <a href="http://build.fhir.org/terminologies.html">Using Terminologies</a>.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>N/A</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.binding.description"> </a><a name="DataElement.element.binding.description"> </a><b>DataElement.element.binding.description</b></td></tr>
+  <tr><td>Definition</td><td><p>Describes the intended use of this particular set of codes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: eld-10</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.binding.valueSetReference"> </a><a name="DataElement:sdcdataelement.element.binding.valueSet[x]"> </a><a name="DataElement:sdcdataelement.element.binding.valueSet[x]"> </a><b>DataElement.element.binding.valueSetReference</b></td></tr>
+  <tr><td>Definition</td><td><p>Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1 This element is affected by the following invariants: eld-10, eld-12</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Reference">Reference</a>(<a href="sdc-valueset.html" title="http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-valueset">Structured Data Capture Value Set</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not.</p>
+</td></tr>
+  <tr><td>LOINC Code</td><td>CODE_TABLE</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping"> </a><a name="DataElement.element.mapping"> </a><b>DataElement.element.mapping</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies a concept from an external specification that roughly corresponds to this element.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Element">Element</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Provides guidance to implementers familiar with or converting content from other specifications.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Mappings are not necessarily specific enough for safe translation.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.id"> </a><a name="DataElement.element.mapping.id"> </a><b>DataElement.element.mapping.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.extension"> </a><a name="DataElement.element.mapping.extension"> </a><b>DataElement.element.mapping.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence"> </a><b>DataElement.element.mapping.extension (<a href="http://build.fhir.org/extension-elementdefinition-equivalence.html">http://hl7.org/fhir/StructureDefinition/elementdefinition-equivalence</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>The level of equivalence between the element containing the mapping and the element mapped to.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#code">code</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence.id"> </a><a name="DataElement.element.mapping.extension.id"> </a><b>DataElement.element.mapping.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence.extension"> </a><a name="DataElement.element.mapping.extension.extension"> </a><b>DataElement.element.mapping.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence.url"> </a><a name="DataElement.element.mapping.extension.url"> </a><b>DataElement.element.mapping.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/elementdefinition-equivalence</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence.valueCode"> </a><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence.value[x]"> </a><a name="DataElement:sdcdataelement.element.mapping.extension:mappingequivalence.value[x]"> </a><b>DataElement.element.mapping.extension.valueCode</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The degree of equivalence between concepts.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-concept-map-equivalence.html">ConceptMapEquivalence</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Fixed Value</td><td>equivalent</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.identity"> </a><a name="DataElement.element.mapping.identity"> </a><b>DataElement.element.mapping.identity</b></td></tr>
+  <tr><td>Definition</td><td><p>An internal reference to the definition of a mapping.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.language"> </a><a name="DataElement.element.mapping.language"> </a><b>DataElement.element.mapping.language</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the computable language in which mapping.map is expressed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Mime Types that correspond to the mapping languages supported by DEX<br/>The codes SHALL be taken from <a href="valueset-dex-mimetype.html">DEX mapping language mime types</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The most common languages will be application/sparql-results+xml, application/sql and application/xquery.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.map"> </a><a name="DataElement.element.mapping.map"> </a><b>DataElement.element.mapping.map</b></td></tr>
+  <tr><td>Definition</td><td><p>This should be expressed as &quot;[uri for object class code system]#[code for object class code system] | [uri for property code system]#[code for property code system]&quot;.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>We express the mapping even though the class and property extensions already convey the data to ensure that systems that don't recognize the extensions still understand the mappings.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="DataElement:sdcdataelement.element.mapping.comment"> </a><a name="DataElement.element.mapping.comment"> </a><b>DataElement.element.mapping.comment</b></td></tr>
+  <tr><td>Definition</td><td><p>Comments that provide information about the mapping or its use.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+</table>

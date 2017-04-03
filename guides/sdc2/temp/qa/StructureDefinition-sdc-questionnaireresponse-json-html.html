@@ -1,0 +1,1438 @@
+﻿<html>
+<head>
+  <title>StructureDefinition-sdc-questionnaireresponse-json-html</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<pre class="json">
+{
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition">resourceType</a>" : "StructureDefinition",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.id">id</a>" : "sdc-questionnaireresponse",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.text">text</a>" : {
+    "<a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.status">status</a>" : "generated",
+    "<a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;table border=&quot;0&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;&quot;&gt;&lt;tr style=&quot;border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;&quot;&gt;&lt;th style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;The logical name of the element&quot;&gt;Name&lt;/a&gt;&lt;/th&gt;&lt;th style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;Information about the use of the element&quot;&gt;Flags&lt;/a&gt;&lt;/th&gt;&lt;th style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;Minimum and Maximum # of times the the element can appear in the instance&quot;&gt;Card.&lt;/a&gt;&lt;/th&gt;&lt;th style=&quot;width: 100px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;Reference to the type of the element&quot;&gt;Type&lt;/a&gt;&lt;/th&gt;&lt;th style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;Additional information about the element&quot;&gt;Description &amp;amp; Constraints&lt;/a&gt;&lt;span style=&quot;float: right&quot;&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;Legend for this format&quot;&gt;&lt;img src=&quot;http://build.fhir.org/help16.png&quot; alt=&quot;doco&quot; style=&quot;background-color: inherit&quot;/&gt;&lt;/a&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata&quot; title=&quot;Slice SDCData: Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems.&quot;&gt;QuestionnaireResponse&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.identifier&quot;&gt;identifier&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.identifier&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#Identifier&quot;&gt;Identifier&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.basedOn&quot;&gt;basedOn&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.basedOn&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/referralrequest.html&quot;&gt;ReferralRequest&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/careplan.html&quot;&gt;CarePlan&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/procedurerequest.html&quot;&gt;ProcedureRequest&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.parent&quot;&gt;parent&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.parent&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/observation.html&quot;&gt;Observation&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/procedure.html&quot;&gt;Procedure&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_reference.png&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Reference to another Resource&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.questionnaire&quot;&gt;questionnaire&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.questionnaire&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;1..1&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a href=&quot;sdc-questionnaire.html&quot;&gt;Structured Data Capture Questionnaire Design&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.status&quot;&gt;status&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.status&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#code&quot;&gt;code&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_reference.png&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Reference to another Resource&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.subject&quot;&gt;subject&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.subject&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;1..1&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a href=&quot;http://build.fhir.org/patient.html&quot;&gt;Patient&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.context&quot;&gt;context&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.context&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/encounter.html&quot;&gt;Encounter&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/episodeofcare.html&quot;&gt;EpisodeOfCare&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.authored&quot; title=&quot;Identifies when this version of the answer set was created.  Changes whenever the answers are updated.&quot;&gt;authored&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.authored&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;1..1&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#dateTime&quot;&gt;dateTime&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.author&quot;&gt;author&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.author&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/device.html&quot;&gt;Device&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/practitioner.html&quot;&gt;Practitioner&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/patient.html&quot;&gt;Patient&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/relatedperson.html&quot;&gt;RelatedPerson&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.source&quot;&gt;source&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.source&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/patient.html&quot;&gt;Patient&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/practitioner.html&quot;&gt;Practitioner&lt;/a&gt;)&lt;span style=&quot;opacity: 0.4&quot;&gt;, &lt;/span&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/relatedperson.html&quot;&gt;RelatedPerson&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck01.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin_end.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item&quot;&gt;item&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#BackboneElement&quot;&gt;BackboneElement&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.linkId&quot;&gt;linkId&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.linkId&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#string&quot;&gt;string&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.text&quot;&gt;text&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.text&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#string&quot;&gt;string&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck010.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_reference.png&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Reference to another Resource&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.subject&quot; title=&quot;Identifies the patient this particular group or question is describing if different from the patient for the overall response.&quot;&gt;subject&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.subject&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;(&lt;a href=&quot;http://build.fhir.org/patient.html&quot;&gt;Patient&lt;/a&gt;)&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;Patient for this answer/group of answers&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck011.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.answer&quot;&gt;answer&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.answer&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a style=&quot;opacity: 0.4&quot; href=&quot;http://build.fhir.org/datatypes.html#BackboneElement&quot;&gt;BackboneElement&lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0110.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vline.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_choice.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Choice of Types&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.answer.value[x]&quot;&gt;value[x]&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.answer.value_x_&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;1&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;a href=&quot;http://build.fhir.org/datatypes.html#boolean&quot;&gt;boolean&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#date&quot;&gt;date&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#dateTime&quot;&gt;dateTime&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#time&quot;&gt;time&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#decimal&quot;&gt;decimal&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#integer&quot;&gt;integer&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#string&quot;&gt;string&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#Coding&quot;&gt;Coding&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#uri&quot;&gt;uri&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#Quantity&quot;&gt;Quantity&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/datatypes.html#Attachment&quot;&gt;Attachment&lt;/a&gt;, &lt;a href=&quot;http://build.fhir.org/references.html&quot;&gt;Reference&lt;/a&gt;()&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck0100.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vline.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin_end.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.answer.item&quot;&gt;item&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.answer.item&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;Unknown reference to #QuestionnaireResponse:sdcdata.item&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style=&quot;border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white;&quot;&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck000.png)&quot; class=&quot;hierarchy&quot;&gt;&lt;img src=&quot;tbl_spacer.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_blank.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;tbl_vjoin_end.png&quot; alt=&quot;.&quot; style=&quot;background-color: inherit&quot; class=&quot;hierarchy&quot;/&gt;&lt;img src=&quot;icon_element.gif&quot; alt=&quot;.&quot; style=&quot;background-color: white; background-color: inherit&quot; title=&quot;Element&quot; class=&quot;hierarchy&quot;/&gt; &lt;a href=&quot;sdc-questionnaireresponse-definitions.html#QuestionnaireResponse:sdcdata.item.item&quot;&gt;item&lt;/a&gt;&lt;a name=&quot;QuestionnaireResponse.item.item&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;padding: 3px; color: white; background-color: red&quot; title=&quot;This element must be supported&quot;&gt;S&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;opacity: 0.5&quot;&gt;..&lt;/span&gt;&lt;span style=&quot;opacity: 0.4&quot;&gt;*&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;/&gt;&lt;td style=&quot;vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px&quot; class=&quot;hierarchy&quot;&gt;Unknown reference to #QuestionnaireResponse:sdcdata.item&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan=&quot;5&quot; class=&quot;hierarchy&quot;&gt;&lt;br/&gt;&lt;a href=&quot;http://build.fhir.org/formats.html#table&quot; title=&quot;Legend for this format&quot;&gt;&lt;img src=&quot;http://build.fhir.org/help16.png&quot; alt=&quot;doco&quot; style=&quot;background-color: inherit&quot;/&gt; Documentation for this format&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+  },
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.url">url</a>" : "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.version">version</a>" : "2.0",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.name">name</a>" : "Structured Data Capture Data Capture",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.status">status</a>" : "draft",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.date">date</a>" : "2014-04-21",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.publisher">publisher</a>" : "Health Level Seven International (Orders and Observations - Structured Data Capture)",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.contact">contact</a>" : [
+    {
+      "<a href="http://build.fhir.org/datatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>" : [
+        {
+          "<a href="http://build.fhir.org/datatypes.html#ContactPoint#ContactPoint.system">system</a>" : "url",
+          "<a href="http://build.fhir.org/datatypes.html#ContactPoint#ContactPoint.value">value</a>" : "d, hap"
+        }
+      ]
+    }
+  ],
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.fhirVersion">fhirVersion</a>" : "3.0.0",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping">mapping</a>" : [
+    {
+      "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping.identity">identity</a>" : "rim",
+      "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping.uri">uri</a>" : "http://hl7.org/v3",
+      "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping.name">name</a>" : "RIM Mapping"
+    },
+    {
+      "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping.identity">identity</a>" : "w5",
+      "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping.uri">uri</a>" : "http://hl7.org/fhir/w5",
+      "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.mapping.name">name</a>" : "W5 Mapping"
+    }
+  ],
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.kind">kind</a>" : "resource",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.abstract">abstract</a>" : false,
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.type">type</a>" : "QuestionnaireResponse",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.baseDefinition">baseDefinition</a>" : "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.derivation">derivation</a>" : "constraint",
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.snapshot">snapshot</a>" : {
+    "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.snapshot.element">element</a>" : [
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a>" : "SDCData",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "A structured set of questions and their answers",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don't need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "Form",
+          "QuestionnaireAnswers",
+          "Form Data"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-2",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.contained.empty()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(parent::f:contained and f:contained)",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-1",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If the resource is contained in another resource, it SHALL NOT contain any narrative",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.text.empty()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(parent::f:contained and f:text)",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-4",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(exists(f:contained/*/f:meta/f:versionId)) and not(exists(f:contained/*/f:meta/f:lastUpdated))",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "dom-3",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "contained.where(('#'+id in %resource.descendants().reference).not()).empty()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat('#', $id))]))",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "DomainResource"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Entity. Role, or Act"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Observation[moodCode=EVN]"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "infrastructure.information"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.id",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.id",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Logical id of this artifact",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "The only time that a resource does not have an id is when it is being submitted to the server using a create operation.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.id",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "id"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.meta",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.meta",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Metadata about the resource",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.meta",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Meta"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.implicitRules",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.implicitRules",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "A set of rules under which this content was created",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. 
+
+This element is labelled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.implicitRules",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "uri"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.language",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.language",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Language of the resource content",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The base language in which the resource is written.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Resource.language",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "code"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueReference</a>" : {
+                "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/all-languages"
+              }
+            },
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "Language"
+            },
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueBoolean</a>" : true
+            }
+          ],
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "extensible",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "A human language.",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/languages"
+          }
+        }
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Text summary of the resource, for human interpretation",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "narrative",
+          "html",
+          "xhtml",
+          "display"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.text",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Narrative"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.condition">condition</a>" : [
+          "dom-1"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "Act.text?"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.contained",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.contained",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Contained, inline Resources",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "inline resources",
+          "anonymous resources",
+          "contained resources"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.contained",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Resource"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.extension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.extension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.extension",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.modifierExtension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.modifierExtension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Extensions that cannot be ignored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "DomainResource.modifierExtension",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.identifier",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.identifier",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Unique id for this set of answers",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A business identifier assigned to a particular completed (or partially completed) questionnaire.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Used for tracking, registration and other business purposes.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.identifier",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Identifier"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".id"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "id"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.basedOn",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.basedOn",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Request fulfilled by this QuestionnaireResponse",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ProcedureRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Supports traceability of responsibility for the action and allows linkage of an action to the recommendations acted upon.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "order"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.basedOn",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/ReferralRequest"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/CarePlan"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/ProcedureRequest"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=FLFS].target"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.parent",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.parent",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Part of this action",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.parent",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Observation"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Procedure"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.questionnaire",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.questionnaire",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Form being answered",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The Questionnaire that defines and organizes the questions for which answers are being provided.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "For SDC, this SHALL be the version-specific URL of the form as hosted on the Form Manager.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Needed to allow editing of the questionnaire response in a manner that enforces the constraints of the original form.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "Form"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.questionnaire",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.status",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.status",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "in-progress | completed | amended | entered-in-error | stopped",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The position of the questionnaire response within its overall lifecycle.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.status",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 1,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "code"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireResponseStatus"
+            }
+          ],
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "required",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Lifecycle status of the questionnaire response.",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/questionnaire-answers-status"
+          }
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".statusCode (also whether there's a revisionControlAct - and possibly mood to distinguish &quot;in-progress&quot; from &quot;published)"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "status"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The subject of the questions",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "If the Questionnaire declared a subjectType, the resource pointed to by this element must be an instance of one of the listed types.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Allows linking the answers to the individual the answers describe.  May also affect access control.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "Patient",
+          "Focus"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.subject",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=SBJ].role"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "who.focus"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.context",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.context",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Encounter or Episode during which questionnaire was completed",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The encounter or episode of care with primary association to the questionnaire response.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Provides context for the information that was captured.  May also affect access control.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.context",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Encounter"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "context"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.authored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.authored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Date the answers were gathered",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies when this version of the answer set was created.  Changes whenever the answers are updated.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.
+
+This element is optional to allow for systems that may not know the value, however it SHOULD be populated if possible.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "Date Created",
+          "Date published",
+          "Date Issued",
+          "Date updated"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.authored",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "dateTime"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=AUT].time"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "when.recorded"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.author",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.author",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Person who received and recorded the answers",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "Mapping a subject's answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.  Authoring by device would indicate that some portion of the questionnaire had been auto-populated.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Need to know who interpreted the subject's answers to the questions in the questionnaire, and selected the appropriate options for answers.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "Laboratory",
+          "Service",
+          "Practitioner",
+          "Department",
+          "Company",
+          "Performer"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.author",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Device"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Practitioner"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/RelatedPerson"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=AUT].role"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "who.author"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.source",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.source",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The person who answered the questions",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The person who answered the questions about the subject.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "If not specified, no inference can be made about who provided the data.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "When answering questions about a subject that is minor, incapable of answering or an animal, another human source may answer the questions.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.source",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Practitioner"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/RelatedPerson"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=INF].role"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "w5",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "who.source"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Groups and questions",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A group or question item from the original questionnaire for which answers are provided.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "Groups cannot have answers and therefore must nest directly within item. When dealing with questions, nesting must occur within each answer because some questions may have multiple answers (and the nesting occurs for each answer).",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "BackboneElement"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "ele-1",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "All FHIR elements must have a @value or children",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "children().count() &gt; id.count()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "@value|f:*|h:div",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "Element"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "qrs-1",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "Nested item can't be beneath both item and answer",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "(answer.exists() and item.exists()).not()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "not(exists(f:answer) and exists(f:item))",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "QuestionnaireResponse.item"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.id",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.id",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.representation">representation</a>" : [
+          "xmlAttr"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "xml:id (or equivalent in JSON)",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.id",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.extension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.extension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.extension",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.modifierExtension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.modifierExtension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Extensions that cannot be ignored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "BackboneElement.modifierExtension",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.linkId",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.linkId",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Pointer to specific item from Questionnaire",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Items can repeat in the answers, so a direct 1..1 correspondence by position may not exist - requiring correspondence by identifier.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.linkId",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 1,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.definition",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.definition",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "ElementDefinition - details for the item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "The ElementDefinition must be in a [StructureDefinition](structuredefinition.html) or a [DataElement](dataelement.html), and must have a fragment identifier that identifies the specific data element by its id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x].
+
+There is no need for this element if the item pointed to by the linkId has a definition listed.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.definition",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "uri"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].code"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Name for group or question text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Text that is displayed above the contents of the group or as the text of the question being answered.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Allows the questionnaire response to be read without access to the questionnaire.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.text",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".text"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Patient for this answer/group of answers",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies the patient this particular group or question is describing if different from the patient for the overall response.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Non-patient questionnaires are outside the scope of the SDC-project.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.subject",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".participation[typeCode=SBJ].role or .outboundRelationship[typeCode=SUBJ].target"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "The response(s) to the question",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The respondent's answer(s) to the question.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "The value is nested because we cannot have a repeating structure that has variable type.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.answer",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "BackboneElement"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint">constraint</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.key">key</a>" : "ele-1",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.severity">severity</a>" : "error",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.human">human</a>" : "All FHIR elements must have a @value or children",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.expression">expression</a>" : "children().count() &gt; id.count()",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.xpath">xpath</a>" : "@value|f:*|h:div",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.constraint.source">source</a>" : "Element"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".value[type=LIST_ANY]"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.id",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.id",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.representation">representation</a>" : [
+          "xmlAttr"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "xml:id (or equivalent in JSON)",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.id",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.extension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.extension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Additional Content defined by implementations",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "Element.extension",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "n/a"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.modifierExtension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.modifierExtension",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Extensions that cannot be ignored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "BackboneElement.modifierExtension",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Extension"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isSummary">isSummary</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : "N/A"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.value[x]",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.value[x]",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Single-valued answer to the question",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "The answer (or one of the answers) provided by the respondent to the question.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Ability to retain a single-valued answer to a question.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.answer.value[x]",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "1"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "boolean"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "date"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "dateTime"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "time"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "decimal"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "integer"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "uri"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Quantity"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Attachment"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding">binding</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.extension">extension</a>" : [
+            {
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">url</a>" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueString</a>" : "QuestionnaireAnswer"
+            }
+          ],
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.strength">strength</a>" : "example",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.description">description</a>" : "Code indicating the response provided for a question.",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.binding.valueSet[x]">valueSetReference</a>" : {
+            "<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>" : "http://hl7.org/fhir/ValueSet/questionnaire-answers"
+          }
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".item"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Nested groups and questions",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Nested groups and/or questions found within this particular answer.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "It is useful to have &quot;sub-questions&quot;, questions which normally appear when certain answers are given and which collect additional details.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.answer.item",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.contentReference">contentReference</a>" : "#QuestionnaireResponse:sdcdata.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Nested questionnaire response items",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Questions or sub-groups nested beneath a question or group.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Reports can consist of complex nested groups.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base">base</a>" : {
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.path">path</a>" : "QuestionnaireResponse.item.item",
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.min">min</a>" : 0,
+          "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.base.max">max</a>" : "*"
+        },
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.contentReference">contentReference</a>" : "#QuestionnaireResponse:sdcdata.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping">mapping</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.identity">identity</a>" : "rim",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mapping.map">map</a>" : ".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"
+          }
+        ]
+      }
+    ]
+  },
+  "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.differential">differential</a>" : {
+    "<a href="http://build.fhir.org/structuredefinition.html#StructureDefinition.differential.element">element</a>" : [
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.sliceName">sliceName</a>" : "SDCData",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Sets expectations for supported capabilities for questionnaire responses for SDC-conformant systems.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.alias">alias</a>" : [
+          "Form Data"
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.identifier",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.identifier",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.basedOn",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.basedOn",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.parent",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.parent",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.questionnaire",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.questionnaire",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.comment">comment</a>" : "For SDC, this SHALL be the version-specific URL of the form as hosted on the Form Manager.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaire"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.status",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.status",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.context",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.context",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.authored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.authored",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies when this version of the answer set was created.  Changes whenever the answers are updated.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.author",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.author",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.source",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.source",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.linkId",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.linkId",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 1,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.text",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.subject",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.short">short</a>" : "Patient for this answer/group of answers",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.definition">definition</a>" : "Identifies the patient this particular group or question is describing if different from the patient for the overall response.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.requirements">requirements</a>" : "Non-patient questionnaires are outside the scope of the SDC-project.",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference",
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.targetProfile">targetProfile</a>" : "http://hl7.org/fhir/StructureDefinition/Patient"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.value[x]",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.value[x]",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "1",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type">type</a>" : [
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "boolean"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "date"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "dateTime"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "time"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "decimal"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "integer"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "string"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Coding"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "uri"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Quantity"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Attachment"
+          },
+          {
+            "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.type.code">code</a>" : "Reference"
+          }
+        ],
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.answer.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.answer.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.min">min</a>" : 0,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.max">max</a>" : "*",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.contentReference">contentReference</a>" : "#QuestionnaireResponse:sdcdata.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : false,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      },
+      {
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.id">id</a>" : "QuestionnaireResponse:sdcdata.item.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.path">path</a>" : "QuestionnaireResponse.item.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.contentReference">contentReference</a>" : "#QuestionnaireResponse:sdcdata.item",
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.mustSupport">mustSupport</a>" : true,
+        "<a href="http://build.fhir.org/datatypes.html#ElementDefinition#ElementDefinition.isModifier">isModifier</a>" : false
+      }
+    ]
+  }
+}</pre>
+</body>
+</html>

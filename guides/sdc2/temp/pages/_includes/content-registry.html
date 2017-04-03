@@ -1,0 +1,61 @@
+<!-- Comment out any sections that don't apply and remove the 'include' -->
+<div>
+{% for static_file in site.static_files %}
+  {% if static_file.path == '/table-profiles.xhtml' %}
+    {% assign profiles = true %}
+  {% elsif static_file.path == '/table-extensions.xhtml' %}
+    {% assign extensions = true %}
+  {% elsif static_file.path == '/table-valuesets.xhtml' %}
+    {% assign valuesets = true %}
+  {% endif %}
+{% endfor %}
+{% if profiles == true %}
+  <a name="profiles"> </a>
+  <h3 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.1</span> Profiles <a title="link to here" class="self-link" href="{{page.path}}#profiles">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h3>
+  {% include table-profiles.xhtml %}
+{% endif %}
+
+{% if extensions == true %}
+  <a name="extensions"> </a>
+  <h3 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.2</span> Extensions <a title="link to here" class="self-link" href="{{page.path}}#extensions">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h3>
+  {% include table-extensions.xhtml %}
+{% endif %}
+
+{% if valuesets == true %}
+  <a name="valuesets"> </a>
+  <h3 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.3</span> Value Sets <a title="link to here" class="self-link" href="{{page.path}}#valuesets">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h3>
+  {% include table-valuesets.xhtml %}
+{% endif %}
+
+{% if site.data.pages['toc.html'].examples.size &gt; 0 %}
+  <a name="examples"> </a>
+  <h3 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.4</span> Examples <a title="link to here" class="self-link" href="{{page.path}}#examples">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h3>
+  <table style="grid">
+    <tbody>
+      {% for example in site.data.pages['toc.html'].examples %}
+        <tr>
+        <td>
+          <a href="{{example.url}}">{{example.title}}</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+</div>

@@ -1,0 +1,1033 @@
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# - resource -------------------------------------------------------------------
+
+ a fhir:Questionnaire;
+  <a href="http://build.fhir.org/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot;
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;questionnaire-sdc-profile-example-loinc&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.text">fhir:DomainResource.text</a> [
+     <a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.status">fhir:Narrative.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;generated&quot; ];
+     fhir:Narrative.div &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Generated Narrative with Details&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: Medication or Other Substance&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: ACTIVE&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: 1-Apr-2012&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Agency for Healthcare Research and Quality (AHRQ)&lt;/p&gt;&lt;p&gt;&lt;b&gt;identifier&lt;/b&gt;: 74080-3&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: Medication or Other Substance&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: ACTIVE&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: 1-Apr-2012&lt;/p&gt;&lt;p&gt;&lt;b&gt;publisher&lt;/b&gt;: Agency for Healthcare Research and Quality (AHRQ)&lt;/p&gt;&lt;p&gt;&lt;b&gt;subjectType&lt;/b&gt;: Patient&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;linkId&lt;/b&gt;: Medication/header&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: GROUP&lt;/p&gt;&lt;h3&gt;Items&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;LinkId&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Text&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Required&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;Form ID:&lt;/td&gt;&lt;td&gt;STRING&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;74080-3/74081-1&lt;/td&gt;&lt;td&gt;Event ID:&lt;/td&gt;&lt;td&gt;STRING&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;74080-3/30947-6&lt;/td&gt;&lt;td&gt;Initial Report Date (HERF Q1)&lt;/td&gt;&lt;td&gt;STRING&lt;/td&gt;&lt;td&gt;true&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;linkId&lt;/b&gt;: Medication/SEC00&lt;/p&gt;&lt;p&gt;&lt;b&gt;text&lt;/b&gt;: Medication or Other Substance&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: GROUP&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;linkId&lt;/b&gt;: Reporting&lt;/p&gt;&lt;p&gt;&lt;b&gt;text&lt;/b&gt;: Reporting information&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: GROUP&lt;/p&gt;&lt;h3&gt;Items&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;LinkId&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Text&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;Reporting/who&lt;/td&gt;&lt;td&gt;Reported by:&lt;/td&gt;&lt;td&gt;STRING&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;Reporting/when&lt;/td&gt;&lt;td&gt;Reported date:&lt;/td&gt;&lt;td&gt;DATE&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;linkId&lt;/b&gt;: Medication/footer&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: GROUP&lt;/p&gt;&lt;h3&gt;Items&lt;/h3&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;LinkId&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Text&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;Medication/footer.0&lt;/td&gt;&lt;td&gt;AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance&lt;/td&gt;&lt;td&gt;DISPLAY&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/blockquote&gt;&lt;/div&gt;&quot;
+  ];
+  <a href="http://build.fhir.org/valueset.html#ValueSet">fhir:DomainResource.contained</a> [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2654-3&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q1&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 1 on the AHRQ \&quot;Medication or Other Substance\&quot; form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;a.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20271-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medications&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;2&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;b.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20335-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Biological products&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;3&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;c.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20336-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Nutritional products&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;4&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;d.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20337-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Expressed human breast milk&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;5&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;e.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20338-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medical gases (e.g., oxygen, nitrogen, nitrous oxide)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;6&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;f.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20339-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Contrast media&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;7&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;g.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20340-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Radiopharmaceuticals&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;8&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;h.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20341-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Patient food (not suspected in drug-food interactions)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 8;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;9&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;i.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20342-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Drug-drug, drug-food, or adverse drug reaction as a result of a prescription and/or administration of a drug and/or food prior to admission&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 9;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;10&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;j.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20343-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2655-0&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q2&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 2 on the AHRQ \&quot;Medication or Other Substance\&quot; form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2655-0&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;a.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20278-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Prescription or over-the-counter (including herbal supplements)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;2&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;b.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20298-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Compounded preparations&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;3&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;c.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20299-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Investigational drugs&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;4&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;d.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2657-6&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q4&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 4 on the AHRQ \&quot;Medication or Other Substance\&quot; form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2657-6&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20283-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Vaccines&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20287-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other biological products (e.g., thrombolytic)&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2659-2&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q6&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 6 on the AHRQ \&quot;Medication or Other Substance\&quot; form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;a.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20273-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Dietary supplements (other than vitamins or minerals)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;2&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;b.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA16117-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Vitamins or minerals&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;3&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;c.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20320-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Enteral nutritional products, including infant formula&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;4&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;d.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20321-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Parenteral nutritional products&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;5&quot;^^xsd:integer ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/valueset-label&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;e.&quot; ]           ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20318-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2660-0&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q7&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 7 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20275-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [
+             <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect action (process failure or error) (e.g., such as administering overdose or incorrect medication)&quot;;
+             <a href="http://build.fhir.org/datatypes.html#string#string.extension">fhir:Element.extension</a> [
+               <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/rendering-xhtml&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect action (process failure or error) &lt;i&gt;(e.g., such as administering overdose or incorrect medication)&lt;/i&gt;&quot; ]             ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20314-3&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [
+             <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unsafe condition&quot;;
+             <a href="http://build.fhir.org/datatypes.html#string#string.extension">fhir:Element.extension</a> [
+               <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/rendering-style&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;color:green&quot; ]             ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20315-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Adverse reaction in patient to the administered substance without any apparent incorrect                  action&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2661-8&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q8&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 8 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20276-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect patient&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20302-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect medication/substance&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20303-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect dose(s)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20304-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect route of administration&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20305-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect timing&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20306-9&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect rate&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20307-7&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect duration of administration or course of therapy&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20308-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect dosage form (e.g., sustained release instead of immediate release)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 8;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20309-3&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect strength or concentration&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 9;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20310-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect preparation, including inappropriate cutting of tablets, error in compounding,                  mixing, etc.&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 10;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20311-9&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Expired or deteriorated medication/substance&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 11;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20312-7&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/substance that is known to be an allergen to the patient&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 12;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20345-7&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/substance that is known to be contraindicated for the patient&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 13;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20313-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Incorrect patient/family action (e.g., self-administration error)&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 14;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20318-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2662-6&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q9&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 9 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2662-6&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20277-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Overdose&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20300-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Underdose&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20301-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Missed or omitted dose&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA7271-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Extra dose&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2663-4&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q10&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 10 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2663-4&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20280-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Too early&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20290-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Too late&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 8;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2664-2&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q11&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 11 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2664-2&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20282-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Too quickly&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20288-&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Too slowly&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 9;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2665-9&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q12&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 12 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2665-9&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20281-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Too high&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20289-7&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Too low&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 10;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2817-6&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Y/N/UNK&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;AHRQ Common Format Answer list for Yes (A15), No (A18), Unknown (UNK)&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2817-6&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA33-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Yes&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA32-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;No&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unkown&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 11;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2668-3&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q15&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 15 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2668-3&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20274-9&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Drug-drug&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20316-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Drug-food&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20317-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Drug-disease&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20318-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 12;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2669-1&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q16&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for question 16 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2669-1&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20279-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Purchasing&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20291-3&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Storing&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20292-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Prescribing/ordering&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20293-9&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Transcribing&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20294-7&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Preparing&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20295-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Dispensing&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20296-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Administering&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20297-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Monitoring&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 8;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 9;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20318-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 13;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2828-3&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Y/N&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;AHRQ Common Format Answer list for Yes (A15) and No (A18)&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/LL2828-3&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA33-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Yes&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA32-8&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;No&quot; ]         ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/valueset.html">a</a> fhir:ValueSet;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 14;
+     <a href="http://build.fhir.org/valueset.html#ValueSet.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;ll2682-4&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.name">fhir:ValueSet.name</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ_Medication_Q28_Q29&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.status">fhir:ValueSet.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.description">fhir:ValueSet.description</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;The answer list for questions 28 and 29 on the AHRQ 'Medication or Other Substance' form&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.copyright">fhir:ValueSet.copyright</a> [ <a href="http://build.fhir.org/datatypes.html#markdown">fhir:value</a> &quot;This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use&quot; ];
+     <a href="http://build.fhir.org/valueset.html#ValueSet.compose">fhir:ValueSet.compose</a> [
+       <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include">fhir:ValueSet.compose.include</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.system">fhir:ValueSet.compose.include.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org&quot; ];
+         <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept">fhir:ValueSet.compose.include.concept</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20272-3&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cutaneous, topical application, including ointment, spray, patch&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9451-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Subcutaneous&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9444-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Ophthalmic&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20324-2&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Oral, including sublingual or buccal&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9445-&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Otic&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9263-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Nasal&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9427-1&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Inhalation&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9437-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Intravenous&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 8;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9429-7&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Intramuscular&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 9;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9435-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Intrathecal&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 10;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9418-0&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Epidural&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 11;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20332-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Gastric&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 12;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9369-5&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Rectal&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 13;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA9459-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Vaginal&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 14;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA4489-6&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Unknown&quot; ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 15;
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.code">fhir:ValueSet.compose.include.concept.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;LA20318-4&quot; ];
+           <a href="http://build.fhir.org/valueset.html#ValueSet.compose.include.concept.display">fhir:ValueSet.compose.include.concept.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other&quot; ]         ]       ]     ]
+  ];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.identifier">fhir:Questionnaire.identifier</a> [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+     <a href="http://build.fhir.org/datatypes.html#Identifier#Identifier.system">fhir:Identifier.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs&quot; ];
+     <a href="http://build.fhir.org/datatypes.html#Identifier#Identifier.value">fhir:Identifier.value</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3&quot; ]
+  ];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.title">fhir:Questionnaire.title</a> [
+     <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication or Other Substance&quot;;
+     <a href="http://build.fhir.org/datatypes.html#string#string.extension">fhir:Element.extension</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/rendering-style&quot; ];
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;color:#0000FF&quot; ]     ]
+  ];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.status">fhir:Questionnaire.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.date">fhir:Questionnaire.date</a> [ <a href="http://build.fhir.org/datatypes.html#dateTime">fhir:value</a> &quot;2012-04-01&quot;^^xsd:date];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.publisher">fhir:Questionnaire.publisher</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Agency for Healthcare Research and Quality (AHRQ)&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.subjectType">fhir:Questionnaire.subjectType</a> [
+     <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;Patient&quot;;
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0
+  ];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item">fhir:Questionnaire.item</a> [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl&quot; ];
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueCodeableConcept</a> [
+         <a href="http://build.fhir.org/datatypes.html#CodeableConcept#CodeableConcept.coding">fhir:CodeableConcept.coding</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.system">fhir:Coding.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/questionnaire-item-control&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;header&quot; ]         ]       ]     ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/header&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/questionnaire-hidden&quot; ];
+         <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;0&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Form ID:&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+         <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;3&quot;^^xsd:integer ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74081-1&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Event ID:&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/30947-6&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Initial Report Date (HERF Q1)&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ]
+  ], [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/SEC00&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication or Other Substance&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/SEC00.0&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [
+         <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the Device or Medical/Surgical Supply including Health Information Technology (HIT) form. Narrative detail can be captured on the Healthcare Event Reporting Form (HERF).&quot;;
+         <a href="http://build.fhir.org/datatypes.html#string#string.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/rendering-xhtml&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueString</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Use this form to report any patient safety event or unsafe condition involving a substance such as a medications, biological products, nutritional products, expressed human breast milk, medical gases, or contrast media. Do not complete this form if the event involves appropriateness of therapeutic choice or decision making (e.g., physician decision to prescribe medication despite known drug-drug interaction). If the event involves a device, please also complete the &lt;i&gt;Device or Medical/Surgical Supply including Health Information Technology (HIT)&lt;/i&gt; form. Narrative detail can be captured on the &lt;i&gt;Healthcare Event Reporting Form (HERF)&lt;/i&gt;.&quot; ]         ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;display&quot; ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/SEC01/74080-3&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74076-1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.definition">fhir:Questionnaire.item.definition</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/74076-1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What type of medication/substance was involved?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2654-3&quot; ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;7&quot;^^xsd:integer ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74075-3&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.definition">fhir:Questionnaire.item.definition</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/vs/74075-3&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What type of medication?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2655-0&quot; ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+               <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]             ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74077-9-q&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.definition">fhir:Questionnaire.item.definition</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://loinc.org/74077-9&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Please list all ingredients:&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.repeats">fhir:Questionnaire.item.repeats</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;8&quot;^^xsd:integer ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74074-6&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What type of biological product?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2657-6&quot; ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/30959-1&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What was the lot number of the vaccine?&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74073-8&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What type of nutritional product?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2659-2&quot; ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74073-8/Other/Specify&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74076-1/Other/Specify&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74072-0&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Which of the following best characterizes the event?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2660-0&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74071-2&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What was the incorrect action?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2661-8&quot; ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74070-4&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Which best describes the incorrect dose(s)?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2662-6&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74069-6&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Which best describes the incorrect timing?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2663-4&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74068-8&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Which best describes the incorrect rate?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2664-2&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74067-0&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Which best describes the incorrect strength or concentration?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2665-9&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74066-2&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What was the expiration date?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74065-4&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Was there a documented history of allergies or sensitivities to the medication/substance                      administered?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2817-6&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74064-7&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What was the contraindication (potential or actual interaction)?&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+             <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2668-3&quot; ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74064-7/Other/Specify&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74071-2/Other/Specify&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74063-9&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;At what stage in the process did the event originate, regardless of the stage at which                  it was discovered?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2669-1&quot; ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74063-9/Other/Specify&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs&quot; ];
+         <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;5&quot;^^xsd:integer ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.repeats">fhir:Questionnaire.item.repeats</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7.0&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Please provide the following medication details for any medications or other substances                directly involved in the event.&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;display&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74062-1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Generic name or investigational drug name&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74061-3&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Ingredient RXCUI (if known)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74060-5&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Brand name (if known)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74059-7&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Brand name RXCUI (if known)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 5;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74058-9&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Manufacturer (if known)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 6;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74057-1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Strength or concentration of product&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 7;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74056-3&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Clinical drug component RXCUI (if known)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 8;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74055-5&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Dosage form of Product&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 9;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minLength&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:integer ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74054-8&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Dose form RXCUI (if known)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 10;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74078-7/74053-0&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Was this medication/substance prescribed for this patient?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2828-3&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 11;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/74052-2&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Was this medication/substance given to this patient?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2828-3&quot; ]         ]       ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/SEC03&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74051-4&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What was the intended route of administration?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2682-4&quot; ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74051-4/Other/Specify&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74050-6&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;What was the actual route of administration (attempted or completed)?&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;open-choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.options">fhir:Questionnaire.item.options</a> [
+           <a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;#ll2682-4&quot; ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;74080-3/74050-6/Other/Specify&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;PLEASE SPECIFY&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 4;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/SEC04&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Thank you for completing these questions.&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/SEC04.0&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;OMB No. 0935-0143 Exp. Date 10/31/2014 Public reporting burden for the collection of information is estimated to average 10 minutes per response. An agency may not conduct or sponsor, and a person is not required to respond to, a collection of information unless it displays a currently valid OMB control number. Send comments regarding this burden estimate or any other aspect of this collection of information, including suggestions for reducing this burden, to: AHRQ Reports Clearance Officer, Attention: PRA, Paperwork Reduction Project (0935-0143), AHRQ, 540 Gaither Road, Room #5036, Rockville, MD 20850.&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;display&quot; ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/questionnaire-hidden&quot; ];
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueBoolean</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Reporting&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Reporting information&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Reporting/who&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Reported by:&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Reporting/when&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Reported date:&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;date&quot; ]     ]
+  ], [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl&quot; ];
+       <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueCodeableConcept</a> [
+         <a href="http://build.fhir.org/datatypes.html#CodeableConcept#CodeableConcept.coding">fhir:CodeableConcept.coding</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.system">fhir:Coding.system</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/questionnaire-item-control&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;footer&quot; ]         ]       ]     ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/footer&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Medication/footer.0&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;AHRQ Common Formats - Hospital Version 1.2 - 2012 Medication or Other Substance&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;display&quot; ]     ]
+  ].
+
+# - ontology header ------------------------------------------------------------
+
+ a owl:Ontology;
+  owl:imports fhir:fhir.ttl.
+
+</pre>
+

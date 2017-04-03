@@ -28,6 +28,7 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:text>{
+  "DO_NOT_EDIT_THIS_FILE": "This file is generated.  Any edits made will be overwritten",
 	"tool": "jekyll",
   "logging": ["html"],
 	"version": "</xsl:text>
@@ -39,13 +40,13 @@
 	</xsl:if>
 	<xsl:text>"html-template": "template-page.html",&#xa;  </xsl:text>
 	<xsl:text>"paths": {
-		"resources": ["resources","../src/examples", "../src/resources", "../src/vocabulary"],
+		"resources": ["resources", "../src/resources", "../src/vocabulary", "../src/examples"],
 		"pages": ["../src/images", "pages"],
-		"temp": "temp",
+		"temp": "../temp/pages",
 		"output": "../website",
 		"txCache": "txcache",
     "history" : "history.html",
-		"qa": "qa",
+		"qa": "../temp/qa",
 		"specification": "</xsl:text>
 		<xsl:value-of select="$spec"/>
 		<xsl:text>"

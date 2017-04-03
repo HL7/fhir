@@ -1,0 +1,617 @@
+﻿<html>
+<head>
+  <title>StructureDefinition-sdc-codesystem-dict</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<table class="dict">
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem"> </a><a name="CodeSystem"> </a><b>CodeSystem(SDCDECodeSystem)</b></td></tr>
+  <tr><td>Definition</td><td><p>Sets expectations for SDC-conformant systems around value set support for representing permitted question answers.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">csd-1</b>: Within a code system definition, all the codes SHALL be unique (: (concept.code | descendants().concept.code).isDistinct())<br/><b title="Formal Invariant Identifier">dom-1</b>: If the resource is contained in another resource, it SHALL NOT contain any narrative (: contained.text.empty())<br/><b title="Formal Invariant Identifier">dom-2</b>: If the resource is contained in another resource, it SHALL NOT contain nested Resources (: contained.contained.empty())<br/><b title="Formal Invariant Identifier">dom-3</b>: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource (: contained.where(('#'+id in %resource.descendants().reference).not()).empty())<br/><b title="Formal Invariant Identifier">dom-4</b>: If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated (: contained.meta.versionId.empty() and contained.meta.lastUpdated.empty())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.id"> </a><a name="CodeSystem.id"> </a><b>CodeSystem.id</b></td></tr>
+  <tr><td>Definition</td><td><p>The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td>Comments</td><td><p>The only time that a resource does not have an id is when it is being submitted to the server using a create operation.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.meta"> </a><a name="CodeSystem.meta"> </a><b>CodeSystem.meta</b></td></tr>
+  <tr><td>Definition</td><td><p>The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.implicitRules"> </a><a name="CodeSystem.implicitRules"> </a><b>CodeSystem.implicitRules</b></td></tr>
+  <tr><td>Definition</td><td><p>A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element.</p>
+<p>This element is labelled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.language"> </a><a name="CodeSystem.language"> </a><b>CodeSystem.language</b></td></tr>
+  <tr><td>Definition</td><td><p>The base language in which the resource is written.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>A human language.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-languages.html">Common Languages</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.text"> </a><a name="CodeSystem.text"> </a><b>CodeSystem.text</b></td></tr>
+  <tr><td>Definition</td><td><p>A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: dom-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Narrative">Narrative</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>narrative, html, xhtml, display</td></tr>
+  <tr><td>Comments</td><td><p>Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.contained"> </a><a name="CodeSystem.contained"> </a><b>CodeSystem.contained</b></td></tr>
+  <tr><td>Definition</td><td><p>These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/resource.html">Resource</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>inline resources, anonymous resources, contained resources</td></tr>
+  <tr><td>Comments</td><td><p>This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.extension"> </a><a name="CodeSystem.extension"> </a><b>CodeSystem.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.extension:stylesensitive"> </a><b>CodeSystem.extension (<a href="http://build.fhir.org/extension-rendering-stylesensitive.html">http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Indicates that the style extensions (<a href="http://build.fhir.org/extension-rendering-style.html">style</a>, <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a>) and <a href="http://build.fhir.org/extension-rendering-xhtml.html">xhtml</a>) in this resource are essential to the interpretation of the styled text and that it cannot be rendered without the style without losing essential information.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>)</td></tr>
+  <tr><td>Comments</td><td><p>If set to true, all systems that claim to support this extension and which render elements of the resource containing this extension SHALL either render the content as required by the style extensions defined by this profile that are present in the resource or shall (if safe to do so based on their own rules), omit entirely the styled content they cannot render in accordance with the extensions.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.modifierExtension"> </a><a name="CodeSystem.modifierExtension"> </a><b>CodeSystem.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.url"> </a><a name="CodeSystem.url"> </a><b>CodeSystem.url</b></td></tr>
+  <tr><td>Definition</td><td><p>An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this code system is (or will be) published. The URL SHOULD include the major version of the code system. For more information see <a href="http://build.fhir.org/resource.html#versions">Technical and Business Versions</a>. This is used in [Coding]{datatypes.html#Coding}.system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Allows the code system to be referenced by a single globally unique identifier.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  Multiple instances may share the same url if they have a distinct version.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.identifier"> </a><a name="CodeSystem.identifier"> </a><b>CodeSystem.identifier</b></td></tr>
+  <tr><td>Definition</td><td><p>A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business identifer, not a resource identifier (see <a href="http://build.fhir.org/resource.html#identifiers">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a></td></tr>
+  <tr><td>Requirements</td><td><p>Allows externally provided and/or usable business identifiers to be easily associated with the module.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, e.g., to identify this code system outside of FHIR, where it is not possible to use the logical URI.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.version"> </a><a name="CodeSystem.version"> </a><b>CodeSystem.version</b></td></tr>
+  <tr><td>Definition</td><td><p>The identifier that is used to identify this version of the code system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the code system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. This is used in [Coding]{datatypes.html#Coding}.version.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="http://build.fhir.org/resource.html#versions">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>There may be different code system instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a refrence to a particular business version of the code system with the format [url]|[version].</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.name"> </a><a name="CodeSystem.name"> </a><b>CodeSystem.name</b></td></tr>
+  <tr><td>Definition</td><td><p>A natural language name identifying the code system. This name should be usable as an identifier for the module by machine processing applications such as code generation.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Support human navigation and code generation.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure that it is computable friendly.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.title"> </a><a name="CodeSystem.title"> </a><b>CodeSystem.title</b></td></tr>
+  <tr><td>Definition</td><td><p>A short, descriptive, user-friendly title for the code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.status"> </a><a name="CodeSystem.status"> </a><b>CodeSystem.status</b></td></tr>
+  <tr><td>Definition</td><td><p>The status of this code system. Enables tracking the life-cycle of the content.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The lifecycle status of a Value Set or Concept Map.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-publication-status.html">PublicationStatus</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Allows filtering of code systems that are appropriate for use vs. not.<br  />
+This is labeled as &quot;Is Modifier&quot; because applications should not use a retired code system without due consideration.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.experimental"> </a><a name="CodeSystem.experimental"> </a><b>CodeSystem.experimental</b></td></tr>
+  <tr><td>Definition</td><td><p>A boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Enables experimental content to be developed following the same lifecycle that would be used for a production-level code system.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Allows filtering of code system that are appropriate for use vs. not. This is labeled as &quot;Is Modifier&quot; because applications should not use an experimental code system in production.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.date"> </a><a name="CodeSystem.date"> </a><b>CodeSystem.date</b></td></tr>
+  <tr><td>Definition</td><td><p>The date  (and optionally time) when the code system was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the code system changes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Revision Date</td></tr>
+  <tr><td>Comments</td><td><p>Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the code system. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.publisher"> </a><a name="CodeSystem.publisher"> </a><b>CodeSystem.publisher</b></td></tr>
+  <tr><td>Definition</td><td><p>The name of the individual or organization that published the code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Requirements</td><td><p>Helps establish the &quot;authority/credibility&quot; of the code system.  May also allow for contact.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Usually an organization, but may be an individual. The publisher (or steward) of the code system is the organization or individual primarily responsible for the maintenance and upkeep of the code system. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the code system. This item SHOULD be populated unless the information is available from context.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.contact"> </a><a name="CodeSystem.contact"> </a><b>CodeSystem.contact</b></td></tr>
+  <tr><td>Definition</td><td><p>Contact details to assist a user in finding and communicating with the publisher.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#ContactDetail">ContactDetail</a></td></tr>
+  <tr><td>Comments</td><td><p>May be a web site, an email address, a telephone number, etc.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.description"> </a><a name="CodeSystem.description"> </a><b>CodeSystem.description</b></td></tr>
+  <tr><td>Definition</td><td><p>A free text natural language description of the code system from a consumer's perspective.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Scope, Purpose</td></tr>
+  <tr><td>Comments</td><td><p>This description can be used to capture details such as why the code system was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the code system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.useContext"> </a><a name="CodeSystem.useContext"> </a><b>CodeSystem.useContext</b></td></tr>
+  <tr><td>Definition</td><td><p>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate code system instances.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#UsageContext">UsageContext</a></td></tr>
+  <tr><td>Requirements</td><td><p>Assist in searching for appropriate content.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>When multiple useContexts are specified, there is no expectation whether all or any of the contexts apply.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.jurisdiction"> </a><a name="CodeSystem.jurisdiction"> </a><b>CodeSystem.jurisdiction</b></td></tr>
+  <tr><td>Definition</td><td><p>A legal or geographic region in which the code system is intended to be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Countries and regions within which this artifact is targeted for use<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-jurisdiction.html">Jurisdiction ValueSet</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  <tr><td>Comments</td><td><p>It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.purpose"> </a><a name="CodeSystem.purpose"> </a><b>CodeSystem.purpose</b></td></tr>
+  <tr><td>Definition</td><td><p>Explaination of why this code system is needed and why it has been designed as it has.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td>Comments</td><td><p>This element does not describe the usage of the code system Instead  it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.copyright"> </a><a name="CodeSystem.copyright"> </a><b>CodeSystem.copyright</b></td></tr>
+  <tr><td>Definition</td><td><p>A copyright statement relating to the code system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td>Requirements</td><td><p>Consumers must be able to determine any legal restrictions on the use of the code system and/or its content.</p>
+</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>License, Restrictions</td></tr>
+  <tr><td>Comments</td><td><p>... Sometimes, the copyright differs between the code system and the codes that are included. The copyright statement should clearly differentiate between these when required.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.caseSensitive"> </a><a name="CodeSystem.caseSensitive"> </a><b>CodeSystem.caseSensitive</b></td></tr>
+  <tr><td>Definition</td><td><p>If code comparison is case sensitive when codes within this system are compared to each other.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.valueSet"> </a><a name="CodeSystem.valueSet"> </a><b>CodeSystem.valueSet</b></td></tr>
+  <tr><td>Definition</td><td><p>Canonical URL of value set that contains the entire code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition of the value set SHALL include all codes from this code system, and it SHALL be immutable.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.hierarchyMeaning"> </a><a name="CodeSystem.hierarchyMeaning"> </a><b>CodeSystem.hierarchyMeaning</b></td></tr>
+  <tr><td>Definition</td><td><p>The meaning of the hierarchy of concepts.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The meaning of the hierarchy of concepts in a code system<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-codesystem-hierarchy-meaning.html">CodeSystemHierarchyMeaning</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.compositional"> </a><a name="CodeSystem.compositional"> </a><b>CodeSystem.compositional</b></td></tr>
+  <tr><td>Definition</td><td><p>True If code system defines a post-composition grammar.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>grammar</td></tr>
+  <tr><td>Comments</td><td><p>Note that the code system resource does not define what the compositional grammar is, only whether or not there is one.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.versionNeeded"> </a><a name="CodeSystem.versionNeeded"> </a><b>CodeSystem.versionNeeded</b></td></tr>
+  <tr><td>Definition</td><td><p>This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..0</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td>Comments</td><td><p>Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as 'versionNeeded'.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.content"> </a><a name="CodeSystem.content"> </a><b>CodeSystem.content</b></td></tr>
+  <tr><td>Definition</td><td><p>How much of the content of the code system - the concepts and codes it defines - are represented in this resource.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-codesystem-content-mode.html">CodeSystemContentMode</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.count"> </a><a name="CodeSystem.count"> </a><b>CodeSystem.count</b></td></tr>
+  <tr><td>Definition</td><td><p>The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#unsignedInt">unsignedInt</a></td></tr>
+  <tr><td>Comments</td><td><p>The count of concepts defined in this resource cannot be more than this value, but may be less for several reasons - see the content value.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter"> </a><a name="CodeSystem.filter"> </a><b>CodeSystem.filter</b></td></tr>
+  <tr><td>Definition</td><td><p>A filter that can be used in a value set compose statement when selecting concepts using a filter.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.id"> </a><a name="CodeSystem.filter.id"> </a><b>CodeSystem.filter.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.extension"> </a><a name="CodeSystem.filter.extension"> </a><b>CodeSystem.filter.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.modifierExtension"> </a><a name="CodeSystem.filter.modifierExtension"> </a><b>CodeSystem.filter.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.code"> </a><a name="CodeSystem.filter.code"> </a><b>CodeSystem.filter.code</b></td></tr>
+  <tr><td>Definition</td><td><p>The code that identifies this filter when it is used in the instance.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.description"> </a><a name="CodeSystem.filter.description"> </a><b>CodeSystem.filter.description</b></td></tr>
+  <tr><td>Definition</td><td><p>A description of how or why the filter is used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.operator"> </a><a name="CodeSystem.filter.operator"> </a><b>CodeSystem.filter.operator</b></td></tr>
+  <tr><td>Definition</td><td><p>A list of operators that can be used with the filter.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The kind of operation to perform as a part of a property based filter.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-filter-operator.html">FilterOperator</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.filter.value"> </a><a name="CodeSystem.filter.value"> </a><b>CodeSystem.filter.value</b></td></tr>
+  <tr><td>Definition</td><td><p>A description of what the value for the filter should be.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property"> </a><a name="CodeSystem.property"> </a><b>CodeSystem.property</b></td></tr>
+  <tr><td>Definition</td><td><p>A property defines an additional slot through which additional information can be provided about a concept.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.id"> </a><a name="CodeSystem.property.id"> </a><b>CodeSystem.property.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.extension"> </a><a name="CodeSystem.property.extension"> </a><b>CodeSystem.property.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.modifierExtension"> </a><a name="CodeSystem.property.modifierExtension"> </a><b>CodeSystem.property.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.code"> </a><a name="CodeSystem.property.code"> </a><b>CodeSystem.property.code</b></td></tr>
+  <tr><td>Definition</td><td><p>A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.uri"> </a><a name="CodeSystem.property.uri"> </a><b>CodeSystem.property.uri</b></td></tr>
+  <tr><td>Definition</td><td><p>Reference to the formal meaning of the property. One possible source of meaning is the <a href="http://build.fhir.org/codesystem-concept-properties.html">Concept Properties</a> code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.description"> </a><a name="CodeSystem.property.description"> </a><b>CodeSystem.property.description</b></td></tr>
+  <tr><td>Definition</td><td><p>A description of the property- why it is defined, and how its value might be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.property.type"> </a><a name="CodeSystem.property.type"> </a><b>CodeSystem.property.type</b></td></tr>
+  <tr><td>Definition</td><td><p>The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system (e.g. a reference to anotherr defined concept).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The type of a property value<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-concept-property-type.html">PropertyType</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept"> </a><a name="CodeSystem.concept"> </a><b>CodeSystem.concept</b></td></tr>
+  <tr><td>Definition</td><td><p>Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>If this is empty, it means that the code system resource does not represent the content of the code system.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.id"> </a><a name="CodeSystem.concept.id"> </a><b>CodeSystem.concept.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension"> </a><a name="CodeSystem.concept.extension"> </a><b>CodeSystem.concept.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel"> </a><b>CodeSystem.concept.extension (<a href="http://build.fhir.org/extension-valueset-label.html">http://hl7.org/fhir/StructureDefinition/valueset-label</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.id"> </a><a name="CodeSystem.concept.extension.id"> </a><b>CodeSystem.concept.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.extension"> </a><a name="CodeSystem.concept.extension.extension"> </a><b>CodeSystem.concept.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.url"> </a><a name="CodeSystem.concept.extension.url"> </a><b>CodeSystem.concept.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/valueset-label</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.valueString"> </a><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.value[x]"> </a><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.value[x]"> </a><b>CodeSystem.concept.extension.valueString</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.valueString.id"> </a><a name="CodeSystem.concept.extension.valueString.id"> </a><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.value[x].id"> </a><b>CodeSystem.concept.extension.valueString.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references)</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.valueString.extension"> </a><a name="CodeSystem.concept.extension.valueString.extension"> </a><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.value[x].extension"> </a><b>CodeSystem.concept.extension.valueString.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.valueString.extension:conceptlabel-renderingstyle"> </a><b>CodeSystem.concept.extension.valueString.extension (<a href="http://build.fhir.org/extension-rendering-style.html">http://hl7.org/fhir/StructureDefinition/rendering-style</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how the specified element should be rendered when displayed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.valueString.extension:conceptlabel-xhtml"> </a><b>CodeSystem.concept.extension.valueString.extension (<a href="http://build.fhir.org/extension-rendering-xhtml.html">http://hl7.org/fhir/StructureDefinition/rendering-xhtml</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc. Existing <a href="http://build.fhir.org/narrative.html#security">restrictions on XHTML content</a> apply. Note that using <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a> allows for greater flexibility of display.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.valueString.value"> </a><a name="CodeSystem.concept.extension.valueString.value"> </a><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptlabel.value[x].value"> </a><b>CodeSystem.concept.extension.valueString.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td>Max Length</td><td>1048576</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.extension:conceptconceptorder"> </a><b>CodeSystem.concept.extension (<a href="http://build.fhir.org/extension-valueset-conceptorder.html">http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the relative order in which concepts within the value set should be presented to a user.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.modifierExtension"> </a><a name="CodeSystem.concept.modifierExtension"> </a><b>CodeSystem.concept.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.code"> </a><a name="CodeSystem.concept.code"> </a><b>CodeSystem.concept.code</b></td></tr>
+  <tr><td>Definition</td><td><p>A code - a text symbol - that uniquely identifies the concept within the code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.display"> </a><a name="CodeSystem.concept.display"> </a><b>CodeSystem.concept.display</b></td></tr>
+  <tr><td>Definition</td><td><p>A human readable string that is the recommended default way to present this concept to a user.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.display.id"> </a><a name="CodeSystem.concept.display.id"> </a><b>CodeSystem.concept.display.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references)</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.display.extension"> </a><a name="CodeSystem.concept.display.extension"> </a><b>CodeSystem.concept.display.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.display.extension:conceptdisplaylabel-renderingstyle"> </a><b>CodeSystem.concept.display.extension (<a href="http://build.fhir.org/extension-rendering-style.html">http://hl7.org/fhir/StructureDefinition/rendering-style</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how the specified element should be rendered when displayed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.display.extension:conceptdisplaylabel-xhtml"> </a><b>CodeSystem.concept.display.extension (<a href="http://build.fhir.org/extension-rendering-xhtml.html">http://hl7.org/fhir/StructureDefinition/rendering-xhtml</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc. Existing <a href="http://build.fhir.org/narrative.html#security">restrictions on XHTML content</a> apply. Note that using <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a> allows for greater flexibility of display.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.display.value"> </a><a name="CodeSystem.concept.display.value"> </a><b>CodeSystem.concept.display.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td>Max Length</td><td>1048576</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.definition"> </a><a name="CodeSystem.concept.definition"> </a><b>CodeSystem.concept.definition</b></td></tr>
+  <tr><td>Definition</td><td><p>The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation"> </a><a name="CodeSystem.concept.designation"> </a><b>CodeSystem.concept.designation</b></td></tr>
+  <tr><td>Definition</td><td><p>Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td>Requirements</td><td><p>Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation.id"> </a><a name="CodeSystem.concept.designation.id"> </a><b>CodeSystem.concept.designation.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation.extension"> </a><a name="CodeSystem.concept.designation.extension"> </a><b>CodeSystem.concept.designation.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation.modifierExtension"> </a><a name="CodeSystem.concept.designation.modifierExtension"> </a><b>CodeSystem.concept.designation.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation.language"> </a><a name="CodeSystem.concept.designation.language"> </a><b>CodeSystem.concept.designation.language</b></td></tr>
+  <tr><td>Definition</td><td><p>The language this designation is defined for.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>A human language.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-languages.html">Common Languages</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>In the absence of a language, the resource language applies.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation.use"> </a><a name="CodeSystem.concept.designation.use"> </a><b>CodeSystem.concept.designation.use</b></td></tr>
+  <tr><td>Definition</td><td><p>A code that details how this designation would be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Details of how a designation would be used.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-designation-use.html">Designation Use</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Coding">Coding</a></td></tr>
+  <tr><td>Comments</td><td><p>If no use is provided, the designation can be assumed to be suitable for general display to a human user.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.designation.value"> </a><a name="CodeSystem.concept.designation.value"> </a><b>CodeSystem.concept.designation.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The text value for this designation.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.property"> </a><a name="CodeSystem.concept.property"> </a><b>CodeSystem.concept.property</b></td></tr>
+  <tr><td>Definition</td><td><p>A property value for this concept.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.property.id"> </a><a name="CodeSystem.concept.property.id"> </a><b>CodeSystem.concept.property.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.property.extension"> </a><a name="CodeSystem.concept.property.extension"> </a><b>CodeSystem.concept.property.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.property.modifierExtension"> </a><a name="CodeSystem.concept.property.modifierExtension"> </a><b>CodeSystem.concept.property.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.property.code"> </a><a name="CodeSystem.concept.property.code"> </a><b>CodeSystem.concept.property.code</b></td></tr>
+  <tr><td>Definition</td><td><p>A code that is a reference to CodeSystem.property.code.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.property.value[x]"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueCode"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueCoding"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueString"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueInteger"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueBoolean"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueDateTime"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueCode"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueCoding"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueString"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueInteger"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueBoolean"> </a><a name="CodeSystem:sdcdecodesystem.concept.property.valueDateTime"> </a><b>CodeSystem.concept.property.value[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>The value of this property.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#code">code</a>, <a href="http://build.fhir.org/datatypes.html#Coding">Coding</a>, <a href="http://build.fhir.org/datatypes.html#string">string</a>, <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>, <a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td colspan="2" class="structure"><a name="CodeSystem:sdcdecodesystem.concept.concept"> </a><a name="CodeSystem.concept.concept"> </a><b>CodeSystem.concept.concept</b></td></tr>
+  <tr><td>Definition</td><td><p>Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td>Type</td><td>See CodeSystem:sdcdecodesystem.concept</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+</table>
+</body>
+</html>

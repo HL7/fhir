@@ -1,0 +1,17 @@
+﻿swagger: 2.0
+
+info:  title: SDC Form Response Manager
+  description: This profile defines the expected capabilities of the ''SDC Form Response Manager'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for providing read/write access to QuestionnaireResponses.  This is typically to support light-weight clients that want to be able to complete forms but don't have local storage to save work in progress.
+  version: 2.0
+  # contact:
+    # end user to fill out
+  license:
+    name: null
+
+# host: [user to provide]
+# basePath: [user to provide]
+schemes:
+  - https
+  # - http this would not normally be allowed (see doco)
+consumes:
+produces:

@@ -1,0 +1,701 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "sdc",
+  "url": "http://hl7.org/fhir/us/sdc/ImplementationGuide/sdc",
+  "name": "Structured Data Capture",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "Health Level Seven International (Orders and Observations - Structured Data Capture)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://www.hl7.org/Special/committees/orders/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.<br/>This includes two components:<br/>* Support more sophisticated questionnaire/form use-cases such as those needed for research, oncology, pathology and other clinical domains.<br/>*Support pre-population and auto-population of EHR data into forms/questionnaires for uses outside direct clinical care (patient safety, adverse event reporting, public health reporting, etc.).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "package": [
+    {
+      "name": "Conformance Statements",
+      "description": "Capabilities of systems claiming to be conformant to the SDC implementation guide",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-form-designer.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC Form Designer",
+          "description": "SDC Form authoring system",
+          "sourceReference": {
+            "reference": "CapabilityStatement/sdc-form-designer"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-form-response-manager.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC Form Response Manager",
+          "description": "SDC Form response management system",
+          "sourceReference": {
+            "reference": "CapabilityStatement/sdc-form-response-manager"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-form-filler.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC Form Filler",
+          "description": "SDC System for completing forms",
+          "sourceReference": {
+            "reference": "CapabilityStatement/sdc-form-filler"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-form-manager.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC Form Manager",
+          "description": "SDC Repository for forms",
+          "sourceReference": {
+            "reference": "CapabilityStatement/sdc-form-manager"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-form-receiver.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC Form Receiver",
+          "description": "SDC Repository for completed forms",
+          "sourceReference": {
+            "reference": "CapabilityStatement/sdc-form-receiver"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-form-archiver.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC Form Archiver",
+          "description": "SDC System for archiving and retrieving the completed forms",
+          "sourceReference": {
+            "reference": "CapabilityStatement/sdc-form-archiver"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Extensions",
+      "description": "Extensions defined as part of the SDC implementation guide",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire-endpoint.html"
+            }
+          ],
+          "example": false,
+          "name": "Endpoint",
+          "description": "The base URL for the server to which questionnaire response associated with this questionnaire should be submitted",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire-endpoint"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire-optionalDisplay.html"
+            }
+          ],
+          "example": false,
+          "name": "Optional Display?",
+          "description": "If set to true, it means that the system displaying the form (or the individual encoding the form for data capture) can choose to omit the item from display to the user.",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire-optionalDisplay"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire-provenanceSignatureRequired.html"
+            }
+          ],
+          "example": false,
+          "name": "Provenance Signature Required?",
+          "description": "If true, indicates that QuestionnaireResponse instances created against this questionnaire must have an associated Provenance record.",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire-provenanceSignatureRequired"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Terminology",
+      "description": "ValueSets (and Code Systems) defined for use within the SDC implementation guide",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "valueset-species.html"
+            }
+          ],
+          "example": false,
+          "name": "Questionnaire Context Species",
+          "description": "Species for defining the context of Questionnaires",
+          "sourceReference": {
+            "reference": "ValueSet/species"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Operation Definitions",
+      "description": "Additional operations defined for use within the SDC implementation guide",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "Questionnaire-process-response.html"
+            }
+          ],
+          "example": true,
+          "name": "Questionnaire process response",
+          "description": "Allows submission of a QuestionnaireRespone for 'processing' by the target server",
+          "sourceReference": {
+            "reference": "OperationDefinition/Questionnaire-process-response"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search Parameters",
+      "description": "Additional search parameters defined for use within the SDC implementation guide",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaire-definition.html"
+            }
+          ],
+          "example": true,
+          "name": "Questionnaire Item definition",
+          "description": "Allows searching by 'definition' element within a Questionnaire's items",
+          "sourceReference": {
+            "reference": "SearchParameter/questionnaire-definition"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Example(s)",
+      "description": "Example(s) showing the use of the SDC profiles",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaire-sdc-profile-example.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC - Combination",
+          "description": "Set of several examples - medication, AHRQ and NCI forms",
+          "sourceReference": {
+            "reference": "Bundle/questionnaire-sdc-profile-example"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-questionnaire"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaire-sdc-profile-example-cap.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC-Pathology",
+          "description": "Cancer pathology questionnaire with flow-control extensions",
+          "sourceReference": {
+            "reference": "Questionnaire/questionnaire-sdc-profile-example-cap"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-questionnaire"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaire-sdc-profile-example-loinc.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC-LOINC AHRQ",
+          "description": "LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires",
+          "sourceReference": {
+            "reference": "Questionnaire/questionnaire-sdc-profile-example-loinc"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-questionnaire"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaire-sdc-profile-example-ussg-fht.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC-LOINC USSG Family History",
+          "description": "LOINC US Surgeon General family history including data elements and value sets.",
+          "sourceReference": {
+            "reference": "Bundle/questionnaire-sdc-profile-example-ussg-fht"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-questionnaire"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaireresponse-sdc-profile-example.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC - Response to Diagnosis NCI Standard Template",
+          "description": "Responses to the questionnaire found in the SDC - Combination list of questionnaires",
+          "sourceReference": {
+            "reference": "QuestionnaireResponse/questionnaireresponse-sdc-profile-example"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-questionnaireresponse"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "questionnaireresponse-sdc-example-ussg-fht-answers.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC-LOINC USSG Family History Response",
+          "description": "Example response to the SDC-LOINC USSG Family History questionnaire",
+          "sourceReference": {
+            "reference": "QuestionnaireResponse/questionnaireresponse-sdc-example-ussg-fht-answers"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-questionnaireresponse"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-profile-example.html"
+            }
+          ],
+          "example": true,
+          "name": "SDC-ValueSet AHRQ_Medication_Q1",
+          "description": "The answer list for question 1 on the AHRQ 'Medication or Other Substance' form",
+          "sourceReference": {
+            "reference": "ValueSet/sdc-profile-example"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-valueset"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "dataelement-sdc-profile-example.html"
+            }
+          ],
+          "example": true,
+          "name": "C-CDA-Gender",
+          "description": "FHIR Gender with mapping to C-CDA",
+          "sourceReference": {
+            "reference": "DataElement/dataelement-sdc-profile-example"
+          },
+          "exampleFor": {
+            "reference": "StructureDefinition/sdc-dataelement"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Structured Data Capture Code System",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-codesystem.html"
+            }
+          ],
+          "example": false,
+          "name": "Structured Data Capture Code System",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-codesystem"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Structured Data Capture Data Element",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-dataelement.html"
+            }
+          ],
+          "example": false,
+          "name": "Structured Data Capture Data Element",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-dataelement"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Structured Data Capture Questionnaire Design",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire-endpoint.html"
+            }
+          ],
+          "example": false,
+          "name": "Where to send answers",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire-endpoint"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire-optionalDisplay.html"
+            }
+          ],
+          "example": false,
+          "name": "Can suppress from display to user",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire-optionalDisplay"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire-provenanceSignatureRequired.html"
+            }
+          ],
+          "example": false,
+          "name": "Is associated Provenance needed?",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire-provenanceSignatureRequired"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaire.html"
+            }
+          ],
+          "example": false,
+          "name": "Structured Data Capture Questionnaire Design",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Structured Data Capture Data Capture",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-questionnaireresponse.html"
+            }
+          ],
+          "example": false,
+          "name": "Structured Data Capture Data Capture",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-questionnaireresponse"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Structured Data Capture Value Set",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "sdc-valueset.html"
+            }
+          ],
+          "example": false,
+          "name": "Structured Data Capture Value Set",
+          "sourceReference": {
+            "reference": "StructureDefinition/sdc-valueset"
+          }
+        }
+      ]
+    }
+  ],
+  "binary": [
+    "sdc-form-curation.png",
+    "sdc-form-population.png",
+    "sdc-generic-workflow.png"
+  ],
+  "page": {
+    "source": "toc.html",
+    "title": "Table of Contents",
+    "kind": "page",
+    "page": [
+      {
+        "source": "index.html",
+        "title": "SDC Home Page",
+        "kind": "page"
+      },
+      {
+        "source": "sdc-intro.html",
+        "title": "Introduction",
+        "kind": "page"
+      },
+      {
+        "source": "sdc-security.html",
+        "title": "Security Details",
+        "kind": "page"
+      },
+      {
+        "source": "artifacts.html",
+        "title": "Artifact List",
+        "kind": "page",
+        "page": [
+          {
+            "source": "sdc-form-designer.html",
+            "title": "SDC Form Designer",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-form-response-manager.html",
+            "title": "SDC Form Response Manager",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-form-filler.html",
+            "title": "SDC Form Filler",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-form-manager.html",
+            "title": "SDC Form Manager",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-form-receiver.html",
+            "title": "SDC Form Receiver",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-form-archiver.html",
+            "title": "SDC Form Archiver",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-questionnaire.html",
+            "title": "SDC Questionnaire",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-questionnaireresponse.html",
+            "title": "SDC Questionnaire Response",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-valueset.html",
+            "title": "SDC Value Set",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-codesystem.html",
+            "title": "SDC Code System",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-dataelement.html",
+            "title": "SDC Data Element",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-questionnaire-endpoint.html",
+            "title": "Endpoint",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-questionnaire-optionalDisplay.html",
+            "title": "Optional Display?",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-questionnaire-provenanceSignatureRequired.html",
+            "title": "Provenance Signature Required?",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "valueset-dex-mimetype.html",
+            "title": "DEX mapping language mime types",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "valueset-species.html",
+            "title": "Questionnaire Context Species",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "Questionnaire-process-response.html",
+            "title": "Questionnaire process response",
+            "kind": "resource",
+            "format": "generated"
+          },
+          {
+            "source": "questionnaire-definition.html",
+            "title": "Questionnaire Item definition",
+            "kind": "example",
+            "format": "generated-resource"
+          },
+          {
+            "source": "questionnaire-sdc-profile-example.html",
+            "title": "SDC - Combination",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "questionnaire-sdc-profile-example-cap.html",
+            "title": "SDC-Pathology",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "questionnaire-sdc-profile-example-loinc.html",
+            "title": "SDC-LOINC AHRQ",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "questionnaire-sdc-profile-example-ussg-fht.html",
+            "title": "SDC-LOINC USSG Family History",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "questionnaireresponse-sdc-profile-example.html",
+            "title": "SDC - Response to Diagnosis NCI Standard Template",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "questionnaireresponse-sdc-example-ussg-fht-answers.html",
+            "title": "SDC-LOINC USSG Family History Response",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "sdc-profile-example.html",
+            "title": "SDC-ValueSet AHRQ_Medication_Q1",
+            "kind": "example",
+            "format": "generated"
+          },
+          {
+            "source": "dataelement-sdc-profile-example.html",
+            "title": "C-CDA-Gender",
+            "kind": "example",
+            "format": "generated"
+          }
+        ]
+      },
+      {
+        "source": "downloads.html",
+        "title": "Useful Downloads",
+        "kind": "page"
+      },
+      {
+        "source": "changes.html",
+        "title": "IG Change History",
+        "kind": "page"
+      }
+    ]
+  }
+}

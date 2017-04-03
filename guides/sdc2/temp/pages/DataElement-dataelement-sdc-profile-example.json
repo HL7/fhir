@@ -1,0 +1,61 @@
+{
+  "resourceType": "DataElement",
+  "id": "dataelement-sdc-profile-example",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href=\"http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example\">http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example</a></p><p><b>version</b>: 2.0</p><p><b>name</b>: Patient Gender</p><p><b>status</b>: DRAFT</p><p><b>date</b>: 4-Feb-2015</p><p><b>publisher</b>: Health Level Seven, International</p><p><b>contact</b>: </p><p><b>url</b>: <a href=\"http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example\">http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example</a></p><p><b>identifier</b>: DE42AHRQ</p><p><b>version</b>: 2.0</p><p><b>status</b>: DRAFT</p><p><b>date</b>: 4-Feb-2015</p><p><b>publisher</b>: Health Level Seven, International</p><p><b>name</b>: Patient Gender</p><p><b>contact</b>: </p><h3>Mappings</h3><table class=\"grid\"><tr><td>-</td><td><b>Identity</b></td><td><b>Uri</b></td><td><b>Name</b></td></tr><tr><td>*</td><td>c-cda</td><td><a href=\"http://hl7.org/C-CDA-not-a-real-url\">http://hl7.org/C-CDA-not-a-real-url</a></td><td>Consolidated CDA R2</td></tr></table><p><b>element</b>: todo-bundle</p></div>"
+  },
+  "url": "http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example",
+  "identifier": [
+    {
+      "system": "http://nlm.nih.gov/some_other_text/data_element_identifier",
+      "value": "DE42AHRQ"
+    }
+  ],
+  "version": "2.0",
+  "status": "draft",
+  "date": "2015-02-04",
+  "publisher": "Health Level Seven, International",
+  "name": "Patient Gender",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://hl7.org"
+        }
+      ]
+    }
+  ],
+  "mapping": [
+    {
+      "identity": "c-cda",
+      "uri": "http://hl7.org/C-CDA-not-a-real-url",
+      "name": "Consolidated CDA R2"
+    }
+  ],
+  "element": [
+    {
+      "path": "administrativeGender",
+      "definition": "The gender (i.e., the behavioral, cultural, or psychological traits typically associated with one sex) of a living subject as defined for administrative purposes.",
+      "type": [
+        {
+          "code": "CodeableConcept"
+        }
+      ],
+      "binding": {
+        "strength": "required",
+        "valueSetReference": {
+          "reference": "http://hl7.org/fhir/ValueSet/administrative-gender"
+        }
+      },
+      "mapping": [
+        {
+          "identity": "c-cda",
+          "language": "xpath",
+          "map": "/ClinicalDocument/recordTarget/patientRole/patient/administrativeGender"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+﻿<html>
+<head>
+  <title>Questionnaire-questionnaire-sdc-profile-example-cap-ttl-html</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# - resource -------------------------------------------------------------------
+
+ a fhir:Questionnaire;
+  <a href="http://build.fhir.org/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot;
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.id">fhir:Resource.id</a> [ <a href="http://build.fhir.org/datatypes.html#id">fhir:value</a> &quot;questionnaire-sdc-profile-example-cap&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.text">fhir:DomainResource.text</a> [
+     <a href="http://build.fhir.org/datatypes.html#Narrative#Narrative.status">fhir:Narrative.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;generated&quot; ];
+     fhir:Narrative.div &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Generated Narrative with Details&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=\&quot;http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-cap\&quot;&gt;http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-cap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: (Ask Richard)&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: ACTIVE&lt;/p&gt;&lt;p&gt;&lt;b&gt;url&lt;/b&gt;: &lt;a href=\&quot;http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-cap\&quot;&gt;http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-cap&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: (Ask Richard)&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: ACTIVE&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;linkId&lt;/b&gt;: 1&lt;/p&gt;&lt;p&gt;&lt;b&gt;text&lt;/b&gt;: MARGINS&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: GROUP&lt;/p&gt;&lt;p&gt;&lt;b&gt;required&lt;/b&gt;: true&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;linkId&lt;/b&gt;: 2&lt;/p&gt;&lt;p&gt;&lt;b&gt;text&lt;/b&gt;: ACCESSORY FINDINGS&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: GROUP&lt;/p&gt;&lt;p&gt;&lt;b&gt;required&lt;/b&gt;: true&lt;/p&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;&lt;b&gt;item&lt;/b&gt;&lt;/p&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;/div&gt;&quot;
+  ];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.url">fhir:Questionnaire.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-cap&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.title">fhir:Questionnaire.title</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;(Ask Richard)&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.status">fhir:Questionnaire.status</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;active&quot;];
+  <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item">fhir:Questionnaire.item</a> [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;MARGINS&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Status of surgical margin involvement by tumor (observable entity)&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;M1&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Margins univolved by tumor&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;M2&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Margin(s) involved by tumor&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;M3&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be determined&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;M4&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Not applicable&quot; ]         ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.enableWhen">fhir:Questionnaire.item.enableWhen</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.enableWhen.question">fhir:Questionnaire.item.enableWhen.question</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.enableWhen.answer[x]">fhir:Questionnaire.item.enableWhen.answerCoding</a> [
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;M1&quot; ]           ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1.1&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Distance from Closest Margin&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;D1&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify (mm)&quot; ]             ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;D2&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be assessed (explain)&quot; ]             ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.extension">fhir:Element.extension</a> [
+               <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/minValue&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueDecimal</a> [ <a href="http://build.fhir.org/datatypes.html#decimal">fhir:value</a> &quot;0.01&quot;^^xsd:decimal ]             ], [
+               <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/maxValue&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueDecimal</a> [ <a href="http://build.fhir.org/datatypes.html#decimal">fhir:value</a> &quot;1000&quot;^^xsd:decimal ]             ], [
+               <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.url">fhir:Extension.url</a> [ <a href="http://build.fhir.org/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/StructureDefinition/maxDecimalPlaces&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">fhir:Extension.valueInteger</a> [ <a href="http://build.fhir.org/datatypes.html#integer">fhir:value</a> &quot;2&quot;^^xsd:integer ]             ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1.1.1.1&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify (mm)&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;decimal&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1.1.2.1&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be assessed (explain)&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1.2&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify Margin, if possible&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;W1&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify margin&quot; ]             ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;W2&quot; ];
+               <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be determined (explain)&quot; ]             ]           ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1.2.1.1&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify margin&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ], [
+             <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.1.2.2.1&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be determined (explain)&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+             <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]           ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.2.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify Margin(s), if possible&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;I1&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify margin(s)&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;I2&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be determined (explain)&quot; ]           ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.2.1.1.1&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Specify margin(s)&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.2.1.2.1&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be determined (explain)&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.3.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Cannot be determined&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;1.1.4.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Not Applicable&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ]     ]
+  ], [
+     <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;ACCESSORY FINDINGS&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;group&quot; ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+     <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.1&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Treatment Effect (applicable to carcinomas treated with neoadjuvant therapy)&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;E1&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Not identified&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;E2&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Present (specify)&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;E3&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Indeterminate&quot; ]         ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.1.1.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Not identified&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.1.2.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Present (specify)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.1.3.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Indeterminate&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ]     ], [
+       <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.2&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Tumor Description&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.repeats">fhir:Questionnaire.item.repeats</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;U1&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Hemorrhagic&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;U2&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Necrotic&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;U3&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Invasion&quot; ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 3;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;U4&quot; ];
+           <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other (specify)&quot; ]         ]       ];
+       <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.2.1.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;??&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;choice&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.repeats">fhir:Questionnaire.item.repeats</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option">fhir:Questionnaire.item.option</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;V1&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Capsule&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;V2&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Vessels&quot; ]           ]         ], [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 2;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.option.value[x]">fhir:Questionnaire.item.option.valueCoding</a> [
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">fhir:Coding.code</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;V3&quot; ];
+             <a href="http://build.fhir.org/datatypes.html#Coding#Coding.display">fhir:Coding.display</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Extra-adrenal (specify)&quot; ]           ]         ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.item">fhir:Questionnaire.item.item</a> [
+           <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 0;
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.2.1.1.1.1&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Extra-adrenal (specify)&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+           <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]         ]       ], [
+         <a href="http://build.fhir.org/rdf.html#index">fhir:index</a> 1;
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.linkId">fhir:Questionnaire.item.linkId</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;2.2.2.1&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.text">fhir:Questionnaire.item.text</a> [ <a href="http://build.fhir.org/datatypes.html#string">fhir:value</a> &quot;Other (specify)&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.type">fhir:Questionnaire.item.type</a> [ <a href="http://build.fhir.org/datatypes.html#code">fhir:value</a> &quot;string&quot; ];
+         <a href="http://build.fhir.org/questionnaire.html#Questionnaire.item.required">fhir:Questionnaire.item.required</a> [ <a href="http://build.fhir.org/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]       ]     ]
+  ].
+
+# - ontology header ------------------------------------------------------------
+
+ a owl:Ontology;
+  owl:imports fhir:fhir.ttl.
+
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,894 @@
+﻿<html>
+<head>
+  <title>StructureDefinition-sdc-valueset-dict</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<table class="dict">
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset"> </a><a name="ValueSet"> </a><b>ValueSet(SDCDEValueSet)</b></td></tr>
+  <tr><td>Definition</td><td><p>Sets expectations for SDC-conformant systems around value set support for representing permitted question answers.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">dom-1</b>: If the resource is contained in another resource, it SHALL NOT contain any narrative (: contained.text.empty())<br/><b title="Formal Invariant Identifier">dom-2</b>: If the resource is contained in another resource, it SHALL NOT contain nested Resources (: contained.contained.empty())<br/><b title="Formal Invariant Identifier">dom-3</b>: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource (: contained.where(('#'+id in %resource.descendants().reference).not()).empty())<br/><b title="Formal Invariant Identifier">dom-4</b>: If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated (: contained.meta.versionId.empty() and contained.meta.lastUpdated.empty())<br/><b title="Formal Invariant Identifier">vsd-5</b>: Value set SHALL contain at least one of a compose or an expansion element (: compose.exists() or expansion.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.id"> </a><a name="ValueSet.id"> </a><b>ValueSet.id</b></td></tr>
+  <tr><td>Definition</td><td><p>The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#id">id</a></td></tr>
+  <tr><td>Comments</td><td><p>The only time that a resource does not have an id is when it is being submitted to the server using a create operation.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.meta"> </a><a name="ValueSet.meta"> </a><b>ValueSet.meta</b></td></tr>
+  <tr><td>Definition</td><td><p>The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Meta">Meta</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.implicitRules"> </a><a name="ValueSet.implicitRules"> </a><b>ValueSet.implicitRules</b></td></tr>
+  <tr><td>Definition</td><td><p>A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element.</p>
+<p>This element is labelled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it's meaning or interpretation.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.language"> </a><a name="ValueSet.language"> </a><b>ValueSet.language</b></td></tr>
+  <tr><td>Definition</td><td><p>The base language in which the resource is written.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>A human language.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-languages.html">Common Languages</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.text"> </a><a name="ValueSet.text"> </a><b>ValueSet.text</b></td></tr>
+  <tr><td>Definition</td><td><p>A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: dom-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Narrative">Narrative</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>narrative, html, xhtml, display</td></tr>
+  <tr><td>Comments</td><td><p>Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs=1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a &quot;text blob&quot; or where text is additionally entered raw or narrated and encoded in formation is added later.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.contained"> </a><a name="ValueSet.contained"> </a><b>ValueSet.contained</b></td></tr>
+  <tr><td>Definition</td><td><p>These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/resource.html">Resource</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>inline resources, anonymous resources, contained resources</td></tr>
+  <tr><td>Comments</td><td><p>This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.extension"> </a><a name="ValueSet.extension"> </a><b>ValueSet.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.extension:stylesensitive"> </a><b>ValueSet.extension (<a href="http://build.fhir.org/extension-rendering-stylesensitive.html">http://hl7.org/fhir/StructureDefinition/rendering-styleSensitive</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Indicates that the style extensions (<a href="http://build.fhir.org/extension-rendering-style.html">style</a>, <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a>) and <a href="http://build.fhir.org/extension-rendering-xhtml.html">xhtml</a>) in this resource are essential to the interpretation of the styled text and that it cannot be rendered without the style without losing essential information.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>)</td></tr>
+  <tr><td>Comments</td><td><p>If set to true, all systems that claim to support this extension and which render elements of the resource containing this extension SHALL either render the content as required by the style extensions defined by this profile that are present in the resource or shall (if safe to do so based on their own rules), omit entirely the styled content they cannot render in accordance with the extensions.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.modifierExtension"> </a><a name="ValueSet.modifierExtension"> </a><b>ValueSet.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.url"> </a><a name="ValueSet.url"> </a><b>ValueSet.url</b></td></tr>
+  <tr><td>Definition</td><td><p>An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see <a href="http://build.fhir.org/resource.html#versions">Technical and Business Versions</a>.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Allows the value set to be referenced by a single globally unique identifier.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  Multiple instances may share the same url if they have a distinct version.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.identifier"> </a><a name="ValueSet.identifier"> </a><b>ValueSet.identifier</b></td></tr>
+  <tr><td>Definition</td><td><p>A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business identifer, not a resource identifier (see <a href="http://build.fhir.org/resource.html#identifiers">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Identifier">Identifier</a></td></tr>
+  <tr><td>Requirements</td><td><p>Allows externally provided and/or usable business identifiers to be easily associated with the module.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, e.g., to identify this value set outside of FHIR, where it is not possible to use the logical URI.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.version"> </a><a name="ValueSet.version"> </a><b>ValueSet.version</b></td></tr>
+  <tr><td>Definition</td><td><p>The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="http://build.fhir.org/resource.html#versions">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>There may be different value set instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a refrence to a particular business version of the value set with the format [url]|[version].</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.name"> </a><a name="ValueSet.name"> </a><b>ValueSet.name</b></td></tr>
+  <tr><td>Definition</td><td><p>A natural language name identifying the value set. This name should be usable as an identifier for the module by machine processing applications such as code generation.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Support human navigation and code generation.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>The name is not expected to be globally unique. The name should be a simple alpha-numeric type name to ensure that it is computable friendly. A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.title"> </a><a name="ValueSet.title"> </a><b>ValueSet.title</b></td></tr>
+  <tr><td>Definition</td><td><p>A short, descriptive, user-friendly title for the value set.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.status"> </a><a name="ValueSet.status"> </a><b>ValueSet.status</b></td></tr>
+  <tr><td>Definition</td><td><p>The status of this value set. Enables tracking the life-cycle of the content.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The lifecycle status of a Value Set or Concept Map.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-publication-status.html">PublicationStatus</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Allows filtering of value sets that are appropriate for use vs. not.<br  />
+This is labeled as &quot;Is Modifier&quot; because applications should not use a retired value set without due consideration.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.experimental"> </a><a name="ValueSet.experimental"> </a><b>ValueSet.experimental</b></td></tr>
+  <tr><td>Definition</td><td><p>A boolean value to indicate that this value set is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>Enables experimental content to be developed following the same lifecycle that would be used for a production-level value set.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Allows filtering of value set that are appropriate for use vs. not. This is labeled as &quot;Is Modifier&quot; because applications should not use an experimental value set in production.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.date"> </a><a name="ValueSet.date"> </a><b>ValueSet.date</b></td></tr>
+  <tr><td>Definition</td><td><p>The date  (and optionally time) when the value set was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the value set changes. (e.g. the 'content logical definition').</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Revision Date</td></tr>
+  <tr><td>Comments</td><td><p>Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the value set. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.publisher"> </a><a name="ValueSet.publisher"> </a><b>ValueSet.publisher</b></td></tr>
+  <tr><td>Definition</td><td><p>The name of the individual or organization that published the value set.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Requirements</td><td><p>Helps establish the &quot;authority/credibility&quot; of the value set.  May also allow for contact.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>Usually an organization, but may be an individual. The publisher (or steward) of the value set is the organization or individual primarily responsible for the maintenance and upkeep of the value set. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the value set. This item SHOULD be populated unless the information is available from context.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.contact"> </a><a name="ValueSet.contact"> </a><b>ValueSet.contact</b></td></tr>
+  <tr><td>Definition</td><td><p>Contact details to assist a user in finding and communicating with the publisher.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#ContactDetail">ContactDetail</a></td></tr>
+  <tr><td>Comments</td><td><p>May be a web site, an email address, a telephone number, etc.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.description"> </a><a name="ValueSet.description"> </a><b>ValueSet.description</b></td></tr>
+  <tr><td>Definition</td><td><p>A free text natural language description of the value set from a consumer's perspective.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Scope, Purpose</td></tr>
+  <tr><td>Comments</td><td><p>This description can be used to capture details such as why the value set was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the value set as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the profile is presumed to be the predominant language in the place the profile was created). The description is not intended to describe the semantics of the Value Set - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a description.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.useContext"> </a><a name="ValueSet.useContext"> </a><b>ValueSet.useContext</b></td></tr>
+  <tr><td>Definition</td><td><p>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate value set instances.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#UsageContext">UsageContext</a></td></tr>
+  <tr><td>Requirements</td><td><p>Assist in searching for appropriate content.</p>
+</td></tr>
+  <tr><td>Comments</td><td><p>When multiple useContexts are specified, there is no expectation whether all or any of the contexts apply.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.jurisdiction"> </a><a name="ValueSet.jurisdiction"> </a><b>ValueSet.jurisdiction</b></td></tr>
+  <tr><td>Definition</td><td><p>A legal or geographic region in which the value set is intended to be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Countries and regions within which this artifact is targeted for use<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-jurisdiction.html">Jurisdiction ValueSet</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
+  <tr><td>Comments</td><td><p>It may be possible for the value set to be used in jurisdictions other than those for which it was originally designed or intended.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.immutable"> </a><a name="ValueSet.immutable"> </a><b>ValueSet.immutable</b></td></tr>
+  <tr><td>Definition</td><td><p>If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Normally immutability is set to 'false', which is the default assumption if it is not populated.  Note that the implication is that if this is set to 'true', there may be only one ValueSet version for this definition. Immutability tends to be set to 'true' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example &quot;All specializations of ACT in ActClassCode&quot; - Where there's no safe way to express the &quot;Purpose&quot; such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.purpose"> </a><a name="ValueSet.purpose"> </a><b>ValueSet.purpose</b></td></tr>
+  <tr><td>Definition</td><td><p>Explaination of why this value set is needed and why it has been designed as it has.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td>Comments</td><td><p>This element does not describe the usage of the value set Instead  it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this value set.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.copyright"> </a><a name="ValueSet.copyright"> </a><b>ValueSet.copyright</b></td></tr>
+  <tr><td>Definition</td><td><p>A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#markdown">markdown</a></td></tr>
+  <tr><td>Requirements</td><td><p>Consumers must be able to determine any legal restrictions on the use of the value set and/or its content.</p>
+</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>License, Restrictions</td></tr>
+  <tr><td>Comments</td><td><p>null Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.extensible"> </a><a name="ValueSet.extensible"> </a><b>ValueSet.extensible</b></td></tr>
+  <tr><td>Definition</td><td><p>Whether this is intended to be used with an extensible binding or not.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Requirements</td><td><p>It is not required to say whether this intent applies.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose"> </a><a name="ValueSet.compose"> </a><b>ValueSet.compose</b></td></tr>
+  <tr><td>Definition</td><td><p>A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the &quot;Content Logical Definition&quot; (CLD).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: vsd-5</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>Content Logical Definition</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.id"> </a><a name="ValueSet.compose.id"> </a><b>ValueSet.compose.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.extension"> </a><a name="ValueSet.compose.extension"> </a><b>ValueSet.compose.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.modifierExtension"> </a><a name="ValueSet.compose.modifierExtension"> </a><b>ValueSet.compose.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.lockedDate"> </a><a name="ValueSet.compose.lockedDate"> </a><b>ValueSet.compose.lockedDate</b></td></tr>
+  <tr><td>Definition</td><td><p>If a locked date is defined, then the Content Logical Definition must be evaluated using the current version as of the locked date for referenced code system(s) and value set instances where ValueSet.compose.include.version is not defined.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#date">date</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>With a defined lockedDate the value set is considered &quot;Locked&quot;. Otherwise, the value set may have different expansions as underlying code systems and/or value sets evolve.  The interpretation of lockedDate is often dependent on the context - e.g. a SNOMED CT derived value set with a lockedDate will have a different expansion in USA than in UK.  If a value set specifies a version for include and exclude statements, and also specifies a locked date, the specified versions need to be available that date, or the value set will not be usable.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.inactive"> </a><a name="ValueSet.compose.inactive"> </a><b>ValueSet.compose.inactive</b></td></tr>
+  <tr><td>Definition</td><td><p>Whether inactive codes - codes that are not approved for current use - are in the value set. If inactive = true, inactive codes are to be included in the expansion, if inactive = false, the inactive codes will not be included in the expansion. If absent, the behavior is determined by the implementation, or by the applicable ExpansionProfile (but generally, inactive codes would be expected to be included).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Note that in the FHIR terminology framework, &quot;deprecated&quot; does not mean inactive, but in some code systems (e.g. LOINC, deprecated means inactive). Code systems should define what codes are considered to be inactive. If this is not clearly defined (including in the FHIR code system resource), then all codes are assumed to be active.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include"> </a><a name="ValueSet.compose.include"> </a><b>ValueSet.compose.include</b></td></tr>
+  <tr><td>Definition</td><td><p>Include one or more codes from a code system or other value set(s).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>All the conditions in an include must be true. If a system is listed, all the codes from the system are listed. If one or more filters are listed, all of the filters must apply. If one or more value sets are listed, the codes must be in all the value sets. E.g. each include is 'include all the codes that meet all these conditions'.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">vsd-1</b>: A value set include/exclude SHALL have a value set or a system (: valueSet.exists() or system.exists())<br/><b title="Formal Invariant Identifier">vsd-2</b>: A value set with concepts or filters SHALL include a system (: (concept.exists() or filter.exists()) implies system.exists())<br/><b title="Formal Invariant Identifier">vsd-3</b>: Cannot have both concept and filter (: concept.empty() or filter.empty())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.id"> </a><a name="ValueSet.compose.include.id"> </a><b>ValueSet.compose.include.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.extension"> </a><a name="ValueSet.compose.include.extension"> </a><b>ValueSet.compose.include.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.modifierExtension"> </a><a name="ValueSet.compose.include.modifierExtension"> </a><b>ValueSet.compose.include.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.system"> </a><a name="ValueSet.compose.include.system"> </a><b>ValueSet.compose.include.system</b></td></tr>
+  <tr><td>Definition</td><td><p>An absolute URI which is the code system from which the selected codes come from.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: vsd-1, vsd-2</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.version"> </a><a name="ValueSet.compose.include.version"> </a><b>ValueSet.compose.include.version</b></td></tr>
+  <tr><td>Definition</td><td><p>The version of the code system that the codes are selected from.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="http://build.fhir.org/resource.html#versions">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept"> </a><a name="ValueSet.compose.include.concept"> </a><b>ValueSet.compose.include.concept</b></td></tr>
+  <tr><td>Definition</td><td><p>Specifies a concept to be included or excluded.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: vsd-3</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The list of concepts is considered ordered, though the order may not have any particular significance. Typically, the order of an expansion follows that defined in the compose element.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.id"> </a><a name="ValueSet.compose.include.concept.id"> </a><b>ValueSet.compose.include.concept.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension"> </a><a name="ValueSet.compose.include.concept.extension"> </a><b>ValueSet.compose.include.concept.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel"> </a><b>ValueSet.compose.include.concept.extension (<a href="http://build.fhir.org/extension-valueset-label.html">http://hl7.org/fhir/StructureDefinition/valueset-label</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.id"> </a><a name="ValueSet.compose.include.concept.extension.id"> </a><b>ValueSet.compose.include.concept.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.extension"> </a><a name="ValueSet.compose.include.concept.extension.extension"> </a><b>ValueSet.compose.include.concept.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.url"> </a><a name="ValueSet.compose.include.concept.extension.url"> </a><b>ValueSet.compose.include.concept.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/valueset-label</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.valueString"> </a><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.value[x]"> </a><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.value[x]"> </a><b>ValueSet.compose.include.concept.extension.valueString</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.valueString.id"> </a><a name="ValueSet.compose.include.concept.extension.valueString.id"> </a><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.value[x].id"> </a><b>ValueSet.compose.include.concept.extension.valueString.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references)</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.valueString.extension"> </a><a name="ValueSet.compose.include.concept.extension.valueString.extension"> </a><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.value[x].extension"> </a><b>ValueSet.compose.include.concept.extension.valueString.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.valueString.extension:code-renderingstyle"> </a><b>ValueSet.compose.include.concept.extension.valueString.extension (<a href="http://build.fhir.org/extension-rendering-style.html">http://hl7.org/fhir/StructureDefinition/rendering-style</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how the specified element should be rendered when displayed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.valueString.extension:code-xhtml"> </a><b>ValueSet.compose.include.concept.extension.valueString.extension (<a href="http://build.fhir.org/extension-rendering-xhtml.html">http://hl7.org/fhir/StructureDefinition/rendering-xhtml</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc. Existing <a href="http://build.fhir.org/narrative.html#security">restrictions on XHTML content</a> apply. Note that using <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a> allows for greater flexibility of display.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.valueString.value"> </a><a name="ValueSet.compose.include.concept.extension.valueString.value"> </a><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptlabel.value[x].value"> </a><b>ValueSet.compose.include.concept.extension.valueString.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td>Max Length</td><td>1048576</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.extension:conceptconceptorder"> </a><b>ValueSet.compose.include.concept.extension (<a href="http://build.fhir.org/extension-valueset-conceptorder.html">http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the relative order in which concepts within the value set should be presented to a user.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.modifierExtension"> </a><a name="ValueSet.compose.include.concept.modifierExtension"> </a><b>ValueSet.compose.include.concept.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.code"> </a><a name="ValueSet.compose.include.concept.code"> </a><b>ValueSet.compose.include.concept.code</b></td></tr>
+  <tr><td>Definition</td><td><p>Specifies a code for the concept to be included or excluded.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Expressions are allowed if defined by the underlying code system.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.display"> </a><a name="ValueSet.compose.include.concept.display"> </a><b>ValueSet.compose.include.concept.display</b></td></tr>
+  <tr><td>Definition</td><td><p>The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The value set resource allows for an alternative display to be specified for when this concept is used in this particular value set. See notes in the value set narrative about the correct use of this element.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.display.id"> </a><a name="ValueSet.compose.include.concept.display.id"> </a><b>ValueSet.compose.include.concept.display.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references)</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.display.extension"> </a><a name="ValueSet.compose.include.concept.display.extension"> </a><b>ValueSet.compose.include.concept.display.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.display.extension:codedisplay-renderingstyle"> </a><b>ValueSet.compose.include.concept.display.extension (<a href="http://build.fhir.org/extension-rendering-style.html">http://hl7.org/fhir/StructureDefinition/rendering-style</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how the specified element should be rendered when displayed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.display.extension:codedisplay-xhtml"> </a><b>ValueSet.compose.include.concept.display.extension (<a href="http://build.fhir.org/extension-rendering-xhtml.html">http://hl7.org/fhir/StructureDefinition/rendering-xhtml</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc. Existing <a href="http://build.fhir.org/narrative.html#security">restrictions on XHTML content</a> apply. Note that using <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a> allows for greater flexibility of display.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.display.value"> </a><a name="ValueSet.compose.include.concept.display.value"> </a><b>ValueSet.compose.include.concept.display.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td>Max Length</td><td>1048576</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation"> </a><a name="ValueSet.compose.include.concept.designation"> </a><b>ValueSet.compose.include.concept.designation</b></td></tr>
+  <tr><td>Definition</td><td><p>Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation.id"> </a><a name="ValueSet.compose.include.concept.designation.id"> </a><b>ValueSet.compose.include.concept.designation.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation.extension"> </a><a name="ValueSet.compose.include.concept.designation.extension"> </a><b>ValueSet.compose.include.concept.designation.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation.modifierExtension"> </a><a name="ValueSet.compose.include.concept.designation.modifierExtension"> </a><b>ValueSet.compose.include.concept.designation.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation.language"> </a><a name="ValueSet.compose.include.concept.designation.language"> </a><b>ValueSet.compose.include.concept.designation.language</b></td></tr>
+  <tr><td>Definition</td><td><p>The language this designation is defined for.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>A human language.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-languages.html">Common Languages</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>Comments</td><td><p>In the absence of a language, the resource language applies.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation.use"> </a><a name="ValueSet.compose.include.concept.designation.use"> </a><b>ValueSet.compose.include.concept.designation.use</b></td></tr>
+  <tr><td>Definition</td><td><p>A code that details how this designation would be used.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>Details of how a designation would be used.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-designation-use.html">Designation Use</a>; other codes may be used where these codes are not suitable</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Coding">Coding</a></td></tr>
+  <tr><td>Comments</td><td><p>If no use is provided, the designation can be assumed to be suitable for general display to a human user.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.concept.designation.value"> </a><a name="ValueSet.compose.include.concept.designation.value"> </a><b>ValueSet.compose.include.concept.designation.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The text value for this designation.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter"> </a><a name="ValueSet.compose.include.filter"> </a><b>ValueSet.compose.include.filter</b></td></tr>
+  <tr><td>Definition</td><td><p>Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: vsd-3</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter.id"> </a><a name="ValueSet.compose.include.filter.id"> </a><b>ValueSet.compose.include.filter.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter.extension"> </a><a name="ValueSet.compose.include.filter.extension"> </a><b>ValueSet.compose.include.filter.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter.modifierExtension"> </a><a name="ValueSet.compose.include.filter.modifierExtension"> </a><b>ValueSet.compose.include.filter.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter.property"> </a><a name="ValueSet.compose.include.filter.property"> </a><b>ValueSet.compose.include.filter.property</b></td></tr>
+  <tr><td>Definition</td><td><p>A code that identifies a property defined in the code system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter.op"> </a><a name="ValueSet.compose.include.filter.op"> </a><b>ValueSet.compose.include.filter.op</b></td></tr>
+  <tr><td>Definition</td><td><p>The kind of operation to perform as a part of the filter criteria.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/terminologies.html">Binding</a></td><td>The kind of operation to perform as a part of a property based filter.<br/>The codes SHALL be taken from <a href="http://build.fhir.org/valueset-filter-operator.html">FilterOperator</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.filter.value"> </a><a name="ValueSet.compose.include.filter.value"> </a><b>ValueSet.compose.include.filter.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.include.valueSet"> </a><a name="ValueSet.compose.include.valueSet"> </a><b>ValueSet.compose.include.valueSet</b></td></tr>
+  <tr><td>Definition</td><td><p>Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: vsd-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set]{snomedct.html#implicit}, or a direct reference to a value set definition using ValueSet.url. The reference may not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.compose.exclude"> </a><a name="ValueSet.compose.exclude"> </a><b>ValueSet.compose.exclude</b></td></tr>
+  <tr><td>Definition</td><td><p>Exclude one or more codes from the value set based on code system filters and/or other value sets.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..* This element is affected by the following invariants: vsd-2</td></tr>
+  <tr><td>Type</td><td>See ValueSet:sdcdevalueset.compose.include</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Usually this is used to selectively exclude codes that were included by subsumption in the inclusions. Any display names specified for the codes are ignored.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion"> </a><a name="ValueSet.expansion"> </a><b>ValueSet.expansion</b></td></tr>
+  <tr><td>Definition</td><td><p>A value set can also be &quot;expanded&quot;, where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: vsd-5</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Expansion is performed to produce a collection of codes that are ready to use for data entry or validation.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.id"> </a><a name="ValueSet.expansion.id"> </a><b>ValueSet.expansion.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.extension"> </a><a name="ValueSet.expansion.extension"> </a><b>ValueSet.expansion.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.modifierExtension"> </a><a name="ValueSet.expansion.modifierExtension"> </a><b>ValueSet.expansion.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.identifier"> </a><a name="ValueSet.expansion.identifier"> </a><b>ValueSet.expansion.identifier</b></td></tr>
+  <tr><td>Definition</td><td><p>An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business identifer, not a resource identifier (see <a href="http://build.fhir.org/resource.html#identifiers">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>Typically, this uri is a UUID (e.g. urn:uuid:8230ff20-c97a-4167-a59d-dc2cb9df16dd).</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.timestamp"> </a><a name="ValueSet.expansion.timestamp"> </a><b>ValueSet.expansion.timestamp</b></td></tr>
+  <tr><td>Definition</td><td><p>The time at which the expansion was produced by the expanding system.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#dateTime">dateTime</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>This SHOULD be a fully populated instant, but in some circumstances, value sets are expanded by hand, and the expansion is published without that precision.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.total"> </a><a name="ValueSet.expansion.total"> </a><b>ValueSet.expansion.total</b></td></tr>
+  <tr><td>Definition</td><td><p>The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#integer">integer</a></td></tr>
+  <tr><td>Comments</td><td><p>Paging only applies to flat expansions.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.offset"> </a><a name="ValueSet.expansion.offset"> </a><b>ValueSet.expansion.offset</b></td></tr>
+  <tr><td>Definition</td><td><p>If paging is being used, the offset at which this resource starts.  I.e. this resource is a partial view into the expansion. If paging is not being used, this element SHALL not be present.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#integer">integer</a></td></tr>
+  <tr><td>Comments</td><td><p>Paging only applies to flat expansions. If a filter is applied, the count is the number of concepts that matched the filter, not the number of concepts in an unfiltered view of the expansion.</p>
+</td></tr>
+  <tr><td>Meaning if Missing</td><td>Paging is not being used</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.parameter"> </a><a name="ValueSet.expansion.parameter"> </a><b>ValueSet.expansion.parameter</b></td></tr>
+  <tr><td>Definition</td><td><p>A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td>Comments</td><td><p>The server decides which parameters to include here, but at a minimum, the list SHOULD include the date, filter, and profile parameters passed to the $expand operation (if any).</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.parameter.id"> </a><a name="ValueSet.expansion.parameter.id"> </a><b>ValueSet.expansion.parameter.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.parameter.extension"> </a><a name="ValueSet.expansion.parameter.extension"> </a><b>ValueSet.expansion.parameter.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.parameter.modifierExtension"> </a><a name="ValueSet.expansion.parameter.modifierExtension"> </a><b>ValueSet.expansion.parameter.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.parameter.name"> </a><a name="ValueSet.expansion.parameter.name"> </a><b>ValueSet.expansion.parameter.name</b></td></tr>
+  <tr><td>Definition</td><td><p>The name of the parameter.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td>Comments</td><td><p>The names are assigned at the discretion of the server.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.parameter.value[x]"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueString"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueBoolean"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueInteger"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueDecimal"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueUri"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueCode"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueString"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueBoolean"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueInteger"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueDecimal"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueUri"> </a><a name="ValueSet:sdcdevalueset.expansion.parameter.valueCode"> </a><b>ValueSet.expansion.parameter.value[x]</b></td></tr>
+  <tr><td>Definition</td><td><p>The value of the parameter.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>Choice of: <a href="http://build.fhir.org/datatypes.html#string">string</a>, <a href="http://build.fhir.org/datatypes.html#boolean">boolean</a>, <a href="http://build.fhir.org/datatypes.html#integer">integer</a>, <a href="http://build.fhir.org/datatypes.html#decimal">decimal</a>, <a href="http://build.fhir.org/datatypes.html#uri">uri</a>, <a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td>[x] Note</td><td>See <a href="http://build.fhir.org/formats.html#choice">Choice of Data Types</a> for further information about how to use [x]</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains"> </a><a name="ValueSet.expansion.contains"> </a><b>ValueSet.expansion.contains</b></td></tr>
+  <tr><td>Definition</td><td><p>The codes that are contained in the value set expansion.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#BackboneElement">BackboneElement</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">vsd-10</b>: Must have a system if a code is present (: code.empty() or system.exists())<br/><b title="Formal Invariant Identifier">vsd-6</b>: SHALL have a code or a display (: code.exists() or display.exists())<br/><b title="Formal Invariant Identifier">vsd-9</b>: Must have a code if not abstract (: code.exists() or abstract = true)</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.id"> </a><a name="ValueSet.expansion.contains.id"> </a><b>ValueSet.expansion.contains.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension"> </a><a name="ValueSet.expansion.contains.extension"> </a><b>ValueSet.expansion.contains.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel"> </a><b>ValueSet.expansion.contains.extension (<a href="http://build.fhir.org/extension-valueset-label.html">http://hl7.org/fhir/StructureDefinition/valueset-label</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.id"> </a><a name="ValueSet.expansion.contains.extension.id"> </a><b>ValueSet.expansion.contains.extension.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.extension"> </a><a name="ValueSet.expansion.contains.extension.extension"> </a><b>ValueSet.expansion.contains.extension.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.url"> </a><a name="ValueSet.expansion.contains.extension.url"> </a><b>ValueSet.expansion.contains.extension.url</b></td></tr>
+  <tr><td>Definition</td><td><p>Source of the definition for the extension code - a logical name or a URL.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>1..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td>Comments</td><td><p>The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition SHALL be a URI for the Structure Definition defining the extension.</p>
+</td></tr>
+  <tr><td>Fixed Value</td><td>http://hl7.org/fhir/StructureDefinition/valueset-label</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.valueString"> </a><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.value[x]"> </a><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.value[x]"> </a><b>ValueSet.expansion.contains.extension.valueString</b></td></tr>
+  <tr><td>Definition</td><td><p>Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.valueString.id"> </a><a name="ValueSet.expansion.contains.extension.valueString.id"> </a><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.value[x].id"> </a><b>ValueSet.expansion.contains.extension.valueString.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references)</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.valueString.extension"> </a><a name="ValueSet.expansion.contains.extension.valueString.extension"> </a><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.value[x].extension"> </a><b>ValueSet.expansion.contains.extension.valueString.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.valueString.extension:expansion-renderingstyle"> </a><b>ValueSet.expansion.contains.extension.valueString.extension (<a href="http://build.fhir.org/extension-rendering-style.html">http://hl7.org/fhir/StructureDefinition/rendering-style</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how the specified element should be rendered when displayed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.valueString.extension:expansion-xhtml"> </a><b>ValueSet.expansion.contains.extension.valueString.extension (<a href="http://build.fhir.org/extension-rendering-xhtml.html">http://hl7.org/fhir/StructureDefinition/rendering-xhtml</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc. Existing <a href="http://build.fhir.org/narrative.html#security">restrictions on XHTML content</a> apply. Note that using <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a> allows for greater flexibility of display.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.valueString.value"> </a><a name="ValueSet.expansion.contains.extension.valueString.value"> </a><a name="ValueSet:sdcdevalueset.expansion.contains.extension:expansionlabel.value[x].value"> </a><b>ValueSet.expansion.contains.extension.valueString.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td>Max Length</td><td>1048576</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.extension:conceptconceptorder"> </a><b>ValueSet.expansion.contains.extension (<a href="http://build.fhir.org/extension-valueset-conceptorder.html">http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies the relative order in which concepts within the value set should be presented to a user.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#integer">integer</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.modifierExtension"> </a><a name="ValueSet.expansion.contains.modifierExtension"> </a><b>ValueSet.expansion.contains.modifierExtension</b></td></tr>
+  <tr><td>Definition</td><td><p>May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#ismodifier">Is Modifier</a></td><td>true</td></tr>
+  <tr><td title="Other names by which this resource/element may be known">Alternate Names</td><td>extensions, user content, modifiers</td></tr>
+  <tr><td>Comments</td><td><p>There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.system"> </a><a name="ValueSet.expansion.contains.system"> </a><b>ValueSet.expansion.contains.system</b></td></tr>
+  <tr><td>Definition</td><td><p>An absolute URI which is the code system in which the code for this item in the expansion is defined.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#uri">uri</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.abstract"> </a><a name="ValueSet.expansion.contains.abstract"> </a><b>ValueSet.expansion.contains.abstract</b></td></tr>
+  <tr><td>Definition</td><td><p>If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>This should not be understood to exclude its use for searching (e.g. by subsumption testing). The client should know whether it is appropriate for the user to select an abstract code or not.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>false</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.inactive"> </a><a name="ValueSet.expansion.contains.inactive"> </a><b>ValueSet.expansion.contains.inactive</b></td></tr>
+  <tr><td>Definition</td><td><p>If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#boolean">boolean</a></td></tr>
+  <tr><td>Comments</td><td><p>This should only have a value if the concept is inactive.</p>
+</td></tr>
+  <tr><td>Default Value</td><td>false</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.version"> </a><a name="ValueSet.expansion.contains.version"> </a><b>ValueSet.expansion.contains.version</b></td></tr>
+  <tr><td>Definition</td><td><p>The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence.</p>
+</td></tr>
+  <tr><td>Note</td><td>This is a business versionId, not a resource version id (see <a href="http://build.fhir.org/resource.html#versions">discussion</a>)</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>The exact value of the version string is specified by the system from which the code is derived.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.code"> </a><a name="ValueSet.expansion.contains.code"> </a><b>ValueSet.expansion.contains.code</b></td></tr>
+  <tr><td>Definition</td><td><p>The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: vsd-6</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#code">code</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.display"> </a><a name="ValueSet.expansion.contains.display"> </a><b>ValueSet.expansion.contains.display</b></td></tr>
+  <tr><td>Definition</td><td><p>The recommended display for this item in the expansion.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: vsd-6</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.display.id"> </a><a name="ValueSet.expansion.contains.display.id"> </a><b>ValueSet.expansion.contains.display.id</b></td></tr>
+  <tr><td>Definition</td><td><p>unique id for the element within a resource (for internal references)</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#string">string</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.display.extension"> </a><a name="ValueSet.expansion.contains.display.extension"> </a><b>ValueSet.expansion.contains.display.extension</b></td></tr>
+  <tr><td>Definition</td><td><p>An Extension</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td><a href="http://build.fhir.org/datatypes.html#Extension">Extension</a></td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.display.extension:expansiondisplay-renderingstyle"> </a><b>ValueSet.expansion.contains.display.extension (<a href="http://build.fhir.org/extension-rendering-style.html">http://hl7.org/fhir/StructureDefinition/rendering-style</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>Identifies how the specified element should be rendered when displayed.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Comments</td><td><p>This extension would be equivalent to setting the HTML &quot;style&quot; attribute on the root element for the element containing the extension.</p>
+</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.display.extension:expansiondisplay-xhtml"> </a><b>ValueSet.expansion.contains.display.extension (<a href="http://build.fhir.org/extension-rendering-xhtml.html">http://hl7.org/fhir/StructureDefinition/rendering-xhtml</a>)</b></td></tr>
+  <tr><td>Definition</td><td><p>This is an equivalent of the string on which the extension is sent, but includes additional XHTML markup, such as bold, italics, styles, tables, etc. Existing <a href="http://build.fhir.org/narrative.html#security">restrictions on XHTML content</a> apply. Note that using <a href="http://build.fhir.org/extension-rendering-markdown.html">markdown</a> allows for greater flexibility of display.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1 This element is affected by the following invariants: ele-1</td></tr>
+  <tr><td><a href="http://build.fhir.org/datatypes.html">Type</a></td><td>  (Extension Type: <a href="http://build.fhir.org/datatypes.html#string">string</a>)</td></tr>
+  <tr><td>Invariants</td><td><b>Defined on this element</b><br/>
+<b title="Formal Invariant Identifier">ele-1</b>: All FHIR elements must have a @value or children (: children().count() &gt; id.count())<br/><b title="Formal Invariant Identifier">ext-1</b>: Must have either extensions or value[x], not both (: extension.exists() != value.exists())</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.display.value"> </a><a name="ValueSet.expansion.contains.display.value"> </a><b>ValueSet.expansion.contains.display.value</b></td></tr>
+  <tr><td>Definition</td><td><p>The actual value</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..1</td></tr>
+  <tr><td>Max Length</td><td>1048576</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.designation"> </a><a name="ValueSet.expansion.contains.designation"> </a><b>ValueSet.expansion.contains.designation</b></td></tr>
+  <tr><td>Definition</td><td><p>Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td>Type</td><td>See ValueSet:sdcdevalueset.compose.include.concept.designation</td></tr>
+  <tr><td>Comments</td><td><p>The designations provided must be based on the value set and code system definitions.</p>
+</td></tr>
+  <tr><td colspan="2" class="structure"><a name="ValueSet:sdcdevalueset.expansion.contains.contains"> </a><a name="ValueSet.expansion.contains.contains"> </a><b>ValueSet.expansion.contains.contains</b></td></tr>
+  <tr><td>Definition</td><td><p>Other codes and entries contained under this entry in the hierarchy.</p>
+</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#conformance">Control</a></td><td>0..*</td></tr>
+  <tr><td>Type</td><td>See ValueSet:sdcdevalueset.expansion.contains</td></tr>
+  <tr><td><a href="http://build.fhir.org/conformance-rules.html#mustSupport">Must Support</a></td><td>true</td></tr>
+  <tr><td>Comments</td><td><p>If the expansion uses this element, there is  no implication about the logical relationship between them, and the  structure cannot be used for logical inferencing. The structure  exists to provide navigational assistance for helping human users to  locate codes in the expansion.</p>
+</td></tr>
+</table>
+</body>
+</html>

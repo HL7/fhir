@@ -1,0 +1,641 @@
+﻿<html>
+<head>
+  <title>ImplementationGuide-sdc-xml-html</title>
+  <link rel="stylesheet" href="fhir.css"/>
+</head>
+<body>
+<pre class="xml">
+
+&lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide">ImplementationGuide</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.id">id</a> <a href="http://build.fhir.org/datatypes.html#id">value</a>=&quot;sdc&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.url">url</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/us/sdc/ImplementationGuide/sdc&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.status">status</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;draft&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.experimental">experimental</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.publisher">publisher</a>
+             <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Health Level Seven International (Orders and Observations - Structured Data Capture)&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.contact">contact</a>&gt;
+    &lt;<a href="http://build.fhir.org/datatypes.html#ContactDetail#ContactDetail.telecom">telecom</a>&gt;
+      &lt;<a href="http://build.fhir.org/datatypes.html#ContactPoint#ContactPoint.system">system</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;other&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/datatypes.html#ContactPoint#ContactPoint.value">value</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;http://www.hl7.org/Special/committees/orders/index.cfm&quot;/&gt;
+    &lt;/telecom&gt;
+  &lt;/contact&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.description">description</a>
+               <a href="http://build.fhir.org/datatypes.html#markdown">value</a>=&quot;The SDC specification provides an infrastructure to standardize the capture and expanded use of patient-level data collected within an EHR.&amp;lt;br/&amp;gt;This includes two components:&amp;lt;br/&amp;gt;* Support more sophisticated questionnaire/form use-cases such as those needed for research, oncology, pathology and other clinical domains.&amp;lt;br/&amp;gt;*Support pre-population and auto-population of EHR data into forms/questionnaires for uses outside direct clinical care (patient safety, adverse event reporting, public health reporting, etc.).&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.jurisdiction">jurisdiction</a>&gt;
+    &lt;<a href="http://build.fhir.org/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+      &lt;<a href="http://build.fhir.org/datatypes.html#Coding#Coding.system">system</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;urn:iso:std:iso:3166&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/datatypes.html#Coding#Coding.code">code</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;US&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/jurisdiction&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Conformance Statements&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.description">description</a>
+                 <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Capabilities of systems claiming to be conformant to the SDC implementation guide&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-designer.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Designer&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form authoring system&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;CapabilityStatement/sdc-form-designer&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-response-manager.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Response Manager&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form response management system&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;CapabilityStatement/sdc-form-response-manager&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-filler.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Filler&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC System for completing forms&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;CapabilityStatement/sdc-form-filler&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-manager.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Manager&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Repository for forms&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;CapabilityStatement/sdc-form-manager&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-receiver.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Receiver&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Repository for completed forms&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;CapabilityStatement/sdc-form-receiver&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-archiver.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Archiver&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC System for archiving and retrieving the completed forms&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;CapabilityStatement/sdc-form-archiver&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Extensions&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.description">description</a>
+                 <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Extensions defined as part of the SDC implementation guide&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-endpoint.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Endpoint&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;The base URL for the server to which questionnaire response associated with this questionnaire should be submitted&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire-endpoint&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-optionalDisplay.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Optional Display?&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;If set to true, it means that the system displaying the form (or the individual encoding the form for data capture) can choose to omit the item from display to the user.&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire-optionalDisplay&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-provenanceSignatureRequired.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Provenance Signature Required?&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;If true, indicates that QuestionnaireResponse instances created against this questionnaire must have an associated Provenance record.&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire-provenanceSignatureRequired&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Terminology&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.description">description</a>
+                 <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;ValueSets (and Code Systems) defined for use within the SDC implementation guide&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;valueset-species.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire Context Species&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Species for defining the context of Questionnaires&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;ValueSet/species&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Operation Definitions&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.description">description</a>
+                 <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Additional operations defined for use within the SDC implementation guide&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;Questionnaire-process-response.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire process response&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Allows submission of a QuestionnaireRespone for &amp;#39;processing&amp;#39; by the target server&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;OperationDefinition/Questionnaire-process-response&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Search Parameters&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.description">description</a>
+                 <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Additional search parameters defined for use within the SDC implementation guide&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-definition.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire Item definition&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Allows searching by &amp;#39;definition&amp;#39; element within a Questionnaire&amp;#39;s items&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SearchParameter/questionnaire-definition&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Example(s)&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Example(s) showing the use of the SDC profiles&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC - Combination&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Set of several examples - medication, AHRQ and NCI forms&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Bundle/questionnaire-sdc-profile-example&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example-cap.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-Pathology&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Cancer pathology questionnaire with flow-control extensions&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire/questionnaire-sdc-profile-example-cap&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example-loinc.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-LOINC AHRQ&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire/questionnaire-sdc-profile-example-loinc&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example-ussg-fht.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-LOINC USSG Family History&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;LOINC US Surgeon General family history including data elements and value sets.&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Bundle/questionnaire-sdc-profile-example-ussg-fht&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaireresponse-sdc-profile-example.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC - Response to Diagnosis NCI Standard Template&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Responses to the questionnaire found in the SDC - Combination list of questionnaires&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;QuestionnaireResponse/questionnaireresponse-sdc-profile-example&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaireresponse&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a>
+                  <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaireresponse-sdc-example-ussg-fht-answers.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-LOINC USSG Family History Response&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Example response to the SDC-LOINC USSG Family History questionnaire&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;QuestionnaireResponse/questionnaireresponse-sdc-example-ussg-fht-answers&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaireresponse&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-profile-example.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-ValueSet AHRQ_Medication_Q1&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;The answer list for question 1 on the AHRQ &amp;#39;Medication or Other Substance&amp;#39; form&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;ValueSet/sdc-profile-example&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-valueset&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;dataelement-sdc-profile-example.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;C-CDA-Gender&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.description">description</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;FHIR Gender with mapping to C-CDA&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;DataElement/dataelement-sdc-profile-example&quot;/&gt;
+      &lt;/sourceReference&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.exampleFor">exampleFor</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-dataelement&quot;/&gt;
+      &lt;/exampleFor&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Code System&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-codesystem.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Code System&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-codesystem&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Data Element&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-dataelement.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Data Element&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-dataelement&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Questionnaire Design&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-endpoint.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Where to send answers&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire-endpoint&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-optionalDisplay.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Can suppress from display to user&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire-optionalDisplay&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-provenanceSignatureRequired.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Is associated Provenance needed?&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a>
+                   <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire-provenanceSignatureRequired&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Questionnaire Design&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaire&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Data Capture&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaireresponse.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Data Capture&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-questionnaireresponse&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Value Set&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://build.fhir.org/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Extension#Extension.value[x]">valueUri</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-valueset.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.example">example</a> <a href="http://build.fhir.org/datatypes.html#boolean">value</a>=&quot;false&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Structured Data Capture Value Set&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://build.fhir.org/datatypes.html#Reference#Reference.reference">reference</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;StructureDefinition/sdc-valueset&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.binary">binary</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-curation.png&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.binary">binary</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-population.png&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.binary">binary</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-generic-workflow.png&quot;/&gt;
+  &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page">page</a>&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;toc.html&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Table of Contents&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;index.html&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Home Page&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+    &lt;/page&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-intro.html&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Introduction&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+    &lt;/page&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-security.html&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Security Details&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+    &lt;/page&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;artifacts.html&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Artifact List&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-designer.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Designer&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-response-manager.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Response Manager&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-filler.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Filler&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-manager.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Manager&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-receiver.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Receiver&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-form-archiver.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Form Archiver&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Questionnaire&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaireresponse.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Questionnaire Response&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-valueset.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Value Set&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-codesystem.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Code System&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-dataelement.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC Data Element&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-endpoint.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Endpoint&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-optionalDisplay.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Optional Display?&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-questionnaire-provenanceSignatureRequired.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Provenance Signature Required?&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;valueset-dex-mimetype.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;DEX mapping language mime types&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;valueset-species.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire Context Species&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;Questionnaire-process-response.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire process response&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;resource&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-definition.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Questionnaire Item definition&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated-resource&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC - Combination&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example-cap.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-Pathology&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example-loinc.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-LOINC AHRQ&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaire-sdc-profile-example-ussg-fht.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-LOINC USSG Family History&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaireresponse-sdc-profile-example.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC - Response to Diagnosis NCI Standard Template&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;questionnaireresponse-sdc-example-ussg-fht-answers.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-LOINC USSG Family History Response&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;sdc-profile-example.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;SDC-ValueSet AHRQ_Medication_Q1&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;dataelement-sdc-profile-example.html&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;C-CDA-Gender&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+        &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.format">format</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+      &lt;/page&gt;
+    &lt;/page&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;downloads.html&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;Useful Downloads&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+    &lt;/page&gt;
+    &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.page">page</a>&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://build.fhir.org/datatypes.html#uri">value</a>=&quot;changes.html&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.title">title</a> <a href="http://build.fhir.org/datatypes.html#string">value</a>=&quot;IG Change History&quot;/&gt;
+      &lt;<a href="http://build.fhir.org/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://build.fhir.org/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+    &lt;/page&gt;
+  &lt;/page&gt;
+&lt;/ImplementationGuide&gt;</pre>
+</body>
+</html>

@@ -1,0 +1,65 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-receiver> a fhir:CapabilityStatement;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "sdc-form-receiver"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <h2>SDC Form Receiver</h2>\n      <p>(Requirements Definition)</p>\n      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-receiver Published: 2014-07-06 (draft)</p>\n      <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>\n      </p>\n      <p>This profile defines the expected capabilities of the <i>SDC Form Receiver</i> role when conforming to the S&amp;I Framework's <a href=\"index.html\">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for accepting and processing completed and partially-completed forms.</p>\n      <h2>General</h2>\n      <table>\n        <tbody>\n          <tr>\n            <th>FHIR Version:</th>\n            <td>$ver$</td>\n          </tr>\n          <tr>\n            <th>Supported formats:</th>\n            <td>xml, json</td>\n          </tr>\n        </tbody>\n      </table>\n      <h2>REST  behavior</h2>\n      <p>\n        <b>Security:</b>\n      </p>\n      <p>Implementations must meet the general security requirements documented in the <a href=\"sdc-security.html\">SDC implementation guide</a>.</p>\n      <p>\n        <b>Operations:</b>\n      </p>\n      <ul>\n        <li>\n          <a href=\"http://hl7.org/fhir/us/sdc/operationdefinition/Questionnaire-process-response\">process-response</a>\n        </li>\n      </ul>\n    </div>"
+  ];
+  fhir:CapabilityStatement.url [ fhir:value "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-receiver"];
+  fhir:CapabilityStatement.version [ fhir:value "2.0"];
+  fhir:CapabilityStatement.name [ fhir:value "SDC Form Receiver"];
+  fhir:CapabilityStatement.status [ fhir:value "draft"];
+  fhir:CapabilityStatement.date [ fhir:value "2014-07-06"^^xsd:date];
+  fhir:CapabilityStatement.publisher [ fhir:value "U.S. Office of the National Coordinator (ONC)"];
+  fhir:CapabilityStatement.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://wiki.siframework.org/Structured+Data+Capture+Initiative" ]
+     ]
+  ];
+  fhir:CapabilityStatement.description [ fhir:value "This profile defines the expected capabilities of the ''SDC Form Receiver'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for accepting and processing completed and partially-completed forms."];
+  fhir:CapabilityStatement.kind [ fhir:value "requirements"];
+  fhir:CapabilityStatement.fhirVersion [ fhir:value "1.0.0"];
+  fhir:CapabilityStatement.acceptUnknown [ fhir:value "extensions"];
+  fhir:CapabilityStatement.format [
+     fhir:value "xml";
+     fhir:index 0
+  ], [
+     fhir:value "json";
+     fhir:index 1
+  ];
+  fhir:CapabilityStatement.rest [
+     fhir:index 0;
+     fhir:CapabilityStatement.rest.mode [ fhir:value "server" ];
+     fhir:CapabilityStatement.rest.security [
+       fhir:CapabilityStatement.rest.security.description [ fhir:value "Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]]." ]
+     ];
+     fhir:CapabilityStatement.rest.operation [
+       fhir:index 0;
+       fhir:CapabilityStatement.rest.operation.name [ fhir:value "process-response" ];
+       fhir:CapabilityStatement.rest.operation.definition [
+         fhir:link <http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response" ]
+       ]
+     ]
+  ] .
+
+<http://hl7.org/fhir/us/sdc/OperationDefinition/Questionnaire-process-response> a fhir:us .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-receiver.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/us/sdc/CapabilityStatement/sdc-form-receiver.ttl> .
+
+# -------------------------------------------------------------------------------------
+

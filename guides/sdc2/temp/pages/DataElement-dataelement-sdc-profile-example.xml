@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DataElement xmlns="http://hl7.org/fhir">
+  <id value="dataelement-sdc-profile-example"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>url</b>: <a href="http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example">http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example</a></p><p><b>version</b>: 2.0</p><p><b>name</b>: Patient Gender</p><p><b>status</b>: DRAFT</p><p><b>date</b>: 4-Feb-2015</p><p><b>publisher</b>: Health Level Seven, International</p><p><b>contact</b>: </p><p><b>url</b>: <a href="http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example">http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example</a></p><p><b>identifier</b>: DE42AHRQ</p><p><b>version</b>: 2.0</p><p><b>status</b>: DRAFT</p><p><b>date</b>: 4-Feb-2015</p><p><b>publisher</b>: Health Level Seven, International</p><p><b>name</b>: Patient Gender</p><p><b>contact</b>: </p><h3>Mappings</h3><table class="grid"><tr><td>-</td><td><b>Identity</b></td><td><b>Uri</b></td><td><b>Name</b></td></tr><tr><td>*</td><td>c-cda</td><td><a href="http://hl7.org/C-CDA-not-a-real-url">http://hl7.org/C-CDA-not-a-real-url</a></td><td>Consolidated CDA R2</td></tr></table><p><b>element</b>: todo-bundle</p></div>
+  </text>
+  <url value="http://hl7.org/fhir/us/sdc/DataElement/dataelement-sdc-profile-example"/>
+  <identifier>
+    <system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
+    <value value="DE42AHRQ"/>
+  </identifier>
+  <version value="2.0"/>
+  <status value="draft"/>
+  <date value="2015-02-04"/>
+  <publisher value="Health Level Seven, International"/>
+  <name value="Patient Gender"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+  </contact>
+  <mapping>
+    <identity value="c-cda"/>
+    <uri value="http://hl7.org/C-CDA-not-a-real-url"/>
+    <name value="Consolidated CDA R2"/>
+  </mapping>
+  <element>
+    <path value="administrativeGender"/>
+    <definition value="The gender (i.e., the behavioral, cultural, or psychological traits typically associated with one sex) of a living subject as defined for administrative purposes."/>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+    <binding>
+      <strength value="required"/>
+      <valueSetReference>
+        <reference value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+      </valueSetReference>
+    </binding>
+    <mapping>
+      <identity value="c-cda"/>
+      <language value="xpath"/>
+      <map value="/ClinicalDocument/recordTarget/patientRole/patient/administrativeGender"/>
+    </mapping>
+  </element>
+</DataElement>

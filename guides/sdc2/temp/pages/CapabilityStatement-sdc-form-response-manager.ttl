@@ -1,0 +1,125 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-response-manager> a fhir:CapabilityStatement;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:Resource.id [ fhir:value "sdc-form-response-manager"];
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <h2>SDC Form Response Manager</h2>\n      <p>(Requirements Definition)</p>\n      <p>http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-response-manager Published: 2014-07-06 (draft)</p>\n      <p>Published by: <b>U.S. Office of the National Coordinator (ONC)</b>\n      </p>\n      <p>This profile defines the expected capabilities of the <i>SDC Form Response Manager</i> role when conforming to the S&amp;I Framework's <a href=\"index.html\">Structured Data Capture FHIR implementation guide</a>.  This role is responsible for providing read/write access to QuestionnaireResponses.  This is typically to support light-weight clients that want to be able to complete forms but don't have local storage to save work in progress.</p>\n      <h2>General</h2>\n      <table>\n        <tbody>\n          <tr>\n            <th>FHIR Version:</th>\n            <td>$ver$</td>\n          </tr>\n          <tr>\n            <th>Supported formats:</th>\n            <td>xml, json</td>\n          </tr>\n        </tbody>\n      </table>\n      <h2>REST  behavior</h2>\n      <p>\n        <b>Security:</b>\n      </p>\n      <p>Implementations must meet the general security requirements documented in the <a href=\"sdc-security.html\">SDC implementation guide</a>.  Systems may wish to ensure that QuestionnaireResponse instances are only accessible to the user (or at least the organization) who was responsible for creating them.</p>\n      <h3>Resource summary</h3>\n      <table class=\"grid\">\n        <thead>\n          <tr>\n            <th>Resource</th>\n            <th>Search</th>\n            <th>Read</th>\n            <th>Read Version</th>\n            <th>Instance History</th>\n            <th>Resource History</th>\n            <th>Create</th>\n            <th>Update</th>\n            <th>Delete</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>QuestionnaireResponse (<a href=\"http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse.html\">Profile</a>)</th>\n            <td>\n              <a href=\"#QuestionnaireResponse-search-type\" title=\"This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#QuestionnaireResponse-read\" title=\"This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#QuestionnaireResponse-history-instance\" title=\"This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed\">Yes</a>\n            </td>\n            <td/>\n            <td>\n              <a href=\"#QuestionnaireResponse-create\" title=\"This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#QuestionnaireResponse-update\" title=\"This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users.\">Yes</a>\n            </td>\n            <td>\n              <a href=\"#QuestionnaireResponse-delete\" title=\"This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response\">Yes</a>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <br/>\n      <br/>\n      <h3>\n        <a href=\"{{site.data.fhir.path}}questionnaireresponse.html\">QuestionnaireResponse</a>\n      </h3>\n      <h4>Interactions</h4>\n      <table class=\"list\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-create\"> </a>\n              <span>create</span>\n            </th>\n            <td>\n              <p>This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-update\"> </a>\n              <span>update</span>\n            </th>\n            <td>\n              <p>This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users.</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-delete\"> </a>\n              <span>delete</span>\n            </th>\n            <td>\n              <p>This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-search-type\"> </a>\n              <span>search-type</span>\n            </th>\n            <td>\n              <p>This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-read\"> </a>\n              <span>read</span>\n            </th>\n            <td>\n              <p>This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response</p>\n            </td>\n          </tr>\n          <tr>\n            <th>\n              <a name=\"QuestionnaireResponse-history-instance\"> </a>\n              <span>history-instance</span>\n            </th>\n            <td>\n              <p>This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>"
+  ];
+  fhir:CapabilityStatement.url [ fhir:value "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-response-manager"];
+  fhir:CapabilityStatement.version [ fhir:value "2.0"];
+  fhir:CapabilityStatement.name [ fhir:value "SDC Form Response Manager"];
+  fhir:CapabilityStatement.status [ fhir:value "draft"];
+  fhir:CapabilityStatement.date [ fhir:value "2014-07-06"^^xsd:date];
+  fhir:CapabilityStatement.publisher [ fhir:value "U.S. Office of the National Coordinator (ONC)"];
+  fhir:CapabilityStatement.contact [
+     fhir:index 0;
+     fhir:ContactDetail.telecom [
+       fhir:index 0;
+       fhir:ContactPoint.system [ fhir:value "other" ];
+       fhir:ContactPoint.value [ fhir:value "http://wiki.siframework.org/Structured+Data+Capture+Initiative" ]
+     ]
+  ];
+  fhir:CapabilityStatement.description [ fhir:value "This profile defines the expected capabilities of the ''SDC Form Response Manager'' role when conforming to the S&I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for providing read/write access to QuestionnaireResponses.  This is typically to support light-weight clients that want to be able to complete forms but don't have local storage to save work in progress."];
+  fhir:CapabilityStatement.kind [ fhir:value "requirements"];
+  fhir:CapabilityStatement.instantiates [
+     fhir:value "http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager";
+     fhir:index 0
+  ];
+  fhir:CapabilityStatement.fhirVersion [ fhir:value "1.0.0"];
+  fhir:CapabilityStatement.acceptUnknown [ fhir:value "extensions"];
+  fhir:CapabilityStatement.format [
+     fhir:value "xml";
+     fhir:index 0
+  ], [
+     fhir:value "json";
+     fhir:index 1
+  ];
+  fhir:CapabilityStatement.rest [
+     fhir:index 0;
+     fhir:CapabilityStatement.rest.mode [ fhir:value "server" ];
+     fhir:CapabilityStatement.rest.security [
+       fhir:CapabilityStatement.rest.security.description [ fhir:value "Implementations must meet the general security requirements documented in the [[sdc-security|SDC implementation guide]].  Systems may wish to ensure that QuestionnaireResponse instances are only accessible to the user (or at least the organization) who was responsible for creating them." ]
+     ];
+     fhir:CapabilityStatement.rest.resource [
+       fhir:index 0;
+       fhir:CapabilityStatement.rest.resource.type [ fhir:value "QuestionnaireResponse" ];
+       fhir:CapabilityStatement.rest.resource.profile [
+         fhir:link <http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse>;
+         fhir:Reference.reference [ fhir:value "http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse" ]
+       ];
+       fhir:CapabilityStatement.rest.resource.documentation [ fhir:value "This allows QuestionnaireResponses to be created, updated and retrieved.  Note that storing a QuestionnaireResponse does not imply any execution of behavior on the basis of the stored data." ];
+       fhir:CapabilityStatement.rest.resource.interaction [
+         fhir:index 0;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "create" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "This creates an initial version of a QuestionnaireResponse - a completed form for a particular subject as of a particular point-in-time" ]
+       ], [
+         fhir:index 1;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "update" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "This allows revision of a QuestionnaireResponse.  Typically this will happen while the response is still 'in-progress'.  If it occurs after the response has been marked as 'final', the status should change to 'amended'.  Updates can also be used to change the status to 'entered-in-error' or other values.  Servers may choose to enforce business rules around what state transitions are supported and for which users." ]
+       ], [
+         fhir:index 2;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHOULD" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "delete" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "This removes a previously submitted QuestionnaireResponse.  In addition to (or instead of) supporting direct requests for deletion, some servers may automatically purge QuestionnaireResponses that have been in existence and unmodified for a period of time.  Deletions may not be a physical delete and it may still be possible to access older versions of a deleted response" ]
+       ], [
+         fhir:index 3;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "search-type" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "This allows a user to find previously created responses - whether created by themselves or others.  For thin clients without persistence, this feature is essential to allow them to find a draft of a previously created response" ]
+       ], [
+         fhir:index 4;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "SHALL" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "read" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "This allows a user to retrieve a previously stored response by id.  (Some thin clients may have limited persistence -e.g. cookies - that could be used to store an id and later retrieve a work-in-progress questionnaire response" ]
+       ], [
+         fhir:index 5;
+         fhir:Element.extension [
+           fhir:index 0;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation" ];
+           fhir:Extension.valueCode [ fhir:value "MAY" ]
+         ];
+         fhir:CapabilityStatement.rest.resource.interaction.code [ fhir:value "history-instance" ];
+         fhir:CapabilityStatement.rest.resource.interaction.documentation [ fhir:value "This allows a user to look at previous versions of a response.  It supports identifying what changes were made and potentially retrieving an older version to use as a starting point in the event that data has accidentally been removed or changed" ]
+       ]
+     ]
+  ] .
+
+<http://hl7.org/fhir/us/sdc/StructureDefinition/sdc-questionnaireresponse> a fhir:us .
+
+# - ontology header ------------------------------------------------------------
+
+<http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-response-manager.ttl> a owl:Ontology;
+  owl:imports fhir:fhir.ttl;
+  owl:versionIRI <http://build.fhir.org/us/sdc/CapabilityStatement/sdc-form-response-manager.ttl> .
+
+# -------------------------------------------------------------------------------------
+
