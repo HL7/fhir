@@ -599,7 +599,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
     if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
       String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
-      System.out.println("Redirecting to " + redirectFile);
+      log("Redirecting to Configuration from " + redirectFile);
       configFile = redirectFile;
       configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
     }
@@ -624,7 +624,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (Utilities.noString(root))
       root = getCurentDirectory();
     // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
-    root = new File(root).getAbsolutePath();
+    root = new File(root).getCanonicalPath();
     log("Root directory: "+root);
     if (paths.get("resources") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("resources"))
@@ -703,8 +703,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         throw new Error("cannot specify a web location for -spec at the moment"); /// gg to do this
       } else {
         File igPackFile = new File(igPack);
-        log("Loading ig pack from specified path " + igPackFile.getAbsolutePath());
-        context = SimpleWorkerContext.fromPack(igPackFile.getAbsolutePath());
+        log("Loading ig pack from specified path " + igPackFile.getCanonicalPath());
+        context = SimpleWorkerContext.fromPack(igPackFile.getCanonicalPath());
       }
     } else if (version.equals(Constants.VERSION)) {
       try {
@@ -724,8 +724,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       	}
       	
       	if (igPackFile != null && igPackFile.exists()) {
-      		log("Found local ig pack at " + igPackFile.getAbsolutePath());
-      		context = SimpleWorkerContext.fromPack(igPackFile.getAbsolutePath());
+      		log("Found local ig pack at " + igPackFile.getCanonicalPath());
+      		context = SimpleWorkerContext.fromPack(igPackFile.getCanonicalPath());
       	}
       	else {
       		log("No local igpack.zip found");
@@ -2075,7 +2075,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void cleanOutput(String folder) throws IOException {
     for (File f : new File(folder).listFiles()) {
 // Lloyd this was changed from getPath
-      if (!isValidFile(f.getAbsolutePath())) {
+      if (!isValidFile(f.getCanonicalPath())) {
         if (!f.isDirectory()) {
           f.delete();
         }
@@ -2119,13 +2119,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     File df = File.createTempFile("fhir", "tmp");
     df.deleteOnExit();
-    map.save(df.getAbsolutePath());
+    map.save(df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.XML))
-      generateDefinitions(FhirFormat.XML, df.getAbsolutePath());
+      generateDefinitions(FhirFormat.XML, df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.JSON))
-      generateDefinitions(FhirFormat.JSON, df.getAbsolutePath());
+      generateDefinitions(FhirFormat.JSON, df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.TURTLE))
-      generateDefinitions(FhirFormat.TURTLE, df.getAbsolutePath());
+      generateDefinitions(FhirFormat.TURTLE, df.getCanonicalPath());
     generateValidationPack();
   }
 
@@ -2195,11 +2195,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       return null;
     File tmp = File.createTempFile("fhir", "zip");
     tmp.deleteOnExit();
-    ZipGenerator zip = new ZipGenerator(tmp.getAbsolutePath());
+    ZipGenerator zip = new ZipGenerator(tmp.getCanonicalPath());
     for (String fn : files)
       zip.addFileName(fn, Utilities.path(outputDir, fn), false);
     zip.close();
-    return tmp.getAbsolutePath();
+    return tmp.getCanonicalPath();
   }
 
   private boolean generateExampleZip(FhirFormat fmt) throws Exception {

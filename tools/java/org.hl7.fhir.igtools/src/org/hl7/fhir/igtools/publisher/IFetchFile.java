@@ -1,5 +1,6 @@
 package org.hl7.fhir.igtools.publisher;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
@@ -14,7 +15,7 @@ public interface IFetchFile {
   FetchedFile fetch(Type source, FetchedFile base) throws Exception;
   FetchedFile fetchResourceFile(String name) throws Exception; 
   void setPkp(IGKnowledgeProvider pkp);
-  List<FetchedFile> scan(String sourceDir, IWorkerContext context);
+  List<FetchedFile> scan(String sourceDir, IWorkerContext context) throws IOException;
 
   public ILoggingService getLogger();
   public void setLogger(ILoggingService log);

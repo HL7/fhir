@@ -38,14 +38,14 @@ public class SimpleFetcher implements IFetchFile {
     if (!f.exists())
       throw new Exception("Unable to find file "+path);
     FetchedFile ff = new FetchedFile();
-    ff.setPath(path);
+    ff.setPath(f.getCanonicalPath());
     ff.setName(fileTitle(path));
     ff.setTime(f.lastModified());
     if (f.isDirectory()) {
       ff.setContentType("application/directory");
       ff.setFolder(true);   
       for (File fl : f.listFiles())
-        ff.getFiles().add(fl.getAbsolutePath());
+        ff.getFiles().add(fl.getCanonicalPath());
     } else {
       ff.setFolder(false);   
       if (path.endsWith("json"))
@@ -80,7 +80,7 @@ public class SimpleFetcher implements IFetchFile {
     if (f==null)
       throw new Exception("Unable to find file "+path+".xml or "+path+".json");
     FetchedFile ff = new FetchedFile();
-    ff.setPath(path);
+    ff.setPath(f.getCanonicalPath());
     ff.setName(fileTitle(path));
     ff.setTime(f.lastModified());
     if (f.getName().endsWith("json"))
@@ -192,11 +192,11 @@ public class SimpleFetcher implements IFetchFile {
 
   
   @Override
-  public List<FetchedFile> scan(String sourceDir, IWorkerContext context) {
+  public List<FetchedFile> scan(String sourceDir, IWorkerContext context) throws IOException {
     List<FetchedFile> res = new ArrayList<>();
     for (File f : new File(sourceDir).listFiles()) {
       if (!f.isDirectory()) {
-        String fn = f.getAbsolutePath();
+        String fn = f.getCanonicalPath();
         String ext = Utilities.getFileExtension(fn);
         boolean ok = false;
         if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
@@ -232,8 +232,8 @@ public class SimpleFetcher implements IFetchFile {
 
   private void addFile(List<FetchedFile> res, File f, String cnt) throws IOException {
     FetchedFile ff = new FetchedFile();
-    ff.setPath(f.getAbsolutePath());
-    ff.setName(fileTitle(f.getAbsolutePath()));
+    ff.setPath(f.getCanonicalPath());
+    ff.setName(fileTitle(f.getCanonicalPath()));
     ff.setTime(f.lastModified());
     ff.setFolder(false);   
     ff.setContentType(cnt);
