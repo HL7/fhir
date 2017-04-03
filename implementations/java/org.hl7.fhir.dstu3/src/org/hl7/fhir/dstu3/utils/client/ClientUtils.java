@@ -89,40 +89,40 @@ public class ClientUtils {
 	public static String DEFAULT_CHARSET = "UTF-8";
 	public static final String HEADER_LOCATION = "location";
 	
-	public static <T extends Resource> ResourceRequest<T> issueOptionsRequest(URI optionsUri, String resourceFormat, HttpHost proxy) {
+	public static <T extends Resource> ResourceRequest<T> issueOptionsRequest(URI optionsUri, String resourceFormat, HttpHost proxy, int timeout) {
 		HttpOptions options = new HttpOptions(optionsUri);
-		return issueResourceRequest(resourceFormat, options, proxy);
+		return issueResourceRequest(resourceFormat, options, proxy, timeout);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issueGetResourceRequest(URI resourceUri, String resourceFormat, HttpHost proxy) {
+	public static <T extends Resource> ResourceRequest<T> issueGetResourceRequest(URI resourceUri, String resourceFormat, HttpHost proxy, int timeout) {
 		HttpGet httpget = new HttpGet(resourceUri);
-		return issueResourceRequest(resourceFormat, httpget, proxy);
+		return issueResourceRequest(resourceFormat, httpget, proxy, timeout);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
+	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy, int timeout) {
 		HttpPut httpPut = new HttpPut(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPut, payload, headers, proxy);
+		return issueResourceRequest(resourceFormat, httpPut, payload, headers, proxy, timeout);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
+	public static <T extends Resource> ResourceRequest<T> issuePutRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy, int timeout) {
 		HttpPut httpPut = new HttpPut(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPut, payload, null, proxy);
+		return issueResourceRequest(resourceFormat, httpPut, payload, null, proxy, timeout);
 	}
 	
-	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy) {
+	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, List<Header> headers, HttpHost proxy, int timeout) {
 		HttpPost httpPost = new HttpPost(resourceUri);
-		return issueResourceRequest(resourceFormat, httpPost, payload, headers, proxy);
+		return issueResourceRequest(resourceFormat, httpPost, payload, headers, proxy, timeout);
 	}
 	
 	
-	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy) {
-		return issuePostRequest(resourceUri, payload, resourceFormat, null, proxy);
+	public static <T extends Resource> ResourceRequest<T> issuePostRequest(URI resourceUri, byte[] payload, String resourceFormat, HttpHost proxy, int timeout) {
+		return issuePostRequest(resourceUri, payload, resourceFormat, null, proxy, timeout);
 	}
 	
-	public static Bundle issueGetFeedRequest(URI resourceUri, String resourceFormat, HttpHost proxy) {
+	public static Bundle issueGetFeedRequest(URI resourceUri, String resourceFormat, HttpHost proxy, int timeout) {
 		HttpGet httpget = new HttpGet(resourceUri);
 		configureFhirRequest(httpget, resourceFormat);
-		HttpResponse response = sendRequest(httpget, proxy);
+		HttpResponse response = sendRequest(httpget, proxy, timeout);
 		return unmarshalReference(response, resourceFormat);
 	}
 	
@@ -133,9 +133,9 @@ public class ClientUtils {
         return unmarshalFeed(response, resourceFormat);
 	}
 	
-	public static boolean issueDeleteRequest(URI resourceUri, HttpHost proxy) {
+	public static boolean issueDeleteRequest(URI resourceUri, HttpHost proxy, int timeout) {
 		HttpDelete deleteRequest = new HttpDelete(resourceUri);
-		HttpResponse response = sendRequest(deleteRequest, proxy);
+		HttpResponse response = sendRequest(deleteRequest, proxy, timeout);
 		int responseStatusCode = response.getStatusLine().getStatusCode();
 		boolean deletionSuccessful = false;
 		if(responseStatusCode == 204) {
@@ -148,8 +148,8 @@ public class ClientUtils {
 	 * Request/Response Helper methods
 	 ***********************************************************/
 	
-	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, HttpHost proxy) {
-		return issueResourceRequest(resourceFormat, request, null, proxy);
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, HttpHost proxy, int timeout) {
+		return issueResourceRequest(resourceFormat, request, null, proxy, timeout);
 	}
 	
 	/**
@@ -157,8 +157,8 @@ public class ClientUtils {
 	 * @param options
 	 * @return
 	 */
-	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, HttpHost proxy) {
-		return issueResourceRequest(resourceFormat, request, payload, null, proxy);
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, HttpHost proxy, int timeout) {
+		return issueResourceRequest(resourceFormat, request, payload, null, proxy, timeout);
 	}
 	
 	/**
@@ -166,7 +166,7 @@ public class ClientUtils {
 	 * @param options
 	 * @return
 	 */
-	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, List<Header> headers, HttpHost proxy) {
+	protected static <T extends Resource> ResourceRequest<T> issueResourceRequest(String resourceFormat, HttpUriRequest request, byte[] payload, List<Header> headers, HttpHost proxy, int timeout) {
 		configureFhirRequest(request, resourceFormat, headers);
 		HttpResponse response = null;
 		if(request instanceof HttpEntityEnclosingRequest && payload != null) {
@@ -174,7 +174,7 @@ public class ClientUtils {
 		} else if (request instanceof HttpEntityEnclosingRequest && payload == null){
 			throw new EFhirClientException("PUT and POST requests require a non-null payload");
 		} else {
-			response = sendRequest(request, proxy);
+			response = sendRequest(request, proxy, timeout);
 		}
 		T resource = unmarshalReference(response, resourceFormat);
 		return new ResourceRequest<T>(resource, response.getStatusLine().getStatusCode(), ClientUtils.getLocationHeader(response));
@@ -240,20 +240,20 @@ public class ClientUtils {
 	 * @param payload
 	 * @return
 	 */
-	protected static HttpResponse sendRequest(HttpUriRequest request, HttpHost proxy) {
+	protected static HttpResponse sendRequest(HttpUriRequest request, HttpHost proxy, int timeout) {
 		HttpResponse response = null;
 		try {
 			HttpClient httpclient = new DefaultHttpClient();
 			
 			HttpParams params = httpclient.getParams();
-			HttpConnectionParams.setConnectionTimeout(params, 5000);
-			HttpConnectionParams.setSoTimeout(params, 5000);
+			HttpConnectionParams.setConnectionTimeout(params, timeout);
+			HttpConnectionParams.setSoTimeout(params, timeout);
 			if(proxy != null) {
 				httpclient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
 			}
 			response = httpclient.execute(request);
 		} catch(IOException ioe) {
-			throw new EFhirClientException("Error sending Http Request", ioe);
+			throw new EFhirClientException("Error sending Http Request: "+ioe.getMessage(), ioe);
 		}
 		return response;
 	}

@@ -157,6 +157,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
 	public String connectToTSServer(String url) throws URISyntaxException {
 	  txServer = new FHIRToolingClient(url);
+	  txServer.setTimeout(30000);
 	  return txServer.getCapabilitiesStatementQuick().getSoftware().getVersion();
 	}
 

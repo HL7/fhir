@@ -3536,6 +3536,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         // run with standard template. this is publishing lite
         self.setSourceDir(getNamedParam(args, "-source"));
         self.setDestDir(getNamedParam(args, "-destination"));
+      } else if(!hasParam(args, "-ig") && args.length == 1 && new File(args[0]).exists()) {
+        self.setConfigFile(args[0]);
       } else {
         self.setConfigFile(getNamedParam(args, "-ig"));
         if (Utilities.noString(self.getConfigFile()))

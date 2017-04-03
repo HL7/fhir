@@ -7479,6 +7479,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     FHIRToolingClient client;
     try {
       client = new FHIRToolingClient(tsServer);
+      client.setTimeout(30000);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());
       client = null;
