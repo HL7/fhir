@@ -24,6 +24,7 @@
     <li>Changed DataElement.element.definition from 1..1 to 0..1</li>
     <li>Added a rule that the reference from a Questionnaire to a QuestionnaireResponse must be version-specific</li>
     <li>Various changes to the documentation text to improve clarity and add implementation guidance</li>
+    <li>Re-organized pages to have table of contents as the root (which resulted in renumbering of sections)</li>
   </ul>
   <p>
     <b>2016-08-11 v1.6 - SDC R2 (STU) Ballot Candidate</b> based on FHIR R3 (STU) ballot candidate

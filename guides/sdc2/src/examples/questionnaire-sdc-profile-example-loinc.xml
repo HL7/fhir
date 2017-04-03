@@ -689,6 +689,7 @@
       </compose>
     </ValueSet>
   </contained>
+  <url value="http://hl7.org/fhir/us/sdc/Questionnaire/questionnaire-sdc-profile-example-loinc"/>
   <identifier>
     <system value="http://loinc.org/vs"/>
     <value value="74080-3"/>
