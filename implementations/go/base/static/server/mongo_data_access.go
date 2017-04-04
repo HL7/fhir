@@ -82,18 +82,20 @@ func (ws *WorkerSession) Close() {
 // NewMongoDataAccessLayer returns an implementation of DataAccessLayer that is backed by a Mongo database
 func NewMongoDataAccessLayer(ms *MasterSession, interceptors map[string]InterceptorList, config Config) DataAccessLayer {
 	return &mongoDataAccessLayer{
-		MasterSession:    ms,
-		Interceptors:     interceptors,
-		enableCISearches: config.EnableCISearches,
-		readonly:         config.ReadOnly,
+		MasterSession:     ms,
+		Interceptors:      interceptors,
+		countTotalResults: config.CountTotalResults,
+		enableCISearches:  config.EnableCISearches,
+		readonly:          config.ReadOnly,
 	}
 }
 
 type mongoDataAccessLayer struct {
-	MasterSession    *MasterSession
-	Interceptors     map[string]InterceptorList
-	enableCISearches bool
-	readonly         bool
+	MasterSession     *MasterSession
+	Interceptors      map[string]InterceptorList
+	countTotalResults bool
+	enableCISearches  bool
+	readonly          bool
 }
 
 // InterceptorList is a list of interceptors registered for a given database operation
@@ -395,7 +397,7 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 	worker := dal.MasterSession.GetWorkerSession()
 	defer worker.Close()
 
-	searcher := search.NewMongoSearcher(worker.DB(), dal.enableCISearches, dal.readonly)
+	searcher := search.NewMongoSearcher(worker.DB(), dal.countTotalResults, dal.enableCISearches, dal.readonly)
 
 	result, total, err := searcher.Search(searchQuery)
 	if err != nil {
@@ -405,7 +407,9 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 	includesMap := make(map[string]interface{})
 	var entryList []models.BundleEntryComponent
 	resultVal := reflect.ValueOf(result).Elem()
-	for i := 0; i < resultVal.Len(); i++ {
+	numResults := resultVal.Len()
+
+	for i := 0; i < numResults; i++ {
 		var entry models.BundleEntryComponent
 		entry.Resource = resultVal.Index(i).Addr().Interface()
 		entry.Search = &models.BundleEntrySearchComponent{Mode: "match"}
@@ -432,10 +436,13 @@ func (dal *mongoDataAccessLayer) Search(baseURL url.URL, searchQuery search.Quer
 	bundle.Id = bson.NewObjectId().Hex()
 	bundle.Type = "searchset"
 	bundle.Entry = entryList
-	bundle.Total = &total
 
-	// Add links for paging
-	bundle.Link = generatePagingLinks(baseURL, searchQuery, total)
+	// Only include the total if counts are enabled, or if _summary=count was applied.
+	if dal.countTotalResults || searchQuery.Options().Summary == "count" {
+		bundle.Total = &total
+	}
+
+	bundle.Link = dal.generatePagingLinks(baseURL, searchQuery, total, uint32(numResults))
 
 	return &bundle, nil
 }
@@ -460,7 +467,7 @@ func (dal *mongoDataAccessLayer) FindIDs(searchQuery search.Query) (IDs []string
 	newQuery := search.Query{Resource: searchQuery.Resource, Query: newParams.Encode()}
 
 	// Now search on that query, unmarshaling to a temporary struct and converting results to []string
-	searcher := search.NewMongoSearcher(worker.DB(), dal.enableCISearches, dal.readonly)
+	searcher := search.NewMongoSearcher(worker.DB(), dal.countTotalResults, dal.enableCISearches, dal.readonly)
 	results, _, err := searcher.Search(newQuery)
 	if err != nil {
 		return nil, convertMongoErr(err)
@@ -476,15 +483,8 @@ func (dal *mongoDataAccessLayer) FindIDs(searchQuery search.Query) (IDs []string
 	return IDs, nil
 }
 
-// ResourcePlusRelatedResources is an interface to capture those structs that implement the functions for
-// getting included and rev-included resources
-type ResourcePlusRelatedResources interface {
-	GetIncludedAndRevIncludedResources() map[string]interface{}
-	GetIncludedResources() map[string]interface{}
-	GetRevIncludedResources() map[string]interface{}
-}
+func (dal *mongoDataAccessLayer) generatePagingLinks(baseURL url.URL, query search.Query, total uint32, numResults uint32) []models.BundleLinkComponent {
 
-func generatePagingLinks(baseURL url.URL, query search.Query, total uint32) []models.BundleLinkComponent {
 	links := make([]models.BundleLinkComponent, 0, 5)
 	params := query.URLQueryParameters(true)
 	offset := 0
@@ -500,6 +500,12 @@ func generatePagingLinks(baseURL url.URL, query search.Query, total uint32) []mo
 		if count < 1 {
 			count = search.NewQueryOptions().Count
 		}
+	}
+
+	// For queries that don't support paging, only return the "self" link created directly from the original query.
+	if !query.SupportsPaging() {
+		links = append(links, newRawSelfLink(baseURL, query))
+		return links
 	}
 
 	// Self link
@@ -519,24 +525,61 @@ func generatePagingLinks(baseURL url.URL, query search.Query, total uint32) []mo
 		links = append(links, newLink("previous", baseURL, params, prevOffset, prevCount))
 	}
 
-	// Next Link
-	if total > uint32(offset+count) {
-		nextOffset := offset + count
-		links = append(links, newLink("next", baseURL, params, nextOffset, count))
-	}
+	// If counts are enabled, the total is accurate and can be used to compute the links.
+	if dal.countTotalResults {
+		// Next Link
+		if total > uint32(offset+count) {
+			nextOffset := offset + count
+			links = append(links, newLink("next", baseURL, params, nextOffset, count))
+		}
 
-	// Last Link
-	remainder := (int(total) - offset) % count
-	if int(total) < offset {
-		remainder = 0
+		// Last Link
+		remainder := (int(total) - offset) % count
+		if int(total) < offset {
+			remainder = 0
+		}
+		newOffset := int(total) - remainder
+		if remainder == 0 && int(total) > count {
+			newOffset = int(total) - count
+		}
+		links = append(links, newLink("last", baseURL, params, newOffset, count))
+
+	} else {
+		// Otherwise, we can only use the number of results returned by the search, and compare
+		// it to the expected paging count to determine if we've exhaused the search results or not.
+
+		// Next Link
+		if int(numResults) == count {
+			nextOffset := offset + count
+			links = append(links, newLink("next", baseURL, params, nextOffset, count))
+		}
+
+		// Last Link
+		// Without a total there is no way to compute the Last link. However, this still conforms
+		// to RFC 5005 (https://tools.ietf.org/html/rfc5005).
 	}
-	newOffset := int(total) - remainder
-	if remainder == 0 && int(total) > count {
-		newOffset = int(total) - count
-	}
-	links = append(links, newLink("last", baseURL, params, newOffset, count))
 
 	return links
+}
+
+// ResourcePlusRelatedResources is an interface to capture those structs that implement the functions for
+// getting included and rev-included resources
+type ResourcePlusRelatedResources interface {
+	GetIncludedAndRevIncludedResources() map[string]interface{}
+	GetIncludedResources() map[string]interface{}
+	GetRevIncludedResources() map[string]interface{}
+}
+
+func newRawSelfLink(baseURL url.URL, query search.Query) models.BundleLinkComponent {
+	queryString := ""
+	if len(query.Query) > 0 {
+		queryString = "?" + query.Query
+	}
+
+	return models.BundleLinkComponent{
+		Relation: "self",
+		Url:      baseURL.String() + queryString,
+	}
 }
 
 func newLink(relation string, baseURL url.URL, params search.URLQueryParameters, offset int, count int) models.BundleLinkComponent {

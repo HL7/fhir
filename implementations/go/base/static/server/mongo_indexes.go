@@ -12,6 +12,22 @@ import (
 	"gopkg.in/mgo.v2"
 )
 
+// Indexer is the top-level interface for managing MongoDB indexes.
+type Indexer struct {
+	idxPath string
+	dbName  string
+	debug   bool
+}
+
+// NewIndexer returns a pointer to a newly configured Indexer.
+func NewIndexer(config Config) *Indexer {
+	return &Indexer{
+		idxPath: config.IndexConfigPath,
+		dbName:  config.DatabaseName,
+		debug:   config.Debug,
+	}
+}
+
 // IndexMap is a map of index arrays with the collection name as the key. Each index array
 // contains one or more *mgo.Index indexes.
 type IndexMap map[string][]*mgo.Index
@@ -22,17 +38,18 @@ type IndexMap map[string][]*mgo.Index
 // on the size of the collection it may take some time before the index is created.
 // This will block the current thread until the indexing completes, but will not block
 // other connections to the mongo database.
-func ConfigureIndexes(ms *MasterSession, config Config) {
+func (i *Indexer) ConfigureIndexes(ms *MasterSession) {
 	var err error
+	fmt.Println("Indexer: Ensuring indexes")
 
 	worker := ms.GetWorkerSession()
 	defer worker.Close()
 	worker.SetTimeout(5 * time.Minute) // Some indexes take a long time to build
 
 	// Read the config file
-	f, err := os.Open(config.IndexConfigPath)
+	f, err := os.Open(i.idxPath)
 	if err != nil {
-		log.Println("[WARNING] Could not find indexes configuration file")
+		i.log("[WARNING] Could not find indexes configuration file")
 		return
 	}
 	defer f.Close()
@@ -50,7 +67,7 @@ func ConfigureIndexes(ms *MasterSession, config Config) {
 			collectionName, index, err := parseIndex(line)
 
 			if err != nil {
-				log.Printf("[WARNING] %s\n", err.Error())
+				i.log(fmt.Sprintf("[WARNING] %s\n", err.Error()))
 				continue
 			}
 
@@ -63,13 +80,19 @@ func ConfigureIndexes(ms *MasterSession, config Config) {
 		collection := worker.DB().C(k)
 
 		for _, index := range indexMap[k] {
-			log.Printf("Ensuring index: %s.%s: %s\n", config.DatabaseName, k, sprintIndexKeys(index))
+			i.log(fmt.Sprintf("Ensuring index: %s.%s: %s\n", i.dbName, k, sprintIndexKeys(index)))
 			err = collection.EnsureIndex(*index)
 
 			if err != nil {
-				log.Printf("[WARNING] Could not ensure index: %s.%s: %s\n", config.DatabaseName, k, sprintIndexKeys(index))
+				i.log(fmt.Sprintf("[WARNING] Could not ensure index: %s.%s: %s\n", i.dbName, k, sprintIndexKeys(index)))
 			}
 		}
+	}
+}
+
+func (i *Indexer) log(msg string) {
+	if i.debug {
+		log.Printf("Indexer: %s\n", msg)
 	}
 }
 

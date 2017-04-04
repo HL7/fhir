@@ -14,6 +14,10 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+// This is a MongoDB internal error code for an interrupted operation, see:
+// https://github.com/mongodb/mongo/blob/master/src/mongo/base/error_codes.err#L217
+var opInterruptedCode = 11601
+
 // BSONQuery is a BSON document constructed from the original string search query.
 type BSONQuery struct {
 	Resource string
@@ -39,18 +43,20 @@ type CountCache struct {
 
 // MongoSearcher implements FHIR searches using the Mongo database.
 type MongoSearcher struct {
-	db               *mgo.Database
-	enableCISearches bool
-	readonly         bool
+	db                *mgo.Database
+	countTotalResults bool
+	enableCISearches  bool
+	readonly          bool
 }
 
 // NewMongoSearcher creates a new instance of a MongoSearcher, given a pointer
 // to an mgo.Database.
-func NewMongoSearcher(db *mgo.Database, enableCISearches bool, readonly bool) *MongoSearcher {
+func NewMongoSearcher(db *mgo.Database, countTotalResults, enableCISearches, readonly bool) *MongoSearcher {
 	return &MongoSearcher{
-		db:               db,
-		enableCISearches: enableCISearches,
-		readonly:         readonly,
+		db:                db,
+		countTotalResults: countTotalResults,
+		enableCISearches:  enableCISearches,
+		readonly:          readonly,
 	}
 }
 
@@ -64,6 +70,7 @@ func (m *MongoSearcher) GetDB() *mgo.Database {
 // If an error occurs during the search the corresponding mongo error
 // is returned and results will be nil.
 func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, err error) {
+	options := query.Options()
 
 	// Check if the search uses _include or _revinclude. If so, we'll need to
 	// return a slice of Resources PLUS related Resources.
@@ -82,7 +89,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	doCount := true
 	var queryHash string
 
-	if m.readonly {
+	if m.readonly && m.countTotalResults {
 		queryHash = fmt.Sprintf("%x", md5.Sum([]byte(query.Resource+"?"+query.Query)))
 		countcache := &CountCache{}
 		err = m.db.C("countcache").FindId(queryHash).One(countcache)
@@ -98,31 +105,56 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		return results, 0, nil
 	}
 
-	// execute the query
+	// Don't do the count at all if m.countTotalResults is disabled.
+	if !m.countTotalResults {
+		doCount = false
+	}
+
 	var computedTotal uint32
-	if bsonQuery.usesPipeline() {
+	var mgoPipe *mgo.Pipe
+	var mgoQuery *mgo.Query
+	usesPipeline := bsonQuery.usesPipeline()
+
+	// Execute the query
+	if usesPipeline {
 		// The (slower) aggregation pipeline is used if the query contains includes or revincludes
-		var mgoPipe *mgo.Pipe
-		mgoPipe, computedTotal, err = m.aggregate(bsonQuery, query.Options(), doCount)
-		if err != nil {
-			if err == mgo.ErrNotFound {
-				// This was a valid search that returned zero results
-				return results, 0, nil
-			}
-			return nil, 0, err
-		}
-		err = mgoPipe.All(results)
+		mgoPipe, computedTotal, err = m.aggregate(bsonQuery, options, doCount)
 	} else {
 		// Otherwise, the (faster) standard query is used
-		var mgoQuery *mgo.Query
-		mgoQuery, computedTotal, err = m.find(bsonQuery, query.Options(), doCount)
-		if err != nil {
-			if err == mgo.ErrNotFound {
-				// This was a valid search that returned zero results
-				return results, 0, nil
-			}
+		mgoQuery, computedTotal, err = m.find(bsonQuery, options, doCount)
+	}
+
+	// Check if the query returned any errors
+	if err != nil {
+		if err == mgo.ErrNotFound {
+			// This was a valid search that returned zero results
+			return results, 0, nil
+		}
+
+		e, ok := err.(*mgo.QueryError)
+		if !ok {
+			// This was not a mgo error
 			return nil, 0, err
 		}
+
+		if e.Code == opInterruptedCode {
+			// This query operation was interrupted
+			panic(createOpInterruptedError("Long-running operation interrupted"))
+		}
+		return nil, 0, err
+	}
+
+	// If the search was for _summary=count, don't collect the results
+	// and just return the total.
+	if options.Summary == "count" {
+		// results should be an empty slice
+		return results, computedTotal, nil
+	}
+
+	// Collect the results
+	if usesPipeline {
+		err = mgoPipe.All(results)
+	} else {
 		err = mgoQuery.All(results)
 	}
 
@@ -131,7 +163,7 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 	}
 
 	// If the count wasn't already in cache, add it to cache.
-	if m.readonly && doCount {
+	if m.readonly && m.countTotalResults && doCount {
 		countcache := &CountCache{
 			Id:    queryHash,
 			Count: computedTotal,
@@ -140,6 +172,8 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		m.db.C("countcache").Insert(countcache)
 	}
 
+	// The computed total will only be used if the server had no cached
+	// count for this search and countTotalResults is true.
 	if doCount {
 		total = computedTotal
 	}
@@ -153,7 +187,7 @@ func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, d
 	c := m.db.C(models.PluralizeLowerResourceName(bsonQuery.Resource))
 
 	// First get a count of the total results (doesn't apply any options)
-	if doCount {
+	if doCount || options.Summary == "count" {
 		if len(bsonQuery.Pipeline) == 1 {
 			// The pipeline is only being used for includes/revincludes, meaning the entire
 			// collection is being searched. It's faster just to get a total count from the
@@ -186,6 +220,11 @@ func (m *MongoSearcher) aggregate(bsonQuery *BSONQuery, options *QueryOptions, d
 		}
 	}
 
+	if options.Summary == "count" {
+		// Just return the count and don't do the search.
+		return nil, total, nil
+	}
+
 	// Now setup the search pipeline (applying options, if any)
 	searchPipeline := bsonQuery.Pipeline
 	if options != nil {
@@ -200,12 +239,17 @@ func (m *MongoSearcher) find(bsonQuery *BSONQuery, options *QueryOptions, doCoun
 	c := m.db.C(models.PluralizeLowerResourceName(bsonQuery.Resource))
 
 	// First get a count of the total results (doesn't apply any options)
-	if doCount {
+	if doCount || options.Summary == "count" {
 		intTotal, err := c.Find(bsonQuery.Query).Count()
 		if err != nil {
 			return nil, 0, err
 		}
 		total = uint32(intTotal)
+	}
+
+	if options.Summary == "count" {
+		// Just return the count and don't do the search.
+		return nil, total, nil
 	}
 
 	searchQuery := c.Find(bsonQuery.Query)
@@ -636,10 +680,13 @@ func buildSearchableOrFromChainedReferenceOr(referenceOr *OrParam) *OrParam {
 }
 
 func panicOnUnsupportedFeatures(p SearchParam) {
-	// No prefixes are supported except EQ (the default) and date prefixes
+	// No prefixes are supported except EQ (the default) and number, date, and quantity prefixes
 	_, isDate := p.(*DateParam)
+	_, isNumber := p.(*NumberParam)
+	_, isQuantity := p.(*QuantityParam)
+
 	prefix := p.getInfo().Prefix
-	if prefix != "" && prefix != EQ && !isDate {
+	if prefix != "" && prefix != EQ && !isDate && !isNumber && !isQuantity {
 		panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", p.getInfo().Name)))
 	}
 
@@ -820,10 +867,46 @@ func (m *MongoSearcher) createNumberQueryObject(n *NumberParam) bson.M {
 	single := func(p SearchParamPath) bson.M {
 		l, _ := n.Number.RangeLowIncl().Float64()
 		h, _ := n.Number.RangeHighExcl().Float64()
-		return buildBSON(p.Path, bson.M{
-			"$gte": l,
-			"$lt":  h,
-		})
+		exact, _ := n.Number.Value.Float64()
+
+		var criteria bson.M
+
+		switch n.Prefix {
+		case EQ:
+			// Equality is in the range [l, h)
+			criteria = bson.M{
+				"$gte": l,
+				"$lt":  h,
+			}
+		case NE:
+			// In the range (-inf, l) || [h, inf)
+			criteria = bson.M{
+				"$or": []bson.M{
+					bson.M{"$lt": l},
+					bson.M{"$gte": h},
+				},
+			}
+		case GT:
+			criteria = bson.M{
+				"$gt": exact,
+			}
+		case LT:
+			criteria = bson.M{
+				"$lt": exact,
+			}
+		case GE:
+			criteria = bson.M{
+				"$gte": l,
+			}
+		case LE:
+			criteria = bson.M{
+				"$lte": h,
+			}
+		default:
+			// SA, EB are not supported for Number queries
+			panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", n.Name)))
+		}
+		return buildBSON(p.Path, criteria)
 	}
 
 	return orPaths(single, n.Paths)
@@ -833,12 +916,41 @@ func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
 	single := func(p SearchParamPath) bson.M {
 		l, _ := q.Number.RangeLowIncl().Float64()
 		h, _ := q.Number.RangeHighExcl().Float64()
-		criteria := bson.M{
-			"value": bson.M{
-				"$gte": l,
-				"$lt":  h,
-			},
+		exact, _ := q.Number.Value.Float64()
+
+		var criteria bson.M
+
+		switch q.Prefix {
+		case EQ:
+			// Equality is in the range [l, h)
+			criteria = bson.M{
+				"value": bson.M{
+					"$gte": l,
+					"$lt":  h,
+				},
+			}
+
+		case LT:
+			criteria = bson.M{
+				"value": bson.M{"$lt": exact},
+			}
+		case GT:
+			criteria = bson.M{
+				"value": bson.M{"$gt": exact},
+			}
+		case GE:
+			criteria = bson.M{
+				"value": bson.M{"$gte": l},
+			}
+		case LE:
+			criteria = bson.M{
+				"value": bson.M{"$lte": h},
+			}
+		default:
+			// NE, SA, EB are not supported for Quantity queries
+			panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", q.Name)))
 		}
+
 		if q.System == "" {
 			criteria["$or"] = []bson.M{
 				bson.M{"code": m.ci(q.Code)},
@@ -1021,6 +1133,16 @@ func createOpOutcome(severity, code, detailsCode, detailsDisplay string) *models
 		}
 	}
 
+	if detailsCode == "" && detailsDisplay != "" {
+		outcome.Issue[0].Details = &models.CodeableConcept{
+			Coding: []models.Coding{
+				models.Coding{
+					Display: detailsDisplay},
+			},
+			Text: detailsDisplay,
+		}
+	}
+
 	return outcome
 }
 
@@ -1058,6 +1180,13 @@ func createInternalServerError(code, display string) *Error {
 	}
 }
 
+func createOpInterruptedError(display string) *Error {
+	return &Error{
+		HTTPStatus:       http.StatusInternalServerError,
+		OperationOutcome: createOpOutcome("error", "too-costly", "", display),
+	}
+}
+
 func buildBSON(path string, criteria interface{}) bson.M {
 	result := bson.M{}
 
@@ -1092,7 +1221,7 @@ func buildBSON(path string, criteria interface{}) bson.M {
 			for k, v := range bCriteria {
 				// Pull out the $or and process it separately as top level condition
 				if isQueryOperator(k) {
-					processQueryOperatorCriteria(indexedPath, k, v, result)
+					processQueryOperatorCriteria(normalizedPath, k, v, result)
 				} else {
 					result[fmt.Sprintf("%s.%s", normalizedPath, k)] = v
 				}
@@ -1102,7 +1231,6 @@ func buildBSON(path string, criteria interface{}) bson.M {
 		// Criteria is singular, so we don't care about arrays
 		result[normalizedPath] = criteria
 	}
-
 	return result
 }
 

@@ -1,7 +1,6 @@
 package server
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"time"
@@ -39,7 +38,7 @@ func (f *FHIRServer) AddInterceptor(op, resourceType string, handler Interceptor
 		f.Interceptors[op] = append(f.Interceptors[op], Interceptor{ResourceType: resourceType, Handler: handler})
 		return nil
 	}
-	return errors.New(fmt.Sprintf("AddInterceptor: unsupported database operation %s", op))
+	return fmt.Errorf("AddInterceptor: unsupported database operation %s", op)
 }
 
 func NewServer(config Config) *FHIRServer {
@@ -49,6 +48,12 @@ func NewServer(config Config) *FHIRServer {
 		Interceptors:     make(map[string]InterceptorList),
 	}
 	server.Engine = gin.Default()
+
+	if config.Debug {
+		gin.SetMode(gin.DebugMode)
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+	}
 
 	server.Engine.Use(cors.Middleware(cors.Config{
 		Origins:         "*",
@@ -79,16 +84,28 @@ func (f *FHIRServer) Run() {
 	}
 	defer session.Close()
 
-	session.SetSocketTimeout(f.Config.DatabaseTimeout)
+	session.SetSocketTimeout(f.Config.DatabaseSocketTimeout)
 
 	Database = session.DB(f.Config.DatabaseName)
-	log.Println("Connected to mongodb")
+	log.Println("MongoDB: Connected")
 
-	// Establish master session
+	// Establish fhir database session
 	masterSession := NewMasterSession(session, f.Config.DatabaseName)
 
+	// Ensure all indexes
+	NewIndexer(f.Config).ConfigureIndexes(masterSession)
+
+	// Establish admin session
+	masterAdminSession := NewMasterSession(session, "admin")
+
+	// Kick off the database op monitoring routine. This periodically checks db.currentOp() and
+	// kills client-initiated operations exceeding the configurable timeout. Do this AFTER the index
+	// build to ensure no index build processes are killed unintentionally.
+	ticker := time.NewTicker(f.Config.DatabaseKillOpPeriod)
+	go killLongRunningOps(ticker, masterAdminSession, f.Config)
+
+	// Register all API routes
 	RegisterRoutes(f.Engine, f.MiddlewareConfig, NewMongoDataAccessLayer(masterSession, f.Interceptors, f.Config), f.Config)
-	ConfigureIndexes(masterSession, f.Config)
 
 	for _, ar := range f.AfterRoutes {
 		ar(f.Engine)
@@ -100,10 +117,10 @@ func (f *FHIRServer) Run() {
 		defer worker.Close()
 		err = worker.DB().C("countcache").DropCollection()
 		if err != nil {
-			log.Println("Failed to clear search result count cache")
+			log.Println("Server: Failed to clear cache, or cache was empty")
 		}
 	} else {
-		log.Println("Running in read-only mode!")
+		log.Println("Server: Running in read-only mode")
 	}
 
 	f.Engine.Run(":3001")

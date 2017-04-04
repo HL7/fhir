@@ -40,3 +40,6 @@ var ErrNotFound = errors.New("Resource Not Found")
 
 // ErrMultipleMatches indicates that the conditional update query returned multiple matches
 var ErrMultipleMatches = errors.New("Multiple Matches")
+
+// ErrOpInterrupted indicates that the query was interrupted by a killOp() operation
+var ErrOpInterrupted = errors.New("Operation Interrupted")

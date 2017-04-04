@@ -220,10 +220,17 @@ func (q *Query) Options() *QueryOptions {
 			options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: incls[0], Parameter: revInclParam})
 
 		case FormatParam:
-			if queryParam.Value != "json" && queryParam.Value != "application/json" && queryParam.Value != "application/json+fhir" {
+			if queryParam.Value != "json" && queryParam.Value != "application/json" && queryParam.Value != "application/json+fhir" && queryParam.Value != "application/fhir+json" {
 				// Currently we only support JSON
 				panic(createUnsupportedSearchError("MSG_PARAM_INVALID", "Parameter \"_format\" content is invalid"))
 			}
+
+		case SummaryParam:
+			if queryParam.Value != "count" && queryParam.Value != "false" {
+				// We only support "count", and the default (implicit) setting is "false".
+				panic(createUnsupportedSearchError("MSG_PARAM_INVALID", "Parameter \"_summary\" content is invalid"))
+			}
+			options.Summary = queryParam.Value
 
 		default:
 			panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
@@ -287,6 +294,29 @@ func (q *Query) UsesReverseChainedSearch() bool {
 // UsesPipeline returns true if the query requires a pipeline to execute
 func (q *Query) UsesPipeline() bool {
 	return q.UsesIncludes() || q.UsesRevIncludes() || q.UsesChainedSearch() || q.UsesReverseChainedSearch()
+}
+
+// SupportsPaging returns true if the query results can be paginated, false if not.
+// In practice, most queries can be paginated, but queries for $everything or _summary cannot.
+func (q *Query) SupportsPaging() bool {
+	options := q.Options()
+
+	// not for $everything. $everything is defined as _id=<id>&_include=*&_revinclude=*
+	if q.isDollarEverything() {
+		return false
+	}
+
+	// not for _summary=count
+	if options.Summary == "count" {
+		return false
+	}
+
+	return true
+}
+
+func (q *Query) isDollarEverything() bool {
+	de := regexp.MustCompile("_id=[0-9a-f]{24}&_include=\\*&_revinclude=\\*")
+	return de.MatchString(q.Query)
 }
 
 func getSingletonParamValue(param string, values []string) string {
@@ -356,6 +386,7 @@ type QueryOptions struct {
 	IsSTU3Sort      bool
 	IsIncludeAll    bool
 	IsRevincludeAll bool
+	Summary         string
 }
 
 // NewQueryOptions constructs a new QueryOptions with default values (offset = 0, Count = 100)
