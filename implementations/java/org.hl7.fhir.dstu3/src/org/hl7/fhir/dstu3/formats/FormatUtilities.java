@@ -33,6 +33,7 @@ import java.math.BigDecimal;
 import java.net.URI;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 
 public abstract class FormatUtilities {
   public static final String ID_REGEX = "[A-Za-z0-9\\-\\.]{1,64}";
@@ -75,6 +76,18 @@ public abstract class FormatUtilities {
       if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '.' || c == '-')
         b.append(c);
     return b.toString();
+  }
+
+  public static ParserBase makeParser(FhirFormat format) {
+    switch (format) {
+    case XML : return new XmlParser();
+    case JSON : return new JsonParser();
+    case TURTLE : throw new Error("unsupported Format "+format.toString()); // return new TurtleParser();
+    case JSONLD : throw new Error("unsupported Format "+format.toString()); // return new JsonLdParser();
+    case VBAR : throw new Error("unsupported Format "+format.toString()); // 
+    case TEXT : throw new Error("unsupported Format "+format.toString()); // 
+    }
+    throw new Error("unsupported Format "+format.toString());
   }
   
 

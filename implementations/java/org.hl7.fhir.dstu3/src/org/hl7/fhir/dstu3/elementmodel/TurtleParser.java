@@ -261,7 +261,7 @@ public class TurtleParser extends ParserBase {
   
   
   @Override
-  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
+  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException {
     this.base = base;
     
 		Turtle ttl = new Turtle();
@@ -271,7 +271,7 @@ public class TurtleParser extends ParserBase {
 
 
 
-  public void compose(Element e, Turtle ttl, String base) throws Exception {
+  public void compose(Element e, Turtle ttl, String base) {
     ttl.prefix("fhir", FHIR_URI_BASE);
     ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
     ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");

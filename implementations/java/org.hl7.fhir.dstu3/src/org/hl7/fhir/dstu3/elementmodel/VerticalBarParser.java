@@ -485,7 +485,7 @@ public class VerticalBarParser extends ParserBase {
   }
 
   @Override
-  public void compose(Element e, OutputStream destination, OutputStyle style, String base) throws Exception {
+  public void compose(Element e, OutputStream destination, OutputStyle style, String base) {
     // TODO Auto-generated method stub
 
   }

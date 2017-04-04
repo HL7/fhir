@@ -2440,8 +2440,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       produceComparisons();
       produceSpecMap();
 
+      page.log("....version maps", LogMessageType.Process);
+      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "r2r3maps.zip");
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3", ""), "r2/", null, null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", ""), "r3/", null, null);
+      zip.close();
+
       page.log("....definitions", LogMessageType.Process);
-      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "definitions.xml.zip");
+      zip = new ZipGenerator(page.getFolders().dstDir + "definitions.xml.zip");
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
       zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);

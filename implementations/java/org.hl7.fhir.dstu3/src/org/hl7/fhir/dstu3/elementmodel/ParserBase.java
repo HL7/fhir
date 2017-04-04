@@ -55,7 +55,7 @@ public abstract class ParserBase {
 
   public abstract Element parse(InputStream stream) throws IOException, FHIRFormatError, DefinitionException, FHIRException;
 
-	public abstract void compose(Element e, OutputStream destination, OutputStyle style, String base)  throws Exception;
+	public abstract void compose(Element e, OutputStream destination, OutputStyle style, String base)  throws FHIRException, IOException;
 
 	
 	public void logError(int line, int col, String path, IssueType type, String message, IssueSeverity level) throws FHIRFormatError {

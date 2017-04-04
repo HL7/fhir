@@ -63,7 +63,7 @@ public class JsonLDParser extends ParserBase {
 
 
 	@Override
-	public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
+	public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException {
 	  this.base = base;
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
 		if (style == OutputStyle.CANONICAL)

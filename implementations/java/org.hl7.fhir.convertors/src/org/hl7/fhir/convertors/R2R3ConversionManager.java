@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -18,10 +19,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.httpclient.cookie.NetscapeDraftSpec;
+import org.hl7.fhir.convertors.R2R3ConversionManager.TransformContext;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
+import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.ParserBase;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
@@ -47,8 +53,8 @@ import org.hl7.fhir.utilities.Utilities;
  * To use this class, do the following:
  * 
  *  - provide a stream or path (file or URL) that points to R2 definitions (from http://hl7.org/fhir/DSTU2/downloads.html)
- *  - provide a stream or a path (file or URL) that points to the R3 definitions  (from http://hl7.org/fhir/DSTU2/downloads.html)
- *  - provide a stream or a path (file or URL) that points to R2/R3 map files (from ...? )
+ *  - provide a stream or a path (file or URL) that points to the R3 definitions  (from http://hl7.org/fhir/STU3/downloads.html)
+ *  - provide a stream or a path (file or URL) that points to R2/R3 map files (from http://hl7.org/fhir/r2r3maps.zip)
  * 
  *  - call convert()
  *  
@@ -57,16 +63,34 @@ import org.hl7.fhir.utilities.Utilities;
  */
 public class R2R3ConversionManager implements ITransformerServices {
 
+  public class TransformContext {
+
+    private SimpleWorkerContext context;
+    private String id;
+
+    public TransformContext(SimpleWorkerContext context, String id) {
+      this.context = context;
+      this.id = id;
+    }
+
+    public SimpleWorkerContext getContext() {
+      return context;
+    }
+
+    public String getId() {
+      return id;
+    }
+
+  }
+
   private SimpleWorkerContext contextR2;
   private SimpleWorkerContext contextR3;
-  private Map<String, StructureMap> library;
+  private Map<String, StructureMap> library = new HashMap<String, StructureMap>();
   private boolean needPrepare = false;
   private List<Resource> extras = new ArrayList<Resource>();
   private StructureMapUtilities smu3;
   private StructureMapUtilities smu2;
-  private OutputStyle style = OutputStyle.PRETTY;
-  private String workingid;
-  
+  private OutputStyle style = OutputStyle.PRETTY;  
   
   public OutputStyle getStyle() {
     return style;
@@ -89,7 +113,7 @@ public class R2R3ConversionManager implements ITransformerServices {
     contextR2.setAllowLoadingDuplicates(true);
     contextR2.loadFromFile(files.get("profiles-types.xml"), "profiles-types.xml", ldr);
     contextR2.loadFromFile(files.get("profiles-resources.xml"), "profiles-resources.xml", ldr);
-    contextR2.loadFromFile(files.get("expansions.xml"), "expansions.xml", ldr);
+    contextR2.loadFromFile(files.get("valuesets.xml"), "valuesets.xml", ldr);
   }
   
   public void setR2Definitions(String source) throws IOException, FHIRException {
@@ -120,16 +144,16 @@ public class R2R3ConversionManager implements ITransformerServices {
       setR3Definitions(fetch(source));
   }
   
-  public void setMappingLibrary(InputStream stream) throws FHIRFormatError, IOException {
+  public void setMappingLibrary(InputStream stream) throws IOException, FHIRException {
     needPrepare = true;
     Map<String, InputStream> files = readInputStream(stream);
     for (InputStream s : files.values()) {
-      StructureMap sm = (StructureMap) new XmlParser().parse(s);
+      StructureMap sm = new StructureMapUtilities(contextR3).parse(TextFile.streamToString(s));
       library.put(sm.getUrl(), sm);
     }
   }
   
-  public void setMappingLibrary(String source) throws FHIRFormatError, IOException {
+  public void setMappingLibrary(String source) throws IOException, FHIRException {
     File f = new File(source);
     if (f.exists())
       setMappingLibrary(new FileInputStream(f));
@@ -197,33 +221,58 @@ public class R2R3ConversionManager implements ITransformerServices {
   }
   
   // execution 
-  public byte[] convert(byte[] source, boolean r2ToR3) {
-      throw new Error("not implemented yet");
+  public byte[] convert(byte[] source, boolean r2ToR3, FhirFormat format) throws FHIRException, IOException {
+    prepare();
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    if (r2ToR3)
+      convertToR3(new ByteArrayInputStream(source), bs, format);
+    else
+      convertToR2(new ByteArrayInputStream(source), bs, format);
+    bs.close();
+    return bs.toByteArray();
   }
 
-  public void convert(InputStream source, OutputStream dest, boolean r2ToR3) throws FHIRException, IOException {
+  public void convert(InputStream source, OutputStream dest, boolean r2ToR3, FhirFormat format) throws FHIRException, IOException {
     prepare();
     if (r2ToR3)
-      convertToR3(source, dest);
+      convertToR3(source, dest, format);
+    else
+      convertToR2(source, dest, format);
   }
 
-  public org.hl7.fhir.dstu2.model.Resource convert(org.hl7.fhir.dstu3.model.Resource source) {
-    throw new Error("not implemented yet");
+  public org.hl7.fhir.dstu2.model.Resource convert(org.hl7.fhir.dstu3.model.Resource source) throws IOException, FHIRFormatError, FHIRException {
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new JsonParser().compose(bs, source);
+    bs.close();
+    return new org.hl7.fhir.dstu2.formats.JsonParser().parse(convert(bs.toByteArray(), false, FhirFormat.JSON));
   }
 
-  public org.hl7.fhir.dstu3.model.Resource convert(org.hl7.fhir.dstu2.model.Resource source) {
-    throw new Error("not implemented yet");
+  public org.hl7.fhir.dstu3.model.Resource convert(org.hl7.fhir.dstu2.model.Resource source) throws IOException, FHIRFormatError, FHIRException {
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new org.hl7.fhir.dstu2.formats.JsonParser().compose(bs, source);
+    bs.close();
+    return new JsonParser().parse(convert(bs.toByteArray(), false, FhirFormat.JSON));
   }
   
-  private void convertToR3(InputStream source, OutputStream dest) throws FHIRFormatError, DefinitionException, FHIRException, IOException {
-    // load the example (r2)
+  private void convertToR3(InputStream source, OutputStream dest, FhirFormat format) throws FHIRFormatError, DefinitionException, FHIRException, IOException {
     org.hl7.fhir.dstu3.elementmodel.Element r2 = new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).parse(source);
-    String tn = r2.fhirType();
-    StructureMap map = library.get("??");
-    tn = smu3.getTargetType(map).getType();
+    StructureMap map = library.get("http://hl7.org/fhir/StructureMap/"+r2.fhirType()+"2to3");
+    if (map == null)
+      throw new FHIRException("No Map Found from R2 to R3 for "+r2.fhirType());
+    String tn = smu3.getTargetType(map).getType();
     Resource r3 = ResourceFactory.createResource(tn);
-    smu3.transform(contextR3, r2, map, r3);
-    new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(style).compose(dest, r3);
+    smu3.transform(new TransformContext(contextR3, r2.getChildValue("id")), r2, map, r3);
+    FormatUtilities.makeParser(format).setOutputStyle(style).compose(dest, r3);
+  }
+
+  private void convertToR2(InputStream source, OutputStream dest, FhirFormat format) throws FHIRFormatError, DefinitionException, FHIRException, IOException {
+    org.hl7.fhir.dstu3.elementmodel.Element r3 = new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR3).parse(source);
+    StructureMap map = library.get("??");
+    String tn = smu3.getTargetType(map).getType();
+    StructureDefinition sd = smu2.getTargetType(map);
+    org.hl7.fhir.dstu3.elementmodel.Element r2 = Manager.build(contextR2, sd);
+    smu2.transform(contextR2, r3, map, r2);
+    org.hl7.fhir.dstu3.elementmodel.Manager.compose(contextR2, r2, dest, format, style, null);
   }
 
   @Override
@@ -233,7 +282,7 @@ public class R2R3ConversionManager implements ITransformerServices {
 
   @Override
   public Base createType(Object appInfo, String name) throws FHIRException {
-    SimpleWorkerContext context = (SimpleWorkerContext) appInfo;
+    SimpleWorkerContext context = ((TransformContext) appInfo).getContext();
     if (context == contextR2) {
       StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/DSTU2/StructureDefinition/"+name);
       if (sd == null)
@@ -248,7 +297,7 @@ public class R2R3ConversionManager implements ITransformerServices {
     if (res instanceof Resource && (res.fhirType().equals("CodeSystem") || res.fhirType().equals("CareTeam")) || res.fhirType().equals("PractitionerRole")) {
       Resource r = (Resource) res;
       extras.add(r);
-      r.setId(workingid+"-"+extras.size()); //todo: get this into appinfo
+      r.setId(((TransformContext) appInfo).getId()+"-"+extras.size()); //todo: get this into appinfo
     }
     return res;
   }
@@ -287,5 +336,51 @@ public class R2R3ConversionManager implements ITransformerServices {
       }
     }
     return results;
+  }
+  
+  public static void main(String[] args) throws IOException, FHIRException {
+    if (args.length == 0 || !hasParam(args, "-d2") || !hasParam(args, "-d3") || !hasParam(args, "-maps")  || !hasParam(args, "-src") || !hasParam(args, "-dest") || (!hasParam(args, "-r2") && !hasParam(args, "-r3"))) {
+      System.out.println("R2 <--> R3 Convertor");
+      System.out.println("====================");
+      System.out.println("");
+      System.out.println("parameters: -d2 [r2 definitions] -d3 [r3 definitions] -maps [map source] -src [source] -dest [dest] -r2/3 - fmt [format]");
+      System.out.println("");
+      System.out.println("d2: definitions from http://hl7.org/fhir/DSTU2/downloads.html");
+      System.out.println("d3: definitions from http://hl7.org/fhir/STU3/downloads.html");
+      System.out.println("maps: R2/R3 maps from http://hl7.org/fhir/r2r3maps.zip");
+      System.out.println("src: filename for source to convert");
+      System.out.println("dest: filename for destination of conversion");
+      System.out.println("-r2: source is r2, convert to r3");
+      System.out.println("-r3: source is r3, convert to r2");
+      System.out.println("-fmt: xml | json (xml is default)");
+    } else {
+      R2R3ConversionManager self = new R2R3ConversionManager();
+      self.setR2Definitions(getNamedParam(args, "-d2"));
+      self.setR3Definitions(getNamedParam(args, "-d3"));
+      self.setMappingLibrary(getNamedParam(args, "-maps"));
+      FhirFormat fmt = hasParam(args, "-fmt") ? getNamedParam(args, "-fmt").equalsIgnoreCase("json") ? FhirFormat.JSON : FhirFormat.XML : FhirFormat.XML;
+      InputStream src = new FileInputStream(getNamedParam(args, "-src"));
+      OutputStream dst = new FileOutputStream(getNamedParam(args, "-dest"));
+      self.convert(src, dst, hasParam(args, "-r2"), fmt);
+    }
+  }
+  
+  private static boolean hasParam(String[] args, String param) {
+    for (String a : args)
+      if (a.equals(param))
+        return true;
+    return false;
+  }
+
+  private static String getNamedParam(String[] args, String param) {
+    boolean found = false;
+    for (String a : args) {
+      if (found)
+        return a;
+      if (a.equals(param)) {
+        found = true;
+      }
+    }
+    return null;
   }
 }

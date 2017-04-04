@@ -1,5 +1,6 @@
 package org.hl7.fhir.dstu3.utils.formats;
 
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -338,7 +339,7 @@ public class Turtle {
 		return names;
 	}
 
-	public void commit(OutputStream destination, boolean header) throws Exception {
+	public void commit(OutputStream destination, boolean header) throws IOException {
 		LineOutputStreamWriter writer = new LineOutputStreamWriter(destination);
 		commitPrefixes(writer, header);
 		for (Section s : sections) {
@@ -362,7 +363,7 @@ public class Turtle {
     return b.toString();
   }
 
-	private void commitPrefixes(LineOutputStreamWriter writer, boolean header) throws Exception {
+	private void commitPrefixes(LineOutputStreamWriter writer, boolean header) throws IOException {
 		if (header) {
 			writer.ln("# FHIR Sub-definitions");
 			writer.write("# This is work in progress, and may change rapidly \r\n");
@@ -402,7 +403,7 @@ public class Turtle {
 	//  private String lastSubject = null;
 	//  private String lastComment = "";
 
-	private void commitSection(LineOutputStreamWriter writer, Section section) throws Exception {
+	private void commitSection(LineOutputStreamWriter writer, Section section) throws IOException {
 		writer.ln("# - "+section.name+" "+Utilities.padLeft("", '-', 75-section.name.length()));
 		writer.ln();
 		for (Subject sbj : section.subjects) {
@@ -488,17 +489,17 @@ public class Turtle {
 			super(out, "UTF-8");
 		}
 
-		private void ln() throws Exception {
+		private void ln() throws IOException {
 			write("\r\n");
 		}
 
-		private void ln(String s) throws Exception {
+		private void ln(String s) throws IOException {
 			write(s);
 			write("\r\n");
 		}
 	}
 
-	public boolean write(Complex complex, LineOutputStreamWriter writer, int indent) throws Exception {
+	public boolean write(Complex complex, LineOutputStreamWriter writer, int indent) throws IOException {
 		if (complex.predicates.isEmpty()) 
 			return false;
     if (complex.predicates.size() == 1 && complex.predicates.get(0).getObjects().size()== 1 && complex.predicates.get(0).getObjects().get(0) instanceof StringType && Utilities.noString(complex.predicates.get(0).comment)) {

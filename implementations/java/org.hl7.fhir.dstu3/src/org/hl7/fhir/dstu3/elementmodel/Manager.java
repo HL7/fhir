@@ -38,7 +38,7 @@ public class Manager {
     return makeParser(context, inputFormat).parse(source);
   }
 
-  public static void compose(IWorkerContext context, Element e, OutputStream destination, FhirFormat outputFormat, OutputStyle style, String base) throws Exception {
+  public static void compose(IWorkerContext context, Element e, OutputStream destination, FhirFormat outputFormat, OutputStyle style, String base) throws FHIRException, IOException {
     makeParser(context, outputFormat).compose(e, destination, style, base);
   }
 
