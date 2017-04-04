@@ -2582,7 +2582,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ig.addProperty("id", sourceIg.getId());
     ig.addProperty("name", sourceIg.getName());
     ig.addProperty("url", sourceIg.getUrl());
-    ig.addProperty("version", sourceIg.getVersion());
+    if (businessVersion!=null)
+      ig.addProperty("version", businessVersion);
+    else
+      ig.addProperty("version", sourceIg.getVersion());
     ig.addProperty("status", sourceIg.getStatusElement().asStringValue());
     ig.addProperty("experimental", sourceIg.getExperimental());
     ig.addProperty("publisher", sourceIg.getPublisher());
