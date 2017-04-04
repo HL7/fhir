@@ -38,7 +38,7 @@ import java.util.*;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;

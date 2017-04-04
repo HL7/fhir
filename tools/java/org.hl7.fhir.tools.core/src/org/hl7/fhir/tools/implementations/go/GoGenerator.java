@@ -41,7 +41,7 @@ import java.text.SimpleDateFormat;
 
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
