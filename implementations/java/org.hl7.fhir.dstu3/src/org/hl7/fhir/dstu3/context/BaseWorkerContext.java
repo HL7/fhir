@@ -80,7 +80,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   protected Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
   protected Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
-  
+
   protected ValueSetExpanderFactory expansionCache = new ValueSetExpansionCache(this);
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion
   private Set<String> failed = new HashSet<String>(); // value sets for which we don't try to do expansion, since the first attempt to get a comprehensive expansion was not successful
@@ -88,7 +88,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected String tsServer;
   protected String validationCachePath;
   protected String name;
-  
+
   // private ValueSetExpansionCache expansionCache; //   
 
   protected FHIRToolingClient txServer;
@@ -190,7 +190,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       if (bndCodeSystems == null) {
         try {
           tlog("Terminology server: Check for supported code systems for "+system);
-        bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
+          bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content=not-present&_summary=true&_count=1000");
         } catch (Exception e) {
           if (canRunWithoutTerminology) {
             noTerminologyServer = true;
@@ -201,12 +201,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         }
       }
       if (bndCodeSystems != null) {
-      for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
-      	CodeSystem cs = (CodeSystem) be.getResource();
-      	if (!codeSystems.containsKey(cs.getUrl())) {
-      		codeSystems.put(cs.getUrl(), null);
-      	}
-      }
+        for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
+          CodeSystem cs = (CodeSystem) be.getResource();
+          if (!codeSystems.containsKey(cs.getUrl())) {
+            codeSystems.put(cs.getUrl(), null);
+          }
+        }
       }
       if (codeSystems.containsKey(system))
         return true;
@@ -244,20 +244,20 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             newJsonParser().compose(new FileOutputStream(cacheFn), vse.getValueset());
             s.close();
           }
-      }
+        }
         return vse;
       } else {
-      ValueSetExpansionOutcome res = expandOnServer(vs, cacheFn);
-      if (cacheFn != null) {
-        if (res.getValueset() != null) {
+        ValueSetExpansionOutcome res = expandOnServer(vs, cacheFn);
+        if (cacheFn != null) {
+          if (res.getValueset() != null) {
             saveToCache(res.getValueset(), cacheFn);
-        } else { 
-          OperationOutcome oo = new OperationOutcome();
-          oo.addIssue().getDetails().setText(res.getError());
-          saveToCache(oo, cacheFn);
+          } else { 
+            OperationOutcome oo = new OperationOutcome();
+            oo.addIssue().getDetails().setText(res.getError());
+            saveToCache(oo, cacheFn);
+          }
         }
-      }
-      return res;
+        return res;
       }
     } catch (NoTerminologyServiceException e) {
       return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.NOSERVICE);
@@ -302,7 +302,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
     s = s + "-"+Boolean.toString(heirarchical);
     String r = Integer.toString(s.hashCode());
-//    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
+    //    TextFile.stringToFile(s, Utilities.path(cache, r+".id.json"));
     return r;
   }
 
@@ -338,7 +338,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
     if (expProfile == null)
       throw new Exception("No ExpansionProfile provided");
-      
+
     try {
       Map<String, String> params = new HashMap<String, String>();
       params.put("_limit", Integer.toString(expandCodesLimit ));
@@ -400,7 +400,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       failed.add(vs.getUrl());
       return null;
     }
-    
+
     ValidationResult res = validateCode(coding, vse.getValueset());
     cache.put(cacheId, res);
     return res;
@@ -425,7 +425,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
     if (cache.containsKey(cacheId))
       return cache.get(cacheId);
-    
+
     if (validationCache.containsKey(vs.getUrl()) && validationCache.get(vs.getUrl()).containsKey(cacheId))
       return validationCache.get(vs.getUrl()).get(cacheId);
     if (!tryCache)
@@ -447,7 +447,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private String cacheId(Coding coding) {
     return "|"+coding.getSystem()+"|"+coding.getVersion()+"|"+coding.getCode()+"|"+coding.getDisplay();
   }
-  
+
   private String cacheId(CodeableConcept cc) {
     StringBuilder b = new StringBuilder();
     for (Coding c : cc.getCoding()) {
@@ -456,7 +456,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }    
     return b.toString();
   }
-  
+
   private ValidationResult verifyCodeExternal(ValueSet vs, Coding coding, boolean tryCache) throws Exception {
     ValidationResult res = vs == null ? null : handleByCache(vs, coding, tryCache);
     if (res != null)
@@ -464,7 +464,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     Parameters pin = new Parameters();
     pin.addParameter().setName("coding").setValue(coding);
     if (vs != null)
-    	pin.addParameter().setName("valueSet").setResource(vs);
+      pin.addParameter().setName("valueSet").setResource(vs);
     res = serverValidateCode(pin, vs == null);
     if (vs != null) {
       Map<String, ValidationResult> cache = validationCache.get(vs.getUrl());
@@ -472,7 +472,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
     return res;
   }
-  
+
   private ValidationResult verifyCodeExternal(ValueSet vs, CodeableConcept cc, boolean tryCache) throws Exception {
     ValidationResult res = handleByCache(vs, cc, tryCache);
     if (res != null)
@@ -536,7 +536,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
 
   private void tlog(String msg) {
-//    log(msg);
+    //    log(msg);
   }
 
   @SuppressWarnings("rawtypes")
@@ -586,10 +586,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       TextFile.stringToFile(res.getDisplay(), cacheName);
     else if (res.getMessage() != null) {
       if (res.getSeverity() == IssueSeverity.WARNING)
-      TextFile.stringToFile("!warning: "+res.getMessage(), cacheName);
-    else 
-      TextFile.stringToFile("!error: "+res.getMessage(), cacheName);
-  }
+        TextFile.stringToFile("!warning: "+res.getMessage(), cacheName);
+      else 
+        TextFile.stringToFile("!error: "+res.getMessage(), cacheName);
+    }
   }
 
   private String generateCacheName(Parameters pin) throws IOException {
@@ -623,27 +623,27 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-  
+
   @Override
   public ValidationResult validateCode(Coding code, ValueSet vs) {
-      if (codeSystems.containsKey(code.getSystem()) && codeSystems.get(code.getSystem()) != null) 
+    if (codeSystems.containsKey(code.getSystem()) && codeSystems.get(code.getSystem()) != null) 
       try {
         return verifyCodeInCodeSystem(codeSystems.get(code.getSystem()), code.getSystem(), code.getCode(), code.getDisplay());
       } catch (Exception e) {
         return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
       }
-      else if (vs.hasExpansion()) 
+    else if (vs.hasExpansion()) 
       try {
         return verifyCodeInternal(vs, code.getSystem(), code.getCode(), code.getDisplay());
       } catch (Exception e) {
         return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
       }
-      else 
+    else 
       try {
         return verifyCodeExternal(vs, code, true);
-    } catch (Exception e) {
+      } catch (Exception e) {
         return new ValidationResult(IssueSeverity.WARNING, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
-    }
+      }
   }
 
   @Override
@@ -713,7 +713,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   protected void loadValidationCache() throws JsonSyntaxException, Exception {
   }
-  
+
   @Override
   public List<ConceptMap> findMapsForSource(String url) {
     List<ConceptMap> res = new ArrayList<ConceptMap>();
@@ -755,7 +755,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       if (vse.getValueset() == null)
         return new ValidationResult(IssueSeverity.ERROR, vse.getError(), vse.getErrorClass());
       else
-      return verifyCodeInExpansion(vse.getValueset(), code);
+        return verifyCodeInExpansion(vse.getValueset(), code);
     }
   }
 
@@ -768,8 +768,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return new ValidationResult(IssueSeverity.WARNING, "Unknown Code "+code+" in partial code list of "+cs.getUrl());
       else 
         return verifyCodeExternal(null, new Coding().setSystem(system).setCode(code).setDisplay(display), false);
-//
-//        return new ValidationResult(IssueSeverity.WARNING, "A definition was found for "+cs.getUrl()+", but it has no codes in the definition");
+    //
+    //        return new ValidationResult(IssueSeverity.WARNING, "A definition was found for "+cs.getUrl()+", but it has no codes in the definition");
     //      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
     if (display == null)
       return new ValidationResult(cc);
@@ -858,7 +858,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   public void setLogger(ILoggingService logger) {
     this.logger = logger;
   }
-  
+
   public ExpansionProfile getExpansionProfile() {
     return expProfile;
   }

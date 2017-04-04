@@ -161,7 +161,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	  return txServer.getCapabilitiesStatementQuick().getSoftware().getVersion();
 	}
 
-	private void loadFromFile(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
+	public void loadFromFile(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
 		Resource f;
 		try {
 		  if (loader != null)
