@@ -2440,7 +2440,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   
       if (page.getKind().equals(ImplementationGuide.GuidePageKind.RESOURCE) && page.getFormat().equals("generated")) {
         outputName = determineOutputName(igpkp.getProperty(r, "defns"), r, vars, null, "definitions");
-        addPageDataRow(pages, source, page.getTitle() + " - Definitions", label, breadcrumb + breadCrumbForPage(page, false), null);
+        addPageDataRow(pages, outputName, page.getTitle() + " - Definitions", label, breadcrumb + breadCrumbForPage(page, false), null);
         JsonArray templates = configuration.getAsJsonArray("extraTemplates");
         if (templates!=null)
           for (JsonElement template : templates) {
@@ -2457,6 +2457,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             if (outputName == null)
               outputName = r.getElement().fhirType()+"-"+r.getId()+"-"+templateName+".html";
             else
+              outputName = igpkp.doReplacements(outputName, r, vars, "");
             addPageDataRow(pages, outputName, page.getTitle() + " - " + templateDesc, label, breadcrumb + breadCrumbForPage(page, false), null);
           }
       }
