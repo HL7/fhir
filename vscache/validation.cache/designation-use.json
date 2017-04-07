@@ -1,0 +1,10 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/designation-use",
+  "outcomes": [
+    {
+      "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
+      "severity": "error",
+      "message": "Unknown Code internal-label in http://hl7.org/fhir/ValueSet/designation-use"
+    }
+  ]
+}

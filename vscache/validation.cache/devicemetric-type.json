@@ -1,0 +1,15 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/devicemetric-type",
+  "outcomes": [
+    {
+      "hash": "#|https://rtmms.nist.gov|null|150456|MDC_PULS_OXIM_SAT_O2",
+      "severity": "error",
+      "message": "Unable to provide support for code system urn:iso:std:iso:11073:10101"
+    },
+    {
+      "hash": "#|https://rtmms.nist.gov|null|262688|MDC_DIM_PERCENT",
+      "severity": "error",
+      "message": "Unable to provide support for code system urn:iso:std:iso:11073:10101"
+    }
+  ]
+}
