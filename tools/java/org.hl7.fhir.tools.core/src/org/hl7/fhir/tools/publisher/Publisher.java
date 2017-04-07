@@ -4935,7 +4935,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     else
       svg.generate(lm.getDefinition(), page.getFolders().dstDir + fn+".svg", "2");
 
-    String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(lm.getId());
+    String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(lm.getId()+".html");
     SectionTracker st = new SectionTracker(prefix, true);
     st.start("");
     page.getSectionTrackerCache().put(fn, st);

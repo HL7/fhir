@@ -8,7 +8,7 @@
   Context = Element
   English = All FHIR elements must have a @value or children
   XPath = @value|f:*|h:div
-  Expression = children().count() > id.count()
+  Expression = hasValue() | (children().count() > id.count())
   Severity = error
 
 === Sheet Data Elements =====================================
