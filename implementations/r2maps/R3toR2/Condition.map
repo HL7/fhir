@@ -34,6 +34,10 @@ group for type+types  Condition extends DomainResource
   "Condition-stage" : for src.stage as vs0 make tgt.stage as vt0 then cndStage(vs0, vt0)
   "Condition-evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then cndEvidence(vs0, vt0)
   "Condition-bodySite" : for src.bodySite make tgt.bodySite
+  "Condition-note" : for src.note as n then {
+    "Condition.notes-text" : for n.text make tgt.notes
+  }
+  
 endgroup
 
 group cndStage extends BackboneElement

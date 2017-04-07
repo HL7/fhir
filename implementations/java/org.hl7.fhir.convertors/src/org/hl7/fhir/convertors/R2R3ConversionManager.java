@@ -56,7 +56,7 @@ import org.hl7.fhir.utilities.Utilities;
  *  - provide a stream or a path (file or URL) that points to the R3 definitions  (from http://hl7.org/fhir/STU3/downloads.html)
  *  - provide a stream or a path (file or URL) that points to R2/R3 map files (from http://hl7.org/fhir/r2r3maps.zip)
  * 
- *  - call convert()
+ *  - call convert() (can call this more than once, but not multithread safe)
  *  
  * @author Grahame Grieve
  *
