@@ -1546,7 +1546,7 @@ pages.  This approach allows both sender and receiver to avoid caching results o
 <a name="summary"> </a>
 <h4>Summary</h4>
 <p>
-The client can request the server to return a portion of the resources
+The client can request the server to return only a portion of the resources
 by using the parameter <code>_summary</code>:
 </p>
 <pre>
@@ -1584,6 +1584,25 @@ a complete resource.
 <p>
 Note that the <code>_include</code> and <code>_revinclude</code> parameters cannot be mixed with <code>_summary=text</code>.
 </p>
+
+<blockquote class="stu-note">
+<a name="dstu-tc"> </a>
+<p>
+<b>STU Note:</b>  There are open issues around the definitions of which elements are in the summary for each resource.
+There are 2 kinds of problems in the existing definitions:
+</p>
+<ul>
+ <li>Elements are marked as 'include in summary', but their parent element is not</li>
+ <li>Elements have minimum cardinality &gt; 0, but are not included in the summary (and their parent element is) - so sumarised resources will not be schema valid</li>
+</ul>
+<p>
+These issues will be resolved for FHIR Release 4. In the meantime, implementers may choose to
+override which elements are marked as 'included in summary', and implementations may vary.
+</p>
+<p>
+Feedback on which elements should be in the summaries is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+</p>
+</blockquote>
 
 <a name="elements"> </a>
 <h4>Elements</h4>
