@@ -43,6 +43,7 @@ import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
@@ -60,11 +61,17 @@ import java.util.zip.ZipEntry;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.jena.atlas.json.JsonObject;
 import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.*;
@@ -229,6 +236,9 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * This is the entry point for the publication method for FHIR The general order
@@ -2257,6 +2267,20 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.log(" ...collections ", LogMessageType.Process);
 
+      com.google.gson.JsonObject diff = new com.google.gson.JsonObject();
+      page.getDiffEngine().getDiffAsJson(diff);
+      Gson gson = new GsonBuilder().setPrettyPrinting().create();
+      String json = gson.toJson(diff);
+      TextFile.stringToFile(json, Utilities.path(page.getFolders().dstDir, "fhir.diff.json"));
+
+      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+      DocumentBuilder builder = dbf.newDocumentBuilder();
+      Document doc = builder.newDocument();
+      Element element = doc.createElement("difference");
+      doc.appendChild(element);
+      page.getDiffEngine().getDiffAsXml(doc, element);
+      prettyPrint(doc, Utilities.path(page.getFolders().dstDir, "fhir.diff.xml"));
+      
       checkBundleURLs(page.getResourceBundle());
       checkStructureDefinitions(page.getResourceBundle());
       page.getResourceBundle().getEntry().sort(new ProfileBundleSorter());
@@ -3802,8 +3826,28 @@ public class Publisher implements URIResolver, SectionNumberer {
     // because we'll pick up a little more information as we process the
     // resource
     StructureDefinition p = generateProfile(resource, n, xml, json, ttl, !logicalOnly);
-//    if (!isAbstract && !n.equals("Bundle") && web)
-//      generateQuestionnaire(n, p);
+    com.google.gson.JsonObject diff = new com.google.gson.JsonObject();
+    page.getDiffEngine().getDiffAsJson(diff, p);
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    json = gson.toJson(diff);
+    TextFile.stringToFile(json, Utilities.path(page.getFolders().dstDir, resource.getName().toLowerCase()+".diff.json"));
+
+    DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = dbf.newDocumentBuilder();
+    Document doc = builder.newDocument();
+    Element element = doc.createElement("difference");
+    doc.appendChild(element);
+    page.getDiffEngine().getDiffAsXml(doc, element, p);
+    prettyPrint(doc, Utilities.path(page.getFolders().dstDir, resource.getName().toLowerCase()+".diff.xml"));
+}
+
+  public void prettyPrint(Document xml, String filename) throws Exception {
+    Transformer tf = TransformerFactory.newInstance().newTransformer();
+    tf.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+    tf.setOutputProperty(OutputKeys.INDENT, "yes");
+    Writer out = new StringWriter();
+    tf.transform(new DOMSource(xml), new StreamResult(out));
+    TextFile.stringToFile(out.toString(), filename);
   }
 
   private void produceOperation(ImplementationGuideDefn ig, String name, String id, ResourceDefn resource, Operation op) throws Exception {

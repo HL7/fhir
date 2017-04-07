@@ -91,11 +91,18 @@ public class Utilities {
      * @return the pluralized form of the word, or the word itself if it could not be pluralized
      * @see #singularize(Object)
      */
-    public static String pluralizeMe( String word ) {
-    	Inflector inf = new Inflector();
-    	return inf.pluralize(word);
-    }
-    
+  public static String pluralizeMe( String word ) {
+    Inflector inf = new Inflector();
+    return inf.pluralize(word);
+  }
+  
+  public static String pluralize(String word, int count) {
+    if (count == 1)
+      return word;
+    Inflector inf = new Inflector();
+    return inf.pluralize(word);
+  }
+  
   
     public static boolean isInteger(String string) {
       try {

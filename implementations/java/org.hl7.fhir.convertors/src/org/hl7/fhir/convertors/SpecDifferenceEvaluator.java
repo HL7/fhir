@@ -39,6 +39,13 @@ import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 public class SpecDifferenceEvaluator {
 
@@ -164,6 +171,154 @@ public class SpecDifferenceEvaluator {
     }
   }
 
+  public void getDiffAsJson(JsonObject json, StructureDefinition rev) throws IOException {
+    this.linker = null;
+    StructureDefinition orig = original.resources.get(checkRename(rev.getName()));
+    if (orig == null)
+      orig = original.types.get(checkRename(rev.getName()));
+    JsonArray types = new JsonArray();
+    json.add("types", types);
+    types.add(new JsonPrimitive(rev.getName()));
+    JsonObject type = new JsonObject();
+    json.add(rev.getName(), type);
+    if (orig == null)
+      type.addProperty("status", "new");
+    else {
+      start();
+      compareJson(type, orig, rev);
+    }
+  }
+  
+  public void getDiffAsXml(Document doc, Element xml, StructureDefinition rev) throws IOException {
+    this.linker = null;
+    StructureDefinition orig = original.resources.get(checkRename(rev.getName()));
+    if (orig == null)
+      orig = original.types.get(checkRename(rev.getName()));
+    Element type = doc.createElement("type");
+    type.setAttribute("name", rev.getName());
+    xml.appendChild(type);
+    if (orig == null)
+      type.setAttribute("status", "new");
+    else {
+      start();
+      compareXml(doc, type, orig, rev);
+    }
+  }
+  
+  public void getDiffAsJson(JsonObject json) throws IOException {
+    this.linker = null;
+    JsonArray types = new JsonArray();
+    json.add("types", types);
+    
+    for (String s : sorted(revision.types.keySet())) {
+      StructureDefinition orig = original.types.get(s);
+      StructureDefinition rev = revision.types.get(s);
+      types.add(new JsonPrimitive(rev.getName()));
+      JsonObject type = new JsonObject();
+      json.add(rev.getName(), type);
+      if (orig == null) {
+        type.addProperty("status", "new");
+      } else if (rev.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
+        type.addProperty("status", "no-change");
+      } else if (rev.hasDerivation() && orig.hasDerivation() && rev.getDerivation() != orig.getDerivation()) {
+        type.addProperty("status", "status-change");
+        type.addProperty("past-status", orig.getDerivation().toCode());
+        type.addProperty("current-status", rev.getDerivation().toCode());
+      } else {
+        compareJson(type, orig, rev);
+      }
+    }
+    for (String s : sorted(original.types.keySet())) {
+      StructureDefinition orig = original.types.get(s);
+      StructureDefinition rev = revision.types.get(s);
+      if (rev == null) {
+        types.add(new JsonPrimitive(orig.getName()));
+        JsonObject type = new JsonObject();
+        json.add(orig.getName(), type);
+        type.addProperty("status", "deleted");
+      }
+    }
+    
+    for (String s : sorted(revision.resources.keySet())) {
+      StructureDefinition orig = original.resources.get(checkRename(s));
+      StructureDefinition rev = revision.resources.get(s);
+      types.add(new JsonPrimitive(rev.getName()));
+      JsonObject type = new JsonObject();
+      json.add(rev.getName(), type);
+      if (orig == null) {
+        type.addProperty("status", "new");
+      } else {
+        compareJson(type, orig, rev);
+      }
+    }
+    for (String s : sorted(original.resources.keySet())) {
+      StructureDefinition orig = original.resources.get(s);
+      StructureDefinition rev = revision.resources.get(s);
+      if (rev == null) {
+        types.add(new JsonPrimitive(orig.getName()));
+        JsonObject type = new JsonObject();
+        json.add(orig.getName(), type);
+        type.addProperty("status", "deleted");
+      }
+    }   
+  }
+  
+  public void getDiffAsXml(Document doc, Element xml) throws IOException {
+    this.linker = null;
+    
+    for (String s : sorted(revision.types.keySet())) {
+      StructureDefinition orig = original.types.get(s);
+      StructureDefinition rev = revision.types.get(s);
+      Element type = doc.createElement("type");
+      type.setAttribute("name", rev.getName());
+      xml.appendChild(type);
+      if (orig == null) {
+        type.setAttribute("status", "new");
+      } else if (rev.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
+        type.setAttribute("status", "no-change");
+      } else if (rev.hasDerivation() && orig.hasDerivation() && rev.getDerivation() != orig.getDerivation()) {
+        type.setAttribute("status", "status-change");
+        type.setAttribute("past-status", orig.getDerivation().toCode());
+        type.setAttribute("current-status", rev.getDerivation().toCode());
+      } else {
+        compareXml(doc, type, orig, rev);
+      }
+    }
+    for (String s : sorted(original.types.keySet())) {
+      StructureDefinition orig = original.types.get(s);
+      StructureDefinition rev = revision.types.get(s);
+      if (rev == null) {
+        Element type = doc.createElement("type");
+        type.setAttribute("name", orig.getName());
+        xml.appendChild(type);
+        type.setAttribute("status", "deleted");
+      }
+    }
+    
+    for (String s : sorted(revision.resources.keySet())) {
+      StructureDefinition orig = original.resources.get(checkRename(s));
+      StructureDefinition rev = revision.resources.get(s);
+      Element type = doc.createElement("type");
+      type.setAttribute("name", rev.getName());
+      xml.appendChild(type);
+      if (orig == null) {
+        type.setAttribute("status", "new");
+      } else {
+        compareXml(doc, type, orig, rev);
+      }
+    }
+    for (String s : sorted(original.resources.keySet())) {
+      StructureDefinition orig = original.resources.get(s);
+      StructureDefinition rev = revision.resources.get(s);
+      if (rev == null) {
+        Element type = doc.createElement("type");
+        type.setAttribute("name", orig.getName());
+        xml.appendChild(type);
+        type.setAttribute("status", "deleted");
+      }
+    }   
+  }
+  
   public String getDiffAsHtml(TypeLinkProvider linker, StructureDefinition rev) throws IOException {
     this.linker = linker;
 
@@ -256,7 +411,7 @@ public class SpecDifferenceEvaluator {
       left.addTag("a").setAttribute("href", link).addText(name);
     else
       left.addText(name);
-    right.addText("No Changes");
+    right.ul().li().addText("No Changes");
   }
   
   private void markChanged(String name, String change, boolean item) {
@@ -268,7 +423,7 @@ public class SpecDifferenceEvaluator {
       left.addTag("a").setAttribute("href", link).addText(name);
     else
       left.addText(name);
-    right.addText(change);
+    right.ul().li().addText(change);
   }
   
   private void markDeleted(String name, boolean item) {
@@ -276,7 +431,7 @@ public class SpecDifferenceEvaluator {
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
     left.addText(name);
-    right.addText("deleted");
+    right.ul().li().addText("deleted");
   }
   
   private void markNew(String name, boolean item, boolean res) {
@@ -288,7 +443,7 @@ public class SpecDifferenceEvaluator {
       left.addTag("a").setAttribute("href", link).addText(name);
     else
       left.addText(name);
-    right.addText(res ? "added Resource" : "added Element");    
+    right.ul().li().addText(res ? "Added Resource" :name.contains(".") ? "Added Element" : "Added Type");    
   }
 
   private void compare(StructureDefinition orig, StructureDefinition rev) {
@@ -305,7 +460,7 @@ public class SpecDifferenceEvaluator {
     boolean changed = false;
     if (!orig.getName().equals(rev.getName())) {
       changed = true;
-      right.addText("Name Changed from "+orig.getName()+" to "+rev.getName());
+      right.ul().li().addText("Name Changed from "+orig.getName()+" to "+rev.getName());
     }
     for (ElementDefinition ed : rev.getDifferential().getElement()) { 
       ElementDefinition oed = getMatchingElement(rev.getName(), orig.getDifferential().getElement(), ed);
@@ -341,7 +496,7 @@ public class SpecDifferenceEvaluator {
     }
 
     if (!changed)
-      tr.addText("No Changes");
+      tr.ul().li().addText("No Changes");
     
     for (ElementDefinition ed : rev.getDifferential().getElement()) 
       ed.clearUserData("match");
@@ -432,13 +587,13 @@ public class SpecDifferenceEvaluator {
       XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
       left.addText(rev.getPath());
       XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
-      boolean first = true;
+      XhtmlNode ul = null;
       for (String s : b.toString().split("\\r?\\n")) {
-        if (first)
-          first = false;
-        else
-          right.addTag("br");
-        right.addText(s);
+        if (!Utilities.noString(s)) {
+          if (ul == null) 
+            ul = right.addTag("ul");
+          ul.addTag("li").addText(s);
+        }
       }
     }
     return b.length() > 0;
@@ -463,7 +618,7 @@ public class SpecDifferenceEvaluator {
   }
 
   private String compareBindings(ElementDefinitionBindingComponent rev, ElementDefinitionBindingComponent orig) {
-    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder("\r\n");
     if (rev.getStrength() != orig.getStrength())
       b.append("Change binding strength from "+orig.getStrength().toCode()+" to "+rev.getStrength().toCode());
     if (!Base.compareDeep(rev.getValueSet(), orig.getValueSet(), false))
@@ -471,19 +626,51 @@ public class SpecDifferenceEvaluator {
     if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {
       ValueSet vrev = getValueSet(rev.getValueSet(), revision.expansions); 
       ValueSet vorig = getValueSet(rev.getValueSet(), original.expansions);
+      CommaSeparatedStringBuilder br = new CommaSeparatedStringBuilder();
+      int ir = 0;
+      CommaSeparatedStringBuilder bo = new CommaSeparatedStringBuilder();
+      int io = 0;
       if (vrev != null && vorig != null) {
-        String srev = listCodes(vrev);
-        String sorig = listCodes(vorig);
-        if (!srev.equals(sorig)) {
-          b.append("Change codes from {"+Utilities.escapeXml(sorig)+"} to {"+Utilities.escapeXml(srev)+"}");
+        for (ValueSetExpansionContainsComponent cc : vorig.getExpansion().getContains()) {
+          if (!hasCode(vrev, cc)) {
+            io++;
+            bo.append(Utilities.escapeXml(cc.getCode()));
+          }
+        }
+        for (ValueSetExpansionContainsComponent cc : vrev.getExpansion().getContains()) {
+          if (!hasCode(vorig, cc)) {
+            ir++;
+            br.append(Utilities.escapeXml(cc.getCode()));
+          }
         }
       }
+      if (io > 0) 
+        b.append("Remove "+Utilities.pluralize("Code", io)+" "+bo);
+      if (ir > 0) 
+        b.append("Add "+Utilities.pluralize("Code", ir)+" "+br);
+      
     }
     return b.toString();
   }
+//  "Remove code "+
+//  "add code "+
 
   private String describeBinding(ElementDefinition orig) {
     return describeReference(orig.getBinding().getValueSet())+" ("+orig.getBinding().getStrength().toCode()+")";
+  }
+
+  private void describeBinding(JsonObject element, String name, ElementDefinition orig) {
+    JsonObject binding = new JsonObject();
+    element.add(name,  binding);
+    binding.addProperty("reference", describeReference(orig.getBinding().getValueSet()));
+    binding.addProperty("strength", orig.getBinding().getStrength().toCode());
+  }
+
+  private void describeBinding(Document doc, Element element, String name, ElementDefinition orig) {
+    Element binding = doc.createElement(name);
+    element.appendChild(binding);
+    binding.setAttribute("reference", describeReference(orig.getBinding().getValueSet()));
+    binding.setAttribute("strength", orig.getBinding().getStrength().toCode());
   }
 
   private String describeReference(Type ref) {
@@ -521,7 +708,9 @@ public class SpecDifferenceEvaluator {
   }
 
   private String listCodes(ValueSet vs) {
-    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder("|");
+    if (vs.getExpansion().getContains().size() > 15)
+      return ">15 codes";
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder(" | ");
     for (ValueSetExpansionContainsComponent ce : vs.getExpansion().getContains()) {
       if (ce.hasCode())
         b.append(ce.getCode());
@@ -606,5 +795,410 @@ public class SpecDifferenceEvaluator {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, t);
     zip.addBytes(t.fhirType()+"-"+t.getId()+".xml", bs.toByteArray(), true);
   }
- 
+
+  private void compareJson(JsonObject type, StructureDefinition orig, StructureDefinition rev) {
+    JsonObject elements = new JsonObject();
+    // first, we must match revision elements to old elements
+    boolean changed = false;
+    if (!orig.getName().equals(rev.getName())) {
+      changed = true;
+      type.addProperty("old-name", orig.getName());
+    }
+    for (ElementDefinition ed : rev.getDifferential().getElement()) { 
+      ElementDefinition oed = getMatchingElement(rev.getName(), orig.getDifferential().getElement(), ed);
+      if (oed != null) {
+        ed.setUserData("match", oed);
+        oed.setUserData("match", ed);
+      }
+    }
+
+    for (ElementDefinition ed : rev.getDifferential().getElement()) {
+      ElementDefinition oed = (ElementDefinition) ed.getUserData("match");
+      if (oed == null) {
+        changed = true;
+        JsonObject element = new JsonObject();
+        elements.add(ed.getPath(), element);
+        element.addProperty("status", "new");
+      } else 
+        changed = compareElementJson(elements, ed, oed) || changed;
+    }
+    
+    List<String> dels = new ArrayList<String>();
+    
+    for (ElementDefinition ed : orig.getDifferential().getElement()) {
+      if (ed.getUserData("match") == null) {
+        changed = true;
+        boolean marked = false;
+        for (String s : dels)
+          if (ed.getPath().startsWith(s+".")) 
+            marked = true;
+        if (!marked) {
+          dels.add(ed.getPath());
+          JsonObject element = new JsonObject();
+          elements.add(ed.getPath(), element);
+          element.addProperty("status", "deleted");
+        }
+      }
+    }
+
+    if (elements.entrySet().size() > 0)
+      type.add("elements", elements);
+    
+    if (changed)
+      type.addProperty("status", "changed");
+    else
+      type.addProperty("status", "no-change");
+    
+    for (ElementDefinition ed : rev.getDifferential().getElement()) 
+      ed.clearUserData("match");
+    for (ElementDefinition ed : orig.getDifferential().getElement()) 
+      ed.clearUserData("match");
+    
+  }
+
+  private void compareXml(Document doc, Element type, StructureDefinition orig, StructureDefinition rev) {
+    // first, we must match revision elements to old elements
+    boolean changed = false;
+    if (!orig.getName().equals(rev.getName())) {
+      changed = true;
+      type.setAttribute("old-name", orig.getName());
+    }
+    for (ElementDefinition ed : rev.getDifferential().getElement()) { 
+      ElementDefinition oed = getMatchingElement(rev.getName(), orig.getDifferential().getElement(), ed);
+      if (oed != null) {
+        ed.setUserData("match", oed);
+        oed.setUserData("match", ed);
+      }
+    }
+
+    for (ElementDefinition ed : rev.getDifferential().getElement()) {
+      ElementDefinition oed = (ElementDefinition) ed.getUserData("match");
+      if (oed == null) {
+        changed = true;
+        Element element = doc.createElement("element");
+        element.setAttribute("path", ed.getPath());
+        type.appendChild(element);
+        element.setAttribute("status", "new");
+      } else 
+        changed = compareElementXml(doc, type, ed, oed) || changed;
+    }
+    
+    List<String> dels = new ArrayList<String>();
+    
+    for (ElementDefinition ed : orig.getDifferential().getElement()) {
+      if (ed.getUserData("match") == null) {
+        changed = true;
+        boolean marked = false;
+        for (String s : dels)
+          if (ed.getPath().startsWith(s+".")) 
+            marked = true;
+        if (!marked) {
+          dels.add(ed.getPath());
+          Element element = doc.createElement("element");
+          element.setAttribute("path", ed.getPath());
+          type.appendChild(element);
+          element.setAttribute("status", "deleted");
+        }
+      }
+    }
+    
+    if (changed)
+      type.setAttribute("status", "changed");
+    else
+      type.setAttribute("status", "no-change");
+    
+    for (ElementDefinition ed : rev.getDifferential().getElement()) 
+      ed.clearUserData("match");
+    for (ElementDefinition ed : orig.getDifferential().getElement()) 
+      ed.clearUserData("match");
+    
+  }
+
+  private boolean compareElementJson(JsonObject elements, ElementDefinition rev, ElementDefinition orig) {
+    JsonObject element = new JsonObject();
+    
+    String rn = tail(rev.getPath());
+    String on = tail(orig.getPath());
+    
+    if (!rn.equals(on) && rev.getPath().contains("."))
+      element.addProperty("old-name", on);
+    
+    if (rev.getMin() != orig.getMin()) {
+      element.addProperty("old-min", orig.getMin());
+      element.addProperty("new-min", rev.getMin());
+    }
+
+    if (!rev.getMax().equals(orig.getMax())) {
+      element.addProperty("old-max", orig.getMax());
+      element.addProperty("new-max", rev.getMax());
+    }
+    
+    analyseTypes(element, rev, orig);
+  
+    if (hasBindingToNote(rev) ||  hasBindingToNote(orig)) {
+      compareBindings(element, rev, orig);
+    }
+    
+    if (rev.hasDefaultValue() || orig.hasDefaultValue()) {
+      boolean changed = true;
+      if (!rev.hasDefaultValue()) 
+        element.addProperty("default", "removed");
+      else if (!orig.hasDefaultValue())
+        element.addProperty("default", "added");
+      else {  
+        String s1 = describeValue(orig.getDefaultValue());
+        String s2 = describeValue(rev.getDefaultValue());
+        if (!s1.equals(s2))
+          element.addProperty("default", "changed");
+        else
+          changed = false;
+      }
+      if (changed) {
+        if (orig.hasDefaultValue())
+          element.addProperty("old-default", describeValue(orig.getDefaultValue()));
+        if (rev.hasDefaultValue())
+          element.addProperty("new-default", describeValue(rev.getDefaultValue()));
+      }
+    }
+
+    if (rev.getIsModifier() != orig.getIsModifier()) {
+      if (rev.getIsModifier())
+        element.addProperty("modifier", "added");
+      else
+        element.addProperty("modifier", "removed");
+    }
+
+    if (element.entrySet().isEmpty())
+      return false;
+    else {
+      elements.add(rev.getPath(), element);
+      return true;
+    }
+  }
+  
+  private boolean compareElementXml(Document doc, Element type, ElementDefinition rev, ElementDefinition orig) {
+    Element element = doc.createElement("element");
+    
+    String rn = tail(rev.getPath());
+    String on = tail(orig.getPath());
+    
+    if (!rn.equals(on) && rev.getPath().contains("."))
+      element.setAttribute("old-name", on);
+    
+    if (rev.getMin() != orig.getMin()) {
+      element.setAttribute("old-min", Integer.toString(orig.getMin()));
+      element.setAttribute("new-min", Integer.toString(rev.getMin()));
+    }
+
+    if (!rev.getMax().equals(orig.getMax())) {
+      element.setAttribute("old-max", orig.getMax());
+      element.setAttribute("new-max", rev.getMax());
+    }
+    
+    analyseTypes(doc, element, rev, orig);
+  
+    if (hasBindingToNote(rev) ||  hasBindingToNote(orig)) {
+      compareBindings(doc, element, rev, orig);
+    }
+    
+    if (rev.hasDefaultValue() || orig.hasDefaultValue()) {
+      boolean changed = true;
+      if (!rev.hasDefaultValue()) 
+        element.setAttribute("default", "removed");
+      else if (!orig.hasDefaultValue())
+        element.setAttribute("default", "added");
+      else {  
+        String s1 = describeValue(orig.getDefaultValue());
+        String s2 = describeValue(rev.getDefaultValue());
+        if (!s1.equals(s2))
+          element.setAttribute("default", "changed");
+        else
+          changed = false;
+      }
+      if (changed) {
+        if (orig.hasDefaultValue())
+          element.setAttribute("old-default", describeValue(orig.getDefaultValue()));
+        if (rev.hasDefaultValue())
+          element.setAttribute("new-default", describeValue(rev.getDefaultValue()));
+      }
+    }
+
+    if (rev.getIsModifier() != orig.getIsModifier()) {
+      if (rev.getIsModifier())
+        element.setAttribute("modifier", "added");
+      else
+        element.setAttribute("modifier", "removed");
+    }
+
+    if (element.getAttributes().getLength() == 0 && element.getChildNodes().getLength() == 0)
+      return false;
+    else {
+      element.setAttribute("path", rev.getPath());
+      type.appendChild(element);
+      return true;
+    }
+  }
+  
+  private void analyseTypes(JsonObject element, ElementDefinition rev, ElementDefinition orig) {
+    JsonArray oa = new JsonArray();
+    JsonArray ra = new JsonArray();
+    if (rev.getType().size() == 1 && orig.getType().size() == 1) {
+      String r = describeType(rev.getType().get(0));
+      String o = describeType(orig.getType().get(0));
+      if (!o.equals(r)) {
+        oa.add(new JsonPrimitive(o));
+        ra.add(new JsonPrimitive(r));
+      }
+    } else {
+      for (TypeRefComponent tr : orig.getType()) {
+        if (!hasType(rev.getType(), tr))
+          oa.add(new JsonPrimitive(describeType(tr)));
+      }
+      for (TypeRefComponent tr : rev.getType()) {
+        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
+          ra.add(new JsonPrimitive(describeType(tr)));
+      }
+    }
+    if (oa.size() > 0)
+      element.add("removed-types", oa);
+    if (ra.size() > 0)
+      element.add("added-types", ra);
+  }
+  
+  private void analyseTypes(Document doc, Element element, ElementDefinition rev, ElementDefinition orig) {
+    if (rev.getType().size() == 1 && orig.getType().size() == 1) {
+      String r = describeType(rev.getType().get(0));
+      String o = describeType(orig.getType().get(0));
+      if (!o.equals(r)) {
+        element.appendChild(makeElementWithAttribute(doc, "removed-type", "name", o));
+        element.appendChild(makeElementWithAttribute(doc, "added-type", "name", r));
+      }
+    } else {
+      for (TypeRefComponent tr : orig.getType()) {
+        if (!hasType(rev.getType(), tr))
+          element.appendChild(makeElementWithAttribute(doc, "removed-type", "name", describeType(tr)));
+      }
+      for (TypeRefComponent tr : rev.getType()) {
+        if (!hasType(orig.getType(), tr) && !isAbstractType(tr.getCode()))
+          element.appendChild(makeElementWithAttribute(doc, "added-type", "name", describeType(tr)));
+      }
+    }
+  }
+  
+  
+  private Node makeElementWithAttribute(Document doc, String name, String aname, String content) {
+    Element e = doc.createElement(name);
+    e.setAttribute(aname, content);
+    return e;
+  }
+
+  private void compareBindings(JsonObject element, ElementDefinition rev, ElementDefinition orig) {
+    if (!hasBindingToNote(rev)) {
+      element.addProperty("binding-status", "removed");
+      describeBinding(element, "old-binding", orig);
+    } else if (!hasBindingToNote(orig)) {
+      element.addProperty("binding-status", "added");
+      describeBinding(element, "new-binding", rev);
+    } else if (compareBindings(element, rev.getBinding(), orig.getBinding())) {
+      element.addProperty("binding-status", "changed");
+      describeBinding(element, "old-binding", orig);
+      describeBinding(element, "new-binding", rev);
+    }
+  }
+
+  private boolean compareBindings(JsonObject element, ElementDefinitionBindingComponent rev, ElementDefinitionBindingComponent orig) {
+    boolean res = false;
+    if (rev.getStrength() != orig.getStrength()) {
+      element.addProperty("binding-strength-changed", true);
+      res = true;
+    }
+    if (!Base.compareDeep(rev.getValueSet(), orig.getValueSet(), false)) {
+      element.addProperty("binding-valueset-changed", true);
+      res = true;
+    }
+    if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {
+      JsonArray oa = new JsonArray();
+      JsonArray ra = new JsonArray();
+      ValueSet vrev = getValueSet(rev.getValueSet(), revision.expansions); 
+      ValueSet vorig = getValueSet(rev.getValueSet(), original.expansions);
+      if (vrev != null && vorig != null) {
+        for (ValueSetExpansionContainsComponent cc : vorig.getExpansion().getContains()) {
+          if (!hasCode(vrev, cc))
+            oa.add(new JsonPrimitive(cc.getCode()));
+        }
+        for (ValueSetExpansionContainsComponent cc : vrev.getExpansion().getContains()) {
+          if (!hasCode(vorig, cc))
+            ra.add(new JsonPrimitive(cc.getCode()));
+        }
+      }
+      if (oa.size() > 0 || ra.size() > 0) {
+        element.addProperty("binding-codes-changed", true);
+        res = true;
+      }
+      if (oa.size() > 0)
+        element.add("removed-codes", oa);
+      if (ra.size() > 0)
+        element.add("added-codes", ra);
+    }
+    return res;
+  }
+
+  private boolean hasCode(ValueSet vs, ValueSetExpansionContainsComponent cc) {
+    for (ValueSetExpansionContainsComponent ct : vs.getExpansion().getContains()) {
+      if (ct.getSystem().equals(cc.getSystem()) && ct.getCode().equals(cc.getCode()))
+        return true;
+    }
+    return false;
+  }
+  
+  private void compareBindings(Document doc, Element element, ElementDefinition rev, ElementDefinition orig) {
+    if (!hasBindingToNote(rev)) {
+      element.setAttribute("binding-status", "removed");
+      describeBinding(doc, element, "old-binding", orig);
+    } else if (!hasBindingToNote(orig)) {
+      element.setAttribute("binding-status", "added");
+      describeBinding(doc, element, "new-binding", rev);
+    } else if (compareBindings(doc, element, rev.getBinding(), orig.getBinding())) {
+      element.setAttribute("binding-status", "changed");
+      describeBinding(doc, element, "old-binding", orig);
+      describeBinding(doc, element, "new-binding", rev);
+    }
+  }
+
+  private boolean compareBindings(Document doc, Element element, ElementDefinitionBindingComponent rev, ElementDefinitionBindingComponent orig) {
+    boolean res = false;
+    if (rev.getStrength() != orig.getStrength()) {
+      element.setAttribute("binding-strength-changed", "true");
+      res = true;
+    }
+    if (!Base.compareDeep(rev.getValueSet(), orig.getValueSet(), false)) {
+      element.setAttribute("binding-valueset-changed", "true");
+      res = true;
+    }
+    if (rev.getStrength() == BindingStrength.REQUIRED && orig.getStrength() == BindingStrength.REQUIRED) {
+      ValueSet vrev = getValueSet(rev.getValueSet(), revision.expansions); 
+      ValueSet vorig = getValueSet(rev.getValueSet(), original.expansions);
+      boolean changed = false;
+      if (vrev != null && vorig != null) {
+        for (ValueSetExpansionContainsComponent cc : vorig.getExpansion().getContains()) {
+          if (!hasCode(vrev, cc)) {
+            element.appendChild(makeElementWithAttribute(doc, "removed-code", "code", cc.getCode()));
+            changed = true;
+          }
+        }
+        for (ValueSetExpansionContainsComponent cc : vrev.getExpansion().getContains()) {
+          if (!hasCode(vorig, cc)) {
+            element.appendChild(makeElementWithAttribute(doc, "added-code", "code", cc.getCode()));
+            changed = true;
+          }
+        }
+      }
+      if (changed) {
+        element.setAttribute("binding-codes-changed", "true");
+        res = true;
+      }
+    }
+    return res;
+  }
+
 }
