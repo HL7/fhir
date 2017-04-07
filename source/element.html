@@ -290,7 +290,7 @@ property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 <pre class="json">
   {
     "code" : {
-      "_id" : "[internal id]",
+      "id" : "[internal id]",
       "extension" : [
         ..extensions, if present...
       ],
@@ -302,14 +302,14 @@ property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 Primitive types are represented differently; the actual primitive value appears
 as a JSON string or number property. If an internal id or extensions are present,
 they appear in a JSON object with the name of the primitive value property with
-"_" appended. For example, a string property named "name" will be represented
+"_" prepended. For example, a string property named "name" will be represented
 like this:
 </p>
 <pre class="json">
   {
     "name" : "[value of string]",
-    "name_" : {
-      "_id" : "[internal id]",
+    "_name" : {
+      "id" : "[internal id]",
       "extension" : [
         ..extensions, if present...
       ]
