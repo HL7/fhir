@@ -9,17 +9,17 @@
   </identifier>
 
   <!-- this was an actual adverse event, not just a potential one -->
-  <category value="AE"/>
+  <kind value="AE"/>
   
   <!-- more precise details of the event -->
-  <type>
+  <event>
     <coding>
       <!-- example uses SNOMED CT. Other likely possibilitues incluide MedDRA -->
       <system value="http://snomed.info/sct"/>
       <code value="304386008"/>
       <display value="O/E - itchy rash"/>
     </coding>
-  </type>
+  </event>
   
   <!-- the patient that actually had the adverse event -->
   <subject>
@@ -29,14 +29,17 @@
   <!-- when the event happened --> 
   <date value="2017-01-29T12:34:56+00:00"/>
   
+  <!-- This was a rash, so overall not serious -->
+  <serious value="false"/>
+  
   <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
-  <seriousness>
+  <severity>
     <coding>
       <system value="http://hl7.org/fhir/adverse-event-seriousness"></system>
       <code value="Mild"/>
       <display value="Mild"/>
     </coding>
-  </seriousness>
+  </severity>
 
   <!-- who made the record / last updated it -->
   <recorder>
