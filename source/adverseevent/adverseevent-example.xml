@@ -9,7 +9,7 @@
   </identifier>
 
   <!-- this was an actual adverse event, not just a potential one -->
-  <kind value="AE"/>
+  <kind value="AdverseEvent"/>
   
   <!-- more precise details of the event -->
   <event>
@@ -30,12 +30,18 @@
   <date value="2017-01-29T12:34:56+00:00"/>
   
   <!-- This was a rash, so overall not serious -->
-  <serious value="false"/>
+  <seriousness>
+      <coding>
+        <system value="http://hl7.org/fhir/adverse-event-seriousness"/>
+        <code value="Non-serious"/>
+        <display value="Non-serious"/>
+    </coding>
+  </seriousness>
   
   <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
   <severity>
     <coding>
-      <system value="http://hl7.org/fhir/adverse-event-seriousness"></system>
+      <system value="http://hl7.org/fhir/adverse-event-severity"/>
       <code value="Mild"/>
       <display value="Mild"/>
     </coding>

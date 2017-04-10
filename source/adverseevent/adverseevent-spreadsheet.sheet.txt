@@ -2,9 +2,9 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = AdverseEventCategory
+  Binding Name = AdverseEventKind
   Binding = code list
-  Reference = #adverse-event-category
+  Reference = #adverse-event-kind
   Definition = Overall categorization of the event, e.g. real or potential
   Conformance = required
 
@@ -30,44 +30,67 @@
   Conformance = example
 
  -- Row 5 -----------------------------------
-  Binding Name = AdverseEventCausality
-  Binding = code list
-  Reference = #adverse-event-causality
-  Definition = TODO
-  Conformance = required
-
- -- Row 6 -----------------------------------
   Binding Name = AdverseEventCausalityAssessment
   Binding = code list
   Reference = #adverse-event-causality-assess
   Definition = TODO
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = AdverseEventCausalityMethod
   Binding = code list
   Reference = #adverse-event-causality-method
   Definition = TODO
   Conformance = example
 
- -- Row 8 -----------------------------------
-  Binding Name = AdverseEventCausalityResult
+ -- Row 7 -----------------------------------
+  Binding Name = AdverseEventSeverity
   Binding = code list
-  Reference = #adverse-event-causality-result
-  Definition = TODO
-  Conformance = example
+  Reference = #adverse-event-severity
+  Definition = The severity of the adverse event itself, in direct relation to the subject
+  Conformance = required
 
-=== Sheet adverse-event-category =====================================
+=== Sheet adverse-event-kind =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = AE
+  Code = AdverseEvent
   Display = Adverse Event
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = PAE
-  Display = Potential Adverse Event
+  Code = SeriousAdverseEvent
+  Display = Serious Adverse Event
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = ProductProblem
+  Display = Product Problem
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = ProductUseError
+  Display = Product Use Error
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = MedicalDeviceUseError
+  Display = Medical Device Use Error
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = ProblemDifferentManufacturer
+  Display = Problem with Different Manufacturer of Same Medicine
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = NearMiss
+  Display = Near Miss
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = UnsafeCondition
+  Display = Unsafe Condition
 
 === Sheet adverse-event-outcome =====================================
 
@@ -105,6 +128,117 @@
 
  -- Row 1 -----------------------------------
   Id = 1
+  Code = Non-serious
+  Display = Non-serious
+  Definition = Non-serious
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = Serious
+  Display = Serious
+  Definition = Serious
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = SeriousResultsInDeath
+  Display = Results in death
+  Definition = Results in death
+  Parent = Serious
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = SeriousIsLifeThreatening
+  Display = Is Life-threatening
+  Definition = Is Life-threatening
+  Parent = Serious
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = SeriousResultsInHospitalization
+  Display = Requires or prolongs inpatient hospitalization
+  Definition = Requires inpatient hospitalization or causes prolongation of existing hospitalization
+  Parent = Serious
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = SeriousResultsInDisability
+  Display = Results in persistent or significant disability/incapacity
+  Definition = Results in persistent or significant disability/incapacity
+  Parent = Serious
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = SeriousIsBirthDefect
+  Display = Is a congenital anomaly/birth defect
+  Definition = Is a congenital anomaly/birth defect
+  Parent = Serious
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = SeriousRequiresPreventImpairment
+  Display = Requires intervention to prevent permanent impairment
+  Definition = Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires medical judgement)
+  Parent = Serious
+
+=== Sheet adverse-event-causality-assess =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = Certain
+  Display = Certain
+  Definition = i) Event or laboratory test abnormality, with plausible time relationship to drug intake\nii) Cannot be explained by disease or other drugs\niii) Response to withdrawal plausible (pharmacologically, pathologically)\niv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon)\nv) Re-challenge satisfactory, if necessary
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = Probably-Likely
+  Display = Probably/Likely
+  Definition = i) Event or laboratory test abnormality, with reasonable time relationship to drug intake\nii) Unlikely to be attributed to disease or other drugs\niii) Response to withdrawal clinically reasonable\niv) Re-challenge not required
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = Possible
+  Display = Possible
+  Definition = i) Event or laboratory test abnormality, with reasonable time relationship to drug intake\nii) Could also be explained by disease or other drugs\niii) Information on drug withdrawal may be lacking or unclear
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = Unlikely
+  Display = Unlikely
+  Definition = i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible)\nii) Disease or other drugs provide plausible explanations
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = Conditional-Classified
+  Display = Conditional/Classified
+  Definition = i) Event or laboratory test abnormality\nii) More data for proper assessment needed, or\niii) Additional data under examination
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = Unassessable-Unclassifiable
+  Display = Unassessable/Unclassifiable
+  Definition = i) Report suggesting an adverse reaction\nii) Cannot be judged because information is insufficient or contradictory\niii) Data cannot be supplemented or verified
+
+=== Sheet adverse-event-causality-method =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = ProbabilityScale
+  Display = Probability Scale
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = Bayesian
+  Display = Bayesian
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = Checklist
+  Display = Checklist
+
+=== Sheet adverse-event-severity =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
   Code = Mild
   Display = Mild
 
@@ -117,54 +251,6 @@
   Id = 3
   Code = Severe
   Display = Severe
-
-=== Sheet adverse-event-causality =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = causality1
-  Display = causality1 placeholder
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = causality2
-  Display = causality2 placeholder
-
-=== Sheet adverse-event-causality-assess =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = assess1
-  Display = assess1 placeholder
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = assess2
-  Display = assess2 placeholder
-
-=== Sheet adverse-event-causality-method =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = method1
-  Display = placeholder
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = method2
-  Display = placeholder
-
-=== Sheet adverse-event-causality-result =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = result1
-  Display = placeholder
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = result2
-  Display = placeholder
 
 === Sheet Invariants =====================================
 
@@ -191,9 +277,9 @@
   Card. = 1..1
   Is Modifier = y
   Type = code
-  Binding = AdverseEventCategory
-  Short Name = AE | PAE \rAn adverse event is an event that caused harm to a patient,  an adverse reaction is a something that is a subject-specific event that is a result of an exposure to a medication, food, device or environmental substance, a potential adverse event is something that occurred and that could have caused harm to a patient but did not
-  Definition = The type of event which is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
+  Binding = AdverseEventKind
+  Short Name = AdverseEvent | SeriousAdverseEvent | ProductProblem | ProductUseError | MedicalDeviceUseError | ProblemDifferentManufacturer | NearMiss | UnsafeCondition
+  Definition = The type of event, important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
   w5 = class
 
  -- Row 4 -----------------------------------
@@ -201,7 +287,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdverseEventType
-  Short Name = Type of the event itself, not of the outcome
+  Short Name = Type of the event itself in releation to the subject
   Definition = This element defines the specific type of event that occurred or that was prevented from occurring.
   w5 = what
 
@@ -237,9 +323,10 @@
   Definition = The information about where the adverse event occurred.
 
  -- Row 9 -----------------------------------
-  Element = AdverseEvent.serious
+  Element = AdverseEvent.seriousness
   Card. = 0..1
-  Type = boolean
+  Type = CodeableConcept
+  Binding = AdverseEventSeriousness
   Short Name = Seriousness of the event
   Definition = Assessment whether this event was of real importance
 
@@ -247,7 +334,7 @@
   Element = AdverseEvent.severity
   Card. = 0..1
   Type = CodeableConcept
-  Binding = AdverseEventSeriousness
+  Binding = AdverseEventSeverity
   Short Name = Mild | Moderate | Severe
   Definition = Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash may not be serious, but a mild heart problem is.
 
@@ -309,8 +396,8 @@
   Element = AdverseEvent.suspectEntity.causality.assessment
   Card. = 0..1
   Type = CodeableConcept
-  Binding = AdverseEventCausalityResult
-  Short Name = result1 | result2
+  Binding = AdverseEventCausalityAssessment
+  Short Name = Assessment of if the entity caused the event
   To Do = what is difference between assessment and result?
 
  -- Row 19 -----------------------------------
@@ -330,7 +417,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdverseEventCausalityMethod
-  Short Name = method1 | method2
+  Short Name = ProbabilityScale | Bayesian | Checklist
 
  -- Row 22 -----------------------------------
   Element = AdverseEvent.subjectMedicalHistory
@@ -383,9 +470,9 @@
   Path = AdverseEvent.suspectEntity.instance
 
  -- Row 7 -----------------------------------
-  Name = serious
+  Name = seriousness
   Type = token
-  Path = AdverseEvent.serious
+  Path = AdverseEvent.seriousness
 
  -- Row 8 -----------------------------------
   Name = severity
