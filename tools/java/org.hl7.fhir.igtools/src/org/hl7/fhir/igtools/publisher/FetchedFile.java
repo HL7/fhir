@@ -16,13 +16,13 @@ public class FetchedFile {
   public final static int PROCESS_RESOURCE = 0;
   public final static int PROCESS_XSLT = 1;
   public final static int PROCESS_NONE = 2;
-  
+
   private String path;
   private String relativePath;
   private String name;
   private String title;
   private byte[] xslt;
-  
+
   private byte[] source;
   private long hash;
   private long time;
@@ -36,6 +36,15 @@ public class FetchedFile {
   private List<String> files; // if it's a folder
   private int processMode;
   private Set<String> outputNames = new HashSet<String>();
+  private File javaIOFile;
+
+  public void setFile(File f){
+	  javaIOFile = f;
+  }
+
+  public File getFile(){
+	  return javaIOFile;
+  }
 
   public String getPath() {
     return path;
@@ -74,7 +83,7 @@ public class FetchedFile {
   public void setContentType(String contentType) {
     this.contentType = contentType;
   }
- 
+
   public List<FetchedFile> getDependencies() {
     return dependencies;
   }
@@ -96,9 +105,9 @@ public class FetchedFile {
     this.source = source;
     this.hash =Arrays.hashCode(source);
   }
-  
+
   public void dropSource() {
-    source = null;  
+    source = null;
   }
   public List<FetchedResource> getResources() {
     return resources;

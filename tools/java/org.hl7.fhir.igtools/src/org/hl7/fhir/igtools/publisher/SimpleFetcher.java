@@ -21,7 +21,7 @@ public class SimpleFetcher implements IFetchFile {
   private IGKnowledgeProvider pkp;
   private List<String> resourceDirs;
   private ILoggingService log;
-  
+
   public SimpleFetcher(List<String> resourceDirs, ILoggingService log) {
     this.resourceDirs = resourceDirs;
     this.log = log;
@@ -38,16 +38,17 @@ public class SimpleFetcher implements IFetchFile {
     if (!f.exists())
       throw new Exception("Unable to find file "+path);
     FetchedFile ff = new FetchedFile();
+    ff.setFile(f);
     ff.setPath(f.getCanonicalPath());
     ff.setName(fileTitle(path));
     ff.setTime(f.lastModified());
     if (f.isDirectory()) {
       ff.setContentType("application/directory");
-      ff.setFolder(true);   
+      ff.setFolder(true);
       for (File fl : f.listFiles())
         ff.getFiles().add(fl.getCanonicalPath());
     } else {
-      ff.setFolder(false);   
+      ff.setFolder(false);
       if (path.endsWith("json"))
         ff.setContentType("application/fhir+json");
       else if (path.endsWith("xml"))
@@ -87,7 +88,7 @@ public class SimpleFetcher implements IFetchFile {
       ff.setContentType("application/fhir+json");
     else if (f.getName().endsWith("xml"))
       ff.setContentType("application/fhir+xml");
-    
+
     InputStream ss = new FileInputStream(f);
     byte[] b = new byte[ss.available()];
     ss.read(b, 0, ss.available());
@@ -107,7 +108,7 @@ public class SimpleFetcher implements IFetchFile {
     }
     throw new Exception("Unable to find resource file "+name);
   }
-  
+
   private String fileTitle(String path) {
     if (path.contains(".")) {
       String ext = path.substring(path.lastIndexOf(".")+1);
@@ -137,7 +138,7 @@ public class SimpleFetcher implements IFetchFile {
       if (!s.contains("/"))
         throw new Exception("Bad Source Reference '"+s+"' - should have the format [Type]/[id]");
       String type = s.substring(0,  s.indexOf("/"));
-      String id = s.substring(s.indexOf("/")+1); 
+      String id = s.substring(s.indexOf("/")+1);
       if (!pkp.getContext().hasResource(StructureDefinition.class , "http://hl7.org/fhir/StructureDefinition/"+type))
         throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where Type is a valid resource type:" + s);
       if (!id.matches(FormatUtilities.ID_REGEX))
@@ -146,7 +147,7 @@ public class SimpleFetcher implements IFetchFile {
       List<String> dirs = new ArrayList<>();
       dirs.add(Utilities.getDirectoryForFile(src.getPath()));
       dirs.addAll(resourceDirs);
-      
+
       if (Utilities.noString(fn)) {
         // no source in the json file.
         fn = findFile(dirs, type.toLowerCase()+"-"+id+".xml");
@@ -167,11 +168,11 @@ public class SimpleFetcher implements IFetchFile {
         if (!exists(fn))
           throw new Exception("Unable to find the source file for "+type+"/"+id+" at "+fn);
       }
-      return fetch(fn); 
+      return fetch(fn);
     } else if (source instanceof UriType) {
       UriType s = (UriType) source;
       String fn = Utilities.path(Utilities.getDirectoryForFile(src.getPath()), s.getValueAsString());
-      return fetch(fn); 
+      return fetch(fn);
     } else {
       throw new Exception("Unknown source reference type for implementation guide");
     }
@@ -190,7 +191,7 @@ public class SimpleFetcher implements IFetchFile {
     return new File(fn).exists();
   }
 
-  
+
   @Override
   public List<FetchedFile> scan(String sourceDir, IWorkerContext context) throws IOException {
     List<FetchedFile> res = new ArrayList<>();
@@ -235,14 +236,14 @@ public class SimpleFetcher implements IFetchFile {
     ff.setPath(f.getCanonicalPath());
     ff.setName(fileTitle(f.getCanonicalPath()));
     ff.setTime(f.lastModified());
-    ff.setFolder(false);   
+    ff.setFolder(false);
     ff.setContentType(cnt);
     InputStream ss = new FileInputStream(f);
     byte[] b = new byte[ss.available()];
     ss.read(b, 0, ss.available());
     ff.setSource(b);
     ss.close();
-    res.add(ff);    
+    res.add(ff);
   }
 
   public ILoggingService getLogger() {
@@ -253,5 +254,5 @@ public class SimpleFetcher implements IFetchFile {
     this.log = log;
   }
 
-  
+
 }
