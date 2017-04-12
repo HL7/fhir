@@ -2433,9 +2433,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String source, String title, String label, String breadcrumb) {
     FetchedResource r = resources.get(source);
-    if ( r== null ) {
-      addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
-    } else {
+    addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
+    if ( r != null ) {
       Map<String, String> vars = makeVars(r);
       String outputName = determineOutputName(igpkp.getProperty(r, "base"), r, vars, null, "");
       if (igpkp.wantGen(r, "xml")) {
@@ -2497,17 +2496,36 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
 
     for (String pagesDir: pagesDirs) {
-      String contentFile = pagesDir + File.separator + "_includes" + File.separator + "content-" + baseUrl + "-intro.html";
+      String contentFile = pagesDir + File.separator + "_includes" + File.separator + baseUrl + "-intro.xml";
       if (new File(contentFile).exists()) {
-        jsonPage.addProperty("intro", "content-" + baseUrl+"-intro.html");
+        jsonPage.addProperty("intro", baseUrl+"-intro.xml");
       }
 
-      contentFile = pagesDir + File.separator + "_includes" + File.separator + "content-" + baseUrl + "-notes.html";
+      contentFile = pagesDir + File.separator + "_includes" + File.separator + baseUrl + "-notes.xml";
       if (new File(contentFile).exists()) {
-        jsonPage.addProperty("notes", "content-" + baseUrl+"-notes.html");
+        jsonPage.addProperty("notes", baseUrl+"-notes.xml");
       }
     }
 
+    for (String prePagesDir: prePagesDirs) {
+      PreProcessInfo ppinfo = preProcessInfo.get(prePagesDir);
+      String baseFile = prePagesDir + File.separator;
+      if (ppinfo.relativePath.equals(""))
+        baseFile = baseFile + "_includes" + File.separator;
+      else if (!ppinfo.relativePath.equals("_includes"))
+        continue;
+      baseFile = baseFile + baseUrl;
+      String contentFile = baseFile + "-intro.xml";
+      if (new File(contentFile).exists()) {
+        jsonPage.addProperty("intro", baseUrl+"-intro.xml");
+      }
+  
+      contentFile = baseFile + "-notes.xml";
+      if (new File(contentFile).exists()) {
+        jsonPage.addProperty("notes", baseUrl+"-notes.xml");
+      }
+    }
+    
     if (examples != null) {
       JsonArray exampleArray = new JsonArray();
       jsonPage.add("examples", exampleArray);
