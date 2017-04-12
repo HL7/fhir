@@ -3486,6 +3486,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     int exitCode = 0;
     if (hasParam(args, "-gui") || args.length == 0) {
       runGUI();
+      // Returning here ends the main thread but leaves the GUI running
+      return; 
     } else if (hasParam(args, "-help") || hasParam(args, "-?") || hasParam(args, "/?") || hasParam(args, "?")) {
       System.out.println("");
       System.out.println("To use this publisher to publish a FHIR Implementation Guide, run ");
