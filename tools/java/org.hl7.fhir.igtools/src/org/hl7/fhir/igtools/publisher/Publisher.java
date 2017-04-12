@@ -1601,15 +1601,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void determineType(FetchedFile file) throws Exception {
-    dlog(LogCategory.PROGRESS, "Loading FetchedFile " + file.getFile().getName());
-    System.out.println("Loading FetchedFile " + file.getFile().getName());
-
-
-   if (file.getFile().getName().contains(".xml")){
-		file.setContentType("application/fhir+xml");
-		System.out.println("Auto-correcting for bad FetchedFile contentType, setting to application/fhir+xml");
-   }
-
     if (file.getResources().isEmpty()) {
       file.getErrors().clear();
       Element e = null;
@@ -1620,11 +1611,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           e = loadFromJson(file);
         else if (file.getContentType().contains("xml"))
           e = loadFromXml(file);
-        else if (file.getFile().getName().contains(".xml")){
-		  e = loadFromXml(file);
-		  file.setContentType("application/fhir+xml");
-		  System.err.println("Correcting FetchedFile content type, should be XML");
-	  }
         else
           throw new Exception("Unable to determine file type for "+file.getName());
       } catch (Exception ex) {
