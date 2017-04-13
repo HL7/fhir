@@ -2025,6 +2025,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
 
     FetchedResource r = altMap.get(IG_NAME).getResources().get(0);
+    if (!pubIg.hasText() || !pubIg.getText().hasDiv())
+      pubIg.setText(((ImplementationGuide)r.getResource()).getText());
     r.setResource(pubIg);
     r.setElement(convertToElement(pubIg));
   }

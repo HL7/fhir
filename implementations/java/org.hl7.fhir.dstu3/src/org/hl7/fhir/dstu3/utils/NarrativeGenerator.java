@@ -107,6 +107,7 @@ import org.hl7.fhir.dstu3.model.HumanName;
 import org.hl7.fhir.dstu3.model.HumanName.NameUse;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.Identifier;
+import org.hl7.fhir.dstu3.model.ImplementationGuide;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.MetadataResource;
@@ -258,6 +259,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return generate(rcontext, (OperationDefinition) r);   // Maintainer = Grahame
     } else if (r instanceof StructureDefinition) {
       return generate(rcontext, (StructureDefinition) r);   // Maintainer = Grahame
+    } else if (r instanceof ImplementationGuide) {
+      return generate(rcontext, (ImplementationGuide) r);   // Maintainer = Lloyd (until Grahame wants to take over . . . :))
     } else if (r instanceof DiagnosticReport) {
       inject(r, generateDiagnosticReport(new ResourceWrapperDirect(r)),  NarrativeStatus.GENERATED);   // Maintainer = Grahame
       return true;
@@ -3658,6 +3661,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.getChildNodes().add(pu.generateTable(definitionsTarget, sd, true, destDir, false, sd.getId(), false, corePath, "", false, false));
     inject(sd, x, NarrativeStatus.GENERATED);
+    return true;
+  }
+  public boolean generate(ResourceContext rcontext, ImplementationGuide ig) throws EOperationOutcome, FHIRException, IOException {
+    XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    x.h2().addText(ig.getName());
+    x.para().tx("The official URL for this implementation guide is: ");
+    x.pre().tx(ig.getUrl());
+    addMarkdown(x, ig.getDescription());
+    inject(ig, x, NarrativeStatus.GENERATED);
     return true;
   }
 	public boolean generate(ResourceContext rcontext, OperationDefinition opd) throws EOperationOutcome, FHIRException, IOException {
