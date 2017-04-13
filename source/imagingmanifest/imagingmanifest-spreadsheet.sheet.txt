@@ -359,7 +359,6 @@
   Comments = SOP class UID identifies the type of the selected instances, e.g. CT image, Gray scale softcopy presentation state, ECG waveform, etc.
   RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"sop class\"].value
   DICOM Mapping = (0008,0016) SOP Class UID
-  Committee Notes = Define proficiency and mode as extensions
 
  -- Row 23 -----------------------------------
   Element = ImagingManifest.study.series.instance.uid
@@ -373,7 +372,16 @@
   Comments = SOP instance UID identifies the instance
   RIM Mapping = .id
   DICOM Mapping = (0008,0018) - SOP Instance UID
-  Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
+
+ -- Row 24 -----------------------------------
+  Element = ImagingManifest.study.series.instance.frameNumbers
+  Card. = 0..*
+  Type = unsignedInt
+  Short Name = Frame reference number
+  Definition = The specific frame reference within a multi-frame object
+  Requirements = The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.
+  Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
+  DICOM Mapping = (0008,1160) - Referenced Frame Numbers
 
 === Sheet Search =====================================
 
