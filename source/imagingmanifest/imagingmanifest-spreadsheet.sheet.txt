@@ -248,34 +248,9 @@
   Definition = The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type.
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
   RIM Mapping = n/a
-
- -- Row 12 -----------------------------------
-  Element = !ImagingManifest.study.baseLocation
-  Card. = 0..*
-  Type = =StudyBaseLocation
-  Short Name = Study access service endpoint
-  Definition = Methods of accessing  (e.g., retrieving, viewing) the study.
-  Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
-  To Do = likely change to Endpoint Resource reference
-
- -- Row 13 -----------------------------------
-  Element = !ImagingManifest.study.baseLocation.type
-  Card. = 1..1
-  Type = Coding
-  Binding = dWebType
-  Short Name = WADO-RS | WADO-URI | IID
-  Definition = The service type for accessing (e.g., retrieving, viewing) the DICOM instances.
-
- -- Row 14 -----------------------------------
-  Element = !ImagingManifest.study.baseLocation.url
-  Card. = 1..1
-  Type = uri
-  Short Name = Study access URL
-  Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.baseLocation.type.
-  Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to view, retrieve, or otherwise access the study or the study’s series or instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 15 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = ImagingManifest.study.series
   Card. = 1..*
   Summary = y
@@ -287,7 +262,7 @@
   Comments = Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.
   RIM Mapping = n/a
 
- -- Row 16 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = ImagingManifest.study.series.uid
   Card. = 1..1
   Aliases = SeriesInstanceUID, Referenced series instance UID
@@ -299,7 +274,7 @@
   RIM Mapping = .id
   DICOM Mapping = (0020,000E) - Series Instance UID
 
- -- Row 17 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ImagingManifest.study.series.endpoint
   Card. = 0..*
   Summary = y
@@ -308,34 +283,9 @@
   Definition = The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type.
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
   RIM Mapping = n/a
-
- -- Row 18 -----------------------------------
-  Element = !ImagingManifest.study.series.baseLocation
-  Card. = 0..*
-  Type = =SeriesBaseLocation
-  Short Name = Series access endpoint
-  Definition = Methods of accessing (e.g. retrieving) the series
-  Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
-  To Do = likely change to Endpoint Resource reference
-
- -- Row 19 -----------------------------------
-  Element = !ImagingManifest.study.series.baseLocation.type
-  Card. = 1..1
-  Type = Coding
-  Binding = dWebType
-  Short Name = WADO-RS | WADO-URI | IID
-  Definition = The service type for accessing (e.g., retrieving) the DICOM instances.
-
- -- Row 20 -----------------------------------
-  Element = !ImagingManifest.study.series.baseLocation.url
-  Card. = 1..1
-  Type = uri
-  Short Name = Series access URL
-  Definition = The service URL for accessing the study. The interpretation of the URL depends on the type of the service specified in ImagingManifest.study.series.baseLocation.type.
-  Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.series.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to retrieve, or otherwise access, the series or the series’ instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 21 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ImagingManifest.study.series.instance
   Card. = 1..*
   Summary = y
@@ -347,7 +297,7 @@
   Comments = SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierarchy.
   RIM Mapping = n/a
 
- -- Row 22 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ImagingManifest.study.series.instance.sopClass
   Card. = 1..1
   Aliases = SOPClassUID
@@ -360,7 +310,7 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"sop class\"].value
   DICOM Mapping = (0008,0016) SOP Class UID
 
- -- Row 23 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ImagingManifest.study.series.instance.uid
   Card. = 1..1
   Aliases = SOPInstanceUID, Referenced SOP instance UID
@@ -373,14 +323,15 @@
   RIM Mapping = .id
   DICOM Mapping = (0008,0018) - SOP Instance UID
 
- -- Row 24 -----------------------------------
-  Element = ImagingManifest.study.series.instance.frameNumbers
+ -- Row 18 -----------------------------------
+  Element = ImagingManifest.study.series.instance.frameNumber
   Card. = 0..*
   Type = unsignedInt
   Short Name = Frame reference number
   Definition = The specific frame reference within a multi-frame object
   Requirements = The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.
   Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
+  RIM Mapping = n/a
   DICOM Mapping = (0008,1160) - Referenced Frame Numbers
 
 === Sheet Search =====================================

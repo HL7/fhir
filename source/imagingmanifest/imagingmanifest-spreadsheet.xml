@@ -1026,7 +1026,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="86.399999999999991">
+   <Row ss:AutoFitHeight="0" ss:Height="86.550000000000011">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Manifest, XDS-I summary, Key Images, (in limited use) Key Object Selection (KOS)</Data><NamedCell
@@ -1061,7 +1061,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="43.199999999999996">
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPInstanceUID</Data><NamedCell
@@ -1098,7 +1098,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.patient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1135,7 +1135,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.authoringTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ObservationDateTime</Data><NamedCell
@@ -1172,7 +1172,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="72">
+   <Row ss:AutoFitHeight="0" ss:Height="72">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1208,7 +1208,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="115.2">
+   <Row ss:AutoFitHeight="0" ss:Height="115.2">
     <Cell ss:StyleID="s80"><Data ss:Type="String">!ImagingManifest.title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1244,7 +1244,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="115.2">
+   <Row ss:AutoFitHeight="0" ss:Height="115.2">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">TextValue</Data><NamedCell
@@ -1281,7 +1281,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s97"><Data ss:Type="String">ImagingManifest.study</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1317,7 +1317,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">StudyInstanceUID, Referenced study instance UID</Data><NamedCell
@@ -1353,7 +1353,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="43.199999999999996">
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.imagingStudy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1388,7 +1388,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="100.8">
+   <Row ss:AutoFitHeight="0" ss:Height="100.8">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.endpoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1459,7 +1459,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.series.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SeriesInstanceUID, Referenced series instance UID</Data><NamedCell
@@ -1495,7 +1495,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="100.8">
+   <Row ss:AutoFitHeight="0" ss:Height="100.8">
     <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.study.series.endpoint</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1530,7 +1530,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s102"><Data ss:Type="String">ImagingManifest.study.series.instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1566,7 +1566,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="72">
+   <Row ss:AutoFitHeight="0" ss:Height="72">
     <Cell><Data ss:Type="String">ImagingManifest.study.series.instance.sopClass</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPClassUID</Data><NamedCell
@@ -1603,7 +1603,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell><Data ss:Type="String">ImagingManifest.study.series.instance.uid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPInstanceUID, Referenced SOP instance UID</Data><NamedCell
@@ -1640,8 +1640,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
-    <Cell><Data ss:Type="String">ImagingManifest.study.series.instance.frameNumbers</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
+    <Cell><Data ss:Type="String">ImagingManifest.study.series.instance.frameNumber</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3642,9 +3642,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3652,14 +3652,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>11</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
