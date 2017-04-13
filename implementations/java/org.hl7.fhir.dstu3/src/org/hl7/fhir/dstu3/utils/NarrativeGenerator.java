@@ -3655,7 +3655,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   public boolean generate(ResourceContext rcontext, StructureDefinition sd) throws EOperationOutcome, FHIRException, IOException {
     ProfileUtilities pu = new ProfileUtilities(context, null, pkp);
-    inject(sd, pu.generateTable(definitionsTarget, sd, true, destDir, false, sd.getId(), false, corePath, "", false, false), NarrativeStatus.GENERATED);
+    XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    x.getChildNodes().add(pu.generateTable(definitionsTarget, sd, true, destDir, false, sd.getId(), false, corePath, "", false, false));
+    inject(sd, x, NarrativeStatus.GENERATED);
     return true;
   }
 	public boolean generate(ResourceContext rcontext, OperationDefinition opd) throws EOperationOutcome, FHIRException, IOException {
