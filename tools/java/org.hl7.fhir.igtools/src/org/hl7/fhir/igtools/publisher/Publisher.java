@@ -2421,7 +2421,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String source, String title, String label, String breadcrumb) {
     FetchedResource r = resources.get(source);
-    addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
+    if (r==null)
+      addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
+    else
+      addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), r.getExamples());
     if ( r != null ) {
       Map<String, String> vars = makeVars(r);
       String outputName = determineOutputName(igpkp.getProperty(r, "base"), r, vars, null, "");
@@ -3411,14 +3414,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   @Override
   public void logMessage(String msg) {
     System.out.println(msg);
-    if (!autoBuildMode)
-      filelog.append(msg+"\r\n");
-  }
-
-  @Override
-  public void logDebugMessage(LogCategory category, String msg) {
-    if (logOptions.contains(category.toString().toLowerCase()))
-      System.out.println(msg);
     if (!autoBuildMode) {
       try {
         String logPath = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log");
@@ -3432,6 +3427,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         e.printStackTrace();
       }
     }
+  }
+
+  @Override
+  public void logDebugMessage(LogCategory category, String msg) {
+    if (logOptions.contains(category.toString().toLowerCase()))
+      logMessage(msg);
   }
 
   public static String buildReport(String ig, String source, String log, String qafile) throws FileNotFoundException, IOException {
