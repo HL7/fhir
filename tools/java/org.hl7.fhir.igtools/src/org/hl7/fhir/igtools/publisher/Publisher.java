@@ -3420,11 +3420,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (logOptions.contains(category.toString().toLowerCase()))
       System.out.println(msg);
     if (!autoBuildMode) {
-      if (filelog==null)
-        filelog = new StringBuilder(); 
-      filelog.append(msg+"\r\n");
       try {
-        TextFile.stringToFile(filelog.toString(), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log"));
+        String logPath = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log");
+        if (filelog==null) {
+          filelog = new StringBuilder();
+          System.out.println("File log: " + logPath);
+        }
+        filelog.append(msg+"\r\n");
+        TextFile.stringToFile(filelog.toString(), logPath);
       } catch (IOException e) {
         e.printStackTrace();
       }
