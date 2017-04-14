@@ -11,6 +11,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.hl7.fhir.dstu2.model.api.IBaseFhirEnum;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
@@ -1625,27 +1627,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return element;
     
     List<String> nodes = new ArrayList<String>();
-    String s = discriminator;
-    do {
-      String node = null;
-      if (s.contains(".")) {
-        node = s.substring(0, s.indexOf('.'));
-        if (node.contains("(")) {
-          if (!s.contains(")"))
-            throw new DefinitionException("Discriminator has open bracket but no closing bracket: " + discriminator);
-          node = s.substring(0,s.indexOf(')') + 1);
-          s = s.substring(s.indexOf(")") + 1);
-          if (s.startsWith("."))
-            s = s.substring(1);
-        } else
-          s = s.substring(s.indexOf('.') + 1);
-      } else {
-        node = s;
-        s = null;
-      }
-      if (!node.startsWith("@"))
-        nodes.add(node);
-    } while (s !=null && !s.isEmpty());
+    Matcher matcher = Pattern.compile("([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?)(\\.([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?))*").matcher(discriminator);
+    while (matcher.find()) {
+      if (!matcher.group().startsWith("@"))
+        nodes.add(matcher.group());
+    }
     
     for (String fullnode : nodes) {
       String node = fullnode.contains("(") ? fullnode.substring(0, fullnode.indexOf('(')) : fullnode;
