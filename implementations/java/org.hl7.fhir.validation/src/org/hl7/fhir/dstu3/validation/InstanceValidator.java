@@ -1629,8 +1629,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     List<String> nodes = new ArrayList<String>();
     Matcher matcher = Pattern.compile("([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?)(\\.([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?))*").matcher(discriminator);
     while (matcher.find()) {
-      if (!matcher.group().startsWith("@"))
-        nodes.add(matcher.group());
+      if (!matcher.group(1).startsWith("@"))
+        nodes.add(matcher.group(1));
+      if (matcher.groupCount()>4 && matcher.group(4)!= null && !matcher.group(4).startsWith("@"))
+        nodes.add(matcher.group(4));
     }
     
     for (String fullnode : nodes) {
