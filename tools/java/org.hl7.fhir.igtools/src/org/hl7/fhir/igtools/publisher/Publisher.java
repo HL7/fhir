@@ -3420,6 +3420,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (logOptions.contains(category.toString().toLowerCase()))
       System.out.println(msg);
     if (!autoBuildMode) {
+      if (filelog==null)
+        filelog = new StringBuilder(); 
       filelog.append(msg+"\r\n");
       try {
         TextFile.stringToFile(filelog.toString(), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log"));
@@ -3529,7 +3531,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           Publisher self = new Publisher();
           self.setConfigFile(ig);
           self.setTxServer(getNamedParam(args, "-tx"));
-          self.filelog = new StringBuilder();
           if (hasParam(args, "-resetTx"))
             self.setCacheOption(CacheOption.CLEAR_ALL);
           else if (hasParam(args, "-resetTxErrors"))
@@ -3574,7 +3575,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       self.setTxServer(getNamedParam(args, "-tx"));
       self.setAutoBuildMode(hasNamedParam(args, "-auto-ig-build"));
       self.watch = hasParam(args, "-watch");
-      self.filelog = new StringBuilder();
       if (hasParam(args, "-resetTx"))
         self.setCacheOption(CacheOption.CLEAR_ALL);
       else if (hasParam(args, "-resetTxErrors"))

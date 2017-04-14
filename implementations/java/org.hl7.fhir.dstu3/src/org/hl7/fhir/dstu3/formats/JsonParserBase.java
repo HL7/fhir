@@ -3,27 +3,27 @@ package org.hl7.fhir.dstu3.formats;
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification,
+Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this
+ * Redistributions of source code must retain the above copyright notice, this 
    list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
+ * Redistributions in binary form must reproduce the above copyright notice, 
+   this list of conditions and the following disclaimer in the documentation 
    and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to
-   endorse or promote products derived from this software without specific
+ * Neither the name of HL7 nor the names of its contributors may be used to 
+   endorse or promote products derived from this software without specific 
    prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
 */
@@ -53,22 +53,22 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 /**
- * General parser for JSON content. You instantiate an JsonParser of these, but you
+ * General parser for JSON content. You instantiate an JsonParser of these, but you 
  * actually use parse or parseGeneral defined on this class
- *
+ * 
  * The two classes are separated to keep generated and manually maintained code apart.
  */
 public abstract class JsonParserBase extends ParserBase implements IParser {
-
+	
   @Override
   public ParserType getType() {
 	  return ParserType.JSON;
   }
 
 	private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
-
+  
   // -- in descendent generated code --------------------------------------
-
+  
   abstract protected Resource parseResource(JsonObject json) throws IOException, FHIRFormatError;
   abstract protected Type parseType(JsonObject json, String type) throws IOException, FHIRFormatError;
   abstract protected Type parseType(String prefix, JsonObject json) throws IOException, FHIRFormatError;
@@ -79,10 +79,10 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   /* -- entry points --------------------------------------------------- */
 
   /**
-   * @throws FHIRFormatError
+   * @throws FHIRFormatError 
    * Parse content that is known to be a resource
-   * @throws IOException
-   * @throws
+   * @throws IOException 
+   * @throws  
    */
   @Override
   public Resource parse(InputStream input) throws IOException, FHIRFormatError {
@@ -91,9 +91,9 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   }
 
   /**
-   * parse xml that is known to be a resource, and that has already been read into a JSON object
-   * @throws IOException
-   * @throws FHIRFormatError
+   * parse xml that is known to be a resource, and that has already been read into a JSON object  
+   * @throws IOException 
+   * @throws FHIRFormatError 
    */
   public Resource parse(JsonObject json) throws FHIRFormatError, IOException {
     return parseResource(json);
@@ -107,7 +107,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 
   /**
    * Compose a resource to a stream, possibly using pretty presentation for a human reader (used in the spec, for example, but not normally in production)
-   * @throws IOException
+   * @throws IOException 
    */
   @Override
   public void compose(OutputStream stream, Resource resource) throws IOException {
@@ -126,13 +126,13 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 
   /**
    * Compose a resource using a pre-existing JsonWriter
-   * @throws IOException
+   * @throws IOException 
    */
   public void compose(JsonCreator writer, Resource resource) throws IOException {
     json = writer;
     composeResource(resource);
   }
-
+  
   @Override
   public void compose(OutputStream stream, Type type, String rootName) throws IOException {
     OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
@@ -147,22 +147,22 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
     json.finish();
     osw.flush();
   }
+    
 
-
-
+  
   /* -- json routines --------------------------------------------------- */
 
   protected JsonCreator json;
   private boolean htmlPretty;
-
+  
   private JsonObject loadJson(InputStream input) throws JsonSyntaxException, IOException {
     return parser.parse(TextFile.streamToString(input)).getAsJsonObject();
   }
-
+  
 //  private JsonObject loadJson(String input) {
 //    return parser.parse(input).getAsJsonObject();
 //  }
-//
+//  
   protected void parseElementProperties(JsonObject json, Element e) throws IOException, FHIRFormatError {
     if (json != null && json.has("id"))
       e.setId(json.get("id").getAsString());
@@ -175,17 +175,16 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
       }
     }
   }
-
+  
   protected XhtmlNode parseXhtml(String value) throws IOException, FHIRFormatError {
     XhtmlParser prsr = new XhtmlParser();
     try {
 		return prsr.parse(value, "div").getChildNodes().get(0);
 	} catch (org.hl7.fhir.exceptions.FHIRFormatError e) {
-
-		throw new FHIRFormatError(e.getMessage() + " Offending string: " + value, e);
+		throw new FHIRFormatError(e.getMessage(), e);
 	}
   }
-
+  
   protected DomainResource parseDomainResource(JsonObject json) throws FHIRFormatError, IOException {
 	  return (DomainResource) parseResource(json);
   }
@@ -229,7 +228,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 	}
 
 	protected void open(String name) throws IOException {
-		if (name != null)
+		if (name != null) 
 			json.name(name);
 		json.beginObject();
 	}
@@ -239,7 +238,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 	}
 
 	protected void openArray(String name) throws IOException {
-		if (name != null)
+		if (name != null) 
 			json.name(name);
 		json.beginArray();
 	}
@@ -249,7 +248,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 	}
 
 	protected void openObject(String name) throws IOException {
-		if (name != null)
+		if (name != null) 
 			json.name(name);
 		json.beginObject();
 	}
@@ -265,8 +264,8 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 //        prop("id", element.getXmlId());
 //      prop("contentType", element.getContentType());
 //      prop("content", toString(element.getContent()));
-//    }
-//
+//    }    
+//    
 //  }
 
   protected boolean anyHasExtras(List<? extends Element> list) {
@@ -280,29 +279,29 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 	protected boolean makeComments(Element element) {
 		return handleComments && (style != OutputStyle.CANONICAL) && !(element.getFormatCommentsPre().isEmpty() && element.getFormatCommentsPost().isEmpty());
 	}
-
+	
   protected void composeDomainResource(String name, DomainResource e) throws IOException {
 	  openObject(name);
 	  composeResource(e);
 	  close();
-
+	  
   }
 
   protected abstract void composeType(String prefix, Type type) throws IOException;
 
-
+  
   abstract void composeStringCore(String name, StringType value, boolean inArray) throws IOException;
 
   protected void composeStringCore(String name, IIdType value, boolean inArray) throws IOException {
 	  composeStringCore(name, new StringType(value.getValue()), inArray);
-  }
+  }    
 
   abstract void composeStringExtras(String name, StringType value, boolean inArray) throws IOException;
 
   protected void composeStringExtras(String name, IIdType value, boolean inArray) throws IOException {
 	  composeStringExtras(name, new StringType(value.getValue()), inArray);
-  }
-
+  }    
+  
   protected void parseElementProperties(JsonObject theAsJsonObject, IIdType theReferenceElement) throws FHIRFormatError, IOException {
 	  parseElementProperties(theAsJsonObject, (Element)theReferenceElement);
   }
