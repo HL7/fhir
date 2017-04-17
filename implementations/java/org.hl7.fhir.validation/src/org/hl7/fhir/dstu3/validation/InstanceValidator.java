@@ -1627,12 +1627,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return element;
     
     List<String> nodes = new ArrayList<String>();
-    Matcher matcher = Pattern.compile("([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?)(\\.([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?))*").matcher(discriminator);
+    Matcher matcher = Pattern.compile("\\.([a-zA-Z0-0]+(\\([^\\(^\\)]*\\))?)").matcher("."+discriminator);
     while (matcher.find()) {
       if (!matcher.group(1).startsWith("@"))
         nodes.add(matcher.group(1));
-      if (matcher.groupCount()>4 && matcher.group(4)!= null && !matcher.group(4).startsWith("@"))
-        nodes.add(matcher.group(4));
     }
     
     for (String fullnode : nodes) {
@@ -2269,8 +2267,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             type = criteriaElement.getType().get(0).getCode();
           }
           if (type==null)
-			// Slicer won't ever have a slice name, so this error needs to be reworked
-            throw new DefinitionException("Discriminator (" + discriminator + ") is based on type, but slice " + slicer.getSliceName() + " does not declare a type");
+            throw new DefinitionException("Discriminator (" + discriminator + ") is based on type, but slice " + ed.getId() + " does not declare a type");
           if (discriminator.isEmpty())
             expression = expression + " and this is " + type;
           else
@@ -2293,7 +2290,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           } else if (fixed instanceof BooleanType) {
             expression = expression + ((BooleanType)fixed).asStringValue();
           } else
-            throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + slicer.getSliceName() + ": " + fixed.getClass().getName());
+            throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + fixed.getClass().getName());
         } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetReference()!=null) {
           expression = expression + " and " + discriminator + " in '" + criteriaElement.getBinding().getValueSetReference().getReference() + "'";
         } else if (criteriaElement.hasMin() && criteriaElement.getMin()>0) {
@@ -2301,7 +2298,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         } else if (criteriaElement.hasMax() && criteriaElement.getMax().equals("0")) {
           expression = expression + " and " + discriminator + ".exists().not()";
         } else {
-          throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + slicer.getSliceName() + " - does not have fixed value, binding or existence assertions");
+          throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + ed.getId() + " - does not have fixed value, binding or existence assertions");
         }
       }
 

@@ -705,7 +705,7 @@ public class IgSpreadsheetParser {
       e.getSlicing().setRules(SlicingRules.OPEN);
       for (String d : discriminator.split("\\,"))
         if (!Utilities.noString(d))
-          e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d));
+          e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d.trim()));
     }
     doAliases(sheet, row, e);
 

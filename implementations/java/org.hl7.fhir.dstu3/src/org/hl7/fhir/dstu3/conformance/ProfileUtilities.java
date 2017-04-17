@@ -1792,7 +1792,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", "}", null));
           }
         }
-      } else if (t.hasProfile()) { // a profiled type
+      } else if (t.hasProfile() && (!t.getCode().equals("Extension") || t.getProfile().contains(":"))) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile());
         if (ref != null) {
