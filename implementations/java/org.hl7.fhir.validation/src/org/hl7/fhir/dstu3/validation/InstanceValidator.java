@@ -2240,8 +2240,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
    * @throws IOException 
    * @throws FHIRException
    */
-  private boolean sliceMatches(Object appContext, Element element, String path, ElementDefinition slice, ElementDefinition ed, StructureDefinition profile, List<ValidationMessage> errors, NodeStack stack) throws DefinitionException, FHIRException, IOException {
-    if (!slice.getSlicing().hasDiscriminator())
+  private boolean sliceMatches(Object appContext, Element element, String path, ElementDefinition slicer, ElementDefinition ed, StructureDefinition profile, List<ValidationMessage> errors, NodeStack stack) throws DefinitionException, FHIRException, IOException {
+    if (!slicer.getSlicing().hasDiscriminator())
       return false; // cannot validate in this case
 
     ExpressionNode n = (ExpressionNode) ed.getUserData("slice.expression.cache");
@@ -2249,7 +2249,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       long t = System.nanoTime();
       // GG: this approach is flawed because it treats discriminators individually rather than collectively 
       String expression = "true";
-      for (ElementDefinitionSlicingDiscriminatorComponent s : slice.getSlicing().getDiscriminator()) {
+      for (ElementDefinitionSlicingDiscriminatorComponent s : slicer.getSlicing().getDiscriminator()) {
         String discriminator = s.getPath();
         if (s.getType() == DiscriminatorType.PROFILE)
           throw new FHIRException("Validating against slices with discriminators based on profiles is not yet supported by the FHIRPath engine: " + discriminator);
@@ -2269,7 +2269,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             type = criteriaElement.getType().get(0).getCode();
           }
           if (type==null)
-            throw new DefinitionException("Discriminator (" + discriminator + ") is based on type, but slice " + slice.getSliceName() + " does not declare a type");
+			// Slicer won't ever have a slice name, so this error needs to be reworked
+            throw new DefinitionException("Discriminator (" + discriminator + ") is based on type, but slice " + slicer.getSliceName() + " does not declare a type");
           if (discriminator.isEmpty())
             expression = expression + " and this is " + type;
           else
@@ -2292,7 +2293,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           } else if (fixed instanceof BooleanType) {
             expression = expression + ((BooleanType)fixed).asStringValue();
           } else
-            throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + slice.getSliceName() + ": " + fixed.getClass().getName());
+            throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + slicer.getSliceName() + ": " + fixed.getClass().getName());
         } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetReference()!=null) {
           expression = expression + " and " + discriminator + " in '" + criteriaElement.getBinding().getValueSetReference().getReference() + "'";
         } else if (criteriaElement.hasMin() && criteriaElement.getMin()>0) {
@@ -2300,7 +2301,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         } else if (criteriaElement.hasMax() && criteriaElement.getMax().equals("0")) {
           expression = expression + " and " + discriminator + ".exists().not()";
         } else {
-          throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + slice.getSliceName() + " - does not have fixed value, binding or existence assertions");
+          throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + slicer.getSliceName() + " - does not have fixed value, binding or existence assertions");
         }
       }
 
@@ -2974,7 +2975,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     // 2. assign children to a definition
     // for each definition, for each child, check whether it belongs in the slice
-    ElementDefinition slice = null;
+    ElementDefinition slicer = null;
     boolean unsupportedSlicing = false;
     List<String> problematicPaths = new ArrayList<String>();
     String slicingPath = null;
@@ -2991,26 +2992,26 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         slicingPath = null;
       // where are we with slicing
       if (ed.hasSlicing()) {
-        if (slice != null && slice.getPath().equals(ed.getPath()))
-          throw new DefinitionException("Slice encountered midway through path on " + slice.getPath());
-        slice = ed;
+        if (slicer != null && slicer.getPath().equals(ed.getPath()))
+          throw new DefinitionException("Slice encountered midway through path on " + slicer.getPath());
+        slicer = ed;
         process = false;
         sliceOffset = i;
-      } else if (slice != null && !slice.getPath().equals(ed.getPath()))
-        slice = null;
+      } else if (slicer != null && !slicer.getPath().equals(ed.getPath()))
+        slicer = null;
 
 //      if (process) {
         for (ElementInfo ei : children) {
           boolean match = false;
-          if (slice == null || slice == ed) {
+          if (slicer == null || slicer == ed) {
             match = nameMatches(ei.name, tail(ed.getPath()));
           } else {
 //            ei.slice = slice;
             if (nameMatches(ei.name, tail(ed.getPath())))
               try {
-                match = sliceMatches(appContext, ei.element, ei.path, slice, ed, profile, errors, stack);
+                match = sliceMatches(appContext, ei.element, ei.path, slicer, ed, profile, errors, stack);
                 if (match)
-                  ei.slice = slice;
+                  ei.slice = slicer;
               } catch (FHIRException e) {
                 warning(errors, IssueType.PROCESSING, ei.line(), ei.col(), ei.path, false, e.getMessage());
                 unsupportedSlicing = true;
@@ -3018,7 +3019,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               }
           }
           if (match) {
-            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null || ei.definition == slice, "Profile " + profile.getUrl() + ", Element matches more than one slice")) {
+            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null || ei.definition == slicer, "Profile " + profile.getUrl() + ", Element matches more than one slice")) {
               ei.definition = ed;
               if (ei.slice == null) {
                 ei.index = i;
@@ -3037,8 +3038,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     int lastSlice = -1;
     for (ElementInfo ei : children) {
       String sliceInfo = "";
-      if (slice != null)
-        sliceInfo = " (slice: " + slice.getPath()+")";
+      if (slicer != null)
+        sliceInfo = " (slice: " + slicer.getPath()+")";
       if (ei.path.endsWith(".extension"))
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")" + (profile==null ? "" : " for profile " + profile.getUrl()));
       else if (!unsupportedSlicing)

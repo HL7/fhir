@@ -691,7 +691,7 @@ public class ShExGenerator {
     element_reference.add("comment", comment == null? " " : "# " + comment);
 
     List<String> elements = new ArrayList<String>();
-    for (ElementDefinition child: ProfileUtilities.getChildList(sd, path))
+    for (ElementDefinition child: ProfileUtilities.getChildList(sd, path, null))
       elements.add(genElementDefinition(sd, child));
 
     element_reference.add("elements", StringUtils.join(elements, "\n"));

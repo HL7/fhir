@@ -257,36 +257,46 @@ public class ProfileUtilities extends TranslatingUtilities {
    * @param path The path of the element within the structure to get the children for
    * @return A List containing the element children (all of them are Elements)
    */
-  public static List<ElementDefinition> getChildList(StructureDefinition profile, String path) {
+  public static List<ElementDefinition> getChildList(StructureDefinition profile, String path, String id) {
     List<ElementDefinition> res = new ArrayList<ElementDefinition>();
 
-    for (ElementDefinition e : profile.getSnapshot().getElement())
-    {
-      String p = e.getPath();
-
-      if (!Utilities.noString(e.getContentReference()) && path.startsWith(p))
-      {
-        if (path.length() > p.length())
-          return getChildList(profile, e.getContentReference()+"."+path.substring(p.length()+1));
-        else
-          return getChildList(profile, e.getContentReference());
+    boolean capturing = id==null;
+    if (id==null && !path.contains("."))
+      capturing = true;
+    
+    for (ElementDefinition e : profile.getSnapshot().getElement()) {
+      if (!capturing && id!=null && e.getId().equals(id)) {
+        capturing = true;
       }
-      else if (p.startsWith(path+".") && !p.equals(path))
-      {
+      
+      // If our element is a slice, stop capturing children as soon as we see the next slice
+      if (capturing && e.hasId() && id!= null && !e.getId().equals(id) && e.getPath().equals(path))
+        break;
+      
+      if (capturing) {
+        String p = e.getPath();
+  
+        if (!Utilities.noString(e.getContentReference()) && path.startsWith(p)) {
+          if (path.length() > p.length())
+            return getChildList(profile, e.getContentReference()+"."+path.substring(p.length()+1), null);
+          else
+            return getChildList(profile, e.getContentReference(), null);
+          
+        } else if (p.startsWith(path+".") && !p.equals(path)) {
           String tail = p.substring(path.length()+1);
           if (!tail.contains(".")) {
             res.add(e);
           }
         }
-
       }
+    }
 
     return res;
   }
 
 
   public static List<ElementDefinition> getChildList(StructureDefinition structure, ElementDefinition element) {
-    return getChildList(structure, element.getPath());
+    return getChildList(structure, element.getPath(), element.getId());
 	}
 
   public void updateMaps(StructureDefinition base, StructureDefinition derived) throws DefinitionException {
