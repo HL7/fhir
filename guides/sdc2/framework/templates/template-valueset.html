@@ -8,9 +8,12 @@
       <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
     </a>
   </h1>
-  <p>
-    This is a value set defined by the FHIR project.
-  </p>
+  {% assign intro = site.data.pages[page.path].intro %}
+  {% if site.data.pages[page.path].intro != null %}
+  <div style="display:inline-block">
+  {% include {{intro}} %}
+  </div>
+  {% endif %}
   <p>
     <b>Summary</b>
   </p>
@@ -69,5 +72,12 @@
       <td>Additional notes about how to use the code</td>
     </tr>
   </table>
+
+  {% assign notes = site.data.pages[page.path].notes %}
+  {% if site.data.pages[page.path].notes != null %}
+  <div style="display:inline-block">
+  {% include {{notes}} %}
+  </div>
+  {% endif %}
 </div>
 {% include fragment-pageend.html %}

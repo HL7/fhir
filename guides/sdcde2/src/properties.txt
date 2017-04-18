@@ -1,0 +1,8 @@
+#guidename must match the id of the implementation guide
+guidename=sdcde
+copyrightyear=2015+
+version=2.0
+fhirspec=http://hl7.org/fhir/stu3/
+#excludexml=Yes
+#excludejson=Yes
+#excludettl=Yes

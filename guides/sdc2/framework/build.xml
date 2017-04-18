@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project name="org.hl7.fhir.tools" basedir=".." default="publish-ig">
-  <property name="guidename" value="???"/>
-  <property name="version" value="???"/>
-  <property name="spec" value="http://build.fhir.org/"/>
   <!-- Where the main FHIR build publish folder is -->
   <property name="jar.publisher" value="http://build.fhir.org/org.hl7.fhir.igpublisher.jar"/>
   <!-- Project-specific inputs -->
@@ -11,32 +8,68 @@
   <property name="dir.srcgenned" value="src-generated"/>
   <property name="dir.pages" value="${dir.srcgenned}/pages"/>
   <property name="dir.includes" value="${dir.pages}/_includes"/>
+  <property name="dir.data" value="${dir.pages}/_data"/>
   <property name="dir.resources" value="${dir.srcgenned}/resources"/>
+  <property name="dir.schemas" value="${dir.srcgenned}/schemas"/>
   <!-- Standard infrastructure (generally the same across all IGs) -->
   <property name="dir.framework" value="framework"/>
   <property name="dir.framework.assets" value="${dir.framework}/assets"/>
   <property name="dir.xslt" value="${dir.framework}/xslt"/>
-  <target name="local-setup" description="-- grabs igpublisher from local build">
+  <loadproperties srcfile="${dir.src}/properties.txt"/>
+  <property name="excludexml" value="No"/>
+  <property name="excludejson" value="No"/>
+  <property name="excludettl" value="No"/>
+  <target name="local-setup" description="-- grabs igpublisher from local build and schemas from spec">
     <mkdir dir="${dir.srcgenned}"/>
+    <mkdir dir="${dir.schemas}"/>
+    <dependset>
+      <srcfilelist dir="${dir.src}" files="properties.txt"/>
+      <targetfilelist dir="${dir.srcgenned}" files="${guidename}.json"/>
+      <targetfilelist dir="${dir.schemas}" files="fhir-single.xsd fhir-xhtml.xsd xml.xsd xmldsig-core-schema.xsd"/>
+    </dependset>
     <get src="${jar.publisher}" dest="${dir.srcgenned}" usetimestamp="true"/>
+    <get src="${fhirspec}/fhir-single.xsd" dest="${dir.schemas}" usetimestamp="true"/>
+    <get src="${fhirspec}/fhir-xhtml.xsd" dest="${dir.schemas}" usetimestamp="true"/>
+    <get src="${fhirspec}/xml.xsd" dest="${dir.schemas}" usetimestamp="true"/>
+    <get src="${fhirspec}/xmldsig-core-schema.xsd" dest="${dir.schemas}" usetimestamp="true"/>
   </target>
   <target name="publisher-setup" depends="local-setup"  description="--> Generate setup files, then run IG build">
     <copy todir="${dir.pages}"> <!-- This needs to be in two places to work properly -->
       <file file="${basedir}/${dir.framework.assets}/js/jquery.js"/>
     </copy>
+    <fail unless="guidename" message="'guidename' must be defined in properties.txt. e.g. 'sdc'"/>
+    <fail unless="version" message="'version' must be defined in properties.txt.  e.g. '2.0'"/>
+    <fail unless="fhirspec" message="'fhirspec' must be defined in properties.txt. e.g. 'http://build.fhir.org/'"/>
+    <fail unless="copyrightyear" message="'copyrightyear' must be defined in properties.txt. e.g. '2015+'"/>
+    <echo file="${dir.data}/info.json">{
+  "copyrightyear":"${copyrightyear}",
+  "excludexml":"${excludexml}",
+  "excludejson":"${excludejson}",
+  "excludettl":"${excludettl}"
+}</echo>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.includes}/artifacts.xml" style="${dir.xslt}/createArtifactSummary.xslt"/>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.resources}/${guidename}.xml" style="${dir.xslt}/fixIg.xslt"/>
     <xslt in="${dir.src}/${guidename}.xml" out="${dir.srcgenned}/${guidename}.json" style="${dir.xslt}/igToConfig.xslt">
-      <param name="spec" expression="${spec}"/>
+      <param name="spec" expression="${fhirspec}"/>
       <param name="version" expression="${version}"/>
+      <param name="excludexml" expression="${excludexml}"/>
+      <param name="excludejson" expression="${excludejson}"/>
+      <param name="excludettl" expression="${excludettl}"/>
     </xslt>
   </target>
-  <target name="publish-ig" depends="publisher-setup"  description="--> Run the IG build">
-    <java jar="${dir.srcgenned}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
+  <target name="publish-ig-continuous" depends="publisher-setup" if="continuous" description="--> Run the IG build">
+    <java jar="${dir.srcgenned}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="2048m">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
+      <arg line="-ig ${basedir}/${dir.srcgenned}/${guidename}.json -watch"/>
+    </java>
+  </target>
+  <target name="publish-ig-once" depends="publisher-setup" unless="continuous" description="--> Run the IG build">
+    <java jar="${dir.srcgenned}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="2048m">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-ig ${basedir}/${dir.srcgenned}/${guidename}.json"/>
     </java>
   </target>
+  <target name="publish-ig" depends="publish-ig-once, publish-ig-continuous"/>
   <target name="clean">
     <delete dir="${dir.srcgenned}"/>
     <delete dir="${dir.output}"/>

@@ -1,160 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataElement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-	<id value="dataelement-sdc-profile-example-de"/>
-	<meta>
+  <id value="dataelement-sdc-profile-example-de"/>
+  <meta>
     <profile value="http://hl7.org/fhir/us/sdcde/StructureDefinition/sdcde-dataelement"/>
-	</meta>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
-	</text>
-	<contained>
-		<ValueSet>
-			<id value="vm-valueset"/>
-			<identifier>
-				<system value="http://r.details.loinc.org/AnswerList"/>
-				<value value="LL2827-5"/>
-			</identifier>
-			<name value="AHRQ_M/F/UNK"/>
-			<status value="active"/>
-			<description value="AHRQ Common Formats answer list for Patient and Neonate Gender"/>
-			<compose>
-				<include>
-					<system value="http://loinc.org"/>
-					<concept>
-						<extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
-							<valueInteger value="1"/>
-						</extension>
-						<code value="a"/>
-						<display value="Male"/>
-						<designation>
-							<use>
-								<display value="Answer ID"/>
-							</use>
-							<value value="LA2-8"/>
-						</designation>
-					</concept>
-					<concept>
-						<extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
-							<valueInteger value="2"/>
-						</extension>
-						<code value="b"/>
-						<display value="Female"/>
-						<designation>
-							<use>
-								<display value="Answer ID"/>
-							</use>
-							<value value="LA3-6"/>
-						</designation>
-					</concept>
-					<concept>
-						<extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
-							<valueInteger value="3"/>
-						</extension>
-						<code value="c"/>
-						<display value="Unknown"/>
-						<designation>
-							<use>
-								<display value="Answer ID"/>
-							</use>
-							<value value="LA4489-6"/>
-						</designation>
-					</concept>
-				</include>
-			</compose>
-		</ValueSet>
-	</contained>
-	<contained>
-		<ValueSet>
-			<id value="pv-valueset"/>
-			<!--      
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
+  </text>
+  <contained>
+    <ValueSet>
+      <id value="vm-valueset"/>
+      <identifier>
+        <system value="http://r.details.loinc.org/AnswerList"/>
+        <value value="LL2827-5"/>
+      </identifier>
+      <name value="AHRQ_M/F/UNK"/>
+      <status value="active"/>
+      <description value="AHRQ Common Formats answer list for Patient and Neonate Gender"/>
+      <compose>
+        <include>
+          <system value="http://loinc.org"/>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="1"/>
+            </extension>
+            <code value="a"/>
+            <display value="Male"/>
+            <designation>
+              <use>
+                <display value="Answer ID"/>
+              </use>
+              <value value="LA2-8"/>
+            </designation>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="2"/>
+            </extension>
+            <code value="b"/>
+            <display value="Female"/>
+            <designation>
+              <use>
+                <display value="Answer ID"/>
+              </use>
+              <value value="LA3-6"/>
+            </designation>
+          </concept>
+          <concept>
+            <extension url="http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder">
+              <valueInteger value="3"/>
+            </extension>
+            <code value="c"/>
+            <display value="Unknown"/>
+            <designation>
+              <use>
+                <display value="Answer ID"/>
+              </use>
+              <value value="LA4489-6"/>
+            </designation>
+          </concept>
+        </include>
+      </compose>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ValueSet>
+      <id value="pv-valueset"/>
+      <!--      
          Side notes:
           - "1" is not a valid code system version for AdministrativeGender
           - The definition and display name for code "UN" is not valid
               -->
-			<status value="draft"/>
-			<compose>
-				<include>
-					<extension url="http://hl7.org/fhir/StructureDefinition/valueset-systemName">
-						<valueString value="HL7 AdministrativeGender"/>
-					</extension>
-					<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-					<version value="1"/>
-					<concept>
-						<code value="M"/>
-						<display value="Male"/>
-					</concept>
-					<concept>
-						<code value="F"/>
-						<display value="Female"/>
-					</concept>
-				</include>
-				<include>
-					<extension url="http://hl7.org/fhir/StructureDefinition/valueset-systemName">
-						<valueString value="HL7 NullFlavor"/>
-					</extension>
-					<system value="http://hl7.org/fhir/v3/NullFlavor"/>
-					<concept>
-						<code value="UNK"/>
-						<display value="Unknown"/>
-					</concept>
-				</include>
-			</compose>
-		</ValueSet>
-	</contained>
-	<contained>
-		<ConceptMap>
-			<id value="pv-conceptmap"/>
-			<status value="draft"/>
-			<sourceUri value="#vm-valueset"/>
-			<targetUri value="#pv-valueset"/>
-			<group>
-				<source value="http://loinc.org"/>
-				<target value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-				<element>
-					<code value="a"/>
-					<target>
-						<code value="M"/>
-					</target>
-				</element>
-				<element>
-					<code value="b"/>
-					<target>
-						<code value="F"/>
-					</target>
-				</element>
-			</group>
-			<group>
-				<source value="http://loinc.org"/>
-				<target value="http://hl7.org/fhir/v3/Unknown"/>
-				<element>
-					<code value="c"/>
-					<target>
-						<code value="UNK"/>
-					</target>
-				</element>
-			</group>
-		</ConceptMap>
-	</contained>
-	<contained>
-		<Organization>
-			<id value="sub-org"/>
-			<name value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
-			<address>
-				<text value="540 Gaither Rd Rockvill MD 20850"/>
-			</address>
-			<contact>
-				<name>
-					<text value="Bill Munier"/>
-				</name>
-				<telecom>
-					<system value="email"/>
-					<value value="william.munier@ahrq.hhs.gov"/>
-				</telecom>
-			</contact>
-		</Organization>
-	</contained>
-	<contained>
+      <status value="draft"/>
+      <compose>
+        <include>
+          <extension url="http://hl7.org/fhir/StructureDefinition/valueset-systemName">
+            <valueString value="HL7 AdministrativeGender"/>
+          </extension>
+          <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+          <version value="1"/>
+          <concept>
+            <code value="M"/>
+            <display value="Male"/>
+          </concept>
+          <concept>
+            <code value="F"/>
+            <display value="Female"/>
+          </concept>
+        </include>
+        <include>
+          <extension url="http://hl7.org/fhir/StructureDefinition/valueset-systemName">
+            <valueString value="HL7 NullFlavor"/>
+          </extension>
+          <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+          <concept>
+            <code value="UNK"/>
+            <display value="Unknown"/>
+          </concept>
+        </include>
+      </compose>
+    </ValueSet>
+  </contained>
+  <contained>
+    <ConceptMap>
+      <id value="pv-conceptmap"/>
+      <status value="draft"/>
+      <sourceUri value="#vm-valueset"/>
+      <targetUri value="#pv-valueset"/>
+      <group>
+        <source value="http://loinc.org"/>
+        <target value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+        <element>
+          <code value="a"/>
+          <target>
+            <code value="M"/>
+          </target>
+        </element>
+        <element>
+          <code value="b"/>
+          <target>
+            <code value="F"/>
+          </target>
+        </element>
+      </group>
+      <group>
+        <source value="http://loinc.org"/>
+        <target value="http://hl7.org/fhir/v3/Unknown"/>
+        <element>
+          <code value="c"/>
+          <target>
+            <code value="UNK"/>
+          </target>
+        </element>
+      </group>
+    </ConceptMap>
+  </contained>
+  <contained>
+    <Organization>
+      <id value="sub-org"/>
+      <name value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
+      <address>
+        <text value="540 Gaither Rd Rockvill MD 20850"/>
+      </address>
+      <contact>
+        <name>
+          <text value="Bill Munier"/>
+        </name>
+        <telecom>
+          <system value="email"/>
+          <value value="william.munier@ahrq.hhs.gov"/>
+        </telecom>
+      </contact>
+    </Organization>
+  </contained>
+  <contained>
     <DocumentReference>
       <id value="doc"/>
       <status value="current"/>
@@ -171,44 +171,44 @@
       </content>
     </DocumentReference>
   </contained>
-	<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-document-reference">
-		<valueReference>
-			<reference value="#doc"/>
-		</valueReference>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-effective-period">
-		<valuePeriod>
-			<start value="2010-03-31"/>
-		</valuePeriod>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-submitter-org">
-		<valueReference>
-			<reference value="#sub-org"/>
-		</valueReference>
-	</extension>
-	<url value="http://hl7.org/fhir/us/sdcde/DataElement/dataelement-sdc-profile-example-de"/>
-	<identifier>
-		<system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
-		<value value="DE42AHRQ"/>
-	</identifier>
-	<version value="1.2"/>
-	<status value="draft"/>
-	<date value="2010-03-31"/>
-	<publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
-	<name value="Patient Gender"/>
-	<contact>
-		<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-contact-address">
-			<valueAddress>
-				<text value="540 Gaither Rd Rockville MD 20850"/>
-			</valueAddress>
-		</extension>
-		<name value="Bill Munier"/>
-		<telecom>
-			<system value="email"/>
-			<value value="william.munier@ahrq.hhs.gov"/>
-		</telecom>
-	</contact>
-	<useContext>
+  <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-document-reference">
+    <valueReference>
+      <reference value="#doc"/>
+    </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-effective-period">
+    <valuePeriod>
+      <start value="2010-03-31"/>
+    </valuePeriod>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-submitter-org">
+    <valueReference>
+      <reference value="#sub-org"/>
+    </valueReference>
+  </extension>
+  <url value="http://hl7.org/fhir/us/sdcde/DataElement/dataelement-sdc-profile-example-de"/>
+  <identifier>
+    <system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
+    <value value="DE42AHRQ"/>
+  </identifier>
+  <version value="1.2"/>
+  <status value="draft"/>
+  <date value="2010-03-31"/>
+  <publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
+  <name value="Patient Gender"/>
+  <contact>
+    <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-contact-address">
+      <valueAddress>
+        <text value="540 Gaither Rd Rockville MD 20850"/>
+      </valueAddress>
+    </extension>
+    <name value="Bill Munier"/>
+    <telecom>
+      <system value="email"/>
+      <value value="william.munier@ahrq.hhs.gov"/>
+    </telecom>
+  </contact>
+  <useContext>
     <code>
       <system value="http://example.org/fhir/CodeSystem/usage-contexts"/>
       <code value="form-type"/>
@@ -220,64 +220,64 @@
         <display value="Patient safety event report - hospital: healthcare event reporting form"/>
       </coding>
     </valueCodeableConcept>
-	</useContext>
-	<mapping>
-		<identity value="objclass"/>
-		<uri value="http://healthit.gov/sdc/objectclassproperty"/>
-		<name value="Structured Data Capture ObjectClass/Property"/>
-	</mapping>
-	<element>
-		<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
-			<valueString value="Patient's Gender"/>
-		</extension>
-		<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
-			<valueString value="Patient-Gender,CD"/>
-		</extension>
-		<path value="gender"/>
-		<code>
-			<extension url="http://hl7.org/fhir/StructureDefinition/11179-de-is-data-element-concept">
-				<valueBoolean value="true"/>
-			</extension>
-			<system value="http://loinc.org"/>
-			<code value="74698-2"/>
-		</code>
-		<definition value="The patient's documented gender on arrival at the hospital."/>
-		<type>
-			<code value="CodeableConcept"/>
-		</type>
-		<binding>
-			<strength value="required"/>
-			<valueSetReference>
-				<extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">
-					<valueReference>
-						<reference value="#pv-valueset"/>
-					</valueReference>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
-					<valueReference>
-						<reference value="#pv-conceptmap"/>
-					</valueReference>
-				</extension>
-				<reference value="#vm-valueset"/>
-			</valueSetReference>
-		</binding>
-		<mapping>
-			<extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClass">
-				<valueCoding>
-					<system value="http://snomed.info/sct"/>
-					<code value="116154003"/>
-					<display value="Patient"/>
-				</valueCoding>
-			</extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty">
-				<valueCoding>
-					<system value="http://snomed.info/sct"/>
-					<code value="263495000"/>
-					<display value="Gender"/>
-				</valueCoding>
-			</extension>
-			<identity value="objclass"/>
-			<map value="http://snomed.info/sct#116154003 | http://snomed.info/sct | 263495000"/>
-		</mapping>
-	</element>
+  </useContext>
+  <mapping>
+    <identity value="objclass"/>
+    <uri value="http://healthit.gov/sdc/objectclassproperty"/>
+    <name value="Structured Data Capture ObjectClass/Property"/>
+  </mapping>
+  <element>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
+      <valueString value="Patient's Gender"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
+      <valueString value="Patient-Gender,CD"/>
+    </extension>
+    <path value="gender"/>
+    <code>
+      <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-is-data-element-concept">
+        <valueBoolean value="true"/>
+      </extension>
+      <system value="http://loinc.org"/>
+      <code value="74698-2"/>
+    </code>
+    <definition value="The patient's documented gender on arrival at the hospital."/>
+    <type>
+      <code value="CodeableConcept"/>
+    </type>
+    <binding>
+      <strength value="required"/>
+      <valueSetReference>
+        <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">
+          <valueReference>
+            <reference value="#pv-valueset"/>
+          </valueReference>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-conceptmap">
+          <valueReference>
+            <reference value="#pv-conceptmap"/>
+          </valueReference>
+        </extension>
+        <reference value="#vm-valueset"/>
+      </valueSetReference>
+    </binding>
+    <mapping>
+      <extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClass">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="116154003"/>
+          <display value="Patient"/>
+        </valueCoding>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty">
+        <valueCoding>
+          <system value="http://snomed.info/sct"/>
+          <code value="263495000"/>
+          <display value="Gender"/>
+        </valueCoding>
+      </extension>
+      <identity value="objclass"/>
+      <map value="http://snomed.info/sct#116154003 | http://snomed.info/sct | 263495000"/>
+    </mapping>
+  </element>
 </DataElement>

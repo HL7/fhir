@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../schema/fhir-single.xsd">
-	<id value="dataelement-sdccode"/>
-	<url value="http://hl7.org/fhir/us/sdcde/ValueSet/dataelement-sdccode"/>
-	<name value="DataElement SDC Concept"/>
-	<status value="draft"/>
-	<publisher value="Office of the National Coordinator for Health IT"/>
-	<contact>
-		<telecom>
-			<system value="other"/>
-			<value value="http://healthit.gov"/>
-		</telecom>
-	</contact>
-	<description value="The allowed codes for identifying the ISO 11179 data element concept if intended for registration/use within the U.S. Structured Data Capture (SDC) project."/>
-	<copyright value="This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
-	<compose>
-		<include>
-			<system value="http://snomed.info/sct"/>
-		</include>
-		<include>
-			<system value="http://loinc.org"/>
-		</include>
-		<include>
-			<!--   This is a proposed URI for the RXNorm code system - not yet registered   -->
-			<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-		</include>
-	</compose>
+  <id value="dataelement-sdccode"/>
+  <url value="http://hl7.org/fhir/us/sdcde/ValueSet/dataelement-sdccode"/>
+  <name value="DataElement SDC Concept"/>
+  <status value="draft"/>
+  <publisher value="Office of the National Coordinator for Health IT"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthit.gov"/>
+    </telecom>
+  </contact>
+  <description value="The allowed codes for identifying the ISO 11179 data element concept if intended for registration/use within the U.S. Structured Data Capture (SDC) project."/>
+  <copyright value="This value set includes content from LOINC®, which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use. This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+    </include>
+    <include>
+      <!--   This is a proposed URI for the RXNorm code system - not yet registered   -->
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -14,6 +14,20 @@
   <p>
     <a href="{{[type]}}-{{[id]}}.{{[fmt]}}">Raw {{[fmt]}}</a>
   </p>
+  {% assign intro = site.data.pages[page.path].intro %}
+  {% if site.data.pages[page.path].intro != null %}
+  <div style="display:inline-block">
+  {% include {{intro}} %}
+  </div>
+  {% endif %}
+  
   {% include {{[type]}}-{{[name]}}.xhtml %}
+
+  {% assign notes = site.data.pages[page.path].notes %}
+  {% if site.data.pages[page.path].notes != null %}
+  <div style="display:inline-block">
+  {% include {{notes}} %}
+  </div>
+  {% endif %}
 </div>
 {% include fragment-pageend.html %}

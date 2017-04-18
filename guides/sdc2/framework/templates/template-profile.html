@@ -1,40 +1,49 @@
 ---
 ---
 {% include fragment-pagebegin.html %}
+{% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
+{% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
+{% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
 <div class="col-12">
-	<ul class="nav nav-tabs">
-		<li class="active">
-			<a href="#">Content</a>
-		</li>
-		<li>
-			<a href="{{[id]}}-definitions.html">Detailed Descriptions</a>
-		</li>
-		<li>
-			<a href="{{[id]}}-mappings.html">Mappings</a>
-		</li>
-		<li>
-			<a href="{{[id]}}-examples.html">Examples</a>
-		</li>
-		<li>
-			<a href="{{[id]}}.profile.xml.html">XML</a>
-		</li>
-		<li>
-			<a href="{{[id]}}.profile.json.html">JSON</a>
-		</li>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#">Content</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-definitions.html">Detailed Descriptions</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-mappings.html">Mappings</a>
+    </li>
+    <li>
+      <a href="{{[id]}}-examples.html">Examples</a>
+    </li>
+{% unless excludexml == 'y' %}
+    <li>
+      <a href="{{[id]}}.profile.xml.html">XML</a>
+    </li>
+{% endunless %}
+{% unless excludejson == 'y' %}
+    <li>
+      <a href="{{[id]}}.profile.json.html">JSON</a>
+    </li>
+{% endunless %}
+{% unless excludettl == 'y' %}
     <li>
       <a href="{{[id]}}.profile.ttl.html">Turtle</a>
     </li>
-	</ul>
-	<h3 class="self-link-parent">
-		<span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
-		</span> StructureDefinition: {{[title]}} <a title="link to here" class="self-link" href="{{[id]}}.html#{{site.data.pages[page.path].label}}">
-			<img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
-		</a>
-	</h3>
-	<p>
+{% endunless %}
+  </ul>
+  <h3 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}<a name="{{site.data.pages[page.path].label}}"> </a>
+    </span> StructureDefinition: {{[title]}} <a title="link to here" class="self-link" href="{{[id]}}.html#{{site.data.pages[page.path].label}}">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h3>
+  <p>
   The official URL for this profile is:
   </p>
-	<pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
+  <pre>{{site.data.structuredefinitions['{{[id]}}'].url}}</pre>
 
   {% assign intro = site.data.pages[page.path].intro %}
   {% if site.data.pages[page.path].intro != null %}
@@ -42,172 +51,184 @@
   {% include {{intro}} %}
   </div>
   {% endif %}
-	<!-- no uri -->
-	<a name="profile"> </a>
-	<h4 class="self-link-parent">
-		<span class="sectioncount">{{site.data.pages[page.path].label}}.2</span>
+  <!-- no uri -->
+  <a name="profile"> </a>
+  <h4 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.2</span>
     Formal Views of Profile Content
     <a title="link to here" class="self-link" href="{{[id]}}.html#profile">
-			<img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
-		</a>
-	</h4>
-	<p>
-		<a href="{{site.data.fhir.path}}profiling.html#representation">Description of Profiles, Differentials, Snapshots, and how the XML and JSON presentations work</a>.
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h4>
+  <p>
+    <a href="{{site.data.fhir.path}}profiling.html#representation">Description of Profiles, Differentials, Snapshots and how the different presentations work</a>.
   </p>
-	<div id="tabs">
-		<ul>
-			<li>
-				<a href="#tabs-summ">Text Summary</a>
-			</li>
-			<li>
-				<a href="#tabs-diff">Differential Table</a>
-			</li>
-			<li>
-				<a href="#tabs-snap">Snapshot Table</a>
-			</li>
-            <!--
-			<li>
-				<a href="#tabs-xml">Pseudo-XML</a>
-			</li>
-			<li>
-				<a href="#tabs-json">Pseudo-JSON</a>
-			</li>
-			<li>
-				<a href="#tabs-ttl">Pseudo-TTL</a>
-			</li>
-            -->
-			<li>
-				<a href="#tabs-all">All</a>
-			</li>
-		</ul>
-		<a name="tabs-summ"> </a>
-		<div id="tabs-summ">
-			<div id="tbl-summ">
-				<p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
-				</p>
-				<div id="tbl-summ-inner">
-					<a name="summary"> </a>
+  <div id="tabs">
+    <ul>
+      <li>
+        <a href="#tabs-summ">Text Summary</a>
+      </li>
+      <li>
+        <a href="#tabs-diff">Differential Table</a>
+      </li>
+      <li>
+        <a href="#tabs-snap">Snapshot Table</a>
+      </li>
+{% unless excludexml == 'y' %}
+<!--      <li>
+        <a href="#tabs-xml">Pseudo-XML</a>
+      </li>-->
+{% endunless %}
+{% unless excludejson == 'y' %}
+<!--      <li>
+        <a href="#tabs-json">Pseudo-JSON</a>
+      </li>-->
+{% endunless %}
+{% unless excludettl == 'y' %}
+      <!--<li>
+        <a href="#tabs-ttl">Pseudo-TTL</a>
+      </li>-->
+{% endunless %}
+      <li>
+        <a href="#tabs-all">All</a>
+      </li>
+    </ul>
+    <a name="tabs-summ"> </a>
+    <div id="tabs-summ">
+      <div id="tbl-summ">
+        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
+        </p>
+        <div id="tbl-summ-inner">
+          <a name="summary"> </a>
           {%include StructureDefinition-{{[id]}}-summary.xhtml%}
         </div>
-			</div>
-		</div>
-		<a name="tabs-diff"> </a>
-		<div id="tabs-diff">
-			<div id="tbl-diff">
-				<p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
-				</p>
-				<div id="tbl-diff-inner">
+      </div>
+    </div>
+    <a name="tabs-diff"> </a>
+    <div id="tabs-diff">
+      <div id="tbl-diff">
+        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
+        </p>
+        <div id="tbl-diff-inner">
           {%include StructureDefinition-{{[id]}}-diff.xhtml%}
         </div>
-			</div>
-		</div>
-		<a name="tabs-snap"> </a>
-		<div id="tabs-snap">
-			<div id="tbl-snap">
-				<div id="tbl-snap-inner">
+      </div>
+    </div>
+    <a name="tabs-snap"> </a>
+    <div id="tabs-snap">
+      <div id="tbl-snap">
+        <div id="tbl-snap-inner">
           {%include StructureDefinition-{{[id]}}-snapshot.xhtml%}
         </div>
-			</div>
-		</div>
-        <!--
-		<a name="tabs-xml"> </a>
-		<div id="tabs-xml">
-			<div id="xml">
-				<div id="xml-inner">
+      </div>
+    </div>
+{% unless excludexml == 'y' %}
+<!--    <a name="tabs-xml"> </a>
+    <div id="tabs-xml">
+      <div id="xml">
+        <div id="xml-inner">
           {%include StructureDefinition-{{[id]}}-pseudo-xml.xhtml%}
         </div>
-			</div>
-		</div>
-		<a name="tabs-json"> </a>
-		<div id="tabs-json">
-			<div id="json">
-				<div id="json-inner">
+      </div>
+    </div>-->
+{% endunless %}
+{% unless excludejson == 'y' %}
+<!--    <a name="tabs-json"> </a>
+    <div id="tabs-json">
+      <div id="json">
+        <div id="json-inner">
           {%include StructureDefinition-{{[id]}}-pseudo-json.xhtml%}
         </div>
-			</div>
-		</div>
-		<a name="tabs-ttl"> </a>
-		<div id="tabs-ttl">
-			<div id="ttl">
-				<div id="ttl-inner">
+      </div>
+    </div>-->
+{% endunless %}
+{% unless excludettl == 'y' %}
+    <!--<a name="tabs-ttl"> </a>
+    <div id="tabs-ttl">
+      <div id="ttl">
+        <div id="ttl-inner">
           {%include StructureDefinition-{{[id]}}-pseudo-ttl.xhtml%}
         </div>
-			</div>
-		</div>
-        -->
-		<a name="tabs-all"> </a>
-		<div id="tabs-all">
-			<div id="all-summ">
-				<p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
-				</p>
-				<div id="all-summ-inner">
+      </div>
+    </div>-->
+{% endunless %}
+    <a name="tabs-all"> </a>
+    <div id="tabs-all">
+      <div id="all-summ">
+        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
+        </p>
+        <div id="all-summ-inner">
           {%include StructureDefinition-{{[id]}}-summary.xhtml%}
         </div>
-			</div>
-			<div id="all-tbl-diff">
-				<p>
-					<b>Differential View</b>
-				</p>
-				<p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
-				</p>
-				<div id="all-tbl-diff-inner">
+      </div>
+      <div id="all-tbl-diff">
+        <p>
+          <b>Differential View</b>
+        </p>
+        <p>This structure is derived from <a href="{{site.data.structuredefinitions['{{[id]}}'].basepath}}">{{site.data.structuredefinitions['{{[id]}}'].basename}}</a>
+        </p>
+        <div id="all-tbl-diff-inner">
           {%include StructureDefinition-{{[id]}}-diff.xhtml%}
         </div>
-			</div>
-			<div id="all-tbl-snap">
-				<p>
-					<b>Snapshot View</b>
-				</p>
-				<div id="all-tbl-snap-inner">
+      </div>
+      <div id="all-tbl-snap">
+        <p>
+          <b>Snapshot View</b>
+        </p>
+        <div id="all-tbl-snap-inner">
           {%include StructureDefinition-{{[id]}}-snapshot.xhtml%}
         </div>
-			</div>
-            <!--
-			<div id="all-xml">
-				<p>
-					<b>XML Template</b>
-				</p>
-				<div id="all-xml-inner">
+      </div>
+{% unless excludexml == 'y' %}
+      <!--<div id="all-xml">
+        <p>
+          <b>XML Template</b>
+        </p>
+        <div id="all-xml-inner">
           {%include StructureDefinition-{{[id]}}-pseudo-xml.xhtml%}
         </div>
-			</div>
-			<div id="all-json">
-				<p>
-					<b>JSON Template</b>
-				</p>
-				<div id="all-json-inner">
+      </div>-->
+{% endunless %}
+{% unless excludejson == 'y' %}
+      <!--<div id="all-json">
+        <p>
+          <b>JSON Template</b>
+        </p>
+        <div id="all-json-inner">
           {%include StructureDefinition-{{[id]}}-pseudo-json.xhtml%}
         </div>
-			</div>
-			<div id="all-ttl">
-				<p>
-					<b>TTL Template</b>
-				</p>
-				<div id="all-ttl-inner">
+      </div>-->
+{% endunless %}
+{% unless excludettl == 'y' %}
+      <!--<div id="all-ttl">
+        <p>
+          <b>TTL Template</b>
+        </p>
+        <div id="all-ttl-inner">
           {%include StructureDefinition-{{[id]}}-pseudo-ttl.xhtml%}
         </div>
-			</div>
-           -->
-		</div>
-	</div>
-	<p>&#160;</p>
-	<p>Other representations of profile: <a href="{{[id]}}.sch">Schematron</a>
-	</p>
-	<a name="tx"> </a>
-	<h4 class="self-link-parent">
-		<span class="sectioncount">{{site.data.pages[page.path].label}}.3</span> Terminology Bindings <a title="link to here" class="self-link" href="{{[id]}}.html#tx">
-			<img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
-		</a>
-	</h4>
+      </div>-->
+{% endunless %}
+    </div>
+  </div>
+  <p>&#160;</p>
+  <p>Other representations of profile: <a href="{{[id]}}.sch">Schematron</a>
+  </p>
+  <a name="tx"> </a>
+  <h4 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.3</span> Terminology Bindings <a title="link to here" class="self-link" href="{{[id]}}.html#tx">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h4>
   {%include StructureDefinition-{{[id]}}-tx.xhtml%}
 
   <a name="inv"> </a>
   <h4 class="self-link-parent">
-		<span class="sectioncount">{{site.data.pages[page.path].label}}.4</span> Constraints 
-		<a title="link to here" class="self-link" href="{{[id]}}.html#inv">
-			<img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
-		</a>
-	</h4>
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.4</span> Constraints 
+    <a title="link to here" class="self-link" href="{{[id]}}.html#inv">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h4>
   {%include StructureDefinition-{{[id]}}-inv.xhtml%}
 
   {% assign notes = site.data.pages[page.path].notes %}

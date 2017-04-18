@@ -2,13 +2,21 @@
 <!--
   - Converts a FHIR IG stored as XML into a JSON file that drives the operation of the IG Publisher tool,
   -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xpath-default-namespace="http://hl7.org/fhir">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:f="http://hl7.org/fhir">
   <xsl:param name="spec"/>
   <xsl:param name="version"/>
-  <xsl:param name="fhirVersion" select="/ImplementationGuide/fhirVersion/@value"/>
-  <xsl:param name="snomedRelease" select="'UV'"/>
+  <xsl:param name="fhirVersion" select="/f:ImplementationGuide/f:fhirVersion/@value"/>
+  <xsl:param name="snomedRelease" select="substring(/f:ImplementationGuide/f:*/f:coding[f:system/@value='urn:iso:std:iso:3166']/f:code/@value, 1, 2)"/>
+  <xsl:param name="excludexml" select="'No'"/>
+  <xsl:param name="excludejson" select="'No'"/>
+  <xsl:param name="excludettl" select="'No'"/>
+  <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
+  <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'"/>
+  <xsl:variable name="includeXml" select="not(translate(substring($excludexml,1,1), $uppercase, $lowercase)='y')"/>
+  <xsl:variable name="includeJson" select="not(translate(substring($excludejson,1,1), $uppercase, $lowercase)='y')"/>
+  <xsl:variable name="includeTtl" select="not(translate(substring($excludettl,1,1), $uppercase, $lowercase)='y')"/>
 	<xsl:output method="text" encoding="UTF-8"/>
-  <xsl:template match="/ImplementationGuide">
+  <xsl:template match="/f:ImplementationGuide">
     <xsl:variable name="snomedReleaseNumber">
       <xsl:choose>
         <xsl:when test="$snomedRelease='AU'">32506021000036107</xsl:when>
@@ -21,12 +29,16 @@
         <xsl:when test="$snomedRelease='US'">731000124108</xsl:when>
         <xsl:when test="$snomedRelease='UV'">900000000000207008</xsl:when>
         <xsl:otherwise>
-          <xsl:message terminate="yes" select="concat('ERROR: Unsupported snomedRelease: ', $snomedRelease)"/>
+          <xsl:message terminate="yes">
+            <xsl:value-of select="concat('ERROR: Unsupported snomedRelease: ', $snomedRelease)"/>
+          </xsl:message>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:text>{
+  "DO_NOT_EDIT_THIS_FILE": "This file is generated.  Any edits made will be overwritten",
 	"tool": "jekyll",
+  "logging": ["html"],
 	"version": "</xsl:text>
 	<xsl:value-of select="$fhirVersion"/>
 	<xsl:text>",
@@ -34,21 +46,72 @@
 	<xsl:if test="$version!=''">
     <xsl:value-of select="concat('&quot;fixed-business-version&quot;: &quot;', $version, '&quot;,&#xa;  ')"/>
 	</xsl:if>
+	<xsl:text>"html-template": "template-page.html",&#xa;  </xsl:text>
 	<xsl:text>"paths": {
-		"resources": "resources",
-		"pages": "pages",
-		"temp": "temp",
+		"resources": ["resources", "../src/resources", "../src/vocabulary", "../src/examples"],
+		"pages": ["../src/images", "pages"],
+		"temp": "../temp/pages",
 		"output": "../website",
 		"txCache": "txcache",
     "history" : "history.html",
-		"qa": "qa",
+		"qa": "../temp/qa",
 		"specification": "</xsl:text>
 		<xsl:value-of select="$spec"/>
 		<xsl:text>"
 	},
+	"pre-process": [
+	  {"folder": "../framework/assets",
+	   "relativePath": "assets"},
+	  {"folder": "../framework/includes",
+	   "relativePath": "_includes"},
+	  {"folder": "../src/includes",
+     "relativePath": "_includes",
+     "transform": "../framework/xslt/processPages.xslt"},
+	  {"folder": "../src/data",
+	   "relativePath": "_data"},
+	  {"folder": "../src/pagecontent",
+	   "relativePath": "_includes",
+	   "transform": "../framework/xslt/processPages.xslt"}
+	],
+  "extraTemplates": [
+    {
+      "name": "mappings",
+      "description": "Mappings"
+    },
+    {
+      "name": "examples",
+      "description": "Examples"
+    }</xsl:text>
+    <xsl:if test="$includeXml">,
+    {
+      "name": "profile-xml",
+      "description": "Profile XML"
+    }</xsl:if>
+    <xsl:if test="$includeJson">,
+    {
+      "name": "profile-json",
+      "description": "Profile JSON"
+    }</xsl:if>
+    <xsl:if test="$includeTtl">,
+    {
+      "name": "profile-ttl",
+      "description": "Profile Turtle"
+    }</xsl:if>
+    <xsl:text>
+  ],
 	"defaults": {
 		"Any": {
-			"template-base": "../framework/templates/template-instance-base.html",
+  </xsl:text>
+  <xsl:if test="not($includeXml)">
+    <xsl:text>    "xml" : false,&#x0a;</xsl:text>
+  </xsl:if>
+  <xsl:if test="not($includeJson)">
+    <xsl:text>    "json" : false,&#x0a;</xsl:text>
+  </xsl:if>
+  <xsl:if test="not($includeTtl)">
+    <xsl:text>    "ttl" : false,&#x0a;</xsl:text>
+  </xsl:if>
+  <xsl:text>      "template-base": "../framework/templates/template-instance-base.html",
 			"template-format": "../framework/templates/template-instance-format.html",
 		  "base": "{{[id]}}.html",
 		  "format": "{{[id]}}.{{[fmt]}}.html"
@@ -61,15 +124,25 @@
 			"template-base": "../framework/templates/template-profile.html",
 			"template-defns": "../framework/templates/template-profile-definitions.html",
 			"template-mappings": "../framework/templates/template-profile-mappings.html",
-			"template-examples": "../framework/templates/template-profile-examples.html",
-			"template-profile-xml": "../framework/templates/template-profile-xml.html",
-			"template-profile-json": "../framework/templates/template-profile-json.html",
+      "template-examples": "../framework/templates/template-profile-examples.html"</xsl:text>
+    <xsl:if test="$includeXml">,
+      "template-profile-xml": "../framework/templates/template-profile-xml.html"</xsl:if>
+    <xsl:if test="$includeJson">,
+      "template-profile-json": "../framework/templates/template-profile-json.html"</xsl:if>
+    <xsl:if test="$includeTtl">,
+      "template-profile-ttl": "../framework/templates/template-profile-ttl.html"</xsl:if>
+    <xsl:text>,
 			"base": "{{[id]}}.html",
 			"defns": "{{[id]}}-definitions.html",
 			"mappings": "{{[id]}}-mappings.html",
-			"examples": "{{[id]}}-examples.html",
-			"profile-xml": "{{[id]}}.profile.xml.html",
-			"profile-json": "{{[id]}}.profile.json.html"
+      "examples": "{{[id]}}-examples.html"</xsl:text>
+    <xsl:if test="$includeXml">,
+      "profile-xml": "{{[id]}}.profile.xml.html"</xsl:if>
+    <xsl:if test="$includeXml">,
+      "profile-json": "{{[id]}}.profile.json.html"</xsl:if>
+    <xsl:if test="$includeXml">,
+      "profile-ttl": "{{[id]}}.profile.ttl.html"</xsl:if>
+    <xsl:text>
 		},
 		"ValueSet": {
 			"template-base": "../framework/templates/template-valueset.html",
@@ -83,31 +156,35 @@
   <xsl:text>",
   "no-inactive-codes" : "true",
 	"canonicalBase": "</xsl:text>
-    <xsl:value-of select="substring-before(url/@value, '/ImplementationGuide')"/>
-    <xsl:text>",&#xa;	</xsl:text>
-    <xsl:for-each select="dependency[type/@value='reference']/uri/@value">
-      <xsl:variable name="code" select="tokenize(., '/')[last()]"/>
-      <xsl:value-of select="concat('&quot;dependencyList&quot;: [&#xa;    {&#xa;      &quot;name&quot; : &quot;', $code, '&quot;,&#xa;      &quot;location&quot; : &quot;', ., 
-        '&quot;,&#xa;      &quot;source&quot; : &quot;../../', $code, '2/website&quot;&#xa;    }&#xa;  ],&#xa;  ')"/>
-    </xsl:for-each>
-    <xsl:text>"extraTemplates": ["mappings", "examples", "profile-xml", "profile-json"],
-	"source": "</xsl:text>
-	  <xsl:value-of select="id/@value"/>
-	  <xsl:text>.xml",
+  <xsl:value-of select="substring-before(f:url/@value, '/ImplementationGuide')"/>
+  <xsl:text>",&#xa;	</xsl:text>
+  <xsl:for-each select="f:dependency[f:type/@value='reference']/f:uri/@value">
+    <xsl:variable name="code">
+      <xsl:call-template name="findLast">
+        <xsl:with-param name="string" select="."/>
+        <xsl:with-param name="split" select="'/'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:value-of select="concat('&quot;dependencyList&quot;: [&#xa;    {&#xa;      &quot;name&quot; : &quot;', $code, '&quot;,&#xa;      &quot;location&quot; : &quot;', ., 
+      '&quot;,&#xa;      &quot;source&quot; : &quot;../../', $code, '2/website&quot;&#xa;    }&#xa;  ],&#xa;  ')"/>
+  </xsl:for-each>
+	<xsl:text>"source": "</xsl:text>
+  <xsl:value-of select="f:id/@value"/>
+  <xsl:text>.xml",
   "spreadsheets": [</xsl:text>
-    <xsl:for-each select="package/extension[@url='http://hl7.org/fhir/tools-profile-spreadsheet']/valueUri/@value">
+    <xsl:for-each select="f:package/f:extension[@url='http://hl7.org/fhir/tools-profile-spreadsheet']/f:valueUri/@value">
       <xsl:if test="position()!=1">,</xsl:if>
       <xsl:value-of select="concat('&#xa;    &quot;', ., '&quot;')"/>
     </xsl:for-each>
     <xsl:text>
 	],
 	"resources": {</xsl:text>
-	  <xsl:for-each select="package/resource">
-      <xsl:variable name="type" select="substring-before(sourceReference/reference/@value, '/')"/>
-      <xsl:variable name="id" select="substring-after(sourceReference/reference/@value, '/')"/>
+	  <xsl:for-each select="f:package/f:resource">
+      <xsl:variable name="type" select="substring-before(f:sourceReference/f:reference/@value, '/')"/>
+      <xsl:variable name="id" select="substring-after(f:sourceReference/f:reference/@value, '/')"/>
       <xsl:if test="position()!=1">,</xsl:if>
-      <xsl:value-of select="concat('&#xa;    &quot;', sourceReference/reference/@value, '&quot;:{&#xa;')"/>
-      <xsl:if test="example/@value='true'">
+      <xsl:value-of select="concat('&#xa;    &quot;', f:sourceReference/f:reference/@value, '&quot;:{&#xa;')"/>
+      <xsl:if test="f:example/@value='true'">
         <xsl:choose>
           <xsl:when test="$type='ValueSet'">
             <xsl:text>		"template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
@@ -121,32 +198,51 @@
             <xsl:text>      "template-defns": "",&#xa;</xsl:text>
             <xsl:text>      "template-mappings": "",&#xa;</xsl:text>
             <xsl:text>      "template-examples": "",&#xa;</xsl:text>
-            <xsl:text>      "template-profile-xml": "",&#xa;</xsl:text>
-            <xsl:text>      "template-profile-json": "",&#xa;</xsl:text>
+            <xsl:if test="$includeXml">      "template-profile-xml": "",&#xa;</xsl:if>
+            <xsl:if test="$includeJson">      "template-profile-json": "",&#xa;</xsl:if>
+            <xsl:if test="$includeTtl">      "template-profile-ttl": "",&#xa;</xsl:if>
             <xsl:text>      "base": "{{[id]}}.html",&#xa;</xsl:text>
             <xsl:text>	    "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
           </xsl:when>
         </xsl:choose>
       </xsl:if>
-      <xsl:if test="not(example/@value='true') and (exists(ancestor::ImplementationGuide//page[source/@value=concat('extension-', $id, '.html')]) or starts-with($id, 'ext-')) and $type='StructureDefinition'">
+      <xsl:if test="not(f:example/@value='true') and (ancestor::f:ImplementationGuide//f:page[f:source/@value=concat('extension-', $id, '.html')] or starts-with($id, 'ext-')) and $type='StructureDefinition'">
         <xsl:text>      "template-base": "../framework/templates/template-ext.html",&#xa;</xsl:text>
         <xsl:text>      "template-defns": "../framework/templates/template-ext-definitions.html",&#xa;</xsl:text>
         <xsl:text>      "template-mappings": "../framework/templates/template-ext-mappings.html",&#xa;</xsl:text>
         <xsl:text>      "template-examples": "",&#xa;</xsl:text>
-        <xsl:text>      "template-profile-xml": "../framework/templates/template-ext-xml.html",&#xa;</xsl:text>
-        <xsl:text>      "template-profile-json": "../framework/templates/template-ext-json.html",&#xa;</xsl:text>
+        <xsl:if test="$includeXml">      "template-profile-xml": "../framework/templates/template-ext-xml.html",&#xa;</xsl:if>
+        <xsl:if test="$includeJson">      "template-profile-json": "../framework/templates/template-ext-json.html",&#xa;</xsl:if>
+        <xsl:if test="$includeTtl">      "template-profile-ttl": "../framework/templates/template-ext-ttl.html",&#xa;</xsl:if>
         <xsl:text>      "template-format": "",&#xa;</xsl:text>
         <xsl:text>      "base": "extension-{{[id]}}.html",&#xa;</xsl:text>
         <xsl:text>      "defns": "extension-{{[id]}}-definitions.html",&#xa;</xsl:text>
         <xsl:text>      "mappings": "extension-{{[id]}}-mappings.html",&#xa;</xsl:text>
-        <xsl:text>      "examples": "extension-{{[id]}}-examples.html",&#xa;</xsl:text>
-        <xsl:text>      "profile-xml": "extension-{{[id]}}.profile.xml.html",&#xa;</xsl:text>
-        <xsl:text>      "profile-json": "extension-{{[id]}}.profile.json.html"&#xa;</xsl:text>
+        <xsl:text>      "examples": "extension-{{[id]}}-examples.html"</xsl:text>
+        <xsl:if test="$includeXml">,&#xa;      "profile-xml": "extension-{{[id]}}.profile.xml.html"</xsl:if>
+        <xsl:if test="$includeJson">,&#xa;      "profile-json": "extension-{{[id]}}.profile.json.html"</xsl:if>
+        <xsl:if test="$includeTtl">,&#xa;      "profile-ttl": "extension-{{[id]}}.profile.ttl.html"</xsl:if>
+        <xsl:text>&#xa;</xsl:text>
       </xsl:if>
       <xsl:text>    }</xsl:text>
 	  </xsl:for-each>
 	  <xsl:text>
 	}
 }</xsl:text>
+  </xsl:template>
+  <xsl:template name="findLast">
+    <xsl:param name="string"/>
+    <xsl:param name="split"/>
+    <xsl:choose>
+      <xsl:when test="contains($string, $split)">
+        <xsl:call-template name="findLast">
+          <xsl:with-param name="string" select="substring-after($string, $split)"/>
+          <xsl:with-param name="split" select="$split"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$string"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>

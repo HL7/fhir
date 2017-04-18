@@ -5,7 +5,7 @@
   <name value="Structured Data Capture - Data Element Exchange"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="Health Level Seven International (Orders and Observations - Structured Data Capture)"/>
+  <publisher value="HL7 International (OO work group)"/>
   <contact>
     <telecom>
       <system value="other"/>
@@ -116,12 +116,22 @@
     </resource>
   </package>
   <page>
-    <source value="sdcde.html"/>
-    <title value="Home Page"/>
+    <source value="toc.html"/>
+    <title value="Table of Contents"/>
     <kind value="page"/>
+    <page>
+      <source value="index.html"/>
+      <title value="Home Page"/>
+      <kind value="page"/>
+    </page>
     <page>
       <source value="artifacts.html"/>
       <title value="Artifact List"/>
+      <kind value="page"/>
+    </page>
+    <page>
+      <source value="downloads.html"/>
+      <title value="Useful Downloads"/>
       <kind value="page"/>
     </page>
     <page>

@@ -305,8 +305,8 @@
           <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  If matching data is available for any of the questions and the server supports 
           the pre-population capability, the answers for those questions will be filled in the QuestionnaireResponse instance.
         </td>
-	  </tr>
-	  <tr>
+      </tr>
+      <tr>
         <td>
           <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatehtml">populatehtml</a>
         </td>
@@ -316,8 +316,8 @@
           generated the form and/or the recipient(s) designated by the <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>.  If matching data is available 
           for any of the questions and the server supports the pre-population capability, the form will initially render with the answers for those questions filled in.
         </td>
-	  </tr>
-	  <tr>
+      </tr>
+      <tr>
         <td>
           <a href="{{site.data.fhir.path}}questionnaire-operations.html#populatelink">populatelink</a>
         </td>
@@ -350,7 +350,8 @@
       as well as indirectly either by <code>identifier</code> or <code>questionnaire</code>
     </li>
     <li>Support passing a single C-CDA* document as a <a href="{{site.data.fhir.path}}http.html#binary">Binary</a> resource using the <code>content</code> parameter</li>
-    <li>Be able to accept an incoming partially-populated <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> and render it as if they had retrieved a saved partially-completed <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a></li>
+    <li>Be able to accept an incoming partially-populated <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a> and render it as if they had retrieved a saved partially-completed <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
+    </li>
     <li> It is the responsibility of the <a href="sdc-form-filler.html">SDC Form Filler</a> to ensure the form is valid after a human has reviewed and edited the form.</li>
   </ul>
   <p>
