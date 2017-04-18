@@ -151,7 +151,7 @@ public class SchemaGenerator {
   private void save(JsonObject s, String filename) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(s);
-    TextFile.stringToFile(json, filename);
+    TextFile.stringToFile(json, filename, false); // remove BOM, see https://chat.fhir.org/#narrow/stream/implementers/subject/Removal.20of.20byte.20order.20mark.20in.20json.20schemas
   }
 
   private void produceCombinedSchema(Definitions definitions, String xsdDir, String dstDir, String srcDir) throws Exception {

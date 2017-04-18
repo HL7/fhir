@@ -3274,13 +3274,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }      
     MetadataResource vs = (MetadataResource) res;
     if (vs == null)
-      context.fetchResource(ValueSet.class, value);
+    		vs = context.fetchResource(ValueSet.class, value);
     if (vs == null)
-      context.fetchResource(StructureDefinition.class, value);
+    		vs = context.fetchResource(StructureDefinition.class, value);
 //    if (vs == null)
-//      context.fetchResource(DataElement.class, value);
+    	//      vs = context.fetchResource(DataElement.class, value);
     if (vs == null)
-      context.fetchResource(Questionnaire.class, value);
+    		vs = context.fetchResource(Questionnaire.class, value);
     if (vs != null) {
       String ref = (String) vs.getUserData("path");
       
