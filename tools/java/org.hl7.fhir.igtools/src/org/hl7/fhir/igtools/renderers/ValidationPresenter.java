@@ -249,11 +249,12 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genSummaryRow(FetchedFile f) {
     ST t = template(summaryTemplate);
     t.add("link", makelink(f));
+    List<ValidationMessage> uniqueErrors = removeDupMessages(f.getErrors());
     
     t.add("filename", f.getName());
-    String ec = errCount(f.getErrors());
+    String ec = errCount(uniqueErrors);
     t.add("errcount", ec);
-    t.add("other", otherCount(f.getErrors()));
+    t.add("other", otherCount(uniqueErrors));
     if ("0".equals(ec))
       t.add("color", "#EFFFEF");
     else

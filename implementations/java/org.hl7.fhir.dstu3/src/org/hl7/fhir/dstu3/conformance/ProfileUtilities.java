@@ -707,6 +707,8 @@ public class ProfileUtilities extends TranslatingUtilities {
                 result.getElement().add(outcome);
                 baseCursor++;
               }
+              //Lloyd - add this for test T15
+              baseCursor--;
             }
           }
           // finally, we process any remaining entries in diff, which are new (and which are only allowed if the base wasn't closed

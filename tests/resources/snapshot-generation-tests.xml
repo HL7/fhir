@@ -504,6 +504,7 @@
 					<path value="Patient.address.extension.extension.valueDecimal"/>
           <mustSupport value="true"/>
 				</element>
+<!-- Commented this out as removing it triggers errors that including it did not (specifically, the URL of the geolocation extension wasn't showing up in snapshot)
 				<element>
 					<path value="Patient.address.extension.extension"/>
 					<sliceName value="longitude"/>
@@ -516,7 +517,7 @@
 				<element>
 					<path value="Patient.address.extension.extension.valueDecimal"/>
           <mustSupport value="true"/>
-				</element>
+				</element>-->
 			</differential>
 		</StructureDefinition>
 	</contained>
