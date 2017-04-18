@@ -53,7 +53,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     b.append(genEnd());
     for (FetchedFile f : files) {
       b.append(genStart(f));
-      for (ValidationMessage vm : f.getErrors())
+      for (ValidationMessage vm : removeDupMessages(f.getErrors()))
         b.append(genDetails(vm));
       b.append(genEnd());
     }    
@@ -93,7 +93,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     b.append(genEndTxt());
     for (FetchedFile f : files) {
       b.append(genStartTxt(f));
-      for (ValidationMessage vm : f.getErrors())
+      for (ValidationMessage vm : removeDupMessages(f.getErrors()))
         b.append(genDetailsTxt(vm));
       b.append(genEndTxt());
     }    
