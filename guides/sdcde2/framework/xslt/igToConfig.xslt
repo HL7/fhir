@@ -15,7 +15,7 @@
   <xsl:variable name="includeXml" select="not(translate(substring($excludexml,1,1), $uppercase, $lowercase)='y')"/>
   <xsl:variable name="includeJson" select="not(translate(substring($excludejson,1,1), $uppercase, $lowercase)='y')"/>
   <xsl:variable name="includeTtl" select="not(translate(substring($excludettl,1,1), $uppercase, $lowercase)='y')"/>
-	<xsl:output method="text" encoding="UTF-8"/>
+  <xsl:output method="text" encoding="UTF-8"/>
   <xsl:template match="/f:ImplementationGuide">
     <xsl:variable name="snomedReleaseNumber">
       <xsl:choose>
@@ -37,42 +37,42 @@
     </xsl:variable>
     <xsl:text>{
   "DO_NOT_EDIT_THIS_FILE": "This file is generated.  Any edits made will be overwritten",
-	"tool": "jekyll",
+  "tool": "jekyll",
   "logging": ["html"],
-	"version": "</xsl:text>
-	<xsl:value-of select="$fhirVersion"/>
-	<xsl:text>",
-	</xsl:text>
-	<xsl:if test="$version!=''">
+  "version": "</xsl:text>
+  <xsl:value-of select="$fhirVersion"/>
+  <xsl:text>",
+  </xsl:text>
+  <xsl:if test="$version!=''">
     <xsl:value-of select="concat('&quot;fixed-business-version&quot;: &quot;', $version, '&quot;,&#xa;  ')"/>
-	</xsl:if>
-	<xsl:text>"html-template": "template-page.html",&#xa;  </xsl:text>
-	<xsl:text>"paths": {
-		"resources": ["resources", "../src/resources", "../src/vocabulary", "../src/examples"],
-		"pages": ["../src/images", "pages"],
-		"temp": "../temp/pages",
-		"output": "../website",
-		"txCache": "txcache",
+  </xsl:if>
+  <xsl:text>"html-template": "template-page.html",&#xa;  </xsl:text>
+  <xsl:text>"paths": {
+    "resources": ["resources", "../src/resources", "../src/vocabulary", "../src/examples"],
+    "pages": ["../src/images", "pages"],
+    "temp": "../temp/pages",
+    "output": "../output",
+    "txCache": "txcache",
     "history" : "history.html",
-		"qa": "../temp/qa",
-		"specification": "</xsl:text>
-		<xsl:value-of select="$spec"/>
-		<xsl:text>"
-	},
-	"pre-process": [
-	  {"folder": "../framework/assets",
-	   "relativePath": "assets"},
-	  {"folder": "../framework/includes",
-	   "relativePath": "_includes"},
-	  {"folder": "../src/includes",
+    "qa": "../temp/qa",
+    "specification": "</xsl:text>
+    <xsl:value-of select="$spec"/>
+    <xsl:text>"
+  },
+  "pre-process": [
+    {"folder": "../framework/assets",
+     "relativePath": "assets"},
+    {"folder": "../framework/includes",
+     "relativePath": "_includes"},
+    {"folder": "../src/includes",
      "relativePath": "_includes",
      "transform": "../framework/xslt/processPages.xslt"},
-	  {"folder": "../src/data",
-	   "relativePath": "_data"},
-	  {"folder": "../src/pagecontent",
-	   "relativePath": "_includes",
-	   "transform": "../framework/xslt/processPages.xslt"}
-	],
+    {"folder": "../src/data",
+     "relativePath": "_data"},
+    {"folder": "../src/pagecontent",
+     "relativePath": "_includes",
+     "transform": "../framework/xslt/processPages.xslt"}
+  ],
   "extraTemplates": [
     {
       "name": "mappings",
@@ -99,8 +99,8 @@
     }</xsl:if>
     <xsl:text>
   ],
-	"defaults": {
-		"Any": {
+  "defaults": {
+    "Any": {
   </xsl:text>
   <xsl:if test="not($includeXml)">
     <xsl:text>    "xml" : false,&#x0a;</xsl:text>
@@ -112,18 +112,18 @@
     <xsl:text>    "ttl" : false,&#x0a;</xsl:text>
   </xsl:if>
   <xsl:text>      "template-base": "../framework/templates/template-instance-base.html",
-			"template-format": "../framework/templates/template-instance-format.html",
-		  "base": "{{[id]}}.html",
-		  "format": "{{[id]}}.{{[fmt]}}.html"
-		},
-		"ImplementationGuide": {
-			"template-base": "",
-			"template-format": ""
-		},
-		"StructureDefinition": {
-			"template-base": "../framework/templates/template-profile.html",
-			"template-defns": "../framework/templates/template-profile-definitions.html",
-			"template-mappings": "../framework/templates/template-profile-mappings.html",
+      "template-format": "../framework/templates/template-instance-format.html",
+      "base": "{{[id]}}.html",
+      "format": "{{[id]}}.{{[fmt]}}.html"
+    },
+    "ImplementationGuide": {
+      "template-base": "",
+      "template-format": ""
+    },
+    "StructureDefinition": {
+      "template-base": "../framework/templates/template-profile.html",
+      "template-defns": "../framework/templates/template-profile-definitions.html",
+      "template-mappings": "../framework/templates/template-profile-mappings.html",
       "template-examples": "../framework/templates/template-profile-examples.html"</xsl:text>
     <xsl:if test="$includeXml">,
       "template-profile-xml": "../framework/templates/template-profile-xml.html"</xsl:if>
@@ -132,9 +132,9 @@
     <xsl:if test="$includeTtl">,
       "template-profile-ttl": "../framework/templates/template-profile-ttl.html"</xsl:if>
     <xsl:text>,
-			"base": "{{[id]}}.html",
-			"defns": "{{[id]}}-definitions.html",
-			"mappings": "{{[id]}}-mappings.html",
+      "base": "{{[id]}}.html",
+      "defns": "{{[id]}}-definitions.html",
+      "mappings": "{{[id]}}-mappings.html",
       "examples": "{{[id]}}-examples.html"</xsl:text>
     <xsl:if test="$includeXml">,
       "profile-xml": "{{[id]}}.profile.xml.html"</xsl:if>
@@ -143,21 +143,21 @@
     <xsl:if test="$includeXml">,
       "profile-ttl": "{{[id]}}.profile.ttl.html"</xsl:if>
     <xsl:text>
-		},
-		"ValueSet": {
-			"template-base": "../framework/templates/template-valueset.html",
-			"template-format": "../framework/templates/template-valueset-format.html",
-		  "base": "valueset-{{[id]}}.html",
-		  "format": "valueset-{{[id]}}.{{[fmt]}}.html"
-		}
-	},
+    },
+    "ValueSet": {
+      "template-base": "../framework/templates/template-valueset.html",
+      "template-format": "../framework/templates/template-valueset-format.html",
+      "base": "valueset-{{[id]}}.html",
+      "format": "valueset-{{[id]}}.{{[fmt]}}.html"
+    }
+  },
   "sct-edition" : "http://snomed.info/sct/</xsl:text>
   <xsl:value-of select="$snomedReleaseNumber"/>
   <xsl:text>",
   "no-inactive-codes" : "true",
-	"canonicalBase": "</xsl:text>
+  "canonicalBase": "</xsl:text>
   <xsl:value-of select="substring-before(f:url/@value, '/ImplementationGuide')"/>
-  <xsl:text>",&#xa;	</xsl:text>
+  <xsl:text>",&#xa;  </xsl:text>
   <xsl:for-each select="f:dependency[f:type/@value='reference']/f:uri/@value">
     <xsl:variable name="code">
       <xsl:call-template name="findLast">
@@ -168,7 +168,7 @@
     <xsl:value-of select="concat('&quot;dependencyList&quot;: [&#xa;    {&#xa;      &quot;name&quot; : &quot;', $code, '&quot;,&#xa;      &quot;location&quot; : &quot;', ., 
       '&quot;,&#xa;      &quot;source&quot; : &quot;../../', $code, '2/website&quot;&#xa;    }&#xa;  ],&#xa;  ')"/>
   </xsl:for-each>
-	<xsl:text>"source": "</xsl:text>
+  <xsl:text>"source": "</xsl:text>
   <xsl:value-of select="f:id/@value"/>
   <xsl:text>.xml",
   "spreadsheets": [</xsl:text>
@@ -177,9 +177,9 @@
       <xsl:value-of select="concat('&#xa;    &quot;', ., '&quot;')"/>
     </xsl:for-each>
     <xsl:text>
-	],
-	"resources": {</xsl:text>
-	  <xsl:for-each select="f:package/f:resource">
+  ],
+  "resources": {</xsl:text>
+    <xsl:for-each select="f:package/f:resource">
       <xsl:variable name="type" select="substring-before(f:sourceReference/f:reference/@value, '/')"/>
       <xsl:variable name="id" select="substring-after(f:sourceReference/f:reference/@value, '/')"/>
       <xsl:if test="position()!=1">,</xsl:if>
@@ -187,14 +187,14 @@
       <xsl:if test="f:example/@value='true'">
         <xsl:choose>
           <xsl:when test="$type='ValueSet'">
-            <xsl:text>		"template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
-            <xsl:text>		"template-format": "../framework/templates/template-instance-format.html",&#xa;</xsl:text>
+            <xsl:text>    "template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
+            <xsl:text>    "template-format": "../framework/templates/template-instance-format.html",&#xa;</xsl:text>
             <xsl:text>      "base": "{{[id]}}.html",&#xa;</xsl:text>
-            <xsl:text>	    "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
+            <xsl:text>      "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
           </xsl:when>
           <xsl:when test="$type='StructureDefinition'">
-            <xsl:text>		"template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
-            <xsl:text>		"template-format": "../framework/templates/template-instance-format.html",&#xa;</xsl:text>
+            <xsl:text>    "template-base": "../framework/templates/template-instance-base.html",&#xa;</xsl:text>
+            <xsl:text>    "template-format": "../framework/templates/template-instance-format.html",&#xa;</xsl:text>
             <xsl:text>      "template-defns": "",&#xa;</xsl:text>
             <xsl:text>      "template-mappings": "",&#xa;</xsl:text>
             <xsl:text>      "template-examples": "",&#xa;</xsl:text>
@@ -202,7 +202,7 @@
             <xsl:if test="$includeJson">      "template-profile-json": "",&#xa;</xsl:if>
             <xsl:if test="$includeTtl">      "template-profile-ttl": "",&#xa;</xsl:if>
             <xsl:text>      "base": "{{[id]}}.html",&#xa;</xsl:text>
-            <xsl:text>	    "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
+            <xsl:text>      "format": "{{[id]}}.{{[fmt]}}.html"</xsl:text>
           </xsl:when>
         </xsl:choose>
       </xsl:if>
@@ -225,9 +225,9 @@
         <xsl:text>&#xa;</xsl:text>
       </xsl:if>
       <xsl:text>    }</xsl:text>
-	  </xsl:for-each>
-	  <xsl:text>
-	}
+    </xsl:for-each>
+    <xsl:text>
+  }
 }</xsl:text>
   </xsl:template>
   <xsl:template name="findLast">

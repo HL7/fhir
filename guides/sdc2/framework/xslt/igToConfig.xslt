@@ -51,7 +51,7 @@
     "resources": ["resources", "../src/resources", "../src/vocabulary", "../src/examples"],
     "pages": ["../src/images", "pages"],
     "temp": "../temp/pages",
-    "output": "../website",
+    "output": "../output",
     "txCache": "txcache",
     "history" : "history.html",
     "qa": "../temp/qa",
