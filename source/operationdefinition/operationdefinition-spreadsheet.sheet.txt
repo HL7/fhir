@@ -88,7 +88,7 @@
 
  -- Row 5 -----------------------------------
   Element = OperationDefinition.status
-  Workflow Mapping = Definition.status (different ValueSet)
+  Workflow Mapping = Definition.status {different ValueSet}
 
  -- Row 6 -----------------------------------
   Element = OperationDefinition.kind

@@ -280,7 +280,7 @@
   Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Requirements = Allows clinicians to determine whether the plan is actionable or not
   Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the care plan.\n\nThis element is labeled as a modifier because the status contains the code entered-in-error] that marks the plan as not currently valid
-  Workflow Mapping = Request.status (uses different ValueSet)
+  Workflow Mapping = Request.status {uses different ValueSet}
   v2 Mapping = PTH-5
   RIM Mapping = .statusCode planned = new active = active completed = completed
   Committee Notes = GF#10617
@@ -381,7 +381,7 @@
   Short Name = Who is responsible for contents of the plan
   Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
   Comments = Collaborative care plans may have multiple authors.
-  Workflow Mapping = Request.requester.agent (if only one author)
+  Workflow Mapping = Request.requester.agent {if only one author}
   w5 = who.source
 
  -- Row 16 -----------------------------------
@@ -391,7 +391,7 @@
   Short Name = Who\'s involved in plan?
   Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
   Requirements = Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.
-  Workflow Mapping = Request.performer (similar but does not entail CareTeam)
+  Workflow Mapping = Request.performer {similar but does not entail CareTeam}
   w5 = who.actor
 
  -- Row 17 -----------------------------------
@@ -437,7 +437,7 @@
   Short Name = Action to occur as part of plan
   Definition = Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
   Requirements = Allows systems to prompt for performance of planned activities, and validate plans against best practice.
-  Workflow Mapping = no mapping\nNOTE: This is a list of contained Request-Event tuples!
+  Workflow Mapping = {no mapping\nNOTE: This is a list of contained Request-Event tuples!}
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
  -- Row 21 -----------------------------------
@@ -457,7 +457,7 @@
   Definition = Details of the outcome or action resulting from the activity.  The reference to an \"event\" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a “request” resource).
   Requirements = Links plan to resulting actions
   Comments = The activity outcome is independent of the outcome of the related goal(s).  For example, if the goal is to achieve a target body weight of 150 lb and an activity is defined to diet, then the activity outcome could be calories consumed whereas the goal outcome is an observation for the actual body weight measured.
-  Workflow Mapping = Event that is outcome of Request in activity.reference
+  Workflow Mapping = {Event that is outcome of Request in activity.reference}
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
   Committee Notes = GF#11116
 
@@ -469,7 +469,7 @@
   Definition = Notes about the adherence/status/progress of the activity
   Requirements = Can be used to capture information about adherence, progress, concerns, etc.
   Comments = This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description
-  Workflow Mapping = Event.status (Annotation instead of CodableConcept)
+  Workflow Mapping = Event.status {Annotation instead of CodableConcept}
   v2 Mapping = NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
@@ -482,7 +482,7 @@
   Definition = The details of the proposed activity represented in a specific resource
   Requirements = Details in a form consistent with other applications and contexts of use
   Comments = Standard extension exists ([goal-pertainstogoal](extension-goal-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.reference.  \rThe goal should be visible when the resource referenced by CarePlan.activity.reference is viewed indepedently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the \"basedOn\" element.  i.e. Requests that are part of a CarePlan are not \"based on\" the CarePlan.
-  Workflow Mapping = Request that resulted in Event in activity.actionResulting
+  Workflow Mapping = {Request that resulted in Event in activity.actionResulting}
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
  -- Row 25 -----------------------------------
@@ -527,7 +527,7 @@
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use \"prohibited\" instead.
   Workflow Mapping = Request.code
-  v2 Mapping = OBR-4 / RXE-2 / RXO-1  / RXD-2
+  v2 Mapping = OBR-4 / RXE-2 / RXO-1 / RXD-2
   RIM Mapping = .code
 
  -- Row 29 -----------------------------------
@@ -569,7 +569,7 @@
   Definition = Identifies what progress is being made for the specific activity.
   Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
   Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.  \nThe unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the activity.
-  Workflow Mapping = Request.status (uses different ValueSet)
+  Workflow Mapping = Request.status {uses different ValueSet}
   v2 Mapping = ORC-5?
   RIM Mapping = .statusCode not-started = new scheduled = not-started (and fulfillment relationship to appointent) in-progress = active on-hold = suspended completed = completed cancelled = aborted
   Committee Notes = GF#10617, 10643
@@ -625,7 +625,7 @@
   Requirements = Helps in planning of activity
   Comments = A performer MAY also be a participant in the care plan
   Workflow Mapping = Request.performer
-  v2 Mapping = PRT-5 : ( PRV-4 e {provider participations} ) / PRT-5 : ( PRV-4 e {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8
+  v2 Mapping = PRT-5 : ( PRV-4 = (provider participations)); PRT-5 : ( PRV-4 = (non-provider person participations )) ; PRT-5 : ( PRV-4 = (patient non-subject of care) ) ; PRT-8
   RIM Mapping = .participation[typeCode=PFM]
 
  -- Row 38 -----------------------------------

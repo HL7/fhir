@@ -328,7 +328,7 @@
   UML = down
   Short Name = Required  nutrient modifications
   Definition = Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
-  RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind
+  RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind
 
  -- Row 18 -----------------------------------
   Element = NutritionOrder.oralDiet.nutrient.modifier
@@ -375,7 +375,7 @@
   Short Name = Concepts that are used to identify an entity that is ingested for nutritional purposes
   Definition = The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.
   Comments = Coupled with the textureModifier; could be (All Foods)
-  RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code
+  RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code
 
  -- Row 23 -----------------------------------
   Element = NutritionOrder.oralDiet.fluidConsistencyType
@@ -413,7 +413,7 @@
   Binding = SupplementType
   Short Name = Type of supplement product requested
   Definition = The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement
-  RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code (NutritionalSupplementType)
+  RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalSupplementType)
   w5 = what
 
  -- Row 27 -----------------------------------
@@ -471,7 +471,7 @@
   Binding = EnteralFormulaType
   Short Name = Type of enteral or infant formula
   Definition = The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.
-  RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code (NutritionalFormulaType)
+  RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalFormulaType)
   w5 = what
 
  -- Row 33 -----------------------------------

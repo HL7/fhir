@@ -162,7 +162,7 @@
   Short Name = Administration of medication to a patient
   Definition = Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner
   Comments = The WG will be updating the MedicationAdministration resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).
-  Workflow Mapping = ..Event
+  Workflow Mapping = Event
   RIM Mapping = SubstanceAdministration
   w5 = clinical.medication
 
@@ -172,7 +172,7 @@
   Type = Identifier
   Short Name = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  Workflow Mapping = …identifier
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   w5 = id
 
@@ -183,7 +183,7 @@
   Type = Reference (PlanDefinition | ActivityDefinition)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
-  Workflow Mapping = …definition
+  Workflow Mapping = Event.definition
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
 
  -- Row 4 -----------------------------------
@@ -193,7 +193,7 @@
   Type = Reference (MedicationAdministration | Procedure)
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
-  Workflow Mapping = …part of
+  Workflow Mapping = Event.partOf
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SBADM or PROC,moodCode=EVN]
 
  -- Row 5 -----------------------------------
@@ -206,7 +206,7 @@
   Short Name = in-progress | on-hold | completed | entered-in-error | stopped | unknown
   Definition = Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
-  Workflow Mapping = …status
+  Workflow Mapping = Event.status
   v2 Mapping = RXA-20-Completion Status
   RIM Mapping = .statusCode
   w5 = status
@@ -229,7 +229,7 @@
   Short Name = What was administered
   Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
-  Workflow Mapping = …code
+  Workflow Mapping = Event.code
   v2 Mapping = RXA-5-Administered Code
   RIM Mapping = .participation[typeCode=CSM].role[classCode=ADMM]
   w5 = what
@@ -241,7 +241,7 @@
   Type = Reference(Patient | Group)
   Short Name = Who received medication
   Definition = The person or animal or group receiving the medication.
-  Workflow Mapping = …subject
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
@@ -252,7 +252,7 @@
   Type = Reference(Encounter | EpisodeOfCare)
   Short Name = Encounter or Episode of Care administered as part of
   Definition = The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.
-  Workflow Mapping = …context
+  Workflow Mapping = Event.context
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
   w5 = context
@@ -273,7 +273,7 @@
   Type = dateTime|Period
   Short Name = Start and end time of administration
   Definition = A specific date/time or interval of time during which the administration took place (or did not take place, when the \'notGiven\' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
-  Workflow Mapping = …occurrence[x]
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
   RIM Mapping = .effectiveTime
   Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
@@ -285,7 +285,7 @@
   Summary = y
   Short Name = Who administered substance
   Definition = The individual who was responsible for giving the medication to the patient.
-  Workflow Mapping = …performer
+  Workflow Mapping = Event.performer
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
   RIM Mapping = .participation[typeCode=PRF]
   w5 = who.actor
@@ -297,7 +297,7 @@
   Type = Reference(Practitioner | Patient | RelatedPerson | Device)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.
-  Workflow Mapping = ….actor
+  Workflow Mapping = Event.actor
   RIM Mapping = .role
 
  -- Row 14 -----------------------------------
@@ -306,7 +306,7 @@
   Type = Reference (Organization)
   Short Name = Organization organization was acting for
   Definition = The organization the device or practitioner was acting on behalf of.
-  Workflow Mapping = ….onBehalfOf
+  Workflow Mapping = Event.onBehalfOf
   RIM Mapping = .role.scopingOrganization
 
  -- Row 15 -----------------------------------
@@ -318,7 +318,7 @@
   Short Name = True if medication not administered
   Definition = Set this to true if the record is saying that the medication was NOT administered.
   Comments = This element is labeled as a modifier because it indicates that a administration didn\'t happen
-  Workflow Mapping = …notDone
+  Workflow Mapping = Event.notDone
   v2 Mapping = RXA-20-Completion Status=\'NA\'
   RIM Mapping = .actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
@@ -331,7 +331,7 @@
   Binding = MedicationAdministrationNegationReason
   Short Name = Reason administration not performed
   Definition = A code indicating why the administration was not performed.
-  Workflow Mapping = …notDoneReason
+  Workflow Mapping = Event.notDoneReason
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not given\"].value
 
@@ -343,7 +343,7 @@
   Binding = MedicationAdministrationReason
   Short Name = Reason administration performed
   Definition = A code indicating why the medication was given.
-  Workflow Mapping = …reasonGivenCodeableConcept
+  Workflow Mapping = Event.reasonGivenCodeableConcept
   v2 Mapping = RXE-27 Give Indication
   RIM Mapping = .reasonCode
 
@@ -354,7 +354,7 @@
   Short Name = Condition or Observation that supports why the medication was administered
   Definition = Condition or observation that supports why the medication was administered
   Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
-  Workflow Mapping = …reasonReference
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use ASSERTION\"].value
   Prov Mapping = no mapping
   w5 = why
@@ -365,7 +365,7 @@
   Type = Reference(MedicationRequest)
   Short Name = Request administration performed against
   Definition = The original request, instruction or authority to perform the administration.
-  Workflow Mapping = …basedOn
+  Workflow Mapping = Event.basedOn
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
@@ -384,7 +384,7 @@
   Type = Annotation
   Short Name = Information about the administration
   Definition = Extra information about the medication administration that is not conveyed by the other attributes.
-  Workflow Mapping = …note
+  Workflow Mapping = Event.note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 22 -----------------------------------

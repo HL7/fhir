@@ -498,7 +498,7 @@
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
   Comments = Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueBoolean, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
-  Workflow Mapping = Event.notDone, Event.notDoneReason  (maps to valeu[x] or dataAbsentReason)
+  Workflow Mapping = Event.notDone, Event.notDoneReason  {maps to value[x] or dataAbsentReason}
   SNOMED CT Concept Domain = < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
@@ -515,7 +515,7 @@
   Definition = Provides a reason why the expected value in the element Observation.value[x] is missing.
   Requirements = For many results it is necessary to handle exceptional values in measurements.
   Comments = Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  \"detected\", \"not detected\", \"inconclusive\", or  \"specimen unsatisfactory\".   The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code \"error\" could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when > 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.
-  Workflow Mapping = Event.notDone, Event.notDoneReason  (maps to valeu[x] or dataAbsentReason)
+  Workflow Mapping = Event.notDone, Event.notDoneReason  {maps to value[x] or dataAbsentReason}
   v2 Mapping = N/A
   RIM Mapping = value.nullFlavor
   Committee Notes = [#3434],  [#5629],

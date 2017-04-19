@@ -557,7 +557,7 @@
   Definition = If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason
   Requirements = Allows capturing things like \"none exist\" or \"not asked\" which can be important for most lists
   Comments = The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases
-  RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<{ListEmptyReason}].value[type=CD]
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<ListEmptyReason].value[type=CD]
   CDA Mapping = n/a
 
  -- Row 35 -----------------------------------

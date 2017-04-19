@@ -112,6 +112,7 @@
 
  -- Row 2 -----------------------------------
   Element = ActivityDefinition.url
+  UML = Event.identifier
   Workflow Mapping = Definition.url
   RIM Mapping = .identifier[scope=BUSN;reliability=ISS]
 
@@ -138,7 +139,7 @@
 
  -- Row 7 -----------------------------------
   Element = ActivityDefinition.status
-  Workflow Mapping = Definitition.status (different ValueSet)
+  Workflow Mapping = Definitition.status {different ValueSet}
   RIM Mapping = .status
 
  -- Row 8 -----------------------------------
@@ -153,7 +154,7 @@
 
  -- Row 10 -----------------------------------
   Element = ActivityDefinition.publisher
-  Workflow Mapping = Definition.publisher (as string instead of CodeableConcept)
+  Workflow Mapping = Definition.publisher {as string instead of CodeableConcept}
   RIM Mapping = .participation[typeCode=AUT].role
 
  -- Row 11 -----------------------------------
@@ -330,7 +331,7 @@
   Type = SimpleQuantity
   Short Name = How much is administered/consumed/supplied
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
-  RIM Mapping = .quantity {for classCode=SPLY]
+  RIM Mapping = .quantity {for classCode=SPLY}
 
  -- Row 34 -----------------------------------
   Element = ActivityDefinition.dosage

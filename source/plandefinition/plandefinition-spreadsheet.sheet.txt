@@ -421,7 +421,7 @@
 
  -- Row 8 -----------------------------------
   Element = PlanDefinition.status
-  Workflow Mapping = Definition.status (different ValueSet)
+  Workflow Mapping = Definition.status {different ValueSet}
 
  -- Row 9 -----------------------------------
   Element = PlanDefinition.experimental
@@ -433,7 +433,7 @@
 
  -- Row 11 -----------------------------------
   Element = PlanDefinition.publisher
-  Workflow Mapping = Definition.publisher (as string instead of Reference)
+  Workflow Mapping = Definition.publisher {as string instead of Reference}
 
  -- Row 12 -----------------------------------
   Element = PlanDefinition.description
@@ -605,7 +605,7 @@
   UML = 360;0
   Short Name = Action defined by the plan
   Definition = An action to be taken as part of the plan
-  Workflow Mapping = Is a contained Definition
+  Workflow Mapping = {Is a contained Definition}
 
  -- Row 38 -----------------------------------
   Element = PlanDefinition.action.label
@@ -893,7 +893,7 @@
   Type = @PlanDefinition.action
   Short Name = A sub-action
   Definition = Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition
-  Workflow Mapping = InverseRelationship of Definition.partOf
+  Workflow Mapping = {InverseRelationship of Definition.partOf}
 
 === Sheet Search =====================================
 

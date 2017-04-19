@@ -51,58 +51,45 @@
   Type = MetadataResource
   Short Name = Definition of an graph of resources
   Definition = A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set
-  Workflow Mapping = Definition
   RIM Mapping = n/a
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = GraphDefinition.url
-  Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = GraphDefinition.version
-  Workflow Mapping = Definition.version
 
  -- Row 4 -----------------------------------
   Element = GraphDefinition.name
   Card. = 1..1
-  Workflow Mapping = Definition.title
 
  -- Row 5 -----------------------------------
   Element = GraphDefinition.status
-  Workflow Mapping = Definition.status (different ValueSet)
 
  -- Row 6 -----------------------------------
   Element = GraphDefinition.experimental
-  Workflow Mapping = Definition.experimental
 
  -- Row 7 -----------------------------------
   Element = GraphDefinition.date
-  Workflow Mapping = Definition.date
 
  -- Row 8 -----------------------------------
   Element = GraphDefinition.publisher
-  Workflow Mapping = Definition.publisher
 
  -- Row 9 -----------------------------------
   Element = GraphDefinition.contact
-  Workflow Mapping = Definition.contact
 
  -- Row 10 -----------------------------------
   Element = GraphDefinition.description
-  Workflow Mapping = Definition.description
 
  -- Row 11 -----------------------------------
   Element = GraphDefinition.useContext
-  Workflow Mapping = Definition.useContext
 
  -- Row 12 -----------------------------------
   Element = GraphDefinition.jurisdiction
-  Workflow Mapping = Definition.jurisdiction
 
  -- Row 13 -----------------------------------
   Element = GraphDefinition.purpose
-  Workflow Mapping = Definition.purpose
 
  -- Row 14 -----------------------------------
   Element = GraphDefinition.start

@@ -201,7 +201,7 @@
   Type = string|Attachment|Reference(Any)
   Short Name = Message part content
   Definition = The communicated content (or for multi-part communications, one portion of the communication)
-  Workflow Mapping = Request.supportingInfo IF Reference, Request.note if string; No mapping if Attachment
+  Workflow Mapping = Request.supportingInfo, Request.note {supportingInfo if Reference, note if string,  No mapping if Attachment}
 
  -- Row 16 -----------------------------------
   Element = CommunicationRequest.occurrence[x]

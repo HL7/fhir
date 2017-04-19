@@ -99,7 +99,7 @@
   Binding = VaccineCode
   Short Name = Vaccine recommendation applies to
   Definition = Vaccine that pertains to the recommendation
-  v2 Mapping = OBX-5 : OBX-3 e { 30956-7 | 38890-0 }
+  v2 Mapping = OBX-5 : OBX-3 = ( 30956-7 | 38890-0 )
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
   Committee Notes = #12484
 
@@ -111,7 +111,7 @@
   Binding = TargetDisease
   Short Name = Disease to be immunized against
   Definition = The targeted disease for the recommendation
-  v2 Mapping = OBX-5 : OBX-3 e { 30956-7 | 38890-0 }
+  v2 Mapping = OBX-5 : OBX-3 = ( 30956-7 | 38890-0 )
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
   Committee Notes = #12484
 
