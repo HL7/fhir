@@ -622,7 +622,7 @@ public class ProfileGenerator {
     p.setName(t.getName());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
-    p.setDescription("Base StructureDefinition for "+t.getName()+" Type");
+    p.setDescription("Base StructureDefinition for "+t.getName()+" Type: "+t.getDefinition());
     p.setPurpose(t.getRequirements());
     p.setDate(genDate.getTime());
     p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
@@ -675,7 +675,7 @@ public class ProfileGenerator {
     p.setName(pt.getName());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
-    p.setDescription("Base StructureDefinition for "+pt.getName()+" Resource");
+    p.setDescription("Base StructureDefinition for Type "+pt.getName()+": "+pt.getDefinition());
     p.setDescription(pt.getDefinition());
     p.setDate(genDate.getTime());
     p.setStatus(PublicationStatus.fromCode("draft")); // DSTU
@@ -824,7 +824,7 @@ public class ProfileGenerator {
     if (r.getWg() != null)
       p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, r.getWg().getUrl()));
     ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, r.getWg().getCode());
-    p.setDescription("Base StructureDefinition for "+r.getRoot().getName()+" Resource");
+    p.setDescription(r.getDefinition());
     p.setPurpose(r.getRoot().getRequirements());
     if (!p.hasPurpose())
       p.setPurpose(r.getRoot().getRequirements());
