@@ -71,6 +71,7 @@
   Type = DomainResource
   Short Name = A clinical assessment performed when planning treatments and management strategies for a patient
   Definition = A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient\'s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score
+  Workflow Mapping = Event
   v2 Mapping = Partial mapping for problem evaluation
   w5 = clinical.general
 
@@ -81,6 +82,7 @@
   Type = Identifier
   Short Name = Business identifier
   Definition = A unique identifier assigned to the clinical impression that remains consistent regardless of what server the impression is stored on.
+  Workflow Mapping = Event.identifier
   v2 Mapping = PID-3
   w5 = id
 
@@ -94,6 +96,7 @@
   Short Name = draft | completed | entered-in-error
   Definition = Identifies the workflow status of the assessment
   Comments = This element is labeled as a modifier because the status contains the code entered-in-error that marks the clinical impression as not currently valid
+  Workflow Mapping = Event.status
   v2 Mapping = PRB-14
   w5 = status
 
@@ -107,6 +110,7 @@
   Short Name = Kind of assessment performed
   Definition = Categorizes the type of clinical assessment performed
   Comments = This is present as a place-holder only and may be removed based on feedback/work group opinion
+  Workflow Mapping = Event.code
   w5 = what
 
  -- Row 5 -----------------------------------
@@ -125,6 +129,7 @@
   Short Name = Patient or group assessed
   Definition = The patient or group of individuals assessed as part of this record
   Requirements = Group is typically for veterinary and/or public health purposes
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3
   w5 = who.focus
 
@@ -136,6 +141,7 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or Episode created from
   Definition = The encounter or episode of care this impression was created as part of.
+  Workflow Mapping = Event.context
   w5 = context
 
  -- Row 8 -----------------------------------
@@ -165,6 +171,7 @@
   Type = Reference(Practitioner)
   Short Name = The clinician performing the assessment
   Definition = The clinician performing the assessment
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = ROL-4
   w5 = who.author
 
@@ -288,6 +295,7 @@
   Short Name = Comments made about the ClinicalImpression
   Definition = Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear
   Comments = Don\'t use this element for content that should more properly appear as one of the specific elements of the impression.
+  Workflow Mapping = Event.note
 
 === Sheet Search =====================================
 

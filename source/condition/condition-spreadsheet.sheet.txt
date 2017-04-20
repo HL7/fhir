@@ -142,6 +142,7 @@
   Type = DomainResource
   Short Name = Detailed information about conditions, problems or diagnoses
   Definition = A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
+  Workflow Mapping = Event
   SNOMED CT Concept Domain = < 243796009 |Situation with explicit context|:\n246090004 |Associated finding| =\n((< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) OR\n< 272379006 |Event|)
   v2 Mapping = PPR message
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value<Diagnosis]
@@ -155,6 +156,7 @@
   Short Name = External Ids for this condition
   Definition = This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   w5 = id
 
@@ -169,6 +171,7 @@
   Short Name = active | recurrence | inactive | remission | resolved
   Definition = The clinical status of the condition.
   Comments = This element is labeled as a modifier because the status contains codes that mark the condition as not currently valid or of concern
+  Workflow Mapping = Event.status
   SNOMED CT Concept Domain = < 303105007 |Disease phases|
   v2 Mapping = PRB-14 / DG1-6
   RIM Mapping = Observation ACT\n.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"clinicalStatus\", moodCode=EVN].value
@@ -185,6 +188,7 @@
   Short Name = provisional | differential | confirmed | refuted | entered-in-error | unknown
   Definition = The verification status to support the clinical status of the condition.
   Comments = verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.\n\nThis element is labeled as a modifier because the status contains the code refuted and entered-in-error that mark the Condition as not currently valid
+  Workflow Mapping = Event.status
   SNOMED CT Concept Domain = < 410514004 |Finding context value|
   v2 Mapping = PRB-13
   RIM Mapping = Observation ACT\n.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"verificationStatus\", moodCode=EVN].value
@@ -243,6 +247,7 @@
   Short Name = Identification of the condition, problem or diagnosis
   Definition = Identification of the condition, problem or diagnosis.
   Requirements = 0..1 to account for primarily narrative only resources
+  Workflow Mapping = Event.code
   SNOMED CT Concept Domain = code 246090004 |Associated finding| (< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) \nOR < 413350009 |Finding with explicit context|\nOR < 272379006 |Event|
   v2 Mapping = PRB-3
   RIM Mapping = .value
@@ -271,6 +276,7 @@
   Short Name = Who has the condition?
   Definition = Indicates the patient or group who the condition record is associated with
   Requirements = Group is typically used for veterinary or public health use cases
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   Committee Notes = [#3701]
@@ -285,6 +291,7 @@
   Short Name = Encounter or episode when condition first asserted
   Definition = Encounter during which the condition was first asserted
   Comments = This record indicates the encounter this particular record is associated with.  In the case of a \"new\" diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first \"known\".
+  Workflow Mapping = Event.context
   v2 Mapping = PV1-19 (+PV1-54)
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -321,6 +328,7 @@
   Short Name = Date record was believed accurate
   Definition = The date on which the existance of the Condition was first asserted or acknowledged.
   Comments = The assertedDate represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = REL-11
   RIM Mapping = .participation[typeCode=AUT].time
   Committee Notes = GF#11089
@@ -333,6 +341,7 @@
   Type = Reference(Practitioner|Patient | RelatedPerson)
   Short Name = Person who asserts this condition
   Definition = Individual who is making the condition statement
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = REL-7.1 identifier + REL-7.12 type code
   RIM Mapping = .participation[typeCode=AUT].role
   Committee Notes = GF#11089
@@ -385,6 +394,7 @@
   Binding = ManifestationOrSymptom
   Short Name = Manifestation/symptom
   Definition = A manifestation or symptom that led to the recording of this condition
+  Workflow Mapping = Event.reasonCodeableConcept
   SNOMED CT Concept Domain = < 404684003 |Clinical finding|
   RIM Mapping = [code=\"diagnosis\"].value
   w5 = why
@@ -397,6 +407,7 @@
   Type = Reference(Any)
   Short Name = Supporting information found elsewhere
   Definition = Links to other relevant information, including pathology reports
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .self
   w5 = why
 
@@ -406,6 +417,7 @@
   Type = Annotation
   Short Name = Additional information about the Condition
   Definition = Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis
+  Workflow Mapping = Event.note
   v2 Mapping = NTE child of PRB
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 

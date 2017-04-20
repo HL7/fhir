@@ -110,6 +110,7 @@
   Type = DomainResource
   Short Name = An action that is being or was performed on a patient
   Definition = An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
+  Workflow Mapping = Event
   RIM Mapping = Procedure[moodCode=EVN]
   w5 = clinical.general
 
@@ -121,6 +122,7 @@
   Short Name = External Identifiers for this procedure
   Definition = This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
+  Workflow Mapping = Event.identifier
   v2 Mapping = Some combination of ORC-2 / ORC-3 / OBR-2 / OBR-3 / IPC-1 / IPC-2 / IPC-3 / IPC-4
   RIM Mapping = .id
   w5 = id
@@ -132,6 +134,7 @@
   Type = Reference(PlanDefinition|ActivityDefinition|HealthcareService)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this procedure
+  Workflow Mapping = Event.defintion
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------
@@ -142,6 +145,7 @@
   Type = Reference(CarePlan|ProcedureRequest|ReferralRequest)
   Short Name = A request for this procedure
   Definition = A reference to a resource that contains details of the request for this procedure.
+  Workflow Mapping = Event.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=(various e.g. PROC, OBS, PCPR, ACT,  moodCode=RQO].code
 
  -- Row 5 -----------------------------------
@@ -153,6 +157,7 @@
   Short Name = Part of referenced event
   Definition = A larger event of which this particular procedure is a component or step
   Comments = The MedicationAdministration has a partOf reference to Procedure, but this is not a circular reference.  For a surgical procedure, the anesthesia related medicationAdministration is part of the procedure.  For an IV medication administration,  the procedure to insert the IV port is part of the medication administration.
+  Workflow Mapping = Event.partOf
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=SBADM or PROC or OBS, moodCode=EVN]
 
  -- Row 6 -----------------------------------
@@ -165,6 +170,7 @@
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown
   Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
   Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the procedure.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Workflow Mapping = Event.status
   RIM Mapping = statusCode
   Committee Notes = GF#10626
   w5 = status
@@ -178,6 +184,7 @@
   Short Name = True if procedure was not performed as scheduled
   Definition = Set this to true if the record is saying that the procedure was NOT performed
   Comments = If true, it means the procedure did not occur as described.  Typically it would be accompanied by attributes describing the type of activity.  It might also be accompanied by body site information or time information (i.e. no procedure was done to the left arm or no procedure was done in this 2-year period).  Specifying additional information such as performer, outcome, etc. is generally inappropriate.  For example, it\'s not that useful to say \"There was no appendectomy done at 12:03pm June 6th by Dr. Smith with a successful outcome\" as it implies that there *could* have been an appendectomy done at any other time, by any other clinician or with any other outcome.\n\nThis element is labeled as a modifier because it indicates that a procedure didn\'t happen
+  Workflow Mapping = Event.notDone
   RIM Mapping = .actionNegationInd
   Committee Notes = GF#11027
   Default Value = false
@@ -191,6 +198,7 @@
   Binding = ProcedureNegationReason
   Short Name = Reason procedure was not performed
   Definition = A code indicating why the procedure was not performed.
+  Workflow Mapping = Event.notDoneReason
   RIM Mapping = .reason.Observation.value
 
  -- Row 9 -----------------------------------
@@ -214,6 +222,7 @@
   Short Name = Identification of the procedure
   Definition = The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")
   Requirements = 0..1 to account for primarily narrative only resources
+  Workflow Mapping = Event.code
   v2 Mapping = OBR-44/OBR-45
   RIM Mapping = .code
   w5 = what
@@ -226,6 +235,7 @@
   Type = Reference(Patient|Group)
   Short Name = Who the procedure was performed on
   Definition = The person, animal or group on which the procedure was performed
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = [#3709]
@@ -239,6 +249,7 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or episode associated with the procedure
   Definition = The encounter during which the procedure was performed
+  Workflow Mapping = Event.context
   v2 Mapping = PV1-19
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
@@ -250,6 +261,7 @@
   Type = dateTime | Period
   Short Name = Date/Period the procedure was performed
   Definition = The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = OBR-7
   RIM Mapping = .effectiveTime
   w5 = when.done
@@ -261,6 +273,7 @@
   UML = 400;80
   Short Name = The people who performed the procedure
   Definition = Limited to \'real\' people rather than equipment
+  Workflow Mapping = Event.performer
   RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 15 -----------------------------------
@@ -271,6 +284,7 @@
   Binding = ProcedurePerformerRole
   Short Name = The role the actor was in
   Definition = For example: surgeon, anaethetist, endoscopist
+  Workflow Mapping = Event.performer.role
   v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
   RIM Mapping = .functionCode
 
@@ -282,6 +296,7 @@
   Short Name = The reference to the practitioner
   Definition = The practitioner who was involved in the procedure
   Requirements = A reference to Device supports use cases, such as pacemakers
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = ORC-19/PRT-5
   RIM Mapping = .role
   w5 = who.actor
@@ -293,6 +308,7 @@
   Short Name = Organization the device or practitioner was acting for
   Definition = The organization the device or practitioner was acting on behalf of
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when performing the action
+  Workflow Mapping = Event.performer.onBehalfOf
   RIM Mapping = .scoper
 
  -- Row 18 -----------------------------------
@@ -314,6 +330,7 @@
   Binding = ProcedureReason
   Short Name = Coded reason procedure performed
   Definition = The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text
+  Workflow Mapping = Event.reasonCode
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -325,6 +342,7 @@
   Short Name = Condition that is the reason the procedure performed
   Definition = The condition that is the reason why the procedure was performed.
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -426,6 +444,7 @@
   Type = Annotation
   Short Name = Additional information about the procedure
   Definition = Any other notes about the procedure.  E.g. the operative notes
+  Workflow Mapping = Event.note
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
