@@ -49,6 +49,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
@@ -64,6 +65,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.OperationOutcomeUtilities;
@@ -564,6 +566,27 @@ public class ValidationEngine {
   
     new NarrativeGenerator("",  "", context).generate((DomainResource) res);
     return (DomainResource) res;
+  }
+  
+  public StructureDefinition snapshot(String source) throws Exception {
+    Content cnt = loadContent(source, "validate");
+    Resource res;
+    if (cnt.cntType == FhirFormat.XML)
+      res = new XmlParser().parse(cnt.focus);
+    else if (cnt.cntType == FhirFormat.JSON)
+      res = new JsonParser().parse(cnt.focus);
+    else if (cnt.cntType == FhirFormat.TURTLE)
+      res = new RdfParser().parse(cnt.focus);
+    else
+      throw new Error("Not supported yet");
+  
+    if (!(res instanceof StructureDefinition))
+      throw new Exception("Require a StructureDefinition for generating a snapshot");
+    StructureDefinition sd = (StructureDefinition) res;
+    StructureDefinition base = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+    
+    new ProfileUtilities(context, null, null).generateSnapshot(base, sd, sd.getUrl(), sd.getName());
+    return sd;
   }
   
 }

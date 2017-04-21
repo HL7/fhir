@@ -29,12 +29,23 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.awt.EventQueue;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.UIManager;
 
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -43,7 +54,9 @@ import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.validation.Validator.EngineMode;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.validation.dstu3.tests.ValidationEngineTests;
 
@@ -62,6 +75,11 @@ import org.hl7.fhir.validation.dstu3.tests.ValidationEngineTests;
  *
  */
 public class Validator {
+
+  public enum EngineMode {
+    VALIDATION, TRANSFORM, NARRATIVE, SNAPSHOT
+  }
+
 
   public static void main(String[] args) throws Exception {
     if (args.length == 0) {
@@ -136,6 +154,13 @@ public class Validator {
       System.out.println(" -narrative");
       System.out.println("");
       System.out.println("-narrative requires the parameters -defn, -txserver, -source, and -output. ig and profile may be used");
+      System.out.println("");
+      System.out.println("Finally, you can use the validator to generate a snapshot for a profile.");
+      System.out.println("To do this, you must provide a specific parameter:");
+      System.out.println("");
+      System.out.println(" -snapshot");
+      System.out.println("");
+      System.out.println("-snapshot requires the parameters -defn, -txserver, -source, and -output. ig may be used to provide necessary base profiles");
     } else { 
       String definitions = "http://build.fhir.org/";
       List<String> igs = new ArrayList<String>();
@@ -143,8 +168,7 @@ public class Validator {
       String txServer = "http://tx.fhir.org/r3";
       boolean doNative = false;
       List<String> profiles = new ArrayList<String>();
-      boolean transform = false;
-      boolean narrative = false;
+      EngineMode mode = EngineMode.VALIDATION;
       String map = null;
       String output = null;
       List<String> sources= new ArrayList<String>();
@@ -174,9 +198,11 @@ public class Validator {
         else if (args[i].equals("-native"))
             doNative = true;
         else if (args[i].equals("-transform"))
-          transform = true;
+          mode = EngineMode.TRANSFORM;
         else if (args[i].equals("-narrative"))
-          narrative = true;
+          mode = EngineMode.NARRATIVE;
+        else if (args[i].equals("-snapshot"))
+          mode = EngineMode.SNAPSHOT;
         else if (args[i].equals("-tx"))
           if (i+1 == args.length)
             throw new Error("Specified -tx without indicating terminology server");
@@ -200,14 +226,6 @@ public class Validator {
         }
       if  (sources.isEmpty())
         throw new Exception("Must provide at least one source file");
-      if  (transform && sources.size() > 1)
-        throw new Exception("Can only have one source when doing a transform");
-      if  (transform && txServer == null)
-        throw new Exception("Must provide a terminology server when doing a transform");
-      if  (transform && map == null)
-        throw new Exception("Must provide a map when doing a transform");
-      if  (!transform && definitions == null)
-        throw new Exception("Must provide a defn when doing validation");
         
       System.out.println("  .. load FHIR from "+definitions);
       System.out.println("  .. connect to tx server @ "+txServer);
@@ -220,7 +238,13 @@ public class Validator {
       validator.setQuestionnaires(questionnaires);
       validator.setNative(doNative);
 
-      if (transform) {
+      if (mode == EngineMode.TRANSFORM) {
+        if  (sources.size() > 1)
+          throw new Exception("Can only have one source when doing a transform");
+        if  (txServer == null)
+          throw new Exception("Must provide a terminology server when doing a transform");
+        if  (map == null)
+          throw new Exception("Must provide a map when doing a transform");
         try {
           Resource r = validator.transform(sources.get(0), map);
           System.out.println(" ...success");
@@ -232,18 +256,23 @@ public class Validator {
         } catch (Exception e) {
           System.out.println(" ...Failure: "+e.getMessage());
         }
-      } else if (narrative) {
+      } else if (mode == EngineMode.NARRATIVE) {
         DomainResource r = validator.generate(sources.get(0));
-        System.out.println(" ...success");
+        System.out.println(" ...generated narrative successfully");
         if (output != null) {
-          FileOutputStream s = new FileOutputStream(output);
-          if (output.endsWith(".html") || output.endsWith(".htm"))
-            new XhtmlComposer().compose(s, r.getText().getDiv());
-          else
-            new XmlParser().compose(s, r, true);
-          s.close();
+          handleOutput(r, output);
+        }
+      } else if (mode == EngineMode.SNAPSHOT) {
+        if  (definitions == null)
+          throw new Exception("Must provide a defn when generating a snapshot");
+        StructureDefinition r = validator.snapshot(sources.get(0));
+        System.out.println(" ...generated snapshot successfully");
+        if (output != null) {
+          handleOutput(r, output);
         }
       } else {
+        if  (definitions == null)
+          throw new Exception("Must provide a defn when doing validation");
         System.out.println("  .. validate");
         Resource r = validator.validate(sources, profiles);
         if (output == null) {
@@ -259,6 +288,43 @@ public class Validator {
         }
       }
     }
+  }
+
+  private static void handleOutput(Resource r, String output) throws IOException {
+    if (output.startsWith("http://") || output.startsWith("http://")) {
+      ByteArrayOutputStream bs = new ByteArrayOutputStream();
+      handleOutputToStream(r, output, bs);
+      URL url = new URL(output);
+      HttpURLConnection c = (HttpURLConnection) url.openConnection();
+      c.setDoOutput(true);
+      c.setDoInput(true);
+      c.setRequestMethod("POST");
+      c.setRequestProperty( "Content-type", "application/fhir+xml");
+      c.setRequestProperty( "Accept", "application/fhir+xml" );
+      c.getOutputStream().write(bs.toByteArray());
+      c.getOutputStream().close();
+
+      if (c.getResponseCode() >= 300) {
+//        String line;
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(c.getInputStream()));
+//        while ((line = reader.readLine()) != null) {
+//          System.out.println(line);
+//        }
+//        reader.close();
+        throw new IOException("Unable to PUT to "+output+": "+c.getResponseMessage());
+      }
+    } else {
+      FileOutputStream s = new FileOutputStream(output);
+      handleOutputToStream(r, output, s);
+    }
+  }
+
+  private static void handleOutputToStream(Resource r, String output, OutputStream s) throws IOException {
+    if (output.endsWith(".html") || output.endsWith(".htm") && r instanceof DomainResource)
+      new XhtmlComposer().compose(s, ((DomainResource) r).getText().getDiv());
+    else
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, r);
+    s.close();
   }
 
   private static void displayOO(OperationOutcome oo) {
