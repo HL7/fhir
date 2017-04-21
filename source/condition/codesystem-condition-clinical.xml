@@ -16,7 +16,22 @@
 	  <concept>
 		<code value="recurrence"/>
 		<display value="Recurrence"/>
-		<definition value="The subject is having a relapse or re-experiencing the condition after a period of remission or presumed resolution."/>
+		<definition value="The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis."/>
+	  </concept>
+	  <concept>
+		<code value="relapse"/>
+		<display value="Relapse"/>
+		<definition value="The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc."/>
+	  </concept>		  
+	  <concept>
+		<code value="well-controlled"/>
+		<display value="Well-Controlled"/>
+		<definition value="The subject's condition is adequately or well managed such that the recommended evidence-based clinical outcome targets are met."/>
+	  </concept>
+	  <concept>
+		<code value="poorly-controlled"/>
+		<display value="Poorly-Controlled"/>
+		<definition value="The subject's condition is inadequately/poorly managed such that the recommended evidence-based clinical outcome targets are not met."/>
 	  </concept>
   </concept>
   <concept>
