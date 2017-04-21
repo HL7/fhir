@@ -1,12 +1,12 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition3to2" = "R3 to R2 Conversion for Condition"
 
 conceptmap "ConditionClinicalStatus" {
-  prefix s = "http://hl7.org/fhir/devicestatus"
-  prefix t = "http://hl7.org/fhir/devicestatus"
+  prefix s = "http://hl7.org/fhir/ValueSet/condition-clinical"
+  prefix t = "http://hl7.org/fhir/ValueSet/condition-clinical"
 
-  s:available	 = t:active 
-  s:"not-available" = t:inactive
-  s:"entered-in-error" = t:"entered-in-error"
+  unmapped for s = provided
+  
+  s:recurrence = t:relapse
 }
 
 

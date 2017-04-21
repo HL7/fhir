@@ -69,9 +69,9 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class VersionConvertor_10_30 {
 
-  public VersionConvertorAdvisor advisor;
+  public VersionConvertorAdvisor30 advisor;
 
-  public VersionConvertor_10_30(VersionConvertorAdvisor advisor) {
+  public VersionConvertor_10_30(VersionConvertorAdvisor30 advisor) {
     super();
     this.advisor = advisor;
   }

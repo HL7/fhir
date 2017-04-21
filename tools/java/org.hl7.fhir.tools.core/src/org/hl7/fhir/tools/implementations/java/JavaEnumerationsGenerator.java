@@ -56,7 +56,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 	}
 
 	public void generate(Date genDate, String version) throws Exception {		
-		write("package org.hl7.fhir.dstu3.model;\r\n");
+		write("package org.hl7.fhir.r4.model;\r\n");
 		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");

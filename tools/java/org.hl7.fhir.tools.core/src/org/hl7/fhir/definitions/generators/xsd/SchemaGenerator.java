@@ -139,9 +139,8 @@ public class SchemaGenerator {
 		  TextFile.stringToFile(xsd, xsdDir + n);
 	  }
 
-    if (!forCodeGeneration) {
       produceCombinedSchema(definitions, xsdDir, dstDir, srcDir);
-      
+    if (!forCodeGeneration) {      
       File dir = new CSFile(xsdDir);
       File[] list = dir.listFiles();
       for (File f : list) {

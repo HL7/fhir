@@ -26,6 +26,7 @@ import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupUnmappedMode;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -282,6 +283,16 @@ public class StructureMapUtilities {
       }
     }
     b.append("\r\n");
+    for (ConceptMapGroupComponent cg : cm.getGroup()) {
+      if (cg.hasUnmapped()) {
+        b.append("  unmapped for ");
+        b.append(prefix);
+        b.append(" = ");
+        b.append(cg.getUnmapped().getMode());
+        b.append("\r\n"); 
+      }   
+    }
+    
     for (ConceptMapGroupComponent cg : cm.getGroup()) {
       for (SourceElementComponent ce : cg.getElement()) {
         b.append("  ");
@@ -666,6 +677,18 @@ public class StructureMapUtilities {
 			lexer.token("=");
 			String v = lexer.readConstant("prefix url");
 			prefixes.put(n, v);
+		}
+		while (lexer.hasToken("unmapped")) {
+		  lexer.token("unmapped");
+      lexer.token("for");
+      String n = readPrefix(prefixes, lexer);
+      ConceptMapGroupComponent g = getGroup(map, n, null);
+		  lexer.token("=");
+      String v = lexer.take();
+      if (v.equals("provided")) {
+        g.getUnmapped().setMode(ConceptMapGroupUnmappedMode.PROVIDED);
+      } else
+        lexer.error("Only unmapped mode PROVIDED is supported at this time");
 		}
 		while (!lexer.hasToken("}")) {
 		  String srcs = readPrefix(prefixes, lexer);

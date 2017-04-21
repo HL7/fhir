@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.converters;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.hl7.fhir.convertors.VersionConvertorAdvisor;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
 import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
@@ -15,7 +15,7 @@ import org.hl7.fhir.dstu3.model.CompartmentDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 
-public class DSTU2ValidationConvertor implements VersionConvertorAdvisor {
+public class DSTU2ValidationConvertor implements VersionConvertorAdvisor30 {
 
   private Bundle source;
   private VersionConvertor_10_30 vc;

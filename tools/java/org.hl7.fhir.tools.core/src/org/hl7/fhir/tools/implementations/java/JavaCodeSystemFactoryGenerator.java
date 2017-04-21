@@ -48,11 +48,11 @@ public class JavaCodeSystemFactoryGenerator extends JavaBaseGenerator {
 	}
 
 	public void generate(Date genDate, String version, CodeSystem cs, String tns) throws Exception {		
-		write("package org.hl7.fhir.dstu3.model.codesystems;\r\n");
+		write("package org.hl7.fhir.r4.model.codesystems;\r\n");
 		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");
-    write("import org.hl7.fhir.dstu3.model.EnumFactory;\r\n");
+    write("import org.hl7.fhir.r4.model.EnumFactory;\r\n");
     write("\r\n");
 
     write("public class "+tns+"EnumFactory implements EnumFactory<"+tns+"> {\r\n");

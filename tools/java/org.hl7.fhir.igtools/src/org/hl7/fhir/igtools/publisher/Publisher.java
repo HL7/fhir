@@ -45,7 +45,7 @@ import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.R2ToR3Loader;
-import org.hl7.fhir.convertors.VersionConvertorAdvisor;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
 import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
@@ -1901,7 +1901,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       else
         throw new Exception("Unable to determine file type for "+file.getName());
 
-      VersionConvertorAdvisor advisor = new IGR2ConvertorAdvisor();
+      VersionConvertorAdvisor30 advisor = new IGR2ConvertorAdvisor();
       return new VersionConvertor_10_30(advisor ).convertResource(res);
     } else if (version.equals(Constants.VERSION)) {
       if (file.getContentType().contains("json"))

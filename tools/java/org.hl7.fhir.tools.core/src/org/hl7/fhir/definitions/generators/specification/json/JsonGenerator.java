@@ -113,7 +113,7 @@ public class JsonGenerator  {
 		// The Element is Type, Structure or blank, then it is Element
 		if( (parent == null) || (parent.isEmpty()) || (parent.equals("Type")) || (parent.equals("Structure")))
 			parent="Element";
-		sup.addProperty("$ref", (relative ? "#" : parent.replace(".",  "_")+".schema.json#") +"/definitions/"+parent.replace(".",  "_"));
+		sup.addProperty("$ref", (relative ? "#" : parent.replace(".",  "_")+"#") +"/definitions/"+parent.replace(".",  "_"));
 	}
     JsonObject self = new JsonObject();
     ao.add(self);

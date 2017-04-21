@@ -17,7 +17,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
-public class IGPackConverter102 implements VersionConvertorAdvisor {
+public class IGPackConverter102 implements VersionConvertorAdvisor30 {
   
   public static void main(String[] args) throws Exception {
     new IGPackConverter102().process();
