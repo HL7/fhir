@@ -18,7 +18,7 @@
  -- Row 3 -----------------------------------
   Binding Name = CarePlanActivityType
   Binding = value set
-  Reference = valueset-care-plan-activity
+  Reference = http://hl7.org/fhir/ValueSet/procedure-code
   Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
   Conformance = example
 

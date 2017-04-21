@@ -29,10 +29,10 @@
   Conformance = example
 
  -- Row 5 -----------------------------------
-  Binding Name = FamilyHistoryNotDoneReason
+  Binding Name = FamilyHistoryAbsentReason
   Binding = code list
-  Reference = #history-not-done-reason
-  Definition = Codes describing the reason why a family member history was not done.
+  Reference = #history-absent-reason
+  Definition = Codes describing the reason why a family member\'s history is not available.
   Conformance = example
 
  -- Row 6 -----------------------------------
@@ -71,7 +71,7 @@
   Display = Health unknown
   Definition = Health information for this individual is unavailable/unknown.
 
-=== Sheet history-not-done-reason =====================================
+=== Sheet history-absent-reason =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -114,7 +114,7 @@
   Expression = age.exists() or estimatedAge.empty()
 
  -- Row 3 -----------------------------------
-  Id = 3
+  Id = !3
   Context = FamilyMemberHistory
   English = Not Done Reason can only be specified if NotDone is \"true\"
   XPath = f:notDone/@value=true() or not(exists(f:notDoneReason))
@@ -127,6 +127,7 @@
   Type = DomainResource
   Short Name = Information about patient\'s relatives, relevant for patient
   Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+  Workflow Mapping = Event
   v2 Mapping = Not in scope for v2
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   w5 = clinical.general
@@ -139,6 +140,7 @@
   Short Name = External Id(s) for this record
   Definition = This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
+  Workflow Mapping = Event.identifier
   RIM Mapping = id
   w5 = id
 
@@ -149,6 +151,7 @@
   Type = Reference(PlanDefinition|Questionnaire)
   Short Name = Instantiates protocol or definition
   Definition = A protocol or questionnaire that was adhered to in whole or in part by this event
+  Workflow Mapping = Event.definition
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------
@@ -161,10 +164,11 @@
   Short Name = partial | completed | entered-in-error | health-unknown
   Definition = A code specifying the status of the record of the family history of a specific family member
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 5 -----------------------------------
-  Element = FamilyMemberHistory.notDone
+  Element = !FamilyMemberHistory.notDone
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
@@ -173,20 +177,19 @@
   Definition = If true, indicates the taking of an individual family member\'s history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
   Requirements = Creating a FamilyMemberHistory where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
   Comments = This element is labeled as a modifier because it marks the family member history as a family member history that did not occur.  The more attributes are populated, the more constrained the negated statement is.  This notDone element is being evaluated and will likely be removed in a subsequent release.
+  Workflow Mapping = Event.notDone
   RIM Mapping = .actionNegationInd
   Default Value = False
 
  -- Row 6 -----------------------------------
-  Element = FamilyMemberHistory.notDoneReason
+  Element = FamilyMemberHistory.dataAbsentReason
   Card. = 0..1
   Summary = Y
-  Inv. = 3
   Type = CodeableConcept
-  Binding = FamilyHistoryNotDoneReason
+  Binding = FamilyHistoryAbsentReason
   Short Name = subject-unknown | withheld | unable-to-obtain | deferred
-  Definition = Describes why the family member\'s history is absent.
+  Definition = Describes why the family member\'s history is not available.
   Requirements = This is a separate element to allow it to have a distinct binding from reasonCode
-  Comments = This notDoneReason element is being evaluated and will likely be replaced in a subsequent release (e.g. dataAbsentReason).
   RIM Mapping = .reasonCode
 
  -- Row 7 -----------------------------------
@@ -197,6 +200,7 @@
   Type = Reference(Patient)
   Short Name = Patient history is about
   Definition = The person who this history concerns
+  Workflow Mapping = Event.subject
   RIM Mapping = participation[typeCode=SBJ].role
   Committee Notes = [#3703]
   w5 = who.focus
@@ -210,6 +214,7 @@
   Definition = The date (and possibly time) when the family member history was taken
   Requirements = Allows determination of how current the summary is
   Comments = This should be captured even if the same as the date on the List aggregating the full family history
+  Workflow Mapping = Event.occurrence
   RIM Mapping = participation[typeCode=AUT].time
   w5 = when.recorded
 
@@ -268,7 +273,6 @@
  -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.estimatedAge
   Card. = 0..1
-  Is Modifier = Y
   Summary = Y
   Inv. = 2
   Type = boolean
@@ -276,6 +280,7 @@
   Definition = If true, indicates that the age value specified is an estimated value
   Requirements = Clinicians often prefer to specify an estimaged age rather than an age range
   Comments = This element is labeled as a modifier because the fact tha age is estimated can/should change the results of any algorithm that calculates based on the specified age
+  Committee Notes = Removed modifier, per GF#13078
   Missing Meaning = It is unknown whether the age is an estimate or not
 
  -- Row 15 -----------------------------------
@@ -296,6 +301,7 @@
   Short Name = Why was family member history performed?
   Definition = Describes why the family member history occurred in coded or textual form.
   Comments = Textual reasons can be caprued using reasonCode.text
+  Workflow Mapping = Event.reasonCode
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -306,6 +312,7 @@
   Type = Reference(Condition|Observation|AllergyIntolerance|QuestionnaireResponse)
   Short Name = Why was family member history performed?
   Definition = Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
@@ -315,6 +322,7 @@
   Type = Annotation
   Short Name = General note about related person
   Definition = This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
+  Workflow Mapping = Event.note
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value
 
  -- Row 19 -----------------------------------
