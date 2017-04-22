@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc and to harmonize with workflow patterns.
+ * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
  */
 @ResourceDef(name="MedicationRequest", profile="http://hl7.org/fhir/Profile/MedicationRequest")
 public class MedicationRequest extends DomainResource {

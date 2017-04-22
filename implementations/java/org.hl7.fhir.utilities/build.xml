@@ -8,7 +8,8 @@
     <property name="com.healthintersections.ihc.utils.location" value="../../../../../com.healthintersections.fhir/ihc/project"/>
     <property name="org.hl7.fhir.convertors.location" value="../org.hl7.fhir.convertors"/>
     <property name="org.hl7.fhir.dstu2.location" value="../org.hl7.fhir.dstu2"/>
-    <property name="org.hl7.fhir.dstu3.location" value="../../../implementations/java/org.hl7.fhir.dstu3"/>
+    <property name="org.hl7.fhir.r4.location" value="../../../implementations/java/org.hl7.fhir.r4"/>
+    <property name="org.hl7.fhir.r4.location" value="../../../implementations/java/org.hl7.fhir.r4"/>
     <property name="org.hl7.fhir.igtools.location" value="../../../tools/java/org.hl7.fhir.igtools"/>
     <property name="org.hl7.fhir.rdf.location" value="../org.hl7.fhir.rdf"/>
     <property name="org.hl7.fhir.tools.location" value="../../../tools/java/org.hl7.fhir.tools.core"/>
@@ -69,8 +70,14 @@
                 <propertyref name="build.compiler"/>
             </propertyset>
         </ant>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.dstu3.location}" inheritAll="false" target="clean"/>
-        <ant antfile="build.xml" dir="${org.hl7.fhir.dstu3.location}" inheritAll="false" target="build">
+        <ant antfile="build.xml" dir="${org.hl7.fhir.r4.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.r4.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.r4.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${org.hl7.fhir.r4.location}" inheritAll="false" target="build">
             <propertyset>
                 <propertyref name="build.compiler"/>
             </propertyset>

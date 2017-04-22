@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * TestReport is a resource that includes summary information on the results of executing a TestScript.
+ * A summary of information based on the results of executing a TestScript.
  */
 @ResourceDef(name="TestReport", profile="http://hl7.org/fhir/Profile/TestReport")
 public class TestReport extends DomainResource {

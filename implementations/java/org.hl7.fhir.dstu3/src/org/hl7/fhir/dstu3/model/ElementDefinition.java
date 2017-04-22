@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -1707,10 +1707,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected List<Enumeration<AggregationMode>> aggregation;
 
         /**
-         * Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+         * Whether this reference needs to be version specific or version independent, or whether either can be used.
          */
         @Child(name = "versioning", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="either | independent | specific", formalDefinition="Whether this reference needs to be version specific or version independent, or whetehr either can be used." )
+        @Description(shortDefinition="either | independent | specific", formalDefinition="Whether this reference needs to be version specific or version independent, or whether either can be used." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reference-version-rules")
         protected Enumeration<ReferenceVersionRules> versioning;
 
@@ -1936,7 +1936,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #versioning} (Whether this reference needs to be version specific or version independent, or whetehr either can be used.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
+         * @return {@link #versioning} (Whether this reference needs to be version specific or version independent, or whether either can be used.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
          */
         public Enumeration<ReferenceVersionRules> getVersioningElement() { 
           if (this.versioning == null)
@@ -1956,7 +1956,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #versioning} (Whether this reference needs to be version specific or version independent, or whetehr either can be used.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
+         * @param value {@link #versioning} (Whether this reference needs to be version specific or version independent, or whether either can be used.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
          */
         public TypeRefComponent setVersioningElement(Enumeration<ReferenceVersionRules> value) { 
           this.versioning = value;
@@ -1964,14 +1964,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+         * @return Whether this reference needs to be version specific or version independent, or whether either can be used.
          */
         public ReferenceVersionRules getVersioning() { 
           return this.versioning == null ? null : this.versioning.getValue();
         }
 
         /**
-         * @param value Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+         * @param value Whether this reference needs to be version specific or version independent, or whether either can be used.
          */
         public TypeRefComponent setVersioning(ReferenceVersionRules value) { 
           if (value == null)
@@ -1990,7 +1990,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("targetProfile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile));
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
-          childrenList.add(new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whetehr either can be used.", 0, java.lang.Integer.MAX_VALUE, versioning));
+          childrenList.add(new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whether either can be used.", 0, java.lang.Integer.MAX_VALUE, versioning));
         }
 
       @Override
@@ -3768,7 +3768,7 @@ public class ElementDefinition extends Type implements ICompositeType {
      * The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource or extension.
      */
     @Child(name = "path", type = {StringType.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Path of the element in the heirarchy of elements", formalDefinition="The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension." )
+    @Description(shortDefinition="Path of the element in the hierarchy of elements", formalDefinition="The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension." )
     protected StringType path;
 
     /**

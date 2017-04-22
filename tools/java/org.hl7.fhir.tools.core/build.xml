@@ -2,6 +2,7 @@
 <project basedir="." default="build" name="org.hl7.fhir.tools">
   <property environment="env"/>
   <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
+  <property name="org.hl7.fhir.implementation.location" value="../../../implementations/java/org.hl7.fhir.r4"/>
   <property name="org.hl7.fhir.implementation.location" value="../../../implementations/java/org.hl7.fhir.dstu3"/>
   <property name="org.hl7.fhir.implementation2.location" value="../../../implementations/java/org.hl7.fhir.dstu2"/>
   <property name="org.hl7.fhir.implementation14.location" value="../../../implementations/java/org.hl7.fhir.dstu2016may"/>
@@ -186,6 +187,7 @@
   <target name="fhir-sources-jar" depends="build">
     <jar destfile="${maven-sources-jar}" filesetmanifest="mergewithoutmain">
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src" includes="**/*.java"/>
+      <fileset dir="../../../implementations/java/org.hl7.fhir.r4/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.rdf/src" includes="**/*.java"/>
       <fileset dir="../../../tools/java/org.hl7.fhir.igtools/src" includes="**/*.java"/>

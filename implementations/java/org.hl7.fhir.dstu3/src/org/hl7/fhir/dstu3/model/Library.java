@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -66,10 +66,10 @@ public class Library extends MetadataResource {
     protected CodeableConcept type;
 
     /**
-     * Explains why this library is needed and why it has been designed as it has.
+     * Explaination of why this library is needed and why it has been designed as it has.
      */
     @Child(name = "purpose", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why this library is defined", formalDefinition="Explains why this library is needed and why it has been designed as it has." )
+    @Description(shortDefinition="Why this library is defined", formalDefinition="Explaination of why this library is needed and why it has been designed as it has." )
     protected MarkdownType purpose;
 
     /**
@@ -80,24 +80,24 @@ public class Library extends MetadataResource {
     protected StringType usage;
 
     /**
-     * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     @Child(name = "approvalDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When the library was approved by publisher", formalDefinition="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
+    @Description(shortDefinition="When the library was approved by publisher", formalDefinition="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
     protected DateType approvalDate;
 
     /**
-     * The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+     * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     @Child(name = "lastReviewDate", type = {DateType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When the library was last reviewed", formalDefinition="The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date." )
+    @Description(shortDefinition="When the library was last reviewed", formalDefinition="The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date." )
     protected DateType lastReviewDate;
 
     /**
-     * The period during which the library content was or is planned to be effective.
+     * The period during which the library content was or is planned to be in active use.
      */
     @Child(name = "effectivePeriod", type = {Period.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When the library is effective", formalDefinition="The period during which the library content was or is planned to be effective." )
+    @Description(shortDefinition="When the library is expected to be used", formalDefinition="The period during which the library content was or is planned to be in active use." )
     protected Period effectivePeriod;
 
     /**
@@ -169,7 +169,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -189,7 +189,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public Library setUrlElement(UriType value) { 
       this.url = value;
@@ -197,14 +197,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return An absolute URL that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).
+     * @return An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).
+     * @param value An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public Library setUrl(String value) { 
       if (Utilities.noString(value))
@@ -271,7 +271,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       if (this.version == null)
@@ -291,7 +291,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public Library setVersionElement(StringType value) { 
       this.version = value;
@@ -299,14 +299,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
+     * @return The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
+     * @param value The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.
      */
     public Library setVersion(String value) { 
       if (Utilities.noString(value))
@@ -463,7 +463,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #experimental} (A flag to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @return {@link #experimental} (A boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
@@ -483,7 +483,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #experimental} (A flag to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @param value {@link #experimental} (A boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public Library setExperimentalElement(BooleanType value) { 
       this.experimental = value;
@@ -491,14 +491,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return A flag to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @return A boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
-     * @param value A flag to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @param value A boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public Library setExperimental(boolean value) { 
         if (this.experimental == null)
@@ -532,7 +532,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #date} (The date  (and optionally time) when the library was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -552,7 +552,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #date} (The date  (and optionally time) when the library was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public Library setDateElement(DateTimeType value) { 
       this.date = value;
@@ -560,14 +560,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return The date  (and optionally time) when the library was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.
+     * @return The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date  (and optionally time) when the library was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.
+     * @param value The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.
      */
     public Library setDate(Date value) { 
       if (value == null)
@@ -630,7 +630,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the library from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A free text natural language description of the library from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public MarkdownType getDescriptionElement() { 
       if (this.description == null)
@@ -650,7 +650,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the library from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A free text natural language description of the library from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public Library setDescriptionElement(MarkdownType value) { 
       this.description = value;
@@ -658,14 +658,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language description of the library from the consumer's perspective.
+     * @return A free text natural language description of the library from a consumer's perspective.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A free text natural language description of the library from the consumer's perspective.
+     * @param value A free text natural language description of the library from a consumer's perspective.
      */
     public Library setDescription(String value) { 
       if (value == null)
@@ -679,7 +679,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #purpose} (Explains why this library is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @return {@link #purpose} (Explaination of why this library is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public MarkdownType getPurposeElement() { 
       if (this.purpose == null)
@@ -699,7 +699,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #purpose} (Explains why this library is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @param value {@link #purpose} (Explaination of why this library is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public Library setPurposeElement(MarkdownType value) { 
       this.purpose = value;
@@ -707,14 +707,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return Explains why this library is needed and why it has been designed as it has.
+     * @return Explaination of why this library is needed and why it has been designed as it has.
      */
     public String getPurpose() { 
       return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this library is needed and why it has been designed as it has.
+     * @param value Explaination of why this library is needed and why it has been designed as it has.
      */
     public Library setPurpose(String value) { 
       if (value == null)
@@ -777,7 +777,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #approvalDate} (The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
+     * @return {@link #approvalDate} (The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
      */
     public DateType getApprovalDateElement() { 
       if (this.approvalDate == null)
@@ -797,7 +797,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #approvalDate} (The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
+     * @param value {@link #approvalDate} (The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
      */
     public Library setApprovalDateElement(DateType value) { 
       this.approvalDate = value;
@@ -805,14 +805,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     * @return The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     public Date getApprovalDate() { 
       return this.approvalDate == null ? null : this.approvalDate.getValue();
     }
 
     /**
-     * @param value The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     * @param value The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     public Library setApprovalDate(Date value) { 
       if (value == null)
@@ -826,7 +826,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @return {@link #lastReviewDate} (The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public DateType getLastReviewDateElement() { 
       if (this.lastReviewDate == null)
@@ -846,7 +846,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @param value {@link #lastReviewDate} (The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public Library setLastReviewDateElement(DateType value) { 
       this.lastReviewDate = value;
@@ -854,14 +854,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+     * @return The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     public Date getLastReviewDate() { 
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
-     * @param value The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+     * @param value The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     public Library setLastReviewDate(Date value) { 
       if (value == null)
@@ -875,7 +875,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #effectivePeriod} (The period during which the library content was or is planned to be effective.)
+     * @return {@link #effectivePeriod} (The period during which the library content was or is planned to be in active use.)
      */
     public Period getEffectivePeriod() { 
       if (this.effectivePeriod == null)
@@ -891,7 +891,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #effectivePeriod} (The period during which the library content was or is planned to be effective.)
+     * @param value {@link #effectivePeriod} (The period during which the library content was or is planned to be in active use.)
      */
     public Library setEffectivePeriod(Period value) { 
       this.effectivePeriod = value;
@@ -899,7 +899,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate library instances.)
      */
     public List<UsageContext> getUseContext() { 
       if (this.useContext == null)
@@ -952,7 +952,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #jurisdiction} (A jurisdiction in which the library is intended to be used.)
+     * @return {@link #jurisdiction} (A legal or geographic region in which the library is intended to be used.)
      */
     public List<CodeableConcept> getJurisdiction() { 
       if (this.jurisdiction == null)
@@ -1426,24 +1426,24 @@ public class Library extends MetadataResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URI that is used to identify this library when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this library is (or will be) published. The URL SHOULD include the major version of the library. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this library when it is represented in other formats, or referenced in a specification, model, design or an instance. e.g. CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A natural language name identifying the library. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the library.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The status of this library. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("experimental", "boolean", "A boolean value to indicate that this library is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
         childrenList.add(new Property("type", "CodeableConcept", "Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the library was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the library.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("description", "markdown", "A free text natural language description of the library from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("purpose", "markdown", "Explains why this library is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
+        childrenList.add(new Property("description", "markdown", "A free text natural language description of the library from a consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("purpose", "markdown", "Explaination of why this library is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("usage", "string", "A detailed description of how the library is used from a clinical perspective.", 0, java.lang.Integer.MAX_VALUE, usage));
-        childrenList.add(new Property("approvalDate", "date", "The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, java.lang.Integer.MAX_VALUE, approvalDate));
-        childrenList.add(new Property("lastReviewDate", "date", "The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
-        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the library content was or is planned to be effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
-        childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the library is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
+        childrenList.add(new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, java.lang.Integer.MAX_VALUE, approvalDate));
+        childrenList.add(new Property("lastReviewDate", "date", "The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
+        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the library content was or is planned to be in active use.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
+        childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate library instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the library is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the library, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -1931,17 +1931,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>External identifiers for the library</b><br>
+   * Description: <b>External identifier for the library</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Library.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Library.identifier", description="External identifiers for the library", type="token" )
+  @SearchParamDefinition(name="identifier", path="Library.identifier", description="External identifier for the library", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>External identifiers for the library</b><br>
+   * Description: <b>External identifier for the library</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Library.identifier</b><br>
    * </p>
@@ -1977,17 +1977,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
-   * Description: <b>Intended jurisdiction for library</b><br>
+   * Description: <b>Intended jurisdiction for the library</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Library.jurisdiction</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="jurisdiction", path="Library.jurisdiction", description="Intended jurisdiction for library", type="token" )
+  @SearchParamDefinition(name="jurisdiction", path="Library.jurisdiction", description="Intended jurisdiction for the library", type="token" )
   public static final String SP_JURISDICTION = "jurisdiction";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>jurisdiction</b>
    * <p>
-   * Description: <b>Intended jurisdiction for library</b><br>
+   * Description: <b>Intended jurisdiction for the library</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Library.jurisdiction</b><br>
    * </p>
@@ -1997,17 +1997,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>description</b>
    * <p>
-   * Description: <b>Text search against the description of the library</b><br>
+   * Description: <b>The description of the library</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Library.description</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="description", path="Library.description", description="Text search against the description of the library", type="string" )
+  @SearchParamDefinition(name="description", path="Library.description", description="The description of the library", type="string" )
   public static final String SP_DESCRIPTION = "description";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>description</b>
    * <p>
-   * Description: <b>Text search against the description of the library</b><br>
+   * Description: <b>The description of the library</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Library.description</b><br>
    * </p>
@@ -2069,17 +2069,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>Text search against the title of the library</b><br>
+   * Description: <b>The human-friendly name of the library</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Library.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="title", path="Library.title", description="Text search against the title of the library", type="string" )
+  @SearchParamDefinition(name="title", path="Library.title", description="The human-friendly name of the library", type="string" )
   public static final String SP_TITLE = "title";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>Text search against the title of the library</b><br>
+   * Description: <b>The human-friendly name of the library</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Library.title</b><br>
    * </p>
@@ -2155,17 +2155,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>effective</b>
    * <p>
-   * Description: <b>Effective time associated with the library</b><br>
+   * Description: <b>The time during which the library is intended to be in use</b><br>
    * Type: <b>date</b><br>
    * Path: <b>Library.effectivePeriod</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="effective", path="Library.effectivePeriod", description="Effective time associated with the library", type="date" )
+  @SearchParamDefinition(name="effective", path="Library.effectivePeriod", description="The time during which the library is intended to be in use", type="date" )
   public static final String SP_EFFECTIVE = "effective";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>effective</b>
    * <p>
-   * Description: <b>Effective time associated with the library</b><br>
+   * Description: <b>The time during which the library is intended to be in use</b><br>
    * Type: <b>date</b><br>
    * Path: <b>Library.effectivePeriod</b><br>
    * </p>
@@ -2201,17 +2201,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>Name of the library</b><br>
+   * Description: <b>Computationally friendly name of the library</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Library.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="Library.name", description="Name of the library", type="string" )
+  @SearchParamDefinition(name="name", path="Library.name", description="Computationally friendly name of the library", type="string" )
   public static final String SP_NAME = "name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>Name of the library</b><br>
+   * Description: <b>Computationally friendly name of the library</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Library.name</b><br>
    * </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -441,7 +441,7 @@ public class ChargeItem extends DomainResource {
      * Identifiers assigned to this event performer or other systems.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Business Identifer for item", formalDefinition="Identifiers assigned to this event performer or other systems." )
+    @Description(shortDefinition="Business Identifier for item", formalDefinition="Identifiers assigned to this event performer or other systems." )
     protected Identifier identifier;
 
     /**
@@ -2251,17 +2251,17 @@ public class ChargeItem extends DomainResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Business Identifer for item</b><br>
+   * Description: <b>Business Identifier for item</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ChargeItem.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ChargeItem.identifier", description="Business Identifer for item", type="token" )
+  @SearchParamDefinition(name="identifier", path="ChargeItem.identifier", description="Business Identifier for item", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Business Identifer for item</b><br>
+   * Description: <b>Business Identifier for item</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ChargeItem.identifier</b><br>
    * </p>

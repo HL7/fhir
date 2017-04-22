@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -211,11 +211,11 @@ public class Consent extends DomainResource {
          */
         INSTANCE, 
         /**
-         * The consent applies directly to the instance of the resource, and instances it refers to
+         * The consent applies directly to the instance of the resource and instances it refers to
          */
         RELATED, 
         /**
-         * The consent applies directly to the instance of the resource, and instances that refer to it
+         * The consent applies directly to the instance of the resource and instances that refer to it
          */
         DEPENDENTS, 
         /**
@@ -263,8 +263,8 @@ public class Consent extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case INSTANCE: return "The consent applies directly to the instance of the resource";
-            case RELATED: return "The consent applies directly to the instance of the resource, and instances it refers to";
-            case DEPENDENTS: return "The consent applies directly to the instance of the resource, and instances that refer to it";
+            case RELATED: return "The consent applies directly to the instance of the resource and instances it refers to";
+            case DEPENDENTS: return "The consent applies directly to the instance of the resource and instances that refer to it";
             case AUTHOREDBY: return "The consent applies to instances of resources that are authored by";
             default: return "?";
           }

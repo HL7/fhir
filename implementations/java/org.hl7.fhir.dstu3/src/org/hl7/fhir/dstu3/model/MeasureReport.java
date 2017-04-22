@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -1880,10 +1880,10 @@ public class MeasureReport extends DomainResource {
     protected Enumeration<MeasureReportStatus> status;
 
     /**
-     * The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.
+     * The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.
      */
     @Child(name = "type", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="individual | patient-list | summary", formalDefinition="The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure." )
+    @Description(shortDefinition="individual | patient-list | summary", formalDefinition="The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/measure-report-type")
     protected Enumeration<MeasureReportType> type;
 
@@ -2046,7 +2046,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @return {@link #type} (The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public Enumeration<MeasureReportType> getTypeElement() { 
       if (this.type == null)
@@ -2066,7 +2066,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #type} (The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @param value {@link #type} (The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
     public MeasureReport setTypeElement(Enumeration<MeasureReportType> value) { 
       this.type = value;
@@ -2074,14 +2074,14 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.
+     * @return The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.
      */
     public MeasureReportType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
-     * @param value The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.
+     * @param value The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.
      */
     public MeasureReport setType(MeasureReportType value) { 
         if (this.type == null)
@@ -2396,7 +2396,7 @@ public class MeasureReport extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "The report status. No data will be available until the report status is complete.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("type", "code", "The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "code", "The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("measure", "Reference(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, java.lang.Integer.MAX_VALUE, measure));
         childrenList.add(new Property("patient", "Reference(Patient)", "Optional Patient if the report was requested for a single patient.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("date", "dateTime", "The date this measure report was generated.", 0, java.lang.Integer.MAX_VALUE, date));

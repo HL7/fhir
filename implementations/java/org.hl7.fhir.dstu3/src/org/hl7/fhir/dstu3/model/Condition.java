@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -194,7 +194,7 @@ public class Condition extends DomainResource {
          */
         PROVISIONAL, 
         /**
-         * One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment.
+         * One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
          */
         DIFFERENTIAL, 
         /**
@@ -262,7 +262,7 @@ public class Condition extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case PROVISIONAL: return "This is a tentative diagnosis - still a candidate that is under consideration.";
-            case DIFFERENTIAL: return "One of a set of potential (and typically mutually exclusive) diagnosis asserted to further guide the diagnostic process and preliminary treatment.";
+            case DIFFERENTIAL: return "One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.";
             case CONFIRMED: return "There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
             case REFUTED: return "This condition has been ruled out by diagnostic and clinical evidence.";
             case ENTEREDINERROR: return "The statement was entered in error and is not valid.";

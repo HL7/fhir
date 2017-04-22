@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+ * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
  */
 @ResourceDef(name="Device", profile="http://hl7.org/fhir/Profile/Device")
 public class Device extends DomainResource {
@@ -62,11 +62,11 @@ public class Device extends DomainResource {
          */
         MANUAL, 
         /**
-         * The data orginated from a patient's implant card and read by an operator.
+         * The data originated from a patient's implant card and read by an operator.
          */
         CARD, 
         /**
-         * The data orginated from a patient source and not directly scanned or read from a label or card.
+         * The data originated from a patient source and not directly scanned or read from a label or card.
          */
         SELFREPORTED, 
         /**
@@ -124,8 +124,8 @@ public class Device extends DomainResource {
             case BARCODE: return "A Barcode scanner captured the data from the device label";
             case RFID: return "An RFID chip reader captured the data from the device label";
             case MANUAL: return "The data was read from the label by a person and manually entered. (e.g.  via a keyboard)";
-            case CARD: return "The data orginated from a patient's implant card and read by an operator.";
-            case SELFREPORTED: return "The data orginated from a patient source and not directly scanned or read from a label or card.";
+            case CARD: return "The data originated from a patient's implant card and read by an operator.";
+            case SELFREPORTED: return "The data originated from a patient source and not directly scanned or read from a label or card.";
             case UNKNOWN: return "The method of data capture has not been determined";
             default: return "?";
           }

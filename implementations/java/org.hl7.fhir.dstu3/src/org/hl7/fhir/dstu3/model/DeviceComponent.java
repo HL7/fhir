@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -296,10 +296,10 @@ public class DeviceComponent extends DomainResource {
         protected CodeableConcept specType;
 
         /**
-         * The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.
+         * The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacturer can make use of.
          */
         @Child(name = "componentId", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Internal component unique identification", formalDefinition="The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of." )
+        @Description(shortDefinition="Internal component unique identification", formalDefinition="The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacturer can make use of." )
         protected Identifier componentId;
 
         /**
@@ -343,7 +343,7 @@ public class DeviceComponent extends DomainResource {
         }
 
         /**
-         * @return {@link #componentId} (The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.)
+         * @return {@link #componentId} (The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacturer can make use of.)
          */
         public Identifier getComponentId() { 
           if (this.componentId == null)
@@ -359,7 +359,7 @@ public class DeviceComponent extends DomainResource {
         }
 
         /**
-         * @param value {@link #componentId} (The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.)
+         * @param value {@link #componentId} (The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacturer can make use of.)
          */
         public DeviceComponentProductionSpecificationComponent setComponentId(Identifier value) { 
           this.componentId = value;
@@ -418,7 +418,7 @@ public class DeviceComponent extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("specType", "CodeableConcept", "The specification type, such as, serial number, part number, hardware revision, software revision, etc.", 0, java.lang.Integer.MAX_VALUE, specType));
-          childrenList.add(new Property("componentId", "Identifier", "The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.", 0, java.lang.Integer.MAX_VALUE, componentId));
+          childrenList.add(new Property("componentId", "Identifier", "The internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacturer can make use of.", 0, java.lang.Integer.MAX_VALUE, componentId));
           childrenList.add(new Property("productionSpec", "string", "The printable string defining the component.", 0, java.lang.Integer.MAX_VALUE, productionSpec));
         }
 

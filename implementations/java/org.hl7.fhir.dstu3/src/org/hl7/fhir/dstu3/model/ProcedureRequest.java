@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A record of a request for a diagnostic investigation service to be performed.
+ * A record of a request for diagnostic investigations, treatments, or operations to be performed.
  */
 @ResourceDef(name="ProcedureRequest", profile="http://hl7.org/fhir/Profile/ProcedureRequest")
 public class ProcedureRequest extends DomainResource {
@@ -74,7 +74,7 @@ public class ProcedureRequest extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" . One of the listed statuses is presumed to apply,  but the system creating the request doesn't know.
          */
         UNKNOWN, 
         /**
@@ -135,7 +135,7 @@ public class ProcedureRequest extends DomainResource {
             case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
             case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" . One of the listed statuses is presumed to apply,  but the system creating the request doesn't know.";
             default: return "?";
           }
         }

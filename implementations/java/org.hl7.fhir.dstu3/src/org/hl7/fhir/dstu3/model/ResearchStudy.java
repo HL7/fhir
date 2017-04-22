@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.
+ * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
  */
 @ResourceDef(name="ResearchStudy", profile="http://hl7.org/fhir/Profile/ResearchStudy")
 public class ResearchStudy extends DomainResource {
@@ -215,10 +215,10 @@ public class ResearchStudy extends DomainResource {
         protected StringType name;
 
         /**
-         * E.g. Experimental, active comparator, placebo comparator.
+         * Categorization of study arm, e.g. experimental, active comparator, placebo comparater.
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Categorization of arm", formalDefinition="E.g. Experimental, active comparator, placebo comparator." )
+        @Description(shortDefinition="Categorization of study arm", formalDefinition="Categorization of study arm, e.g. experimental, active comparator, placebo comparater." )
         protected CodeableConcept code;
 
         /**
@@ -291,7 +291,7 @@ public class ResearchStudy extends DomainResource {
         }
 
         /**
-         * @return {@link #code} (E.g. Experimental, active comparator, placebo comparator.)
+         * @return {@link #code} (Categorization of study arm, e.g. experimental, active comparator, placebo comparater.)
          */
         public CodeableConcept getCode() { 
           if (this.code == null)
@@ -307,7 +307,7 @@ public class ResearchStudy extends DomainResource {
         }
 
         /**
-         * @param value {@link #code} (E.g. Experimental, active comparator, placebo comparator.)
+         * @param value {@link #code} (Categorization of study arm, e.g. experimental, active comparator, placebo comparater.)
          */
         public ResearchStudyArmComponent setCode(CodeableConcept value) { 
           this.code = value;
@@ -366,7 +366,7 @@ public class ResearchStudy extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Unique, human-readable label for this arm of the study.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("code", "CodeableConcept", "E.g. Experimental, active comparator, placebo comparator.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "CodeableConcept", "Categorization of study arm, e.g. experimental, active comparator, placebo comparater.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("description", "string", "A succinct description of the path through the study that would be followed by a subject adhering to this arm.", 0, java.lang.Integer.MAX_VALUE, description));
         }
 
@@ -622,7 +622,7 @@ public class ResearchStudy extends DomainResource {
      * Indicates the individual who has primary oversite of the execution of the study.
      */
     @Child(name = "principalInvestigator", type = {Practitioner.class}, order=15, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Individual responsible for the study", formalDefinition="Indicates the individual who has primary oversite of the execution of the study." )
+    @Description(shortDefinition="The individual responsible for the study", formalDefinition="Indicates the individual who has primary oversite of the execution of the study." )
     protected Reference principalInvestigator;
 
     /**
@@ -2293,17 +2293,17 @@ public class ResearchStudy extends DomainResource {
  /**
    * Search parameter: <b>principalinvestigator</b>
    * <p>
-   * Description: <b>Individual responsible for the study</b><br>
+   * Description: <b>The individual responsible for the study</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ResearchStudy.principalInvestigator</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="principalinvestigator", path="ResearchStudy.principalInvestigator", description="Individual responsible for the study", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="principalinvestigator", path="ResearchStudy.principalInvestigator", description="The individual responsible for the study", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
   public static final String SP_PRINCIPALINVESTIGATOR = "principalinvestigator";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>principalinvestigator</b>
    * <p>
-   * Description: <b>Individual responsible for the study</b><br>
+   * Description: <b>The individual responsible for the study</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ResearchStudy.principalInvestigator</b><br>
    * </p>

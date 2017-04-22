@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Mar 16, 2017 17:23+1100 for FHIR v3.0.0
+// Generated on Mon, Apr 17, 2017 08:38+1000 for FHIR v3.0.1
 
 import java.util.*;
 
@@ -58,10 +58,10 @@ public class ServiceDefinition extends MetadataResource {
     protected List<Identifier> identifier;
 
     /**
-     * Explains why this service definition is needed and why it has been designed as it has.
+     * Explaination of why this service definition is needed and why it has been designed as it has.
      */
     @Child(name = "purpose", type = {MarkdownType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why this service definition is defined", formalDefinition="Explains why this service definition is needed and why it has been designed as it has." )
+    @Description(shortDefinition="Why this service definition is defined", formalDefinition="Explaination of why this service definition is needed and why it has been designed as it has." )
     protected MarkdownType purpose;
 
     /**
@@ -72,24 +72,24 @@ public class ServiceDefinition extends MetadataResource {
     protected StringType usage;
 
     /**
-     * The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     @Child(name = "approvalDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When the service definition was approved by publisher", formalDefinition="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
+    @Description(shortDefinition="When the service definition was approved by publisher", formalDefinition="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
     protected DateType approvalDate;
 
     /**
-     * The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+     * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     @Child(name = "lastReviewDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="When the service definition was last reviewed", formalDefinition="The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date." )
+    @Description(shortDefinition="When the service definition was last reviewed", formalDefinition="The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date." )
     protected DateType lastReviewDate;
 
     /**
-     * The period during which the service definition content was or is planned to be effective.
+     * The period during which the service definition content was or is planned to be in active use.
      */
     @Child(name = "effectivePeriod", type = {Period.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When the service definition is effective", formalDefinition="The period during which the service definition content was or is planned to be effective." )
+    @Description(shortDefinition="When the service definition is expected to be used", formalDefinition="The period during which the service definition content was or is planned to be in active use." )
     protected Period effectivePeriod;
 
     /**
@@ -165,7 +165,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URL that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -185,7 +185,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URL that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ServiceDefinition setUrlElement(UriType value) { 
       this.url = value;
@@ -193,14 +193,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return An absolute URL that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).
+     * @return An absolute URI that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URL that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).
+     * @param value An absolute URI that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public ServiceDefinition setUrl(String value) { 
       if (Utilities.noString(value))
@@ -267,7 +267,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       if (this.version == null)
@@ -287,7 +287,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public ServiceDefinition setVersionElement(StringType value) { 
       this.version = value;
@@ -295,14 +295,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+     * @return The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.
+     * @param value The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
      */
     public ServiceDefinition setVersion(String value) { 
       if (Utilities.noString(value))
@@ -459,7 +459,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #experimental} (A flag to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @return {@link #experimental} (A boolean value to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
@@ -479,7 +479,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #experimental} (A flag to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @param value {@link #experimental} (A boolean value to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public ServiceDefinition setExperimentalElement(BooleanType value) { 
       this.experimental = value;
@@ -487,14 +487,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return A flag to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @return A boolean value to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
-     * @param value A flag to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @param value A boolean value to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public ServiceDefinition setExperimental(boolean value) { 
         if (this.experimental == null)
@@ -504,7 +504,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #date} (The date  (and optionally time) when the service definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date  (and optionally time) when the service definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -524,7 +524,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #date} (The date  (and optionally time) when the service definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date  (and optionally time) when the service definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public ServiceDefinition setDateElement(DateTimeType value) { 
       this.date = value;
@@ -532,14 +532,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return The date  (and optionally time) when the service definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.
+     * @return The date  (and optionally time) when the service definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date  (and optionally time) when the service definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.
+     * @param value The date  (and optionally time) when the service definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.
      */
     public ServiceDefinition setDate(Date value) { 
       if (value == null)
@@ -602,7 +602,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #description} (A free text natural language description of the service definition from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A free text natural language description of the service definition from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public MarkdownType getDescriptionElement() { 
       if (this.description == null)
@@ -622,7 +622,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #description} (A free text natural language description of the service definition from the consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A free text natural language description of the service definition from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public ServiceDefinition setDescriptionElement(MarkdownType value) { 
       this.description = value;
@@ -630,14 +630,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return A free text natural language description of the service definition from the consumer's perspective.
+     * @return A free text natural language description of the service definition from a consumer's perspective.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A free text natural language description of the service definition from the consumer's perspective.
+     * @param value A free text natural language description of the service definition from a consumer's perspective.
      */
     public ServiceDefinition setDescription(String value) { 
       if (value == null)
@@ -651,7 +651,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #purpose} (Explains why this service definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @return {@link #purpose} (Explaination of why this service definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public MarkdownType getPurposeElement() { 
       if (this.purpose == null)
@@ -671,7 +671,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #purpose} (Explains why this service definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @param value {@link #purpose} (Explaination of why this service definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public ServiceDefinition setPurposeElement(MarkdownType value) { 
       this.purpose = value;
@@ -679,14 +679,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return Explains why this service definition is needed and why it has been designed as it has.
+     * @return Explaination of why this service definition is needed and why it has been designed as it has.
      */
     public String getPurpose() { 
       return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explains why this service definition is needed and why it has been designed as it has.
+     * @param value Explaination of why this service definition is needed and why it has been designed as it has.
      */
     public ServiceDefinition setPurpose(String value) { 
       if (value == null)
@@ -749,7 +749,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #approvalDate} (The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
+     * @return {@link #approvalDate} (The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
      */
     public DateType getApprovalDateElement() { 
       if (this.approvalDate == null)
@@ -769,7 +769,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #approvalDate} (The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
+     * @param value {@link #approvalDate} (The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
      */
     public ServiceDefinition setApprovalDateElement(DateType value) { 
       this.approvalDate = value;
@@ -777,14 +777,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     * @return The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     public Date getApprovalDate() { 
       return this.approvalDate == null ? null : this.approvalDate.getValue();
     }
 
     /**
-     * @param value The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.
+     * @param value The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
     public ServiceDefinition setApprovalDate(Date value) { 
       if (value == null)
@@ -798,7 +798,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @return {@link #lastReviewDate} (The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public DateType getLastReviewDateElement() { 
       if (this.lastReviewDate == null)
@@ -818,7 +818,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #lastReviewDate} (The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
+     * @param value {@link #lastReviewDate} (The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
     public ServiceDefinition setLastReviewDateElement(DateType value) { 
       this.lastReviewDate = value;
@@ -826,14 +826,14 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+     * @return The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     public Date getLastReviewDate() { 
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
-     * @param value The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
+     * @param value The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
     public ServiceDefinition setLastReviewDate(Date value) { 
       if (value == null)
@@ -847,7 +847,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #effectivePeriod} (The period during which the service definition content was or is planned to be effective.)
+     * @return {@link #effectivePeriod} (The period during which the service definition content was or is planned to be in active use.)
      */
     public Period getEffectivePeriod() { 
       if (this.effectivePeriod == null)
@@ -863,7 +863,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #effectivePeriod} (The period during which the service definition content was or is planned to be effective.)
+     * @param value {@link #effectivePeriod} (The period during which the service definition content was or is planned to be in active use.)
      */
     public ServiceDefinition setEffectivePeriod(Period value) { 
       this.effectivePeriod = value;
@@ -871,7 +871,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate service definition instances.)
      */
     public List<UsageContext> getUseContext() { 
       if (this.useContext == null)
@@ -924,7 +924,7 @@ public class ServiceDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #jurisdiction} (A jurisdiction in which the service definition is intended to be used.)
+     * @return {@link #jurisdiction} (A legal or geographic region in which the service definition is intended to be used.)
      */
     public List<CodeableConcept> getJurisdiction() { 
       if (this.jurisdiction == null)
@@ -1389,23 +1389,23 @@ public class ServiceDefinition extends MetadataResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("url", "uri", "An absolute URI that is used to identify this service definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this service definition is (or will be) published. The URL SHOULD include the major version of the service definition. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this service definition when it is represented in other formats, or referenced in a specification, model, design or an instance. This is used for CMS or NQF identifiers for a measure artifact. Note that at least one identifier is required for non-experimental active artifacts.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.", 0, java.lang.Integer.MAX_VALUE, version));
+        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the service definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the service definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A natural language name identifying the service definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the service definition.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("status", "code", "The status of this service definition. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the service definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("experimental", "boolean", "A boolean value to indicate that this service definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the service definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the service definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the service definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("description", "markdown", "A free text natural language description of the service definition from the consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("purpose", "markdown", "Explains why this service definition is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
+        childrenList.add(new Property("description", "markdown", "A free text natural language description of the service definition from a consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("purpose", "markdown", "Explaination of why this service definition is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
         childrenList.add(new Property("usage", "string", "A detailed description of how the module is used from a clinical perspective.", 0, java.lang.Integer.MAX_VALUE, usage));
-        childrenList.add(new Property("approvalDate", "date", "The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, java.lang.Integer.MAX_VALUE, approvalDate));
-        childrenList.add(new Property("lastReviewDate", "date", "The date on which the asset content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
-        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the service definition content was or is planned to be effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
-        childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the service definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
+        childrenList.add(new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, java.lang.Integer.MAX_VALUE, approvalDate));
+        childrenList.add(new Property("lastReviewDate", "date", "The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, java.lang.Integer.MAX_VALUE, lastReviewDate));
+        childrenList.add(new Property("effectivePeriod", "Period", "The period during which the service definition content was or is planned to be in active use.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
+        childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate service definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the service definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         childrenList.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the module. Topics provide a high-level categorization of the module that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the module, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -1877,17 +1877,17 @@ public class ServiceDefinition extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>External identifiers for the service definition</b><br>
+   * Description: <b>External identifier for the service definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ServiceDefinition.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ServiceDefinition.identifier", description="External identifiers for the service definition", type="token" )
+  @SearchParamDefinition(name="identifier", path="ServiceDefinition.identifier", description="External identifier for the service definition", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>External identifiers for the service definition</b><br>
+   * Description: <b>External identifier for the service definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ServiceDefinition.identifier</b><br>
    * </p>
@@ -1923,17 +1923,17 @@ public class ServiceDefinition extends MetadataResource {
  /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
-   * Description: <b>Intended jurisdiction for service definition</b><br>
+   * Description: <b>Intended jurisdiction for the service definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ServiceDefinition.jurisdiction</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="jurisdiction", path="ServiceDefinition.jurisdiction", description="Intended jurisdiction for service definition", type="token" )
+  @SearchParamDefinition(name="jurisdiction", path="ServiceDefinition.jurisdiction", description="Intended jurisdiction for the service definition", type="token" )
   public static final String SP_JURISDICTION = "jurisdiction";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>jurisdiction</b>
    * <p>
-   * Description: <b>Intended jurisdiction for service definition</b><br>
+   * Description: <b>Intended jurisdiction for the service definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ServiceDefinition.jurisdiction</b><br>
    * </p>
@@ -1943,17 +1943,17 @@ public class ServiceDefinition extends MetadataResource {
  /**
    * Search parameter: <b>description</b>
    * <p>
-   * Description: <b>Text search against the description of the service definition</b><br>
+   * Description: <b>The description of the service definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ServiceDefinition.description</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="description", path="ServiceDefinition.description", description="Text search against the description of the service definition", type="string" )
+  @SearchParamDefinition(name="description", path="ServiceDefinition.description", description="The description of the service definition", type="string" )
   public static final String SP_DESCRIPTION = "description";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>description</b>
    * <p>
-   * Description: <b>Text search against the description of the service definition</b><br>
+   * Description: <b>The description of the service definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ServiceDefinition.description</b><br>
    * </p>
@@ -2015,17 +2015,17 @@ public class ServiceDefinition extends MetadataResource {
  /**
    * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>Text search against the title of the service definition</b><br>
+   * Description: <b>The human-friendly name of the service definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ServiceDefinition.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="title", path="ServiceDefinition.title", description="Text search against the title of the service definition", type="string" )
+  @SearchParamDefinition(name="title", path="ServiceDefinition.title", description="The human-friendly name of the service definition", type="string" )
   public static final String SP_TITLE = "title";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>Text search against the title of the service definition</b><br>
+   * Description: <b>The human-friendly name of the service definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ServiceDefinition.title</b><br>
    * </p>
@@ -2101,17 +2101,17 @@ public class ServiceDefinition extends MetadataResource {
  /**
    * Search parameter: <b>effective</b>
    * <p>
-   * Description: <b>Effective time associated with the service definition</b><br>
+   * Description: <b>The time during which the service definition is intended to be in use</b><br>
    * Type: <b>date</b><br>
    * Path: <b>ServiceDefinition.effectivePeriod</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="effective", path="ServiceDefinition.effectivePeriod", description="Effective time associated with the service definition", type="date" )
+  @SearchParamDefinition(name="effective", path="ServiceDefinition.effectivePeriod", description="The time during which the service definition is intended to be in use", type="date" )
   public static final String SP_EFFECTIVE = "effective";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>effective</b>
    * <p>
-   * Description: <b>Effective time associated with the service definition</b><br>
+   * Description: <b>The time during which the service definition is intended to be in use</b><br>
    * Type: <b>date</b><br>
    * Path: <b>ServiceDefinition.effectivePeriod</b><br>
    * </p>
@@ -2147,17 +2147,17 @@ public class ServiceDefinition extends MetadataResource {
  /**
    * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>Name of the service definition</b><br>
+   * Description: <b>Computationally friendly name of the service definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ServiceDefinition.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="ServiceDefinition.name", description="Name of the service definition", type="string" )
+  @SearchParamDefinition(name="name", path="ServiceDefinition.name", description="Computationally friendly name of the service definition", type="string" )
   public static final String SP_NAME = "name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>Name of the service definition</b><br>
+   * Description: <b>Computationally friendly name of the service definition</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ServiceDefinition.name</b><br>
    * </p>
