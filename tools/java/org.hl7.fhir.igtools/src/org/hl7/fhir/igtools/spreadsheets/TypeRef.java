@@ -31,7 +31,7 @@ package org.hl7.fhir.igtools.spreadsheets;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.model.ElementDefinition.ReferenceVersionRules;
+import org.hl7.fhir.r4.model.ElementDefinition.ReferenceVersionRules;
 import org.hl7.fhir.utilities.Utilities;
 
 

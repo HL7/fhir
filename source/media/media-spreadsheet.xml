@@ -6472,7 +6472,7 @@
     <Cell ss:StyleID="s149"><Data ss:Type="String">Ultrasound</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Example Ultrasound Image</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1.2.840.11361907579238403408700.3.0.14.19970327150033</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">1.2.840.11361907579238403408700.3.1.04.19970327150033</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">media-example-dicom.xml</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">y</Data></Cell>

@@ -2,13 +2,13 @@ package org.hl7.fhir.igtools.renderers;
 
 import java.util.List;
 
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.MarkdownType;
-import org.hl7.fhir.dstu3.model.PrimitiveType;
-import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.utils.TranslatingUtilities;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.model.MarkdownType;
+import org.hl7.fhir.r4.model.PrimitiveType;
+import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.utils.TranslatingUtilities;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.Utilities;

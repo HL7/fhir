@@ -15,10 +15,10 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
+import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition;
 
 public class ReviewSpreadsheetGenerator {
   private ProfileKnowledgeProvider pkp;

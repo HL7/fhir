@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 import javax.swing.SwingWorker;
 
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.utilities.IniFile;

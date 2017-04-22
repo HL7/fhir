@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.dstu3.utils.Version;
+import org.hl7.fhir.r4.utils.Version;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;

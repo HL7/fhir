@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class FetchedFile {

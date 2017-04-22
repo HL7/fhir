@@ -108,75 +108,75 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.OIDRegistry;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
-import org.hl7.fhir.dstu3.conformance.ProfileComparer;
-import org.hl7.fhir.dstu3.conformance.ProfileComparer.ProfileComparison;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.dstu3.formats.FormatUtilities;
-import org.hl7.fhir.dstu3.formats.IParser;
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.formats.JsonParser;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.BooleanType;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.CodeType;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.Coding;
-import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.ContactDetail;
-import org.hl7.fhir.dstu3.model.ContactPoint;
-import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.dstu3.model.DomainResource;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
-import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
-import org.hl7.fhir.dstu3.model.ExpressionNode.CollectionStatus;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
-import org.hl7.fhir.dstu3.model.MetadataResource;
-import org.hl7.fhir.dstu3.model.NamingSystem;
-import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
-import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
-import org.hl7.fhir.dstu3.model.Quantity;
-import org.hl7.fhir.dstu3.model.Reference;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.SearchParameter;
-import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.model.TypeDetails;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.UsageContext;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
-import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
-import org.hl7.fhir.dstu3.utils.EOperationOutcome;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
-import org.hl7.fhir.dstu3.utils.ResourceUtilities;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.utils.Translations;
-import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.r4.conformance.ProfileComparer;
+import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.formats.FormatUtilities;
+import org.hl7.fhir.r4.formats.IParser;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.JsonParser;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r4.model.CodeType;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
+import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.ContactDetail;
+import org.hl7.fhir.r4.model.ContactPoint;
+import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r4.model.DomainResource;
+import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
+import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
+import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.NamingSystem;
+import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
+import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.SearchParameter;
+import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.TypeDetails;
+import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.UsageContext;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
+import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r4.utils.EOperationOutcome;
+import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.NarrativeGenerator;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
+import org.hl7.fhir.r4.utils.ResourceUtilities;
+import org.hl7.fhir.r4.utils.StructureMapUtilities;
+import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r4.utils.Translations;
+import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -6995,8 +6995,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String summariseValue(Type fixed) throws Exception {
-    if (fixed instanceof org.hl7.fhir.dstu3.model.PrimitiveType)
-      return ((org.hl7.fhir.dstu3.model.PrimitiveType) fixed).asStringValue();
+    if (fixed instanceof org.hl7.fhir.r4.model.PrimitiveType)
+      return ((org.hl7.fhir.r4.model.PrimitiveType) fixed).asStringValue();
     if (fixed instanceof CodeableConcept)
       return summarise((CodeableConcept) fixed);
     if (fixed instanceof Quantity)
@@ -8519,8 +8519,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   @SuppressWarnings("rawtypes")
   private String renderType(Type v) throws Exception {
-    if (v instanceof org.hl7.fhir.dstu3.model.PrimitiveType)
-      return ((org.hl7.fhir.dstu3.model.PrimitiveType) v).asStringValue();
+    if (v instanceof org.hl7.fhir.r4.model.PrimitiveType)
+      return ((org.hl7.fhir.r4.model.PrimitiveType) v).asStringValue();
     throw new Exception("unhandled default value");
   }
 

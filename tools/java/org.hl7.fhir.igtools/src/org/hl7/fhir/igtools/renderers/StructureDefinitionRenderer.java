@@ -12,37 +12,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.Coding;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionExampleComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
-import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu3.model.Enumeration;
-import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Extension;
-import org.hl7.fhir.dstu3.model.IdType;
-import org.hl7.fhir.dstu3.model.PrimitiveType;
-import org.hl7.fhir.dstu3.model.Quantity;
-import org.hl7.fhir.dstu3.model.Reference;
-import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
-import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
-import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
+import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionExampleComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
+import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumeration;
+import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.Extension;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.PrimitiveType;
+import org.hl7.fhir.r4.model.Quantity;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.igtools.publisher.FetchedResource;
@@ -278,8 +278,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private String summariseValue(Type fixed) throws Exception {
-    if (fixed instanceof org.hl7.fhir.dstu3.model.PrimitiveType)
-      return ((org.hl7.fhir.dstu3.model.PrimitiveType) fixed).asStringValue();
+    if (fixed instanceof org.hl7.fhir.r4.model.PrimitiveType)
+      return ((org.hl7.fhir.r4.model.PrimitiveType) fixed).asStringValue();
     if (fixed instanceof CodeableConcept) 
       return summarise((CodeableConcept) fixed);
     if (fixed instanceof Quantity) 

@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/junit-4.11.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

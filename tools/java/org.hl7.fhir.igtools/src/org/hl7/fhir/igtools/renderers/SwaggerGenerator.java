@@ -2,8 +2,8 @@ package org.hl7.fhir.igtools.renderers;
 
 import java.io.IOException;
 
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.model.CapabilityStatement;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.utilities.TextFile;
 
 public class SwaggerGenerator {

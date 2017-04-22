@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate."></description>
   <requirements value="Reports a digital signature on a result or alternate."></requirements>
-  <fhirVersion value="3.0.0"></fhirVersion>
+  <fhirVersion value="3.1.0"></fhirVersion>
   
   
   

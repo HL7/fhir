@@ -1,13 +1,13 @@
 package org.hl7.fhir.igtools.publisher;
 
-import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.dstu2.model.Resource;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 
-public class IGR2ConvertorAdvisor implements VersionConvertorAdvisor30 {
+public class IGR2ConvertorAdvisor implements VersionConvertorAdvisor40 {
 
   @Override
   public boolean ignoreEntry(BundleEntryComponent src) {
@@ -15,7 +15,7 @@ public class IGR2ConvertorAdvisor implements VersionConvertorAdvisor30 {
   }
 
   @Override
-  public Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException {
+  public Resource convert(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     return null;
   }
 

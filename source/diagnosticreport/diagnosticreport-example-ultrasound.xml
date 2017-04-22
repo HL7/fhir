@@ -36,7 +36,7 @@
 	<image>
 		<comment value="A comment about the image"/>
 		<link>
-			<reference value="Media/1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+			<reference value="Media/1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
 			<display value="WADO example image"/>
 		</link>
 	</image>

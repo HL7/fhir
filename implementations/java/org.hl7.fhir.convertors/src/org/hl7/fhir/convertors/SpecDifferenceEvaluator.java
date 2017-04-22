@@ -11,24 +11,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.PrimitiveType;
-import org.hl7.fhir.dstu3.model.Reference;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.PrimitiveType;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -136,7 +136,7 @@ public class SpecDifferenceEvaluator {
     for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.dstu2.model.StructureDefinition) {
         org.hl7.fhir.dstu2.model.StructureDefinition sd = (org.hl7.fhir.dstu2.model.StructureDefinition) be.getResource();
-        map.put(sd.getName(), new VersionConvertor_10_30(null).convertStructureDefinition(sd));
+        map.put(sd.getName(), new VersionConvertor_10_40(null).convertStructureDefinition(sd));
       }
     }
     
@@ -156,7 +156,7 @@ public class SpecDifferenceEvaluator {
     for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
       if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet) {
         org.hl7.fhir.dstu2.model.ValueSet sd = (org.hl7.fhir.dstu2.model.ValueSet) be.getResource();
-        map.put(sd.getName(), new VersionConvertor_10_30(null).convertValueSet(sd));
+        map.put(sd.getName(), new VersionConvertor_10_40(null).convertValueSet(sd));
       }
     }    
   }

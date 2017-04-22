@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Coding;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.ResourceFactory;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities.TransformContext;
+import org.hl7.fhir.r4.context.SimpleWorkerContext;
+import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Coding;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.ResourceFactory;
+import org.hl7.fhir.r4.utils.StructureMapUtilities.ITransformerServices;
+import org.hl7.fhir.r4.utils.StructureMapUtilities.TransformContext;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class MappingServices implements ITransformerServices {

@@ -409,7 +409,7 @@
 
  -- Row 2 -----------------------------------
   Name = Ultrasound
-  Identity = 1.2.840.11361907579238403408700.3.0.14.19970327150033
+  Identity = 1.2.840.11361907579238403408700.3.1.04.19970327150033
   Description = Example Ultrasound Image
   Filename = media-example-dicom.xml
 

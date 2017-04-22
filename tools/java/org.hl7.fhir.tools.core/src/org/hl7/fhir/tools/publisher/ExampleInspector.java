@@ -38,28 +38,28 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.Example;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.elementmodel.Element;
-import org.hl7.fhir.dstu3.elementmodel.Manager;
-import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.OperationDefinition;
-import org.hl7.fhir.dstu3.model.SearchParameter;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.TypeDetails;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.IValidatorResourceFetcher;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.ReferenceValidationPolicy;
-import org.hl7.fhir.dstu3.validation.InstanceValidator;
-import org.hl7.fhir.dstu3.validation.XmlValidator;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.elementmodel.Element;
+import org.hl7.fhir.r4.elementmodel.Manager;
+import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r4.elementmodel.ObjectConverter;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.OperationDefinition;
+import org.hl7.fhir.r4.model.SearchParameter;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.TypeDetails;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
+import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
+import org.hl7.fhir.r4.utils.IResourceValidator.ReferenceValidationPolicy;
+import org.hl7.fhir.r4.validation.InstanceValidator;
+import org.hl7.fhir.r4.validation.XmlValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -506,7 +506,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       ResourceDefn r = definitions.getResourceByName(parts[0]);
       for (Example e : r.getExamples()) {
         if (e.getElement() == null && e.hasXml()) {
-          e.setElement(new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).parse(e.getXml()));
+          e.setElement(new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(e.getXml()));
         }
         if (e.getElement() != null) {
           if (e.getElement().fhirType().equals("Bundle")) {

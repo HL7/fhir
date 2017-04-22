@@ -21,7 +21,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals)."></description>
   <requirements value="This resource is profiled to link the order details to the reason(s), date, patient and provider placing the order. "></requirements>
-  <fhirVersion value="3.0.0"></fhirVersion>
+  <fhirVersion value="3.1.0"></fhirVersion>
   
   
   

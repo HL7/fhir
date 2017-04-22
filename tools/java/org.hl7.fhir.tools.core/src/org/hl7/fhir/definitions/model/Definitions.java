@@ -36,12 +36,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.NamingSystem;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.NamingSystem;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;

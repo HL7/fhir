@@ -7,13 +7,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.dstu3.formats.FormatUtilities;
-import org.hl7.fhir.dstu3.model.Reference;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.formats.FormatUtilities;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SimpleFetcher implements IFetchFile {
@@ -201,7 +201,7 @@ public class SimpleFetcher implements IFetchFile {
         boolean ok = false;
         if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
           try {
-            org.hl7.fhir.dstu3.elementmodel.Element e = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).parse(new FileInputStream(f));
+            org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
             addFile(res, f, "application/fhir+xml");
             ok = true;
           } catch (Exception e) {
@@ -209,7 +209,7 @@ public class SimpleFetcher implements IFetchFile {
           }
         if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
           try {
-            org.hl7.fhir.dstu3.elementmodel.Element e = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
+            org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
             addFile(res, f, "application/fhir+json");
             ok = true;
           } catch (Exception e) {
@@ -218,7 +218,7 @@ public class SimpleFetcher implements IFetchFile {
         }
         if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
           try {
-            org.hl7.fhir.dstu3.elementmodel.Element e = new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
+            org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
             addFile(res, f, "text/turtle");
             ok = true;
           } catch (Exception e) {

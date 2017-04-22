@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="Opaque data is the equivalent of an ASN.1 External Type ISO/IEC 8824-1:2008 Information technology -- Abstract Syntax Notation One (ASN.1): Specification of basic notion. Clause 37 - Notation for the&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;external type or the XML Schema anyType. An OpaqueData instance may represent text with an optional spoken or written language code or a&#xa;&#x9;&#x9;&#x9;&#x9;formal structure such as embedded HTML, XML or MIME encoded data. When a formal structure is included, its type should be specified in the format attribute and, when the type is an XML variant, the corresponding&#xa;&#x9;&#x9;&#x9;&#x9;schema (or DTD) should be included in the schema parameter.The OpaqueData data type must be encoded in such a way that the content can be represented by a character string. Binary data is not permitted,although&#xa;&#x9;&#x9;&#x9;&#x9;hyperlinks to binary data are."/>
-   <fhirVersion value="3.0.0"/>
+   <fhirVersion value="3.1.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <snapshot>

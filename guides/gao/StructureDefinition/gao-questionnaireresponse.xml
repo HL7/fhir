@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."></description>
   <requirements value="Use of this resource enables clients to pre-emptively provide more information for an order, or to respond to queries for more information."></requirements>
-  <fhirVersion value="3.0.0"></fhirVersion>
+  <fhirVersion value="3.1.0"></fhirVersion>
   
   
   <kind value="resource"></kind>

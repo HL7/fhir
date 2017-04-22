@@ -45,70 +45,74 @@ import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.R2ToR3Loader;
+import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.convertors.VersionConvertor_10_30;
+import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
-import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
-import org.hl7.fhir.dstu3.elementmodel.Element;
-import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.elementmodel.ObjectConverter;
-import org.hl7.fhir.dstu3.elementmodel.ParserBase.ValidationPolicy;
-import org.hl7.fhir.dstu3.elementmodel.TurtleParser;
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.formats.JsonParser;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.Bundle.BundleType;
-import org.hl7.fhir.dstu3.model.CapabilityStatement;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.Composition;
-import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.Constants;
-import org.hl7.fhir.dstu3.model.ContactDetail;
-import org.hl7.fhir.dstu3.model.ContactPoint;
-import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.DomainResource;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.dstu3.model.ExpansionProfile;
-import org.hl7.fhir.dstu3.model.ExpressionNode;
-import org.hl7.fhir.dstu3.model.ImplementationGuide;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
-import org.hl7.fhir.dstu3.model.MetadataResource;
-import org.hl7.fhir.dstu3.model.PrimitiveType;
-import org.hl7.fhir.dstu3.model.Reference;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.ResourceFactory;
-import org.hl7.fhir.dstu3.model.ResourceType;
-import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
-import org.hl7.fhir.dstu3.model.StructureMap;
-import org.hl7.fhir.dstu3.model.StructureMap.StructureMapModelMode;
-import org.hl7.fhir.dstu3.model.StructureMap.StructureMapStructureComponent;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu3.utils.EOperationOutcome;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator.IReferenceResolver;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceContext;
-import org.hl7.fhir.dstu3.utils.NarrativeGenerator.ResourceWithReference;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities.StructureMapAnalysis;
-import org.hl7.fhir.dstu3.utils.formats.Turtle;
-import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.convertors.VersionConvertor_14_40;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.context.SimpleWorkerContext;
+import org.hl7.fhir.r4.elementmodel.Element;
+import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r4.elementmodel.ObjectConverter;
+import org.hl7.fhir.r4.elementmodel.ParserBase.ValidationPolicy;
+import org.hl7.fhir.r4.elementmodel.TurtleParser;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.JsonParser;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.Bundle.BundleType;
+import org.hl7.fhir.r4.model.CapabilityStatement;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.Composition;
+import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r4.model.ContactDetail;
+import org.hl7.fhir.r4.model.ContactPoint;
+import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r4.model.DomainResource;
+import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r4.model.ExpansionProfile;
+import org.hl7.fhir.r4.model.ExpressionNode;
+import org.hl7.fhir.r4.model.ImplementationGuide;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.PrimitiveType;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.ResourceFactory;
+import org.hl7.fhir.r4.model.ResourceType;
+import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.r4.model.StructureMap;
+import org.hl7.fhir.r4.model.StructureMap.StructureMapModelMode;
+import org.hl7.fhir.r4.model.StructureMap.StructureMapStructureComponent;
+import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.r4.utils.EOperationOutcome;
+import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.NarrativeGenerator;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
+import org.hl7.fhir.r4.utils.StructureMapUtilities;
+import org.hl7.fhir.r4.utils.StructureMapUtilities.StructureMapAnalysis;
+import org.hl7.fhir.r4.utils.formats.Turtle;
+import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -943,7 +947,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     log("Local Validation Pack from cache location " + fn);
     if ("1.0.2".equals(version)) {
-      context = SimpleWorkerContext.fromPack(fn, new R2ToR3Loader());
+      context = SimpleWorkerContext.fromPack(fn, new R2ToR4Loader());
     } else
       context = SimpleWorkerContext.fromPack(fn);
   }
@@ -991,7 +995,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (fn.endsWith(".json")) {
         Resource r;
         try {
-          org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
+          org.hl7.fhir.r4.formats.JsonParser jp = new org.hl7.fhir.r4.formats.JsonParser();
           r = jp.parse(new ByteArrayInputStream(files.get(fn)));
         } catch (Exception e) {
           throw new Exception("Unable to parse "+fn+" from IG "+name, e);
@@ -1640,7 +1644,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
           else if (file.getContentType().contains("xml"))
             res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
-          org.hl7.fhir.dstu3.model.Resource res = new VersionConvertor_10_30(null).convertResource(res2);
+          org.hl7.fhir.r4.model.Resource res = new VersionConvertor_10_40(null).convertResource(res2);
           e = convertToElement(res);
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res);
@@ -1656,7 +1660,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private Element loadFromXml(FetchedFile file) throws Exception {
-    org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
+    org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
     xp.setAllowXsiLocation(true);
     xp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
     Element res = xp.parse(new ByteArrayInputStream(file.getSource()));
@@ -1666,7 +1670,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private Element loadFromJson(FetchedFile file) throws Exception {
-    org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
+    org.hl7.fhir.r4.elementmodel.JsonParser jp = new org.hl7.fhir.r4.elementmodel.JsonParser(context);
     jp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
     return jp.parse(new ByteArrayInputStream(file.getSource()));
   }
@@ -1891,7 +1895,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(file.getSource());
       else
         throw new Exception("Unable to determine file type for "+file.getName());
-      return VersionConvertor_14_30.convertResource(res);
+      return VersionConvertor_14_40.convertResource(res);
     } else if (version.equals("1.0.2")) {
       org.hl7.fhir.dstu2.model.Resource res;
       if (file.getContentType().contains("json"))
@@ -1901,8 +1905,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       else
         throw new Exception("Unable to determine file type for "+file.getName());
 
-      VersionConvertorAdvisor30 advisor = new IGR2ConvertorAdvisor();
-      return new VersionConvertor_10_30(advisor ).convertResource(res);
+      VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
+      return new VersionConvertor_10_40(advisor ).convertResource(res);
     } else if (version.equals(Constants.VERSION)) {
       if (file.getContentType().contains("json"))
         return new JsonParser().parse(file.getSource());
@@ -2063,16 +2067,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
-      jp.compose(bs, VersionConvertor_14_30.convertResource(res));
+      jp.compose(bs, VersionConvertor_14_40.convertResource(res));
     } else if (version.equals("1.0.2")) {
         org.hl7.fhir.dstu2.formats.JsonParser jp = new org.hl7.fhir.dstu2.formats.JsonParser();
-        jp.compose(bs, new VersionConvertor_10_30(new IGR2ConvertorAdvisor()).convertResource(res));
+        jp.compose(bs, new VersionConvertor_10_40(new IGR2ConvertorAdvisor()).convertResource(res));
     } else { // if (version.equals(Constants.VERSION)) {
-      org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
+      org.hl7.fhir.r4.formats.JsonParser jp = new org.hl7.fhir.r4.formats.JsonParser();
       jp.compose(bs, res);
     }
       ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
-    return new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).parse(bi);
+    return new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(bi);
   }
 
   private void cleanOutput(String folder) throws IOException {
@@ -2990,7 +2994,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
       f.getOutputNames().add(path);
       FileOutputStream stream = new FileOutputStream(path);
-      new org.hl7.fhir.dstu3.elementmodel.XmlParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
+      new org.hl7.fhir.r4.elementmodel.XmlParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
       stream.close();
       if (tool == GenerationTool.Jekyll)
         genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "xml", "");
@@ -2999,7 +3003,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
       f.getOutputNames().add(path);
       FileOutputStream stream = new FileOutputStream(path);
-      new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
+      new org.hl7.fhir.r4.elementmodel.JsonParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
       stream.close();
       if (tool == GenerationTool.Jekyll)
         genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "json", "");
@@ -3008,7 +3012,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
       f.getOutputNames().add(path);
       FileOutputStream stream = new FileOutputStream(path);
-      new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
+      new org.hl7.fhir.r4.elementmodel.TurtleParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
       stream.close();
       if (tool == GenerationTool.Jekyll)
         genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "ttl", "");
@@ -3016,21 +3020,21 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     if (igpkp.wantGen(r, "xml-html")) {
       XmlXHtmlRenderer x = new XmlXHtmlRenderer();
-      org.hl7.fhir.dstu3.elementmodel.XmlParser xp = new org.hl7.fhir.dstu3.elementmodel.XmlParser(context);
+      org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
       xp.compose(r.getElement(), x);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames(), r, vars, "xml");
     }
     if (igpkp.wantGen(r, "json-html")) {
       JsonXhtmlRenderer j = new JsonXhtmlRenderer();
-      org.hl7.fhir.dstu3.elementmodel.JsonParser jp = new org.hl7.fhir.dstu3.elementmodel.JsonParser(context);
+      org.hl7.fhir.r4.elementmodel.JsonParser jp = new org.hl7.fhir.r4.elementmodel.JsonParser(context);
       jp.setLinkResolver(igpkp);
       jp.compose(r.getElement(), j);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-json-html", j.toString(), f.getOutputNames(), r, vars, "json");
     }
 
     if (igpkp.wantGen(r, "ttl-html")) {
-      org.hl7.fhir.dstu3.elementmodel.TurtleParser ttl = new org.hl7.fhir.dstu3.elementmodel.TurtleParser(context);
+      org.hl7.fhir.r4.elementmodel.TurtleParser ttl = new org.hl7.fhir.r4.elementmodel.TurtleParser(context);
       ttl.setLinkResolver(igpkp);
       Turtle rdf = new Turtle();
       ttl.compose(r.getElement(), rdf, "");

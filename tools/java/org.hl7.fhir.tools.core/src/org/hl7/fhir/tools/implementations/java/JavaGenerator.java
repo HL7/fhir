@@ -53,9 +53,9 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.test.ToolsHelper;
-import org.hl7.fhir.dstu3.utils.Version;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.test.ToolsHelper;
+import org.hl7.fhir.r4.utils.Version;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
@@ -453,7 +453,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.r4", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.r4", "bin", "").length(), names);
-    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu3", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu3", "bin", "").length(), names);
+    AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.r4", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.r4", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin", "").length(), names);
     AddToJar(jar, new File(Utilities.path(rootDir+"implementations", "java", "org.hl7.fhir.convertors", "bin")), Utilities.path(rootDir,"implementations", "java", "org.hl7.fhir.convertors", "bin", "").length(), names);
@@ -743,7 +743,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.r4",          "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.r4",          "src").length()+1, names);
-    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu3",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu3",       "src").length()+1, names);
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.r4",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.r4",       "src").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2016may", "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2016may", "bin").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.dstu2",       "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.dstu2",       "bin").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.convertors",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.convertors",  "bin").length()+1, names);

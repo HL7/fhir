@@ -8,7 +8,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
 import org.hl7.fhir.definitions.model.ProfiledType;
-import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.Utilities;

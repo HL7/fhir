@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/media.xsd">
-  <id value="1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+  <id value="1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
   
   <!--
     This example demonstrates how to represent an image 
@@ -17,7 +17,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       Ultrasound Image on patient "James Chalmers":<br/>
-      <img src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033" alt="WADO reference to image"/>
+      <img src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.1.04.19970327150033" alt="WADO reference to image"/>
         
     </div>
   </text>
@@ -34,7 +34,7 @@
     <use value="official"/>
     <type><text value="InstanceUID"/></type>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+    <value value="urn:oid:1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
   </identifier> 
   <identifier>
     <type><text value="accessionNo"/></type>
@@ -85,7 +85,7 @@
   <content>
     <contentType value="application/dicom"/>
     <!-- The actual image could be anywhere. This is a WADO example -->
-    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.0.14.19970327150033"/>
+    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
   </content>
 
 </Media>

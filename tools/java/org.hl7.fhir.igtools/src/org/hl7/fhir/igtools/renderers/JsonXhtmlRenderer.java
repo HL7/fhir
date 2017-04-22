@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.formats.JsonCreator;
-import org.hl7.fhir.dstu3.utils.TranslatingUtilities;
+import org.hl7.fhir.r4.formats.JsonCreator;
+import org.hl7.fhir.r4.utils.TranslatingUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
 public class JsonXhtmlRenderer extends TranslatingUtilities implements JsonCreator {

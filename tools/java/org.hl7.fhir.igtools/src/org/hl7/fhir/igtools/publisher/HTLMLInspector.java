@@ -12,8 +12,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService.LogCategory;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService.LogCategory;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.NodeChangeType;
 import org.hl7.fhir.utilities.Utilities;

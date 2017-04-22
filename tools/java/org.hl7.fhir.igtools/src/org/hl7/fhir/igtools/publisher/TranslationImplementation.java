@@ -2,9 +2,9 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.util.Date;
 
-import org.hl7.fhir.dstu3.model.Enumeration;
-import org.hl7.fhir.dstu3.model.PrimitiveType;
-import org.hl7.fhir.dstu3.utils.TranslatingUtilities.TranslationServices;
+import org.hl7.fhir.r4.model.Enumeration;
+import org.hl7.fhir.r4.model.PrimitiveType;
+import org.hl7.fhir.r4.utils.TranslatingUtilities.TranslationServices;
 
 public class TranslationImplementation implements TranslationServices {
 

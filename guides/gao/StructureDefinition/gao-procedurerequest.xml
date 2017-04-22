@@ -18,7 +18,7 @@
   <date value="2015-09-22T20:02:49+10:00"></date>
   <description value="Profiles the procedure request to ensure that the services ordered can be identified and evaluated for appropraiteness"></description>
   <requirements value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."></requirements>
-  <fhirVersion value="3.0.0"></fhirVersion>
+  <fhirVersion value="3.1.0"></fhirVersion>
   
   
   

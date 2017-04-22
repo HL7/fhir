@@ -2,7 +2,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
 	<id value="us-core-birthsex"/>
 	<url value="http://hl7.org/fhir/ValueSet/us-core-birthsex"/>
-	<version value="3.0.0"/>
+	<version value="3.1.0"/>
 	<name value="US Core Birth Sex Value Set"/>
 	<status value="active"/>
 	<date value="2016-08-10"/>

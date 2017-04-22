@@ -9,20 +9,20 @@ import java.util.UUID;
 import org.hl7.fhir.dstu2.formats.JsonParser;
 import org.hl7.fhir.dstu2.formats.XmlParser;
 import org.hl7.fhir.dstu2.model.Resource;
-import org.hl7.fhir.dstu3.context.SimpleWorkerContext.IContextResourceLoader;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.Bundle.BundleType;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.MetadataResource;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.Bundle.BundleType;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
 
-public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdvisor30 {
+public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdvisor40 {
 
   private List<CodeSystem> cslist = new ArrayList<>();
   private boolean patchUrls;
@@ -35,7 +35,7 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
       r2 = new JsonParser().parse(stream);
     else
       r2 = new XmlParser().parse(stream);
-    org.hl7.fhir.dstu3.model.Resource r3 = new VersionConvertor_10_30(this).convertResource(r2);
+    org.hl7.fhir.r4.model.Resource r3 = new VersionConvertor_10_40(this).convertResource(r2);
     Bundle b;
     if (r3 instanceof Bundle)
       b = (Bundle) r3;
@@ -79,7 +79,7 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
   }
 
   @Override
-  public Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException {
+  public Resource convert(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     return null;
   }
 

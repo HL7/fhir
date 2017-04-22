@@ -3,26 +3,26 @@ package org.hl7.fhir.tools.converters;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
-import org.hl7.fhir.convertors.VersionConvertor_10_30;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
+import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.dstu2.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu2.model.Resource;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.CompartmentDefinition;
-import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CompartmentDefinition;
+import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 
-public class DSTU2ValidationConvertor implements VersionConvertorAdvisor30 {
+public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
 
   private Bundle source;
-  private VersionConvertor_10_30 vc;
+  private VersionConvertor_10_40 vc;
   
   public void convert(String bundleSource, String bundleTarget) throws Exception {
     System.out.println("Convert "+bundleSource);
-    vc = new VersionConvertor_10_30(this);
+    vc = new VersionConvertor_10_40(this);
     
     try {
       source = (Bundle) new XmlParser().parse(new FileInputStream(bundleSource));
@@ -55,7 +55,7 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor30 {
   }
 
   @Override
-  public Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException {
+  public Resource convert(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     if (resource instanceof ValueSet) {
       ValueSet vs = (ValueSet) resource;
       if (vs.hasCompose() && vs.getCompose().getExclude().isEmpty() && vs.getCompose().getInclude().size() == 1 && !vs.getCompose().getInclude().get(0).hasValueSet()) {

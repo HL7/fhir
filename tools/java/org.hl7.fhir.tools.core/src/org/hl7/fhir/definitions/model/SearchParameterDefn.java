@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.dstu3.model.ExpressionNode;
-import org.hl7.fhir.dstu3.model.SearchParameter;
+import org.hl7.fhir.r4.model.ExpressionNode;
+import org.hl7.fhir.r4.model.SearchParameter;
 
 /*
 Copyright (c) 2011+, HL7, Inc

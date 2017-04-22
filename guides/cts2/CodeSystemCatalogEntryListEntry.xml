@@ -14,7 +14,7 @@
    </contact>
    <date value="2016-02-08T19:11:02-07:00"/>
    <description value="An instance of CodeSystem that meets a specified filter criteria."/>
-   <fhirVersion value="3.0.0"/>
+   <fhirVersion value="3.1.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
    <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}DirectoryEntry"/>

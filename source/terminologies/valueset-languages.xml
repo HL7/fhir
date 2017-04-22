@@ -6,7 +6,7 @@
         <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
     </meta>
     <url value="http://hl7.org/fhir/ValueSet/languages"/>
-    <version value="3.0.0"/>
+    <version value="3.1.0"/>
     <name value="Common Languages"/>
     <status value="draft"/>
     <experimental value="true"/>

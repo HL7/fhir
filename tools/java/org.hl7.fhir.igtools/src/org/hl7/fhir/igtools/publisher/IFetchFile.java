@@ -3,9 +3,9 @@ package org.hl7.fhir.igtools.publisher;
 import java.io.IOException;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.context.IWorkerContext;
-import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
-import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.model.Type;
 
 public interface IFetchFile {
   

@@ -32,15 +32,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
-import org.hl7.fhir.dstu3.model.CodeSystem;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r4.utils.ToolingExtensions;
 
 /**
  * A concept domain - a use of terminology in FHIR.

@@ -1,6 +1,6 @@
 package org.hl7.fhir.definitions.model;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.r4.model.StructureDefinition;
 
 // publishing details about a profile + the profile
 public class ConstraintStructure {
