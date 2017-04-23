@@ -2,7 +2,6 @@
 
 langauge: java
 
-# JDK has been set to JDK8 to see if this clears up transient memory issues
 jdk:
   - oraclejdk8
 
