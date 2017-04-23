@@ -43,7 +43,8 @@
   <path id="org.hl7.fhir.tools.classpath">
     <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
-    <path refid="org.hl7.fhir.implementation.classpath"/>
+    <path refid="org.hl7.fhir.implementation4.classpath"/>
+    <path refid="org.hl7.fhir.implementation3.classpath"/>
     <path refid="org.hl7.fhir.implementation2.classpath"/>
     <path refid="org.hl7.fhir.implementation14.classpath"/>
     <path refid="org.hl7.fhir.convertors.classpath"/>
