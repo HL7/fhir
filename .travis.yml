@@ -12,12 +12,7 @@ cache:
 script: ./build.sh
 sudo: required
 notifications:
-  email:
-    - fhir-svn-travis@dilute.net
-    - grahame@healthintersections.com.au
-    - e.kramer@furore.com
-    - brian_pos@hotmail.com
-
+  email: []
   webhooks:
     - https://chat.fhir.org/api/v1/external/travis?stream=committers&topic=ci-notifications&api_key=IelOy1KhccEy3QpRIeOrtQUTqw98Kvr8
 
