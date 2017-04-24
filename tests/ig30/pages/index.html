@@ -1,0 +1,31 @@
+---
+# jekyll header
+---
+{% include header.html %}
+
+<h1>Test Implementation Guide</h2>
+
+<p>
+In this test implementation guide:
+</p>
+<ul>
+ <li><a href="codesystems.html">Code Systems</a></li>
+ <li><a href="valuesets.html">Value Sets</a></li>
+ <li><a href="profile-sd.html">Test Profile #1</a></li>
+ <li><a href="profile-sd-p.html">Test Profile #2 (Patient)</a></li>
+ <li><a href="profile-sd-o.html">Test Profile #3 (Oragnization)</a></li>
+</ul>
+
+<p>
+Text for Brett
+</p>
+
+<h2>Everything</h2>
+
+{% include list-codesystems.xhtml %}
+{% include list-valuesets.xhtml %}
+{% include list-profiles.xhtml %}
+{% include list-extensions.xhtml %}
+
+
+{% include footer.html %}

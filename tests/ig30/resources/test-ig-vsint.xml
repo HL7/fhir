@@ -1,0 +1,33 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="test-ig-vsint"/>
+  <url value="http://hl7.org/fhir/test/ValueSet/test-ig-vsint"/>
+  <version value="0.1"/>
+  <name value="Test IG Value Set (from FHIR code system)"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2016-01-28"/>
+  <description value="Example value set for testing IG publication issues. This value set tests links back to the FHIR Specification"/>
+
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/administrative-gender"/>
+      <concept>
+        <code value="male"/>
+      </concept>
+      <concept>
+        <code value="female"/>
+      </concept>
+      <concept>
+        <code value="unknown"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
