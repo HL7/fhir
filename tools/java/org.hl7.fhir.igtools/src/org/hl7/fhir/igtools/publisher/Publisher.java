@@ -52,6 +52,7 @@ import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
+import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
@@ -931,7 +932,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void loadValidationPack() throws FileNotFoundException, IOException, FHIRException {
     String source;
-    if (version.equals("1.4.0"))
+    if (version.equals("3.0.1"))
+      source = "http://hl7.org/fhir/STU3/igpack.zip";
+    else if (version.equals("1.4.0"))
       source = "http://hl7.org/fhir/2016May/igpack.zip";
     else if (version.equals("1.0.2"))
       source = "http://hl7.org/fhir/DSTU2/igpack.zip";
@@ -1887,7 +1890,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private Resource parse(FetchedFile file) throws Exception {
-    if (version.equals("1.4.0")) {
+    if (version.equals("3.0.1")) {
+      org.hl7.fhir.dstu3.model.Resource res;
+      if (file.getContentType().contains("json"))
+        res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(file.getSource());
+      else if (file.getContentType().contains("xml"))
+        res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(file.getSource());
+      else
+        throw new Exception("Unable to determine file type for "+file.getName());
+      return VersionConvertor_30_40.convertResource(res);
+    } else if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource res;
       if (file.getContentType().contains("json"))
         res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(file.getSource());
@@ -2065,7 +2077,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private Element convertToElement(Resource res) throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError, DefinitionException {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    if (version.equals("1.4.0")) {
+    if (version.equals("3.0.1")) {
+      org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
+      jp.compose(bs, VersionConvertor_30_40.convertResource(res));
+    } else if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
       jp.compose(bs, VersionConvertor_14_40.convertResource(res));
     } else if (version.equals("1.0.2")) {
