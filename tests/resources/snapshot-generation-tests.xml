@@ -2050,6 +2050,14 @@
 				<expression value="fixture('t20o').snapshot.element.where(path = 'PlanDefinition.action').tail().all(sliceName.empty().not())"/>
 			</assert>
 		</action>
+		<action>
+			<assert>
+				<label value="test20-6"/>
+				<description value="PlanDefinition.action slice base must have children"/>
+				<direction value="response"/>
+				<expression value="fixture('t20o').snapshot.element[51].where(path.startsWith('PlanDefinition.action.')).empty().not()"/>
+			</assert>
+    </action>
 	</test>
 
 	<!-- test #21: Slicing a backbone element on it's nested use -->
