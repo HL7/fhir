@@ -1,4 +1,4 @@
-#  Build & Run FHIR Publisher, and push output to gh-pages
+#  Build & Run FHIR Publisher, and push output to FHIR Current Build publication servers
 
 langauge: java
 
