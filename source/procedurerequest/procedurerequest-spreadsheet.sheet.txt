@@ -145,6 +145,7 @@
   Definition = A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
   Requirements = Some business processes need to know if multiple items were ordered as part of the same \"requisition\" for billing or other purposes.
   Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
+  Workflow Mapping = Request.groupIdentifier
   v2 Mapping = ORC.4
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier
   Committee Notes = [#10296][#11119]

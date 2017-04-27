@@ -67,6 +67,7 @@
   Type = DomainResource
   Short Name = A request for referral or transfer of care
   Definition = Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
+  Workflow Mapping = Request
   w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
@@ -77,6 +78,7 @@
   Type = Identifier
   Short Name = Business identifier
   Definition = Business identifier that uniquely identifies the referral/care transfer request instance
+  Workflow Mapping = Request.identifier
   v2 Mapping = RF1-6 / RF1-11
   w5 = id
 
@@ -87,6 +89,7 @@
   Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request
+  Workflow Mapping = Request.definition
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------
@@ -98,6 +101,7 @@
   Type = Reference(ReferralRequest|CarePlan|ProcedureRequest)
   Short Name = Request fulfilled by this request
   Definition = Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.
+  Workflow Mapping = Request.basedOn
 
  -- Row 5 -----------------------------------
   Element = ReferralRequest.replaces
@@ -109,6 +113,7 @@
   Definition = Completed or terminated request(s) whose function is taken by this new request
   Requirements = Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests
   Comments = The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing.
+  Workflow Mapping = Request.replaces
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
 
  -- Row 6 -----------------------------------
@@ -121,6 +126,7 @@
   Short Name = Composite request this is part of
   Definition = The business identifier of the logical \"grouping\" request/order that this referral is a part of
   Requirements = Allows multiple orders to be collected as part of a single requisition
+  Workflow Mapping = Request.groupIdentifier
 
  -- Row 7 -----------------------------------
   Element = ReferralRequest.status
@@ -133,6 +139,7 @@
   Definition = The status of the authorization/intention reflected by the referral request record
   Requirements = Workflow status is handled by the Task resource
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Workflow Mapping = Request.status
   v2 Mapping = RF1-1
   w5 = status
 
@@ -147,6 +154,7 @@
   Short Name = proposal | plan | order
   Definition = Distinguishes the \"level\" of authorization/demand implicit in this request.
   Requirements = The same resource structure is used when capturing proposals/recommendations, plans and actual requests.
+  Workflow Mapping = Request.intent
   w5 = class
 
  -- Row 9 -----------------------------------
@@ -170,6 +178,7 @@
   Binding = ReferralPriority
   Short Name = Urgency of referral / transfer of care request
   Definition = An indication of the urgency of referral (or where applicable the type of transfer of care) request
+  Workflow Mapping = Request.priority
   v2 Mapping = RF1-2
   w5 = grade
 
@@ -182,6 +191,7 @@
   Binding = RequestedService
   Short Name = Actions requested as part of the referral
   Definition = The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion
+  Workflow Mapping = Request.code
   v2 Mapping = PR1-3 / OBR-4
   w5 = what
 
@@ -194,6 +204,7 @@
   Short Name = Patient referred to care or transfer
   Definition = The patient who is the subject of a referral or transfer of care request
   Comments = Referral of family, group or community is to be catered for by profiles
+  Workflow Mapping = Request.subject
   v2 Mapping = PID-3
   Committee Notes = [3710]
   w5 = who.focus
@@ -207,6 +218,7 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Originating encounter
   Definition = The encounter at which the request for referral or transfer of care is initiated
+  Workflow Mapping = Request.context
   v2 Mapping = PV1-19
   w5 = context
 
@@ -221,6 +233,7 @@
   Definition = The period of time within which the services identified in the referral/transfer of care is specified or required to occur
   Requirements = Use cases: (1) to indicate that the requested service is not to happen before a specified date, and saving the start date in Period.start; (2) to indicate that the requested service must happen before a specified date, and saving the end date in Period.end; (3) to indicate that the requested service must happen during the specified dates (\"start\" and \"end\" values).
   Comments = When the occurrenceDateTime is used, then it is indicating that the requested service must happen before the specified date
+  Workflow Mapping = Request.occurrence[x]
   v2 Mapping = OBR-7/OBR-8
   w5 = when.planned
 
@@ -233,6 +246,7 @@
   Type = dateTime
   Short Name = Date of creation/activation
   Definition = Date/DateTime of creation for draft requests and date of activation for active requests
+  Workflow Mapping = Request.authoredOn
   v2 Mapping = RF1-7 / RF1-9?
   w5 = when.recorded
 
@@ -243,6 +257,7 @@
   Summary = Y
   Short Name = Who/what is requesting service
   Definition = The individual who initiated the request and has responsibility for its activation
+  Workflow Mapping = Request.requester
   RIM Mapping = .participation[typeCode=AUT].role
 
  -- Row 17 -----------------------------------
@@ -252,6 +267,7 @@
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
   Short Name = Individual making the request
   Definition = The device, practitioner, etc. who initiated the request
+  Workflow Mapping = Request.requester.agent
   RIM Mapping = .player
   w5 = who.author
 
@@ -264,6 +280,7 @@
   Short Name = Organization agent is acting for
   Definition = The organization the device or practitioner was acting on behalf of
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  Workflow Mapping = Request.requester.onBehalfOf
   RIM Mapping = .scoper
 
  -- Row 19 -----------------------------------
@@ -274,6 +291,7 @@
   Binding = ReferralSpecialty
   Short Name = The clinical specialty (discipline) that the referral is requested for
   Definition = Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology
+  Workflow Mapping = Request.performerType
   v2 Mapping = RF1-3
 
  -- Row 20 -----------------------------------
@@ -285,6 +303,7 @@
   Short Name = Receiver of referral / transfer of care request
   Definition = The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request
   Comments = There will be a primary receiver. But the request can be received by any number of \"copied to\" providers or organizations
+  Workflow Mapping = Request.Performer
   v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT
   w5 = who.actor
 
@@ -308,6 +327,7 @@
   Binding = ReferralReason
   Short Name = Reason for referral / transfer of care request
   Definition = Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management
+  Workflow Mapping = Request.reasonCod
   v2 Mapping = RF1-10
   w5 = why
 
@@ -318,6 +338,7 @@
   Type = Reference(Condition|Observation)
   Short Name = Why is service needed?
   Definition = Indicates another resource whose existence justifies this request
+  Workflow Mapping = Request.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
@@ -336,6 +357,7 @@
   Type = Reference (Any)
   Short Name = Additonal information to support referral or transfer of care request
   Definition = Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan
+  Workflow Mapping = Request.supportingInformation
 
  -- Row 26 -----------------------------------
   Element = ReferralRequest.note
@@ -343,6 +365,7 @@
   Type = Annotation
   Short Name = Comments made about referral request
   Definition = Comments made about the referral request by any of the participants.
+  Workflow Mapping = Request.note
 
  -- Row 27 -----------------------------------
   Element = ReferralRequest.relevantHistory
@@ -352,6 +375,7 @@
   Short Name = Key events in history of request
   Definition = Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
   Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
+  Workflow Mapping = Request.relevantHistory
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================
