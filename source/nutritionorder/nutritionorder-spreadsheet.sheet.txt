@@ -197,7 +197,7 @@
   Type = Reference(Patient)
   Short Name = The person who requires the diet, formula or nutritional supplement
   Definition = The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
-  Workflow Mapping = Request.subject.reference(Patient)
+  Workflow Mapping = Request.subject
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = 2/4/2015 EH: [#3707] change subject to patient
   w5 = who.focus
@@ -208,7 +208,7 @@
   Type = Reference(Encounter)
   Short Name = The encounter associated with this nutrition order
   Definition = An encounter that provides additional information about the healthcare context in which this request is made
-  Workflow Mapping = Request.context.reference(Encounter)
+  Workflow Mapping = Request.context
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
@@ -308,6 +308,7 @@
   Binding = OralDiet
   Short Name = Type of oral diet or diet restrictions that describe what can be consumed orally
   Definition = The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.
+  Workflow Mapping = Request.code
   RIM Mapping = .code
   Committee Notes = renamed from .code to .type for consistency
   w5 = what
@@ -319,6 +320,7 @@
   Type = Timing
   Short Name = Scheduled frequency of diet
   Definition = The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present.
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = .expectedUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181
 
@@ -328,6 +330,7 @@
   UML = down
   Short Name = Required  nutrient modifications
   Definition = Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
+  Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind
 
  -- Row 18 -----------------------------------
@@ -337,6 +340,7 @@
   Binding = NutrientModifier
   Short Name = Type of nutrient that is being modified
   Definition = The nutrient that is being modified such as carbohydrate or sodium.
+  Workflow Mapping = Request.code
   RIM Mapping = .code
   w5 = what
 
@@ -365,6 +369,7 @@
   Short Name = Code to indicate how to alter the texture of the foods, e.g. pureed
   Definition = Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
   Comments = Coupled with the foodType (Meat)
+  Workflow Mapping = Request.code
   RIM Mapping = .code
 
  -- Row 22 -----------------------------------
@@ -375,6 +380,7 @@
   Short Name = Concepts that are used to identify an entity that is ingested for nutritional purposes
   Definition = The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.
   Comments = Coupled with the textureModifier; could be (All Foods)
+  Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code
 
  -- Row 23 -----------------------------------
@@ -384,6 +390,7 @@
   Binding = FluidConsistencyType
   Short Name = The required consistency of fluids and liquids provided to the patient
   Definition = The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
+  Workflow Mapping = Request.code
   RIM Mapping = .code  (Not differentiated from dietTextureModificationType in HL7 v3)
 
  -- Row 24 -----------------------------------
@@ -394,6 +401,7 @@
   Short Name = Instructions or additional information about the oral diet
   Definition = Free text or additional instructions or information pertaining to the oral diet.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
+  Workflow Mapping = Request.note|Request.supportingInfo
   RIM Mapping = .text
 
  -- Row 25 -----------------------------------
@@ -413,6 +421,7 @@
   Binding = SupplementType
   Short Name = Type of supplement product requested
   Definition = The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement
+  Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalSupplementType)
   w5 = what
 
@@ -422,6 +431,7 @@
   Type = string
   Short Name = Product or brand name of the nutritional supplement
   Definition = The product or brand name of the nutritional supplement such as \"Acme Protein Shake\".
+  Workflow Mapping = Request.code
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
@@ -432,6 +442,7 @@
   Type = Timing
   Short Name = Scheduled frequency of supplement
   Definition = The time period and frequency at which the supplement(s) should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present.
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = .effectiveTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181
 
@@ -451,6 +462,7 @@
   Short Name = Instructions or additional information about the oral supplement
   Definition = Free text or additional instructions or information pertaining to the oral supplement.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
+  Workflow Mapping = Request.note|Request.supportingInfo
   RIM Mapping = .text
   Committee Notes = 2/28/2015:  pre-applied #5675
 
@@ -471,6 +483,7 @@
   Binding = EnteralFormulaType
   Short Name = Type of enteral or infant formula
   Definition = The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.
+  Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalFormulaType)
   w5 = what
 
@@ -480,6 +493,7 @@
   Type = string
   Short Name = Product or brand name of the enteral or infant formula
   Definition = The product or brand name of the enteral or infant formula product such as \"ACME Adult Standard Formula\".
+  Workflow Mapping = Request.code
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
@@ -490,6 +504,7 @@
   Binding = EnteralFormulaAdditiveType
   Short Name = Type of modular component to add to the feeding
   Definition = Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.
+  Workflow Mapping = Request.code
   RIM Mapping = N/A (not differentiated from NutritionalFormulaType in HL7 v3)
   w5 = what
 
@@ -499,6 +514,7 @@
   Type = string
   Short Name = Product or brand name of the modular additive
   Definition = The product or brand name of the type of modular component to be added to the formula.
+  Workflow Mapping = Request.code
   RIM Mapping = N/A
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
@@ -536,6 +552,7 @@
   Type = Timing
   Short Name = Scheduled frequency of enteral feeding
   Definition = The time period and frequency at which the enteral formula should be delivered to the patient
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = .effectiveUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type, #6101,#6100, 6111
 
@@ -583,6 +600,7 @@
   Short Name = Formula feeding instructions expressed as text
   Definition = Free text formula administration, feeding instructions or additional instructions or information.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
+  Workflow Mapping = Request.note|Request.supportingInfo
   RIM Mapping = N/A
   Committee Notes = 8177, 6102
 
