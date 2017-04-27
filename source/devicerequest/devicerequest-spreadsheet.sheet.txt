@@ -64,6 +64,7 @@
   Type = Identifier
   Short Name = External Request identifier
   Definition = Identifiers assigned to this order by the orderer or by the receiver.
+  Workflow Mapping = Request.identifier
   v2 Mapping = ORC.2, ORC.3
   RIM Mapping = .identifier
   QUICK mapping = ClinicalStatement.identifier
@@ -77,6 +78,7 @@
   Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
+  Workflow Mapping = Request.definition
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
@@ -87,6 +89,7 @@
   Type = Reference(Any)
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
+  Workflow Mapping = Request.basedOn
   v2 Mapping = ORC.8 (plus others)
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
   QUICK mapping = Proposal.prnReason.reason
@@ -99,6 +102,7 @@
   Type = Reference(Any)
   Short Name = What request replaces
   Definition = The request takes the place of the referenced completed or terminated request(s)
+  Workflow Mapping = Request.replaces
   v2 Mapping = Handled by message location of ORC (ORC.1=RO or RU)
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
 
@@ -109,6 +113,7 @@
   Type = Identifier
   Short Name = Identifier of composite request
   Definition = Composite request this is part of
+  Workflow Mapping = Request.groupIdentifier
   v2 Mapping = ORC.4
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier
 
@@ -122,6 +127,7 @@
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the request.
   Comments = This element is labeled as a modifier because the status contains the codes cancelled and entered-in-error that mark the request as not currently valid
+  Workflow Mapping = Request.status
   v2 Mapping = ORC.5
   RIM Mapping = .status
   QUICK mapping = Action.currentStatus
@@ -137,6 +143,7 @@
   Binding = RequestIntent
   Short Name = proposal | plan | original-order | encoded | reflex-order
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
+  Workflow Mapping = Request.intent
   v2 Mapping = N/A
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   w5 = class
@@ -149,6 +156,7 @@
   Type = code
   Binding = RequestPriority
   Short Name = Indicates how quickly the {{title}} should be addressed with respect to other requests
+  Workflow Mapping = Request.priority
   v2 Mapping = TQ1.9
   RIM Mapping = .priorityCode
   Default Value = If missing, normal priority
@@ -162,6 +170,7 @@
   Binding = DeviceRequestCode
   Short Name = Device requested
   Definition = The details of the device to be used.
+  Workflow Mapping = Request.code
   v2 Mapping = Varies by domain
   RIM Mapping = .code
   QUICK mapping = DeviceUse.device
@@ -175,6 +184,7 @@
   Type = Reference(Patient|Group|Location|Device)
   Short Name = Focus of request
   Definition = The patient who will use the device.
+  Workflow Mapping = Request.subject
   v2 Mapping = Accompanying PID segment
   RIM Mapping = .participation[typeCode=SBJ].role
   QUICK mapping = ClinicalStatement.subject
@@ -188,6 +198,7 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or Episode motivating request
   Definition = An encounter that provides additional context in which this request is made.
+  Workflow Mapping = Request.context
   v2 Mapping = Accompanying PV1
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   QUICK mapping = ClinicalStatement.encounter
@@ -201,6 +212,7 @@
   Type = dateTime| Period| Timing
   Short Name = Desired time or schedule for use
   Definition = The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
+  Workflow Mapping = Request.occurrence[x]
   v2 Mapping = Accompanying TQ1/TQ2 segments
   RIM Mapping = .effectiveTime
   QUICK mapping = DeviceUse.applicationSchedule
@@ -214,6 +226,7 @@
   Type = dateTime
   Short Name = When recorded
   Definition = When the request transitioned to being actionable
+  Workflow Mapping = Request.authoredOn
   v2 Mapping = ORC.9
   RIM Mapping = .participation[typeCode=AUT].time
   QUICK mapping = ClinicalStatement.statementDateTime
@@ -226,6 +239,7 @@
   Summary = Y
   Short Name = Who/what is requesting diagnostics
   Definition = The individual who initiated the request and has responsibility for its activation
+  Workflow Mapping = Request.requester
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
 
@@ -236,6 +250,7 @@
   Type = Reference(Device|Practitioner|Organization)
   Short Name = Individual making the request
   Definition = The device, practitioner, etc. who initiated the request
+  Workflow Mapping = Request.requester.agent
   v2 Mapping = ORC.12
   RIM Mapping = .player
   w5 = who.author
@@ -248,6 +263,7 @@
   Short Name = Organization agent is acting for
   Definition = The organization the device or practitioner was acting on behalf of
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  Workflow Mapping = Request.requester.onBehalfOf
   v2 Mapping = N/A
   RIM Mapping = .scoper
 
@@ -259,6 +275,7 @@
   Binding = DeviceRequestParticipantRole
   Short Name = Fille role
   Definition = Desired type of performer for doing the diagnostic testing.
+  Workflow Mapping = Request.performerType
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   w5 = who.actor
@@ -270,6 +287,7 @@
   Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
   Short Name = Requested Filler
   Definition = The desired perfomer for doing the diagnostic testing.
+  Workflow Mapping = Request.performer
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
@@ -282,6 +300,7 @@
   Binding = DeviceRequestReason
   Short Name = Coded Reason for request
   Definition = Reason or justification for the use of this device.
+  Workflow Mapping = Request.reasonCode
   v2 Mapping = ORC.16
   RIM Mapping = .reasonCode
   QUICK mapping = Action.indication.reason
@@ -295,6 +314,7 @@
   Type = Reference(Any)
   Short Name = Linked Reason for request
   Definition = Reason or justification for the use of this device.
+  Workflow Mapping = Request.reasonReference
   v2 Mapping = ORC.16
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
@@ -306,6 +326,7 @@
   Short Name = Additional clinical information
   Definition = Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject\'s the device will be used ( i.e. the target site).
   Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
+  Workflow Mapping = Request.supportingInfo
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
@@ -315,6 +336,7 @@
   Type = Annotation
   Short Name = Notes or comments
   Definition = Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
+  Workflow Mapping = Request.note
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
   QUICK mapping = ClinicalStatement.additionalText
@@ -327,6 +349,7 @@
   Short Name = Request provenance
   Definition = Key events in the history of the request.
   Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
+  Workflow Mapping = Request.relevantHistory
   v2 Mapping = N/A
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
