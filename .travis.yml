@@ -23,7 +23,4 @@ before_install:
 after_success:
   - cd publish
   - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - tar czf - * | ssh build.fhir.org "mkdir -p /var/www/uploading/$TRAVIS_BUILD_ID && cd /var/www/uploading/$TRAVIS_BUILD_ID && ((while true; do sleep 10; du -hs .; done) & tar xzf - && date --iso-8601 > /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && kill %1)"
-  - ssh build.fhir.org "test -e /var/www/uploading/$TRAVIS_BUILD_ID/done.txt && mv /var/www/build.fhir.org /var/www/replaced_by_$TRAVIS_BUILD_ID && mv /var/www/uploading/$TRAVIS_BUILD_ID /var/www/build.fhir.org && rm -rf /var/www/replaced_by_$TRAVIS_BUILD_ID"
-  - echo -e "Host 35.185.32.255\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - tar czf - * | ssh -p 2222 35.185.32.255 ./publish
+  - tar czf - * | ssh -p 2222 build.fhir.org ./publish
