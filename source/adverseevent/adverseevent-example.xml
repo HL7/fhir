@@ -9,12 +9,15 @@
   </identifier>
 
   <!-- this was an actual adverse event, not just a potential one -->
-  <kind value="AdverseEvent"/>
+  <actuality value="AE"/>
+
+  <!-- high level categorision. The "event" below will say more -->
+  <category value="ProductUseError"/>
   
   <!-- more precise details of the event -->
   <event>
     <coding>
-      <!-- example uses SNOMED CT. Other likely possibilitues incluide MedDRA -->
+      <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
       <system value="http://snomed.info/sct"/>
       <code value="304386008"/>
       <display value="O/E - itchy rash"/>

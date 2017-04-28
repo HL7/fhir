@@ -2,95 +2,99 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = AdverseEventKind
+  Binding Name = AdverseEventActuality
   Binding = code list
-  Reference = #adverse-event-kind
-  Definition = Overall categorization of the event, e.g. real or potential
+  Reference = #adverse-event-actuality
+  Definition = Overall nature of the event, e.g. real or potential
   Conformance = required
 
  -- Row 2 -----------------------------------
+  Binding Name = AdverseEventCategory
+  Binding = code list
+  Reference = #adverse-event-category
+  Definition = Overall categorization of the event, e.g. product related or situational
+  Conformance = required
+
+ -- Row 3 -----------------------------------
   Binding Name = AdverseEventType
   Binding = value set
   Reference = valueset-adverse-event-type
   Definition = Detailed type of event
   Conformance = example
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = AdverseEventOutcome
   Binding = code list
   Reference = #adverse-event-outcome
   Definition = TODO (and should this be required?)
   Conformance = required
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = AdverseEventSeriousness
   Binding = code list
   Reference = #adverse-event-seriousness
   Definition = Overall seriousness of this event for the patient
   Conformance = example
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = AdverseEventCausalityAssessment
   Binding = code list
   Reference = #adverse-event-causality-assess
   Definition = TODO
   Conformance = example
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = AdverseEventCausalityMethod
   Binding = code list
   Reference = #adverse-event-causality-method
   Definition = TODO
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = AdverseEventSeverity
   Binding = code list
   Reference = #adverse-event-severity
   Definition = The severity of the adverse event itself, in direct relation to the subject
   Conformance = required
 
-=== Sheet adverse-event-kind =====================================
+=== Sheet adverse-event-actuality =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = AdverseEvent
+  Code = AE
   Display = Adverse Event
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = SeriousAdverseEvent
-  Display = Serious Adverse Event
+  Code = PAE
+  Display = Potential Adverse Event
 
- -- Row 3 -----------------------------------
-  Id = 3
+=== Sheet adverse-event-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
   Code = ProductProblem
   Display = Product Problem
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 2 -----------------------------------
+  Id = 2
   Code = ProductUseError
   Display = Product Use Error
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = MedicalDeviceUseError
   Display = Medical Device Use Error
 
- -- Row 6 -----------------------------------
-  Id = 6
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = ProblemDifferentManufacturer
   Display = Problem with Different Manufacturer of Same Medicine
 
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = NearMiss
-  Display = Near Miss
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = UnsafeCondition
-  Display = Unsafe Condition
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = UnsafePhysicalEnvironment
+  Display = Unsafe Physical Environment
 
 === Sheet adverse-event-outcome =====================================
 
@@ -273,16 +277,25 @@
   Definition = The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itsefl is not appropriate.
 
  -- Row 3 -----------------------------------
-  Element = AdverseEvent.kind
+  Element = AdverseEvent.actuality
   Card. = 1..1
   Is Modifier = y
   Type = code
-  Binding = AdverseEventKind
-  Short Name = AdverseEvent | SeriousAdverseEvent | ProductProblem | ProductUseError | MedicalDeviceUseError | ProblemDifferentManufacturer | NearMiss | UnsafeCondition
-  Definition = The type of event, important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
+  Binding = AdverseEventActuality
+  Short Name = AE | PAE
+  Definition = Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
   w5 = class
 
  -- Row 4 -----------------------------------
+  Element = AdverseEvent.category
+  Card. = 0..1
+  Type = code
+  Binding = AdverseEventCategory
+  Short Name = ProductProblem | ProductUseError | MedicalDeviceUseError | ProblemDifferentManufacturer | UnsafePhysicalEnvironment
+  Definition = The overall type of event, intended for search and filtering purposes.
+  w5 = class
+
+ -- Row 5 -----------------------------------
   Element = AdverseEvent.event
   Card. = 0..1
   Type = CodeableConcept
@@ -291,7 +304,7 @@
   Definition = This element defines the specific type of event that occurred or that was prevented from occurring.
   w5 = what
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = AdverseEvent.subject
   Card. = 0..1
   Aliases = patient
@@ -300,7 +313,7 @@
   Definition = This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
   w5 = who
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = AdverseEvent.date
   Card. = 0..1
   Type = dateTime
@@ -308,21 +321,21 @@
   Definition = The date (and perhaps time) when the adverse event occurred
   w5 = when.init
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = AdverseEvent.resultingCondition
   Card. = 0..*
   Type = Reference(Condition)
   Short Name = Effect on the subject due to this event
   Definition = Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical)
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = AdverseEvent.location
   Card. = 0..1
   Type = Reference(Location)
   Short Name = Location where adverse event occurred
   Definition = The information about where the adverse event occurred.
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = AdverseEvent.seriousness
   Card. = 0..1
   Type = CodeableConcept
@@ -330,7 +343,7 @@
   Short Name = Seriousness of the event
   Definition = Assessment whether this event was of real importance
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = AdverseEvent.severity
   Card. = 0..1
   Type = CodeableConcept
@@ -338,7 +351,7 @@
   Short Name = Mild | Moderate | Severe
   Definition = Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash may not be serious, but a mild heart problem is.
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AdverseEvent.outcome
   Card. = 0..1
   Type = CodeableConcept
@@ -346,7 +359,7 @@
   Short Name = resolved | recovering | ongoing | resolvedWithSequelae | fatal | unknown
   Definition = Describes the type of outcome from the adverse event
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = AdverseEvent.recorder
   Card. = 0..1
   Type = Reference(Patient|Practitioner|RelatedPerson)
@@ -354,21 +367,21 @@
   Definition = Information on who recorded the adverse event.  May be the patient or a practitioner.
   w5 = who.author
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = AdverseEvent.eventParticipant
   Card. = 0..1
   Type = Reference (Practitioner|Device)
   Short Name = Who  was involved in the adverse event or the potential adverse event
   Definition = Parties that may or should contribute or have contributed information to the Act. Such information includes information leading to the decision to perform the Act and how to perform the Act (e.g. consultant), information that the Act itself seeks to reveal (e.g. informant of clinical history), or information about what Act was performed (e.g. informant witness).
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = AdverseEvent.description
   Card. = 0..1
   Type = string
   Short Name = Description of the adverse event
   Definition = Describes the adverse event in text
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = AdverseEvent.suspectEntity
   Card. = 0..*
   UML = 400;0
@@ -376,7 +389,7 @@
   Short Name = The suspected agent causing the adverse event
   Definition = Describes the entity that is suspected to have caused the adverse event
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = AdverseEvent.suspectEntity.instance
   Card. = 1..1
   Aliases = Substance or Medication or Device
@@ -384,7 +397,7 @@
   Short Name = Refers to the specific entity that caused the adverse event
   Definition = Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality
   Card. = 0..*
   Type = Backbone Element
@@ -392,7 +405,7 @@
   Definition = Information on the possible cause of the event
   To Do = is this meant to be a backbone element?
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality.assessment
   Card. = 0..1
   Type = CodeableConcept
@@ -400,38 +413,38 @@
   Short Name = Assessment of if the entity caused the event
   To Do = what is difference between assessment and result?
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality.productRelatedness
   Card. = 0..1
   Type = string
   Short Name = AdverseEvent.suspectEntity.causalityProductRelatedness
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality.author
   Card. = 0..1
   Type = Reference (Practitioner|PractitionerRole)
   Short Name = AdverseEvent.suspectEntity.causalityAuthor
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality.method
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdverseEventCausalityMethod
   Short Name = ProbabilityScale | Bayesian | Checklist
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = AdverseEvent.subjectMedicalHistory
   Card. = 0..*
   Type = Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure)
   Short Name = AdverseEvent.subjectMedicalHistory
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = AdverseEvent.referenceDocument
   Card. = 0..*
   Type = Reference(DocumentReference)
   Short Name = AdverseEvent.referenceDocument
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = AdverseEvent.study
   Card. = 0..*
   Type = Reference(ResearchStudy)
@@ -440,56 +453,61 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = kind
+  Name = actuality
   Type = token
-  Path = AdverseEvent.kind
+  Path = AdverseEvent.actuality
 
  -- Row 2 -----------------------------------
+  Name = category
+  Type = token
+  Path = AdverseEvent.category
+
+ -- Row 3 -----------------------------------
   Name = event
   Type = token
   Path = AdverseEvent.event
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = location
   Type = reference
   Path = AdverseEvent.location
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = date
   Type = date
   Path = AdverseEvent.date
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = resultingcondition
   Type = reference
   Path = AdverseEvent.resultingCondition
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = substance
   Type = reference
   Path = AdverseEvent.suspectEntity.instance
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = seriousness
   Type = token
   Path = AdverseEvent.seriousness
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = severity
   Type = token
   Path = AdverseEvent.severity
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = recorder
   Type = reference
   Path = AdverseEvent.recorder
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = subject
   Type = reference
   Path = AdverseEvent.subject
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = study
   Type = reference
   Path = AdverseEvent.study
