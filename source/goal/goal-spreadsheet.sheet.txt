@@ -237,7 +237,7 @@
 
  -- Row 7 -----------------------------------
   Element = Goal.subject
-  Card. = 0..1
+  Card. = 1..1
   Summary = Y
   Type = Reference(Patient | Group | Organization)
   Short Name = Who this goal is intended for
@@ -245,6 +245,7 @@
   Requirements = Subject is optional to support annonymized reporting
   v2 Mapping = PID-3-patient ID list
   RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
+  Committee Notes = Goal can exist out of context of care plan, so subject is needed per GF#12776
   w5 = who.focus
 
  -- Row 8 -----------------------------------

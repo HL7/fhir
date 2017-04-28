@@ -159,6 +159,7 @@
   Short Name = A healthcare consumer\'s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
   Definition = A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
   Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
+  Workflow Mapping = Event
   RIM Mapping = FinancialConsent
   w5 = infrastructure.information
 
@@ -170,6 +171,7 @@
   Short Name = Identifier for this record (external references)
   Definition = Unique identifier for this copy of the Consent Statement
   Comments = This identifier is identifies this copy of the consent. Where this identifier is also used elsewhere as the identifier for a consent record (e.g. a CDA consent document) then the consent details are expected to be the same
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   Example = Local eCMS identifier
   w5 = id
@@ -185,6 +187,7 @@
   Definition = Indicates the current state of this consent
   Requirements = The Consent Directive that is pointed to might be in various lifecycle states, e.g., a revoked Consent Directive
   Comments = This element is labeled as a modifier because the status contains the codes rejected and entered-in-error that mark the Consent as not currently valid
+  Workflow Mapping = Event.status
   v2 Mapping = HL7 Table 0498 - Consent Status
   RIM Mapping = .statusCode
   w5 = status
@@ -197,6 +200,7 @@
   Binding = ConsentCategory
   Short Name = Classification of the consent statement - for indexing/retrieval
   Definition = A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements
+  Workflow Mapping = Event.code
   RIM Mapping = CNTRCT
   w5 = class
 
@@ -208,6 +212,7 @@
   Short Name = Who the consent applies to
   Definition = The patient/healthcare consumer to whom this consent applies.
   Comments = Commonly, the patient the consent pertains to is the author, but for young and old people, it may be some other person
+  Workflow Mapping = Event.subject
   RIM Mapping = Role
   w5 = who.focus
 
@@ -231,6 +236,7 @@
   Short Name = When this Consent was created or indexed
   Definition = When this  Consent was issued / created / indexed
   Comments = This is not the time of the original consent, but the time that this statement was made or derived
+  Workflow Mapping = Event.occurrence
   RIM Mapping = FinancialConsent effectiveTime
   w5 = when.recorded
 
@@ -243,6 +249,7 @@
   Short Name = Who is agreeing to the policy and exceptions
   Definition = Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions.
   Comments = Commonly, the patient the consent pertains to is the consentor, but particularly for young and old people, it may be some other person - e.g. a legal guardian
+  Workflow Mapping = Event.performer
   w5 = who.actor
 
  -- Row 9 -----------------------------------
@@ -300,6 +307,7 @@
   Type = Reference(Organization)
   Short Name = Custodian of the consent
   Definition = The organization that manages the consent, and the framework within which it is executed
+  Workflow Mapping = Event.performer.onBehalfOf
   w5 = who.witness
 
  -- Row 15 -----------------------------------

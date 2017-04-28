@@ -2,8 +2,8 @@
 <project basedir="." default="build" name="org.hl7.fhir.tools">
   <property environment="env"/>
   <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
-  <property name="org.hl7.fhir.implementation.location" value="../../../implementations/java/org.hl7.fhir.r4"/>
-  <property name="org.hl7.fhir.implementation.location" value="../../../implementations/java/org.hl7.fhir.dstu3"/>
+  <property name="org.hl7.fhir.implementation4.location" value="../../../implementations/java/org.hl7.fhir.r4"/>
+  <property name="org.hl7.fhir.implementation3.location" value="../../../implementations/java/org.hl7.fhir.dstu3"/>
   <property name="org.hl7.fhir.implementation2.location" value="../../../implementations/java/org.hl7.fhir.dstu2"/>
   <property name="org.hl7.fhir.implementation14.location" value="../../../implementations/java/org.hl7.fhir.dstu2016may"/>
   <property name="org.hl7.fhir.convertors.location" value="../../../implementations/java/org.hl7.fhir.convertors"/>
@@ -18,8 +18,11 @@
   <path id="org.hl7.fhir.rdf.classpath">
     <pathelement location="${org.hl7.fhir.rdf.location}/bin"/>
   </path>
-  <path id="org.hl7.fhir.implementation.classpath">
-    <pathelement location="${org.hl7.fhir.implementation.location}/bin"/>
+  <path id="org.hl7.fhir.implementation4.classpath">
+    <pathelement location="${org.hl7.fhir.implementation4.location}/bin"/>
+  </path>
+  <path id="org.hl7.fhir.implementation3.classpath">
+    <pathelement location="${org.hl7.fhir.implementation3.location}/bin"/>
   </path>
   <path id="org.hl7.fhir.implementation2.classpath">
     <pathelement location="${org.hl7.fhir.implementation2.location}/bin"/>
@@ -36,7 +39,8 @@
   <path id="org.hl7.fhir.tools.classpath">
     <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
-    <path refid="org.hl7.fhir.implementation.classpath"/>
+    <path refid="org.hl7.fhir.implementation4.classpath"/>
+    <path refid="org.hl7.fhir.implementation3.classpath"/>
     <path refid="org.hl7.fhir.implementation2.classpath"/>
     <path refid="org.hl7.fhir.implementation14.classpath"/>
     <path refid="org.hl7.fhir.convertors.classpath"/>
@@ -49,7 +53,8 @@
   </target>
   <target depends="clean" name="cleanall">
     <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="clean"/>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation4.location}" inheritAll="false" target="clean"/>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation3.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation2.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation14.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.convertors.location}" inheritAll="false" target="clean"/>
@@ -63,7 +68,12 @@
         <propertyref name="build.compiler"/>
       </propertyset>
     </ant>
-    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="build-project">
+    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation4.location}" inheritAll="false" target="build-project">
+      <propertyset>
+        <propertyref name="build.compiler"/>
+      </propertyset>
+    </ant>
+    <ant antfile="build.xml" dir="${org.hl7.fhir.implementation3.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
       </propertyset>
