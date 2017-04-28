@@ -939,7 +939,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     else if (version.equals("1.0.2"))
       source = "http://hl7.org/fhir/DSTU2/igpack.zip";
     else
-      throw new FHIRException("Unsupported version "+version);
+      throw new FHIRException("Unsupported FHIR version "+version);
 
     String fn = "";
     if (new File("c:\\temp\\igpack\\igpack.zip").exists())

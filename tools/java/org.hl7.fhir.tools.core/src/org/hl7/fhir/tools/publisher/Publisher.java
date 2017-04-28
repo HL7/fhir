@@ -2611,7 +2611,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-json.zip");
-      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", "expansions.json"});
+      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json"});
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-ttl.zip");
