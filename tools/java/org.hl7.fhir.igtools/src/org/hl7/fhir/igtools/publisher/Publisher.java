@@ -321,7 +321,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generate();
     long endTime = System.nanoTime();
     clean();
-    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter().generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html")));
+    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html")));
 
     if (watch) {
       first = false;
@@ -338,7 +338,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           generate();
           clean();
           endTime = System.nanoTime();
-          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter().generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html")));
+          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html")));
         }
       }
     } else
@@ -2606,16 +2606,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void generateDataFile() throws IOException {
+  private void generateDataFile() throws IOException, FHIRException {
     JsonObject data = new JsonObject();
     data.addProperty("path", specPath);
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("igId", sourceIg.getId());
     data.addProperty("igName", sourceIg.getName());
     data.addProperty("errorCount", getErrorCount());
-    data.addProperty("version", Constants.VERSION);
-    data.addProperty("revision", Constants.REVISION);
-    data.addProperty("versionFull", Constants.VERSION+"-"+Constants.REVISION);
+    data.addProperty("version", specMaps.get(0).getVersion());
+    data.addProperty("revision", specMaps.get(0).getBuild());
+    data.addProperty("versionFull", specMaps.get(0).getVersion()+"-"+specMaps.get(0).getBuild());
+    data.addProperty("toolingVersion", Constants.VERSION);
+    data.addProperty("toolingRevision", Constants.REVISION);
+    data.addProperty("toolingVersionFull", Constants.VERSION+"-"+Constants.REVISION);
     data.addProperty("totalFiles", fileList.size());
     data.addProperty("processedFiles", changeList.size());
     data.addProperty("genDate", genTime());

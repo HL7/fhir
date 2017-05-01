@@ -26,9 +26,11 @@ import org.stringtemplate.v4.ST;
 public class ValidationPresenter extends TranslatingUtilities implements Comparator<FetchedFile> {
 
   private static final String INTERNAL_LINK = "internal";
+  private String statedVersion;
 
-  public ValidationPresenter() {
+  public ValidationPresenter(String statedVersion) {
     super();
+    this.statedVersion = statedVersion;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -122,7 +124,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "</head>\r\n"+
       "<body style=\"margin: 20px; background-color: #ffffff\">\r\n"+
       " <h1>Validation Results for $title$</h1>\r\n"+
-      " <p>Generated $time$. FHIR version $version$</p>\r\n"+
+      " <p>Generated $time$. FHIR version $version$ for $igversion$</p>\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
       "     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Information messages &amp; Warnings</b></td>\r\n"+
@@ -163,7 +165,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private final String headerTemplateText = 
       "$title$ : Validation Results\r\n"+
       "=========================================\r\n\r\n"+
-      "Generated $time$. FHIR version $version$\r\n\r\n";
+      "Generated $time$. FHIR version $version$ for $igversion$\r\n\r\n";
   
   private final String summaryTemplateText = 
       " $filename$ : $errcount$ / $other$\r\n";
@@ -187,6 +189,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genHeader(String title) {
     ST t = template(headerTemplate);
     t.add("version", Constants.VERSION);
+    t.add("igversion", statedVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     return t.render();
@@ -195,6 +198,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genHeaderTxt(String title) {
     ST t = template(headerTemplateText);
     t.add("version", Constants.VERSION);
+    t.add("igversion", statedVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     return t.render();
@@ -203,6 +207,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genEnd() {
     ST t = template(endTemplate);
     t.add("version", Constants.VERSION);
+    t.add("igversion", statedVersion);
     t.add("time", new Date().toString());
     return t.render();
   }
@@ -210,6 +215,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genEndTxt() {
     ST t = template(endTemplateText);
     t.add("version", Constants.VERSION);
+    t.add("igversion", statedVersion);
     t.add("time", new Date().toString());
     return t.render();
   }
@@ -217,6 +223,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genFooter(String title) {
     ST t = template(footerTemplate);
     t.add("version", Constants.VERSION);
+    t.add("igversion", statedVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     return t.render();
@@ -225,6 +232,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private String genFooterTxt(String title) {
     ST t = template(footerTemplateText);
     t.add("version", Constants.VERSION);
+    t.add("igversion", statedVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
     return t.render();

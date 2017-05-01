@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -71,8 +72,12 @@ public class SpecMapManager {
     TextFile.stringToFile(json, filename);    
   }
 
-  public String getVersion() throws Exception {
+  public String getVersion() throws FHIRException {
     return str(spec, "version");
+  }
+
+  public String getBuild() throws FHIRException {
+    return str(spec, "build");
   }
 
   /**
@@ -94,25 +99,25 @@ public class SpecMapManager {
     return strOpt(pages, title);
   }
 
-  private String str(JsonObject obj, String name) throws Exception {
+  private String str(JsonObject obj, String name) throws FHIRException {
     if (!obj.has(name))
-      throw new Exception("Property "+name+" not found");
+      throw new FHIRException("Property "+name+" not found");
     if (!(obj.get(name) instanceof JsonPrimitive))
-      throw new Exception("Property "+name+" not a primitive");
+      throw new FHIRException("Property "+name+" not a primitive");
     JsonPrimitive p = (JsonPrimitive) obj.get(name);
     if (!p.isString())
-      throw new Exception("Property "+name+" not a string");
+      throw new FHIRException("Property "+name+" not a string");
     return p.getAsString();
   }
 
-  private String strOpt(JsonObject obj, String name) throws Exception {
+  private String strOpt(JsonObject obj, String name) throws FHIRException {
     if (!obj.has(name))
       return null;
     if (!(obj.get(name) instanceof JsonPrimitive))
-      throw new Exception("Property "+name+" not a primitive");
+      throw new FHIRException("Property "+name+" not a primitive");
     JsonPrimitive p = (JsonPrimitive) obj.get(name);
     if (!p.isString())
-      throw new Exception("Property "+name+" not a string");
+      throw new FHIRException("Property "+name+" not a string");
     return p.getAsString();
   }
 
