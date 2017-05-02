@@ -381,8 +381,15 @@ public class ValidationEngine {
         res.cntType = FhirFormat.XML; 
       else if (t.getKey().endsWith(".ttl"))
         res.cntType = FhirFormat.TURTLE; 
-      else
-        throw new Exception("Todo: Determining resource type is not yet done");
+      else {
+        String ss = Utilities.stripBOM(new String(t.getValue())).trim();
+        if (ss.startsWith("{"))
+          res.cntType = FhirFormat.JSON; 
+        else if (ss.startsWith("<"))
+          res.cntType = FhirFormat.XML; 
+        else
+          throw new Exception("Unable to determine type of "+t.getKey()+" - does not appear to be either json or xml. Use a file extension (.xml/.json/.ttl) to mark the type explicitly");
+      }
     }
     return res;
   }
