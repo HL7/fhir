@@ -144,6 +144,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		return res;
 	}
 
+  public static SimpleWorkerContext fromDefinitions(Map<String, byte[]> source, IContextResourceLoader loader) throws IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    for (String name : source.keySet()) {
+      res.loadDefinitionItem(name, new ByteArrayInputStream(source.get(name)), loader);
+    }
+    return res;
+  }
 	private void loadDefinitionItem(String name, InputStream stream, IContextResourceLoader loader) throws IOException, FHIRException {
     if (name.endsWith(".xml"))
       loadFromFile(stream, name, loader);

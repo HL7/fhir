@@ -48,7 +48,20 @@ public class TestingUtilities {
       return s;
     throw new Error("FHIR Home directory not configured");
   }
-	
+  
+  // diretory that contains all the US implementation guides
+  public static String us() {
+    if (fixedpath != null)
+     return fixedpath;
+    String s = System.getenv("FHIR_HOME");
+    if (!Utilities.noString(s))
+      return s;
+    s = "C:\\work\\org.hl7.fhir.us";
+    if (new File(s).exists())
+      return s;
+    throw new Error("FHIR US directory not configured");
+  }
+  
   public static String checkXMLIsSame(InputStream f1, InputStream f2) throws Exception {
     String result = compareXml(f1, f2);
     return result;

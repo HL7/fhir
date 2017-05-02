@@ -55,7 +55,7 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
   }
 
   @Override
-  public Resource convert(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  public Resource convertR2(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     if (resource instanceof ValueSet) {
       ValueSet vs = (ValueSet) resource;
       if (vs.hasCompose() && vs.getCompose().getExclude().isEmpty() && vs.getCompose().getInclude().size() == 1 && !vs.getCompose().getInclude().get(0).hasValueSet()) {
@@ -69,6 +69,11 @@ public class DSTU2ValidationConvertor implements VersionConvertorAdvisor40 {
         }
       }
     }   
+    return null;
+  }
+
+  @Override
+  public org.hl7.fhir.dstu3.model.Resource convertR3(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     return null;
   }
 

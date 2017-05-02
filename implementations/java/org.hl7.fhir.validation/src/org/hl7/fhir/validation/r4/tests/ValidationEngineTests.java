@@ -13,7 +13,6 @@ import org.junit.Test;
 public class ValidationEngineTests {
 
   private static final String DEF_TX = "http://tx.fhir.org/r3";
-  private static final String US_CORE_PATH = "C:\\work\\org.hl7.fhir.us\\core\\output";
   
 //  private static final String DEF_TX = "http://local.healthintersections.com.au:960/open";
   public static boolean inbuild;
@@ -60,15 +59,37 @@ public class ValidationEngineTests {
     }
     if (!TestingUtilities.silent)
     System.out.println("Validate patient-example.xml in v1.4.0 version");
-    ValidationEngine ve = new ValidationEngine("C:\\work\\org.hl7.fhir.2016May\\build\\publish", DEF_TX);
+    ValidationEngine ve = new ValidationEngine("C:\\work\\org.hl7.fhir.old\\org.hl7.fhir.2016May\\build\\publish", DEF_TX);
     ve.connectToTSServer(DEF_TX);
     ve.setNoInvariantChecks(true);
-    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.2016May\\build\\publish\\patient-example.xml", null);
+    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.old\\org.hl7.fhir.2016May\\build\\publish\\patient-example.xml", null);
+    int e = errors(op);
+    int w = warnings(op);
+    int h = hints(op);
+    Assert.assertTrue(e == 1);
+    Assert.assertTrue(w == 2);
+    Assert.assertTrue(h == 0);
+    if (!TestingUtilities.silent)
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
+  }
+
+  @Test
+  public void test102() throws Exception {
+    if (inbuild) {
+      Assert.assertTrue(true);
+      return;
+    }
+    if (!TestingUtilities.silent)
+      System.out.println("Validate patient-example.xml in v1.0.2 version");
+    ValidationEngine ve = new ValidationEngine("C:\\work\\org.hl7.fhir.old\\org.hl7.fhir.dstu2\\build\\publish", DEF_TX);
+    ve.connectToTSServer(DEF_TX);
+    ve.setNoInvariantChecks(true);
+    OperationOutcome op = ve.validate("C:\\work\\org.hl7.fhir.old\\org.hl7.fhir.dstu2\\build\\publish\\patient-example.xml", null);
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
     Assert.assertTrue(e == 0);
-    Assert.assertTrue(w == 1);
+    Assert.assertTrue(w == 0);
     Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
@@ -122,18 +143,18 @@ public class ValidationEngineTests {
     ValidationEngine ve = new ValidationEngine(Utilities.path(TestingUtilities.home(),  "publish"), DEF_TX);
     ve.connectToTSServer(DEF_TX);
     if (!TestingUtilities.silent)
-      System.out.println("  .. load IG from " +Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output"));
-    ve.loadIg(Utilities.path(US_CORE_PATH,  "output"));
-    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "guides\\daf2\\output\\Patient-example.xml"), null);
+      System.out.println("  .. load IG from core and daf");
+    ve.loadIg(Utilities.path(TestingUtilities.us(),  "core", "output"));
+    OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.us(),  "core", "examples", "patient-example.xml"), null);
     if (!TestingUtilities.silent)
       for (OperationOutcomeIssueComponent issue : op.getIssue())
         System.out.println("  - "+issue.getDetails());
     int e = errors(op);
     int w = warnings(op);
     int h = hints(op);
-    Assert.assertTrue(e == 2);
+    Assert.assertTrue(e == 0);
     Assert.assertTrue(w == 0);
-    Assert.assertTrue(h == 1);
+    Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
     System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }

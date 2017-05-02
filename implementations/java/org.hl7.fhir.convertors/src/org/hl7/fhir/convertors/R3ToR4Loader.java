@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.hl7.fhir.dstu2.formats.JsonParser;
-import org.hl7.fhir.dstu2.formats.XmlParser;
-import org.hl7.fhir.dstu2.model.Resource;
+import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
@@ -21,7 +21,7 @@ import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.exceptions.FHIRException;
 
-public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdvisor40 {
+public class R3ToR4Loader implements IContextResourceLoader, VersionConvertorAdvisor40 {
 
   private List<CodeSystem> cslist = new ArrayList<>();
   private boolean patchUrls;
@@ -29,12 +29,12 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
   
   @Override
   public Bundle loadBundle(InputStream stream, boolean isJson) throws FHIRException, IOException {
-    Resource r2 = null;
+    Resource r3 = null;
     if (isJson)
-      r2 = new JsonParser().parse(stream);
+      r3 = new JsonParser().parse(stream);
     else
-      r2 = new XmlParser().parse(stream);
-    org.hl7.fhir.r4.model.Resource r4 = new VersionConvertor_10_40(this).convertResource(r2);
+      r3 = new XmlParser().parse(stream);
+    org.hl7.fhir.r4.model.Resource r4 = VersionConvertor_30_40.convertResource(r3);
     Bundle b;
     if (r4 instanceof Bundle)
       b = (Bundle) r4;
@@ -64,7 +64,7 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
       for (BundleEntryComponent be : b.getEntry()) {
         if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
           StructureDefinition sd = (StructureDefinition) be.getResource();
-          sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/DSTU2/"));
+          sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/STU3/"));
           sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("http://hl7.org/fhir"));
         }
       }
@@ -78,11 +78,12 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
   }
 
   @Override
-  public Resource convertR2(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  public Resource convertR3(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     return null;
   }
 
-  public org.hl7.fhir.dstu3.model.Resource convertR3(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  @Override
+  public org.hl7.fhir.dstu2.model.Resource convertR2(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     return null;
   }
 
@@ -103,7 +104,7 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
     return patchUrls;
   }
 
-  public R2ToR4Loader setPatchUrls(boolean patchUrls) {
+  public R3ToR4Loader setPatchUrls(boolean patchUrls) {
     this.patchUrls = patchUrls;
     return this;
   }
@@ -112,7 +113,7 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
     return killPrimitives;
   }
 
-  public R2ToR4Loader setKillPrimitives(boolean killPrimitives) {
+  public R3ToR4Loader setKillPrimitives(boolean killPrimitives) {
     this.killPrimitives = killPrimitives;
     return this;
   }

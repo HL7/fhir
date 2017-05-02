@@ -41,6 +41,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
+import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.r4.elementmodel.Manager;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.formats.JsonParser;
@@ -72,8 +74,12 @@ import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.ValidationProfileSet;
+import org.hl7.fhir.convertors.R2ToR3Loader;
+import org.hl7.fhir.convertors.R2ToR4Loader;
+import org.hl7.fhir.convertors.R3ToR4Loader;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -134,6 +140,7 @@ public class ValidationEngine {
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean doNative;
   private boolean noInvariantChecks;
+  private String version;
 
   private class AsteriskFilter implements FilenameFilter {
     String dir;
@@ -173,10 +180,36 @@ public class ValidationEngine {
   
   private void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadSource(src, "igpack.zip");   
-    context = SimpleWorkerContext.fromDefinitions(source);
+    if (version == null)
+      version = getVersionFromPack(source);
+    context = SimpleWorkerContext.fromDefinitions(source, loaderForVersion());
     context.setExpansionProfile(makeExpProfile());
     fpe = new FHIRPathEngine(context);
     grabNatives(source, "http://hl7.org/fhir");
+  }
+
+  private IContextResourceLoader loaderForVersion() {
+    if (Utilities.noString(version))
+      return null;
+    if (version.equals("1.0.2"))
+      return new R2ToR4Loader();
+    if (version.equals("1.4.0"))
+      return new R3ToR4Loader(); // special case
+    if (version.equals("3.0.1"))
+      return new R3ToR4Loader();    
+    return null;
+  }
+
+  private String getVersionFromPack(Map<String, byte[]> source) {
+    IniFile vi = new IniFile(new ByteArrayInputStream(removeBom(source.get("version.info"))));
+    return vi.getStringProperty("FHIR", "version");
+  }
+
+  private byte[] removeBom(byte[] bs) {
+    if (bs.length > 3 && bs[0] == -17 && bs[1] == -69 && bs[2] == -65)
+      return Arrays.copyOfRange(bs, 3, bs.length);
+    else
+      return bs;
   }
 
   private ExpansionProfile makeExpProfile() {

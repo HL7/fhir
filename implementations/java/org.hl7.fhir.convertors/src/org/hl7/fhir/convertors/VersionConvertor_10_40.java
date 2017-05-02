@@ -2726,7 +2726,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.r4.model.Bundle.BundleLinkComponent t : src.getLink())
       tgt.addLink(convertBundleLinkComponent(t));
     tgt.setFullUrl(src.getFullUrl());
-    org.hl7.fhir.dstu2.model.Resource res = advisor.convert(src.getResource());
+    org.hl7.fhir.dstu2.model.Resource res = advisor.convertR2(src.getResource());
     if (res == null)
       res = convertResource(src.getResource());
     tgt.setResource(res);

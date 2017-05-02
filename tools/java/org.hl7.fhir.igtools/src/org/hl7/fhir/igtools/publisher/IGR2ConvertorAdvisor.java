@@ -15,7 +15,12 @@ public class IGR2ConvertorAdvisor implements VersionConvertorAdvisor40 {
   }
 
   @Override
-  public Resource convert(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+  public Resource convertR2(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
+    return null;
+  }
+
+  @Override
+  public org.hl7.fhir.dstu3.model.Resource convertR3(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
     return null;
   }
 
