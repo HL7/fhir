@@ -2128,7 +2128,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           String uc = ((MetadataResource) r.getResource()).getUrl();
           if (uc != null && !u.equals(uc) && !isListedURLExemption(uc))
             throw new Exception("URL Mismatch "+u+" vs "+uc);
-          if (uc != null && !uc.startsWith(igpkp.getCanonical()))
+          if (uc != null && !u.equals(uc))
             map.path(uc, igpkp.getLinkFor(r));
         }
         map.path(u, igpkp.getLinkFor(r));
