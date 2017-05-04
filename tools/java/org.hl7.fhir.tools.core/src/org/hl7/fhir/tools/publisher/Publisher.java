@@ -3321,7 +3321,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Utilities.copyDirectory(page.getFolders().rootDir + page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getHTMLChecker());
     TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "." + page.getSvnRevision() + "\r\nversion=" + page.getVersion()
         + "\r\nrevision=" + page.getSvnRevision() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
-        Utilities.path(page.getFolders().dstDir, "version.info"));
+        Utilities.path(page.getFolders().dstDir, "version.info"), false);
 
     for (String n : page.getDefinitions().getDiagrams().keySet()) {
       page.log(" ...diagram " + n, LogMessageType.Process);

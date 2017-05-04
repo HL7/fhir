@@ -751,6 +751,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.validation",  "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.validation",  "bin").length()+1, names);
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"tools",           "java", "org.hl7.fhir.igtools",     "bin")), Utilities.path(folders.rootDir, "tools",           "java", "org.hl7.fhir.igtools",     "bin").length()+1, names);
     
+    AddToJar(jar, new File(Utilities.path(folders.rootDir,"publish", "version.info")), Utilities.path(folders.rootDir,"publish").length()+1, names);
     // last, add the igpack:
     AddToJar(jar, new File(packFileName), packFileName.lastIndexOf(File.separatorChar)+1, names);
     jar.close();

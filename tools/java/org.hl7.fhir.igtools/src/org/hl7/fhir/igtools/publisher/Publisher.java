@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -130,6 +131,7 @@ import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.utilities.CSFile;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -3581,7 +3583,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
       }
     } else {
-      System.out.println("FHIR Implementation Guide Publisher ("+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
+      System.out.println("FHIR Implementation Guide Publisher (v"+getCurrentVersion()+", gen-code v"+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
       System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
       Publisher self = new Publisher();
       if (hasParam(args, "-source")) {
@@ -3629,6 +3631,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     System.exit(exitCode);
   }
+
+  private static String getCurrentVersion() {
+    InputStream vis = Publisher.class.getResourceAsStream("version.info");
+    if (vis != null) {
+      IniFile vi = new IniFile(vis);
+      return vi.getStringProperty("FHIR", "version")+"-"+vi.getStringProperty("FHIR", "revision");
+    }
+    return "?? (per svn?)";
+  }
+
 
   private static String toMB(long maxMemory) {
     return Long.toString(maxMemory / (1024*1024));
