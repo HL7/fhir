@@ -102,6 +102,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
   
   protected void copy(SimpleWorkerContext other) {
+    super.copy(other);
     structures.putAll(other.structures);
     systems.addAll(other.systems);
     questionnaire = other.questionnaire;
