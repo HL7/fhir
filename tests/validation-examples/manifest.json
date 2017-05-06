@@ -37,8 +37,12 @@
 				"errors": ["(document) Error parsing JSON: Error parsing JSON source: Unexpected JSON syntax at Line 7 (path=[/_id]) "]
 			},
 			"list-contained-bad.json": {
-				"errorCount": 1,
-				"errors": ["List.subject SHALL have a local reference if the resource is provided inline ( (url: [pat]; ids: [org.hl7.fhir.dstu3.metamodel.Element@2b71e916])) [reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))] "]
+				"errorCount": 3,
+				"errors": [
+          "List: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where(('#'+id in %resource.descendants().reference).not()).empty()]",
+          "List.subject: Unable to resolve resource '#pat'",
+          "List.subject SHALL have a local reference if the resource is provided inline ( (url: [pat]; ids: [org.hl7.fhir.dstu3.metamodel.Element@2b71e916])) [reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))] "
+        ]
 			},
 			"list-contained.json": {
 				"errorCount": 0
@@ -89,7 +93,7 @@
 			},
 			"list-xhtml-syntax.json": {
 				"errorCount": 1,
-				"errors": ["/List/text/div (line 15, col4) Error parsing XHTML: Malformed XHTML: Found "</pa>" expecting "</p>" at line 2 column 37 "]
+				"errors": ["/List/text/div (line 15, col4) Error parsing XHTML: Malformed XHTML: Found \"</pa>\" expecting \"</p>\" at line 2 column 37 "]
 			},
 			"list-xhtml-wrongns1.json": {
 				"errorCount": 1,
@@ -136,8 +140,12 @@
 				"errors": ["org.xml.sax.SAXParseException; lineNumber: 7; columnNumber: 3; The element type \"id\" must be terminated by the matching end-tag \"</id>\"."]
 			},
 			"list-contained-bad.xml": {
-				"errorCount": 1,
-				"errors": ["SHALL have a local reference if the resource is provided inline ( (url: [pat]; ids: [org.hl7.fhir.dstu3.metamodel.Element@1b7cc17c])) [reference.startsWith(\'#\').not() or (reference.substring(1).trace(\'url\') in %resource.contained.id.trace(\'ids\'))]"]
+				"errorCount": 3,
+				"errors": [
+          "List: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where(('#'+id in %resource.descendants().reference).not()).empty()]",
+          "List.subject: Unable to resolve resource '#pat'",
+          "List.subject SHALL have a local reference if the resource is provided inline ( (url: [pat]; ids: [org.hl7.fhir.dstu3.metamodel.Element@2b71e916])) [reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))] "
+        ]
 			},
 			"list-contained.xml": {
 				"errorCount": 0
@@ -224,8 +232,7 @@
 			"list-xhtml-xxe2.xml": {
 				"errorCount": 1,
 				"errors": ["Error reported by XML parser processing null: Scanner State 24 not Recognized "]
-			},
-			
+			}
 		}
 	}
 }

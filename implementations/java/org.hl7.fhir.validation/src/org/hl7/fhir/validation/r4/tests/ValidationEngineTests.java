@@ -14,7 +14,6 @@ public class ValidationEngineTests {
 
   private static final String DEF_TX = "http://tx.fhir.org/r3";
   
-//  private static final String DEF_TX = "http://local.healthintersections.com.au:960/open";
   public static boolean inbuild;
 
   @Test

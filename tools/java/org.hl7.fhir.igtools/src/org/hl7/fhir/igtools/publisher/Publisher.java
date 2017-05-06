@@ -782,7 +782,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         loadIg((JsonObject) dep);
       }
     }
-    igpkp.setContext(context);
     // ;
     validator = new InstanceValidator(context, null); // todo: host services for reference resolution....
     validator.setAllowXsiLocation(true);
