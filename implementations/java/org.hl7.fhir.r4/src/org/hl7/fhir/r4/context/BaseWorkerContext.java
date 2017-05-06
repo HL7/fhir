@@ -21,6 +21,7 @@ import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
@@ -552,6 +553,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
     if (!ok)
       res = new ValidationResult(IssueSeverity.ERROR, message, err);
+    else if (message != null) 
+      res = new ValidationResult(IssueSeverity.WARNING, message, new ConceptDefinitionComponent().setDisplay(display));
     else if (display != null)
       res = new ValidationResult(new ConceptDefinitionComponent().setDisplay(display));
     else
@@ -640,7 +643,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValidationResult validateCode(String system, String code, String display) {
     try {
-      if (codeSystems.containsKey(system) && codeSystems.get(system) != null)
+      if (codeSystems.containsKey(system) && codeSystems.get(system) != null && codeSystems.get(system).getContent() == CodeSystemContentMode.COMPLETE)
         return verifyCodeInCodeSystem(codeSystems.get(system), system, code, display);
       else 
         return verifyCodeExternal(null, new Coding().setSystem(system).setCode(code).setDisplay(display), false);

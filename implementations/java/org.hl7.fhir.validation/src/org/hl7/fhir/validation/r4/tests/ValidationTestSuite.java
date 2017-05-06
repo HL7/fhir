@@ -19,6 +19,7 @@ import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
@@ -77,8 +78,12 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
   @SuppressWarnings("deprecation")
   @Test
   public void test() throws Exception {
-    if (TestingUtilities.context == null)
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+    if (TestingUtilities.context == null) {
+      SimpleWorkerContext ctxt = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+      TestingUtilities.context = ctxt;
+      ctxt.setExpansionProfile(makeExpProfile());
+      ctxt.connectToTSServer("http://tx.fhir.org/r3");
+    }
 
     String path = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", name.substring(name.indexOf(".")+1));
     InstanceValidator val = new InstanceValidator(TestingUtilities.context, this);
@@ -89,12 +94,26 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
     else
       val.validate(null, errors, new FileInputStream(path), FhirFormat.XML);
     int ec = 0;
-    for (ValidationMessage vm : errors)
+    int wc = 0;
+    for (ValidationMessage vm : errors) {
       if (vm.getLevel() == IssueSeverity.FATAL || vm.getLevel() == IssueSeverity.ERROR) {
         ec++;
         System.out.println(vm.getDisplay());
       }
-    Assert.assertEquals("Expected "+Integer.toString(content.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec), content.get("errorCount").getAsInt(), ec);
+      if (vm.getLevel() == IssueSeverity.WARNING) 
+        wc++;
+    }
+    Assert.assertEquals("Expected "+Integer.toString(content.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec)+".", content.get("errorCount").getAsInt(), ec);
+    if (content.has("warningCount"))
+      Assert.assertEquals("Expected "+Integer.toString(content.get("warningCount").getAsInt())+" warnings, but found "+Integer.toString(wc)+".", content.get("warningCount").getAsInt(), wc);
+  }
+
+  private ExpansionProfile makeExpProfile() {
+    ExpansionProfile ep  = new ExpansionProfile();
+    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
+    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+    // all defaults....
+    return ep;
   }
 
   @Override

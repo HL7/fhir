@@ -83,8 +83,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44249-1|PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "The display \"PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9\" is not a valid display for the code ,{http://loinc.org}44249-1",
       "definition": {
         "abstract": false,
         "code": null,
@@ -94,8 +94,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44250-9|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -105,8 +105,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44251-7|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -116,8 +116,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44252-5|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -127,8 +127,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44253-3|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -138,8 +138,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44254-1|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -149,8 +149,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44255-8|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -160,8 +160,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44256-6|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -171,8 +171,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44258-2|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -182,8 +182,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44259-0|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -193,8 +193,8 @@
     },
     {
       "hash": "|http://loinc.org|null|44261-6|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -204,8 +204,8 @@
     },
     {
       "hash": "|http://loinc.org|null|54127-6|US Surgeon General family health portrait [USSG-FHT]",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -215,8 +215,8 @@
     },
     {
       "hash": "|http://loinc.org|null|9267-6|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -226,8 +226,8 @@
     },
     {
       "hash": "|http://loinc.org|null|9268-4|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -237,8 +237,8 @@
     },
     {
       "hash": "|http://loinc.org|null|9269-2|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -248,8 +248,8 @@
     },
     {
       "hash": "|http://loinc.org|null|9270-0|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,

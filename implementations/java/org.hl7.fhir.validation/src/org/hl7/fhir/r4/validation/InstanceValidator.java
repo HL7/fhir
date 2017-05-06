@@ -579,8 +579,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       t = System.nanoTime();
       ValidationResult s = context.validateCode(system, code, display);
       txTime = txTime + (System.nanoTime() - t);
-      if (s == null || s.isOk())
+      if (s == null) 
         return true;
+      if (s.isOk()) {
+        if (s.getMessage() != null)
+          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
+        return true;
+      }
       if (s.getSeverity() == IssueSeverity.INFORMATION)
         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
       else if (s.getSeverity() == IssueSeverity.WARNING)
@@ -604,8 +609,21 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return true;
     } else if (system.startsWith("http://unitsofmeasure.org")) {
       return true;
-    } else
-      return true;
+    } else if (system.startsWith("http://snomed.info/sct") || system.startsWith("http://loinc.org")) {
+      rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Invalid System URI: "+system);
+      return false;
+    } else {
+      try {
+        if (context.fetchResourceWithException(ValueSet.class, system) != null) {
+          rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Invalid System URI: "+system+" - cannot use a value set URI as a system");
+          return false;
+        } else
+          return true;
+      }
+      catch (Exception e) {
+        return true;
+      }
+    }
   }
 
   private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element focus, CodeableConcept fixed) {

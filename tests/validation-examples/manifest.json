@@ -232,7 +232,20 @@
 			"list-xhtml-xxe2.xml": {
 				"errorCount": 1,
 				"errors": ["Error reported by XML parser processing null: Scanner State 24 not Recognized "]
-			}
+			},
+      "code-correct.xml" : {
+        "errorCount": 0
+      },
+      "code-wrong-display.xml" : {
+        "errorCount": 0,
+        "warningCount" : 1
+      },
+      "code-wrong-system.xml" : {
+        "errorCount": 1
+      },
+      "code-wrong-system-vs.xml" : {
+        "errorCount": 1
+      }
 		}
 	}
 }

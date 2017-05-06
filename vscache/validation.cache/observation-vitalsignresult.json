@@ -3,8 +3,8 @@
   "outcomes": [
     {
       "hash": "#|http://loinc.org|null|39156-5|Body mass index (BMI) [Ratio]",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -14,8 +14,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|59408-5|Oxygen saturation in Arterial blood by Pulse oximetry#|urn:iso:std:iso:11073:10101|null|150456|MDC_PULS_OXIM_SAT_O2",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "The system \"urn:iso:std:iso:11073:10101\" is not known",
       "definition": {
         "abstract": false,
         "code": null,
@@ -25,8 +25,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8287-5|Head Occipital-frontal circumference by Tape measure",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -36,8 +36,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8302-2|Body height",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -47,8 +47,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8306-3|Body height --lying",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -58,8 +58,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8310-5|Body temperature",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -69,8 +69,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8462-4|Diastolic blood pressure",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -80,8 +80,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8480-6|Systolic blood pressure#|http://snomed.info/sct|null|271649006|Systolic blood pressure#|http://acme.org/devices/clinical-codes|null|bp-s|Systolic Blood pressure",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "The system \"http://acme.org/devices/clinical-codes\" is not known",
       "definition": {
         "abstract": false,
         "code": null,
@@ -101,8 +101,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|8867-4|Heart rate",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -112,8 +112,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|9279-1|Respiratory rate",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
