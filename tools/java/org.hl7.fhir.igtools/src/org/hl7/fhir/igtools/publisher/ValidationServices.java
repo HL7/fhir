@@ -80,7 +80,7 @@ public class ValidationServices implements IValidatorResourceFetcher {
             for (Element be : r.getElement().getChildren("entry")) {
               Element ber = be.getNamedChild("resource");
               if (ber != null) {
-                if (be.getChildByName("fullUrl").equals(url))
+                if (be.getChildValue("fullUrl").equals(url))
                   return ber;
               }
             }
