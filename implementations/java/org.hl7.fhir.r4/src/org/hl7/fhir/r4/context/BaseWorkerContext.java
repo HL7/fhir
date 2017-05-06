@@ -100,6 +100,32 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected ILoggingService logger;
   protected ExpansionProfile expProfile;
 
+  protected void copy(BaseWorkerContext other) {
+    codeSystems.putAll(other.codeSystems);
+    nonSupportedCodeSystems.addAll(other.nonSupportedCodeSystems);
+    valueSets.putAll(other.valueSets);
+    maps.putAll(other.maps);
+    transforms.putAll(other.transforms);
+    dataElements.putAll(other.dataElements);
+    profiles.putAll(other.profiles);
+    searchParameters.putAll(other.searchParameters);
+    extensionDefinitions.putAll(other.extensionDefinitions);
+    questionnaires.putAll(other.questionnaires);
+    operations.putAll(other.operations);
+    cacheValidation = other.cacheValidation;
+    tsServer = other.tsServer;
+    validationCachePath = other.validationCachePath;
+    name = other.name;
+    txServer = other.txServer;
+    bndCodeSystems = other.bndCodeSystems;
+    canRunWithoutTerminology = other.canRunWithoutTerminology;
+    noTerminologyServer = other.noTerminologyServer;
+    cache = other.cache;
+    expandCodesLimit = other.expandCodesLimit;
+    logger = other.logger;
+    expProfile = other.expProfile;
+  }
+  
   public Map<String, CodeSystem> getCodeSystems() {
     return codeSystems;
   }

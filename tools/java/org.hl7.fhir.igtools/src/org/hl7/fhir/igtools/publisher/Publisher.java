@@ -226,12 +226,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private boolean autoBuildMode; // for the IG publication infrastructure
 
   private IFetchFile fetcher = new SimpleFetcher(resourceDirs, this);
-  private SimpleWorkerContext context;
+  private SimpleWorkerContext context; // 
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
   private List<SpecMapManager> specMaps = new ArrayList<SpecMapManager>();
   private boolean first;
 
+  private Map<String, SpecificationPackage> specifications;
   private Map<ImplementationGuidePackageResourceComponent, FetchedFile> fileMap = new HashMap<ImplementationGuidePackageResourceComponent, FetchedFile>();
   private Map<String, FetchedFile> altMap = new HashMap<String, FetchedFile>();
   private List<FetchedFile> fileList = new ArrayList<FetchedFile>();
@@ -705,18 +706,27 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!new File(vsCache).exists())
       throw new Exception("Unable to access or create the cache directory at "+vsCache);
 
-    if (!igPack.isEmpty()) {
+    SpecificationPackage spec = null; 
+
+    if (specifications != null) { // web server mode: use one of the preloaded versions...
+      String sver = version;
+      if (sver.lastIndexOf(".") > sver.indexOf("."))
+        sver = sver.substring(0, sver.lastIndexOf("."));
+      spec = specifications.get(sver);
+      if (spec == null)
+        throw new FHIRException("Unable to find specification for version "+sver);
+    } else if (!igPack.isEmpty()) {
       if (igPack.startsWith("http:")) {
         throw new Error("cannot specify a web location for -spec at the moment"); /// gg to do this
       } else {
         File igPackFile = new File(igPack);
         log("Loading ig pack from specified path " + igPackFile.getCanonicalPath());
-        context = SimpleWorkerContext.fromPack(igPackFile.getCanonicalPath());
+        spec = SpecificationPackage.fromPath(igPackFile.getCanonicalPath());
       }
     } else if (version.equals(Constants.VERSION)) {
       try {
         log("Load Validation Pack (internal)");
-        context = SimpleWorkerContext.fromClassPath("igpack.zip");
+        spec = SpecificationPackage.fromClassPath("igpack.zip");
       } catch (NullPointerException npe) {
         log("Unable to find igpack.zip in the jar. Attempting to use local igpack.zip");
 
@@ -732,16 +742,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
       	if (igPackFile != null && igPackFile.exists()) {
       		log("Found local ig pack at " + igPackFile.getCanonicalPath());
-      		context = SimpleWorkerContext.fromPack(igPackFile.getCanonicalPath());
+      		spec = SpecificationPackage.fromPath(igPackFile.getCanonicalPath());
       	}
       	else {
       		log("No local igpack.zip found");
       	}
       }
     } else
-      loadValidationPack();
+      spec = loadValidationPack();
     if (copyTemplate)
       copyTemplate();
+
+    context = spec.makeContext();
     context.setLogger(logger);
     log("Definitions "+context.getVersion());
     context.setAllowLoadingDuplicates(true);
@@ -759,7 +771,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       context.setCanRunWithoutTerminology(true);
     } else
       checkTSVersion(vsCache, context.connectToTSServer(txServer));
-
+    
+    loadSpecDetails(context.getBinaries().get("spec.internals"));
+    igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
+    igpkp.loadSpecPaths(specMaps.get(0));
+    fetcher.setPkp(igpkp);
+    JsonArray deps = configuration.getAsJsonArray("dependencyList");
+    if (deps != null) {
+      for (JsonElement dep : deps) {
+        loadIg((JsonObject) dep);
+      }
+    }
+    igpkp.setContext(context);
     // ;
     validator = new InstanceValidator(context, null); // todo: host services for reference resolution....
     validator.setAllowXsiLocation(true);
@@ -772,10 +795,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
     }
 
-    loadSpecDetails(context.getBinaries().get("spec.internals"));
-    igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
-    igpkp.loadSpecPaths(specMaps.get(0));
-    fetcher.setPkp(igpkp);
     validator.setFetcher(new ValidationServices(context, igpkp, fileList));
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
@@ -788,12 +807,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     otherFilesStartup.add(Utilities.path(tempDir, "_data", "pages.json"));
     otherFilesStartup.add(Utilities.path(tempDir, "_includes"));
 
-    JsonArray deps = configuration.getAsJsonArray("dependencyList");
-    if (deps != null) {
-      for (JsonElement dep : deps) {
-        loadIg((JsonObject) dep);
-      }
-    }
     JsonArray urls = configuration.getAsJsonArray("special-urls");
     if (urls != null) {
       for (JsonElement url : urls) {
@@ -932,7 +945,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     Utilities.createDirectory(Utilities.path(adHocTmpDir, "pages"));
   }
 
-  private void loadValidationPack() throws FileNotFoundException, IOException, FHIRException {
+  private SpecificationPackage loadValidationPack() throws FileNotFoundException, IOException, FHIRException {
     String source;
     if (version.equals("3.0.1"))
       source = "http://hl7.org/fhir/STU3/igpack.zip";
@@ -952,9 +965,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     log("Local Validation Pack from cache location " + fn);
     if ("1.0.2".equals(version)) {
-      context = SimpleWorkerContext.fromPack(fn, new R2ToR4Loader());
+      return SpecificationPackage.fromPath(fn, new R2ToR4Loader());
     } else
-      context = SimpleWorkerContext.fromPack(fn);
+      return SpecificationPackage.fromPath(fn);
   }
 
   private String grabToLocalCache(String source) throws IOException {
@@ -1717,7 +1730,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           igpkp.checkForPath(f, r, bc);
           try {
 //            if (!(bc instanceof StructureDefinition))
-              context.seeResource(bc.getUrl(), bc);
+            context.seeResource(bc.getUrl(), bc);
           } catch (Exception e) {
             throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
           }
@@ -3426,8 +3439,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   public void setLogger(ILoggingService logger) {
     this.logger = logger;
-    if (context != null)
-      context.setLogger(logger);
     fetcher.setLogger(logger);
   }
 
@@ -3659,4 +3670,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
+  public Map<String, SpecificationPackage> getSpecifications() {
+    return specifications;
+  }
+
+
+  public void setSpecifications(Map<String, SpecificationPackage> specifications) {
+    this.specifications = specifications;
+  }
+
+ 
 }

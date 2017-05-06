@@ -92,7 +92,28 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private String date;
   private IValidatorFactory validatorFactory;
   
-	// -- Initializations
+  public SimpleWorkerContext() {
+    super();
+  }
+  
+  public SimpleWorkerContext(SimpleWorkerContext other) {
+    super();
+    copy(other);
+  }
+  
+  protected void copy(SimpleWorkerContext other) {
+    structures.putAll(other.structures);
+    systems.addAll(other.systems);
+    questionnaire = other.questionnaire;
+    binaries.putAll(other.binaries);
+    allowLoadingDuplicates = other.allowLoadingDuplicates;
+    version = other.version;
+    revision = other.revision;
+    date = other.date;
+    validatorFactory = other.validatorFactory;
+  }
+
+  // -- Initializations
 	/**
 	 * Load the working context from the validation pack
 	 * 
