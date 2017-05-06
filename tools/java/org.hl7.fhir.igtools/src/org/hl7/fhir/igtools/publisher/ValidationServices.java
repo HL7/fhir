@@ -6,6 +6,8 @@ import java.util.List;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.ObjectConverter;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.Resource;
@@ -60,12 +62,28 @@ public class ValidationServices implements IValidatorResourceFetcher {
       }
     }
     
-    if (!Utilities.isAbsoluteUrl(url)  || url.startsWith(ipg.getCanonical())) {
+    if (!Utilities.isAbsoluteUrl(url) || url.startsWith(ipg.getCanonical())) {
       if (parts.length == 2) {
         for (FetchedFile f : files) {
           for (FetchedResource r : f.getResources()) {
             if (r.getElement().fhirType().equals(parts[parts.length-2]) && r.getId().equals(parts[parts.length-1]))
               return r.getElement();
+          }
+        }
+      }
+    }
+    
+    if (Utilities.isAbsoluteUrl(url)) {
+      for (FetchedFile f : files) {
+        for (FetchedResource r : f.getResources()) {
+          if (r.getElement().fhirType().equals("Bundle")) {
+            for (Element be : r.getElement().getChildren("entry")) {
+              Element ber = be.getNamedChild("resource");
+              if (ber != null) {
+                if (be.getChildByName("fullUrl").equals(url))
+                  return ber;
+              }
+            }
           }
         }
       }
