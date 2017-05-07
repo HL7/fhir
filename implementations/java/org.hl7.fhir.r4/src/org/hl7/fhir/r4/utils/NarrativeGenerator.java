@@ -4224,10 +4224,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
   public XhtmlNode renderBundle(org.hl7.fhir.r4.elementmodel.Element element) throws FHIRException {
     XhtmlNode root = new XhtmlNode(NodeType.Element, "div");
     for (Base b : element.listChildrenByName("entry")) {
-      XhtmlNode c = getHtmlForResource(((org.hl7.fhir.r4.elementmodel.Element) b).getNamedChild("resource"));
-      if (c != null)
-        root.getChildNodes().addAll(c.getChildNodes());
-      root.hr();
+      org.hl7.fhir.r4.elementmodel.Element r = ((org.hl7.fhir.r4.elementmodel.Element) b).getNamedChild("resource");
+      if (r!=null) {
+        XhtmlNode c = getHtmlForResource(r);
+        if (c != null)
+          root.getChildNodes().addAll(c.getChildNodes());
+        root.hr();
+      }
     }
     return root;
   }
