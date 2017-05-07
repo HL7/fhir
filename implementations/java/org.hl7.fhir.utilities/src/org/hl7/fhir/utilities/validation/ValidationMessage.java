@@ -659,7 +659,7 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
   }
 
   public String getDisplay() {
-    return level + ": " + (location.isEmpty() ? "" : (location + ": ")) + message;
+    return level + ": " + (location==null || location.isEmpty() ? "" : (location + ": ")) + message;
   }
   
   /**
