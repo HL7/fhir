@@ -1409,11 +1409,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         refType = "bundle";
       }
     }
-    String ft;
-    if (we != null)
-      ft = we.getType();
-    else
-      ft = tryParse(ref);
     ReferenceValidationPolicy pol = refType.equals("contained") ? ReferenceValidationPolicy.CHECK_VALID : fetcher == null ? ReferenceValidationPolicy.IGNORE : fetcher.validationPolicy(appContext, path, ref);
 
     if (pol.checkExists()) {
@@ -1424,6 +1419,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
       rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, we != null, "Unable to resolve resource '"+ref+"'");
     }
+
+    String ft;
+    if (we != null)
+      ft = we.getType();
+    else
+      ft = tryParse(ref);
 
     if (we != null && pol.checkType()) {
       if (warning(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ft!=null, "Unable to determine type of target resource")) {
@@ -2886,7 +2887,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     List<String> references = findReferences(resource);
     for (String reference: references) {
-      Element r = getFromBundle(stack.getElement(), reference, entry.getChildValue("fullUrl"), errors, stack.addToLiteralPath("entry:" + candidateResources.indexOf(resource)));
+      // We don't want errors when just retrieving the element as they will be caught (with better path info) in subsequent processing
+      Element r = getFromBundle(stack.getElement(), reference, entry.getChildValue("fullUrl"), new ArrayList<ValidationMessage>(), stack.addToLiteralPath("entry[" + candidateResources.indexOf(resource) + "]"));
       if (r!=null && !visitedResources.contains(r)) {
         followResourceLinks(candidateEntries.get(r), visitedResources, candidateEntries, candidateResources, referenced, errors, stack);
       }
@@ -3036,7 +3038,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               }
           }
           if (match) {
-            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null || ei.definition == slicer, "Profile " + profile.getUrl() + ", Element matches more than one slice")) {
+            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null || ei.definition == slicer, "Profile " + profile.getUrl() + ", Element matches more than one slice - " + (ei.definition==null || !ei.definition.hasSliceName() ? "" : ei.definition.getSliceName()) + ", " + (ed.hasSliceName() ? ed.getSliceName() : ""))) {
               ei.definition = ed;
               if (ei.slice == null) {
                 ei.index = i;
