@@ -1087,6 +1087,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       } else
         b.append(c);
     }
+    if (b.length() > 0)
+      page.getSuppressedMessages().add(b.toString());
     r.close();
   }
 
