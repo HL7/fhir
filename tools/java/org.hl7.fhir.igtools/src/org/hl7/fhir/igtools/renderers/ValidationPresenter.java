@@ -40,7 +40,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return list;
   }
   
-  public String generate(String title, List<ValidationMessage> allErrors, List<FetchedFile> files, String path) throws IOException {
+  public String generate(String title, List<ValidationMessage> allErrors, List<FetchedFile> files, String path, List<String> filteredMessages) throws IOException {
     List<ValidationMessage> linkErrors = removeDupMessages(allErrors); 
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
@@ -91,12 +91,12 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     b.append(genEnd());
     b.append(genStartTxtInternal());
     for (ValidationMessage vm : linkErrors)
-      b.append(genDetailsTxt(vm));
+      b.append(vm.getDisplay() + "\r\n");
     b.append(genEndTxt());
     for (FetchedFile f : files) {
       b.append(genStartTxt(f));
       for (ValidationMessage vm : removeDupMessages(f.getErrors()))
-        b.append(genDetailsTxt(vm));
+        b.append(vm.getDisplay() + "\r\n");
       b.append(genEndTxt());
     }    
     b.append(genFooterTxt(title));
@@ -105,7 +105,19 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return path;
   }
 
-  private List<ValidationMessage> removeDupMessages(List<ValidationMessage> errors) {
+  public static void filterMessages(List<ValidationMessage> messages, List<String> suppressedMessages, boolean suppressErrors) {
+    List<ValidationMessage> filteredMessages = new ArrayList<ValidationMessage>();
+    for (ValidationMessage message : removeDupMessages(messages)) {
+      if ((!suppressedMessages.contains(message.getDisplay()) && !suppressedMessages.contains(message.getMessage()))
+      || (!suppressErrors && (message.getLevel().equals(ValidationMessage.IssueSeverity.FATAL) || message.getLevel().equals(ValidationMessage.IssueSeverity.ERROR))))
+        filteredMessages.add(message);
+    }
+    while(!messages.isEmpty())
+      messages.remove(0);
+    messages.addAll(filteredMessages);
+  }
+  
+  private static List<ValidationMessage> removeDupMessages(List<ValidationMessage> errors) {
     List<ValidationMessage> filteredErrors = new ArrayList<ValidationMessage>();
     for (ValidationMessage error : errors) {
       if (!filteredErrors.contains(error))

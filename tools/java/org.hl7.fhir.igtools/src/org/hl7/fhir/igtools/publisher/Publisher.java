@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -151,8 +152,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
-import javafx.collections.transformation.TransformationList;
-
 /**
  * Implementation Guide Publisher
  *
@@ -221,6 +220,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String specPath;
   private String qaDir;
   private String version;
+  private List<String> suppressedMessages = new ArrayList<String>();
 
   private String igName;
   private boolean autoBuildMode; // for the IG publication infrastructure
@@ -324,7 +324,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generate();
     long endTime = System.nanoTime();
     clean();
-    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html")));
+    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
 
     if (watch) {
       first = false;
@@ -341,7 +341,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           generate();
           clean();
           endTime = System.nanoTime();
-          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html")));
+          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
         }
       }
     } else
@@ -411,7 +411,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           } else if (r.getElement().fhirType().equals("Bundle")) {
             for (Element e : r.getElement().getChildrenByName("entry")) {
               Element res = e.getNamedChild("resource");
-              if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
+              if (res!=null && "http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
                 gen.generate(gen.new ResourceContext(r.getElement(), res), res, true);
               }
             }
@@ -619,7 +619,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     if (!"jekyll".equals(str(configuration, "tool")))
-      throw new Exception("Error: configuration file must include a \"tool\" property with a value of 'jekyll'");
+      throw new Exception("Error: At present, configuration file must include a \"tool\" property with a value of 'jekyll'");
     tool = GenerationTool.Jekyll;
     version = ostr(configuration, "version");
     if (Utilities.noString(version))
@@ -793,6 +793,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (configuration.has("fixed-business-version")) {
       businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
     }
+    String suppressPath = configuration.getAsJsonPrimitive("suppressedWarningFile").getAsString();
+    if (!suppressPath.isEmpty())
+      loadSuppressedMessages(Utilities.path(root, suppressPath));
 
     validator.setFetcher(new ValidationServices(context, igpkp, fileList));
     for (String s : context.getBinaries().keySet())
@@ -838,6 +841,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     preProcessInfo.put(path, ppinfo);
   }
 
+  private void loadSuppressedMessages(String messageFile) throws Exception {
+    InputStreamReader r = new InputStreamReader(new FileInputStream(messageFile));
+    StringBuilder b = new StringBuilder();
+    while (r.ready()) {
+      char c = (char) r.read();
+      if (c == '\r' || c == '\n') {
+        if (b.length() > 0)
+          suppressedMessages.add(b.toString());
+        b = new StringBuilder();
+      } else
+        b.append(c);
+    }
+    if (b.length() > 0)
+      suppressedMessages.add(b.toString());
+    r.close();
+  }
+  
   private void checkTSVersion(String dir, String version) throws FileNotFoundException, IOException {
     if (Utilities.noString(version))
       return;
@@ -1999,6 +2019,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     for (FetchedFile f : changeList)
       generateOutputs(f, false);
 
+    ValidationPresenter.filterMessages(errors, suppressedMessages, false);
     if (!changeList.isEmpty())
       generateSummaryOutputs();
 
@@ -2011,6 +2032,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     log("Checking Output HTML");
     List<ValidationMessage> linkmsgs = inspector.check();
+    ValidationPresenter.filterMessages(linkmsgs, suppressedMessages, true);
     int bl = 0;
     int lf = 0;
     for (ValidationMessage m : linkmsgs) {
@@ -2025,7 +2047,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     log("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/(inspector.total() == 0 ? 1 : inspector.total()))+"%)");
     log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
-    errors.addAll(linkmsgs);
+    errors.addAll(linkmsgs);    
+    for (FetchedFile f : fileList)
+      ValidationPresenter.filterMessages(f.getErrors(), suppressedMessages, false);
     log("Build final .zip");
     if ("error".equals(ostr(configuration, "broken-links")) && linkmsgs.size() > 0)
       throw new Error("Halting build because broken links have been found, and these are disallowed in the IG control file");
