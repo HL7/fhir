@@ -2008,6 +2008,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (!changeList.isEmpty())
         generateZips();
 
+    
     log("Checking Output HTML");
     List<ValidationMessage> linkmsgs = inspector.check();
     int bl = 0;
@@ -2026,8 +2027,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
     errors.addAll(linkmsgs);
     log("Build final .zip");
-//    if (!allowBrokenHtml && linkmsgs.size() > 0)
-//      throw new Error("Halting build because broken links were found");
+    if ("error".equals(ostr(configuration, "broken-links")) && linkmsgs.size() > 0)
+      throw new Error("Halting build because broken links have been found, and these are disallowed in the IG control file");
     ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
     zip.addFolder(outputDir, "site/", false);
     zip.addFileSource("index.html", REDIRECT_SOURCE, false);
