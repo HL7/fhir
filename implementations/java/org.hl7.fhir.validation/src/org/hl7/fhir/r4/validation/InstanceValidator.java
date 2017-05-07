@@ -1205,6 +1205,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     String regex = context.getExtensionString(ToolingExtensions.EXT_REGEX);
     if (regex!=null)
+      regex = context.getExtensionString("http://hl7.org/fhir/StructureDefinition/regex");
+    if (regex!=null)
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches(regex), "Element value '" + e.primitiveValue() + "' does not meet regex '" + regex + "'");
     
     if (type.equals("boolean")) { 
@@ -3200,7 +3202,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               thisIsCodeableConcept = true;
             } else if (type.equals("Reference"))
               checkReference(appContext, errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
-
             // We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
             if (type.equals("Extension") && ei.element.getChildValue("url").contains("/"))
               checkExtension(appContext, errors, ei.path, resource, ei.element, ei.definition, profile, localStack);
