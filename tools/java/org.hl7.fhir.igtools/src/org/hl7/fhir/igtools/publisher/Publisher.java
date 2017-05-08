@@ -793,10 +793,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (configuration.has("fixed-business-version")) {
       businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
     }
-    String suppressPath = configuration.getAsJsonPrimitive("suppressedWarningFile").getAsString();
-    if (!suppressPath.isEmpty())
-      loadSuppressedMessages(Utilities.path(root, suppressPath));
-
+    if (configuration.has("suppressedWarningFile")) {
+      String suppressPath = configuration.getAsJsonPrimitive("suppressedWarningFile").getAsString();
+      if (!suppressPath.isEmpty())
+        loadSuppressedMessages(Utilities.path(root, suppressPath));
+    }
     validator.setFetcher(new ValidationServices(context, igpkp, fileList));
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
