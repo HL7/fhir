@@ -58,6 +58,7 @@ import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.r4.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
@@ -73,6 +74,8 @@ import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Composition;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.Constants;
@@ -278,6 +281,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private boolean allowBrokenHtml;
   private CacheOption cacheOption;
+
+  private List<CodeableConcept> jurisdictions;
 
   private class PreProcessInfo {
     private String xsltName;
@@ -789,6 +794,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (paths.get("extension-domains") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("extension-domains"))
         validator.getExtensionDomains().add(((JsonPrimitive) e).getAsString());
+    }
+    if (configuration.has("jurisdiction")) {
+      jurisdictions = new ArrayList<CodeableConcept>();
+      for (String s : configuration.getAsJsonPrimitive("jurisdiction").getAsString().trim().split("\\,")) {
+        CodeableConcept cc = new CodeableConcept();
+        jurisdictions.add(cc);
+        Coding c = cc.addCoding();
+        String sc = s.trim();
+        if (Utilities.isInteger(sc)) 
+          c.setSystem("http://unstats.un.org/unsd/methods/m49/m49.htm").setCode(sc);
+        else
+          c.setSystem("urn:iso:std:iso:3166").setCode(sc);
+        ValidationResult vr = context.validateCode(c, null);
+        if (vr.getDisplay() != null)
+          c.setDisplay(vr.getDisplay());
+      }
     }
     if (configuration.has("fixed-business-version")) {
       businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
@@ -1736,6 +1757,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             } else if (!bc.getVersion().equals(businessVersion))
               System.out.println("Business version mismatch in "+f.getName()+" - overriding from "+bc.getVersion()+" to "+businessVersion);
             bc.setVersion(businessVersion);
+          }
+          if (jurisdictions != null) {
+            altered = true;
+            bc.getJurisdiction().clear();
+            bc.getJurisdiction().addAll(jurisdictions);
           }
           if (!bc.hasDate()) {
             altered = true;

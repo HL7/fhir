@@ -661,7 +661,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       } catch (Exception e) {
         return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+code.getSystem()+"\": "+e.getMessage());
       }
-    else if (vs.hasExpansion()) 
+    else if (vs != null && vs.hasExpansion()) 
       try {
         return verifyCodeInternal(vs, code.getSystem(), code.getCode(), code.getDisplay());
       } catch (Exception e) {

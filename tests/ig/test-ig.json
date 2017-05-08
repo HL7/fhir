@@ -10,7 +10,8 @@
     "specification" : "../../../publish"
   },
 	"canonicalBase": "http://hl7.org/fhir/test",
- "sct-edition" :  "http://snomed.info/sct/900000000000207008",
+  "jurisdiction" : "US, 013",
+  "sct-edition" :  "http://snomed.info/sct/900000000000207008",
 	"defaults": {
 		"_documentation": "this object contains the default publishing policy for different types. Anything not mentioned defaults to true",
 		"Any": {
