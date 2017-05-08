@@ -3668,7 +3668,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private static String getCurrentVersion() {
-    InputStream vis = Publisher.class.getResourceAsStream("version.info");
+    InputStream vis = Publisher.class.getResourceAsStream("/version.info");
     if (vis != null) {
       IniFile vi = new IniFile(vis);
       return vi.getStringProperty("FHIR", "version")+"-"+vi.getStringProperty("FHIR", "revision");
