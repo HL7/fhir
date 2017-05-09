@@ -200,9 +200,16 @@ public class ValueSetGenerator {
       ConceptDefinitionComponent c = cs.addConcept();
       EventDefn e = definitions.getEvents().get(s);
       c.setCode(s);
-      c.setDisplay(e.getCode());
+      c.setDisplay(transform(e.getCode(), e.getTitle()));
       c.setDefinition(e.getDefinition());
     }
+  }
+
+  
+  private String transform(String code, String title) {
+    if (!Utilities.noString(title))
+      return title;
+    return Utilities.titleize(code.replace("-", " "));
   }
 
   public void updateHeader(BindingSpecification bs, ValueSet vs) throws Exception {

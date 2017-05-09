@@ -157,6 +157,18 @@ public class Utilities {
 		return b.toString();
 	}
 
+	public static String titleize(String s) {
+	  StringBuilder b = new StringBuilder();
+	  boolean up = true;
+	  for (char c : s.toCharArray()) {
+	    if (up)
+	      b.append(Character.toUpperCase(c));
+	    else
+	      b.append(c);
+	    up = c == ' ';
+	  }
+	  return b.toString();
+	}
 	
 	public static String capitalize(String s)
 	{

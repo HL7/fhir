@@ -1635,6 +1635,7 @@ public class SpreadsheetParser {
 					EventDefn e = new EventDefn();
 					events.add(e);
 					e.setCode(code);
+					e.setTitle(sheet.getColumn(row, "Title"));
 					e.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Description")));
 					e.setCategory(readCategory(sheet.getColumn(row, "Category")));
 					EventUsage u = new EventUsage();

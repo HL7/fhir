@@ -36,6 +36,7 @@ public class EventDefn {
     Consequence, Currency, Notification
   }
   private String code;
+  private String title;
   private String definition;
   private Category category;
   private List<EventUsage> usages = new ArrayList<EventUsage>();
@@ -64,6 +65,12 @@ public class EventDefn {
   }
   public void setCategory(Category category) {
     this.category = category;
+  }
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
   }
   
   
