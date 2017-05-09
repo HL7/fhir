@@ -2827,18 +2827,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
 
-    if (items.size() > 0) {
-      StringBuilder list = new StringBuilder();
-      StringBuilder lists = new StringBuilder();
-      StringBuilder table = new StringBuilder();
-      for (Item i : items) {
-        StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        genEntryItem(list, lists, table, i.f, i.r, i.sort);
-      }
-      fragment("list-logicals", list.toString(), otherFilesRun);
-      fragment("list-simple-logicals", lists.toString(), otherFilesRun);
-      fragment("table-logicals", table.toString(), otherFilesRun);
+    StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
+    StringBuilder table = new StringBuilder();
+    for (Item i : items) {
+      StructureDefinition sd = (StructureDefinition) i.r.getResource();
+      genEntryItem(list, lists, table, i.f, i.r, i.sort);
     }
+    fragment("list-logicals", list.toString(), otherFilesRun);
+    fragment("list-simple-logicals", lists.toString(), otherFilesRun);
+    fragment("table-logicals", table.toString(), otherFilesRun);
   }
 
   private void genEntryItem(StringBuilder list, StringBuilder lists, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
