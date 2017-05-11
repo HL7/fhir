@@ -36,6 +36,13 @@
   Definition = Codes for the reason why a communication was not done.
   Conformance = example
 
+ -- Row 6 -----------------------------------
+  Binding Name = CommunicationPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
+  Definition = Codes indicating the relative importance of a communication.
+  Conformance = required
+
 === Sheet communication-category =====================================
 
  -- Row 1 -----------------------------------
@@ -160,6 +167,13 @@
   Workflow Mapping = Event.partOf
 
  -- Row 6 -----------------------------------
+  Element = Communication.inResponseTo
+  Card. = 0..*
+  Type = Reference(Communication)
+  Short Name = Reply to
+  Definition = Prior communication that this communication is in response to.
+
+ -- Row 7 -----------------------------------
   Element = Communication.status
   Card. = 1..1
   Is Modifier = Y
@@ -172,7 +186,7 @@
   Workflow Mapping = Event.status
   w5 = status
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Communication.notDone
   Card. = 0..1
   Is Modifier = Y
@@ -184,7 +198,7 @@
   Comments = This element is labeled as a modifier because it marks the communication as a communication that did not occur.  The more attributes are populated, the more constrained the negated statement is.
   Workflow Mapping = Event.notDone
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Communication.notDoneReason
   Card. = 0..1
   Summary = Y
@@ -195,7 +209,7 @@
   Definition = Describes why the communication event did not occur in coded and/or textual form.
   Workflow Mapping = Event.notDoneReason
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Communication.category
   Card. = 0..*
   Type = CodeableConcept
@@ -206,7 +220,20 @@
   Workflow Mapping = Event.code
   w5 = class
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
+  Element = Communication.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = CommunicationPriority
+  Short Name = Message urgency
+  Definition = Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+  Comments = Used to prioritize workflow (such as which communication to read first) when the communication is planned or in progress
+  Committee Notes = GF#12599
+  Missing Meaning = If missing, this communication should be treated with normal priority
+  w5 = grade
+
+ -- Row 12 -----------------------------------
   Element = Communication.medium
   Card. = 0..*
   Type = CodeableConcept
@@ -214,7 +241,7 @@
   Short Name = A channel of communication
   Definition = A channel that was used for this communication (e.g. email, fax).
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Communication.subject
   Card. = 0..1
   Aliases = patient
@@ -225,7 +252,7 @@
   Workflow Mapping = Event.subject
   w5 = who.focus
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Communication.recipient
   Card. = 0..*
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)
@@ -233,7 +260,7 @@
   Definition = The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
   w5 = who.focus
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Communication.topic
   Card. = 0..*
   Type = Reference(Any)
@@ -241,7 +268,7 @@
   Definition = The resources which were responsible for or related to producing this communication.
   w5 = context
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Communication.context
   Card. = 0..1
   Aliases = encounter
@@ -252,7 +279,7 @@
   Workflow Mapping = Event.context
   w5 = context
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
@@ -261,7 +288,7 @@
   Workflow Mapping = Event.occurrenceDateTime {Invariant: maps to either sent OR received}
   w5 = when.init
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
@@ -270,7 +297,7 @@
   Workflow Mapping = Event.occurrenceDateTime {Invariant: maps to either sent OR received}
   w5 = when.done
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Communication.sender
   Card. = 0..1
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
@@ -279,7 +306,7 @@
   Workflow Mapping = Event.performer.actor
   w5 = who.actor
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Communication.reasonCode
   Card. = 0..*
   Summary = Y
@@ -292,7 +319,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Communication.reasonReference
   Card. = 0..*
   Summary = Y
@@ -303,21 +330,21 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Communication.payload
   Card. = 0..*
   UML = 380;50
   Short Name = Message payload
   Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Communication.payload.content[x]
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Name = Message part content
   Definition = A communicated content (or for multi-part communications, one portion of the communication)
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Communication.note
   Card. = 0..*
   Type = Annotation

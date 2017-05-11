@@ -46,7 +46,7 @@
  -- Row 7 -----------------------------------
   Binding Name = CarePlanActivityReason
   Binding = value set
-  Reference = valueset-activity-reason
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as \"general wellness\", prophylaxis, surgical preparation, etc.
   Conformance = example
 

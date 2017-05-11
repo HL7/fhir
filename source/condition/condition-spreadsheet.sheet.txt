@@ -66,7 +66,7 @@
   Conformance = example
 
  -- Row 10 -----------------------------------
-  Binding Name = ConditionStageType
+  Binding Name = !ConditionStageType
   Binding = value set
   Reference = valueset-condition-stage-type
   Definition = Codes describing the kind of condition staging (e.g. clinical or pathological).
@@ -138,8 +138,8 @@
   Id = 4
   Context = Condition
   English = If condition is abated, then clinicalStatus must be either inactive, resolved, or remission
-  XPath = not(f:abatementBoolean/@value=true() or (not(exists(f:abatementBoolean)) and exists(*[starts-with(local-name(.), \'abatement\')])) or f:clinicalStatus/@value=(\'resolved\', \'remission\', \'inactive\'))
-  Expression = abatement.empty() or (abatement as boolean).not()  or clinicalStatus=\'resolved\' or clinicalStatus=\'remission\' or clinicalStatus=\'inactive\'
+  XPath = not(exists(*[starts-with(local-name(.), \'abatement\')])) or f:clinicalStatus/@value=(\'resolved\', \'remission\', \'inactive\')
+  Expression = abatement.empty() or clinicalStatus=\'resolved\' or clinicalStatus=\'remission\' or clinicalStatus=\'inactive\'
 
 === Sheet Data Elements =====================================
 
@@ -320,8 +320,8 @@
   Element = Condition.abatement[x]
   Card. = 0..1
   Inv. = 4
-  Type = dateTime | Age | boolean | Period | Range | string
-  Short Name = If/when in resolution/remission
+  Type = dateTime | Age | Period | Range | string
+  Short Name = When in resolution/remission
   Definition = The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.
   Comments = There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.
   RIM Mapping = .effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age at remission\"].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed
@@ -502,13 +502,6 @@
   XPath = f:Condition/f:abatementAge | f:Condition/f:abatementRange
 
  -- Row 10 -----------------------------------
-  Name = abatement-boolean
-  Type = token
-  Description = Abatement boolean (boolean is true or non-boolean values are present)
-  Path = Condition.abatement[x]
-  Expression = Condition.abatement.as(boolean) | Condition.abatement.is(dateTime) | Condition.abatement.is(Age) | Condition.abatement.is(Period) | Condition.abatement.is(Range) | Condition.abatement.is(string)
-
- -- Row 11 -----------------------------------
   Name = abatement-date
   Type = date
   Description = Date-related abatements (dateTime and period)
@@ -516,7 +509,7 @@
   Expression = Condition.abatement.as(dateTime) | Condition.abatement.as(Period)
   XPath = f:Condition/f:abatementDateTime | f:Condition/f:abatementPeriod
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = abatement-string
   Type = string
   Description = Abatement as a string
@@ -524,58 +517,58 @@
   Expression = Condition.abatement.as(string)
   XPath = f:Condition/f:abatementString
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = context
   Type = reference
   Path = Condition.context
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = asserter
   Type = reference
   Path = Condition.asserter
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = asserted-date
   Type = date
   Path = Condition.assertedDate
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = evidence
   Type = token
   Path = Condition.evidence.code
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = body-site
   Type = token
   Path = Condition.bodySite
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = stage
   Type = token
   Path = Condition.stage.summary
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = patient
   Type = reference
   Path = Condition.subject
   Target Types = Patient
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = subject
   Type = reference
   Path = Condition.subject
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = evidence-detail
   Type = reference
   Path = Condition.evidence.detail
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = verification-status
   Type = token
   Path = Condition.verificationStatus
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = encounter
   Type = reference
   Description = Encounter when condition first asserted

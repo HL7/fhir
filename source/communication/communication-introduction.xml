@@ -8,14 +8,15 @@
 <p>Communication is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
    
 <p>
-This resource is a record of a communication. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
+This resource is a record of a communication even if it is planned or has failed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. 
 The sender and receivers may be patients, practitioners, related persons, organizations, or devices. Communication use cases include:
 </p>
 <ul>
 <li>A reminder or alert delivered to a responsible provider</li>
-<li>A recorded notification from the nurse that a patient's temperature exceeds a value</li>
+<li>A recorded notification from the nurse to the on call physician (or any other specified person) that a patient's temperature exceeds a value</li>
 <li>A notification to a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
 <li>Patient educational material sent by a provider to a patient</li>
+<li>Unable to deliver lab results to ordering physician</li>
 </ul>
 <p>
 Non-patient specific communication use cases may include:
