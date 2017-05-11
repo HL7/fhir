@@ -13,7 +13,7 @@
         <li><a href="medicationdispense0330.html">Dispense for Warfarin 5mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage </a></li>
         <li><a href="medicationdispense0331.html">Dispense for Warfarin 2mg (NDC Code) where the product is dispensed as multiple strengths based on prescribe dosage</a></li>
     </ul>
-    <p>The following examples are MedicationDispenses resources for Oral Dosage Forms that include a Medication Code
+    <p>The following examples are MedicationDispense resources for Oral Dosage Forms that include a Medication Code
     </p>
     <ul>
         <li><a href="medicationdispense0318.html">Dispense for Levothyroxine (NDC code) in-progress with authorizing prescription</a></li>
