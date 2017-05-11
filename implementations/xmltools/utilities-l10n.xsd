@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="translations">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="languageList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="language" maxOccurs="unbounded">
+                            <xs:complexType mixed="true">
+                                <xs:sequence/>
+                                <xs:attribute name="description" type="xs:string"/>
+                                <xs:attribute name="lang" type="xs:language"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="translation" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="comment" type="xs:string"/>
+                        <xs:element name="key">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="value" maxOccurs="unbounded">
+                                        <xs:complexType mixed="true">
+                                            <xs:sequence/>
+                                            <xs:attribute name="lang" type="xs:language"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                                <xs:attribute name="value" type="xs:string"/>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="uniqueKey">
+        <xs:selector xpath="translation"/>
+        <xs:field xpath="key/@value"/>
+    </xs:unique>
+</xs:element>
+</xs:schema>
