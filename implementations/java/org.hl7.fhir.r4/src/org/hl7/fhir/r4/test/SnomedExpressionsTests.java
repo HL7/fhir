@@ -47,7 +47,7 @@ public class SnomedExpressionsTests {
     p("64572001 |Disease| : { 363698007 |Finding site| = 52687003 |Bone structure of shaft of tibia|, 116676008 |Associated morphology| = 20946005 |Fracture, closed | }");
    // p("10925361000119108 |Closed fracture of shaft of left tibia|"); //  US Extension
     p("28012007 |Closed fracture of shaft of tibia| : 363698007 |Finding site| = (52687003 |Bone structure of shaft of tibia| : 272741003 |Laterality|= 7771000 |Left|)");
-    p("28012007 |Closed fracture of shaft of tibia| : 272741003 |Laterality|= 7771000 |Left|"); //“Close to user form” omits restatement of finding site");
+    p("28012007 |Closed fracture of shaft of tibia| : 272741003 |Laterality|= 7771000 |Left|"); //Close to user form omits restatement of finding site");
     p("64572001 |Disease| : {363698007 |Finding site| = (52687003 |Bone structure of shaft of tibia| : 272741003 |Laterality|= 7771000 |Left|), 116676008 |Associated morphology| = 20946005 |Fracture, closed | }");
     p("28012007 |Closed fracture of shaft of tibia| : 363698007 |Finding site| = 31156008 |Structure of left half of body|");
   }
