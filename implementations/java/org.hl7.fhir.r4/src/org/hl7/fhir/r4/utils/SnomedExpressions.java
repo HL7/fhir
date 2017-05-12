@@ -61,6 +61,17 @@ public class SnomedExpressions {
     public void setDecimal(String decimal) {
       this.decimal = decimal;
     }
+    @Override
+    public String toString() {
+      if (code != null) 
+      return code;
+    else if (decimal != null) 
+      return "#"+decimal;
+    else if (literal != null)
+      return "\""+literal+"\"";
+    else
+      return "";
+    }
   }
 
   public enum ExpressionStatus {
@@ -87,6 +98,28 @@ public class SnomedExpressions {
     public List<Concept> getConcepts() {
       return concepts;
     }
+    @Override
+    public String toString() {
+      StringBuilder b = new StringBuilder();
+      if (status == ExpressionStatus.Equivalent)
+        b.append("===");
+      else if (status == ExpressionStatus.SubsumedBy)
+        b.append("<<<");
+      boolean first = true;
+      for (Concept concept : concepts) {
+        if (first) first = false; else b.append(',');
+        b.append(concept.toString());
+      }
+      for (Refinement refinement : refinements) {
+        if (first) first = false; else b.append(',');
+        b.append(refinement.toString());
+      }
+      for (RefinementGroup refinementGroup : refinementGroups) {
+        if (first) first = false; else b.append(',');
+        b.append(refinementGroup.toString());
+      }
+      return b.toString();
+    }
   }
 
   public class Refinement extends Base {
@@ -105,6 +138,10 @@ public class SnomedExpressions {
       this.value = value;
     }
 
+    @Override
+    public String toString() {
+      return name.toString()+"="+value.toString();
+    }
   }
 
   public class RefinementGroup extends Base {
@@ -114,6 +151,16 @@ public class SnomedExpressions {
       return refinements;
     }
 
+    @Override
+    public String toString() {
+      StringBuilder b = new StringBuilder();
+      boolean first = true;
+      for (Refinement refinement : refinements) {
+        if (first) first = false; else b.append(',');
+        b.append(refinement.toString());
+      }
+      return b.toString();
+    }
   }
 
   private static final int MAX_TERM_LIMIT = 1024;
