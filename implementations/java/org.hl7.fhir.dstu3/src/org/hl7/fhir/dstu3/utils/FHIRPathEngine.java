@@ -2211,7 +2211,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcReplace(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
+  private List<Base> funcReplace(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException, PathEngineException {
     List<Base> result = new ArrayList<Base>();
 
     if (focus.size() == 1) {
