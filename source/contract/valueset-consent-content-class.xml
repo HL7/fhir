@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <name value="Consent Content Class"/>
+  <status value="draft"/>
+  <publisher value="CBCC"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes the FHIR resource types, along with some other important content class codes"/>
+  <compose>
+    <!-- CDA specific document types. Use these for IHE published CDA templates -->
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+    </include>
+    
+    <!-- FHIR Resource types -->
+    <include>
+      <system value="http://hl7.org/fhir/resource-types"/>
+    </include>
+    
+    <!-- how to do profile references as codes -->
+    <include>
+      <system value="urn:ietf:rfc:3986"/>
+      <concept>
+        <code value="http://hl7.org/fhir/StructureDefinition/lipidprofile"/>
+        <display value="Lipid Lab Report"/>
+      </concept>
+    </include>
+    
+    <!-- consent by mime type  -->
+    <include>
+      <system value="urn:ietf:bcp:13"/>
+      <concept>
+        <code value="application/hl7-cda+xml"/> <!-- todo: check this value -->
+        <display value="CDA Documents"/>
+      </concept>
+    </include>
+    
+  </compose>
+</ValueSet>

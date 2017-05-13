@@ -1,18 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
    <id value="C-123"/>
 
    <text>
       <status value="generated"/>
       <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the contract</div>
    </text>
-   
+
    <identifier>
       <system value="http://happyvalley.com/contract"/>
       <value value="12347"/>
    </identifier>
-   
+
+   <term>
+      <offer>
+         <text value="Can't refuse"/>
+      </offer>
+      <asset>
+         <class>
+            <system value="urn:ietf:rfc:3986"/>
+            <code value="RicardianContract"/>
+         </class>
+         <code>
+            <display value="sample"/>
+         </code>
+         <period>
+            <start value="2017-06-01"/>
+         </period>
+         <valuedItem>
+            <entityCodeableConcept>
+               <text value="Ford Bobcat"/>
+            </entityCodeableConcept>
+            <identifier>
+               <system value="http://somewhere.motor-vehicle.com/vin"/>
+               <value value="XXSVT34-7665t952236"/>
+            </identifier>
+            <effectiveTime value="1995"/>
+            <quantity>
+               <value value="1"/>
+            </quantity>
+            <unitPrice>
+               <value value="200.00"/>
+               <system value="urn:iso:std:iso:4217"/>
+               <code value="CAD"/>
+            </unitPrice>
+            <factor value="1.0"/>
+            <points value="1.0"/>
+            <net>
+               <value value="200.00"/>
+               <system value="urn:iso:std:iso:4217"/>
+               <code value="CAD"/>
+            </net>
+         </valuedItem>
+      </asset>
+   </term>
+
    <!--
   <issued value="2014-08-17"/>
  
@@ -33,5 +76,15 @@
 	   <code value="disclosure-US"/>
 	 </coding>
   </subtype>
- -->
+   -->
+   <rule>
+      <contentAttachment>
+         <contentType value="application/txt"/>
+         <url value="http://www.rfc-editor.org/bcp/bcp13.txt"/>
+      </contentAttachment>
+   </rule>
+   <legallyBindingAttachment>
+      <contentType value="application/pdf"/>
+      <url value="http://www.aws3.com/storage/doc.pdf"/>
+   </legallyBindingAttachment>
 </Contract>

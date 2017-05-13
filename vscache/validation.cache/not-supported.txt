@@ -44,6 +44,7 @@ http://snomed.info.sct
 https://github.com/common-workflow-language/workflows
 http://nucc.org/provider-taxonomy
 http://www.ihe.net/xds/connectathon/practiceSettingCodes
+http://hl7.org/fhir/contract-term-type
 http://acme.lab
 https://www.usps.com/
 http://ihe.net/xds/connectathon/classCodes

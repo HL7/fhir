@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Contract xmlns="http://hl7.org/fhir">
+<Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
   <id value="C-2121"/>
   <meta>
     <versionId value="1"/>
     <lastUpdated value="2016-07-19T18:18:42.108-04:00"/>
   </meta>
-  <issued value="2031-11-01T21:18:27-04:00"/>
+
+  <status value="executed"/>
+
+  <contentDerivative>
+    <coding>
+      <system value="http://hl7.org/fhir/contract-content-derivative"/>
+      <code value="registration"/>
+    </coding>
+  </contentDerivative>
+
+  <issued value="2013-11-01T21:18:27-04:00"/>
+
+  <applies>
+    <start value="2013-11-01T21:18:27-04:00"/>
+  </applies>
+
   <subject>
     <reference value="Patient/f201"/>
   </subject>
+
   <type>
     <coding>
       <system value="http://org.mdhhs.fhir.consentdirective-type"/>
@@ -26,78 +43,126 @@
       />
     </coding>
   </subType>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/Confidentiality"/>
-    <code value="R"/>
-    <display value="Restricted"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActCode"/>
-    <code value="ETH"/>
-    <display value="substance abuse information sensitivity"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActCode"/>
-    <code value="42CFRPart2"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActReason"/>
-    <code value="TREAT"/>
-    <display value="treatment"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActReason"/>
-    <code value="HPAYMT"/>
-    <display value="healthcare payment"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActReason"/>
-    <code value="HOPERAT"/>
-    <display value="healthcare operations"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActCode"/>
-    <code value="PERSISTLABEL"/>
-    <display value="persist security label"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActCode"/>
-    <code value="PRIVMARK"/>
-    <display value="privacy mark"/>
-  </securityLabel>
-  <securityLabel>
-    <system value="http://hl7.org/fhir/v3/ActCode"/>
-    <code value="NORDSCLCD"/>
-    <display value="no redisclosure without consent directive"/>
-  </securityLabel>
-  <agent>
-    <actor>
-      <reference value="Organization/f001"/>
-      <display value="VA Ann Arbor Healthcare System"/>
-    </actor>
-    <role>
+
+  <term>
+    <offer>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/contract-term-type"/>
+          <code value="statutory"/>
+        </coding>
+      </type>
+      <decision>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ActCode"/>
+          <code value="OPTIN"/>
+        </coding>
+      </decision>
+      <text value="Can't refuse"/>
+    </offer>
+    
+    <asset>
+      <dataPeriod>
+        <start value="2013-11-01T21:18:27-04:00"/>
+        <end value="2019-11-01T21:18:27-04:00"/>
+      </dataPeriod>
+      <data>
+        <meaning value="instance"/>
+        <reference>
+          <display value="Some data"/>
+        </reference>
+      </data>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+        <code value="R"/>
+        <display value="Restricted"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="ETH"/>
+        <display value="substance abuse information sensitivity"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="42CFRPart2"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="TREAT"/>
+        <display value="treatment"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="HPAYMT"/>
+        <display value="healthcare payment"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="HOPERAT"/>
+        <display value="healthcare operations"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="PERSISTLABEL"/>
+        <display value="persist security label"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="PRIVMARK"/>
+        <display value="privacy mark"/>
+      </securityLabel>
+      <securityLabel>
+        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <code value="NORDSCLCD"/>
+        <display value="no redisclosure without consent directive"/>
+      </securityLabel>
+    </asset>
+
+    <agent>
+      <actor>
+        <reference value="Organization/f001"/>
+        <display value="VA Ann Arbor Healthcare System"/>
+      </actor>
+      <role>
+        <coding>
+          <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+          <code value="IR"/>
+          <display value="Recipient"/>
+        </coding>
+        <text value="Recipient of restricted health information"/>
+      </role>
+    </agent>
+    <agent>
+      <actor>
+        <reference value="Organization/2"/>
+        <display value="Community Mental Health Clinic"/>
+      </actor>
+      <role>
+        <coding>
+          <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+          <code value="IS"/>
+          <display value="Sender"/>
+        </coding>
+        <text value="Sender of restricted health information"/>
+      </role>
+    </agent>
+
+    <action>
       <coding>
-        <system value="http://org.mdhhs.fhir.consent-actor-type"/>
-        <code value="IR"/>
-        <display value="Recipient"/>
+        <system value="http://www.hl7.org/fhir/contractaction"/>
+        <code value="action-a"/>
       </coding>
-      <text value="Recipient of restricted health information"/>
-    </role>
-  </agent>
-  <agent>
-    <actor>
-      <reference value="Organization/2"/>
-      <display value="Community Mental Health Clinic"/>
-    </actor>
-    <role>
+    </action>
+    
+    <actionReason>
       <coding>
-        <system value="http://org.mdhhs.fhir.consent-actor-type"/>
-        <code value="IS"/>
-        <display value="Sender"/>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="HPRGRP"/>
       </coding>
-      <text value="Sender of restricted health information"/>
-    </role>
-  </agent>
+    </actionReason>
+
+  </term>
+
   <signer>
     <type>
       <system value="http://org.mdhhs.fhir.consent-signer-type"/>
@@ -118,6 +183,7 @@
       </whoReference>
     </signature>
   </signer>
+
   <legal>
     <contentAttachment>
       <contentType value="application/pdf"/>
