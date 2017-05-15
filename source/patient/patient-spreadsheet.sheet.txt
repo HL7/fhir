@@ -817,6 +817,18 @@
   Description = Example Patient resource with Chinese content
   Filename = patient-example-chinese.xml
 
+ -- Row 20 -----------------------------------
+  Name = Newborn1
+  Identity = newborn
+  Description = Newborn Patient Example
+  Filename = patient-example-newborn.xml
+
+ -- Row 21 -----------------------------------
+  Name = Mom
+  Identity = mom
+  Description = Mother of Newborn Patient Example
+  Filename = patient-example-mom.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

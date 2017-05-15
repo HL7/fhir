@@ -7,10 +7,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2014-11-17T05:30:16Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2017-05-15T17:57:17Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -20,7 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3735,7 +3735,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5946,7 +5945,7 @@
    <Column ss:StyleID="s138" ss:Width="88.5"/>
    <Column ss:StyleID="s138" ss:Width="28.5"/>
    <Column ss:StyleID="s138" ss:Width="328.5"/>
-   <Column ss:StyleID="s138" ss:Width="57"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s138" ss:Width="205.5" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s138" ss:Width="40.5"/>
    <Row ss:AutoFitHeight="0">
@@ -6021,11 +6020,11 @@
     <Cell ss:StyleID="s143"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">Mother</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Mother of Newborn Example for Newborn Example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">newborn-mom</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">relatedperson-example-newborn-mom.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
    </Row>
@@ -6344,6 +6343,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6363,7 +6363,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

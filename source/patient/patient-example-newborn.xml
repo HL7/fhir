@@ -1,0 +1,17 @@
+<Patient xmlns="http://hl7.org/fhir">
+<!--
+simple newborn example
+-->
+	<id value='newborn'/>
+	<!-- The details of the child -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+		<valueString value="Everywoman"/>
+	</extension>
+	<gender value="male"/>
+	<birthDate value="2017-09-05">
+		<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+			<valueDateTime value="2017-05-09T17:11:00+01:00"/>
+		</extension>
+	</birthDate>
+	<multipleBirthInteger value="2"/>
+</Patient>
