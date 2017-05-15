@@ -227,7 +227,7 @@
 
  -- Row 12 -----------------------------------
   Element = ProcedureRequest.code
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
   Type = CodeableConcept
   Binding = ProcedureRequestCode
@@ -318,7 +318,7 @@
   Summary = Y
   Short Name = Who/what is requesting procedure or diagnostic
   Definition = The individual who initiated the request and has responsibility for its activation
-  Comments = This not the dispatcher, but rather who is the authorizer
+  Comments = This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource.
   Workflow Mapping = Request.requester
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
