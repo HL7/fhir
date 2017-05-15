@@ -127,7 +127,7 @@
 					</td>
 					<td>8310-5</td>
 					<td>
-						<em>Body temperature</em> - o supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations</td>
+						<em>Body temperature</em> - To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations</td>
 					<td>Cel, [degF]</td>
 					<td>
 						<a href="observation-example-body-temperature.html">Body Temperature Example</a>

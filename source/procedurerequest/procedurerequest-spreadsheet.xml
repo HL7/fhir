@@ -1420,7 +1420,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ProcedureRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.general&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a procedure to be performed&quot;,&quot;A request for a procedure to be performed. May be a proposal or an order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.diagnostics&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a diagnostic service&quot;,&quot;A record of a request for a diagnostic investigation service to be performed. &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.diagnostics&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a diagnostic service&quot;,&quot;A record of a request for a procedure service to be performed. &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1961,7 +1961,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureCode&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What procedure to perform&quot;,&quot;The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureCode&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequests&quot;,&quot;what&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What’s being requested/ordered&quot;,&quot;A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested&quot;,&quot;&quot;,&quot;Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.&quot;,&quot;&quot;,&quot;.code&quot;,&quot;OBX-4&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequests&quot;,&quot;what&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What’s being requested/ordered&quot;,&quot;A code that identifies a particular procedure, or panel of investigations, that have been requested&quot;,&quot;&quot;,&quot;Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.&quot;,&quot;&quot;,&quot;.code&quot;,&quot;OBX-4&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2096,7 +2096,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">When procedure should occur</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">The date/time at which the diagnostic testing should occur.</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">The date/time at which the requested procedure should occur.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2112,7 +2112,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">ProcedureRequest.scheduled[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime|Period|Timing&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When procedure should occur&quot;,&quot;The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureSchedule&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">ProcedureRequest.occurrence[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime| Period| Timing&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When testing should occur&quot;,&quot;The date/time at which the diagnostic testing should occur.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.effectiveTime&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s117"><Data ss:Type="String">ProcedureRequest.occurrence[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime| Period| Timing&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When testing should occur&quot;,&quot;The date/time at which the requested procedure should occur.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.effectiveTime&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2386,7 +2386,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Performer role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Desired type of performer for doing the diagnostic testing. </Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Desired type of performer for doing the requested procedure. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.</Data><NamedCell
@@ -2401,7 +2401,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.performerType,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestParticipantRole&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Performer role&quot;,&quot;Desired type of performer for doing the diagnostic testing. (&quot;,&quot;&quot;,&quot;this is a  role, not  aparticipation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.performerType,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestParticipantRole&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Performer role&quot;,&quot;Desired type of performer for doing the requested procedure. (&quot;,&quot;&quot;,&quot;this is a  role, not  aparticipation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2435,7 +2435,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Requested perfomer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.</Data><NamedCell
@@ -2451,7 +2451,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ProcedureRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner|Organization|Patient|RelatedPerson)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who should perform the procedure&quot;,&quot;For example, the surgeon, anaethetist, endoscopist, etc.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner | Organization | Patient | Device | RelatedPerson)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Requested perfomer&quot;,&quot;The desired perfomer for doing the diagnostic testing.&quot;,&quot;&quot;,&quot;Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.&quot;,&quot;&quot;,&quot;.participation[AUT or PFM]&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner | Organization | Patient | Device | RelatedPerson)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Requested perfomer&quot;,&quot;The desired perfomer for doing the requested procedure.&quot;,&quot;&quot;,&quot;Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.&quot;,&quot;&quot;,&quot;.participation[AUT or PFM]&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2486,10 +2486,10 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Explanation/Justification for test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">.reasonCode</Data><NamedCell
@@ -2502,7 +2502,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reasonCode,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestReason&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.reasonCode,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestReason&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2536,10 +2536,10 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Explanation/Justification for test</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target</Data><NamedCell
@@ -2552,7 +2552,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reasonReference,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Condition | Observation)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.reasonReference,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Condition | Observation)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2647,7 +2647,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.specimen,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Specimen)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Specimens for the requested test&quot;,&quot;One or more specimens that the diagnostic investigation is about.&quot;,&quot;&quot;,&quot;Many investigation requests will create a need for specimens, but the request itself is not actually about the specimen. This element is for when the diagnostic investigation is requested on already existing specimens and  the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource points to the ProcedureRequest.&quot;,&quot;&quot;,&quot;.participation[typeCode=SPC].role&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.specimen,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Specimen)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Specimens for the requested test&quot;,&quot;One or more specimens that the procedure is about.&quot;,&quot;&quot;,&quot;Many investigation requests will create a need for specimens, but the request itself is not actually about the specimen. This element is for when the procedure is requested on already existing specimens and  the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource points to the ProcedureRequest.&quot;,&quot;&quot;,&quot;.participation[typeCode=SPC].role&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>

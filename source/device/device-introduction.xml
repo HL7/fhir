@@ -4,7 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-This resource is an administrative resource that tracks individual device types or instances of a device and their location. It is referenced by other resource for recording which device performed an action such as a procedure or an observation. It is also referenced when prescribing and dispensing devices for patient use or for ordering supplies.  It is used to record and transmit  <a href="device.html#5.11.3.2.2">Unique Device Identifer (UDI)</a> information about a device such as a patient's implant.
+This resource is an administrative resource that tracks individual device types or instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, referenced when prescribing and dispensing devices for patient use or for ordering supplies, and used to record and transmit <a href="device.html# 8.14.3.2.3">Unique Device Identifer (UDI)</a> information about a device such as a patient's implant.
 </p>
 
 </div>

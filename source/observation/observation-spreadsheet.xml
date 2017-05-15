@@ -2955,7 +2955,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Why the component result is missing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Provides a reason why the expected value in the element Observation.value[x] is missing.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Provides a reason why the expected value in the element Observation.component.value[x] is missing.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">For many results it is necessary to handle exceptional values in measurements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

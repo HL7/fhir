@@ -277,7 +277,7 @@
   Summary = Y
   Type = dateTime| Period| Timing
   Short Name = When procedure should occur
-  Definition = The date/time at which the diagnostic testing should occur.
+  Definition = The date/time at which the requested procedure should occur.
   Workflow Mapping = Request.occurrence[x]
   v2 Mapping = Accompanying TQ1/TQ2 segments
   RIM Mapping = .effectiveTime
@@ -358,7 +358,7 @@
   Type = CodeableConcept
   Binding = ProcedureRequestParticipantRole
   Short Name = Performer role
-  Definition = Desired type of performer for doing the diagnostic testing.
+  Definition = Desired type of performer for doing the requested procedure.
   Comments = this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.
   Workflow Mapping = Request.performerType
   v2 Mapping = PRT
@@ -372,7 +372,7 @@
   Summary = Y
   Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
   Short Name = Requested perfomer
-  Definition = The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.
+  Definition = The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.
   Comments = If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.
   Workflow Mapping = Request.Performer
   v2 Mapping = PRT
@@ -387,8 +387,8 @@
   Type = CodeableConcept
   Binding = ProcedureRequestReason
   Short Name = Explanation/Justification for test
-  Definition = An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
-  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
+  Definition = An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
   Workflow Mapping = Request.reasonCod
   v2 Mapping = ORC.16
   RIM Mapping = .reasonCode
@@ -401,8 +401,8 @@
   Summary = Y
   Type = Reference(Condition | Observation)
   Short Name = Explanation/Justification for test
-  Definition = Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.
-  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
+  Definition = Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
   Workflow Mapping = Request.reasonReference
   v2 Mapping = ORC.16
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
