@@ -565,7 +565,8 @@ public class ProfileUtilities extends TranslatingUtilities {
           // well, if it passed those preconditions then we slice the dest.
           int start = 0;
           int nbl = findEndOfElement(base, baseCursor);
-          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1) {
+//          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1) {
+          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && (nbl > baseCursor || differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1)) {
             int ndc = differential.getElement().indexOf(diffMatches.get(0));
             int ndl = findEndOfElement(differential, ndc);
             processPaths(indent+"  ", result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true).setSlicing(diffMatches.get(0).getSlicing());
@@ -643,8 +644,8 @@ public class ProfileUtilities extends TranslatingUtilities {
           int diffpos = 0;
           boolean isExtension = cpath.endsWith(".extension") || cpath.endsWith(".modifierExtension");
           if (diffMatches.get(0).hasSlicing()) { // it might be null if the differential doesn't want to say anything about slicing
-            if (!isExtension)
-              diffpos++; // if there's a slice on the first, we'll ignore any content it has
+//            if (!isExtension)
+//              diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing();
             if (dSlice.hasOrderedElement() && bSlice.hasOrderedElement() && !orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
@@ -653,9 +654,6 @@ public class ProfileUtilities extends TranslatingUtilities {
              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - disciminator @ "+path+" ("+contextName+")");
             if (!ruleMatches(dSlice.getRules(), bSlice.getRules()))
              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - rule @ "+path+" ("+contextName+")");
-          }
-          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1) {
-            throw new Error("Not done yet");
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
@@ -670,6 +668,13 @@ public class ProfileUtilities extends TranslatingUtilities {
 
           if (!diffMatches.get(0).hasSliceName()) { // it's not real content, just the slice
             diffpos++; 
+          }
+          if (diffMatches.size() > 1 && diffMatches.get(0).hasSlicing() && differential.getElement().indexOf(diffMatches.get(1)) > differential.getElement().indexOf(diffMatches.get(0))+1) {
+            int nbl = findEndOfElement(base, baseCursor);
+            int ndc = differential.getElement().indexOf(diffMatches.get(0));
+            int ndl = findEndOfElement(differential, ndc);
+            processPaths(indent+"  ", result, base, differential, baseCursor+1, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true);
+//            throw new Error("Not done yet");
           }
 
           // now, we have two lists, base and diff. we're going to work through base, looking for matches in diff.
@@ -715,7 +720,8 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (closed && diffpos < diffMatches.size())
             throw new DefinitionException("The base snapshot marks a slicing as closed, but the differential tries to extend it in "+profileName+" at "+path+" ("+cpath+")");
           if (diffpos == diffMatches.size()) {
-            diffCursor++;
+//Lloyd This was causing problems w/ Telus
+//            diffCursor++;
           } else {
             while (diffpos < diffMatches.size()) {
               ElementDefinition diffItem = diffMatches.get(diffpos);

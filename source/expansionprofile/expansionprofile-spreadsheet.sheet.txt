@@ -109,7 +109,7 @@
   Element = ExpansionProfile.fixedVersion
   Card. = 0..*
   Summary = y
-  UML = 300;0
+  UML = 0;400
   Short Name = Fix use of a code system to a particular version
   Definition = Fix use of a particular code system to a particular version
 
@@ -143,7 +143,7 @@
   Element = ExpansionProfile.excludedSystem
   Card. = 0..1
   Summary = y
-  UML = 300;120
+  UML = 280;400
   Short Name = Systems/Versions to be exclude
   Definition = Code system, or a particular version of a code system to be excluded from value set expansions
   Comments = When a system is excluded, and this makes a material difference to the expansion, the exclusion SHALL  be noted in the expansion parameters using a parameter \'excluded\'
@@ -180,7 +180,7 @@
   Element = ExpansionProfile.designation
   Card. = 0..1
   Summary = y
-  UML = 300;400
+  UML = 480;200
   Short Name = When the expansion profile imposes designation contraints
   Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations
 
@@ -188,7 +188,7 @@
   Element = ExpansionProfile.designation.include
   Card. = 0..1
   Summary = y
-  UML = 300;300
+  UML = 530;110
   Type = =DesignationInclude
   Short Name = Designations to be included
   Definition = Designations to be included
@@ -197,7 +197,7 @@
   Element = ExpansionProfile.designation.include.designation
   Card. = 0..*
   Summary = y
-  UML = 300;240
+  UML = 500;0
   Type = =DesignationIncludeDesignation
   Short Name = The designation to be included
   Definition = A data group for each designation to be included
@@ -227,7 +227,7 @@
   Element = ExpansionProfile.designation.exclude
   Card. = 0..1
   Summary = y
-  UML = 300;500
+  UML = 530;310
   Type = =DesignationExclude
   Short Name = Designations to be excluded
   Definition = Designations to be excluded
@@ -236,7 +236,7 @@
   Element = ExpansionProfile.designation.exclude.designation
   Card. = 0..*
   Summary = y
-  UML = 300;600
+  UML = 480;400
   Type = =DesignationExcludeDesignation
   Short Name = The designation to be excluded
   Definition = A data group for each designation to be excluded

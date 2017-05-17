@@ -19,6 +19,7 @@ import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
@@ -27,7 +28,9 @@ import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TestScript;
 import org.hl7.fhir.r4.model.TestScript.SetupActionAssertComponent;
+import org.hl7.fhir.r4.model.TestScript.SetupActionComponent;
 import org.hl7.fhir.r4.model.TestScript.SetupActionOperationComponent;
+import org.hl7.fhir.r4.model.TestScript.TestActionComponent;
 import org.hl7.fhir.r4.model.TestScript.TestScriptFixtureComponent;
 import org.hl7.fhir.r4.model.TestScript.TestScriptTestComponent;
 import org.hl7.fhir.r4.model.TypeDetails;
@@ -92,27 +95,33 @@ public class SnapShotGenerationTests {
           throw new Error("Unsupported: multiple actions required");
         if (!test.getActionFirstRep().hasOperation())
           throw new Error("Unsupported: first action must be an operation");
-        SetupActionOperationComponent op = test.getActionFirstRep().getOperation();
-        if (!CodingUtilities.matches(op.getType(), "http://hl7.org/fhir/testscript-operation-codes", "snapshot"))
-          throw new Error("Unsupported action operation type "+CodingUtilities.present(op.getType()));
-        if (!"StructureDefinition".equals(op.getResource()))
-          throw new Error("Unsupported action operation resource "+op.getResource());
-        if (!op.hasResponseId())
-          throw new Error("Unsupported action operation: no response id");
-        if (!op.hasSourceId())
-          throw new Error("Unsupported action operation: no source id");
-        if (!hasSource(op.getSourceId()))
-          throw new Error("Unsupported action operation: source id could not be resolved");
-        for (int i = 1; i < test.getAction().size(); i++) {
-          if (!test.getAction().get(i).hasAssert())
-            throw new Error("Unsupported: following actions must be an asserts");
-          SetupActionAssertComponent a = test.getAction().get(i).getAssert();
-          if (!a.hasLabel())
-            throw new Error("Unsupported: actions must have a label");
-          if (!a.hasDescription())
-            throw new Error("Unsupported: actions must have a description");
-          if (!a.hasExpression())
-            throw new Error("Unsupported: actions must have an expression");
+        for (int i = 0; i < test.getAction().size(); i++) {
+//          if (!test.getAction().get(i).hasAssert())
+//            throw new Error("Unsupported: following actions must be an asserts");
+          TestActionComponent action = test.getAction().get(i);
+          if (action.hasOperation()) {
+            SetupActionOperationComponent op = test.getActionFirstRep().getOperation();
+            if (!CodingUtilities.matches(op.getType(), "http://hl7.org/fhir/testscript-operation-codes", "snapshot"))
+              throw new Error("Unsupported action operation type "+CodingUtilities.present(op.getType()));
+            if (!"StructureDefinition".equals(op.getResource()))
+              throw new Error("Unsupported action operation resource "+op.getResource());
+            if (!op.hasResponseId())
+              throw new Error("Unsupported action operation: no response id");
+            if (!op.hasSourceId())
+              throw new Error("Unsupported action operation: no source id");
+            if (!hasSource(op.getSourceId()))
+              throw new Error("Unsupported action operation: source id could not be resolved");
+          } else if (action.hasAssert()) {
+            SetupActionAssertComponent a = action.getAssert();
+            if (!a.hasLabel())
+              throw new Error("Unsupported: actions must have a label");
+            if (!a.hasDescription())
+              throw new Error("Unsupported: actions must have a description");
+            if (!a.hasExpression())
+              throw new Error("Unsupported: actions must have an expression");
+          } else {
+            throw new Error("Unsupported: Unrecognized action type");            
+          }
         }
       }
     }
@@ -237,21 +246,30 @@ public class SnapShotGenerationTests {
 
     resolveFixtures();
     
-    SetupActionOperationComponent op = test.getActionFirstRep().getOperation();
-    StructureDefinition source = (StructureDefinition) context.fetchFixture(op.getSourceId());
-    StructureDefinition base = getSD(source.getBaseDefinition()); 
-    StructureDefinition output = source.copy();
-    ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
-    pu.setIds(source, false);
-    pu.generateSnapshot(base, output, source.getUrl(), source.getName());
-    context.fixtures.put(op.getResponseId(), output);
-    context.snapshots.put(output.getUrl(), output);
-    
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
-    //ok, now the asserts:
-    for (int i = 1; i < test.getAction().size(); i++) {
-      SetupActionAssertComponent a = test.getAction().get(i).getAssert();
-      Assert.assertTrue(a.getLabel()+": "+a.getDescription(), fp.evaluateToBoolean(source, source, a.getExpression()));
+    for (int i = 0; i < test.getAction().size(); i++) {
+      TestActionComponent action = test.getAction().get(i);
+      if (action.hasOperation()) {
+        SetupActionOperationComponent op = action.getOperation();
+        Coding opType = op.getType();
+        if (opType.getSystem().equals("http://hl7.org/fhir/testscript-operation-codes") && opType.getCode().equals("snapshot")) {
+          StructureDefinition source = (StructureDefinition) context.fetchFixture(op.getSourceId());
+          StructureDefinition base = getSD(source.getBaseDefinition()); 
+          StructureDefinition output = source.copy();
+          ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
+          pu.setIds(source, false);
+          pu.generateSnapshot(base, output, source.getUrl(), source.getName());
+          context.fixtures.put(op.getResponseId(), output);
+          context.snapshots.put(output.getUrl(), output);
+          
+          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
+          
+        } else {
+          throw new Error("Unsupported operation: " + opType.getSystem() + " : " + opType.getCode());
+        }
+      } else if (action.hasAssert()) {
+        SetupActionAssertComponent a = action.getAssert();
+        Assert.assertTrue(a.getLabel()+": "+a.getDescription(), fp.evaluateToBoolean(new StructureDefinition(), new StructureDefinition(), a.getExpression()));
+      }
     }
   }
 

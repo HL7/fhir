@@ -25,6 +25,9 @@
  20. Slicing a backbone element 
  21. Slicing a backbone element on it's nested use
  22. Test slicing - Constrain base element before slicing
+ 23. Test slicing - Unsorted differential
+ 24. Test slicing - Constrain base element before slicing when slices were already defined - backbone
+ 25. Test slicing - Constrain base element before slicing when slices were already defined - datatypes
 -->
 	<contained>
 		<!-- fixture for #1: no change in the differential -->
@@ -953,6 +956,242 @@
 		</StructureDefinition>
 	</contained>  
   
+	<contained>
+		<!-- fixture for #23: Test Slicing - unsorted differential -->
+		<StructureDefinition>
+			<id value="t23"/>
+			<url value="urn:uuid:2e28117d-bb6f-4d8e-9ccd-5472535cc2d6"/>
+			<name value="t23"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient"/>
+        </element>
+				<element>
+					<path value="Patient.contact"/>
+					<slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="gender"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+				<element>
+          <path value="Patient.contact"/>
+          <sliceName value="males"/>
+        </element>
+        <element>
+          <path value="Patient.contact.gender"/>
+          <fixedCode value="male"/>
+        </element>
+        <element>
+          <path value="Patient.contact.telecom"/>
+          <min value="1"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+
+	<contained>
+		<!-- fixture for #24a: Constrain base element before slicing when slices were already defined - backbone -->
+		<StructureDefinition>
+			<id value="t24a"/>
+			<url value="urn:uuid:5eac3230-a289-4662-a296-2b673d6d3293"/>
+			<name value="t24a"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient"/>
+        </element>
+				<element>
+					<path value="Patient.contact"/>
+					<slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="gender"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+				<element>
+          <path value="Patient.contact"/>
+          <sliceName value="males"/>
+        </element>
+        <element>
+          <path value="Patient.contact.telecom"/>
+          <min value="1"/>
+        </element>
+        <element>
+          <path value="Patient.contact.gender"/>
+          <fixedCode value="male"/>
+        </element>
+				<element>
+          <path value="Patient.contact"/>
+          <sliceName value="females"/>
+        </element>
+        <element>
+          <path value="Patient.contact.telecom"/>
+          <max value="0"/>
+        </element>
+        <element>
+          <path value="Patient.contact.gender"/>
+          <fixedCode value="female"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+
+	<contained>
+		<!-- fixture for #24b: Constrain base element before slicing when slices were already defined - backbone -->
+		<StructureDefinition>
+			<id value="t24b"/>
+			<url value="urn:uuid:6a446a41-a552-4391-babc-db4caee2d987"/>
+			<name value="t24b"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<!-- baseDefinition = t24a -->
+			<baseDefinition value="urn:uuid:5eac3230-a289-4662-a296-2b673d6d3293"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient"/>
+        </element>
+				<element>
+					<path value="Patient.contact"/>
+					<slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="gender"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+        <element>
+          <path value="Patient.contact.name"/>
+          <min value="1"/>        
+        </element>
+				<element>
+          <path value="Patient.contact"/>
+          <sliceName value="males"/>
+        </element>
+        <element>
+          <path value="Patient.contact.name"/>
+          <min value="1"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+
+	<contained>
+		<!-- fixture for #25a: Constrain base element before slicing when slices were already defined - data type -->
+		<StructureDefinition>
+			<id value="t25a"/>
+			<url value="urn:uuid:ec0e207d-39e1-46ad-a10f-262029008feb"/>
+			<name value="t25a"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient"/>
+        </element>
+				<element>
+					<path value="Patient.name"/>
+					<slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="use"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+				<element>
+          <path value="Patient.name"/>
+          <sliceName value="official"/>
+        </element>
+        <element>
+          <path value="Patient.name.use"/>
+          <fixedCode value="official"/>
+        </element>
+        <element>
+          <path value="Patient.name.given"/>
+          <min value="1"/>
+        </element>
+				<element>
+          <path value="Patient.name"/>
+          <sliceName value="usual"/>
+        </element>
+        <element>
+          <path value="Patient.name.use"/>
+          <fixedCode value="usual"/>
+        </element>
+        <element>
+          <path value="Patient.name.given"/>
+          <max value="0"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+
+	<contained>
+		<!-- fixture for #25: Constrain base element before slicing when slices were already defined - data type -->
+		<StructureDefinition>
+			<id value="t25b"/>
+			<url value="urn:uuid:729ce066-281e-48da-b2b7-866c0cf50241"/>
+			<name value="t25b"/>
+			<status value="draft"/>
+			<kind value="resource"/>
+			<abstract value="false"/>
+			<type value="Patient"/>
+			<!-- baseDefinition = t25a -->
+			<baseDefinition value="urn:uuid:ec0e207d-39e1-46ad-a10f-262029008feb"/>
+			<derivation value="constraint"/>
+			<differential>
+				<element>
+					<path value="Patient"/>
+        </element>
+				<element>
+					<path value="Patient.name"/>
+					<slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="use"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+        <element>
+          <path value="Patient.name.family"/>
+          <min value="1"/>        
+        </element>
+				<element>
+          <path value="Patient.name"/>
+          <sliceName value="official"/>
+        </element>
+        <element>
+          <path value="Patient.name.prefix"/>
+          <min value="1"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+
 	<url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
 	<name value="SnapshotGenerationTests"/>
 	<title value="Snapshot generation test script"/>
@@ -2135,10 +2374,103 @@
 		<action>
 			<assert>
 				<label value="test22-1"/>
-				<description value="element count increased by 59"/>
-				<expression value="fixture('t22o').snapshot.element.count().trace('o') = fixture('patient').snapshot.element.count().trace('o') + 76"/>
+				<description value="element count increased by 76"/>
+				<expression value="fixture('t22o').snapshot.element.count().trace('t22o') = fixture('patient').snapshot.element.count().trace('t22patient') + 76"/>
 			</assert>
 		</action>
 	</test> 
   
+  <!-- #23. Test Slicing - unsorted differential -->  
+	<test>
+		<name value="Test23"/>
+		<description value="test slicing - unsorted differential"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t23o"/>
+				<sourceId value="t23"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test23-1"/>
+				<description value="element count increased by ??"/>
+				<!-- Update once we know what the new snapshot size should be -->
+				<expression value="fixture('t23o').snapshot.element.count().trace('t23o') = fixture('patient').snapshot.element.count().trace('t23patient') + 1"/>
+			</assert>
+		</action>
+	</test> 
+
+  
+  <!-- #24. Test slicing - Constrain base element before slicing when slices were already defined - backbone -->
+	<test>
+		<name value="Test24"/>
+		<description value="test slicing - Constrain base element before slicing when slices were already defined - backbone"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t24ao"/>
+				<sourceId value="t24a"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t24bo"/>
+				<sourceId value="t24b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test24-1"/>
+				<description value="Element count of profile a is increased by 24 from base Patient"/>
+				<expression value="fixture('t24bo').snapshot.element.count().trace('t24ao') = fixture('patient').snapshot.element.count().trace('t24Patient') + 22"/>
+			</assert>
+    </action>
+    <action>
+			<assert>
+				<label value="test24-2"/>
+				<description value="Element count of profile b is identical to profile a"/>
+				<expression value="fixture('t24bo').snapshot.element.count().trace('t24bo') = fixture('t24ao').snapshot.element.count().trace('t24ao')"/>
+			</assert>
+		</action>
+	</test> 
+
+  <!-- #25. Test slicing - Constrain base element before slicing when slices were already defined - datatype -->
+	<test>
+		<name value="Test25"/>
+		<description value="test slicing - Constrain base element before slicing when slices were already defined - datatype"/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="snapshot"/>
+				</type>
+				<resource value="StructureDefinition"/>
+				<responseId value="t25o"/>
+				<sourceId value="t25b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<label value="test25-1"/>
+				<description value="element count increased by ??"/>
+				<!-- Update once we know what the new snapshot size should be -->
+				<expression value="fixture('t25o').snapshot.element.count().trace('t25o') = fixture('patient').snapshot.element.count().trace('t25patient') + 1"/>
+			</assert>
+		</action>
+	</test> 
+
 </TestScript>
