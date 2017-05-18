@@ -83,7 +83,6 @@ public abstract class FormatUtilities {
     case XML : return new XmlParser();
     case JSON : return new JsonParser();
     case TURTLE : throw new Error("unsupported Format "+format.toString()); // return new TurtleParser();
-    case JSONLD : throw new Error("unsupported Format "+format.toString()); // return new JsonLdParser();
     case VBAR : throw new Error("unsupported Format "+format.toString()); // 
     case TEXT : throw new Error("unsupported Format "+format.toString()); // 
     }

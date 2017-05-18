@@ -12,6 +12,8 @@ import org.hl7.fhir.r4.elementmodel.Element.SpecialElement;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.utils.SnomedExpressions;
+import org.hl7.fhir.r4.utils.SnomedExpressions.Expression;
 import org.hl7.fhir.r4.utils.formats.Turtle;
 import org.hl7.fhir.r4.utils.formats.Turtle.Complex;
 import org.hl7.fhir.r4.utils.formats.Turtle.Section;
@@ -22,6 +24,7 @@ import org.hl7.fhir.r4.utils.formats.Turtle.TTLLiteral;
 import org.hl7.fhir.r4.utils.formats.Turtle.TTLObject;
 import org.hl7.fhir.r4.utils.formats.Turtle.TTLURL;
 import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -261,7 +264,7 @@ public class TurtleParser extends ParserBase {
   
   
   @Override
-  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException {
+  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException, FHIRException {
     this.base = base;
     
 		Turtle ttl = new Turtle();
@@ -271,7 +274,7 @@ public class TurtleParser extends ParserBase {
 
 
 
-  public void compose(Element e, Turtle ttl, String base) {
+  public void compose(Element e, Turtle ttl, String base) throws FHIRException {
     ttl.prefix("fhir", FHIR_URI_BASE);
     ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
     ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
@@ -319,21 +322,6 @@ public class TurtleParser extends ParserBase {
       t.linkedPredicate("fhir:link", refURI, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#reference"));
   }
   
-	protected void decorateCoding(Complex t, Element coding, Section section) {
-		String system = coding.getChildValue("system");
-		String code = coding.getChildValue("code");
-		
-		if (system == null)
-			return;
-		if ("http://snomed.info/sct".equals(system)) {
-			t.prefix("sct", "http://snomed.info/id/");
-			t.linkedPredicate("a", "sct:" + urlescape(code), null);
-    } else if ("http://loinc.org".equals(system)) {
-			t.prefix("loinc", "http://loinc.org/owl#");
-			t.linkedPredicate("a", "loinc:"+urlescape(code).toUpperCase(), null);
-		}  
-	}
-
   private String genSubjectId(Element e) {
     String id = e.getChildValue("id");
     if (base == null || id == null)
@@ -355,7 +343,7 @@ public class TurtleParser extends ParserBase {
 	  return b.toString();
   }
 
-  private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
+  private void composeElement(Section section, Complex ctxt, Element element, Element parent) throws FHIRException {
 //    "Extension".equals(element.getType())?
 //            (element.getProperty().getDefinition().getIsModifier()? "modifierExtension" : "extension") ; 
     String en = getFormalName(element);
@@ -472,5 +460,66 @@ public class TurtleParser extends ParserBase {
 		return "\"" +Turtle.escape(value, true) + "\""+xst;
 	}
 
+  protected void decorateCoding(Complex t, Element coding, Section section) throws FHIRException {
+    String system = coding.getChildValue("system");
+    String code = coding.getChildValue("code");
+    
+    if (system == null)
+      return;
+    if ("http://snomed.info/sct".equals(system)) {
+      t.prefix("sct", "http://snomed.info/id/");
+      if (code.contains(":") || code.contains("="))
+        generateLinkedPredicate(t, code);
+      else
+        t.linkedPredicate("a", "sct:" + urlescape(code), null);
+    } else if ("http://loinc.org".equals(system)) {
+      t.prefix("loinc", "http://loinc.org/owl#");
+      t.linkedPredicate("a", "loinc:"+urlescape(code).toUpperCase(), null);
+    }  
+  }
+  private void generateLinkedPredicate(Complex t, String code) throws FHIRException {
+    Expression expression = SnomedExpressions.parse(code);
+    
+  }
 
+
+//    128045006|cellulitis (disorder)|:{363698007|finding site|=56459004|foot structure|}
+//    Grahame Grieve: or
+//
+//    64572001|disease|:{116676008|associated morphology|=72704001|fracture|,363698007|finding site|=(12611008|bone structure of  tibia|:272741003|laterality|=7771000|left|)}
+//    Harold Solbrig:
+//    a sct:128045006,
+//      rdfs:subClassOf [
+//          a owl:Restriction;
+//          owl:onProperty sct:609096000 ;
+//          owl:someValuesFrom [
+//                a owl:Restriction;
+//                 owl:onProperty sct:363698007 ;
+//                owl:someValuesFrom sct:56459004 ] ] ;
+//    and
+//
+//    a sct:64572001,
+//       rdfs:subclassOf  [
+//           a owl:Restriction ;
+//           owl:onProperty sct:60909600 ;
+//           owl:someValuesFrom [ 
+//                 a owl:Class ;
+//                 owl:intersectionOf ( [
+//                      a owl:Restriction;
+//                      owl:onProperty sct:116676008;
+//                     owl:someValuesFrom sct:72704001 ] 
+//                 [  a owl:Restriction;
+//                      owl:onProperty sct:363698007 
+//                      owl:someValuesFrom [
+//                            a owl:Class ;
+//                            owl:intersectionOf(
+//                                 sct:12611008
+//                                 owl:someValuesFrom [
+//                                         a owl:Restriction;
+//                                         owl:onProperty sct:272741003;
+//                                         owl:someValuesFrom sct:7771000
+//                                  ] ) ] ] ) ] ]
+//    (an approximation -- I'll have to feed it into a translator to be sure I've got it 100% right)
+//
+  
 }

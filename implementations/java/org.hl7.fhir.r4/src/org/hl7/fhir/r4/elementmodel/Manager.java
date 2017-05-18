@@ -13,14 +13,12 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 
 public class Manager {
 
-  public enum FhirFormat { XML, JSON, JSONLD, TURTLE, TEXT, VBAR;
+  public enum FhirFormat { XML, JSON, TURTLE, TEXT, VBAR;
 
     public String getExtension() {
       switch (this) {
       case JSON:
         return "json";
-      case JSONLD:
-        return "ld.json";
       case TURTLE:
         return "ttl";
       case XML:
@@ -45,7 +43,6 @@ public class Manager {
   public static ParserBase makeParser(IWorkerContext context, FhirFormat format) {
     switch (format) {
     case JSON : return new JsonParser(context);
-    case JSONLD : return new JsonLDParser(context);
     case XML : return new XmlParser(context);
     case TURTLE : return new TurtleParser(context);
     case VBAR : return new VerticalBarParser(context);
