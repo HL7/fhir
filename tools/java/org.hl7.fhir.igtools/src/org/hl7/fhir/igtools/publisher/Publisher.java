@@ -2214,7 +2214,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       generateDefinitions(FhirFormat.JSON, df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.TURTLE))
       generateDefinitions(FhirFormat.TURTLE, df.getCanonicalPath());
-    generateValidationPack();
+    generateValidationPack(df.getCanonicalPath());
+    generateRegistryUploadZip(df.getCanonicalPath());
   }
 
   private boolean isListedURLExemption(String uc) {
@@ -2248,13 +2249,38 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void generateValidationPack()  throws Exception {
+  private void generateRegistryUploadZip(String specFile)  throws Exception {
+    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "registry.fhir.org.zip"));
+    zip.addFileName("spec.internals", specFile, false);
+    zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
+    StringBuilder ri = new StringBuilder();
+    ri.append("[registry]\r\n");
+    ri.append("toolversion="+getToolingVersion()+"\r\n");
+    ri.append("fhirversion="+version+"\r\n");
+    int i = 0;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
+          ByteArrayOutputStream bs = new ByteArrayOutputStream();
+          new JsonParser().compose(bs, r.getResource());
+          zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
+          i++;
+        }
+      }
+    }
+    ri.append("resourcecount="+Integer.toString(i)+"\r\n");
+    zip.addBytes("registry.info", ri.toString().getBytes(Charsets.UTF_8), false);
+    zip.close();
+  }
+
+  private void generateValidationPack(String specFile)  throws Exception {
     String sch = makeTempZip(".sch");
     String js = makeTempZip(".schema.json");
     String shex = makeTempZip(".shex");
 
     ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "validator.pack"));
     zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
+    zip.addFileName("spec.internals", specFile, false);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
@@ -3643,9 +3669,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
       }
     } else {
-      System.out.println("FHIR Implementation Guide Publisher (v"+getCurrentVersion()+", gen-code v"+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
-      System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
       Publisher self = new Publisher();
+      System.out.println("FHIR Implementation Guide Publisher (v"+self.getToolingVersion()+", gen-code v"+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
+      System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
       if (hasParam(args, "-source")) {
         // run with standard template. this is publishing lite
         self.setSourceDir(getNamedParam(args, "-source"));
@@ -3692,7 +3718,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     System.exit(exitCode);
   }
 
-  private static String getCurrentVersion() {
+  private String getToolingVersion() {
     InputStream vis = Publisher.class.getResourceAsStream("/version.info");
     if (vis != null) {
       IniFile vi = new IniFile(vis);
