@@ -288,7 +288,7 @@
   Element = MedicationDispense.performer.onBehalfOf
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Organization organization was acting for
+  Short Name = Organization was acting for
   Definition = The organization the device or practitioner was acting on behalf of.
   Workflow Mapping = Event.onBehalfOf
   RIM Mapping = .role.scopingOrganization

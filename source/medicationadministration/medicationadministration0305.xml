@@ -55,9 +55,9 @@
     <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0316"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="1.8 mg/kg IV infusion over 30 minutes" />
     <route>

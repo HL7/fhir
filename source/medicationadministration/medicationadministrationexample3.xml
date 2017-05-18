@@ -41,9 +41,9 @@
       <display value="Administration of medication not done due to a contraindication (situation)"/>
     </coding>
   </reasonNotGiven>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0317"/>
-  </prescription>
+  </request>
   
   <note>
     <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>

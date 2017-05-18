@@ -30,9 +30,9 @@
   <display value="Patrick Pump"/>
 </actor>
   </performer>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0305"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="apply one patch three times per week"/>
     <dose>

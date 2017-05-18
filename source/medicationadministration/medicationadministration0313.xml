@@ -32,9 +32,9 @@
       <display value="Emergency"/>
     </coding>
   </reasonCode>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0324"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
     <site>

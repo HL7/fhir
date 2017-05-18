@@ -36,9 +36,9 @@
     <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0302"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="Two tablets at once" />
     <route>

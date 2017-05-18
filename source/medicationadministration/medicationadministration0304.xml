@@ -40,9 +40,9 @@
   <reasonReference>
     <reference value="Condition/f202"></reference>
   </reasonReference>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0319"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
     <route>

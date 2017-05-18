@@ -103,9 +103,9 @@
       <display value="Given as Ordered"/>
     </coding>
   </reasonCode>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0322"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
     <site>

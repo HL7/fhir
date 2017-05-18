@@ -78,9 +78,9 @@
       <display value="Given as Ordered"/>
     </coding>
   </reasonCode>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0318"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="500mg IV q6h x 3 days" />
     <route>

@@ -25,9 +25,9 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0320"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="20 Units SC before breakfast" />
     <route>

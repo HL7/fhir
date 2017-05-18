@@ -360,11 +360,12 @@
   w5 = why
 
  -- Row 19 -----------------------------------
-  Element = MedicationAdministration.prescription
+  Element = MedicationAdministration.request
   Card. = 0..1
   Type = Reference(MedicationRequest)
   Short Name = Request administration performed against
   Definition = The original request, instruction or authority to perform the administration.
+  Comments = This is a reference to the MedicationRequest  where the intent is either order or instance-order.  It should not reference MedicationRequests where the intent is any other value.
   Workflow Mapping = Event.basedOn
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
@@ -510,10 +511,10 @@
   Target Types = Patient
 
  -- Row 8 -----------------------------------
-  Name = prescription
+  Name = request
   Type = reference
-  Description = The identity of a prescription to list administrations from
-  Path = MedicationAdministration.prescription
+  Description = The identity of a request to list administrations from
+  Path = MedicationAdministration.request
 
  -- Row 9 -----------------------------------
   Name = status

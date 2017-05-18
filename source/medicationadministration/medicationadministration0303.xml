@@ -36,9 +36,9 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
+  <request>
     <reference value="MedicationRequest/medrx0319"/>
-  </prescription>
+  </request>
   <dosage>
     <text value="4.5 grams in D5W 250 ml. IV every 6 hours. Infuse over 30 min at 8L/min " />
     <route>
