@@ -4,4 +4,32 @@
         a full Family History could be a <a href="list.html">List</a> that might include a mixture of FamilyMemberHistory records 
         as well as <a href="observation.html">Observation</a> records of things like "maternal family history of breast cancer", "number of siblings", "number of female family members with breast cancer" etc.</p> 
 	<p>The <a href="list.html">List</a> representing a patient's "family history" can include <a href="condition.html">Condition</a> and <a href="observation.html">Observation</a> records that capture "family-history" relevant assertions about the patient themselves that would typically be captured as part of a family history.</p>
+
+<h3>No Known Patient History, No Known Problems, and Negated Conditions</h3>
+
+  <p>
+    <b>Not Reviewed, Not Asked</b>
+  </p>
+  <p>When a sending system does not have family history about any family members or the statement is about family history not yet being asked, then the <a href="list.html">List</a> resource should be used to indicate the List.emptyReason="notasked".
+  </p>
+ 
+<p>  
+<b>Reviewed, None Identified for Family</b>
+</p>
+  <p>After reasonable investigation that there are no known items for the family member history list, then the <a href="list.html">List</a> resource should be used to indicate the List.emptyReason="nilknown".  The List.emptyReason represents a statement about the full scope of the list (i.e. the patient or patient's agent/guardian has asserted that there are no conditions or significant events for any family members to record).
+  </p>
+  
+  <p>  
+<b>Reviewed, None Identified for a Family Member</b>
+</p>
+  <p>When an individual family member's history is not available, FamilyMemberHistory.dataAbsentReason can be used to indicate why that family member's history is not available (e.g. subject unknown).
+  </p>
+ 
+ <p> 
+  <b>Reviewed, No Known Problems or Negated Condition for a Family Member</b>
+</p>
+  <p>The FamilyMemberHistory.condition.code can be used to capture "No Known Problems" or negated conditions, such as "No history of malignant tumor of breast", for an individual family member.
+  </p>
+  
 </div>
+

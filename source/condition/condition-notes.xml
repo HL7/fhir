@@ -82,6 +82,15 @@ For example,  it is possible that a nurse records the condition on behalf of a p
 The Condition.stage and Condition.clinicalStatus may have interdependencies. For example, some "stages" of cancer, etc. will be different for a remission than for the initial occurrence.
 </p>
 
+<h3>Diagnosis Role and Rank within an Encounter</h3>
+
+<p>
+To represent the role of the diagnosis within an encounter, such as admission diagnosis or discharge diagnosis, use <a href="encounter-definitions.html#Encounter.diagnosis.role">Encounter.diagnosis.role</a>.
+</p>
+<p> 
+To represent the numeric ranking of the diagnosis within an encounter, such as primary, secondary, or tertiary, use <a href="encounter-definitions.html#Encounter.diagnosis.rank">Encounter.diagnosis.rank</a>.
+</p>
+
 <h3>Known Issue</h3>
 
 <p> A known issue exists with circular references between Condition and ClinicalImpression, which is due to the low maturity level of ClinicalImpression. The Patient Care work group intends to address this issue when ClinicalImpression is considered substantially complete and ready for implementation.

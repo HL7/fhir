@@ -327,7 +327,7 @@
   Binding = ReferralReason
   Short Name = Reason for referral / transfer of care request
   Definition = Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management
-  Workflow Mapping = Request.reasonCod
+  Workflow Mapping = Request.reasonCode
   v2 Mapping = RF1-10
   w5 = why
 

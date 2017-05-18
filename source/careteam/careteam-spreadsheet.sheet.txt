@@ -105,7 +105,7 @@
   Id = 1
   Context = CareTeam.participant
   English = CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
-  XPath = contains(f:member/f:reference/@value, \'/Practitioner/\') or not(exists(f:onBehalfOf))
+  XPath = starts-with(f:member/f:reference/@value, \'Practitioner/\') or contains(f:member/f:reference/@value, \'/Practitioner/\') or not(exists(f:onBehalfOf))
   Expression = onBehalfOf.exists() implies (member.resolve() is Practitioner)
 
 === Sheet Data Elements =====================================
@@ -274,6 +274,15 @@
   Committee Notes = GF#11335
 
  -- Row 17 -----------------------------------
+  Element = CareTeam.telecom
+  Card. = 0..*
+  Type = ContactPoint
+  Short Name = A contact detail for the care team (that applies to all members)
+  Definition = A central contact detail for the care team (that applies to all members)
+  Comments = The ContactPoint.use code of home is not appropriate to use. These contacts are not the contact details of individual care team members.
+  Committee Notes = GF#13233
+
+ -- Row 18 -----------------------------------
   Element = CareTeam.note
   Card. = 0..*
   Type = Annotation

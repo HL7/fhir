@@ -13650,6 +13650,13 @@
     <display value="Teaching"/>
     <display value="Procedure that is synonymous with those activities such as teaching, demonstration, instruction, explanation, and advice that aim to increase knowledge and skills, change behaviors, assist coping and increase adherence to treatment."/>
   </concept>
+  <concept id="409137002" display="No known history of drug allergy">
+    <display value="No known history of drug allergy"/>
+    <display value="No known medicine allergy"/>
+    <display value="No known drug allergy (situation)"/>
+    <display value="No known drug allergy"/>
+    <display value="NKDA - No known drug allergy"/>
+  </concept>
   <concept id="40930008" display="Hypothyroidism">
     <display value="Hypothyroidism"/>
     <display value="Hypothyroid"/>
@@ -15442,6 +15449,10 @@
   <concept id="71388002" display="Procedure">
     <display value="Procedure"/>
     <display value="Procedure (procedure)"/>
+  </concept>
+  <concept id="716184000" display="No known latex allergy">
+    <display value="No known latex allergy (situation)"/>
+    <display value="No known latex allergy"/>
   </concept>
   <concept id="716186003" display="No known allergy">
     <display value="No known allergy (situation)"/>

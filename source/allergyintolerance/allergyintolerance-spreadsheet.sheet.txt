@@ -611,4 +611,22 @@
   Description = An allergy to a substance with additional details in notes
   Filename = allergyintolerance-fishallergy.xml
 
+ -- Row 4 -----------------------------------
+  Name = No Known Allergy
+  Identity = nka
+  Description = No Known Allergy
+  Filename = allergyintolerance-nka.xml
+
+ -- Row 5 -----------------------------------
+  Name = No Known Drug Allergy
+  Identity = nkda
+  Description = No Known Drug Allergy
+  Filename = allergyintolerance-nkda.xml
+
+ -- Row 6 -----------------------------------
+  Name = No Known Latex Allergy
+  Identity = nkla
+  Description = No Known Latext Allergy
+  Filename = allergyintolerance-nkla.xml
+
 === Sheet Examples =====================================

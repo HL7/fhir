@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+  <id value="nkla"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>No Known Latex Allergy</p>
+      <p>recordedDate:2015-08-06</p>
+    </div>   
+  </text>
+
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+     
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="716184000"/>
+      <display value="No Known Latex Allergy (situation)"/>
+    </coding>
+    <text value="No Known Latex Allergy"/>
+  </code>
+
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+
+  <!-- the date that this entry was recorded -->  
+  <assertedDate value="2015-08-06T15:37:31-06:00"/>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <reference value="Practitioner/example"/>
+  </recorder>  
+</AllergyIntolerance>
