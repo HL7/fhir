@@ -159,7 +159,7 @@
             <start value="2015-01-15"/>
             <end value="2016-01-15"/>
         </validityPeriod>
-        <numberOfRepeatsAllowed value="1"></numberOfRepeatsAllowed>
+        <numberOfRepeatsAllowed value="0"></numberOfRepeatsAllowed>
         <quantity>
             <value value="30"/>
             <unit value="TAB"/>
