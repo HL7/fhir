@@ -289,6 +289,7 @@ public class IgSpreadsheetParser {
       sd.setAbstract(false);
       sd.setId(n.toLowerCase());
       sd.setType(sd.getDifferential().getElementFirstRep().getPath());
+      sd.getDifferential().getElementFirstRep().setSliceName(null);
       if (sd.getDifferential().getElementFirstRep().getType().size() == 1 && sd.getDifferential().getElementFirstRep().getType().get(0).hasTargetProfile())
         sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getTargetProfile());
       else
