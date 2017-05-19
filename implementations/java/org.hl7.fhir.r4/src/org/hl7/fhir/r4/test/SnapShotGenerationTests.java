@@ -101,7 +101,8 @@ public class SnapShotGenerationTests {
           TestActionComponent action = test.getAction().get(i);
           if (action.hasOperation()) {
             SetupActionOperationComponent op = test.getActionFirstRep().getOperation();
-            if (!CodingUtilities.matches(op.getType(), "http://hl7.org/fhir/testscript-operation-codes", "snapshot"))
+            if (!CodingUtilities.matches(op.getType(), "http://hl7.org/fhir/testscript-operation-codes", "snapshot")
+            && !CodingUtilities.matches(op.getType(), "http://hl7.org/fhir/testscript-operation-codes", "sortDifferential"))
               throw new Error("Unsupported action operation type "+CodingUtilities.present(op.getType()));
             if (!"StructureDefinition".equals(op.getResource()))
               throw new Error("Unsupported action operation resource "+op.getResource());
@@ -263,6 +264,21 @@ public class SnapShotGenerationTests {
           
           new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
           
+        } else if (opType.getSystem().equals("http://hl7.org/fhir/testscript-operation-codes") && opType.getCode().equals("sortDifferential")) {
+          StructureDefinition source = (StructureDefinition) context.fetchFixture(op.getSourceId());
+          StructureDefinition base = getSD(source.getBaseDefinition()); 
+          StructureDefinition output = source.copy();
+          ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
+          pu.setIds(source, false);
+          List<String> errors = new ArrayList<String>();          
+          pu.sortDifferential(base, output, output.getUrl(), errors);
+          if (!errors.isEmpty())
+            throw new FHIRException(errors.get(0));
+          context.fixtures.put(op.getResponseId(), output);
+          context.snapshots.put(output.getUrl(), output);
+          
+          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
+            
         } else {
           throw new Error("Unsupported operation: " + opType.getSystem() + " : " + opType.getCode());
         }
@@ -291,6 +307,10 @@ public class SnapShotGenerationTests {
           StructureDefinition p = sd.copy();
           ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
           pu.setIds(p, false);
+          List<String> errors = new ArrayList<String>();          
+          pu.sortDifferential(getSD(p.getBaseDefinition()), p, url, errors);
+          if (!errors.isEmpty())
+            throw new FHIRException(errors.get(0));
           pu.generateSnapshot(getSD(p.getBaseDefinition()), p, p.getUrl(), p.getName());
           return p;
         }

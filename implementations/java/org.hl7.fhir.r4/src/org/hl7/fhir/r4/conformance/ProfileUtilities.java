@@ -2868,6 +2868,22 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (sd == null)
             throw new Error("Unable to find profile "+p);
           ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name);
+        } else if (child.getSelf().hasType() && child.getSelf().getType().get(0).getCode().equals("Reference")) {
+          for (TypeRefComponent t: child.getSelf().getType()) {
+            if (!t.getCode().equals("Reference")) {
+              throw new Error("Can't have children on an element with a polymorphic type - you must slice and constrain the types first (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
+            }
+          }
+          StructureDefinition profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
+          ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
+        } else if (!child.getSelf().hasType() && ed.getType().get(0).getCode().equals("Reference")) {
+          for (TypeRefComponent t: ed.getType()) {
+            if (!t.getCode().equals("Reference")) {
+              throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
+            }
+          }
+          StructureDefinition profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
+          ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
         } else {
           throw new Error("Not handled yet (sortElements: "+ed.getPath()+":"+typeCode(ed.getType())+")");
         }
