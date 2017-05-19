@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-Out"/>
 
@@ -35,15 +35,13 @@
         </coding>
       </role>
       <reference>
-         <reference value="Organization/2.16.840.1.113883.19.6"/>
-         <display value="Good Health Psychiatric Hospital"/>
-      </reference>
+         <reference value="Organization/f001"/>
+               </reference>
     </actor>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
   <organization>
-    <reference value="Organization/Infoway"/>
-	  <display value="Canada Infoway"/>
+    <reference value="Organization/f001"/>
   </organization>
 	  
   <!-- the text terms of the consent in lawyer speak -->

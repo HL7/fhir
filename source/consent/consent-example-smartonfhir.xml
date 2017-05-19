@@ -1,4 +1,4 @@
-<!--
+﻿<!--
   This example provides a basic template for recording 
   the consent associated with a SMART on FHIR OAuth dance.
 
@@ -48,7 +48,7 @@
   </consentingParty>
   <organization>
     <!-- The organization running the Authentication server -->
-    <reference value="Organization/example"/>
+    <reference value="Organization/f001"/>
   </organization>
 
   <!-- there's no source record for a Smart on FHIR consent -->

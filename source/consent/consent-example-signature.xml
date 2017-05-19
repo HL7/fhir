@@ -1,4 +1,4 @@
-<!-- 
+﻿<!-- 
   this is an example of a signed consent resource
   
   1. Consent
@@ -51,7 +51,7 @@
      </reference>
   </actor>
   <organization>
-    <reference value="Organization/example"/> 
+    <reference value="Organization/f001"/> 
   </organization>
   <!-- no source for this one - it is the signed master -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
