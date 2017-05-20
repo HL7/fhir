@@ -1,0 +1,6 @@
+{ 
+  # this is broken because the reference on the given example doesn't 
+  # follow the normal naming pattern that the resource resolver
+  # knows how to resolve
+  authorizingPrescription { reference, resource {id} } 
+}
