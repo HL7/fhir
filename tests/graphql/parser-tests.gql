@@ -1,0 +1,319 @@
+#### SelectionSet
+
+
+{
+  id
+  firstName
+  lastName
+}
+
+
+
+#### Short
+
+
+{
+  field
+}
+
+
+
+#### Simple
+
+
+{
+  user(id: 4) {
+    name
+  }
+}
+
+
+#### User
+
+
+# `user` represents one of many users in a graph of data, referred to by a
+# unique identifier.
+{
+  user(id: 4) {
+    name
+  }
+}
+
+
+
+#### Variable
+
+
+query getZuckProfile($devicePicSize: Int) {
+  user(id: 4) {
+    id
+    name
+    profilePic(size: $devicePicSize)
+  }
+}
+
+
+
+#### Alias1
+
+
+{
+  user(id: 4) {
+    id
+    name
+    smallPic: profilePic(size: 64)
+    bigPic: profilePic(size: 1024)
+  }
+}
+
+
+#### Alias2
+
+
+{
+  zuck: user(id: 4) {
+    id
+    name
+  }
+}
+
+
+#### Arguments1
+
+
+{
+  user(id: 4) {
+    id
+    name
+    profilePic(size: 100)
+  }
+}
+
+
+#### Arguments2
+
+
+{
+  user(id: 4) {
+    id
+    name
+    profilePic(width: 100, height: 50)
+  }
+}
+
+
+#### Arguments3
+
+
+{
+  picture(width: 200, height: 100)
+}
+
+
+#### Arguments4
+
+
+{
+  picture(height: 100, width: 200)
+}
+
+
+#### Comment
+
+
+{
+  #  this
+  user(id: 4) {
+    name
+  }
+}
+
+
+#### Fragments0
+
+
+query noFragments {
+  user(id: 4) {
+    friends(first: 10) {
+      id
+      name
+      profilePic(size: 50)
+    }
+    mutualFriends(first: 10) {
+      id
+      name
+      profilePic(size: 50)
+    }
+  }
+}
+
+
+#### Fragments1
+
+
+query withFragments {
+  user(id: 4) {
+    friends(first: 10) {
+      ...friendFields
+    }
+    mutualFriends(first: 10) {
+      ...friendFields
+    }
+  }
+}
+
+fragment friendFields on User {
+  id
+  name
+  profilePic(size: 50)
+}
+
+
+#### Fragments2
+
+
+query withNestedFragments {
+  user(id: 4) {
+    friends(first: 10) {
+      ...friendFields
+    }
+    mutualFriends(first: 10) {
+      ...friendFields
+    }
+  }
+}
+
+fragment friendFields on User {
+  id
+  name
+  ...standardProfilePic
+}
+
+fragment standardProfilePic on User {
+  profilePic(size: 50)
+}
+
+
+
+#### Fragments3
+
+
+query FragmentTyping {
+  profiles(handles: ["zuck", "cocacola"]) {
+    handle
+    ...userFragment
+    ...pageFragment
+  }
+}
+
+fragment userFragment on User {
+  friends {
+    count
+  }
+}
+
+fragment pageFragment on Page {
+  likers {
+    count
+  }
+}
+
+
+#### Fragments4
+
+
+query inlineFragmentTyping {
+  profiles(handles: ["zuck", "cocacola"]) {
+    handle
+    ... on User {
+      friends {
+        count
+      }
+    }
+    ... on Page {
+      likers {
+        count
+      }
+    }
+  }
+}
+
+
+#### Fragments5
+
+
+query inlineFragmentNoType($expandedInfo: Boolean) {
+  user(handle: "zuck") {
+    id
+    name
+    ... @include(if: $expandedInfo) {
+      firstName
+      lastName
+      birthday
+    }
+  }
+}
+
+
+#### Me
+
+
+# `me` could represent the currently logged in viewer.
+{
+  me {
+    name
+  }
+}
+
+
+
+#### Mutation
+
+
+mutation {
+  likeStory(storyID: 12345) {
+    story {
+      likeCount
+    }
+  }
+}
+
+
+
+#### Nested
+
+
+{
+  me {
+    id
+    firstName
+    lastName
+    birthday {
+      month
+      day
+    }
+    friends {
+      name
+    }
+  }
+}
+
+
+
+#### Object1
+
+
+{
+  nearestThing(location: { lon: 12.43, lat: -53.211 })
+}
+
+
+
+#### Object2
+
+
+{
+  nearestThing(location: { lat: -53.211, lon: 12.43 })
+}
+
+

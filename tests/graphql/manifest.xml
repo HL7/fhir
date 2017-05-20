@@ -1,3 +1,5 @@
 <graphql-tests>
  <test name="simple test case" source="simple.gql" output="simple.json" context="Patient/example/$graphql"/>
+ <test name="using wrong field" source="wrong-field.gql" output="$error" context="Patient/example/$graphql"/>
+ <test name="reference" source="reference.gql" output="reference.json" context="Observation/example/$graphql"/>
 </graphql-tests>

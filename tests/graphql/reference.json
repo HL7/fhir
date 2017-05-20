@@ -1,0 +1,24 @@
+{
+  "id" : "example",
+  "subject" : {
+    "reference" : "Patient/example",
+    "resource" : {
+      "active": true
+    }
+  },
+  "code": {
+    "coding": [{
+        "system": "http://loinc.org",
+        "code": "29463-7"
+      },{
+        "system": "http://loinc.org",
+        "code": "3141-9"
+      },{
+        "system": "http://snomed.info/sct",
+        "code": "27113001"
+      },{
+        "system": "http://acme.org/devices/clinical-codes",
+        "code": "body-weight"
+      }]
+  }
+}
