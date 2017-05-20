@@ -1,0 +1,3 @@
+<graphql-tests>
+ <test name="simple test case" source="simple.gql" output="simple.json" context="Patient/example/$graphql"/>
+</graphql-tests>
