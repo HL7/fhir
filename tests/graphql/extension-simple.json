@@ -1,0 +1,15 @@
+{
+  "subject": [{
+    "resource": {
+      "birthDate": "2016-05-18"
+    }
+  },{
+    "resource": {
+      "_birthDate": {
+        "extension":[{
+            "valueDateTime": "2016-05-18T10:28:45Z"
+        }]
+      }
+    }
+  }]
+}

@@ -22,4 +22,5 @@ todo:
  <test name="extension-complex" source="extension-complex.gql" output="extension-complex.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-complex-in" source="extension-complex-in.gql" output="extension-complex-in.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-complex-out" source="extension-complex-out.gql" output="extension-complex-out.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
+ <test name="extension-simple" source="extension-simple.gql" output="extension-simple.json" context="Observation/20minute-apgar-score/$graphql" resource="observation-example-20minute-apgar-score"/>
 </graphql-tests>

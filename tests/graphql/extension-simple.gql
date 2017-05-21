@@ -1,0 +1,4 @@
+{
+  subject { resource { birthDate } }
+  subject { resource { _birthDate { extension {valueDateTime} } } }
+}
