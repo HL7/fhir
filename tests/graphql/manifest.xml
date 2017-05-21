@@ -1,13 +1,3 @@
-<!--
-
-todo:
-- polymorphic fields 
-- field filters and directives 
-- extensions in primitive fields / schema reconciliation
-- searching resources (.e.g context [base]/$graphql)
-- backwards reference resolution
-- mutations
--->
 <graphql-tests>
  <test name="simple" source="simple.gql" output="simple.json" context="Patient/example/$graphql"/>
  <test name="filter-fhirpath" source="filter-fhirpath.gql" output="filter-fhirpath.json" context="Patient/example/$graphql"/>

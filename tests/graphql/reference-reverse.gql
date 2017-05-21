@@ -1,6 +1,6 @@
 { 
   id
-  Condition(_key: patient) {
+  Condition(_reference: patient) {
     id
   }
 }
