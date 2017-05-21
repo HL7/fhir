@@ -1,0 +1,5 @@
+{ 
+  id
+  subject { reference, resource(type : Patient) {active} } 
+  code {coding {system code} }
+}

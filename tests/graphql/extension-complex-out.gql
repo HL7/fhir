@@ -1,0 +1,4 @@
+{
+  id  
+  extension(url : "http://example.org/StructureDefinition/trialsX") { url, valueCode }  
+}
