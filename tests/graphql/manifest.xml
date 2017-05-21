@@ -9,18 +9,19 @@ todo:
 - mutations
 -->
 <graphql-tests>
- <test name="simple" source="simple.gql" output="simple.json" context="Patient/example/$graphql" resource=""/>
- <test name="filter-fhirpath" source="filter-fhirpath.gql" output="filter-fhirpath.json" context="Patient/example/$graphql" resource=""/>
- <test name="using wrong field" source="wrong-field.gql" output="$error" context="Patient/example/$graphql" resource=""/>
- <test name="polymorphic" source="polymorphic.gql" output="polymorphic.json" context="Observation/example/$graphql" resource=""/>
- <test name="reference" source="reference.gql" output="reference.json" context="Observation/example/$graphql" resource=""/>
- <test name="reference-type-in" source="reference-type-in.gql" output="reference-type-in.json" context="Observation/example/$graphql" resource=""/>
- <test name="reference-type-out" source="reference-type-out.gql" output="reference-type-out.json" context="Observation/example/$graphql" resource=""/>
+ <test name="simple" source="simple.gql" output="simple.json" context="Patient/example/$graphql"/>
+ <test name="filter-fhirpath" source="filter-fhirpath.gql" output="filter-fhirpath.json" context="Patient/example/$graphql"/>
+ <test name="using wrong field" source="wrong-field.gql" output="$error" context="Patient/example/$graphql"/>
+ <test name="polymorphic" source="polymorphic.gql" output="polymorphic.json" context="Observation/example/$graphql"/>
+ <test name="reference" source="reference.gql" output="reference.json" context="Observation/example/$graphql"/>
+ <test name="reference-type-in" source="reference-type-in.gql" output="reference-type-in.json" context="Observation/example/$graphql"/>
+ <test name="reference-type-out" source="reference-type-out.gql" output="reference-type-out.json" context="Observation/example/$graphql"/>
  <test name="reference-broken" source="reference-broken.gql" output="$error" context="MedicationDispense/meddisp008/$graphql" resource="medicationdispenseexample8"/>
  <test name="reference-optional" source="reference-optional.gql" output="reference-optional.json" context="MedicationDispense/meddisp008/$graphql" resource="medicationdispenseexample8"/>
- <test name="reference-fragment-type" source="reference-fragment-type.gql" output="reference-fragment-type.json" context="Observation/example/$graphql" resource=""/>
+ <test name="reference-fragment-type" source="reference-fragment-type.gql" output="reference-fragment-type.json" context="Observation/example/$graphql"/>
  <test name="extension-complex" source="extension-complex.gql" output="extension-complex.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-complex-in" source="extension-complex-in.gql" output="extension-complex-in.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-complex-out" source="extension-complex-out.gql" output="extension-complex-out.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-simple" source="extension-simple.gql" output="extension-simple.json" context="Observation/20minute-apgar-score/$graphql" resource="observation-example-20minute-apgar-score"/>
+ <test name="reference-reverse" source="reference-reverse.gql" output="reference-reverse.json" context="Patient/example/$graphql"/>
 </graphql-tests>

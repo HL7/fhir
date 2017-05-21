@@ -1,0 +1,6 @@
+{ 
+  id
+  Condition(_key: patient) {
+    id
+  }
+}
