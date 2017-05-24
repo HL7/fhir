@@ -7,19 +7,19 @@
 Most code systems evolve over time, due to corrections, clarifications, and changes to approach or underlying knowledge or reality.
 If these changes lead to the meanings of existing codes changing significantly, then the interpretation of the code system becomes
 version dependent. This significantly complicates implementation based on the code system, to the point where it is not clear that
-safety can be assured, so changing the meaning of an existing code SHOULD be avoided whenever possible. It is preferable to assign a new identifier to a code system 
-when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system 
-ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so 
+safety can be assured, so changing the meaning of an existing code SHOULD be avoided whenever possible. It is preferable to assign a new identifier to a code system
+when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system
+ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so
 is often not practical - for instance, <a href="snomedct.html">SNOMED CT</a> has a complex version release framework, which
-may lead to variations in meaning of concepts, but there is only one identifier for SNOMED CT. 
+may lead to variations in meaning of concepts, but there is only one identifier for SNOMED CT.
 </p>
 <p>
-For this reason, a code system MAY provide a version identifier which can be specified in <code>CodeSystem.version</code>. The version specific identifier SHOULD be 
+For this reason, a code system MAY provide a version identifier which can be specified in <code>CodeSystem.version</code>. The version specific identifier SHOULD be
 provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
-There is no particular format requirement for the version identifier, though HL7 recommends a date based approach. 
+There is no particular format requirement for the version identifier, though HL7 recommends a date based approach.
 </p>
 <p>
-When the <code>CodeSystem.versionNeeded</code> is 'true', then the version identifier SHALL be used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system. 
+When the <code>CodeSystem.versionNeeded</code> is 'true', then the version identifier SHALL be used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system.
 </p>
 <p>
 Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use as the version string the date (expressed in FHIR date format) on which the version of the code system that is being used was officially published.
@@ -30,7 +30,7 @@ Where the terminology does not clearly define what string should be used to iden
 <h2>Properties</h2>
 <p>
 Each code system can have one or more properties. Each concept defined by the code system
-may have one more values for each property defined by the code system. Typical uses for 
+may have one more values for each property defined by the code system. Typical uses for
 properties include:
 </p>
 <ul>
@@ -40,8 +40,8 @@ properties include:
  <li>Assigning scoring values to the concepts</li>
 </ul>
 <p>
-Properties are identified by their master URI (<code>CodeSystem.property.uri</code>), and then, by their 
-code (<code>CodeSystem.property.code</code>), which is used both internally within the 
+Properties are identified by their master URI (<code>CodeSystem.property.uri</code>), and then, by their
+code (<code>CodeSystem.property.code</code>), which is used both internally within the
 code system resource (<code>CodeSystem.concept.property.code</code>) and also externally, in the following
 places:
 </p>
@@ -69,7 +69,7 @@ Properties are defined using the following elements:
  <tr>
   <td>uri</td>
   <td>optional <a href="datatypes.html#code">uri</a></td>
-  <td>Reference to the formal meaning of the property. One possible source of meaning is the <a href="codesystem-concept-properties.html">Concept Properties</a> code system. 
+  <td>Reference to the formal meaning of the property. One possible source of meaning is the <a href="codesystem-concept-properties.html">Concept Properties</a> code system.
     This part of the definition is optional, but is recommended to provide an additional level of definitional consistency</td>
  </tr>
  <tr>
@@ -87,7 +87,7 @@ Properties are defined using the following elements:
 Note that properties provide a common view of concept relationships that is common across all code systems.
 Some code systems define properties with more sophistication, such as groups of properties, or subsumption
 relationships between properties (e.g. SNOMED CT). Servers providing support for these code systems will need
-to know full details about the underlying relationships in order to provide the correct information about 
+to know full details about the underlying relationships in order to provide the correct information about
 concepts and their properties, but this information does not surface in the resources or operations defined
 by the FHIR specification.
 </p>
@@ -97,7 +97,7 @@ by the FHIR specification.
 <h2>Concept Status</h2>
 
 <p>
-Many Code Systems have a 'status' associated with the concept. This may categorise the concept 
+Many Code Systems have a 'status' associated with the concept. This may categorise the concept
 as:
 </p>
 <ul>
@@ -108,11 +108,11 @@ as:
 </ul>
 <p>
 There is wide variation in the life cycles supported by the different code systems, the words
-they use to describe the various status values they use, and some code systems have additional 
-status values. HL7 uses Active and Retired. In addition to these status codes, concepts may be 
-also be labeled as "Abstract' (not to be used in some circumstances), and have dates associated 
-with their retirement or deprecation. All this information is represented as properties of 
-the concepts. In order to assist with consistency between code systems, the following 
+they use to describe the various status values they use, and some code systems have additional
+status values. HL7 uses Active and Retired. In addition to these status codes, concepts may be
+also be labeled as "Abstract' (not to be used in some circumstances), and have dates associated
+with their retirement or deprecation. All this information is represented as properties of
+the concepts. In order to assist with consistency between code systems, the following
 basic property URIs are defined:
 </p>
 <table class="grid">
@@ -128,13 +128,13 @@ basic property URIs are defined:
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate</td><td>Date Concept was deprecated</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#parent</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in 
+ <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in
    the normal use of the code system (though my be used for filters etc). This is also known as 'Abstract'</td></tr>
-</table> 
+</table>
 <p>
 Typically, Code systems are presented hierachically, where the hierachy has <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">a defined meaning</a>.
-For this reason, the parent and child properties are mostly only used when performing concept lookup. 
-Note that in some code systems, concepts may have multiple parents, so the parent property may repeat. 
+For this reason, the parent and child properties are mostly only used when performing concept lookup.
+Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
 These code systems are not usually presented in a hierachical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
 then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
 </p>
@@ -142,12 +142,12 @@ then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> mus
 <a name="subsumption"> </a>
 <h3>Subsumption Testing</h3>
 <p>
-The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in terms of the CodeSystem hierarchy (i.e. <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>). 
-Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if subsumption is declared explicitly using the <a href="extension-codesystem-subsumes.html">subsumes extension</a>). 
+The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in terms of the CodeSystem hierarchy (i.e. <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>).
+Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if subsumption is declared explicitly using the <a href="extension-codesystem-subsumes.html">subsumes extension</a>).
 </p>
 <p>
-Where a CodeSystem does not declare its hierarchy meaning directly, then 
-the code system documentation must be consulted manually to determinw how subsumption is determined. If there is no definition, none of the 
+Where a CodeSystem does not declare its hierarchy meaning directly, then
+the code system documentation must be consulted manually to determinw how subsumption is determined. If there is no definition, none of the
 subsumption based features can be used with the code system.
 </p>
 <p>
@@ -170,24 +170,24 @@ The following filters are defined for all code systems:
 </p>
 <table class="grid">
  <tr>
-   <th>Property Name</th> 
-   <th>Operation</th> 
-   <th>Value</th>        
+   <th>Property Name</th>
+   <th>Operation</th>
+   <th>Value</th>
    <th>Definition</th>
    <th>Notes</th>
  </tr>
  <tr>
    <td>[property]</td>
-   <td>=</td>       
-   <td>[string]</td>    
-   <td>Includes all codes that have a property value equal to the specified string, where [property] is the code for any <a href="#properties">defined property</a></td> 
+   <td>=</td>
+   <td>[string]</td>
+   <td>Includes all codes that have a property value equal to the specified string, where [property] is the code for any <a href="#properties">defined property</a></td>
    <td></td>
  </tr>
  <tr>
    <td>[property]</td>
-   <td>in</td>       
-   <td>[string,string...]</td>    
-   <td>Includes all codes that have a property value equal to one of the specified strings, where [property] is the code for any <a href="#properties">defined property</a></td> 
+   <td>in</td>
+   <td>[string,string...]</td>
+   <td>Includes all codes that have a property value equal to one of the specified strings, where [property] is the code for any <a href="#properties">defined property</a></td>
    <td>The values cannot include ",", since it is being used as a delimited</td>
  </tr>
 </table>
@@ -195,16 +195,15 @@ The following filters are defined for all code systems:
 <a name="detailed-metadata"> </a>
 <h3>Code systems with detailed metadata</h3>
 <p>
-Sometimes code systems may be used to represent more complex information than just 
+Sometimes code systems may be used to represent more complex information than just
 code, display name and code system.  For example, a code system of drug information
-which contains information about the content of the medication (e.g., RxNorm), or a set of  
-observation types, that contain methods, units, etc. (e.g., LOINC).  
-In FHIR, these are handled by splitting the concept into two distinct parts - the 
-Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used to 
-manage the codes, display names and relationships.  A separate "detail" 
-resource (e.g., <a href="medication.html">Medication</a> for drugs, 
-<a href="dataelement.html">DataElement</a> for observation types, 
-<a href="location.html">Location</a> for location, etc.) is used to convey detailed 
+which contains information about the content of the medication (e.g., RxNorm), or a set of
+observation types, that contain methods, units, etc. (e.g., LOINC).
+In FHIR, these are handled by splitting the concept into two distinct parts - the
+Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used to
+manage the codes, display names and relationships.  A separate "detail"
+resource (e.g., <a href="medication.html">Medication</a> for drugs,
+<a href="location.html">Location</a> for location, etc.) is used to convey detailed
 information (dose form &amp; strength, allowed data type or permitted values, address &amp;
 hours of operation, etc.).  One "detail" resource instance is created for each code.
 </p>
@@ -212,32 +211,32 @@ hours of operation, etc.).  One "detail" resource instance is created for each c
 This division accomplishes several things:
 </p>
 <ul>
-<li>It allows generic systems that support terminology management to perform standard 
-terminology operations on code systems dealing with complex structures - code lookup, 
+<li>It allows generic systems that support terminology management to perform standard
+terminology operations on code systems dealing with complex structures - code lookup,
 validation, subsumption testing, mapping and translation.</li>
-<li>It allows information to be exchanged about individual medications, data elements 
-and locations.  Codes can't be retrieved individually in FHIR - it is necessary to 
-retrieve the entire resource.  By packaging the detailed information in separate 
+<li>It allows information to be exchanged about individual medications, data elements
+and locations.  Codes can't be retrieved individually in FHIR - it is necessary to
+retrieve the entire resource.  By packaging the detailed information in separate
 resources, independent retrieval and update is possible.</li>
-<li>It supports use-cases for sharing medication, location, observation type and 
-similar information in circumstances where the code may be unknown, unavailable or 
-occasionally non-existent (e.g., custom compounds, non-registered locations).  Having 
-a distinct resource supports these capabilities, which would not be possible using 
+<li>It supports use-cases for sharing medication, location, observation type and
+similar information in circumstances where the code may be unknown, unavailable or
+occasionally non-existent (e.g., custom compounds, non-registered locations).  Having
+a distinct resource supports these capabilities, which would not be possible using
 <code>CodeSystem</code>/<code>ValueSet</code>.</li>
 </ul>
 <p>
-Note that this division in FHIR does not imply that a similar division is required in 
-the internal representation used by systems exposing a FHIR interface.  Similarly, some 
-systems may choose to only expose or maintain one aspect of such information types (i.e. 
+Note that this division in FHIR does not imply that a similar division is required in
+the internal representation used by systems exposing a FHIR interface.  Similarly, some
+systems may choose to only expose or maintain one aspect of such information types (i.e.
 only the discrete resource instances or only the value set).
 </p>
 <p>
-The linkage between the "detail" resource and the Terminology resources is accomplished via the 
-<code>code</code> element (or equivalent) on the detail resource.  As well, the "name" or 
-"title" on the detail resource generally corresponds with the display name on the matching 
+The linkage between the "detail" resource and the Terminology resources is accomplished via the
+<code>code</code> element (or equivalent) on the detail resource.  As well, the "name" or
+"title" on the detail resource generally corresponds with the display name on the matching
 code.  Most detail resources will also have an "identifier" element.  This <i>can</i> be
 set to the same value and namespace as the code, but if the only identifier a resource has
-is its defining code, it may be better to omit the identifier entirely. For further 
+is its defining code, it may be better to omit the identifier entirely. For further
 information, see <a href="conceptmap.html#implicit">Implicit Code Systems</a>.
 </p>
 

@@ -9,7 +9,7 @@ Notes:
 <li>Questions may be nested.  The Questionnaire resource supports nested items beneath both items of type "group" (which doesn't capture an answer of its own) as well as beneath questions</li>
 <li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireresponse.html">QuestionnaireResponse</a>
 to be associated with their corresponding group or question.</li>
-<li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires. 
+<li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires.
 It explicitly does not try to standardize or streamline exchange of its contents outside its context of use, although exchanging partners may further
 constrain its structure and flexibility using profiles to define standardized, reusable forms.</li>
 <li>Because of the lack of explicit support for Questionnaires in <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents frequently used named sections with
@@ -22,26 +22,26 @@ Observations to model Questionnaires. Such use cases should now use the Question
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
-<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.). 
-<b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate 
-Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to 
+<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.).
+<b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate
+Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to
 distill separate resources from it and capturing the data in a <b>Questionnaire</b> would be most appropriate.
-</p> 
+</p>
 
 <p>
-However, data captured only in <b>Questionnaires</b> can be difficult to query after-the-fact. Queries against other Resources will not return data captured only in <b>Questionnaires</b>, 
-and querying against <b>Questionnaires</b> directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians. 
-Moreover, interoperability of such <b>Questionnaires</b> is limited, as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from 
+However, data captured only in <b>Questionnaires</b> can be difficult to query after-the-fact. Queries against other Resources will not return data captured only in <b>Questionnaires</b>,
+and querying against <b>Questionnaires</b> directly may not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians.
+Moreover, interoperability of such <b>Questionnaires</b> is limited, as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from
 such <b>Questionnaires</b> using more specific resources increases the availability of the information they contain.
-</p> 
+</p>
 
 <p>
-It is entirely possible for data to exist in both QuestionnaireResponse and in other resources.  For example, data may be captured in 
-<a href="questionnaireresponse.html">QuestionnaireResponse</a> as part of an intake questionnaire.  That data may then be propagated into the 
-<a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>, 
-<a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original 
+It is entirely possible for data to exist in both QuestionnaireResponse and in other resources.  For example, data may be captured in
+<a href="questionnaireresponse.html">QuestionnaireResponse</a> as part of an intake questionnaire.  That data may then be propagated into the
+<a href="patient.html">Patient</a> resource (demographics), <a href="familymemberhistory.html">FamilyMemberHistory</a>, <a href="allergyintolerance.html">AllergyIntolerance</a>,
+<a href="medicationstatement.html">MedicationStatement</a> and <a href="observation.html">Observation</a> resources to allow the data to be queried and analyzed.  The original
 <a href="questionnaireresponse.html">QuestionnaireResponse</a> instance can be retained for traceability purposes.  If desired, a <a href="provenance.html">Provenance</a> resource
-can be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks "what is your weight", an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the 
+can be used to identify the Questionnaire as the data source for the other resources.  For example, if a questionnaire question asks "what is your weight", an <a href="observation.html">Observation</a> with the appropriate <code>Observation.code</code> and the specified answer as the
 <code>Observation.valueQuantity</code> can be created.
 </p>
 
@@ -49,19 +49,19 @@ can be used to identify the Questionnaire as the data source for the other resou
 <p>
 A Questionnaire is built out of two components, Questionnaire and item:</p>
 <ul>
-  <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire, 
+  <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire,
   like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though these provide little computable information).</li>
   <li>Items have one of three sub-types, distinguished by the <code>type</code> element:
     <ul>
       <li><b>display</b> items convey text to be rendered on the form that won't capture data and which won't contain nested items.  This might include copyright or authorship information,
         instructions or other background information.</li>
-      <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child 
+      <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child
         'question' items which do.  </li>
-      <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single 
-        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or 
+      <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single
+        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
-        group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from 
+        group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from
         the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
     </ul>
   </li>
@@ -95,7 +95,7 @@ mechanisms defined in the specification for linking a Question (or Group) to a s
 </ul>
 -->
 Items can be directly linked to an <a href="elementdefinition.html">ElementDefinition</a> using <code>Questionnaire.item.definition</code>
-which provides details for the item. If a definition is provided, then the following element values can be derived from the definition: 
+which provides details for the item. If a definition is provided, then the following element values can be derived from the definition:
 </p>
 <ul>
 <li>concept (from ElementDefinition.code)</li>
@@ -107,14 +107,10 @@ which provides details for the item. If a definition is provided, then the follo
 </ul>
 <p>
 Any information provided in these elements overrides the information from the definition.
-The url refers to a an ElementDefinition in either a <a href="structuredefinition.html">StructureDefinition</a> or 
-a <a href="dataelement.html">DataElement</a>, and always starts with the canonical URL for the target resource. 
-When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its 
-id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence 
-of a fragment identifier, the first/root element definition in the target is the matching element definition. 
-</p>
-<p>
-Note that <a href="loinc.html#dataelements">LOINC codes</a> implicitly define DataElement resources.
+The url refers to a an ElementDefinition in  <a href="structuredefinition.html">StructureDefinition</a>, and always starts with the canonical URL for the target resource.
+When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its
+id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence
+of a fragment identifier, the first/root element definition in the target is the matching element definition.
 </p>
 <p>
 The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
@@ -212,8 +208,8 @@ guidance is provided by the parent question or group.
 <p>
 Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
 
-To help with associating numeric values to coded answers, there are two extensions defined - one for defining the numeric weighting of a code defined in a value set - 
-<a href="extension-valueset-ordinalvalue.html">valueset-ordinalValue</a> and the other for defining a code that can appear within a Coding itself - 
+To help with associating numeric values to coded answers, there are two extensions defined - one for defining the numeric weighting of a code defined in a value set -
+<a href="extension-valueset-ordinalvalue.html">valueset-ordinalValue</a> and the other for defining a code that can appear within a Coding itself -
 <a href="extension-iso21090-co-value.html">iso21090-CO-value</a>.
 </p>
 

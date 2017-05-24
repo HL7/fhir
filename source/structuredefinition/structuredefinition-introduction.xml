@@ -5,48 +5,43 @@
 <h2>Scope and Usage</h2>
 <p>
 The StructureDefinition resource describes a structure - a set of data element definitions, and their associated rules of usage.
-These structure definitions are used to describe both the content defined in the FHIR specification 
-itself - Resources, data types, the underlying infrastructural types, and also are used to describe how 
+These structure definitions are used to describe both the content defined in the FHIR specification
+itself - Resources, data types, the underlying infrastructural types, and also are used to describe how
 these structures are used in implementations.
-This allows the definitions of the structures to be shared and published through 
+This allows the definitions of the structures to be shared and published through
 repositories of structure definitions, compared with each other, and used as the basis
-for code, report and UI generation. 
+for code, report and UI generation.
 </p>
 <p>
-Note that  as part of the specification itself, a <a href="downloads.html#profiles">full 
+Note that  as part of the specification itself, a <a href="downloads.html#profiles">full
 set of structure definitions</a> for all resources and data types is published.
 </p>
-</div> 
+</div>
 
-<div> 
+<div>
 <a name="bnr"> </a>
-<h2>Boundaries and Relationships</h2> 
+<h2>Boundaries and Relationships</h2>
 <ul>
  <li>StructureDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are used</li>
  <li>StructureDefinitions use <a href="valueset.html">Value Sets</a> to specify the content of coded elements</li>
- <li>StructureDefinitions define concrete elements and structures for use with FHIR alone and that have defined wire representations (XML, JSON, etc.).
- This is distinct from <a href="dataelement.html">DataElement</a> which defines abstract elements that might appear anywhere - FHIR,
- questionnaire questions, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>,
- <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, X12, OpenEHR, a proprietary database, etc.
- Data elements may map to FHIR resources, data types and/or extensions but do not have any defined serialization format of their own.</li>
 </ul>
 
-</div> 
+</div>
 
 <div>
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
-Implementers should be familiar with the 
-background and concepts described in <a href="profiling.html">Profiling FHIR</a> 
+Implementers should be familiar with the
+background and concepts described in <a href="profiling.html">Profiling FHIR</a>
 before working with this resource.
 </p>
 
 <h3>Metadata</h3>
 <p>
 The StructureDefinition resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>,
-<a href="capabilitystatement.html">CapabilityStatement</a> and other infrastructure resources. The metadata describes the structure, and helps 
-find the structure when registered in profile repositories. 
+<a href="capabilitystatement.html">CapabilityStatement</a> and other infrastructure resources. The metadata describes the structure, and helps
+find the structure when registered in profile repositories.
 </p>
 
 <table class="grid">
@@ -58,9 +53,9 @@ find the structure when registered in profile repositories.
    </td></tr>
  <tr><td>name</td><td>A free text natural language name identifying the structure	</td></tr>
  <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the structure. This helps establish the "authority/credibility" of the structure.</td></tr>
- <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>	
- <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>	
- <tr><td>requirements</td><td>The Scope and Usage that this structure was created to meet</td></tr>	
+ <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>
+ <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>
+ <tr><td>requirements</td><td>The Scope and Usage that this structure was created to meet</td></tr>
  <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>
@@ -76,7 +71,7 @@ find the structure when registered in profile repositories.
 <li>The name of the structure is not required to be globally unique, but the name should have some scoping information (e.g. Acme Inc. (USA), Allergy List)</li>
 <li>Multiple codes may be assigned to the structure. These may either describe the structure, the focus of the structure or both. They are solely to help find the structure by searching for structured concepts</li>
 <li>The 3 status codes (draft, active, and retired) are the codes that are relevant to structure consumers. Authors may wish to use the <a href="#author-status">authoring-status</a> extension to track the life cycle of a structure as it is prepared</li>
-</ul>  
+</ul>
 
 </div>
 

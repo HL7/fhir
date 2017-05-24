@@ -12,15 +12,15 @@
 <a name="groups"> </a>
 <h2>Grouping Mappings</h2>
 <p>
-The concept mappings in <code>element</code> are arranged into groups that share common source/target systems. 
+The concept mappings in <code>element</code> are arranged into groups that share common source/target systems.
 These groups have no semantic signficance; they exist to make the representation more concise. Concept maps
 may contain more than one group with the same source and target - this would be a less concise representation
-but may be useful in order to maintain a fixed order for the concepts that are mapped. 
+but may be useful in order to maintain a fixed order for the concepts that are mapped.
 </p>
 <p>
-Concepts that are labeled as 'unmatched' are considered to be unmatched in the target value set, 
+Concepts that are labeled as 'unmatched' are considered to be unmatched in the target value set,
 irrespective of whether they are contained in a group with a stated target system or not. Groups
-that contain no target system may only contained 'unmatched' concepts. There is no difference in 
+that contain no target system may only contained 'unmatched' concepts. There is no difference in
 the meaning of an <code>unmatched</code> target whether or not there is a stated target system.
 </p>
 
@@ -29,20 +29,19 @@ the meaning of an <code>unmatched</code> target whether or not there is a stated
 
 <p>
 The ConceptMap resource is intended to map between concepts defined in a code system.
-It can also be useful to use the ConceptMap resource to define relationships between 
+It can also be useful to use the ConceptMap resource to define relationships between
 concepts defined in other kinds of resources. Here are some common kind of conceptual
 maps:
 </p>
 <ul>
  <li>Between two elements in different <a href="structuredefinition.html">structure definitions</a> (e.g. between CDA and FHIR v2)</li>
- <li>Between a question in a <a href="questionnaire.html">Questionnaire</a> and a <a href="dataelement.html">DataElement</a></li>
  <li>Between a code system and a <a href="medication.html">Medication</a> resource</li>
 </ul>
 <p>
-Though these resources are not explicitly defining code systems, they do define 'concept's that 
+Though these resources are not explicitly defining code systems, they do define 'concept's that
 can still usefully be treated as code systems for the sake of subsetting (e.g. <a href="valueset.html">ValueSet</a>)
-and defining relationships (e.g. <code>ConceptMap</code>). Note that this is different from 
-<a href="structuremap.html">StructureMap</a> because that is intended to define an 
+and defining relationships (e.g. <code>ConceptMap</code>). Note that this is different from
+<a href="structuremap.html">StructureMap</a> because that is intended to define an
 executional transform between structures, not a conceptual model.
 </p>
 <p>
@@ -58,15 +57,11 @@ This table summarizes how to treat these items as a terminology:
   <td>The <code>Questionnaire.url</code> (canonical URL) is the <code>system</code>. Each <code>.item.linkId</code> in the snapshot is a code in the code system. Items with no linkId cannot be addressed</td>
  </tr>
  <tr>
-  <td>DataElement</td>
-  <td>The <code>DataElement.url</code> (canonical URL) is the <code>system</code>. Each <code>.element.id</code> in the snapshot is a code in the code system. Elements with no id cannot be addressed</td>
- </tr>
- <tr>
   <td>Medication</td>
-  <td>Medication resources are a bit different, since they don't have a canonical URL, and 
-    there are not multiple items in a resource. So to refer to a medication resource, the system 
+  <td>Medication resources are a bit different, since they don't have a canonical URL, and
+    there are not multiple items in a resource. So to refer to a medication resource, the system
     is [base]/Medication, where base is the server address. The <a href="resource.html#id">Logical Id</a> of the resource is the code</td>
  </tr>
 </table>
- 
+
 </div>

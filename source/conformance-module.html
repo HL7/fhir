@@ -34,7 +34,6 @@ in order to support consistent definitions for schema and UML derived code.
  <td width="33%">
  <ul>
   <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
-  <li><a href="dataelement.html">DataElement</a></li>
   <li><a href="implementationguide.html">ImplementationGuide</a></li>
   <li><a href="elementdefinition.html">ElementDefinition (datatype)</a></li>
 </ul>
@@ -114,8 +113,6 @@ in order to support consistent definitions for schema and UML derived code.
             additional search capabilities in addition to those in the base specification </li>
         <li>The <a href="compartmentdefinition.html">CompartmentDefinition</a>
             describes a logical grouping for resources, used in access control or search</li>
-        <li>The <a href="dataelement.html">DataElement</a> resource is a formal
-            description of a single piece of information that can be gathered and reported.</li>
     </ul>
 
 	    <p>Conformance resources may be used independently, not just within the context of an ImplementationGuide resource or capability statement. See the section <a href="#uses">Common use cases</a> for examples of such uses.</p>
@@ -155,8 +152,6 @@ running the risk of being misconfigured.</li>
             claim conformance to the rules laid out in those StructureDefinitions</li>
         <li>A server may serve <code>CapabilityStatement</code> resources, effectively functioning
             as a discovery endpoint for services within an organization</li>
-        <li>A server may hold a set of DataElement resources to become a Data Dictionary of
-            reusable datamodels as per ISO 11179.</li>
         <li>A code-generation tool may use <code>StructureDefinitions</code> and
                 <code>OperationDefinitions</code> to generate code that represents the structures as
             classes and operations as remotely callable functions to provide an easier programming
@@ -178,7 +173,6 @@ running the risk of being misconfigured.</li>
             outside of these tools yet.</li>
         <li><code>CompartmentDefinition</code>: new in STU3, and as such has not undergone much production
             use</li>
-        <li><code>DataElement</code>: the exact role of "Data Element Definitions" is still being studied</li>
     </ul>
     <p>Over the past two years, these resources have been mainly used in the tools used to build the FHIR
         publication, early-adopter implementation guides and the FHIR Foundation conformance

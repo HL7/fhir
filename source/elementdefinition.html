@@ -33,8 +33,7 @@ The definition of an element in a resource or an extension. The definition inclu
 <p>
 The ElementDefinition type is the core of the FHIR metadata layer, and is
 closely (conceptually) aligned to <a href="elementdefinition-mappings.html#iso11179">ISO 11179</a>.
-The <a href="dataelement.html">DataElement</a> resource is a packaging wrapper around the
-ElementDefinition type. All the data elements defined in this specification are published
+ All the data elements defined in this specification are published
 as a collection of data elements (<a href="dataelements.xml">XML</a> or <a href="dataelements.json">JSON</a>).
 </p>
 
@@ -111,35 +110,35 @@ be used as the target of external references into the definition, where necessar
 <a name="interpretation"> </a>
 <h2>Interpretation of ElementDefinition in different contexts</h2>
 
-<p>The data type <code>ElementDefinition</code> is used both in <a href="structuredefinition.html">StructureDefinition</a> and <a href="dataelement.html">DataElement</a>, and within those resources, the way its elements are to be used and interpreted depends on the context where <code>ElementDefinition</code> used:</p>
+<p>The data type <code>ElementDefinition</code> is used in <a href="structuredefinition.html">StructureDefinition</a>. The way its elements are to be used and interpreted depends on the context:</p>
 
 <table class="grid">
- <tr> <td><b>ElementDefinition field</b></td> <td><b>DataElement</b></td> <td><b>Type definition, first element</b></td> <td><b>Type definition, following elements</b></td> <td><b>Constraint Definition, first element</b></td> <td><b>Constraint Definition, following elements</b></td> </tr>
- <tr> <td>sliceName</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>required for slices, else prohibited</td> </tr>
- <tr> <td>label</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>recommended</td> <td>recommended</td> </tr>
- <tr> <td>code</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> </tr>
- <tr> <td>slicing</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>short/definition</td> <td>optional</td> <td>required</td> <td>required</td> <td>required<sup>‡</sup></td> <td>required<sup>‡</sup></td> </tr>
- <tr> <td>requirements/<br/>comments/alias</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited<sup>‡</sup></td> <td>optional<sup>‡</sup></td> </tr>
- <tr> <td>base</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>required</td> <td>required</td> </tr>
- <tr> <td>type</td> <td>required</td> <td>required</td> <td>required</td> <td>optional</td> <td>optional</td> </tr>
- <tr> <td>nameReference</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>min/max</td> <td>optional</td> <td>optional (irrelevant)</td> <td>required</td> <td>optional</td> <td>optional<sup>†</sup></td> </tr>
- <tr> <td>defaultValue[x]</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
- <tr> <td>meaningWhenMissing</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
- <tr> <td>fixed[x]</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>pattern[x]</td> <td>optional</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>example[x]</td> <td>optional</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>minValue[x]</td> <td>optional</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>maxValue[x]</td> <td>optional</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>maxLength</td> <td>optional</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>mustSupport</td> <td>optional</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> <td>optional</td> </tr>
- <tr> <td>isModifier</td> <td>prohibited</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
- <tr> <td>isSummary</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
- <tr> <td>binding</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
- <tr> <td>constraint</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
- <tr> <td>condition</td> <td>optional</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>∆</sup></td> </tr>
- <tr> <td>mapping</td> <td>optional</td> <td>optional</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
+ <tr> <td><b>ElementDefinition field</b></td> <td><b>Type definition, first element</b></td> <td><b>Type definition, following elements</b></td> <td><b>Constraint Definition, first element</b></td> <td><b>Constraint Definition, following elements</b></td> </tr>
+ <tr> <td>sliceName</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>required for slices, else prohibited</td> </tr>
+ <tr> <td>label</td>  <td>optional</td> <td>optional</td> <td>recommended</td> <td>recommended</td> </tr>
+ <tr> <td>code</td><td>optional</td> <td>optional</td> <td>optional</td> <td>optional</td> </tr>
+ <tr> <td>slicing</td>  <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>short/definition</td>  <td>required</td> <td>required</td> <td>required<sup>‡</sup></td> <td>required<sup>‡</sup></td> </tr>
+ <tr> <td>requirements/<br/>comments/alias</td>  <td>prohibited</td> <td>optional</td> <td>prohibited<sup>‡</sup></td> <td>optional<sup>‡</sup></td> </tr>
+ <tr> <td>base</td> <td>prohibited</td> <td>prohibited</td> <td>required</td> <td>required</td> </tr>
+ <tr> <td>type</td> <td>required</td> <td>required</td> <td>optional</td> <td>optional</td> </tr>
+ <tr> <td>nameReference</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>min/max</td>  <td>optional (irrelevant)</td> <td>required</td> <td>optional</td> <td>optional<sup>†</sup></td> </tr>
+ <tr> <td>defaultValue[x]</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
+ <tr> <td>meaningWhenMissing</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
+ <tr> <td>fixed[x]</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>pattern[x]</td>  <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>example[x]</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>minValue[x]</td><td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>maxValue[x]</td>  <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>maxLength</td> <td>prohibited</td> <td>prohibited</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>mustSupport</td>  <td>prohibited</td> <td>prohibited</td> <td>optional</td> <td>optional</td> </tr>
+ <tr> <td>isModifier</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
+ <tr> <td>isSummary</td> <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>†</sup></td> </tr>
+ <tr> <td>binding</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional</td> </tr>
+ <tr> <td>constraint</td>  <td>optional</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
+ <tr> <td>condition</td>  <td>prohibited</td> <td>optional</td> <td>prohibited</td> <td>optional<sup>∆</sup></td> </tr>
+ <tr> <td>mapping</td>  <td>optional</td> <td>optional</td> <td>optional<sup>∆</sup></td> <td>optional<sup>∆</sup></td> </tr>
 </table>
 <p>
 Notes:
@@ -156,7 +155,6 @@ The use of Path and type depends more deeply on the context where the ElementDef
 </p>
 <table class="grid">
  <tr> <td><b>Context</b></td> <td><b>path (1st element)</b></td> <td><b>path (following elements)</b></td> <td><b>type (1st element)</b></td> </tr>
- <tr> <td>Data Element</td> <td>Any token</td> <td>Any token (distinct in the DataElement)</td> <td>Any type</td> </tr>
  <tr> <td>Base definition of a data type <br/>(example: <a href="datatypes.html#Quantity">Quantity</a> - <a href="quantity.profile.xml.html">XML</a>, <a href="quantity.profile.json.html">JSON</a>)</td>
        <td>Name of the type</td> <td>Path inside the datatype</td> <td><code>Element</code></td> </tr>
  <tr> <td>A constrained data type <br/>(example: <a href="datatypes.html#Money">Money</a>  - <a href="money.profile.xml.html">XML</a>, <a href="money.profile.json.html">JSON</a>)</td>
@@ -195,12 +193,7 @@ For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
 
 <a name="min-max"> </a>
 <h3>Rules about min and max</h3>
-<p>
-In a <a href="dataelement.html">DataElement</a>, <code>min</code> and <code>max</code> are always required.
-</p>
-<p>
-In a <a href="structuredefinition.html">StructureDefinition</a>:
-</p>
+
 <ul>
  <li><b>If there is no <code>StructureDefinition.base</code></b>: min and max are always required</li>
  <li>Otherwise, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the base min and max</li>

@@ -18,13 +18,13 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = objectClass
+  Name = !objectClass
   Type = token
   Description = Matches on the 11179-objectClass extension value
   Path = DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClass}
 
  -- Row 2 -----------------------------------
-  Name = objectClassProperty
+  Name = !objectClassProperty
   Type = token
   Description = Matches on the 11179-objectClassProperty extension value
   Path = DataElement.element.mapping.extension{http://hl7.org/fhir/StructureDefinition/11179-objectClassProperty}

@@ -12,9 +12,7 @@
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>In general, an activity definition is simply a conceptual description of some specific action that should be taken. An instance of an ActivityDefinition does not indicate that any action has been performed (as an <a href="workflow.html#event">event</a> resource does), nor does it indicate the actual <i>intent</i> to carry out any particular action (as a <a href="workflow.html#request">request</a> resource does).</p>
-
-<p>Instead, an activity definition provides a reusable template that can be used to construct specific <i>request</i> resources such as <a href="procedurerequest.html">ProcedureRequest</a> and <a href="medicationrequest.html">MedicationRequest</a>. This is different than a <a href="dataelement.html">DataElement</a> in that ActivityDefinitions are generally broader than data elements, which are typically used to describe more granular elements, such as a blood pressure, or the answer to a particular question.</p>
+<p>In general, an activity definition is simply a conceptual description of some specific action that should be taken. An instance of an ActivityDefinition does not indicate that any action has been performed (as an <a href="workflow.html#event">event</a> resource does), nor does it indicate the actual <i>intent</i> to carry out any particular action (as a <a href="workflow.html#request">request</a> resource does). Instead, an activity definition provides a reusable template that can be used to construct specific <i>request</i> resources such as <a href="procedurerequest.html">ProcedureRequest</a> and <a href="medicationrequest.html">MedicationRequest</a>. </p>
 
 <p>Note that this is conceptually similar to the <a href="task.html">Task</a> resource as well, with the distinction being that ActivityDefinition represents the description of a task in the abstract, while the Task resource is used to track a specific instance of a task as it moves through the steps of a workflow.</p>
 
