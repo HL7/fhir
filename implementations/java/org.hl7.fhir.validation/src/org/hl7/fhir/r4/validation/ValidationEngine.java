@@ -183,6 +183,7 @@ public class ValidationEngine {
     if (version == null)
       version = getVersionFromPack(source);
     context = SimpleWorkerContext.fromDefinitions(source, loaderForVersion());
+    context.setAllowLoadingDuplicates(true); // because of Forge
     context.setExpansionProfile(makeExpProfile());
     fpe = new FHIRPathEngine(context);
     grabNatives(source, "http://hl7.org/fhir");
@@ -201,8 +202,12 @@ public class ValidationEngine {
   }
 
   private String getVersionFromPack(Map<String, byte[]> source) {
-    IniFile vi = new IniFile(new ByteArrayInputStream(removeBom(source.get("version.info"))));
-    return vi.getStringProperty("FHIR", "version");
+    if (source.containsKey("version.info")) {
+      IniFile vi = new IniFile(new ByteArrayInputStream(removeBom(source.get("version.info"))));
+      return vi.getStringProperty("FHIR", "version");
+    } else {
+      throw new Error("Missing version.info?");
+    }
   }
 
   private byte[] removeBom(byte[] bs) {
@@ -224,7 +229,7 @@ public class ValidationEngine {
     if (Utilities.noString(src)) {
       throw new FHIRException("Definitions Source '" + src + "' could not be processed");
     } else if (src.startsWith("https:") || src.startsWith("http:")) {
-      return loadFromUrl(src);
+      return loadFromUrl(src, defname);
     } else if (new File(src).exists()) {
       return loadFromFile(src, defname);      
     } else {
@@ -232,9 +237,11 @@ public class ValidationEngine {
   }
   }
   
-  private Map<String, byte[]> loadFromUrl(String src) throws Exception {
-    if (!src.endsWith("validator.pack"))
-      src = Utilities.pathReverse(src, "validator.pack");
+  private Map<String, byte[]> loadFromUrl(String src, String defname) throws Exception {
+    if (Utilities.noString(defname))
+      defname = "validator.pack";
+    if (!src.endsWith(defname))
+      src = Utilities.pathReverse(src, defname);
 
 		try {
       URL url = new URL(src);

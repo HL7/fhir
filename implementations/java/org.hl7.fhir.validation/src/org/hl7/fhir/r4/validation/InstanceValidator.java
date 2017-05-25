@@ -253,7 +253,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
 
     public void addAncestorProfiles(StructureDefinition sd) {
-      if (sd.getDerivation().equals(StructureDefinition.TypeDerivationRule.CONSTRAINT)) {
+      if (sd.hasDerivation() && sd.getDerivation().equals(StructureDefinition.TypeDerivationRule.CONSTRAINT)) {
         StructureDefinition parentSd = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
         if (parentSd != null && !profiles.containsKey(parentSd)) {
           ProfileUsage pu = new ProfileUsage(parentSd);
