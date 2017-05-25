@@ -42,8 +42,13 @@ Examples include:
 draw the attention of reviewers and implementers to the following issues:
 </p>
 <p>
-ReferralRequest and ProcedureRequest have been merged since their content was nearly identical and no clear distinction was identified for managing the transfer of care responsibility from one practitioner/organization to another.  We are seeking input on how to represent whether a transfer of care is being requested and which elements if any in the ProcedureRequest resource may not be applicable for a Referral.
+ReferralRequest and ProcedureRequest have been merged since their content was nearly identical and no clear distinction was identified for managing the transfer of care responsibility from one practitioner/organization to another.  We are seeking input on:
 </p>
+<ol>
+  <li> How to represent whether a transfer of care is being requested</li>
+    <li> Which elements if any in the ProcedureRequest resource may not be applicable for a referral.</li>
+      <li> Whether to keep the resource name "ProcedureRequest" change the name to reflect the expanded scope.</li>
+    </ol>
 </blockquote>
 </div>
 <div>
