@@ -84,6 +84,7 @@
   Short Name = A request for a procedure or diagnostic to be performed
   Definition = A record of a request for diagnostic investigations, treatments, or operations to be performed.
   Workflow Mapping = Request
+  R3-RR-Mapping = ReferralRequest (5/24/2017 EH: for RR  change name to ProcedureRequest,  for PR added aliases)
   v2 Mapping = ORC
   RIM Mapping = Act[moodCode<=INT]
   Committee Notes = [#5279][#11119]#13196]
@@ -98,6 +99,7 @@
   Definition = Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.
   Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2).  For further discussion and examples see the resource notes section below.
   Workflow Mapping = Request.identifier
+  R3-RR-Mapping = ReferralRequest.identifier ()
   v2 Mapping = ORC.2, ORC.3
   RIM Mapping = .identifier
   QUICK mapping = ClinicalStatement.identifier
@@ -113,6 +115,7 @@
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
   Workflow Mapping = Request.definition
+  R3-RR-Mapping = ReferralRequest.definition ()
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
   Committee Notes = [#10296][#11119]#13196]
@@ -126,6 +129,7 @@
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
   Workflow Mapping = Request.basedOn
+  R3-RR-Mapping = ReferralRequest.basedOn (for PR Updated reference types)
   v2 Mapping = ORC.8 (plus others)
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
   Committee Notes = [#10296][#11119]#13196]
@@ -139,6 +143,7 @@
   Short Name = What request replaces
   Definition = The request takes the place of the referenced completed or terminated request(s)
   Workflow Mapping = Request.replaces
+  R3-RR-Mapping = ReferralRequest.replaces (for PR  added aliases, Updated reference types)
   v2 Mapping = Handled by message location of ORC (ORC.1=RO or RU)
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
   Committee Notes = [#10296][#11119]#13196]
@@ -154,6 +159,7 @@
   Requirements = Some business processes need to know if multiple items were ordered as part of the same \"requisition\" for billing or other purposes.
   Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
   Workflow Mapping = Request.groupIdentifier
+  R3-RR-Mapping = ReferralRequest.groupIdentifier ()
   v2 Mapping = ORC.4
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier
   Committee Notes = [#10296][#11119]#13196]
@@ -169,6 +175,7 @@
   Definition = The status of the order
   Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.\r\rThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Request.status
+  R3-RR-Mapping = ReferralRequest.status ()
   v2 Mapping = ORC.5
   RIM Mapping = .status
   QUICK mapping = Action.currentStatus
@@ -186,6 +193,7 @@
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   Comments = This element is labeled as a modifier because the intent alters when and how the resource is actually applicable
   Workflow Mapping = Request.intent
+  R3-RR-Mapping = ReferralRequest.intent ()
   v2 Mapping = N/A
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   Committee Notes = [#3720][#10296][#11119]#13196]
@@ -200,6 +208,7 @@
   Short Name = routine | urgent | asap | stat
   Definition = Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
   Workflow Mapping = Request.priority
+  R3-RR-Mapping = ReferralRequest.priority ()
   v2 Mapping = TQ1.9
   RIM Mapping = .priorityCode
   Committee Notes = [#3720][#10296][#11119]#13196]
@@ -216,6 +225,7 @@
   Definition = Set this to true if the record is saying that the procedure should NOT be performed.
   Requirements = Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc.
   Comments = This element is labeled as a [modifier](conformance-rules.html#isModifier.html) because it indicates that a procedure shouldn\'t happen, instead of a request for it to happen.  In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.
+  R3-RR-Mapping = (For RR add doNotPerform)
   RIM Mapping = .actionNegationInd
   Committee Notes = #13196]
   Default Value = False
@@ -229,6 +239,7 @@
   Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
   Requirements = Used for filtering what procedure request are retrieved and displayed.
   Comments = There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
+  R3-RR-Mapping = ReferralRequest.type (for RR changed element name to category, target mapping is broader)
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"INT\"].code
   Committee Notes = [#11119]#13196]
   w5 = class
@@ -244,6 +255,7 @@
   Definition = A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested
   Comments = Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.
   Workflow Mapping = Request.code
+  R3-RR-Mapping = ReferralRequest.serviceRequested (for RR changed element name to code, reduced cardinality to single line item ( combine items with Task)  udpated value set to to procedure codes, for PR added alias \'service request\')
   v2 Mapping = Varies by domain
   RIM Mapping = .code
   QUICK mapping = Procedure.procedureCode
@@ -258,6 +270,7 @@
   Short Name = Individual the service is ordered for
   Definition = On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
   Workflow Mapping = Request.subject
+  R3-RR-Mapping = ReferralRequest.subject (for RR add Location, Device)
   v2 Mapping = Accompanying PID segment
   RIM Mapping = .participation[typeCode=SBJ].role
   QUICK mapping = ClinicalStatement.subject
@@ -273,6 +286,7 @@
   Short Name = Encounter or Episode during which request was created
   Definition = An encounter or episode of care that provides additional information about the healthcare context in which this request is made
   Workflow Mapping = Request.context
+  R3-RR-Mapping = ReferralRequest.context ()
   v2 Mapping = Accompanying PV1
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   QUICK mapping = ClinicalStatement.encounter
@@ -288,6 +302,7 @@
   Short Name = When procedure should occur
   Definition = The date/time at which the requested procedure should occur.
   Workflow Mapping = Request.occurrence[x]
+  R3-RR-Mapping = ReferralRequest.occurrence[x] ( for RR added Timing to choice of types)
   v2 Mapping = Accompanying TQ1/TQ2 segments
   RIM Mapping = .effectiveTime
   QUICK mapping = Procedure.procedureSchedule
@@ -302,6 +317,7 @@
   Binding = ProcedureAsNeededReason
   Short Name = Preconditions for procedure or diagnostic
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.
+  R3-RR-Mapping = (For RR add asNeeded)
   RIM Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
   QUICK mapping = Proposal.prnReason.reason
   Committee Notes = #13196]
@@ -315,6 +331,7 @@
   Short Name = Date request signed
   Definition = When the request transitioned to being actionable
   Workflow Mapping = Request.authoredOn
+  R3-RR-Mapping = ReferralRequest.authoredOn ()
   v2 Mapping = ORC.9
   RIM Mapping = .participation[typeCode=AUT].time
   QUICK mapping = Proposal.proposedAtTime
@@ -330,6 +347,7 @@
   Definition = The individual who initiated the request and has responsibility for its activation
   Comments = This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource.
   Workflow Mapping = Request.requester
+  R3-RR-Mapping = ReferralRequest.requester ()
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
   QUICK mapping = ClinicalStatement.statementAuthor
@@ -343,6 +361,7 @@
   Short Name = Individual making the request
   Definition = The device, practitioner or organization who initiated the request
   Workflow Mapping = Request.requester.agent
+  R3-RR-Mapping = ReferralRequest.requester.agent (for PR Patient and RelatedPerson to  added reference types)
   v2 Mapping = ORC.12
   RIM Mapping = .player
   QUICK mapping = ClinicalStatement.statementAuthor
@@ -358,6 +377,7 @@
   Definition = The organization the device or practitioner was acting on behalf of.
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
   Workflow Mapping = Request.requester.onBehalfOf
+  R3-RR-Mapping = ReferralRequest.requester.onBehalfOf (for PR added invariant 1 from RR)
   v2 Mapping = N/A
   RIM Mapping = .scoper
   Committee Notes = [#10296][#11119]#13196]
@@ -373,6 +393,7 @@
   Definition = Desired type of performer for doing the requested procedure.
   Comments = this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.
   Workflow Mapping = Request.performerType
+  R3-RR-Mapping = ReferralRequest.specialty (for PR added alias For RR changed element name to performerType binding to participant-role)
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   Committee Notes = [#10296][#11119]#13196]
@@ -388,6 +409,7 @@
   Definition = The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.
   Comments = If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.
   Workflow Mapping = Request.Performer
+  R3-RR-Mapping = ReferralRequest.recipient (for RR changed element name to performer, added Patient and  Related Person to reference types, for PR added alias)
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   Committee Notes = [#10296][#11119]#13196]
@@ -403,6 +425,7 @@
   Definition = An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
   Workflow Mapping = Request.reasonCod
+  R3-RR-Mapping = ReferralRequest.reasonCode (for RR used broader Procedure Reason Codes VS)
   v2 Mapping = ORC.16
   RIM Mapping = .reasonCode
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]#13196]
@@ -417,6 +440,7 @@
   Definition = Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
   Workflow Mapping = Request.reasonReference
+  R3-RR-Mapping = ReferralRequest.reasonReference (Should add DocRef and DiagnosticReport to reference types  - check Gforge)
   v2 Mapping = ORC.16
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]#13196]
@@ -430,6 +454,7 @@
   Short Name = Additional clinical information
   Definition = Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
   Workflow Mapping = Request.supportingInformation
+  R3-RR-Mapping = ReferralRequest.supportingInfo ()
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
   Committee Notes = [#3113][#3739][#10296][#11119]#13196]
@@ -442,6 +467,7 @@
   Short Name = Procedure Samples
   Definition = One or more specimens that the laboratory procedure will use.
   Comments = Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource references to the ProcedureRequest.
+  R3-RR-Mapping = (For RR add specimen)
   v2 Mapping = SPM
   RIM Mapping = .participation[typeCode=SPC].role
   Committee Notes = [#10589][#11119]#13196]
@@ -457,6 +483,7 @@
   Definition = Anatomic location where the procedure should be performed. This is the target site.
   Requirements = Knowing where the procedure is performed is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in the code found in ProcedureRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedurerequest-targetBodySite](extension-procedurerequest-targetbodysite.html)
+  R3-RR-Mapping = (For RR add bodysite)
   v2 Mapping = SPM
   RIM Mapping = targetSiteCode
   QUICK mapping = Procedure.targetBodySite
@@ -469,6 +496,7 @@
   Short Name = Comments
   Definition = Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.
   Workflow Mapping = Request.note
+  R3-RR-Mapping = ReferralRequest.note ()
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
   QUICK mapping = ClinicalStatement.additionalText
@@ -482,6 +510,7 @@
   Short Name = Text Summary
   Definition = A textual description of the referral
   Requirements = The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary
+  R3-RR-Mapping = ReferralRequest.description (for PR added description element)
   v2 Mapping = Varies by domain
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
   Committee Notes = #13196]
@@ -494,6 +523,7 @@
   Definition = Key events in the history of the request.
   Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
   Workflow Mapping = Request.relevantHistory
+  R3-RR-Mapping = ReferralRequest.relevantHistory ()
   v2 Mapping = N/A
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
   Committee Notes = [#10296][#11119]

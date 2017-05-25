@@ -333,4 +333,13 @@
 		<sort>35</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>http://hl7.org/fhir/rr</url>
+		<columnName>R3-RR-Mapping</columnName>
+		<title>R3-ReferalRequest Mapping</title>
+		<id>rr-map</id>
+		<sort>36</sort>
+		<publish>true</publish>
+	</space>
+
 </mappingSpaces>
