@@ -15,7 +15,7 @@
 	</contained>
 
 	<contained>
-		<ReferralRequest>
+		<ProcedureRequest>
 			<id value="referral"/>
 			<status value="active"/>
 			<intent value="order"/>
@@ -23,7 +23,7 @@
 				<reference value="Patient/1"/>
 			</subject>
 			<!-- rest of the resource ommitted for brevity -->
-		</ReferralRequest>
+		</ProcedureRequest>
 	</contained>
 
 	<identifier>
@@ -123,7 +123,7 @@
 	</information>
 
 	<procedure>
-		<sequence value="1"/>   
+		<sequence value="1"/>
 		<date value="2014-07-04"/>
 		<procedureCodeableConcept>
 			<text value="Resection of gum to increase exposed tooth."/>
@@ -159,14 +159,14 @@
 		<unitPrice>
 			<value value="1400.00"/>
 			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</unitPrice> 
+			<code value="USD"/>
+		</unitPrice>
 		<factor value="0.75"/> <!-- student discount -->
 		<net>
 			<value value="1050.00"/>
 			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</net> 
+			<code value="USD"/>
+		</net>
 		<udi>
 			<reference value="#device-bridge"/>
 		</udi>
@@ -197,13 +197,13 @@
 		<unitPrice>
 			<value value="105.00"/>
 			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</unitPrice> 
+			<code value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="105.00"/>
 			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</net> 
+			<code value="USD"/>
+		</net>
 		<bodySite>
 			<coding>
 				<system value="http://fdi.org/fhir/oraltoothcodes"/>
@@ -238,13 +238,13 @@
 		<unitPrice>
 			<value value="1100.00"/>
 			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</unitPrice> 
+			<code value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="1100.00"/>
 			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
-		</net> 
+			<code value="USD"/>
+		</net>
 		<bodySite>
 			<coding>
 				<system value="http://fdi.org/fhir/oraltoothcodes"/>
@@ -263,14 +263,14 @@
 			<unitPrice>
 				<value value="1000.00"/>
 				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
-			</unitPrice> 
+				<code value="USD"/>
+			</unitPrice>
 			<factor value="0.75"/> <!-- Student discount -->
 			<net>
 				<value value="750.00"/>
 				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
-			</net> 
+				<code value="USD"/>
+			</net>
 		</detail>
 
 		<detail>
@@ -284,19 +284,19 @@
 			<unitPrice>
 				<value value="350.00"/>
 				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
-			</unitPrice> 
+				<code value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="350.00"/>
 				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
-			</net> 
+				<code value="USD"/>
+			</net>
 		</detail>
 	</item>
 	<total>
 		<value value="2255.00"/>
 		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/> 
-	</total> 
+		<code value="USD"/>
+	</total>
 
 </Claim>

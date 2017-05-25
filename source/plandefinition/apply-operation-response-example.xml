@@ -9,7 +9,7 @@
     </div>
   </text>
   <contained>
-	<ReferralRequest>
+	<ProcedureRequest>
 	  <id value="referralrequest"/>
 	  <status value="draft"/>
       <intent value="proposal"/>
@@ -47,7 +47,7 @@
 	  <reasonReference>
 		  <reference value="RiskAssessment/suicide-risk-assessment"/>
 	  </reasonReference>
-	</ReferralRequest>
+	</ProcedureRequest>
   </contained>
   <contained>
     <Medication>

@@ -34,14 +34,14 @@
 			The context could be in a Community/Aged Care/Disability/Mental Health setting.
 		</p>
 		<ul>
-			<li>ReferralRequest received</li>
+			<li>ProcedureRequest received</li>
 			<li>
 				<i>
 					intake clerk processes referral and decides that the first level eligibility has been met<br/>
 					(e.g. Have capacity in the facility for the patient, the patient is covered by VA)
 				</i>
 			</li>
-			<li>EpisodeOfCare created with status of planned which is allocated as fulfilling the ReferralRequest</li>
+			<li>EpisodeOfCare created with status of planned which is allocated as fulfilling the ProcedureRequest</li>
 			<li>
 				<i>Further assessment of needs is scheduled to be taken, a care manager is probably allocated at this point</i>
 			</li>
@@ -61,7 +61,7 @@
 			<li>
 				<i>Patient wished to move to another area to be closer to family</i>
 			</li>
-			<li>Organization creates an outgoing ReferralRequest to a new Organization to continue the care</li>
+			<li>Organization creates an outgoing ProcedureRequest to a new Organization to continue the care</li>
 			<li>The EpisodeOfCare is closed</li>
 		</ul>
 		<p>
@@ -77,7 +77,7 @@
 			An Organization may perform analytics on their Episodes Of Care to have an understanding of how their business is performing.<br/>
 			Observing that there was a 60/40 split of episodes being finished/cancelled is not very informative. The organization would
 			prefer to know the reason why the episodes are completing so that they can plan their business effectively.<br/>
-			They’d be more interested in knowing whether it was due to services hitting their mandatory end date, client passing away, 
+			They’d be more interested in knowing whether it was due to services hitting their mandatory end date, client passing away,
 			client transitioning to a higher level of services provided by them or to another provider etc.
 		</p>
 		<p>

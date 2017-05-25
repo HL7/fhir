@@ -275,7 +275,7 @@
  -- Row 23 -----------------------------------
   Element = !ClinicalImpression.plan
   Card. = 0..*
-  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
+  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|ProcedureRequest|ProcessRequest|VisionPrescription)
   Short Name = Plan of action after assessment
   Definition = Plan of action after assessment
   Committee Notes = Removed per GF#11167
@@ -283,7 +283,7 @@
  -- Row 24 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
-  Type = Reference(ReferralRequest | ProcedureRequest | Procedure | MedicationRequest | Appointment)
+  Type = Reference(ProcedureRequest | Procedure | MedicationRequest | Appointment)
   Short Name = Action taken as part of assessment procedure
   Definition = Action taken as part of assessment procedure
   Comments = Actions recommended as a result of the impression should not be captured using the \'action\' element.

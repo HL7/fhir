@@ -642,8 +642,8 @@
       <id value="referralToMentalHealthCare"/>
   	  <status value="draft"/>
 	    <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
-	    <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
-	    <kind value="ReferralRequest"/>
+	    <!-- Kind indicates the type of resource that is defined by this activity, a ProcedureRequest in this case -->
+	    <kind value="ProcedureRequest"/>
   	  <code>
     		<coding>
 		      <system value="http://snomed.info/sct"/>
@@ -945,9 +945,9 @@
           <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NUCC Provider Taxonomy&quot; display 'Adult Mental Health'"/>
         </dynamicValue>
         <dynamicValue>
-		  <!-- The fulfillmentTime element of the resulting ReferralRequest will be set to the result of the ReferralRequestFulfillmentTime expression defined in the SuicideRiskLogic library -->
+		  <!-- The fulfillmentTime element of the resulting ProcedureRequest will be set to the result of the ProcedureRequestFulfillmentTime expression defined in the SuicideRiskLogic library -->
           <path value="occurrenceDateTime"/>
-          <expression value="SuicideRiskLogic.ReferralRequestFulfillmentTime"/>
+          <expression value="SuicideRiskLogic.ProcedureRequestFulfillmentTime"/>
         </dynamicValue>
         <dynamicValue>
           <path value="subject"/>

@@ -117,7 +117,7 @@ signatures.html
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
       <page type="resource" resource="Media"/>
-      
+
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
       <page type="resource" resource="List"/>
@@ -316,7 +316,6 @@ signatures.html
       <page type="resource" resource="AppointmentResponse"/>
       <page type="resource" resource="Schedule"/>
       <page type="resource" resource="Slot"/>
-      <page type="resource" resource="ReferralRequest"/>
       <page type="resource" resource="ProcedureRequest"/>
       <page type="resource" resource="NutritionOrder"/>
       <page type="resource" resource="VisionPrescription"/>

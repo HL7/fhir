@@ -44,7 +44,7 @@
 	<created value="2013-10-10" />
 	<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
   <incomingReferral>
-        <reference value="ReferralRequest/example"/>
+        <reference value="ProcedureRequest/myringotomy"/>
     </incomingReferral>
 	<participant>
 		<actor>

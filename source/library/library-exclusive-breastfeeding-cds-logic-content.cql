@@ -112,7 +112,7 @@ define "Completed Breastfeeding Readiness Assessment":
       and P.status in { 'completed' }
 
 define "Lactation Consult Request":
-  [ReferralRequest: "Lactation Consult"] R
+  [ProcedureRequest: "Lactation Consult"] R
     where R.date after "Infant Birth Date"
 
 // This is a request to administer a "Breastfeeding Readiness Assessment" as a Questionnaire
@@ -186,13 +186,13 @@ CommunicationRequest {
 }
 
 define "Create Lactation Consult Request":
-  ReferralRequest {
+  ProcedureRequest {
     status: 'requested',
     date: Now(),
     type: Code 'lactation-consult' from "http://example.org/consultations" display 'Lactation Consult',
     priority: Code 'routine' from "http://hl7.org/fhir/diagnostic-order-priority" display 'Routine',
     patient: Patient,
-    requester: "Primary Provider", // TODO: This should actually be the device, but the ReferralRequest doesn't support that
+    requester: "Primary Provider", // TODO: This should actually be the device, but the ProcedureRequest doesn't support that
     encounter: "Live Birth Encounter",
     reason: Code 'negative' from "http://example.org/breastfeeding-intention" display 'Intention not to breast feed',
     description: 'Mother has declared an intention not to breastfeed, despite being given appropriate education regarding the benefits of exclusive breastmilk feeding.',

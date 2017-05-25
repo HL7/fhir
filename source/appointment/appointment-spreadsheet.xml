@@ -1822,7 +1822,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Reference(ReferralRequest)</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Reference(ProcedureRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1832,7 +1832,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">The ReferralRequest provided as information to allocate to the Encounter</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The ProcedureRequest provided as information to allocate to the Encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The referral request this appointment is allocated to assess (incoming referral)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4856,7 +4856,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">incomingreferral</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">ReferralRequest</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">ProcedureRequest</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Appointment.incomingReferral</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>

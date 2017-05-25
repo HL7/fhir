@@ -1361,8 +1361,8 @@
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="27"><Data ss:Type="String">CarePlan</Data></Cell>
     <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
-    <Cell><Data ss:Type="String">ReferralRequest,QuestionnaireResponse</Data></Cell>
-    <Cell><Data ss:Type="String">ReferralRequest</Data></Cell>
+    <Cell><Data ss:Type="String">ProcedureRequest,QuestionnaireResponse</Data></Cell>
+    <Cell><Data ss:Type="String">ProcedureRequest</Data></Cell>
     <Cell ss:Index="32"><Data ss:Type="String">CDA - Event Summary</Data></Cell>
     <Cell><Data ss:Type="String">CDA - Event Summary</Data></Cell>
     <Cell><Data ss:Type="String">Discharge summary</Data></Cell>

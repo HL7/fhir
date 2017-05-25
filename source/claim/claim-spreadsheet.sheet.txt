@@ -629,7 +629,7 @@
  -- Row 32 -----------------------------------
   Element = Claim.referral
   Card. = 0..1
-  Type = Reference(ReferralRequest)
+  Type = Reference(ProcedureRequest)
   Short Name = Treatment Referral
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   w5 = who.cause

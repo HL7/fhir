@@ -537,7 +537,7 @@
  -- Row 18 -----------------------------------
   Element = ExplanationOfBenefit.referral
   Card. = 0..1
-  Type = Reference(ReferralRequest)
+  Type = Reference(ProcedureRequest)
   Short Name = Treatment Referral
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   CDAnet v4 Mapping = B05

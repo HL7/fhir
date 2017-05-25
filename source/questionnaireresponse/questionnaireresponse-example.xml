@@ -38,7 +38,7 @@
     </Patient>
   </contained>
   <contained>
-    <ReferralRequest>
+    <ProcedureRequest>
       <id value="order"/>
       <status value="unknown"/>
       <intent value="order"/>
@@ -50,7 +50,7 @@
           <reference value="Practitioner/example"/>
         </agent>
       </requester>
-    </ReferralRequest>
+    </ProcedureRequest>
   </contained>
   <contained>
     <Practitioner>
@@ -66,7 +66,7 @@
   </contained>
   <!--   TODO: decide how to do this
   <contained>
-  
+
     <Observation>
       <id value="obs.pt-category"/>
       <status value="final"/>

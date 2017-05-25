@@ -1,12 +1,12 @@
 status,name,managingOrganization,contact,connectionType,method,address,payloadFormat,payloadType,header
-active,CarePlan repository,Telstra Health,Brian Postlethwaite,hl7-fhir-rest,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,CarePlan, 
+active,CarePlan repository,Telstra Health,Brian Postlethwaite,hl7-fhir-rest,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,CarePlan,
 active,Questionnaire Destination,Telstra Health,Brian Postlethwaite,hl7-fhir-rest,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,QuestionnaireResponse,x-custom proxy-notes
-active,Referral Requests,Telstra Health,Brian Postlethwaite,hl7-fhir-rest,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,ReferralRequest, 
-active,Referral Requests,Epic demo organization,Kevin Paprocki,hl7-fhir-rest,POST,https://open.epic.com/Interface/FHIR,application/fhir+json,ReferralRequest QuestionnaireResponse,Authorization 234522345
-active,Subscription receiver,Telstra Health,Brian Postlethwaite,secure-email,POST PUT DELETE,mailto:subscriptions@example.org,application/fhir+xml,ReferralRequest, 
-active,valid usecase?,Telstra Health,Brian Postlethwaite,hl7-fhir-msg,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,PDF,CDA-EventSummary, 
-active,v2 referral Requests,Epic demo organization,Kevin Paprocki,hl7v2-mllp,POST,127.0.0.1,HL7v2,REF-I12, 
-active,xds event summaries,Epic demo organization,Kevin Paprocki,ihe-xds,POST,https://open.epic.com/Interface/XDS.b,XDA/XDS,CDA-EventSummary, 
+active,Referral Requests,Telstra Health,Brian Postlethwaite,hl7-fhir-rest,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/fhir+xml,ProcedureRequest,
+active,Referral Requests,Epic demo organization,Kevin Paprocki,hl7-fhir-rest,POST,https://open.epic.com/Interface/FHIR,application/fhir+json,ProcedureRequest QuestionnaireResponse,Authorization 234522345
+active,Subscription receiver,Telstra Health,Brian Postlethwaite,secure-email,POST PUT DELETE,mailto:subscriptions@example.org,application/fhir+xml,ProcedureRequest,
+active,valid usecase?,Telstra Health,Brian Postlethwaite,hl7-fhir-msg,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,PDF,CDA-EventSummary,
+active,v2 referral Requests,Epic demo organization,Kevin Paprocki,hl7v2-mllp,POST,127.0.0.1,HL7v2,REF-I12,
+active,xds event summaries,Epic demo organization,Kevin Paprocki,ihe-xds,POST,https://open.epic.com/Interface/XDS.b,XDA/XDS,CDA-EventSummary,
 active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,dicom-wado-rs,GET OPTIONS,https://pacs.hospital.org/dicomweb,DICOM WADO-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
 active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,dicom-qido-rs,GET OPTIONS,https://pacs.hospital.org/dicomweb,DICOM QIDO-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
 active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,dicom-stow-rs,POST OPTIONS,https://pacs.hospital.org/dicomweb,DICOM STOW-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",

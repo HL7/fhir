@@ -71,7 +71,7 @@ data directly.  Rather, they provide a basis for mapping between data capture st
 <p>
 Groups and questions that make up a Questionnaire can use the <code>definition</code> element to refer to data elements in external code systems and <a href="structuredefinition.html">StructureDefinitions</a>.  In this way, it's possible to leverage standard definitions
 of questions and their associated data types and answer sets across questionnaires. This also allows extraction of the data from a questionnaire response into other data
-structures (e.g. populating a <a href="referralrequest.html">ReferralRequest</a> or <a href="careplan.html">CarePlan</a> from information in a completed questionnaire response.
+structures (e.g. populating a <a href="procedurerequest.html">ProcedureRequest</a> or <a href="careplan.html">CarePlan</a> from information in a completed questionnaire response.
 It can also support other sorts of post-processing of the data contained in a questionnaire response. However, use of the definition element is not required
 and Questionnaires may be quite loosely defined. The section <a href="#qversusr">Questionnaire versus Resources</a> below discusses the issues of collecting data in such
 loosely defined Questionnaires versus collecting data as well-defined separate Resources.

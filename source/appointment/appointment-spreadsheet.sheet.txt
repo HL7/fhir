@@ -405,8 +405,8 @@
  -- Row 23 -----------------------------------
   Element = Appointment.incomingReferral
   Card. = 0..*
-  Type = Reference(ReferralRequest)
-  Short Name = The ReferralRequest provided as information to allocate to the Encounter
+  Type = Reference(ProcedureRequest)
+  Short Name = The ProcedureRequest provided as information to allocate to the Encounter
   Definition = The referral request this appointment is allocated to assess (incoming referral)
   RIM Mapping = .outboundRelationship[@typeCode = \'FLFS\'].act[@classCode < \'ActCareProvisionRequestType\'][@moodCode = \'RQO\']
 
@@ -558,7 +558,7 @@
   Name = incomingreferral
   Type = reference
   Path = Appointment.incomingReferral
-  Target Types = ReferralRequest
+  Target Types = ProcedureRequest
 
 === Sheet Profiles =====================================
 

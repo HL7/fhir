@@ -274,7 +274,7 @@
   Element = MedicationRequest.basedOn
   Card. = 0..*
   Summary = y
-  Type = Reference(CarePlan |MedicationRequest |ProcedureRequest |ReferralRequest)
+  Type = Reference(CarePlan |MedicationRequest |ProcedureRequest)
   Short Name = What request fulfills
   Definition = A plan or request that is fulfilled in whole or in part by this medication request.
   Workflow Mapping = Request.basedOn

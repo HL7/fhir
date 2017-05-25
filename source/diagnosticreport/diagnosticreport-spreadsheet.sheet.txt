@@ -149,7 +149,7 @@
   Element = DiagnosticReport.basedOn
   Card. = 0..*
   Aliases = Request
-  Type = Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest | ReferralRequest)
+  Type = Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest)
   Short Name = What was requested
   Definition = Details concerning a test or procedure requested.
   Requirements = This allows tracing of authorization for the report and tracking whether proposals/recommendations were acted upon

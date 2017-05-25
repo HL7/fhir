@@ -142,7 +142,7 @@
   Card. = 0..*
   Aliases = fulfills
   Summary = Y
-  Type = Reference(CarePlan|ProcedureRequest|ReferralRequest)
+  Type = Reference(CarePlan|ProcedureRequest)
   Short Name = A request for this procedure
   Definition = A reference to a resource that contains details of the request for this procedure.
   Workflow Mapping = Event.basedOn

@@ -14,7 +14,7 @@ parameter Practitioner Practitioner
 
 context Patient
 
-define ReferralRequestFulfillmentTime: Interval[Now(), null]
+define ProcedureRequestFulfillmentTime: Interval[Now(), null]
 
 define RiskAssessmentScore:
 	// Sample calculation only, this logic is incomplete

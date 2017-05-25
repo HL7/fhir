@@ -43,7 +43,7 @@
         <reference value="EpisodeOfCare/example"/>
     </episodeOfCare>
     <incomingReferral>
-        <reference value="ReferralRequest/example"/>
+        <reference value="ProcedureRequest/myringotomy"/>
     </incomingReferral>
     <participant>
         <type>

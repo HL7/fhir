@@ -246,8 +246,8 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Usage Examples</h4>
         <p><b>Outpatient referral</b></p>
         <p>
-            A patient is seen by her Primary Care Provider (PCP) for shortness of breath and the provider decides to refer her to a cardiologist. Because of the referral, the provider's system creates ReferralRequest resource and POSTs a Task resource to a cardiologist's practice
-            system, requesting a referral. This places the referral request on a referral coordinator's work list to review. Upon accepting the referral, the Task is updated as accepted and a new sub-Task, referencing both the ReferralRequest and the
+            A patient is seen by her Primary Care Provider (PCP) for shortness of breath and the provider decides to refer her to a cardiologist. Because of the referral, the provider's system creates ProcedureRequest resource and POSTs a Task resource to a cardiologist's practice
+            system, requesting a referral. This places the referral request on a referral coordinator's work list to review. Upon accepting the referral, the Task is updated as accepted and a new sub-Task, referencing both the ProcedureRequest and the
             Task created by the provider's system, is created on the provider's system. The patient gets an appointment with the cardiologist and the sub-Task is updated with that information, allowing the provider's system to inform the provider of
             the change.
         </p>
@@ -255,7 +255,7 @@ in order to support consistent definitions for schema and UML derived code.
             The patient misplaces the information about the appointment and misses the visit with the cardiologist. The cardiologist's system updates the sub-Task to indicate the no-show and the PCP is alerted of the missed appointment. The provider's staff gets
             hold of the patient and schedules another appointment for her with the cardiologist. Because of the cardiologist's system scheduling the appointment, the sub-Task is updated with that information. The patient is seen and the sub-Task
             is updated accordingly. The cardiologist document the findings about the patient and updates the sub-Task as complete, adding references to the resources representing the findings. The PCP is alerted of the updates and marks the referral
-            as complete, which updates the original Task and the ReferralRequest as complete as well.
+            as complete, which updates the original Task and the ProcedureRequest as complete as well.
         </p>
 
         <a name="optionj"> </a>

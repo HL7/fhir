@@ -2635,7 +2635,7 @@
         <ns4:element name="date" type="FHIR.date"/>
         <ns4:element name="amount" type="FHIR.Money"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.ReferralRequest" retrievable="true" baseType="FHIR.DomainResource" primaryCodePath="type">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="FHIR.ProcedureRequest" retrievable="true" baseType="FHIR.DomainResource" primaryCodePath="type">
         <ns4:element name="identifier" type="list&lt;FHIR.Identifier&gt;"/>
         <ns4:element name="basedOn" type="list&lt;FHIR.Reference&gt;"/>
         <ns4:element name="parent" type="FHIR.Identifier"/>
@@ -3594,7 +3594,7 @@
         <ns4:element name="Provenance" type="FHIR.Provenance"/>
         <ns4:element name="Questionnaire" type="FHIR.Questionnaire"/>
         <ns4:element name="QuestionnaireResponse" type="FHIR.QuestionnaireResponse"/>
-        <ns4:element name="ReferralRequest" type="FHIR.ReferralRequest"/>
+        <ns4:element name="ProcedureRequest" type="FHIR.ProcedureRequest"/>
         <ns4:element name="RelatedPerson" type="FHIR.RelatedPerson"/>
         <ns4:element name="RiskAssessment" type="FHIR.RiskAssessment"/>
         <ns4:element name="Schedule" type="FHIR.Schedule"/>

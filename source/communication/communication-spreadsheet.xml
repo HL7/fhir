@@ -1176,7 +1176,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">An order, proposal or plan fulfilled in whole or in part by this Communication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ReferralRequest, MedicationRequest, etc.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ProcedureRequest, MedicationRequest, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>

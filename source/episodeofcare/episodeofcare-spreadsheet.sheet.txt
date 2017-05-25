@@ -194,7 +194,7 @@
  -- Row 15 -----------------------------------
   Element = EpisodeOfCare.referralRequest
   Card. = 0..*
-  Type = Reference(ReferralRequest)
+  Type = Reference(ProcedureRequest)
   Short Name = Originating Referral Request(s)
   Definition = Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals
 
@@ -293,7 +293,7 @@
   Type = reference
   Description = Incoming Referral Request
   Path = EpisodeOfCare.referralRequest
-  Target Types = ReferralRequest
+  Target Types = ProcedureRequest
 
  -- Row 9 -----------------------------------
   Name = care-manager

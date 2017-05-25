@@ -253,8 +253,8 @@
       <reference value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
     </resource>
   </relatedArtifact>
-  <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
-  <kind value="ReferralRequest"/>
+  <!-- Kind indicates the type of resource that is defined by this activity, a ProcedureRequest in this case -->
+  <kind value="ProcedureRequest"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -265,7 +265,7 @@
   <timingTiming>
     <event>
 	  <!-- The expression here specifies the value for the timing of the resulting resource.
-		   In this case, referralRequest.fulfillmentTime.start -->
+		   In this case, ProcedureRequest.fulfillmentTime.start -->
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
         <valueString value="Now()"/>
       </extension>

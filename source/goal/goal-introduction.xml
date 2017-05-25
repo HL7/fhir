@@ -5,19 +5,19 @@
 <h2>Scope and Usage</h2>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-A Goal in health care services delivery is generally an expressed desired health state to be achieved by a subject of care (or family/group) 
-over a period or at a specific point of time.  This desired target health state may be achieved as a result of health care 
+A Goal in health care services delivery is generally an expressed desired health state to be achieved by a subject of care (or family/group)
+over a period or at a specific point of time.  This desired target health state may be achieved as a result of health care
 intervention(s) or resulting from natural recovery over time.  For example:
 </p>
 <ul>
 <li>
-A goal of a plan for a condition such as a diabetes might specify desired outcome(s) (e.g. HgbA1c level =&lt;5.6% in 3 months) as a 
-result of interventions such as medication therapy, nutritional management and/or increase physical activity.  
+A goal of a plan for a condition such as a diabetes might specify desired outcome(s) (e.g. HgbA1c level =&lt;5.6% in 3 months) as a
+result of interventions such as medication therapy, nutritional management and/or increase physical activity.
 </li>
 <li>
-A goal of a procedure might be to meet the intended objective of the procedure (e.g. wet-dry-dressing changes twice a day; goal: 
+A goal of a procedure might be to meet the intended objective of the procedure (e.g. wet-dry-dressing changes twice a day; goal:
 wound healed completely in 2 weeks) or to prevent an unintended complication (e.g. repositioning a patient every two hours:
-goal to maintain skin integrity) 
+goal to maintain skin integrity)
 </li>
 </ul>
 
@@ -42,7 +42,7 @@ management, patient satisfaction, etc.
 <h2>Boundaries and Relationships</h2>
 <p>
 Goals are typically established in the context of a <a href="careplan.html">CarePlan</a>.  However, goals may also be directly
-    referenced by request-type resources (e.g. <a href="medicationrequest.html">MedicationRequest</a> or <a href="referralrequest.html">ReferralRequest</a>)
+    referenced by request-type resources (e.g. <a href="medicationrequest.html">MedicationRequest</a> or <a href="procedurerequest.html">ProcedureRequest</a>)
 by using an extension.
 </p>
 <p>
