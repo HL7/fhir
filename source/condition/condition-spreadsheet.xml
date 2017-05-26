@@ -9,19 +9,19 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-04-21T14:53:50Z</LastSaved>
+  <LastSaved>2017-05-26T15:53:19Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8910</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>12045</WindowHeight>
+  <WindowWidth>25200</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1722,7 +1722,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">!Condition.stage.type</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Condition.stage.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1746,7 +1746,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;stage type&quot;]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3879,12 +3880,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3892,6 +3894,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3899,6 +3902,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>19</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -4391,7 +4395,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6333,7 +6336,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s114" ss:Width="115.5"/>
+   <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="132.75"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="431.25"/>
    <Column ss:StyleID="s114" ss:Width="51"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="69"/>
@@ -6536,7 +6539,7 @@
     <Cell ss:StyleID="s122"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">!ConditionStageType</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">ConditionStageType</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes describing the kind of condition staging (e.g. clinical or pathological).</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">example</Data></Cell>
@@ -6853,8 +6856,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -11459,6 +11459,10 @@
     <display value="Westphalian horse"/>
     <display value="Westphalian horse (organism)"/>
   </concept>
+  <concept id="254291000" display="Staging and scales">
+    <display value="Staging and scales"/>
+    <display value="Staging and scales (staging scale)"/>
+  </concept>
   <concept id="254637007" display="Non-small cell lung cancer">
     <display value="Non-small cell lung cancer"/>
     <display value="NSCLC - Non-small cell lung cancer"/>
@@ -11730,6 +11734,18 @@
     <display value="Artifacts"/>
     <display value="Objects"/>
     <display value="Physical object (physical object)"/>
+  </concept>
+  <concept id="260998006" display="cS - Clinical staging">
+    <display value="cS - Clinical staging"/>
+    <display value="c - Clinical staging"/>
+    <display value="Clinical staging"/>
+    <display value="Clinical staging (qualifier value)"/>
+  </concept>
+  <concept id="261023001" display="Pathological staging">
+    <display value="Pathological staging"/>
+    <display value="pS - Pathological staging"/>
+    <display value="p - Pathological staging"/>
+    <display value="Pathological staging (qualifier value)"/>
   </concept>
   <concept id="26105007" display="Holstein-Friesian cattle">
     <display value="Holstein-Friesian cattle breed (organism)"/>

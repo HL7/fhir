@@ -52,6 +52,13 @@
         <display value="stage II"/>
       </coding>
     </summary>
+	<type>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="260998006"/>
+        <display value="Clinical staging (qualifier value)"/>
+      </coding>
+    </type>
   </stage>
   <evidence>
     <code>

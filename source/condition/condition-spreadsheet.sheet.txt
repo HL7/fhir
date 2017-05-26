@@ -66,7 +66,7 @@
   Conformance = example
 
  -- Row 10 -----------------------------------
-  Binding Name = !ConditionStageType
+  Binding Name = ConditionStageType
   Binding = value set
   Reference = valueset-condition-stage-type
   Definition = Codes describing the kind of condition staging (e.g. clinical or pathological).
@@ -384,12 +384,13 @@
   RIM Mapping = .self
 
  -- Row 19 -----------------------------------
-  Element = !Condition.stage.type
+  Element = Condition.stage.type
   Card. = 0..1
   Type = CodeableConcept
   Binding = ConditionStageType
   Short Name = Kind of staging
   Definition = The kind of staging, such as pathological or clinical staging.
+  RIM Mapping = ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"stage type\"]
   Committee Notes = Added per GF#12943
 
  -- Row 20 -----------------------------------
