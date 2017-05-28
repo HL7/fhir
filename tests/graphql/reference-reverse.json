@@ -1,6 +1,6 @@
 {
   "id" : "example",
-  "Condition":[{
+  "ConditionList":[{
     "id":"example"
   }]
 }

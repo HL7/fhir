@@ -1,0 +1,3 @@
+{ 
+  Patient(id: example) { id, active } 
+}

@@ -1,0 +1,21 @@
+{
+  "PatientConnection":{
+    "count":50,
+    "offset":0,
+    "pagesize":50,
+    "edges":[{
+      "resource":{
+        "id" : "example",
+        "active" : true
+      }
+    },{
+      "mode":"match",
+      "score":0.5,
+      "resource":{
+        "id":"xds",
+        "active":true
+      }
+    }],
+    "next":"77c97e03-8a6c-415f-a63d-11c80cf73f:50"
+  }
+}

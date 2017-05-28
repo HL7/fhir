@@ -317,3 +317,13 @@ mutation {
 }
 
 
+#### EmptyParamList
+
+
+{
+  user() {
+    name
+  }
+}
+
+

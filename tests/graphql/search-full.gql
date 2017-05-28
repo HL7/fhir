@@ -1,0 +1,9 @@
+{ 
+  PatientConnection (active : true) { 
+    count offset pagesize
+    edges {
+      mode, score, resource { id, active }
+    }
+    first previous next last
+  } 
+}

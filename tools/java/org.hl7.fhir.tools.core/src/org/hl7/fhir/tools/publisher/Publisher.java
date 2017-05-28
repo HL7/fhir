@@ -181,6 +181,7 @@ import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.QuestionnaireBuilder;
 import org.hl7.fhir.r4.utils.ResourceUtilities;
@@ -255,9 +256,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   public static final String CANONICAL_BASE = "http://build.fhir.org/";
   
   public class DocumentHolder {
-
     public XhtmlDocument doc;
-
   }
 
   public static class Fragment {
@@ -1952,6 +1951,19 @@ public class Publisher implements URIResolver, SectionNumberer {
     shgen.withComments = false;
     TextFile.stringToFile(shgen.generate(HTMLLinkPolicy.NONE, list), page.getFolders().dstDir+"fhir.shex", false);
 
+    GraphQLSchemaGenerator gql = new GraphQLSchemaGenerator(page.getWorkerContext());
+    gql.generateTypes(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "types.graphql")));
+    Set<String> names = new HashSet<String>();
+    for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
+      if (sd.getKind() == StructureDefinitionKind.RESOURCE && sd.getAbstract() == false && sd.getDerivation() == TypeDerivationRule.SPECIALIZATION && !names.contains(sd.getUrl())) {
+        String filename = Utilities.path(page.getFolders().dstDir, sd.getName().toLowerCase() + ".graphql");
+        names.add(sd.getUrl());
+        gql.generateResource(new FileOutputStream(filename), sd);
+      }
+    }
+    if (true) 
+      throw new Error("halt");
+    
     if (buildFlags.get("all")) {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         page.log("Produce " + gen.getName() + " Reference Implementation", LogMessageType.Process);

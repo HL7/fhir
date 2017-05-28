@@ -13,5 +13,11 @@
  <test name="extension-complex-in" source="extension-complex-in.gql" output="extension-complex-in.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-complex-out" source="extension-complex-out.gql" output="extension-complex-out.json" context="Patient/glossy/$graphql" resource="patient-glossy-example"/>
  <test name="extension-simple" source="extension-simple.gql" output="extension-simple.json" context="Observation/20minute-apgar-score/$graphql" resource="observation-example-20minute-apgar-score"/>
+ <test name="search-single" source="search-single.gql" output="search-single.json" context=""/>
+ <test name="search-simple" source="search-simple.gql" output="search-simple.json" context=""/>
+ <test name="search-full" source="search-full.gql" output="search-full.json" context=""/>
  <test name="reference-reverse" source="reference-reverse.gql" output="reference-reverse.json" context="Patient/example/$graphql"/>
+ <test name="directive-skip" source="directive-skip.gql" output="directive-skip.json" context="Patient/example/$graphql"/>
+ <test name="directive-include" source="directive-include.gql" output="directive-include.json" context="Patient/example/$graphql"/>
+ <test name="directive-variable" source="directive-variable.gql" output="directive-variable.json" context="Patient/example/$graphql" operation="test"/>
 </graphql-tests>

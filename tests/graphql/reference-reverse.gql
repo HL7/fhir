@@ -1,6 +1,6 @@
 { 
   id
-  Condition(_reference: patient) {
+  ConditionList(_reference: patient) {
     id
   }
 }

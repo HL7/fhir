@@ -1,0 +1,12 @@
+{
+  "active": true,
+  "name": [{
+    "given": ["Peter","James"],
+    "family": "Chalmers"
+  },{
+    "given": ["Jim"]
+  },{
+    "given": ["Peter","James"],
+    "family": "Windsor"
+  }]
+}

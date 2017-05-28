@@ -1,0 +1,5 @@
+query test($var : Boolean) {
+  identifier @include(if: $var) { system value }
+  active 
+  name { text given family } 
+}
