@@ -1030,6 +1030,7 @@ public class ProfileGenerator {
       if (context.getSearchParameters().containsKey(sp.getUrl()))
         throw new Exception("Duplicated Search Parameter "+sp.getUrl());
       context.getSearchParameters().put(sp.getUrl(), sp);
+      spd.setResource(sp);
       definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
       sp.setStatus(p.getStatus());
       sp.setExperimental(p.getExperimental());
@@ -1082,7 +1083,7 @@ public class ProfileGenerator {
       }
       boolean found = false;
       for (CodeType ct : sp.getBase())
-        found = found || ct.asStringValue().equals(p.getType());
+        found = found || p.getType().equals(ct.asStringValue());
       if (!found)
         sp.addBase(p.getType());
     }

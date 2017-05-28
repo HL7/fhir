@@ -1958,7 +1958,15 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (sd.getKind() == StructureDefinitionKind.RESOURCE && sd.getAbstract() == false && sd.getDerivation() == TypeDerivationRule.SPECIALIZATION && !names.contains(sd.getUrl())) {
         String filename = Utilities.path(page.getFolders().dstDir, sd.getName().toLowerCase() + ".graphql");
         names.add(sd.getUrl());
-        gql.generateResource(new FileOutputStream(filename), sd);
+        List<SearchParameter> splist = new ArrayList<SearchParameter>();
+        ResourceDefn rd = page.getDefinitions().getResourceByName(sd.getName());
+        for (String n : sorted(rd.getSearchParams().keySet())) {
+          SearchParameterDefn spd = rd.getSearchParams().get(n);
+          if (spd.getResource() == null)
+            buildSearchDefinition(rd, spd);
+          splist.add(spd.getResource());
+        }
+        gql.generateResource(new FileOutputStream(filename), sd, splist, true, true);
       }
     }
     
@@ -2013,6 +2021,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     }
   }
+
+  private List<String> sorted(Set<String> keys) {
+    List<String> sl = new ArrayList<String>();
+    sl.addAll(keys);
+    Collections.sort(sl);
+    return sl;
+  }
+
 
   private void loadR2Definitions() throws FileNotFoundException, FHIRException, IOException {
     loadR2DefinitionBundle(page.getDiffEngine().getOriginal().getTypes(), Utilities.path(page.getFolders().srcDir, "release2", "profiles-types.xml"));
@@ -3213,15 +3229,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (rd.getConformancePack() == null) {
       for (SearchParameterDefn spd : rd.getSearchParams().values()) {
         if (spd.getResource() == null) {
-          StructureDefinition p = new StructureDefinition();
-          p.setFhirVersion(page.getVersion());
-          p.setKind(StructureDefinitionKind.RESOURCE);
-          p.setAbstract(true);
-          p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
-          p.setName(rd.getName());
-          p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-          SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
-          spd.setResource(sp);
+          buildSearchDefinition(rd, spd);
         }
         SearchParameter sp = spd.getResource();
         if (!uris.contains(sp.getUrl())) {
@@ -3231,6 +3239,19 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     } else
       addSearchParams(uris, bundle, rd.getConformancePack());
+  }
+
+  private void buildSearchDefinition(ResourceDefn rd, SearchParameterDefn spd) throws Exception {
+    StructureDefinition p = new StructureDefinition();
+    p.setFhirVersion(page.getVersion());
+    p.setKind(StructureDefinitionKind.RESOURCE);
+    p.setAbstract(true);
+    p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
+    p.setName(rd.getName());
+    p.setType(rd.getName());
+    p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
+    SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd);
+    spd.setResource(sp);
   }
 
   private void addSearchParams(Set<String> uris, Bundle bundle, Profile conformancePack) {

@@ -327,7 +327,7 @@
   Card. = 0..1
   Type = Identifier
   Short Name = Business identifier for the event
-  Definition = The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itsefl is not appropriate.
+  Definition = The identifier(s) of this adverse event that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
 
  -- Row 3 -----------------------------------
   Element = AdverseEvent.actuality
@@ -353,7 +353,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdverseEventType
-  Short Name = Type of the event itself in releation to the subject
+  Short Name = Type of the event itself in relation to the subject
   Definition = This element defines the specific type of event that occurred or that was prevented from occurring.
   w5 = what
 
