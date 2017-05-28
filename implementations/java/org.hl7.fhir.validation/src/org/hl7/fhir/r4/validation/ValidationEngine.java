@@ -365,9 +365,9 @@ public class ValidationEngine {
       String fn = t.getKey();
       Resource res = null;
       try { 
-      if (fn.endsWith(".xml"))
+      if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
         res = new XmlParser().parse(t.getValue());
-      else if (fn.endsWith(".json"))
+      else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
         res = new JsonParser().parse(t.getValue());
 //      else if (fn.endsWith(".ttl"))
 //        res = new RdfParser().parse(t.getValue());
