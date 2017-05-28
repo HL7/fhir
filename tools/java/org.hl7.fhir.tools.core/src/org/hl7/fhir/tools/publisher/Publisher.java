@@ -1961,8 +1961,6 @@ public class Publisher implements URIResolver, SectionNumberer {
         gql.generateResource(new FileOutputStream(filename), sd);
       }
     }
-    if (true) 
-      throw new Error("halt");
     
     if (buildFlags.get("all")) {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
