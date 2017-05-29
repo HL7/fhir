@@ -48,14 +48,15 @@ public class GraphQLSchemaGenerator {
         tl.put(sd.getName(), sd);
       }
     }
-    writer.write("# FHIR GraphQL Schema. Version "+Constants.REVISION+"-"+Constants.REVISION+"\r\n");
+    writer.write("# FHIR GraphQL Schema. Version "+Constants.VERSION+"-"+Constants.REVISION+"\r\n\r\n");
     writer.write("# FHIR Defined Primitive types\r\n");
     for (String n : sorted(pl.keySet()))
       generatePrimitive(writer, pl.get(n));
     writer.write("\r\n");
     writer.write("# FHIR Defined Search Parameter Types\r\n");
     for (SearchParamType dir : SearchParamType.values()) {
-      generateSearchParamType(writer, dir.toCode());      
+      if (dir != SearchParamType.NULL)
+        generateSearchParamType(writer, dir.toCode());      
     }
     writer.write("\r\n");
     generateElementBase(writer);
@@ -67,7 +68,7 @@ public class GraphQLSchemaGenerator {
 
   public void generateResource(OutputStream stream, StructureDefinition sd, List<SearchParameter> parameters, boolean read, boolean search) throws IOException, FHIRException {
     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(stream));
-    writer.write("# FHIR GraphQL Schema. Version "+Constants.REVISION+"-"+Constants.REVISION+"\r\n");
+    writer.write("# FHIR GraphQL Schema. Version "+Constants.VERSION+"-"+Constants.REVISION+"\r\n\r\n");
     generateType(writer, sd);
     if (read)
       generateIdAccess(writer, sd.getName());
