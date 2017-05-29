@@ -1951,7 +1951,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private Resource parse(FetchedFile file) throws Exception {
-    if (version.equals("3.0.1")) {
+    String parseVersion = version;
+    if (!file.getResources().isEmpty())
+      parseVersion = str(file.getResources().get(0).getConfig(), "version", version);
+    if (parseVersion.equals("3.0.1")) {
       org.hl7.fhir.dstu3.model.Resource res;
       if (file.getContentType().contains("json"))
         res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(file.getSource());
@@ -1960,7 +1963,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       else
         throw new Exception("Unable to determine file type for "+file.getName());
       return VersionConvertor_30_40.convertResource(res);
-    } else if (version.equals("1.4.0")) {
+    } else if (parseVersion.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource res;
       if (file.getContentType().contains("json"))
         res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(file.getSource());
@@ -1969,7 +1972,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       else
         throw new Exception("Unable to determine file type for "+file.getName());
       return VersionConvertor_14_40.convertResource(res);
-    } else if (version.equals("1.0.2")) {
+    } else if (parseVersion.equals("1.0.2")) {
       org.hl7.fhir.dstu2.model.Resource res;
       if (file.getContentType().contains("json"))
         res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
@@ -1980,7 +1983,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
       VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
       return new VersionConvertor_10_40(advisor ).convertResource(res);
-    } else if (version.equals(Constants.VERSION)) {
+    } else if (parseVersion.equals(Constants.VERSION)) {
       if (file.getContentType().contains("json"))
         return new JsonParser().parse(file.getSource());
       else if (file.getContentType().contains("xml"))
@@ -1988,7 +1991,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       else
         throw new Exception("Unable to determine file type for "+file.getName());
     } else
-      throw new Exception("Unsupported version "+version);
+      throw new Exception("Unsupported version "+parseVersion);
   }
 
   private void validate() throws Exception {
