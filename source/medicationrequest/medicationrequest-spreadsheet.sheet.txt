@@ -453,6 +453,16 @@
   w5 = who
 
  -- Row 19 -----------------------------------
+  Element = MedicationRequest.performer
+  Card. = 0..1
+  Type = Reference (Practitioner | Organization | Patient | Device |RelatedPerson)
+  Short Name = Intended performer of administration
+  Definition = The specified desired performer of the medication treatment (e.g. the performer of the medication administration).
+  Workflow Mapping = Request.performer
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  w5 = who
+
+ -- Row 20 -----------------------------------
   Element = MedicationRequest.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -466,7 +476,7 @@
   RIM Mapping = reason.observation.reasonCode
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationRequest.reasonReference
   Card. = 0..*
   Type = Reference(Condition |Observation)
@@ -478,7 +488,7 @@
   RIM Mapping = reason.observation[code=ASSERTION].value
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationRequest.note
   Card. = 0..*
   Type = Annotation
@@ -488,7 +498,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationRequest.dosageInstruction
   Card. = 0..*
   Type = Dosage
@@ -498,7 +508,7 @@
   Workflow Mapping = Request.occurrence[x]
   RIM Mapping = see dosageInstruction mapping
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationRequest.dispenseRequest
   Card. = 0..1
   UML = 300;400
@@ -507,7 +517,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/ExpirationDate
   RIM Mapping = component.supplyEvent
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationRequest.dispenseRequest.validityPeriod
   Card. = 0..1
   Type = Period
@@ -518,7 +528,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Refills
   RIM Mapping = effectiveTime
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationRequest.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Type = unsignedInt
@@ -529,7 +539,7 @@
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationRequest.dispenseRequest.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -539,7 +549,7 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = quantity
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationRequest.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Type = Duration
@@ -549,7 +559,7 @@
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = expectedUseTime
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationRequest.dispenseRequest.performer
   Card. = 0..1
   Type = Reference(Organization)
@@ -558,7 +568,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SPLY, moodCode=RQO] .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = MedicationRequest.substitution
   Card. = 0..1
   UML = -60;400
@@ -567,7 +577,7 @@
   SCRIPT 10.6 Mapping = specific values within Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = subjectOf.substitutionPersmission
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = MedicationRequest.substitution.allowed
   Card. = 1..1
   Is Modifier = Y
@@ -579,7 +589,7 @@
   v2 Mapping = RXO-9-Allow Substitutions / RXE-9-Substitution Status
   RIM Mapping = code
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = MedicationRequest.substitution.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -590,7 +600,7 @@
   v2 Mapping = RXE-9 Substition status
   RIM Mapping = reasonCode
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = MedicationRequest.priorPrescription
   Card. = 0..1
   Type = Reference(MedicationRequest)
@@ -600,7 +610,7 @@
   SCRIPT 10.6 Mapping = not mapped
   RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = MedicationRequest.detectedIssue
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
@@ -609,7 +619,7 @@
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = MedicationRequest.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)

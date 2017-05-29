@@ -15,6 +15,7 @@
             <th> On Hold </th>
             <th> Entered in Error </th>
             <th> Intended </th>
+            <th> Unknown </th>
             <th>Interpretation or Meaning</th>
         </tr>
             <tr>
@@ -26,6 +27,7 @@
                 <td>X</td>
                 <td></td>
                 <td>X</td>
+                <td></td>
                 <td> Patient or related person states the medication is not currently being taken.  Taken must = N.  <br/>
                     When status = Active, it means that although a statement was made that the patient isn’t taking the medication, the practitioner still expects and instructs the patient to take the medication. <br/> 
                     When status = On Hold, it means that although a statement was made that the patient isn’t taking the medication, the practitioner has suspended the medication, but intends for the patient to take the medication in the future.  <br/>
@@ -40,6 +42,7 @@
                 <td>X</td>
                 <td></td>
                 <td>X</td>
+                <td></td>
                 <td>Patient or related person states the medication is or will be taken.  Taken must = Y.  The status values can be any of the following:  active, on hold, or intended.</td>
             </tr>
             <tr>
@@ -51,12 +54,14 @@
                 <td>X</td>
                 <td></td>
                 <td>X</td>
+                <td>X</td>
                 <td>No assertion by patient or related person of whether the medication is being consumed.  <br/>
                     The MedicationStatement still exists because it can be derived from a MedicationRequest, but it is unknown whether the Patient is taking the medication as prescribed in the MedicationRequest.</td>
             </tr>
             <tr>
                 <td>NA</td>
                 <td>No information source exists</td>
+                <td>X</td>
                 <td>X</td>
                 <td>X</td>
                 <td>X</td>

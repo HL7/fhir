@@ -89,6 +89,10 @@
             <reference value="Organization/f002"/>
         </onBehalfOf>
     </requester>
+    <performer>
+        <reference value="Practitioner/f204"/>
+        <display value="Carla Espinosa"/>
+    </performer>
     <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>
