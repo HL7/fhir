@@ -39,6 +39,17 @@
     self.setMax(max);
   }
   
+  
+  public String typeSummary() {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (TypeRefComponent tr : type) {
+      if (tr.hasCode())
+        b.append(tr.getCode());
+    }
+    return b.toString();
+   }
+  
+
 ----
 
 

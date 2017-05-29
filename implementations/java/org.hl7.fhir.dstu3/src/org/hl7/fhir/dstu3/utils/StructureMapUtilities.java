@@ -2486,7 +2486,7 @@ public class StructureMapUtilities {
       if (isCompatibleType(t, tr.getCode()))
         return tr.getCode(); // note what is returned - the base type, not the inferred mapping type
     }
-    throw new FHIRException("The type "+t+" is not compatible with the allowed types for "+pvb.getDefinition().getPath());
+    throw new FHIRException("The type "+t+" is not compatible with the allowed types for "+pvb.getDefinition().getPath()+" ("+pvb.getDefinition().typeSummary()+")");
   }
 
   private boolean profilesMatch(List<String> profiles, String profile) {

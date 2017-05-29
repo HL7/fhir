@@ -33,6 +33,7 @@ package org.hl7.fhir.dstu3.model;
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -6653,6 +6654,15 @@ public class ElementDefinition extends Type implements ICompositeType {
     self.setMin(min);
     self.setMax(max);
   }
+
+  public String typeSummary() {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (TypeRefComponent tr : type) {
+      if (tr.hasCode())
+        b.append(tr.getCode());
+    }
+    return b.toString();
+   }
   
 
 // end addition
