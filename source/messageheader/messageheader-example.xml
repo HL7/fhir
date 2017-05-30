@@ -20,6 +20,9 @@
       <reference value="Device/example"/>
     </target>
     <endpoint value="llp:10.11.12.14:5432"/>
+    <receiver>
+      <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
+     </receiver>
   </destination>
   <sender>
     <reference value="Organization/1"/>
