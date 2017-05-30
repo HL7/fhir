@@ -117,6 +117,7 @@
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
   Workflow Mapping = Request.status
+  RIM Mapping = Act.status
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -198,6 +199,7 @@
   Binding = VisionEyes
   Short Name = right | left
   Definition = The eye for which the lens applies.
+  RIM Mapping = n/a
 
  -- Row 12 -----------------------------------
   Element = VisionPrescription.dispense.sphere
@@ -205,6 +207,7 @@
   Type = decimal
   Short Name = Lens sphere
   Definition = Lens power measured in diopters (0.25 units).
+  RIM Mapping = n/a
 
  -- Row 13 -----------------------------------
   Element = VisionPrescription.dispense.cylinder
@@ -212,6 +215,7 @@
   Type = decimal
   Short Name = Lens cylinder
   Definition = Power adjustment for astigmatism measured in diopters (0.25 units).
+  RIM Mapping = n/a
 
  -- Row 14 -----------------------------------
   Element = VisionPrescription.dispense.axis
@@ -219,6 +223,7 @@
   Type = integer
   Short Name = Lens axis
   Definition = Adjustment for astigmatism measured in integer degrees.
+  RIM Mapping = n/a
 
  -- Row 15 -----------------------------------
   Element = VisionPrescription.dispense.prism
@@ -226,6 +231,7 @@
   Type = decimal
   Short Name = Lens prism
   Definition = Amount of prism to compensate for eye alignment in fractional units.
+  RIM Mapping = n/a
 
  -- Row 16 -----------------------------------
   Element = VisionPrescription.dispense.base
@@ -234,6 +240,7 @@
   Binding = VisionBase
   Short Name = up | down | in | out
   Definition = The relative base, or reference lens edge, for the prism.
+  RIM Mapping = n/a
 
  -- Row 17 -----------------------------------
   Element = VisionPrescription.dispense.add
@@ -241,6 +248,7 @@
   Type = decimal
   Short Name = Lens add
   Definition = Power adjustment for multifocal lenses measured in diopters (0.25 units).
+  RIM Mapping = n/a
 
  -- Row 18 -----------------------------------
   Element = VisionPrescription.dispense.power
@@ -248,6 +256,7 @@
   Type = decimal
   Short Name = Contact lens power
   Definition = Contact lens power measured in diopters (0.25 units).
+  RIM Mapping = n/a
 
  -- Row 19 -----------------------------------
   Element = VisionPrescription.dispense.backCurve
@@ -255,6 +264,7 @@
   Type = decimal
   Short Name = Contact lens back curvature
   Definition = Back curvature measured in millimeters.
+  RIM Mapping = n/a
 
  -- Row 20 -----------------------------------
   Element = VisionPrescription.dispense.diameter
@@ -262,6 +272,7 @@
   Type = decimal
   Short Name = Contact lens diameter
   Definition = Contact lens diameter measured in millimeters.
+  RIM Mapping = n/a
 
  -- Row 21 -----------------------------------
   Element = VisionPrescription.dispense.duration
@@ -269,6 +280,7 @@
   Type = SimpleQuantity
   Short Name = Lens wear duration
   Definition = The recommended maximum wear period for the lens.
+  RIM Mapping = n/a
 
  -- Row 22 -----------------------------------
   Element = VisionPrescription.dispense.color
@@ -276,6 +288,7 @@
   Type = string
   Short Name = Color required
   Definition = Special color or pattern.
+  RIM Mapping = n/a
 
  -- Row 23 -----------------------------------
   Element = VisionPrescription.dispense.brand
@@ -283,6 +296,7 @@
   Type = string
   Short Name = Brand required
   Definition = Brand recommendations or restrictions.
+  RIM Mapping = n/a
 
  -- Row 24 -----------------------------------
   Element = VisionPrescription.dispense.note
@@ -290,6 +304,7 @@
   Type = Annotation
   Short Name = Notes for coatings
   Definition = Notes for special requirements such as coatings and lens materials.
+  RIM Mapping = n/a
 
 === Sheet Search =====================================
 
@@ -321,6 +336,12 @@
   Name = prescriber
   Type = reference
   Path = VisionPrescription.prescriber
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the vision prescription
+  Path = VisionPrescription.status
 
 === Sheet Profiles =====================================
 

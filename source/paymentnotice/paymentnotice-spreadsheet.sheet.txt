@@ -259,6 +259,12 @@
   Description = The date of the payment action
   Path = PaymentNotice.statusDate
 
+ -- Row 17 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the payment notice
+  Path = PaymentNotice.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

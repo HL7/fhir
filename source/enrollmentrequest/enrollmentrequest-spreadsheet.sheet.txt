@@ -22,7 +22,7 @@
  -- Row 1 -----------------------------------
   Element = EnrollmentRequest
   Type = DomainResource
-  Short Name = Enrollment request
+  Short Name = Enrol in coverage
   Definition = This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
   w5 = financial.support
 
@@ -85,6 +85,7 @@
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
+  w5 = who.actor
 
  -- Row 10 -----------------------------------
   Element = EnrollmentRequest.organization
@@ -92,6 +93,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
+  w5 = who.actor
 
  -- Row 11 -----------------------------------
   Element = !Patient Information
@@ -103,6 +105,7 @@
   Short Name = The subject of the Products and Services
   Definition = Patient Resource
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
+  w5 = who.actor
 
  -- Row 13 -----------------------------------
   Element = !Insurance Information
@@ -152,6 +155,12 @@
   Type = reference
   Description = The party to be enrolled
   Path = EnrollmentRequest.subject
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status fo the enrollment
+  Path = EnrollmentRequest.status
 
 === Sheet Profiles =====================================
 

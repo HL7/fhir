@@ -104,6 +104,7 @@
   Workflow Mapping = Event.identifier
   CDAnet v4 Mapping = C02
   v2 Mapping = IN1-2
+  RIM Mapping = .id
   CPhA3 (Pharmacy) Mapping = C.32, C.33, C.39
   w5 = id
 
@@ -118,6 +119,7 @@
   Definition = The status of the resource instance.
   Comments = This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid
   Workflow Mapping = Event.status
+  RIM Mapping = Act.status
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -221,6 +223,7 @@
   Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
   Workflow Mapping = Event.occurrence
   v2 Mapping = IN1-12 / IN1-13
+  RIM Mapping = Act.effectiveTime
   w5 = when.done
 
  -- Row 13 -----------------------------------
@@ -419,6 +422,7 @@
   Definition = The policy(s) which constitute this insurance coverage.
   CDAnet v4 Mapping = D01 through D09
   v2 Mapping = IN1-16, 18,  19
+  RIM Mapping = n/a
   CPhA3 (Pharmacy) Mapping = C.35
   Committee Notes = C.35
 
@@ -555,6 +559,12 @@
   Type = reference
   Description = Reference to the planholder
   Path = Coverage.planholderReference
+
+ -- Row 23 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the Coverage
+  Path = Coverage.status
 
 === Sheet Profiles =====================================
 

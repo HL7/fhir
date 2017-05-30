@@ -432,6 +432,12 @@
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationReference
 
+ -- Row 17 -----------------------------------
+  Name = status
+  Type = token
+  Description = The EligibilityRequest status
+  Path = EligibilityResponse.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

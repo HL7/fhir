@@ -304,6 +304,12 @@
   Description = The party who is responsible for the request
   Path = EligibilityRequest.enterer
 
+ -- Row 16 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the EligibilityRequest
+  Path = EligibilityRequest.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

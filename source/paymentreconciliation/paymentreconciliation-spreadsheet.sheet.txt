@@ -358,6 +358,12 @@
   Description = The organization who generated this resource
   Path = PaymentReconciliation.requestOrganizationReference
 
+ -- Row 17 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the payment reconciliation
+  Path = PaymentReconciliation.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
