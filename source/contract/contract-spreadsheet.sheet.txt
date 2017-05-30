@@ -131,7 +131,7 @@
 
  -- Row 1 -----------------------------------
   Element = Contract
-  UML = 220;0
+  UML = 0;70
   Type = DomainResource
   Short Name = Legal Agreement
   Definition = A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
@@ -155,7 +155,6 @@
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
-  UML = status
   Type = code
   Binding = ContractStatus
   Short Name = amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
@@ -255,7 +254,7 @@
  -- Row 12 -----------------------------------
   Element = Contract.term
   Card. = 0..*
-  UML = 250;300
+  UML = 20;350
   Type = =Term
   Short Name = Contract Term List
   Definition = One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
@@ -314,6 +313,7 @@
  -- Row 18 -----------------------------------
   Element = Contract.term.offer
   Card. = 1..1
+  UML = 390;305
   Type = =ContractOffer
   Short Name = Context of the Contract term
   Definition = The matter of concern in the context of this provision of the agrement.
@@ -371,6 +371,7 @@
  -- Row 24 -----------------------------------
   Element = Contract.term.asset
   Card. = 0..*
+  UML = 30;545
   Type = =ContractAsset
   Short Name = Contract Term Asset List
   RIM Mapping = FinancialContract.paymentTermsCode
@@ -408,6 +409,7 @@
  -- Row 29 -----------------------------------
   Element = Contract.term.asset.data
   Card. = 0..*
+  UML = 52;705
   Type = =AssetData
   Short Name = Data defined by this Asset
   RIM Mapping = FinancialContract.paymentTermsCode
@@ -430,7 +432,7 @@
  -- Row 32 -----------------------------------
   Element = Contract.term.asset.valuedItem
   Card. = 0..*
-  UML = 530;80
+  UML = 390;550
   Type = =ValuedItem
   Short Name = Contract Valued Item List
   Definition = Contract Valued Item List
@@ -521,7 +523,7 @@
  -- Row 42 -----------------------------------
   Element = Contract.term.agent
   Card. = 0..*
-  UML = 530;-20
+  UML = 390;450
   Type = =Agent
   Short Name = Entity being ascribed responsibility
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
@@ -581,7 +583,7 @@
  -- Row 48 -----------------------------------
   Element = Contract.signer
   Card. = 0..*
-  UML = 530;260
+  UML = 390;0
   Type = =Signatory
   Short Name = Contract Signatory
   Definition = Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
@@ -620,7 +622,7 @@
  -- Row 52 -----------------------------------
   Element = Contract.friendly
   Card. = 0..*
-  UML = -60;0
+  UML = 390;100
   Type = =FriendlyLanguage
   Short Name = Contract Friendly Language
   Definition = The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
@@ -639,7 +641,7 @@
  -- Row 54 -----------------------------------
   Element = Contract.legal
   Card. = 0..*
-  UML = -60;120
+  UML = 390;175
   Type = =LegalLanguage
   Short Name = Contract Legal Language
   Definition = List of Legal expressions or representations of this Contract.
@@ -658,7 +660,7 @@
  -- Row 56 -----------------------------------
   Element = Contract.rule
   Card. = 0..1
-  UML = -90;230
+  UML = 390;250
   Type = =ComputableLanguage
   Short Name = Computable Contract Language
   Definition = List of Computable Policy Rule Language Representations of this Contract.
@@ -677,7 +679,7 @@
  -- Row 58 -----------------------------------
   Element = Contract.legallyBinding[x]
   Card. = 0..1
-  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse|Contract|Consent)
+  Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse|Contract)
   Short Name = Binding Contract
   Definition = Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.
   RIM Mapping = DocumentCompletion code system AU (authenticated) Description: A completion status in which a document has been signed manually or electronically by one or more individuals who attest to its accuracy. No explicit determination is made that the assigned individual has performed the authentication. While the standard allows multiple instances of authentication, it would be typical to have a single instance of authentication, usually by the assigned individual.

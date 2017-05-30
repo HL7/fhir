@@ -27,10 +27,9 @@
     <display value="P. van de Heuvel"/>
   </subject>
 
-  <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Contract.authority element -->
   <authority>
-    <reference value="Organization/Infoway"/>
-    <display value="Canada Infoway"/>
+    <reference value="Organization/3"/>
+    <display value="Michigan Health"/>
   </authority>
 
   <!-- and/or would this [also] go into Contract.domain as a Jurisdiction?? (see the example on UK Pharamacy Juristiction) -->
