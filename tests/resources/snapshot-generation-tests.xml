@@ -1234,6 +1234,43 @@
     </StructureDefinition>
   </contained>
   
+  <contained>
+    <!-- fixture for #27: walking into a type for Contract -->
+    <StructureDefinition>
+      <id value="t27"/>
+      <url value="urn:uuid:d2cb3b87-8f73-46fd-821c-cf39f0432757"/>
+      <name value="t27"/>
+      <status value="draft"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="Contract"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Contract"/>
+        </element>
+        <element>
+          <path value="Contract.type"/>
+          <label value="Consent"/>
+          <short value="Consent"/>
+          <definition
+            value="SHALL contain exactly one [1..1] type=&quot;CONS&quot; (CodeSystem: HL7ActClass urn:oid:2.16.840.1.113883.5.6) (CONF:2219-2008)."/>
+          <min value="1"/>
+          <max value="1"/>
+        </element>
+        <element>
+          <path value="Contract.type.coding.code"/>
+          <patternCode value="CONS"/>
+        </element>
+        <element>
+          <path value="Contract.type.coding.system"/>
+          <patternCode value="urn:oid:2.16.840.1.113883.5.6"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+  
   <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
   <title value="Snapshot generation test script"/>
@@ -2522,6 +2559,38 @@
         <label value="test26-1"/>
         <description value="differential element count the same"/>
         <expression value="fixture('t26o').differential.element.count() = fixture('t26').differential.element.count()"/>
+      </assert>
+    </action>
+  </test>
+  
+  <test>
+    <name value="Test27"/>
+    <description value="test Contract.type"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="t27o"/>
+        <sourceId value="t27"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test27-1"/>
+        <description value="Mustsupport must be true on Contract.type.coding.code"/>
+        <direction value="response"/>
+        <expression value="fixture('t27o').snapshot.element.where(path = 'Contract.type.coding.code').patternCode"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <label value="test27-2"/>
+        <description value="Mustsupport must be true on Contract.type.coding.system"/>
+        <direction value="response"/>
+        <expression value="fixture('t27o').snapshot.element.where(path = 'Contract.type.coding.system').patternCode"/>
       </assert>
     </action>
   </test>
