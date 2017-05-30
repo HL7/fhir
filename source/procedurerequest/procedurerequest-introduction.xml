@@ -47,7 +47,7 @@ ReferralRequest and ProcedureRequest have been merged since their content was ne
 <ol>
   <li> How to represent whether a transfer of care is being requested</li>
     <li> Which elements if any in the ProcedureRequest resource may not be applicable for a referral.</li>
-      <li> Whether to keep the resource name "ProcedureRequest" change the name to reflect the expanded scope.</li>
+      <li> Whether to keep the resource name "ProcedureRequest" or change the name to reflect the expanded scope.</li>
     </ol>
 </blockquote>
 </div>
