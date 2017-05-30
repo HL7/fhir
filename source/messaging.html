@@ -77,6 +77,8 @@ If these middleware agents are modifying the message content, then they become
 responsible for honoring the contract that applies (including applicable profiles)
 in both directions.
 </p>
+
+
 <p>
 A key aspect of a message is the impact of its content:
 </p>
@@ -86,7 +88,14 @@ Some Events defined by FHIR are assigned to one of these categories,
 but others are not able to be categorized in advance, and the category
 must be determined by the content, or the context.
 </p>
-
+<h3>Another key aspect of a message is the impact of its destination.receiver</h3>
+<p>In some circumstances it may be sufficient to direct a message to an endpoint, while in others it may be necessary to direct the message to a specific organization or person.</p>
+<table class="grid">
+ <tr><td>Consequence</td><td>A message of consequence SHOULD have at least one receiver specified.</td></tr>
+ <tr><td>Currency</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
+ <tr><td>Notification</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
+</table>
+</p>
 <a name="synchronous"> </a>
 <a name="patterns"> </a>
 <h3>Message Exchange Patterns</h3>
@@ -137,6 +146,10 @@ new message with a new identifier, wrapped in a bundle which also has a new id.
 The response message also quotes the request MessageHeader.id in
 MessageHeader.response.identifier so that the source system can relate the response to its request.
 </p>
+
+
+
+
 
 <a name="reliable"> </a>
 <h3>Absence of Reliable Messaging</h3>
