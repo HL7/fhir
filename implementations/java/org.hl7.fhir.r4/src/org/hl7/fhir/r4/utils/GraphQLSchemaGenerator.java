@@ -1,5 +1,9 @@
 package org.hl7.fhir.r4.utils;
 
+// todo:
+// - generate sort order parameters
+// - generate inherited search parameters
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -83,28 +87,39 @@ public class GraphQLSchemaGenerator {
   private void generateListAccess(BufferedWriter writer, List<SearchParameter> parameters, String name) throws IOException {
     writer.write("type "+name+"ListType {\r\n");
     writer.write("  "+name+"List(");
-    writer.write("_filter : String");
-    for (SearchParameter sp : parameters) {
-      writer.write("\r\n    ");
-      writer.write(sp.getName().replace("-", "_"));
-      writer.write(" : ");
-      writer.write(getGqlname(sp.getType().toCode()));      
-    }
+    param(writer, "_filter", "String", false, false);
+    for (SearchParameter sp : parameters)
+      param(writer, sp.getName().replace("-", "_"), getGqlname(sp.getType().toCode()), true, true);
+    param(writer, "_sort", "String", false, true);
+    param(writer, "_count", "Int", false, true);
+    param(writer, "_cursor", "String", false, true);
     writer.write(") : ["+name+"]\r\n");
     writer.write("}\r\n");
     writer.write("\r\n");    
   }
 
+  private void param(BufferedWriter writer, String name, String type, boolean list, boolean line) throws IOException {
+    if (line)
+      writer.write("\r\n    ");
+    writer.write(name);
+    writer.write(" : ");
+    if (list)
+      writer.write("[");
+    writer.write(type);      
+    if (list)
+      writer.write("]");
+    
+  }
+
   private void generateConnectionAccess(BufferedWriter writer, List<SearchParameter> parameters, String name) throws IOException {
     writer.write("type "+name+"ConnectionType {\r\n");
     writer.write("  "+name+"Conection(");
-    writer.write("_filter : String");
-    for (SearchParameter sp : parameters) {
-      writer.write("\r\n    ");
-      writer.write(sp.getName().replace("-", "_"));
-      writer.write(" : ");
-      writer.write(getGqlname(sp.getType().toCode()));      
-    }
+    param(writer, "_filter", "String", false, false);
+    for (SearchParameter sp : parameters)
+      param(writer, sp.getName().replace("-", "_"), getGqlname(sp.getType().toCode()), true, true);
+    param(writer, "_sort", "String", false, true);
+    param(writer, "_count", "Int", false, true);
+    param(writer, "_cursor", "String", false, true);
     writer.write(") : "+name+"Connection\r\n");
     writer.write("}\r\n");
     writer.write("\r\n");    
