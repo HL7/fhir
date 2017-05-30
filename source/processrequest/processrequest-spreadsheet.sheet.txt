@@ -264,6 +264,12 @@
   Description = The action requested by this resource
   Path = ProcessRequest.action
 
+ -- Row 9 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the process request
+  Path = ProcessRequest.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

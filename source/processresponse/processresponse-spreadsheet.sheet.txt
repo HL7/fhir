@@ -268,6 +268,12 @@
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationReference
 
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the process response
+  Path = ProcessResponse.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
