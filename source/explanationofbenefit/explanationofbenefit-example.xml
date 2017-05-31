@@ -66,12 +66,10 @@
 				<code value="provider"/>
 			</coding>
 		</type>
-		<resourceType>
-			<coding>
-				<system value="http://hl7.org/fhir/resource-type-link"/>
-				<code value="organization"/>
-			</coding>
-		</resourceType>
+		<resource>
+			<system value="http://hl7.org/fhir/resource-type-link"/>
+			<code value="organization"/>
+		</resource>
 		<party>
 			<reference value="Organization/2"/>
 		</party>

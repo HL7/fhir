@@ -17,6 +17,6 @@
   <concept>
     <code value="family"/>
     <display value="Family"/>
-    <definition value="A family, typically includes self, spous(s) and children to a defined age"/>
+    <definition value="A family, typically includes self, spouse(s) and children to a defined age"/>
   </concept>
 </CodeSystem>

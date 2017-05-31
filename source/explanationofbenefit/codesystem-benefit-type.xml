@@ -15,8 +15,8 @@
     <definition value="Maximum benefit allowable."/>
   </concept>
    <concept>
-    <code value="deductable"/>
-    <display value="Deductable"/>
+    <code value="deductible"/>
+    <display value="Deductible"/>
     <definition value="Cost to be incurred before benefits are applied"/>
   </concept>
  <concept>
