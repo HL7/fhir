@@ -8176,7 +8176,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("<tr>");
     b.append("<td><b>code</b></td>");
     for (int i = 0; i < colcount; i++)
-      b.append("<td><b><a href=\"codesystem-resource-status.html#"+row.get(i)+"\">").append(row.get(i)).append("</a></b></td>");
+      b.append("<td><b><a href=\"codesystem-resource-status.html#resource-status-"+row.get(i)+"\">").append(row.get(i)).append("</a></b></td>");
     b.append("</tr>\r\n");      
     row = definitions.getStatusCodes().get("@codes");
     b.append("<tr>");

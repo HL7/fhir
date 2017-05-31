@@ -45,13 +45,13 @@ public class FluentPathTests {
     XMLUtil.getNamedChildren(dom.getDocumentElement(), "group", groups);
     for (Element g : groups) {
       XMLUtil.getNamedChildren(g, "test", list);      
-  }
+    }
 
     List<Object[]> objects = new ArrayList<Object[]>(list.size());
 
     for (Element e : list) {
       objects.add(new Object[] { getName(e), e });
-  }
+    }
 
     return objects;
   }
@@ -67,9 +67,9 @@ public class FluentPathTests {
           break;
         else if (c instanceof Element)
           ndx++;
-  }
+      }
       s = p.getAttribute("name")+" - "+Integer.toString(ndx+1);
-  }
+    }
     return s;
   }
 
@@ -85,7 +85,7 @@ public class FluentPathTests {
   @Test
   public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (TestingUtilities.context == null)
-      TestingUtilities.context = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
     if (fp == null)
       fp = new FHIRPathEngine(TestingUtilities.context);
     String input = test.getAttribute("inputfile");
@@ -100,7 +100,7 @@ public class FluentPathTests {
       if (Utilities.noString(input))
         fp.check(null, null, node);
       else {
-        res = new XmlParser().parse(new FileInputStream(Utilities.path("C:\\work\\org.hl7.fhir\\build\\publish", input)));
+        res = new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.home(), "publish", input)));
         fp.check(res, res.getResourceType().toString(), res.getResourceType().toString(), node);
       }
       outcome = fp.evaluate(res, node);
@@ -108,14 +108,14 @@ public class FluentPathTests {
     } catch (Exception e) {
       Assert.assertTrue(String.format("Unexpected exception parsing %s: "+e.getMessage(), expression), fail);
     }
-      
+
     if ("true".equals(test.getAttribute("predicate"))) {
       boolean ok = fp.convertToBoolean(outcome);
       outcome.clear();
       outcome.add(new BooleanType(ok));
     }
-      if (fp.hasLog())
-        System.out.println(fp.takeLog());
+    if (fp.hasLog())
+      System.out.println(fp.takeLog());
 
     List<Element> expected = new ArrayList<Element>();
     XMLUtil.getNamedChildren(test, "output", expected);
