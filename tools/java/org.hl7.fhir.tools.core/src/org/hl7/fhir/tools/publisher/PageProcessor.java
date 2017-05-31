@@ -1023,9 +1023,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("dictionary.name")) {
         String n = name.contains(File.separator) ? name.substring(name.lastIndexOf(File.separator)+1) : name;
         src = s1 + definitions.getDictionaries().get(n).getName() + s3;
-      } else if (com[0].equals("dictionary.view"))
-        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-qnlab-de") + s3;
-      else if (com[0].equals("search-param-pack") && resource instanceof SearchParameter)
+//      } else if (com[0].equals("dictionary.view"))
+//        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-qnlab-de") + s3;
+      } else if (com[0].equals("search-param-pack") && resource instanceof SearchParameter)
         src = s1 + ((SearchParameter) resource).getUserData("pack") + s3;
       else if (com[0].equals("search-param-name") && resource instanceof SearchParameter)
         src = s1 + ((SearchParameter) resource).getName() + s3;
@@ -4913,8 +4913,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genStatusCodes() + s3;
       else if (com[0].equals("dictionary.name"))
         src = s1 + definitions.getDictionaries().get(name) + s3;
-      else if (com[0].equals("dictionary.view"))
-        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;
+//      else if (com[0].equals("dictionary.view"))
+//        src = s1 + ResourceUtilities.representDataElementCollection(this.workerContext, (Bundle) resource, true, "hspc-QuantitativeLab-dataelements") + s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;
       else if (com[0].equals("identifierlist"))
@@ -8154,29 +8154,72 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("<table border=\"1\">\r\n");
     int colcount = 0;
     for (ArrayList<String> row: definitions.getStatusCodes().values()) {
-      if (row.size() > colcount)
-        colcount = row.size();
+      int rc = 0;
+      for (int i = 0; i < row.size(); i++) 
+        if (!Utilities.noString(row.get(i))) 
+          rc = i;
+      if (rc > colcount)
+        colcount = rc;
     }
-    b.append("<tr>");
-    b.append("<td>Path</td>");
-    for (int i = 0; i < colcount; i++)
-      b.append("<td>c").append(Integer.toString(i + 1)).append("</td>");
-    b.append("</tr>\r\n");
+//    b.append("<tr>");
+//    b.append("<td>Path</td>");
+//    for (int i = 0; i < colcount; i++)
+//      b.append("<td>c").append(Integer.toString(i + 1)).append("</td>");
+//    b.append("</tr>\r\n");
 
     List<String> names = new ArrayList<String>();
     for (String n : definitions.getStatusCodes().keySet())
        names.add(n);
     Collections.sort(names);
 
+    ArrayList<String> row = definitions.getStatusCodes().get("@code");
+    b.append("<tr>");
+    b.append("<td><b>code</b></td>");
+    for (int i = 0; i < colcount; i++)
+      b.append("<td><b><a href=\"codesystem-resource-status.html#"+row.get(i)+"\">").append(row.get(i)).append("</a></b></td>");
+    b.append("</tr>\r\n");      
+    row = definitions.getStatusCodes().get("@codes");
+    b.append("<tr>");
+    b.append("<td><b>stated codes</b></td>");
+    for (int i = 0; i < colcount; i++)
+      b.append("<td>").append(i < row.size() ? row.get(i) : "").append("</td>");
+    b.append("</tr>\r\n");      
+
+    b.append("<tr>");
+    b.append("<td>actual codes</td>");
+    for (int i = 0; i < colcount; i++) {
+      Set<String> codeset = new HashSet<String>();
+      for (String n : names) {
+        if (!n.startsWith("@")) {
+          row = definitions.getStatusCodes().get(n);
+          String c = row.get(i);
+          if (!Utilities.noString(c)) {
+            codeset.add(c);
+          }
+        }
+      }
+      b.append("<td>").append(separated(codeset, ", ")).append("</td>");
+    }
+    b.append("</tr>\r\n");      
+
+    row = definitions.getStatusCodes().get("@issues");
+    b.append("<tr>");
+    b.append("<td><b>Issues?</b></td>");
+    for (int i = 0; i < colcount; i++) {
+      String s = i < row.size() ? row.get(i) : "";
+      b.append("<td").append(Utilities.noString(s) ? "" : " style=\"background-color: #ffcccc\"").append(">").append(s).append("</td>");
+    }
+    b.append("</tr>\r\n");      
+    
     for (String n : names) {
       if (!n.startsWith("@")) {
         b.append("<tr>");
         ElementDefn ed = getElementDefn(n);
         if (ed == null || !ed.isModifier())
-          b.append("<td>").append(n).append("</td>");
+          b.append("<td>").append(linkToPath(n)).append("</td>");
         else
-          b.append("<td><b>").append(n).append("</b></td>");
-        ArrayList<String> row = definitions.getStatusCodes().get(n);
+          b.append("<td><b>").append(linkToPath(n)).append("</b></td>");
+        row = definitions.getStatusCodes().get(n);
         for (int i = 0; i < colcount; i++)
           b.append("<td>").append(i < row.size() ? row.get(i) : "").append("</td>");
         b.append("</tr>\r\n");
@@ -8184,8 +8227,74 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
 
     b.append("</table>\r\n");
-
+    CodeSystem cs = getCodeSystems().get("http://hl7.org/fhir/resource-status");
+    row = definitions.getStatusCodes().get("@code");
+    for (int i = 0; i < colcount; i++) {
+      String code = row.get(i);
+      String definition = CodeSystemUtilities.getCodeDefinition(cs, code);
+      Set<String> dset = new HashSet<String>();
+      for (String n : names) {
+        if (!n.startsWith("@")) {
+          ArrayList<String> rowN = definitions.getStatusCodes().get(n);
+          String c = rowN.get(i);
+          String d = getDefinition(n, c);
+          if (!Utilities.noString(d))
+            dset.add(d);
+        }
+      }
+      b.append("<hr/>\r\n");
+      b.append("<h4>").append(code).append("</h4>\r\n");
+      b.append("<p>").append(Utilities.escapeXml(definition)).append("</p>\r\n");
+      b.append("<p>Definitions for matching codes:</p>\r\n");
+      b.append("<ul>\r\n");
+      for (String s : sorted(dset))
+        b.append("<li>").append(Utilities.escapeXml(s)).append("</li>\r\n");
+      b.append("</ul>\r\n");
+    }
+    
     return b.toString();
+  }
+
+  private String getDefinition(String n, String c) {
+    ElementDefn e = null;
+    try {
+      e = definitions.getElementByPath(n.split("\\."), "Status Codes", true);
+    } catch (Exception ex) {
+      return null;
+    }
+    if (e == null) {
+      System.out.println("Unable to find "+n);
+      return null;
+    }
+    if (e.getBinding() == null)
+      return null;
+    List<DefinedCode> t;
+    try {
+      t = e.getBinding().getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true);
+    } catch (Exception e1) {
+      return null;
+    }
+    if (t == null)
+      return null;
+    for (DefinedCode d : t) {
+      if (d.getCode().equals(c))
+        return d.getDefinition();
+    }
+    return null;
+  }
+
+  private String linkToPath(String n) {
+    if (n.contains(".")) {
+      return "<a href=\""+n.substring(0, n.indexOf(".")).toLowerCase()+"-definitions.html#"+n+"\">"+n+"</a>";
+    }
+    return n;
+  }
+
+  private Object separated(Set<String> set, String sep) {
+    CommaSeparatedStringBuilder cb = new CommaSeparatedStringBuilder(sep);
+    for (String s : sorted(set))
+      cb.append(s);
+    return cb.toString();
   }
 
   private ElementDefn getElementDefn(String n) throws Exception {

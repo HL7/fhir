@@ -3008,8 +3008,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
               generateOutputsConceptMap(f, r, (ConceptMap) r.getResource(), vars);
               break;
 
-            case DataElement:
-              break;
             case CapabilityStatement:
               generateOutputsCapabilityStatement(f, r, (CapabilityStatement) r.getResource(), vars);
               break;

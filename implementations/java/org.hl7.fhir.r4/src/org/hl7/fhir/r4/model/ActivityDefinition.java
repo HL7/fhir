@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -163,10 +163,6 @@ public class ActivityDefinition extends MetadataResource {
          * Financial instrument which may be used to reimburse or pay for health care products and services.
          */
         COVERAGE, 
-        /**
-         * The formal description of a single piece of information that can be gathered and reported.
-         */
-        DATAELEMENT, 
         /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
@@ -590,8 +586,6 @@ public class ActivityDefinition extends MetadataResource {
           return CONTRACT;
         if ("Coverage".equals(codeString))
           return COVERAGE;
-        if ("DataElement".equals(codeString))
-          return DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -807,7 +801,6 @@ public class ActivityDefinition extends MetadataResource {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -931,7 +924,6 @@ public class ActivityDefinition extends MetadataResource {
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
-            case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
             case DETECTEDISSUE: return "http://hl7.org/fhir/resource-types";
             case DEVICE: return "http://hl7.org/fhir/resource-types";
             case DEVICECOMPONENT: return "http://hl7.org/fhir/resource-types";
@@ -1055,7 +1047,6 @@ public class ActivityDefinition extends MetadataResource {
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
-            case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
             case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
@@ -1179,7 +1170,6 @@ public class ActivityDefinition extends MetadataResource {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -1336,8 +1326,6 @@ public class ActivityDefinition extends MetadataResource {
           return ActivityDefinitionKind.CONTRACT;
         if ("Coverage".equals(codeString))
           return ActivityDefinitionKind.COVERAGE;
-        if ("DataElement".equals(codeString))
-          return ActivityDefinitionKind.DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return ActivityDefinitionKind.DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -1584,8 +1572,6 @@ public class ActivityDefinition extends MetadataResource {
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.CONTRACT);
         if ("Coverage".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.COVERAGE);
-        if ("DataElement".equals(codeString))
-          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.DATAELEMENT);
         if ("DetectedIssue".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.DETECTEDISSUE);
         if ("Device".equals(codeString))
@@ -1825,8 +1811,6 @@ public class ActivityDefinition extends MetadataResource {
         return "Contract";
       if (code == ActivityDefinitionKind.COVERAGE)
         return "Coverage";
-      if (code == ActivityDefinitionKind.DATAELEMENT)
-        return "DataElement";
       if (code == ActivityDefinitionKind.DETECTEDISSUE)
         return "DetectedIssue";
       if (code == ActivityDefinitionKind.DEVICE)

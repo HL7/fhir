@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 public enum ResourceType {
     Account,
@@ -33,7 +33,6 @@ public enum ResourceType {
     Consent,
     Contract,
     Coverage,
-    DataElement,
     DetectedIssue,
     Device,
     DeviceComponent,
@@ -182,8 +181,6 @@ public enum ResourceType {
       return "contract";
     case Coverage:
       return "coverage";
-    case DataElement:
-      return "dataelement";
     case DetectedIssue:
       return "detectedissue";
     case Device:
@@ -422,8 +419,6 @@ public enum ResourceType {
       return Contract;
     if ("Coverage".equals(code))
       return Coverage;
-    if ("DataElement".equals(code))
-      return DataElement;
     if ("DetectedIssue".equals(code))
       return DetectedIssue;
     if ("Device".equals(code))

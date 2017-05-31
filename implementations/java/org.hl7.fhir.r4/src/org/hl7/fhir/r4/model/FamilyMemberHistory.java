@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -582,24 +582,17 @@ public class FamilyMemberHistory extends DomainResource {
     protected Enumeration<FamilyHistoryStatus> status;
 
     /**
-     * If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
+     * Describes why the family member's history is not available.
      */
-    @Child(name = "notDone", type = {BooleanType.class}, order=3, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="The taking of a family member's history did not occur", formalDefinition="If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition." )
-    protected BooleanType notDone;
-
-    /**
-     * Describes why the family member's history is absent.
-     */
-    @Child(name = "notDoneReason", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="subject-unknown | withheld | unable-to-obtain | deferred", formalDefinition="Describes why the family member's history is absent." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-not-done-reason")
-    protected CodeableConcept notDoneReason;
+    @Child(name = "dataAbsentReason", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="subject-unknown | withheld | unable-to-obtain | deferred", formalDefinition="Describes why the family member's history is not available." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-absent-reason")
+    protected CodeableConcept dataAbsentReason;
 
     /**
      * The person who this history concerns.
      */
-    @Child(name = "patient", type = {Patient.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient history is about", formalDefinition="The person who this history concerns." )
     protected Reference patient;
 
@@ -611,21 +604,21 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * The date (and possibly time) when the family member history was taken.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "date", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When history was captured/updated", formalDefinition="The date (and possibly time) when the family member history was taken." )
     protected DateTimeType date;
 
     /**
      * This will either be a name or a description; e.g. "Aunt Susan", "my cousin with the red hair".
      */
-    @Child(name = "name", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "name", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The family member described", formalDefinition="This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\"." )
     protected StringType name;
 
     /**
      * The type of relationship this person has to the patient (father, mother, brother etc.).
      */
-    @Child(name = "relationship", type = {CodeableConcept.class}, order=8, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "relationship", type = {CodeableConcept.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Relationship to the subject", formalDefinition="The type of relationship this person has to the patient (father, mother, brother etc.)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-FamilyMember")
     protected CodeableConcept relationship;
@@ -633,7 +626,7 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
      */
-    @Child(name = "gender", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "gender", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/administrative-gender")
     protected Enumeration<AdministrativeGender> gender;
@@ -641,35 +634,35 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * The actual or approximate date of birth of the relative.
      */
-    @Child(name = "born", type = {Period.class, DateType.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "born", type = {Period.class, DateType.class, StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="(approximate) date of birth", formalDefinition="The actual or approximate date of birth of the relative." )
     protected Type born;
 
     /**
      * The age of the relative at the time the family member history is recorded.
      */
-    @Child(name = "age", type = {Age.class, Range.class, StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "age", type = {Age.class, Range.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="(approximate) age", formalDefinition="The age of the relative at the time the family member history is recorded." )
     protected Type age;
 
     /**
      * If true, indicates that the age value specified is an estimated value.
      */
-    @Child(name = "estimatedAge", type = {BooleanType.class}, order=12, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "estimatedAge", type = {BooleanType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Age is estimated?", formalDefinition="If true, indicates that the age value specified is an estimated value." )
     protected BooleanType estimatedAge;
 
     /**
      * Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
      */
-    @Child(name = "deceased", type = {BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "deceased", type = {BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Dead? How old/when?", formalDefinition="Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record." )
     protected Type deceased;
 
     /**
      * Describes why the family member history occurred in coded or textual form.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was family member history performed?", formalDefinition="Describes why the family member history occurred in coded or textual form." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
     protected List<CodeableConcept> reasonCode;
@@ -677,7 +670,7 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class, AllergyIntolerance.class, QuestionnaireResponse.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, AllergyIntolerance.class, QuestionnaireResponse.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was family member history performed?", formalDefinition="Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event." )
     protected List<Reference> reasonReference;
     /**
@@ -689,18 +682,18 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
      */
-    @Child(name = "note", type = {Annotation.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="General note about related person", formalDefinition="This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible." )
     protected List<Annotation> note;
 
     /**
      * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
      */
-    @Child(name = "condition", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "condition", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = 388742645L;
+    private static final long serialVersionUID = 2006685496L;
 
   /**
    * Constructor
@@ -881,71 +874,26 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #notDone} (If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
+     * @return {@link #dataAbsentReason} (Describes why the family member's history is not available.)
      */
-    public BooleanType getNotDoneElement() { 
-      if (this.notDone == null)
+    public CodeableConcept getDataAbsentReason() { 
+      if (this.dataAbsentReason == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create FamilyMemberHistory.notDone");
+          throw new Error("Attempt to auto-create FamilyMemberHistory.dataAbsentReason");
         else if (Configuration.doAutoCreate())
-          this.notDone = new BooleanType(); // bb
-      return this.notDone;
+          this.dataAbsentReason = new CodeableConcept(); // cc
+      return this.dataAbsentReason;
     }
 
-    public boolean hasNotDoneElement() { 
-      return this.notDone != null && !this.notDone.isEmpty();
-    }
-
-    public boolean hasNotDone() { 
-      return this.notDone != null && !this.notDone.isEmpty();
+    public boolean hasDataAbsentReason() { 
+      return this.dataAbsentReason != null && !this.dataAbsentReason.isEmpty();
     }
 
     /**
-     * @param value {@link #notDone} (If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
+     * @param value {@link #dataAbsentReason} (Describes why the family member's history is not available.)
      */
-    public FamilyMemberHistory setNotDoneElement(BooleanType value) { 
-      this.notDone = value;
-      return this;
-    }
-
-    /**
-     * @return If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
-     */
-    public boolean getNotDone() { 
-      return this.notDone == null || this.notDone.isEmpty() ? false : this.notDone.getValue();
-    }
-
-    /**
-     * @param value If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
-     */
-    public FamilyMemberHistory setNotDone(boolean value) { 
-        if (this.notDone == null)
-          this.notDone = new BooleanType();
-        this.notDone.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #notDoneReason} (Describes why the family member's history is absent.)
-     */
-    public CodeableConcept getNotDoneReason() { 
-      if (this.notDoneReason == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create FamilyMemberHistory.notDoneReason");
-        else if (Configuration.doAutoCreate())
-          this.notDoneReason = new CodeableConcept(); // cc
-      return this.notDoneReason;
-    }
-
-    public boolean hasNotDoneReason() { 
-      return this.notDoneReason != null && !this.notDoneReason.isEmpty();
-    }
-
-    /**
-     * @param value {@link #notDoneReason} (Describes why the family member's history is absent.)
-     */
-    public FamilyMemberHistory setNotDoneReason(CodeableConcept value) { 
-      this.notDoneReason = value;
+    public FamilyMemberHistory setDataAbsentReason(CodeableConcept value) { 
+      this.dataAbsentReason = value;
       return this;
     }
 
@@ -1636,8 +1584,7 @@ public class FamilyMemberHistory extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition", "Reference(PlanDefinition|Questionnaire)", "A protocol or questionnaire that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("notDone", "boolean", "If true, indicates the taking of an individual family member's history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.", 0, java.lang.Integer.MAX_VALUE, notDone));
-        childrenList.add(new Property("notDoneReason", "CodeableConcept", "Describes why the family member's history is absent.", 0, java.lang.Integer.MAX_VALUE, notDoneReason));
+        childrenList.add(new Property("dataAbsentReason", "CodeableConcept", "Describes why the family member's history is not available.", 0, java.lang.Integer.MAX_VALUE, dataAbsentReason));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) when the family member history was taken.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("name", "string", "This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".", 0, java.lang.Integer.MAX_VALUE, name));
@@ -1659,8 +1606,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FamilyHistoryStatus>
-        case 2128257269: /*notDone*/ return this.notDone == null ? new Base[0] : new Base[] {this.notDone}; // BooleanType
-        case -1973169255: /*notDoneReason*/ return this.notDoneReason == null ? new Base[0] : new Base[] {this.notDoneReason}; // CodeableConcept
+        case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
@@ -1692,11 +1638,8 @@ public class FamilyMemberHistory extends DomainResource {
           value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
           return value;
-        case 2128257269: // notDone
-          this.notDone = castToBoolean(value); // BooleanType
-          return value;
-        case -1973169255: // notDoneReason
-          this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
+        case 1034315687: // dataAbsentReason
+          this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -1752,10 +1695,8 @@ public class FamilyMemberHistory extends DomainResource {
         } else if (name.equals("status")) {
           value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
-        } else if (name.equals("notDone")) {
-          this.notDone = castToBoolean(value); // BooleanType
-        } else if (name.equals("notDoneReason")) {
-          this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("dataAbsentReason")) {
+          this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
         } else if (name.equals("date")) {
@@ -1794,8 +1735,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -1014418093:  return addDefinition(); 
         case -892481550:  return getStatusElement();
-        case 2128257269:  return getNotDoneElement();
-        case -1973169255:  return getNotDoneReason(); 
+        case 1034315687:  return getDataAbsentReason(); 
         case -791418107:  return getPatient(); 
         case 3076014:  return getDateElement();
         case 3373707:  return getNameElement();
@@ -1823,8 +1763,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1014418093: /*definition*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
-        case 2128257269: /*notDone*/ return new String[] {"boolean"};
-        case -1973169255: /*notDoneReason*/ return new String[] {"CodeableConcept"};
+        case 1034315687: /*dataAbsentReason*/ return new String[] {"CodeableConcept"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
         case 3373707: /*name*/ return new String[] {"string"};
@@ -1854,12 +1793,9 @@ public class FamilyMemberHistory extends DomainResource {
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.status");
         }
-        else if (name.equals("notDone")) {
-          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.notDone");
-        }
-        else if (name.equals("notDoneReason")) {
-          this.notDoneReason = new CodeableConcept();
-          return this.notDoneReason;
+        else if (name.equals("dataAbsentReason")) {
+          this.dataAbsentReason = new CodeableConcept();
+          return this.dataAbsentReason;
         }
         else if (name.equals("patient")) {
           this.patient = new Reference();
@@ -1960,8 +1896,7 @@ public class FamilyMemberHistory extends DomainResource {
             dst.definition.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
-        dst.notDone = notDone == null ? null : notDone.copy();
-        dst.notDoneReason = notDoneReason == null ? null : notDoneReason.copy();
+        dst.dataAbsentReason = dataAbsentReason == null ? null : dataAbsentReason.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.date = date == null ? null : date.copy();
         dst.name = name == null ? null : name.copy();
@@ -2006,7 +1941,7 @@ public class FamilyMemberHistory extends DomainResource {
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
-           && compareDeep(status, o.status, true) && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true)
+           && compareDeep(status, o.status, true) && compareDeep(dataAbsentReason, o.dataAbsentReason, true)
            && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true) && compareDeep(name, o.name, true)
            && compareDeep(relationship, o.relationship, true) && compareDeep(gender, o.gender, true) && compareDeep(born, o.born, true)
            && compareDeep(age, o.age, true) && compareDeep(estimatedAge, o.estimatedAge, true) && compareDeep(deceased, o.deceased, true)
@@ -2021,15 +1956,14 @@ public class FamilyMemberHistory extends DomainResource {
         if (!(other instanceof FamilyMemberHistory))
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other;
-        return compareValues(status, o.status, true) && compareValues(notDone, o.notDone, true) && compareValues(date, o.date, true)
-           && compareValues(name, o.name, true) && compareValues(gender, o.gender, true) && compareValues(estimatedAge, o.estimatedAge, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(name, o.name, true)
+           && compareValues(gender, o.gender, true) && compareValues(estimatedAge, o.estimatedAge, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, status
-          , notDone, notDoneReason, patient, date, name, relationship, gender, born, age
-          , estimatedAge, deceased, reasonCode, reasonReference, note, condition);
+          , dataAbsentReason, patient, date, name, relationship, gender, born, age, estimatedAge
+          , deceased, reasonCode, reasonReference, note, condition);
       }
 
   @Override

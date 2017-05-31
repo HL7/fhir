@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -866,7 +866,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=10, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What is being requested/ordered", formalDefinition="A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
     protected CodeableConcept code;
@@ -896,10 +896,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected Resource contextTarget;
 
     /**
-     * The date/time at which the diagnostic testing should occur.
+     * The date/time at which the requested procedure should occur.
      */
     @Child(name = "occurrence", type = {DateTimeType.class, Period.class, Timing.class}, order=13, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When procedure should occur", formalDefinition="The date/time at which the diagnostic testing should occur." )
+    @Description(shortDefinition="When procedure should occur", formalDefinition="The date/time at which the requested procedure should occur." )
     protected Type occurrence;
 
     /**
@@ -925,41 +925,41 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected ProcedureRequestRequesterComponent requester;
 
     /**
-     * Desired type of performer for doing the diagnostic testing.
+     * Desired type of performer for doing the requested procedure.
      */
     @Child(name = "performerType", type = {CodeableConcept.class}, order=17, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Performer role", formalDefinition="Desired type of performer for doing the diagnostic testing." )
+    @Description(shortDefinition="Performer role", formalDefinition="Desired type of performer for doing the requested procedure." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/participant-role")
     protected CodeableConcept performerType;
 
     /**
-     * The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.
+     * The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.
      */
     @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class, HealthcareService.class}, order=18, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Requested perfomer", formalDefinition="The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc." )
+    @Description(shortDefinition="Requested perfomer", formalDefinition="The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc." )
     protected Reference performer;
 
     /**
-     * The actual object that is the target of the reference (The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * The actual object that is the target of the reference (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     protected Resource performerTarget;
 
     /**
-     * An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+     * An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
      */
     @Child(name = "reasonCode", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
+    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected List<CodeableConcept> reasonCode;
 
     /**
-     * Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.
+     * Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
      */
     @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation." )
+    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation." )
     protected List<Reference> reasonReference;
     /**
-     * The actual objects that are the target of the reference (Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.)
+     * The actual objects that are the target of the reference (Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.)
      */
     protected List<Resource> reasonReferenceTarget;
 
@@ -1027,11 +1027,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
   /**
    * Constructor
    */
-    public ProcedureRequest(Enumeration<ProcedureRequestStatus> status, Enumeration<ProcedureRequestIntent> intent, CodeableConcept code, Reference subject) {
+    public ProcedureRequest(Enumeration<ProcedureRequestStatus> status, Enumeration<ProcedureRequestIntent> intent, Reference subject) {
       super();
       this.status = status;
       this.intent = intent;
-      this.code = code;
       this.subject = subject;
     }
 
@@ -1641,14 +1640,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the diagnostic testing should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
      */
     public Type getOccurrence() { 
       return this.occurrence;
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the diagnostic testing should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
       if (!(this.occurrence instanceof DateTimeType))
@@ -1661,7 +1660,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the diagnostic testing should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
      */
     public Period getOccurrencePeriod() throws FHIRException { 
       if (!(this.occurrence instanceof Period))
@@ -1674,7 +1673,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the diagnostic testing should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
      */
     public Timing getOccurrenceTiming() throws FHIRException { 
       if (!(this.occurrence instanceof Timing))
@@ -1691,7 +1690,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #occurrence} (The date/time at which the diagnostic testing should occur.)
+     * @param value {@link #occurrence} (The date/time at which the requested procedure should occur.)
      */
     public ProcedureRequest setOccurrence(Type value) { 
       this.occurrence = value;
@@ -1817,7 +1816,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #performerType} (Desired type of performer for doing the diagnostic testing.)
+     * @return {@link #performerType} (Desired type of performer for doing the requested procedure.)
      */
     public CodeableConcept getPerformerType() { 
       if (this.performerType == null)
@@ -1833,7 +1832,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #performerType} (Desired type of performer for doing the diagnostic testing.)
+     * @param value {@link #performerType} (Desired type of performer for doing the requested procedure.)
      */
     public ProcedureRequest setPerformerType(CodeableConcept value) { 
       this.performerType = value;
@@ -1841,7 +1840,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #performer} (The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @return {@link #performer} (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     public Reference getPerformer() { 
       if (this.performer == null)
@@ -1857,7 +1856,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #performer} (The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @param value {@link #performer} (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     public ProcedureRequest setPerformer(Reference value) { 
       this.performer = value;
@@ -1865,14 +1864,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     public Resource getPerformerTarget() { 
       return this.performerTarget;
     }
 
     /**
-     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     public ProcedureRequest setPerformerTarget(Resource value) { 
       this.performerTarget = value;
@@ -1880,7 +1879,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #reasonCode} (An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
+     * @return {@link #reasonCode} (An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
      */
     public List<CodeableConcept> getReasonCode() { 
       if (this.reasonCode == null)
@@ -1933,7 +1932,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #reasonReference} (Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.)
+     * @return {@link #reasonReference} (Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.)
      */
     public List<Reference> getReasonReference() { 
       if (this.reasonReference == null)
@@ -2329,14 +2328,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("code", "CodeableConcept", "A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter or episode of care that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the diagnostic testing should occur.", 0, java.lang.Integer.MAX_VALUE, occurrence));
+        childrenList.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, java.lang.Integer.MAX_VALUE, occurrence));
         childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
         childrenList.add(new Property("authoredOn", "dateTime", "When the request transitioned to being actionable.", 0, java.lang.Integer.MAX_VALUE, authoredOn));
         childrenList.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
-        childrenList.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the diagnostic testing.", 0, java.lang.Integer.MAX_VALUE, performerType));
-        childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)", "The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
-        childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
+        childrenList.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the requested procedure.", 0, java.lang.Integer.MAX_VALUE, performerType));
+        childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)", "The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         childrenList.add(new Property("specimen", "Reference(Specimen)", "One or more specimens that the laboratory procedure will use.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomic location where the procedure should be performed. This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));

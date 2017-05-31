@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -661,7 +661,7 @@ public class Goal extends DomainResource {
     /**
      * Identifies the patient, group or organization for whom the goal is being established.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class, Organization.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class, Organization.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who this goal is intended for", formalDefinition="Identifies the patient, group or organization for whom the goal is being established." )
     protected Reference subject;
 
@@ -762,10 +762,11 @@ public class Goal extends DomainResource {
   /**
    * Constructor
    */
-    public Goal(Enumeration<GoalStatus> status, CodeableConcept description) {
+    public Goal(Enumeration<GoalStatus> status, CodeableConcept description, Reference subject) {
       super();
       this.status = status;
       this.description = description;
+      this.subject = subject;
     }
 
     /**

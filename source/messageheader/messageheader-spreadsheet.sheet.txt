@@ -116,7 +116,7 @@
   RIM Mapping = ./telecom
 
  -- Row 8 -----------------------------------
-  Element = MessageHeader.receiver
+  Element = MessageHeader.destination.receiver
   Card. = 0..1
   Type = Reference(Practitioner | Organization)
   Short Name = Intended \"real-world\" recipient for the data
@@ -340,7 +340,7 @@
  -- Row 5 -----------------------------------
   Name = receiver
   Type = reference
-  Path = MessageHeader.receiver
+  Path = MessageHeader.destination.receiver
 
  -- Row 6 -----------------------------------
   Name = timestamp

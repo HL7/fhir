@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1010,14 +1010,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    @Child(name = "prescription", type = {MedicationRequest.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "request", type = {MedicationRequest.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Request administration performed against", formalDefinition="The original request, instruction or authority to perform the administration." )
-    protected Reference prescription;
+    protected Reference request;
 
     /**
      * The actual object that is the target of the reference (The original request, instruction or authority to perform the administration.)
      */
-    protected MedicationRequest prescriptionTarget;
+    protected MedicationRequest requestTarget;
 
     /**
      * The device used in administering the medication to the patient.  For example, a particular infusion pump.
@@ -1057,7 +1057,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = 673777544L;
+    private static final long serialVersionUID = 974786066L;
 
   /**
    * Constructor
@@ -1824,46 +1824,46 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #prescription} (The original request, instruction or authority to perform the administration.)
+     * @return {@link #request} (The original request, instruction or authority to perform the administration.)
      */
-    public Reference getPrescription() { 
-      if (this.prescription == null)
+    public Reference getRequest() { 
+      if (this.request == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.prescription");
+          throw new Error("Attempt to auto-create MedicationAdministration.request");
         else if (Configuration.doAutoCreate())
-          this.prescription = new Reference(); // cc
-      return this.prescription;
+          this.request = new Reference(); // cc
+      return this.request;
     }
 
-    public boolean hasPrescription() { 
-      return this.prescription != null && !this.prescription.isEmpty();
+    public boolean hasRequest() { 
+      return this.request != null && !this.request.isEmpty();
     }
 
     /**
-     * @param value {@link #prescription} (The original request, instruction or authority to perform the administration.)
+     * @param value {@link #request} (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationAdministration setPrescription(Reference value) { 
-      this.prescription = value;
+    public MedicationAdministration setRequest(Reference value) { 
+      this.request = value;
       return this;
     }
 
     /**
-     * @return {@link #prescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
+     * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationRequest getPrescriptionTarget() { 
-      if (this.prescriptionTarget == null)
+    public MedicationRequest getRequestTarget() { 
+      if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.prescription");
+          throw new Error("Attempt to auto-create MedicationAdministration.request");
         else if (Configuration.doAutoCreate())
-          this.prescriptionTarget = new MedicationRequest(); // aa
-      return this.prescriptionTarget;
+          this.requestTarget = new MedicationRequest(); // aa
+      return this.requestTarget;
     }
 
     /**
-     * @param value {@link #prescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
+     * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationAdministration setPrescriptionTarget(MedicationRequest value) { 
-      this.prescriptionTarget = value;
+    public MedicationAdministration setRequestTarget(MedicationRequest value) { 
+      this.requestTarget = value;
       return this;
     }
 
@@ -2111,7 +2111,7 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("reasonNotGiven", "CodeableConcept", "A code indicating why the administration was not performed.", 0, java.lang.Integer.MAX_VALUE, reasonNotGiven));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "A code indicating why the medication was given.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        childrenList.add(new Property("prescription", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
+        childrenList.add(new Property("request", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  For example, a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
         childrenList.add(new Property("note", "Annotation", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosage", "", "Describes the medication dosage information details e.g. dose, rate, site, route, etc.", 0, java.lang.Integer.MAX_VALUE, dosage));
@@ -2136,7 +2136,7 @@ public class MedicationAdministration extends DomainResource {
         case 2101123790: /*reasonNotGiven*/ return this.reasonNotGiven == null ? new Base[0] : this.reasonNotGiven.toArray(new Base[this.reasonNotGiven.size()]); // CodeableConcept
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
-        case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
         case -1335157162: /*device*/ return this.device == null ? new Base[0] : this.device.toArray(new Base[this.device.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : new Base[] {this.dosage}; // MedicationAdministrationDosageComponent
@@ -2195,8 +2195,8 @@ public class MedicationAdministration extends DomainResource {
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
           return value;
-        case 460301338: // prescription
-          this.prescription = castToReference(value); // Reference
+        case 1095692943: // request
+          this.request = castToReference(value); // Reference
           return value;
         case -1335157162: // device
           this.getDevice().add(castToReference(value)); // Reference
@@ -2248,8 +2248,8 @@ public class MedicationAdministration extends DomainResource {
           this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
-        } else if (name.equals("prescription")) {
-          this.prescription = castToReference(value); // Reference
+        } else if (name.equals("request")) {
+          this.request = castToReference(value); // Reference
         } else if (name.equals("device")) {
           this.getDevice().add(castToReference(value));
         } else if (name.equals("note")) {
@@ -2283,7 +2283,7 @@ public class MedicationAdministration extends DomainResource {
         case 2101123790:  return addReasonNotGiven(); 
         case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
-        case 460301338:  return getPrescription(); 
+        case 1095692943:  return getRequest(); 
         case -1335157162:  return addDevice(); 
         case 3387378:  return addNote(); 
         case -1326018889:  return getDosage(); 
@@ -2311,7 +2311,7 @@ public class MedicationAdministration extends DomainResource {
         case 2101123790: /*reasonNotGiven*/ return new String[] {"CodeableConcept"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
-        case 460301338: /*prescription*/ return new String[] {"Reference"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
         case -1335157162: /*device*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case -1326018889: /*dosage*/ return new String[] {};
@@ -2381,9 +2381,9 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("reasonReference")) {
           return addReasonReference();
         }
-        else if (name.equals("prescription")) {
-          this.prescription = new Reference();
-          return this.prescription;
+        else if (name.equals("request")) {
+          this.request = new Reference();
+          return this.request;
         }
         else if (name.equals("device")) {
           return addDevice();
@@ -2457,7 +2457,7 @@ public class MedicationAdministration extends DomainResource {
           for (Reference i : reasonReference)
             dst.reasonReference.add(i.copy());
         };
-        dst.prescription = prescription == null ? null : prescription.copy();
+        dst.request = request == null ? null : request.copy();
         if (device != null) {
           dst.device = new ArrayList<Reference>();
           for (Reference i : device)
@@ -2494,7 +2494,7 @@ public class MedicationAdministration extends DomainResource {
            && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(effective, o.effective, true)
            && compareDeep(performer, o.performer, true) && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(prescription, o.prescription, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
+           && compareDeep(request, o.request, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
            && compareDeep(dosage, o.dosage, true) && compareDeep(eventHistory, o.eventHistory, true);
       }
 
@@ -2511,8 +2511,8 @@ public class MedicationAdministration extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, partOf
           , status, category, medication, subject, context, supportingInformation, effective
-          , performer, notGiven, reasonNotGiven, reasonCode, reasonReference, prescription
-          , device, note, dosage, eventHistory);
+          , performer, notGiven, reasonNotGiven, reasonCode, reasonReference, request, device
+          , note, dosage, eventHistory);
       }
 
   @Override
@@ -2539,6 +2539,32 @@ public class MedicationAdministration extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>request</b>
+   * <p>
+   * Description: <b>The identity of a request to list administrations from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.request</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="request", path="MedicationAdministration.request", description="The identity of a request to list administrations from", type="reference", target={MedicationRequest.class } )
+  public static final String SP_REQUEST = "request";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>request</b>
+   * <p>
+   * Description: <b>The identity of a request to list administrations from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.request</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUEST = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUEST);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:request</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST = new ca.uhn.fhir.model.api.Include("MedicationAdministration:request").toLocked();
 
  /**
    * Search parameter: <b>code</b>
@@ -2677,32 +2703,6 @@ public class MedicationAdministration extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_GIVEN);
-
- /**
-   * Search parameter: <b>prescription</b>
-   * <p>
-   * Description: <b>The identity of a prescription to list administrations from</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.prescription</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="prescription", path="MedicationAdministration.prescription", description="The identity of a prescription to list administrations from", type="reference", target={MedicationRequest.class } )
-  public static final String SP_PRESCRIPTION = "prescription";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
-   * <p>
-   * Description: <b>The identity of a prescription to list administrations from</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.prescription</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:prescription</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:prescription").toLocked();
 
  /**
    * Search parameter: <b>patient</b>

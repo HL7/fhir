@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -222,7 +222,7 @@ public class MedicationDispense extends DomainResource {
          * The organization the device or practitioner was acting on behalf of.
          */
         @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
+        @Description(shortDefinition="Organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
         protected Reference onBehalfOf;
 
         /**

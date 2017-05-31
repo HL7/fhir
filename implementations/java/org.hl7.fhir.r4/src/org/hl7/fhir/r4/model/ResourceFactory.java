@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -230,8 +230,6 @@ public class ResourceFactory extends Factory {
             return new DiagnosticReport();
         if ("HealthcareService".equals(name))
             return new HealthcareService();
-        if ("DataElement".equals(name))
-            return new DataElement();
         if ("NutritionOrder".equals(name))
             return new NutritionOrder();
         if ("AuditEvent".equals(name))
@@ -421,7 +419,6 @@ public class ResourceFactory extends Factory {
         case -227407685: return new Contributor();
         case 65298671: return new Count();
         case -287122936: return new Coverage();
-        case -1476174894: return new DataElement();
         case -367870439: return new DataRequirement();
         case 850563927: return new DetectedIssue();
         case 2043677302: return new Device();

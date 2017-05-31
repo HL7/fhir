@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="resource-status"/>
+  <url value="http://hl7.org/fhir/resource-status"/>
+  <name value="Canonical Status Codes for FHIR Resources"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="The master set of status codes used through out FHIR. All status codes are mapped to one of these codes."/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/resource-status"/>
+  <hierarchyMeaning value="is-a"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="error"/>
+    <display value="error"/>
+    <definition value="The resource was created in error, and should not be treated as valid (note: in many cases, for various data integrity related reasons, the information cannot be removed from the record)"/>
+  </concept>	
+  <concept>
+    <code value="proposed"/>
+    <display value="proposed"/>
+    <definition value="The resource describes an action or plan that is proposed, and not yet approved by the participants"/>
+  </concept>
+  <concept>
+    <code value="planned"/>
+    <display value="planned"/>
+    <definition value="The resource describes a course of action that is planned and agreed/approved, but at the time of recording was still future"/>
+  </concept>
+  <concept>
+    <code value="draft"/>
+    <display value="draft"/>
+    <definition value="The information in the resource is still being prepared and edited"/>
+  </concept>
+  <concept>
+    <code value="requested"/>
+    <display value="requested"/>
+    <definition value="A fulfiller has been asked to perform this action, but it has not yet occurred"/>
+  </concept>
+  <concept>
+    <code value="received"/>
+    <display value="received"/>
+    <definition value="The fulfiller has received the request, but not yet agreed to carry out the action"/>
+  </concept>
+  <concept>
+    <code value="declined"/>
+    <display value="declined"/>
+    <definition value="The fulfiller chose not to perform the action"/>
+  </concept>
+  <concept>
+    <code value="accepted"/>
+    <display value="accepted"/>
+    <definition value="The fulfiller has decided to perform the action, and plans are in train to do this in the future"/>
+  </concept>
+  <concept>
+    <code value="arrived"/>
+    <display value="arrived"/>
+    <definition value="The pre-conditions for the action are all fulfilled, and it is imminent"/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="active"/>
+    <definition value="The resource describes information that is currently valid or a process that is presently occuring"/>
+  </concept>
+  <concept>
+    <code value="suspended"/>
+    <display value="suspended"/>
+    <definition value="The process described/requested in this resource has been halted for some reason"/>
+  </concept>
+  <concept>
+    <code value="failed"/>
+    <display value="failed"/>
+    <definition value="The process described/requested in the resource could not be completed, and no further action is planned"/>
+  </concept>
+  <concept>
+    <code value=""/>
+    <display value="replaced"/>
+    <definition value="The information in this resource has been replaced by information in another resource"/>
+  </concept>
+  <concept>
+    <code value="complete"/>
+    <display value="complete"/>
+    <definition value="The process described/requested in the resource has been completed, and no further action is planned"/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="inactive"/>
+    <definition value="The resource describes information that is no longer valid or a process that is stopped occurring"/>
+  </concept>
+  <concept>
+    <code value="abandoned"/>
+    <display value="abandoned"/>
+    <definition value="The process described/requested in the resource did not complete - usually due to some workflow error, and no further action is planned"/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="unknown"/>
+    <definition value="Authoring system does not know the status"/>
+  </concept>
+  <concept>
+    <code value="unconfirmed"/>
+    <display value="unconfirmed"/>
+    <definition value="The information in this resource is not yet approved"/>
+  </concept>
+  <concept>
+    <code value="confirmed"/>
+    <display value="confirmed"/>
+    <definition value="The information in this resource is approved"/>
+  </concept>
+  <concept>
+    <code value="resolved"/>
+    <display value="resolved"/>
+    <definition value="The issue identified by this resource is no longer of concern"/>
+  </concept>
+  <concept>
+    <code value="refuted"/>
+    <display value="refuted"/>
+    <definition value="This information has been ruled out by testing and evaluation"/>
+  </concept>
+  <concept>
+    <code value="differential"/>
+    <display value="differential"/>
+    <definition value="Potentially true?"/>
+  </concept>
+  <concept>
+    <code value="partial"/>
+    <display value="partial"/>
+    <definition value="This information is still being assembled"/> <!-- draft? -->
+  </concept>
+  <concept>
+    <code value="busy-unavailable"/>
+    <display value="busy-unavailable"/>
+    <definition value="not available at this time/location"/>
+  </concept>
+  <concept>
+    <code value="free"/>
+    <display value="free"/>
+    <definition value="Free for scheduling"/>
+  </concept>
+  <concept>
+    <code value="on-target"/>
+    <display value="on-target"/>
+    <definition value="Ready to act"/> <!-- arrived? -->
+  </concept>
+  <concept>
+    <code value="ahead-of-target"/>
+    <display value="ahead-of-target"/>
+    <definition value="Ahead of the planned timelines"/>
+  </concept>
+  <concept>
+    <code value="behind-target"/>
+    <display value="behind-target"/>
+    <definition value=""/>
+  </concept>
+  <concept>
+    <code value="not-ready"/>
+    <display value="not-ready"/>
+    <definition value="Behind the planned timelines"/>
+  </concept>
+  <concept>
+    <code value="transduc-discon"/>
+    <display value="transduc-discon"/>
+    <definition value="The device transducer is diconnected"/>
+  </concept>
+  <concept>
+    <code value="hw-discon"/>
+    <display value="hw-discon"/>
+    <definition value="The hardware is diconnected"/>
+  </concept>
+ 
+</CodeSystem>

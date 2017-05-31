@@ -28,7 +28,6 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
-import org.hl7.fhir.r4.model.DataElement;
 import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.OperationOutcome;
@@ -75,7 +74,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   protected Map<String, StructureMap> transforms = new HashMap<String, StructureMap>();
-  protected Map<String, DataElement> dataElements = new HashMap<String, DataElement>();
   protected Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
   protected Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   protected Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
@@ -107,7 +105,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     valueSets.putAll(other.valueSets);
     maps.putAll(other.maps);
     transforms.putAll(other.transforms);
-    dataElements.putAll(other.dataElements);
     profiles.putAll(other.profiles);
     searchParameters.putAll(other.searchParameters);
     extensionDefinitions.putAll(other.extensionDefinitions);
@@ -131,9 +128,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return codeSystems;
   }
 
-  public Map<String, DataElement> getDataElements() {
-    return dataElements;
-  }
 
   public Map<String, ValueSet> getValueSets() {
     return valueSets;

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -54,9 +54,21 @@ public class Condition extends DomainResource {
          */
         ACTIVE, 
         /**
-         * The subject is having a relapse or re-experiencing the condition after a period of remission or presumed resolution.
+         * The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis.
          */
         RECURRENCE, 
+        /**
+         * The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc.
+         */
+        RELAPSE, 
+        /**
+         * The subject's condition is adequately or well managed such that the recommended evidence-based clinical outcome targets are met.
+         */
+        WELLCONTROLLED, 
+        /**
+         * The subject's condition is inadequately/poorly managed such that the recommended evidence-based clinical outcome targets are not met.
+         */
+        POORLYCONTROLLED, 
         /**
          * The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.
          */
@@ -80,6 +92,12 @@ public class Condition extends DomainResource {
           return ACTIVE;
         if ("recurrence".equals(codeString))
           return RECURRENCE;
+        if ("relapse".equals(codeString))
+          return RELAPSE;
+        if ("well-controlled".equals(codeString))
+          return WELLCONTROLLED;
+        if ("poorly-controlled".equals(codeString))
+          return POORLYCONTROLLED;
         if ("inactive".equals(codeString))
           return INACTIVE;
         if ("remission".equals(codeString))
@@ -95,6 +113,9 @@ public class Condition extends DomainResource {
           switch (this) {
             case ACTIVE: return "active";
             case RECURRENCE: return "recurrence";
+            case RELAPSE: return "relapse";
+            case WELLCONTROLLED: return "well-controlled";
+            case POORLYCONTROLLED: return "poorly-controlled";
             case INACTIVE: return "inactive";
             case REMISSION: return "remission";
             case RESOLVED: return "resolved";
@@ -105,6 +126,9 @@ public class Condition extends DomainResource {
           switch (this) {
             case ACTIVE: return "http://hl7.org/fhir/condition-clinical";
             case RECURRENCE: return "http://hl7.org/fhir/condition-clinical";
+            case RELAPSE: return "http://hl7.org/fhir/condition-clinical";
+            case WELLCONTROLLED: return "http://hl7.org/fhir/condition-clinical";
+            case POORLYCONTROLLED: return "http://hl7.org/fhir/condition-clinical";
             case INACTIVE: return "http://hl7.org/fhir/condition-clinical";
             case REMISSION: return "http://hl7.org/fhir/condition-clinical";
             case RESOLVED: return "http://hl7.org/fhir/condition-clinical";
@@ -114,7 +138,10 @@ public class Condition extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case ACTIVE: return "The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.";
-            case RECURRENCE: return "The subject is having a relapse or re-experiencing the condition after a period of remission or presumed resolution.";
+            case RECURRENCE: return "The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis.";
+            case RELAPSE: return "The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc.";
+            case WELLCONTROLLED: return "The subject's condition is adequately or well managed such that the recommended evidence-based clinical outcome targets are met.";
+            case POORLYCONTROLLED: return "The subject's condition is inadequately/poorly managed such that the recommended evidence-based clinical outcome targets are not met.";
             case INACTIVE: return "The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.";
             case REMISSION: return "The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.";
             case RESOLVED: return "The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning.";
@@ -125,6 +152,9 @@ public class Condition extends DomainResource {
           switch (this) {
             case ACTIVE: return "Active";
             case RECURRENCE: return "Recurrence";
+            case RELAPSE: return "Relapse";
+            case WELLCONTROLLED: return "Well-Controlled";
+            case POORLYCONTROLLED: return "Poorly-Controlled";
             case INACTIVE: return "Inactive";
             case REMISSION: return "Remission";
             case RESOLVED: return "Resolved";
@@ -142,6 +172,12 @@ public class Condition extends DomainResource {
           return ConditionClinicalStatus.ACTIVE;
         if ("recurrence".equals(codeString))
           return ConditionClinicalStatus.RECURRENCE;
+        if ("relapse".equals(codeString))
+          return ConditionClinicalStatus.RELAPSE;
+        if ("well-controlled".equals(codeString))
+          return ConditionClinicalStatus.WELLCONTROLLED;
+        if ("poorly-controlled".equals(codeString))
+          return ConditionClinicalStatus.POORLYCONTROLLED;
         if ("inactive".equals(codeString))
           return ConditionClinicalStatus.INACTIVE;
         if ("remission".equals(codeString))
@@ -162,6 +198,12 @@ public class Condition extends DomainResource {
           return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.ACTIVE);
         if ("recurrence".equals(codeString))
           return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RECURRENCE);
+        if ("relapse".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RELAPSE);
+        if ("well-controlled".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.WELLCONTROLLED);
+        if ("poorly-controlled".equals(codeString))
+          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.POORLYCONTROLLED);
         if ("inactive".equals(codeString))
           return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.INACTIVE);
         if ("remission".equals(codeString))
@@ -175,6 +217,12 @@ public class Condition extends DomainResource {
         return "active";
       if (code == ConditionClinicalStatus.RECURRENCE)
         return "recurrence";
+      if (code == ConditionClinicalStatus.RELAPSE)
+        return "relapse";
+      if (code == ConditionClinicalStatus.WELLCONTROLLED)
+        return "well-controlled";
+      if (code == ConditionClinicalStatus.POORLYCONTROLLED)
+        return "poorly-controlled";
       if (code == ConditionClinicalStatus.INACTIVE)
         return "inactive";
       if (code == ConditionClinicalStatus.REMISSION)
@@ -857,7 +905,7 @@ public class Condition extends DomainResource {
      * The clinical status of the condition.
      */
     @Child(name = "clinicalStatus", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | recurrence | inactive | remission | resolved", formalDefinition="The clinical status of the condition." )
+    @Description(shortDefinition="active | recurrence | relapse | well-controlled | poorly-controlled | inactive | remission | resolved", formalDefinition="The clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-clinical")
     protected Enumeration<ConditionClinicalStatus> clinicalStatus;
 
@@ -935,8 +983,8 @@ public class Condition extends DomainResource {
     /**
      * The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.
      */
-    @Child(name = "abatement", type = {DateTimeType.class, Age.class, BooleanType.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="If/when in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate." )
+    @Child(name = "abatement", type = {DateTimeType.class, Age.class, Period.class, Range.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="When in resolution/remission", formalDefinition="The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate." )
     protected Type abatement;
 
     /**
@@ -961,9 +1009,9 @@ public class Condition extends DomainResource {
     /**
      * Clinical stage or grade of a condition. May include formal severity assessments.
      */
-    @Child(name = "stage", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "stage", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Stage/grade, usually assessed formally", formalDefinition="Clinical stage or grade of a condition. May include formal severity assessments." )
-    protected ConditionStageComponent stage;
+    protected List<ConditionStageComponent> stage;
 
     /**
      * Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.
@@ -979,7 +1027,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -585250376L;
+    private static final long serialVersionUID = 1239346096L;
 
   /**
    * Constructor
@@ -1499,19 +1547,6 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
-    public BooleanType getAbatementBooleanType() throws FHIRException { 
-      if (!(this.abatement instanceof BooleanType))
-        throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.abatement.getClass().getName()+" was encountered");
-      return (BooleanType) this.abatement;
-    }
-
-    public boolean hasAbatementBooleanType() { 
-      return this.abatement instanceof BooleanType;
-    }
-
-    /**
-     * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
-     */
     public Period getAbatementPeriod() throws FHIRException { 
       if (!(this.abatement instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.abatement.getClass().getName()+" was encountered");
@@ -1651,25 +1686,54 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #stage} (Clinical stage or grade of a condition. May include formal severity assessments.)
      */
-    public ConditionStageComponent getStage() { 
+    public List<ConditionStageComponent> getStage() { 
       if (this.stage == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Condition.stage");
-        else if (Configuration.doAutoCreate())
-          this.stage = new ConditionStageComponent(); // cc
+        this.stage = new ArrayList<ConditionStageComponent>();
       return this.stage;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Condition setStage(List<ConditionStageComponent> theStage) { 
+      this.stage = theStage;
+      return this;
+    }
+
     public boolean hasStage() { 
-      return this.stage != null && !this.stage.isEmpty();
+      if (this.stage == null)
+        return false;
+      for (ConditionStageComponent item : this.stage)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public ConditionStageComponent addStage() { //3
+      ConditionStageComponent t = new ConditionStageComponent();
+      if (this.stage == null)
+        this.stage = new ArrayList<ConditionStageComponent>();
+      this.stage.add(t);
+      return t;
+    }
+
+    public Condition addStage(ConditionStageComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.stage == null)
+        this.stage = new ArrayList<ConditionStageComponent>();
+      this.stage.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #stage} (Clinical stage or grade of a condition. May include formal severity assessments.)
+     * @return The first repetition of repeating field {@link #stage}, creating it if it does not already exist
      */
-    public Condition setStage(ConditionStageComponent value) { 
-      this.stage = value;
-      return this;
+    public ConditionStageComponent getStageFirstRep() { 
+      if (getStage().isEmpty()) {
+        addStage();
+      }
+      return getStage().get(0);
     }
 
     /**
@@ -1790,7 +1854,7 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "Indicates the patient or group who the condition record is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
-        childrenList.add(new Property("abatement[x]", "dateTime|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
+        childrenList.add(new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
         childrenList.add(new Property("assertedDate", "dateTime", "The date on which the existance of the Condition was first asserted or acknowledged.", 0, java.lang.Integer.MAX_VALUE, assertedDate));
         childrenList.add(new Property("asserter", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who is making the condition statement.", 0, java.lang.Integer.MAX_VALUE, asserter));
         childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
@@ -1814,7 +1878,7 @@ public class Condition extends DomainResource {
         case -921554001: /*abatement*/ return this.abatement == null ? new Base[0] : new Base[] {this.abatement}; // Type
         case -174231629: /*assertedDate*/ return this.assertedDate == null ? new Base[0] : new Base[] {this.assertedDate}; // DateTimeType
         case -373242253: /*asserter*/ return this.asserter == null ? new Base[0] : new Base[] {this.asserter}; // Reference
-        case 109757182: /*stage*/ return this.stage == null ? new Base[0] : new Base[] {this.stage}; // ConditionStageComponent
+        case 109757182: /*stage*/ return this.stage == null ? new Base[0] : this.stage.toArray(new Base[this.stage.size()]); // ConditionStageComponent
         case 382967383: /*evidence*/ return this.evidence == null ? new Base[0] : this.evidence.toArray(new Base[this.evidence.size()]); // ConditionEvidenceComponent
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         default: return super.getProperty(hash, name, checkValid);
@@ -1867,7 +1931,7 @@ public class Condition extends DomainResource {
           this.asserter = castToReference(value); // Reference
           return value;
         case 109757182: // stage
-          this.stage = (ConditionStageComponent) value; // ConditionStageComponent
+          this.getStage().add((ConditionStageComponent) value); // ConditionStageComponent
           return value;
         case 382967383: // evidence
           this.getEvidence().add((ConditionEvidenceComponent) value); // ConditionEvidenceComponent
@@ -1911,7 +1975,7 @@ public class Condition extends DomainResource {
         } else if (name.equals("asserter")) {
           this.asserter = castToReference(value); // Reference
         } else if (name.equals("stage")) {
-          this.stage = (ConditionStageComponent) value; // ConditionStageComponent
+          this.getStage().add((ConditionStageComponent) value);
         } else if (name.equals("evidence")) {
           this.getEvidence().add((ConditionEvidenceComponent) value);
         } else if (name.equals("note")) {
@@ -1939,7 +2003,7 @@ public class Condition extends DomainResource {
         case -921554001:  return getAbatement(); 
         case -174231629:  return getAssertedDateElement();
         case -373242253:  return getAsserter(); 
-        case 109757182:  return getStage(); 
+        case 109757182:  return addStage(); 
         case 382967383:  return addEvidence(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
@@ -1960,7 +2024,7 @@ public class Condition extends DomainResource {
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 105901603: /*onset*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
-        case -921554001: /*abatement*/ return new String[] {"dateTime", "Age", "boolean", "Period", "Range", "string"};
+        case -921554001: /*abatement*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
         case -174231629: /*assertedDate*/ return new String[] {"dateTime"};
         case -373242253: /*asserter*/ return new String[] {"Reference"};
         case 109757182: /*stage*/ return new String[] {};
@@ -2032,10 +2096,6 @@ public class Condition extends DomainResource {
           this.abatement = new Age();
           return this.abatement;
         }
-        else if (name.equals("abatementBoolean")) {
-          this.abatement = new BooleanType();
-          return this.abatement;
-        }
         else if (name.equals("abatementPeriod")) {
           this.abatement = new Period();
           return this.abatement;
@@ -2056,8 +2116,7 @@ public class Condition extends DomainResource {
           return this.asserter;
         }
         else if (name.equals("stage")) {
-          this.stage = new ConditionStageComponent();
-          return this.stage;
+          return addStage();
         }
         else if (name.equals("evidence")) {
           return addEvidence();
@@ -2102,7 +2161,11 @@ public class Condition extends DomainResource {
         dst.abatement = abatement == null ? null : abatement.copy();
         dst.assertedDate = assertedDate == null ? null : assertedDate.copy();
         dst.asserter = asserter == null ? null : asserter.copy();
-        dst.stage = stage == null ? null : stage.copy();
+        if (stage != null) {
+          dst.stage = new ArrayList<ConditionStageComponent>();
+          for (ConditionStageComponent i : stage)
+            dst.stage.add(i.copy());
+        };
         if (evidence != null) {
           dst.evidence = new ArrayList<ConditionEvidenceComponent>();
           for (ConditionEvidenceComponent i : evidence)
@@ -2375,26 +2438,6 @@ public class Condition extends DomainResource {
    * the path value of "<b>Condition:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("Condition:encounter").toLocked();
-
- /**
-   * Search parameter: <b>abatement-boolean</b>
-   * <p>
-   * Description: <b>Abatement boolean (boolean is true or non-boolean values are present)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.abatement[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="abatement-boolean", path="Condition.abatement.as(boolean) | Condition.abatement.is(dateTime) | Condition.abatement.is(Age) | Condition.abatement.is(Period) | Condition.abatement.is(Range) | Condition.abatement.is(string)", description="Abatement boolean (boolean is true or non-boolean values are present)", type="token" )
-  public static final String SP_ABATEMENT_BOOLEAN = "abatement-boolean";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>abatement-boolean</b>
-   * <p>
-   * Description: <b>Abatement boolean (boolean is true or non-boolean values are present)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.abatement[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ABATEMENT_BOOLEAN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ABATEMENT_BOOLEAN);
 
  /**
    * Search parameter: <b>onset-date</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2331,10 +2331,6 @@ public class Enumerations {
          */
         COVERAGE, 
         /**
-         * The formal description of a single piece of information that can be gathered and reported.
-         */
-        DATAELEMENT, 
-        /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
         DETECTEDISSUE, 
@@ -2873,8 +2869,6 @@ public class Enumerations {
           return CONTRACT;
         if ("Coverage".equals(codeString))
           return COVERAGE;
-        if ("DataElement".equals(codeString))
-          return DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -3145,7 +3139,6 @@ public class Enumerations {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -3325,7 +3318,6 @@ public class Enumerations {
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
-            case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
             case DETECTEDISSUE: return "http://hl7.org/fhir/resource-types";
             case DEVICE: return "http://hl7.org/fhir/resource-types";
             case DEVICECOMPONENT: return "http://hl7.org/fhir/resource-types";
@@ -3505,7 +3497,6 @@ public class Enumerations {
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
-            case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
             case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
@@ -3685,7 +3676,6 @@ public class Enumerations {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -3952,8 +3942,6 @@ public class Enumerations {
           return FHIRAllTypes.CONTRACT;
         if ("Coverage".equals(codeString))
           return FHIRAllTypes.COVERAGE;
-        if ("DataElement".equals(codeString))
-          return FHIRAllTypes.DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return FHIRAllTypes.DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -4312,8 +4300,6 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CONTRACT);
         if ("Coverage".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.COVERAGE);
-        if ("DataElement".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DATAELEMENT);
         if ("DetectedIssue".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DETECTEDISSUE);
         if ("Device".equals(codeString))
@@ -4665,8 +4651,6 @@ public class Enumerations {
         return "Contract";
       if (code == FHIRAllTypes.COVERAGE)
         return "Coverage";
-      if (code == FHIRAllTypes.DATAELEMENT)
-        return "DataElement";
       if (code == FHIRAllTypes.DETECTEDISSUE)
         return "DetectedIssue";
       if (code == FHIRAllTypes.DEVICE)
@@ -5187,10 +5171,6 @@ public class Enumerations {
          * Financial instrument which may be used to reimburse or pay for health care products and services.
          */
         COVERAGE, 
-        /**
-         * The formal description of a single piece of information that can be gathered and reported.
-         */
-        DATAELEMENT, 
         /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
@@ -5722,8 +5702,6 @@ public class Enumerations {
           return CONTRACT;
         if ("Coverage".equals(codeString))
           return COVERAGE;
-        if ("DataElement".equals(codeString))
-          return DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -5990,7 +5968,6 @@ public class Enumerations {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -6168,7 +6145,6 @@ public class Enumerations {
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
-            case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
             case DETECTEDISSUE: return "http://hl7.org/fhir/resource-types";
             case DEVICE: return "http://hl7.org/fhir/resource-types";
             case DEVICECOMPONENT: return "http://hl7.org/fhir/resource-types";
@@ -6346,7 +6322,6 @@ public class Enumerations {
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
-            case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
             case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
@@ -6524,7 +6499,6 @@ public class Enumerations {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -6789,8 +6763,6 @@ public class Enumerations {
           return FHIRDefinedType.CONTRACT;
         if ("Coverage".equals(codeString))
           return FHIRDefinedType.COVERAGE;
-        if ("DataElement".equals(codeString))
-          return FHIRDefinedType.DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return FHIRDefinedType.DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -7145,8 +7117,6 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONTRACT);
         if ("Coverage".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.COVERAGE);
-        if ("DataElement".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DATAELEMENT);
         if ("DetectedIssue".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DETECTEDISSUE);
         if ("Device".equals(codeString))
@@ -7494,8 +7464,6 @@ public class Enumerations {
         return "Contract";
       if (code == FHIRDefinedType.COVERAGE)
         return "Coverage";
-      if (code == FHIRDefinedType.DATAELEMENT)
-        return "DataElement";
       if (code == FHIRDefinedType.DETECTEDISSUE)
         return "DetectedIssue";
       if (code == FHIRDefinedType.DEVICE)
@@ -7685,10 +7653,6 @@ public class Enumerations {
 
     public enum MessageEvent {
         /**
-         * The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.
-         */
-        CODESYSTEMEXPAND, 
-        /**
          * Change the status of a Medication Administration to show that it is complete.
          */
         MEDICATIONADMINISTRATIONCOMPLETE, 
@@ -7708,6 +7672,10 @@ public class Enumerations {
          * Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.
          */
         ADMINNOTIFY, 
+        /**
+         * The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.
+         */
+        CODESYSTEMEXPAND, 
         /**
          * Notification to convey information.
          */
@@ -7739,8 +7707,6 @@ public class Enumerations {
         public static MessageEvent fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("CodeSystem-expand".equals(codeString))
-          return CODESYSTEMEXPAND;
         if ("MedicationAdministration-Complete".equals(codeString))
           return MEDICATIONADMINISTRATIONCOMPLETE;
         if ("MedicationAdministration-Nullification".equals(codeString))
@@ -7751,6 +7717,8 @@ public class Enumerations {
           return MEDICATIONADMINISTRATIONUPDATE;
         if ("admin-notify".equals(codeString))
           return ADMINNOTIFY;
+        if ("codesystem-expand".equals(codeString))
+          return CODESYSTEMEXPAND;
         if ("communication-request".equals(codeString))
           return COMMUNICATIONREQUEST;
         if ("diagnosticreport-provide".equals(codeString))
@@ -7767,12 +7735,12 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
-            case CODESYSTEMEXPAND: return "CodeSystem-expand";
             case MEDICATIONADMINISTRATIONCOMPLETE: return "MedicationAdministration-Complete";
             case MEDICATIONADMINISTRATIONNULLIFICATION: return "MedicationAdministration-Nullification";
             case MEDICATIONADMINISTRATIONRECORDING: return "MedicationAdministration-Recording";
             case MEDICATIONADMINISTRATIONUPDATE: return "MedicationAdministration-Update";
             case ADMINNOTIFY: return "admin-notify";
+            case CODESYSTEMEXPAND: return "codesystem-expand";
             case COMMUNICATIONREQUEST: return "communication-request";
             case DIAGNOSTICREPORTPROVIDE: return "diagnosticreport-provide";
             case OBSERVATIONPROVIDE: return "observation-provide";
@@ -7784,12 +7752,12 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case CODESYSTEMEXPAND: return "http://hl7.org/fhir/message-events";
             case MEDICATIONADMINISTRATIONCOMPLETE: return "http://hl7.org/fhir/message-events";
             case MEDICATIONADMINISTRATIONNULLIFICATION: return "http://hl7.org/fhir/message-events";
             case MEDICATIONADMINISTRATIONRECORDING: return "http://hl7.org/fhir/message-events";
             case MEDICATIONADMINISTRATIONUPDATE: return "http://hl7.org/fhir/message-events";
             case ADMINNOTIFY: return "http://hl7.org/fhir/message-events";
+            case CODESYSTEMEXPAND: return "http://hl7.org/fhir/message-events";
             case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/message-events";
             case DIAGNOSTICREPORTPROVIDE: return "http://hl7.org/fhir/message-events";
             case OBSERVATIONPROVIDE: return "http://hl7.org/fhir/message-events";
@@ -7801,12 +7769,12 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
-            case CODESYSTEMEXPAND: return "The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.";
             case MEDICATIONADMINISTRATIONCOMPLETE: return "Change the status of a Medication Administration to show that it is complete.";
             case MEDICATIONADMINISTRATIONNULLIFICATION: return "Someone wishes to record that the record of administration of a medication is in error and should be ignored.";
             case MEDICATIONADMINISTRATIONRECORDING: return "Indicates that a medication has been recorded against the patient's record.";
             case MEDICATIONADMINISTRATIONUPDATE: return "Update a Medication Administration record.";
             case ADMINNOTIFY: return "Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.";
+            case CODESYSTEMEXPAND: return "The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.";
             case COMMUNICATIONREQUEST: return "Notification to convey information.";
             case DIAGNOSTICREPORTPROVIDE: return "Provide a diagnostic report, or update a previously provided diagnostic report.";
             case OBSERVATIONPROVIDE: return "Provide a simple observation or update a previously provided simple observation.";
@@ -7818,18 +7786,18 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
-            case CODESYSTEMEXPAND: return "CodeSystem-expand";
-            case MEDICATIONADMINISTRATIONCOMPLETE: return "MedicationAdministration-Complete";
-            case MEDICATIONADMINISTRATIONNULLIFICATION: return "MedicationAdministration-Nullification";
-            case MEDICATIONADMINISTRATIONRECORDING: return "MedicationAdministration-Recording";
-            case MEDICATIONADMINISTRATIONUPDATE: return "MedicationAdministration-Update";
-            case ADMINNOTIFY: return "admin-notify";
-            case COMMUNICATIONREQUEST: return "communication-request";
-            case DIAGNOSTICREPORTPROVIDE: return "diagnosticreport-provide";
-            case OBSERVATIONPROVIDE: return "observation-provide";
-            case PATIENTLINK: return "patient-link";
-            case PATIENTUNLINK: return "patient-unlink";
-            case VALUESETEXPAND: return "valueset-expand";
+            case MEDICATIONADMINISTRATIONCOMPLETE: return "MedicationAdministration Complete";
+            case MEDICATIONADMINISTRATIONNULLIFICATION: return "MedicationAdministration Nullification";
+            case MEDICATIONADMINISTRATIONRECORDING: return "MedicationAdministration Recording";
+            case MEDICATIONADMINISTRATIONUPDATE: return "MedicationAdministration Update";
+            case ADMINNOTIFY: return "Admin Notify";
+            case CODESYSTEMEXPAND: return "Codesystem Expand";
+            case COMMUNICATIONREQUEST: return "Communication Request";
+            case DIAGNOSTICREPORTPROVIDE: return "Diagnosticreport Provide";
+            case OBSERVATIONPROVIDE: return "Observation Provide";
+            case PATIENTLINK: return "Patient Link";
+            case PATIENTUNLINK: return "Patient Unlink";
+            case VALUESETEXPAND: return "Valueset Expand";
             default: return "?";
           }
         }
@@ -7840,8 +7808,6 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("CodeSystem-expand".equals(codeString))
-          return MessageEvent.CODESYSTEMEXPAND;
         if ("MedicationAdministration-Complete".equals(codeString))
           return MessageEvent.MEDICATIONADMINISTRATIONCOMPLETE;
         if ("MedicationAdministration-Nullification".equals(codeString))
@@ -7852,6 +7818,8 @@ public class Enumerations {
           return MessageEvent.MEDICATIONADMINISTRATIONUPDATE;
         if ("admin-notify".equals(codeString))
           return MessageEvent.ADMINNOTIFY;
+        if ("codesystem-expand".equals(codeString))
+          return MessageEvent.CODESYSTEMEXPAND;
         if ("communication-request".equals(codeString))
           return MessageEvent.COMMUNICATIONREQUEST;
         if ("diagnosticreport-provide".equals(codeString))
@@ -7874,8 +7842,6 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("CodeSystem-expand".equals(codeString))
-          return new Enumeration<MessageEvent>(this, MessageEvent.CODESYSTEMEXPAND);
         if ("MedicationAdministration-Complete".equals(codeString))
           return new Enumeration<MessageEvent>(this, MessageEvent.MEDICATIONADMINISTRATIONCOMPLETE);
         if ("MedicationAdministration-Nullification".equals(codeString))
@@ -7886,6 +7852,8 @@ public class Enumerations {
           return new Enumeration<MessageEvent>(this, MessageEvent.MEDICATIONADMINISTRATIONUPDATE);
         if ("admin-notify".equals(codeString))
           return new Enumeration<MessageEvent>(this, MessageEvent.ADMINNOTIFY);
+        if ("codesystem-expand".equals(codeString))
+          return new Enumeration<MessageEvent>(this, MessageEvent.CODESYSTEMEXPAND);
         if ("communication-request".equals(codeString))
           return new Enumeration<MessageEvent>(this, MessageEvent.COMMUNICATIONREQUEST);
         if ("diagnosticreport-provide".equals(codeString))
@@ -7901,8 +7869,6 @@ public class Enumerations {
         throw new FHIRException("Unknown MessageEvent code '"+codeString+"'");
         }
     public String toCode(MessageEvent code) {
-      if (code == MessageEvent.CODESYSTEMEXPAND)
-        return "CodeSystem-expand";
       if (code == MessageEvent.MEDICATIONADMINISTRATIONCOMPLETE)
         return "MedicationAdministration-Complete";
       if (code == MessageEvent.MEDICATIONADMINISTRATIONNULLIFICATION)
@@ -7913,6 +7879,8 @@ public class Enumerations {
         return "MedicationAdministration-Update";
       if (code == MessageEvent.ADMINNOTIFY)
         return "admin-notify";
+      if (code == MessageEvent.CODESYSTEMEXPAND)
+        return "codesystem-expand";
       if (code == MessageEvent.COMMUNICATIONREQUEST)
         return "communication-request";
       if (code == MessageEvent.DIAGNOSTICREPORTPROVIDE)
@@ -8377,10 +8345,6 @@ public class Enumerations {
          */
         COVERAGE, 
         /**
-         * The formal description of a single piece of information that can be gathered and reported.
-         */
-        DATAELEMENT, 
-        /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
         DETECTEDISSUE, 
@@ -8803,8 +8767,6 @@ public class Enumerations {
           return CONTRACT;
         if ("Coverage".equals(codeString))
           return COVERAGE;
-        if ("DataElement".equals(codeString))
-          return DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -9017,7 +8979,6 @@ public class Enumerations {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -9141,7 +9102,6 @@ public class Enumerations {
             case CONSENT: return "http://hl7.org/fhir/resource-types";
             case CONTRACT: return "http://hl7.org/fhir/resource-types";
             case COVERAGE: return "http://hl7.org/fhir/resource-types";
-            case DATAELEMENT: return "http://hl7.org/fhir/resource-types";
             case DETECTEDISSUE: return "http://hl7.org/fhir/resource-types";
             case DEVICE: return "http://hl7.org/fhir/resource-types";
             case DEVICECOMPONENT: return "http://hl7.org/fhir/resource-types";
@@ -9265,7 +9225,6 @@ public class Enumerations {
             case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
-            case DATAELEMENT: return "The formal description of a single piece of information that can be gathered and reported.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
             case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "The characteristics, operational status and capabilities of a medical-related component of a medical device.";
@@ -9389,7 +9348,6 @@ public class Enumerations {
             case CONSENT: return "Consent";
             case CONTRACT: return "Contract";
             case COVERAGE: return "Coverage";
-            case DATAELEMENT: return "DataElement";
             case DETECTEDISSUE: return "DetectedIssue";
             case DEVICE: return "Device";
             case DEVICECOMPONENT: return "DeviceComponent";
@@ -9546,8 +9504,6 @@ public class Enumerations {
           return ResourceType.CONTRACT;
         if ("Coverage".equals(codeString))
           return ResourceType.COVERAGE;
-        if ("DataElement".equals(codeString))
-          return ResourceType.DATAELEMENT;
         if ("DetectedIssue".equals(codeString))
           return ResourceType.DETECTEDISSUE;
         if ("Device".equals(codeString))
@@ -9794,8 +9750,6 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.CONTRACT);
         if ("Coverage".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.COVERAGE);
-        if ("DataElement".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.DATAELEMENT);
         if ("DetectedIssue".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.DETECTEDISSUE);
         if ("Device".equals(codeString))
@@ -10035,8 +9989,6 @@ public class Enumerations {
         return "Contract";
       if (code == ResourceType.COVERAGE)
         return "Coverage";
-      if (code == ResourceType.DATAELEMENT)
-        return "DataElement";
       if (code == ResourceType.DETECTEDISSUE)
         return "DetectedIssue";
       if (code == ResourceType.DEVICE)

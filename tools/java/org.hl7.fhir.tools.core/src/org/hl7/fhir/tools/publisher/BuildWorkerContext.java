@@ -35,7 +35,6 @@ import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.ConceptMap;
-import org.hl7.fhir.r4.model.DataElement;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode;

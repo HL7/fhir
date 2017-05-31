@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -614,13 +614,20 @@ public class CareTeam extends DomainResource {
 
 
     /**
+     * A central contact detail for the care team (that applies to all members).
+     */
+    @Child(name = "telecom", type = {ContactPoint.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="A contact detail for the care team (that applies to all members)", formalDefinition="A central contact detail for the care team (that applies to all members)." )
+    protected List<ContactPoint> telecom;
+
+    /**
      * Comments made about the CareTeam.
      */
-    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the CareTeam", formalDefinition="Comments made about the CareTeam." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1568354370L;
+    private static final long serialVersionUID = 99754863L;
 
   /**
    * Constructor
@@ -1192,6 +1199,59 @@ public class CareTeam extends DomainResource {
     }
 
     /**
+     * @return {@link #telecom} (A central contact detail for the care team (that applies to all members).)
+     */
+    public List<ContactPoint> getTelecom() { 
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      return this.telecom;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CareTeam setTelecom(List<ContactPoint> theTelecom) { 
+      this.telecom = theTelecom;
+      return this;
+    }
+
+    public boolean hasTelecom() { 
+      if (this.telecom == null)
+        return false;
+      for (ContactPoint item : this.telecom)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public ContactPoint addTelecom() { //3
+      ContactPoint t = new ContactPoint();
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return t;
+    }
+
+    public CareTeam addTelecom(ContactPoint t) { //3
+      if (t == null)
+        return this;
+      if (this.telecom == null)
+        this.telecom = new ArrayList<ContactPoint>();
+      this.telecom.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
+     */
+    public ContactPoint getTelecomFirstRep() { 
+      if (getTelecom().isEmpty()) {
+        addTelecom();
+      }
+      return getTelecom().get(0);
+    }
+
+    /**
      * @return {@link #note} (Comments made about the CareTeam.)
      */
     public List<Annotation> getNote() { 
@@ -1257,6 +1317,7 @@ public class CareTeam extends DomainResource {
         childrenList.add(new Property("reasonCode", "CodeableConcept", "Describes why the care team exists.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition)", "Condition(s) that this care team addresses.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization responsible for the care team.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
+        childrenList.add(new Property("telecom", "ContactPoint", "A central contact detail for the care team (that applies to all members).", 0, java.lang.Integer.MAX_VALUE, telecom));
         childrenList.add(new Property("note", "Annotation", "Comments made about the CareTeam.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
@@ -1274,6 +1335,7 @@ public class CareTeam extends DomainResource {
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case -2058947787: /*managingOrganization*/ return this.managingOrganization == null ? new Base[0] : this.managingOrganization.toArray(new Base[this.managingOrganization.size()]); // Reference
+        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1317,6 +1379,9 @@ public class CareTeam extends DomainResource {
         case -2058947787: // managingOrganization
           this.getManagingOrganization().add(castToReference(value)); // Reference
           return value;
+        case -1429363305: // telecom
+          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
@@ -1350,6 +1415,8 @@ public class CareTeam extends DomainResource {
           this.getReasonReference().add(castToReference(value));
         } else if (name.equals("managingOrganization")) {
           this.getManagingOrganization().add(castToReference(value));
+        } else if (name.equals("telecom")) {
+          this.getTelecom().add(castToContactPoint(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else
@@ -1371,6 +1438,7 @@ public class CareTeam extends DomainResource {
         case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
         case -2058947787:  return addManagingOrganization(); 
+        case -1429363305:  return addTelecom(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1391,6 +1459,7 @@ public class CareTeam extends DomainResource {
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case -2058947787: /*managingOrganization*/ return new String[] {"Reference"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1434,6 +1503,9 @@ public class CareTeam extends DomainResource {
         }
         else if (name.equals("managingOrganization")) {
           return addManagingOrganization();
+        }
+        else if (name.equals("telecom")) {
+          return addTelecom();
         }
         else if (name.equals("note")) {
           return addNote();
@@ -1485,6 +1557,11 @@ public class CareTeam extends DomainResource {
           for (Reference i : managingOrganization)
             dst.managingOrganization.add(i.copy());
         };
+        if (telecom != null) {
+          dst.telecom = new ArrayList<ContactPoint>();
+          for (ContactPoint i : telecom)
+            dst.telecom.add(i.copy());
+        };
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
           for (Annotation i : note)
@@ -1508,7 +1585,7 @@ public class CareTeam extends DomainResource {
            && compareDeep(name, o.name, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(period, o.period, true) && compareDeep(participant, o.participant, true) && compareDeep(reasonCode, o.reasonCode, true)
            && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(managingOrganization, o.managingOrganization, true)
-           && compareDeep(note, o.note, true);
+           && compareDeep(telecom, o.telecom, true) && compareDeep(note, o.note, true);
       }
 
       @Override
@@ -1524,7 +1601,7 @@ public class CareTeam extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
           , name, subject, context, period, participant, reasonCode, reasonReference, managingOrganization
-          , note);
+          , telecom, note);
       }
 
   @Override

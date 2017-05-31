@@ -10,7 +10,6 @@ Data elements can be defined in several places.  The extensions defined within t
 to most or all of these:
 </p>
 <ul>
-  <li><a href="dataelement.html">DataElement</a> - defining the characteristics that must hold for an element to be an instance of a particular Data Element</li>
   <li><a href="profile.html">Profile</a>.structure.element.definition - defining the characteristics of the data element when used according to the profile</li>
   <li><a href="profile.html">Profile</a>.extensionDefn.definition - defining the characteristics of the extension, regardless of where it is used</li>
   <li><a href="questionnaire.html">Questionnaire</a>.group.question - defining the characteristics of permitted answers</li>

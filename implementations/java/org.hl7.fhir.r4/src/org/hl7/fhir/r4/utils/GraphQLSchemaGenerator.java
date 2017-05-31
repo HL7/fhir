@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,8 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class GraphQLSchemaGenerator {
 
+  public enum FHIROperationType {READ, SEARCH, CREATE, UPDATE, DELETE};
+  
   private static final String INNER_TYPE_NAME = "gql.type.name";
   IWorkerContext context;
 
@@ -70,18 +73,67 @@ public class GraphQLSchemaGenerator {
     writer.close();
   }
 
-  public void generateResource(OutputStream stream, StructureDefinition sd, List<SearchParameter> parameters, boolean read, boolean search) throws IOException, FHIRException {
+  public void generateResource(OutputStream stream, StructureDefinition sd, List<SearchParameter> parameters, EnumSet<FHIROperationType> operations) throws IOException, FHIRException {
     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(stream));
     writer.write("# FHIR GraphQL Schema. Version "+Constants.VERSION+"-"+Constants.REVISION+"\r\n\r\n");
     generateType(writer, sd);
-    if (read)
+    if (operations.contains(FHIROperationType.READ))
       generateIdAccess(writer, sd.getName());
-    if (search) {
+    if (operations.contains(FHIROperationType.SEARCH)) {
       generateListAccess(writer, parameters, sd.getName());
       generateConnectionAccess(writer, parameters, sd.getName());
     }
+    if (operations.contains(FHIROperationType.CREATE))
+      generateCreate(writer, sd.getName());
+    if (operations.contains(FHIROperationType.UPDATE))
+      generateUpdate(writer, sd.getName());
+    if (operations.contains(FHIROperationType.DELETE))
+      generateDelete(writer, sd.getName());
     writer.flush();
     writer.close();
+  }
+
+  private void generateCreate(BufferedWriter writer, String name) throws IOException {
+    writer.write("type "+name+"CreateType {\r\n");
+    writer.write("  "+name+"Create(");
+    param(writer, "resource", name, false, false);
+    writer.write(") : "+name+"Creation\r\n");
+    writer.write("}\r\n");
+    writer.write("\r\n");    
+    writer.write("type "+name+"Creation {\r\n");
+    writer.write("  location : String\r\n");
+    writer.write("  resource : "+name+"\r\n");
+    writer.write("  information : OperationOutcome\r\n");
+    writer.write("}\r\n");
+    writer.write("\r\n");    
+  }
+
+  private void generateUpdate(BufferedWriter writer, String name) throws IOException {
+    writer.write("type "+name+"UpdateType {\r\n");
+    writer.write("  "+name+"Update(");
+    param(writer, "id", "ID", false, false);
+    param(writer, "resource", name, false, false);
+    writer.write(") : "+name+"Update\r\n");
+    writer.write("}\r\n");
+    writer.write("\r\n");    
+    writer.write("type "+name+"Update {\r\n");
+    writer.write("  resource : "+name+"\r\n");
+    writer.write("  information : OperationOutcome\r\n");
+    writer.write("}\r\n");
+    writer.write("\r\n");    
+  }
+
+  private void generateDelete(BufferedWriter writer, String name) throws IOException {
+    writer.write("type "+name+"DeleteType {\r\n");
+    writer.write("  "+name+"Delete(");
+    param(writer, "id", "ID", false, false);
+    writer.write(") : "+name+"Delete\r\n");
+    writer.write("}\r\n");
+    writer.write("\r\n");    
+    writer.write("type "+name+"Delete {\r\n");
+    writer.write("  information : OperationOutcome\r\n");
+    writer.write("}\r\n");
+    writer.write("\r\n");    
   }
 
   private void generateListAccess(BufferedWriter writer, List<SearchParameter> parameters, String name) throws IOException {
@@ -108,7 +160,6 @@ public class GraphQLSchemaGenerator {
     writer.write(type);      
     if (list)
       writer.write("]");
-    
   }
 
   private void generateConnectionAccess(BufferedWriter writer, List<SearchParameter> parameters, String name) throws IOException {
@@ -170,30 +221,43 @@ public class GraphQLSchemaGenerator {
     b.append(sd.getName());
     b.append(" {\r\n");
     ElementDefinition ed = sd.getSnapshot().getElementFirstRep();
-    generateProperties(list, b, sd.getName(), sd, ed);
+    generateProperties(list, b, sd.getName(), sd, ed, "type");
     b.append("}");
     b.append("\r\n");
     b.append("\r\n");
     for (StringBuilder bs : list)
-    writer.write(bs.toString());
+      writer.write(bs.toString());
+    list.clear();
+    b = new StringBuilder();
+    list.add(b);
+    b.append("input ");
+    b.append(sd.getName());
+    b.append(" {\r\n");
+    ed = sd.getSnapshot().getElementFirstRep();
+    generateProperties(list, b, sd.getName(), sd, ed, "input");
+    b.append("}");
+    b.append("\r\n");
+    b.append("\r\n");
+    for (StringBuilder bs : list)
+      writer.write(bs.toString());
   }
 
-  private void generateProperties(List<StringBuilder> list, StringBuilder b, String typeName, StructureDefinition sd, ElementDefinition ed) throws IOException {
+  private void generateProperties(List<StringBuilder> list, StringBuilder b, String typeName, StructureDefinition sd, ElementDefinition ed, String mode) throws IOException {
     List<ElementDefinition> children = ProfileUtilities.getChildList(sd, ed);
     for (ElementDefinition child : children) {
       if (child.hasContentReference()) {
         ElementDefinition ref = resolveContentReference(sd, child.getContentReference());        
-        generateProperty(list, b, typeName, sd, child, ref.getType().get(0), false, ref);
+        generateProperty(list, b, typeName, sd, child, ref.getType().get(0), false, ref, mode);
       } else if (child.getType().size() == 1) {
-        generateProperty(list, b, typeName, sd, child, child.getType().get(0), false, null);
+        generateProperty(list, b, typeName, sd, child, child.getType().get(0), false, null, mode);
       } else {
         boolean ref  = false;
         for (TypeRefComponent t : child.getType()) {
           if (!"Reference".equals(t.getCode()))
-            generateProperty(list, b, typeName, sd, child, t, true, null);
+            generateProperty(list, b, typeName, sd, child, t, true, null, mode);
           else if (!ref) {
             ref = true;
-            generateProperty(list, b, typeName, sd, child, t, true, null);
+            generateProperty(list, b, typeName, sd, child, t, true, null, mode);
           }
         }
       }
@@ -209,7 +273,7 @@ public class GraphQLSchemaGenerator {
     throw new Error("Unable to find "+id);
   }
 
-  private void generateProperty(List<StringBuilder> list, StringBuilder b, String typeName, StructureDefinition sd, ElementDefinition child, TypeRefComponent typeDetails, boolean suffix, ElementDefinition cr) throws IOException {
+  private void generateProperty(List<StringBuilder> list, StringBuilder b, String typeName, StructureDefinition sd, ElementDefinition child, TypeRefComponent typeDetails, boolean suffix, ElementDefinition cr, String mode) throws IOException {
     if (isPrimitive(typeDetails)) {
       String n = getGqlname(typeDetails.getCode()); 
       b.append("  ");
@@ -239,9 +303,9 @@ public class GraphQLSchemaGenerator {
         b.append("[");
       String type = typeDetails.getCode();
       if (cr != null)
-        b.append(generateInnerType(list, sd, typeName, cr));
+        b.append(generateInnerType(list, sd, typeName, cr, mode));
       else if (Utilities.existsInList(type, "Element", "BackboneElement"))
-        b.append(generateInnerType(list, sd, typeName, child));
+        b.append(generateInnerType(list, sd, typeName, child, mode));
       else
         b.append(type);
       if (!child.getMax().equals("1"))
@@ -252,18 +316,19 @@ public class GraphQLSchemaGenerator {
     }
   }
 
-  private String generateInnerType(List<StringBuilder> list, StructureDefinition sd, String name, ElementDefinition child) throws IOException {
-    if (child.hasUserData(INNER_TYPE_NAME))
-      return child.getUserString(INNER_TYPE_NAME);
+  private String generateInnerType(List<StringBuilder> list, StructureDefinition sd, String name, ElementDefinition child, String mode) throws IOException {
+    if (child.hasUserData(INNER_TYPE_NAME+"."+mode))
+      return child.getUserString(INNER_TYPE_NAME+"."+mode);
     
     String typeName = name+Utilities.capitalize(tail(child.getPath(), false));
-    child.setUserData(INNER_TYPE_NAME, typeName);
+    child.setUserData(INNER_TYPE_NAME+"."+mode, typeName);
     StringBuilder b = new StringBuilder();
     list.add(b);
-    b.append("type ");
+    b.append(mode);
+    b.append(" ");
     b.append(typeName);
     b.append(" {\r\n");
-    generateProperties(list, b, typeName, sd, child);
+    generateProperties(list, b, typeName, sd, child, mode);
     b.append("}");
     b.append("\r\n");
     b.append("\r\n");

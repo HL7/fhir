@@ -29,10 +29,11 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -6654,6 +6655,17 @@ public class ElementDefinition extends Type implements ICompositeType {
     self.setMax(max);
   }
   
+  
+  public String typeSummary() {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    for (TypeRefComponent tr : type) {
+      if (tr.hasCode())
+        b.append(tr.getCode());
+    }
+    return b.toString();
+   }
+  
+
 
 // end addition
 

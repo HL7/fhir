@@ -15,7 +15,6 @@ import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
-import org.hl7.fhir.r4.model.DataElement;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -158,78 +157,78 @@ public class LoincToDEConvertor {
 				System.out.print(".");
 				String code = col(row, "LOINC_NUM");
 				String comp = col(row, "COMPONENT");
-				DataElement de = new DataElement();
-				de.setId("loinc-"+code);
-		    de.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
-				bundle.getEntry().add(new BundleEntryComponent().setResource(de));
-				Identifier id = new Identifier();
-				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
-				id.setValue(code);
-				de.addIdentifier(id);
-				de.setPublisher("Regenstrief + FHIR Project Team");
-				if (!col(row, "STATUS").equals("ACTIVE"))
-	 				de.setStatus(PublicationStatus.DRAFT); // till we get good at this
-				else
-					de.setStatus(PublicationStatus.RETIRED);
-				de.setDateElement(DateTimeType.now());
-				de.setName(comp);
-				ElementDefinition dee = de.addElement();
-
-				// PROPERTY	ignore
-				// TIME_ASPCT	
-				// SYSTEM	
-				// SCALE_TYP	
-				// METHOD_TYP	
-				// dee.getCategory().add(new CodeableConcept().setText(col(row, "CLASS")));
-				// SOURCE	
-				// DATE_LAST_CHANGED - should be in ?	
-				// CHNG_TYPE	
-				dee.setComment(col(row , "COMMENTS"));
-				if (hasCol(row, "CONSUMER_NAME"))
-					dee.addAlias(col(row, "CONSUMER_NAME"));	
-				// MOLAR_MASS	
-				// CLASSTYPE	
-				// FORMULA	
-				// SPECIES	
-				// EXMPL_ANSWERS	
-				// ACSSYM	
-				// BASE_NAME - ? this is a relationship	
-				// NAACCR_ID	
-				// ---------- CODE_TABLE todo	
-				// SURVEY_QUEST_TEXT	
-				// SURVEY_QUEST_SRC	
-				if (hasCol(row, "RELATEDNAMES2")) {
-	        String n = col(row, "RELATEDNAMES2");
-	        for (String s : n.split("\\;")) {
-						if (!Utilities.noString(s))
-							dee.addAlias(s);	
-	        }
-				}
-				dee.addAlias(col(row, "SHORTNAME"));	
-				// ORDER_OBS	
-				// CDISC Code	
-				// HL7_FIELD_SUBFIELD_ID	
-				//  ------------------ EXTERNAL_COPYRIGHT_NOTICE todo	
-				dee.setDefinition(col(row, "LONG_COMMON_NAME"));	
-				// HL7_V2_DATATYPE	
-				String cc = makeType(col(row, "HL7_V3_DATATYPE"), code);
-				if (cc != null)
-				  dee.addType().setCode(cc);	
-				// todo... CURATED_RANGE_AND_UNITS	
-				// todo: DOCUMENT_SECTION	
-				// STATUS_REASON	
-				// STATUS_TEXT	
-				// CHANGE_REASON_PUBLIC	
-				// COMMON_TEST_RANK	
-				// COMMON_ORDER_RANK	
-				// COMMON_SI_TEST_RANK	
-				// HL7_ATTACHMENT_STRUCTURE
-
-				// units:
-				// UNITSREQUIRED	
-				// SUBMITTED_UNITS
-				ToolingExtensions.setAllowableUnits(dee, makeUnits(col(row, "EXAMPLE_UNITS"), col(row, "EXAMPLE_UCUM_UNITS")));
-				// EXAMPLE_SI_UCUM_UNITS	
+//				DataElement de = new DataElement();
+//				de.setId("loinc-"+code);
+//		    de.setMeta(new Meta().setLastUpdatedElement(InstantType.now()));
+//				bundle.getEntry().add(new BundleEntryComponent().setResource(de));
+//				Identifier id = new Identifier();
+//				id.setSystem("http://hl7.org/fhir/commondataelement/loinc");
+//				id.setValue(code);
+//				de.addIdentifier(id);
+//				de.setPublisher("Regenstrief + FHIR Project Team");
+//				if (!col(row, "STATUS").equals("ACTIVE"))
+//	 				de.setStatus(PublicationStatus.DRAFT); // till we get good at this
+//				else
+//					de.setStatus(PublicationStatus.RETIRED);
+//				de.setDateElement(DateTimeType.now());
+//				de.setName(comp);
+//				ElementDefinition dee = de.addElement();
+//
+//				// PROPERTY	ignore
+//				// TIME_ASPCT	
+//				// SYSTEM	
+//				// SCALE_TYP	
+//				// METHOD_TYP	
+//				// dee.getCategory().add(new CodeableConcept().setText(col(row, "CLASS")));
+//				// SOURCE	
+//				// DATE_LAST_CHANGED - should be in ?	
+//				// CHNG_TYPE	
+//				dee.setComment(col(row , "COMMENTS"));
+//				if (hasCol(row, "CONSUMER_NAME"))
+//					dee.addAlias(col(row, "CONSUMER_NAME"));	
+//				// MOLAR_MASS	
+//				// CLASSTYPE	
+//				// FORMULA	
+//				// SPECIES	
+//				// EXMPL_ANSWERS	
+//				// ACSSYM	
+//				// BASE_NAME - ? this is a relationship	
+//				// NAACCR_ID	
+//				// ---------- CODE_TABLE todo	
+//				// SURVEY_QUEST_TEXT	
+//				// SURVEY_QUEST_SRC	
+//				if (hasCol(row, "RELATEDNAMES2")) {
+//	        String n = col(row, "RELATEDNAMES2");
+//	        for (String s : n.split("\\;")) {
+//						if (!Utilities.noString(s))
+//							dee.addAlias(s);	
+//	        }
+//				}
+//				dee.addAlias(col(row, "SHORTNAME"));	
+//				// ORDER_OBS	
+//				// CDISC Code	
+//				// HL7_FIELD_SUBFIELD_ID	
+//				//  ------------------ EXTERNAL_COPYRIGHT_NOTICE todo	
+//				dee.setDefinition(col(row, "LONG_COMMON_NAME"));	
+//				// HL7_V2_DATATYPE	
+//				String cc = makeType(col(row, "HL7_V3_DATATYPE"), code);
+//				if (cc != null)
+//				  dee.addType().setCode(cc);	
+//				// todo... CURATED_RANGE_AND_UNITS	
+//				// todo: DOCUMENT_SECTION	
+//				// STATUS_REASON	
+//				// STATUS_TEXT	
+//				// CHANGE_REASON_PUBLIC	
+//				// COMMON_TEST_RANK	
+//				// COMMON_ORDER_RANK	
+//				// COMMON_SI_TEST_RANK	
+//				// HL7_ATTACHMENT_STRUCTURE
+//
+//				// units:
+//				// UNITSREQUIRED	
+//				// SUBMITTED_UNITS
+//				ToolingExtensions.setAllowableUnits(dee, makeUnits(col(row, "EXAMPLE_UNITS"), col(row, "EXAMPLE_UCUM_UNITS")));
+//				// EXAMPLE_SI_UCUM_UNITS	
 			
 			row = XMLUtil.getNextSibling(row);
 		}

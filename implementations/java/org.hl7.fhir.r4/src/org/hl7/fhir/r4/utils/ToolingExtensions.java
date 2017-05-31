@@ -39,7 +39,6 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
-import org.hl7.fhir.r4.model.DataElement;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.Element;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -490,14 +489,14 @@ public class ToolingExtensions {
     return results;
   }
 
-  public static void addDEReference(DataElement de, String value) {
-    for (Extension e : de.getExtension()) 
-      if (e.getUrl().equals(EXT_CIMI_REFERENCE)) {
-        e.setValue(new UriType(value));
-        return;
-      }
-    de.getExtension().add(new Extension().setUrl(EXT_CIMI_REFERENCE).setValue(new UriType(value)));
-  }
+//  public static void addDEReference(DataElement de, String value) {
+//    for (Extension e : de.getExtension()) 
+//      if (e.getUrl().equals(EXT_CIMI_REFERENCE)) {
+//        e.setValue(new UriType(value));
+//        return;
+//      }
+//    de.getExtension().add(new Extension().setUrl(EXT_CIMI_REFERENCE).setValue(new UriType(value)));
+//  }
 
 //  public static void setDeprecated(Element nc) {
 //    for (Extension e : nc.getExtension()) 

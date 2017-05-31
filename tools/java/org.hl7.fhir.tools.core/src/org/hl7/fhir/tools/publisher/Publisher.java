@@ -51,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -146,7 +147,6 @@ import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.DataElement;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
@@ -180,8 +180,11 @@ import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
+import org.hl7.fhir.r4.test.FluentPathTests;
+import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator;
+import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator.FHIROperationType;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.QuestionnaireBuilder;
 import org.hl7.fhir.r4.utils.ResourceUtilities;
@@ -225,6 +228,8 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
+import org.hl7.fhir.validation.dstu3.tests.InstanceValidatorTests;
+import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -1960,13 +1965,17 @@ public class Publisher implements URIResolver, SectionNumberer {
         names.add(sd.getUrl());
         List<SearchParameter> splist = new ArrayList<SearchParameter>();
         ResourceDefn rd = page.getDefinitions().getResourceByName(sd.getName());
-        for (String n : sorted(rd.getSearchParams().keySet())) {
-          SearchParameterDefn spd = rd.getSearchParams().get(n);
-          if (spd.getResource() == null)
-            buildSearchDefinition(rd, spd);
-          splist.add(spd.getResource());
+        while (rd != null) {
+          for (String n : sorted(rd.getSearchParams().keySet())) {
+            SearchParameterDefn spd = rd.getSearchParams().get(n);
+            if (spd.getResource() == null)
+              buildSearchDefinition(rd, spd);
+            splist.add(spd.getResource());
+          }
+          rd = Utilities.noString(rd.getRoot().typeCode()) ? null : page.getDefinitions().getResourceByName(rd.getRoot().typeCode());
         }
-        gql.generateResource(new FileOutputStream(filename), sd, splist, true, true);
+        EnumSet<FHIROperationType> ops = EnumSet.of(FHIROperationType.READ, FHIROperationType.SEARCH, FHIROperationType.CREATE, FHIROperationType.UPDATE, FHIROperationType.DELETE);
+        gql.generateResource(new FileOutputStream(filename), sd, splist, ops);
       }
     }
     
@@ -5059,90 +5068,91 @@ public class Publisher implements URIResolver, SectionNumberer {
     json.compose(s, dict);
     s.close();
     jsonToXhtml(filename, "Source for Dictionary" + d.getName(), resource2Json(dict), "dict-instance", "Dictionary", null, null);
-    for (BundleEntryComponent e : dict.getEntry()) {
-      produceDictionaryProfile(d, file, filename, (DataElement) e.getResource(), d.getIg());
-    }
+    throw new Error("must be redone");
+//    for (BundleEntryComponent e : dict.getEntry()) {
+//      produceDictionaryProfile(d, file, filename, (DataElement) e.getResource(), d.getIg());
+//    }
   }
 
-  private void produceDictionaryProfile(Dictionary d, String srcbase, String destbase, DataElement de, ImplementationGuideDefn ig) throws Exception {
-    // first, sort out identifiers
-    String template = TextFile.fileToString(Utilities.changeFileExt(srcbase, "-profile.xml"));
-    String file = Utilities.changeFileExt(destbase, "-"+de.getId());
-
-    // second, generate the profile.
-    Map<String, String> variables = new HashMap<String, String>();
-    variables.put("de_id", de.getId());
-    variables.put("de_name", de.getName());
-    variables.put("de_definition", Utilities.noString(de.getElement().get(0).getDefinition()) ? "??" : de.getElement().get(0).getDefinition());
-    variables.put("de_code0_code", de.getElement().get(0).getCode().get(0).getCode());
-    Type ucc = ToolingExtensions.getAllowedUnits(de.getElement().get(0));
-    if (ucc instanceof CodeableConcept)
-      variables.put("de_units_code0_code", ((CodeableConcept) ucc).getCoding().get(0).getCode());
-    else
-      variables.put("de_units_code0_code", "");
-    String profile = processTemplate(template, variables);
-    XmlParser xml = new XmlParser();
-    StructureDefinition p = (StructureDefinition) xml.parse(new ByteArrayInputStream(profile.getBytes()));
-    StructureDefinition base = page.getProfiles().get(p.getBaseDefinition());
-    if (base == null)
-      throw new Exception("Unable to find base profile for "+d.getId()+": "+p.getBaseDefinition()+" from "+page.getProfiles().keySet());
-    new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSnapshot(base, p, p.getBaseDefinition(), p.getId());
-    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation"), null, "0", true); // todo
-    pd.setId(p.getId());
-    pd.setTitle(p.getName());
-    Profile pack = new Profile("hspc");
-    pack.forceMetadata("date", p.getDateElement().asStringValue());
-    p.setUserData("filename", file  );
-
-    ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    XmlSpecGenerator gen = new XmlSpecGenerator(bs, null, "http://hl7.org/fhir/", page, "");
-    gen.generate(p);
-    gen.close();
-    String xmls = new String(bs.toByteArray());
-    bs = new ByteArrayOutputStream();
-    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, null, "http://hl7.org/fhir/", page, "");
-    // genJ.generate(profile.getResource());
-    genJ.close();
-    String jsons = new String(bs.toByteArray());
-
-    String tx = ""; //todo
-
-    String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
-    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true, false); // resourceName+"/"+pack.getId()+"/"+profile.getId());
-    page.getHTMLChecker().registerFile(file + ".html", "StructureDefinition " + p.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-    TextFile.stringToFile(src, page.getFolders().dstDir + file + ".html");
-
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
-    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true, false);
-    page.getHTMLChecker().registerFile(file + "-mappings.html", "Mappings for StructureDefinition " + p.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-    TextFile.stringToFile(src, page.getFolders().dstDir + file + "-mappings.html");
-
-    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
-    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true, false);
-    page.getHTMLChecker().registerFile(file + "-definitions.html", "Definitions for StructureDefinition " + p.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-    TextFile.stringToFile(src, page.getFolders().dstDir + file + "-definitions.html");
-
-    // now, save the profile and generate equivalents
-    xml.setOutputStyle(OutputStyle.PRETTY);
-    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + file+".profile.xml");
-    xml.compose(s, p);
-    s.close();
-    xml.setOutputStyle(OutputStyle.CANONICAL);
-    s = new FileOutputStream(page.getFolders().dstDir + file+".profile.canonical.xml");
-    xml.compose(s, p);
-    s.close();
-    cloneToXhtml(file+".profile", "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance", "Profile", null, null);
-    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
-    s = new FileOutputStream(page.getFolders().dstDir+file+ ".profile.json");
-    json.compose(s, p);
-    s.close();
-    json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
-    s = new FileOutputStream(page.getFolders().dstDir+file+ ".profile.canonical.json");
-    json.compose(s, p);
-    s.close();
-    jsonToXhtml(file+".profile", "Source for Dictionary based StructureDefinition" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance", "Profile", null, null);
-    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + file+ "-review.xls", "Health Level Seven International", page.getGenDate(), p, page);
-  }
+//  private void produceDictionaryProfile(Dictionary d, String srcbase, String destbase, DataElement de, ImplementationGuideDefn ig) throws Exception {
+//    // first, sort out identifiers
+//    String template = TextFile.fileToString(Utilities.changeFileExt(srcbase, "-profile.xml"));
+//    String file = Utilities.changeFileExt(destbase, "-"+de.getId());
+//
+//    // second, generate the profile.
+//    Map<String, String> variables = new HashMap<String, String>();
+//    variables.put("de_id", de.getId());
+//    variables.put("de_name", de.getName());
+//    variables.put("de_definition", Utilities.noString(de.getElement().get(0).getDefinition()) ? "??" : de.getElement().get(0).getDefinition());
+//    variables.put("de_code0_code", de.getElement().get(0).getCode().get(0).getCode());
+//    Type ucc = ToolingExtensions.getAllowedUnits(de.getElement().get(0));
+//    if (ucc instanceof CodeableConcept)
+//      variables.put("de_units_code0_code", ((CodeableConcept) ucc).getCoding().get(0).getCode());
+//    else
+//      variables.put("de_units_code0_code", "");
+//    String profile = processTemplate(template, variables);
+//    XmlParser xml = new XmlParser();
+//    StructureDefinition p = (StructureDefinition) xml.parse(new ByteArrayInputStream(profile.getBytes()));
+//    StructureDefinition base = page.getProfiles().get(p.getBaseDefinition());
+//    if (base == null)
+//      throw new Exception("Unable to find base profile for "+d.getId()+": "+p.getBaseDefinition()+" from "+page.getProfiles().keySet());
+//    new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).generateSnapshot(base, p, p.getBaseDefinition(), p.getId());
+//    ConstraintStructure pd = new ConstraintStructure(p, page.getDefinitions().getUsageIG("hspc", "special HSPC generation"), null, "0", true); // todo
+//    pd.setId(p.getId());
+//    pd.setTitle(p.getName());
+//    Profile pack = new Profile("hspc");
+//    pack.forceMetadata("date", p.getDateElement().asStringValue());
+//    p.setUserData("filename", file  );
+//
+//    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+//    XmlSpecGenerator gen = new XmlSpecGenerator(bs, null, "http://hl7.org/fhir/", page, "");
+//    gen.generate(p);
+//    gen.close();
+//    String xmls = new String(bs.toByteArray());
+//    bs = new ByteArrayOutputStream();
+//    JsonSpecGenerator genJ = new JsonSpecGenerator(bs, null, "http://hl7.org/fhir/", page, "");
+//    // genJ.generate(profile.getResource());
+//    genJ.close();
+//    String jsons = new String(bs.toByteArray());
+//
+//    String tx = ""; //todo
+//
+//    String src = TextFile.fileToString(page.getFolders().srcDir + "template-profile.html");
+//    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true, false); // resourceName+"/"+pack.getId()+"/"+profile.getId());
+//    page.getHTMLChecker().registerFile(file + ".html", "StructureDefinition " + p.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + file + ".html");
+//
+//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-mappings.html");
+//    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true, false);
+//    page.getHTMLChecker().registerFile(file + "-mappings.html", "Mappings for StructureDefinition " + p.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + file + "-mappings.html");
+//
+//    src = TextFile.fileToString(page.getFolders().srcDir + "template-profile-definitions.html");
+//    src = page.processProfileIncludes(p.getId(), p.getId(), pack, pd, xmls, jsons, tx, src, file + ".html", "??/??/??", "", "", ig, true, false);
+//    page.getHTMLChecker().registerFile(file + "-definitions.html", "Definitions for StructureDefinition " + p.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+//    TextFile.stringToFile(src, page.getFolders().dstDir + file + "-definitions.html");
+//
+//    // now, save the profile and generate equivalents
+//    xml.setOutputStyle(OutputStyle.PRETTY);
+//    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + file+".profile.xml");
+//    xml.compose(s, p);
+//    s.close();
+//    xml.setOutputStyle(OutputStyle.CANONICAL);
+//    s = new FileOutputStream(page.getFolders().dstDir + file+".profile.canonical.xml");
+//    xml.compose(s, p);
+//    s.close();
+//    cloneToXhtml(file+".profile", "Source for Dictionary" + page.getDefinitions().getDictionaries().get(file), false, "dict-instance", "Profile", null, null);
+//    IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+//    s = new FileOutputStream(page.getFolders().dstDir+file+ ".profile.json");
+//    json.compose(s, p);
+//    s.close();
+//    json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
+//    s = new FileOutputStream(page.getFolders().dstDir+file+ ".profile.canonical.json");
+//    json.compose(s, p);
+//    s.close();
+//    jsonToXhtml(file+".profile", "Source for Dictionary based StructureDefinition" + page.getDefinitions().getDictionaries().get(file), resource2Json(p), "dict-instance", "Profile", null, null);
+//    new ReviewSpreadsheetGenerator().generate(page.getFolders().dstDir + file+ "-review.xls", "Health Level Seven International", page.getGenDate(), p, page);
+//  }
 
   private String processTemplate(String template, Map<String, String> variables) {
     ST st = new ST(template, '$', '$');
@@ -5440,15 +5450,15 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void runJUnitTests() throws Exception {
-//    TestingUtilities.context = page.getWorkerContext();
-//    TestingUtilities.silent = true;
-//    TestingUtilities.path = page.getFolders().rootDir;
-//    ValidationEngineTests.inbuild = true;
-//    
+    TestingUtilities.context = page.getWorkerContext();
+    TestingUtilities.silent = true;
+    TestingUtilities.fixedpath = page.getFolders().rootDir;
+    ValidationEngineTests.inbuild = true;
+    
 //    runJUnitClass(InstanceValidatorTests.class);
 //    runJUnitClass(ValidationEngineTests.class);
-//    
-//    checkAllOk();
+    runJUnitClass(FluentPathTests.class);
+    checkAllOk();
   }
 
   private void runJUnitClass(Class<?> clzz) {

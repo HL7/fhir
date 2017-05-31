@@ -68,8 +68,6 @@ import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.DataElement;
-import org.hl7.fhir.r4.model.DataElement.DataElementStringency;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.r4.model.ElementDefinition.ConstraintSeverity;
@@ -160,32 +158,40 @@ public class ProfileGenerator {
     this.fpUsages = fpUsages;
     if (dataElements != null) {
       for (BundleEntryComponent be : dataElements.getEntry()) {
-        if (be.getResource() instanceof DataElement)
-          des.put(be.getResource().getId(), (DataElement) be.getResource());
+        if (be.getResource() instanceof StructureDefinition)
+          des.put(be.getResource().getId(), (StructureDefinition) be.getResource());
       }
     }
   }
 
-  private Map<String, DataElement> des = new HashMap<String, DataElement>();
+  private Map<String, StructureDefinition> des = new HashMap<String, StructureDefinition>();
   private static int extensionCounter;
   private static int profileCounter = 0;
   
-  private void generateElementDefinition(ElementDefinition ed, ElementDefinition parent) throws Exception {
+  private void generateElementDefinition(StructureDefinition source, ElementDefinition ed, ElementDefinition parent) throws Exception {
     String id = ed.getPath().replace("[x]", "X");
     if (id.length() > 64)
       id = id.substring(0, 64);
+
+    if (!id.contains("."))
+      return; // throw new Exception("Don't generate data element for root of resources or types");
+    if (!ed.hasType())
+      return; // throw new Exception("Don't generate data element for reference elements");
+    if (Utilities.existsInList(ed.getType().get(0).getCode(), "Element", "BackboneElement"))
+      return; // throw new Exception("Don't generate data element for elements that are not leaves");
     
-    DataElement de;
+    StructureDefinition de;
     if (des.containsKey(id)) {
       de = des.get(id);
       // do it again because we now have more information to generate with
-      de.getElement().clear();
+      de.getSnapshot().getElement().clear();
       de.getExtension().clear();
     } else {
-      de = new DataElement();
+      de = new StructureDefinition();
       de.setId(id);
       des.put(id, de);
-      de.setUrl("http://hl7.org/fhir/DataElement/"+de.getId());
+      de.setUrl("http://hl7.org/fhir/StructureDefinition/"+de.getId());
+      
       if (de.getId().contains("."))
         definitions.addNs(de.getUrl(), "Data Element "+ed.getPath(), definitions.getSrcFile(de.getId().substring(0, de.getId().indexOf(".")))+"-definitions.html#"+de.getId());
       if (dataElements != null)
@@ -198,26 +204,31 @@ public class ProfileGenerator {
     if (!de.hasMeta())
       de.setMeta(new Meta());
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
-    de.setName(ed.getSliceName());
+    de.setName(ed.getPath());
     de.setStatus(PublicationStatus.DRAFT);
     de.setExperimental(true);
-    de.setStringency(DataElementStringency.FULLYSPECIFIED);
-    // re-enable this when the extension is defined post DSTU-2
-//    if (parent != null) {
-//      Extension ext = de.addExtension();
-//      ext.setUrl("http://hl7.org/fhir/StructureDefinition/dataelement-relationship");
-//      Extension ext2 = ext.addExtension();
-//      ext2.setUrl("type");
-//      ext2.setValue(new CodeType("composed"));
-//      ext2 = ext.addExtension();
-//      ext2.setUrl("cardinality");
-//      ext2.setValue(new StringType("1"));
-//      ext2 = ext.addExtension();
-//      ext2.setUrl("target");
-//      ext2.setValue(new UriType("http://hl7.org/fhir/DataElement/"+parent.getPath()));
-//    }
-    de.addElement(ed);
+    de.setTitle(de.getName());
+    de.setDate(genDate.getTime());
+    de.setPublisher("HL7 FHIR Standard");
+    de.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
+    de.setDescription("Data Element for "+ed.getPath());
+    de.setPurpose("Data Elements are defined for each element to assist in questionnaire construction etc");
+    de.setFhirVersion(version);
+    de.setKind(StructureDefinitionKind.LOGICAL);
+    de.setAbstract(false);
+    de.setType(de.getName());
+    de.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
+    de.setDerivation(TypeDerivationRule.SPECIALIZATION);
+    de.getMapping().addAll(source.getMapping());
+    ElementDefinition ted = ed.copy();
+    de.getSnapshot().addElement(ted);
   }
+
+  private String tail(String path) {
+    int i = path.lastIndexOf(".");
+    return i < 0 ? path : path.substring(i + 1);
+  }
+
 
   public StructureDefinition generate(PrimitiveType type) throws Exception {
     StructureDefinition p = new StructureDefinition();
@@ -292,7 +303,6 @@ public class ProfileGenerator {
     ec1.setMin(0);
     ec1.setMax("*");
     addElementConstraints("Element", ec1);
-    generateElementDefinition(ec1, null);
 
     ElementDefinition ec2 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec2);
@@ -304,7 +314,7 @@ public class ProfileGenerator {
     ec2.setMax("1");
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("string"));
-    generateElementDefinition(ec2, ec1);
+    generateElementDefinition(p, ec2, ec1);
     ec2.makeBase("Element.id", 0, "1");
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
@@ -327,7 +337,7 @@ public class ProfileGenerator {
     if (!Utilities.noString(type.getRegex()))
       ToolingExtensions.addStringExtension(t, ToolingExtensions.EXT_REGEX, type.getRegex());
     addSpecificDetails(type, ec3);
-    generateElementDefinition(ec3, ec);
+    generateElementDefinition(p, ec3, ec);
 
     containedSlices.clear();
 
@@ -428,7 +438,7 @@ public class ProfileGenerator {
     ec1.setMin(0);
     ec1.setMin(0);
     ec1.setMax("*");
-    generateElementDefinition(ec1, null);
+    generateElementDefinition(p, ec1, null);
 
     ElementDefinition ec2 = new ElementDefinition();
     p.getSnapshot().getElement().add(ec2);
@@ -440,7 +450,7 @@ public class ProfileGenerator {
     ec2.setMax("1");
     ec2.setShort("xml:id (or equivalent in JSON)");
     ec2.getType().add(new TypeRefComponent().setCode("string"));
-    generateElementDefinition(ec2, ec1);
+    generateElementDefinition(p, ec2, ec1);
     ec2.makeBase("Element.id", 0, "1");
 
     ElementDefinition ex = makeExtensionSlice("extension", p, p.getSnapshot(), null, "xhtml");
@@ -461,7 +471,7 @@ public class ProfileGenerator {
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, "string");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, "xhtml:div");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, "string");
-    generateElementDefinition(ec3, ec);
+    generateElementDefinition(p, ec3, ec);
 
     containedSlices.clear();
 
@@ -640,8 +650,8 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType, true, "Element", b);
     for (ElementDefinition ed : p.getSnapshot().getElement())
-      if (!ed.hasBase())
-        generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
+      if (!ed.hasBase() && ed.getPath().contains("."))
+        generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
 
     containedSlices.clear();
 
@@ -843,7 +853,7 @@ public class ProfileGenerator {
     defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true, "BackboneElement", r.getRoot().typeCode());
     for (ElementDefinition ed : p.getSnapshot().getElement())
       if (!ed.hasBase() && !logical)
-        generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
+        generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
 
     if (!logical) {
       List<String> names = new ArrayList<String>();

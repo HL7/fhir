@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Apr 22, 2017 14:48+1000 for FHIR v3.1.0
+// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -216,6 +216,130 @@ public class Communication extends DomainResource {
       return "?";
       }
     public String toSystem(CommunicationStatus code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum CommunicationPriority {
+        /**
+         * The request has normal priority
+         */
+        ROUTINE, 
+        /**
+         * The request should be actioned promptly - higher priority than routine
+         */
+        URGENT, 
+        /**
+         * The request should be actioned as soon as possible - higher priority than urgent
+         */
+        ASAP, 
+        /**
+         * The request should be actioned immediately - highest possible priority.  E.g. an emergency
+         */
+        STAT, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static CommunicationPriority fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("routine".equals(codeString))
+          return ROUTINE;
+        if ("urgent".equals(codeString))
+          return URGENT;
+        if ("asap".equals(codeString))
+          return ASAP;
+        if ("stat".equals(codeString))
+          return STAT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CommunicationPriority code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ROUTINE: return "routine";
+            case URGENT: return "urgent";
+            case ASAP: return "asap";
+            case STAT: return "stat";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ROUTINE: return "http://hl7.org/fhir/request-priority";
+            case URGENT: return "http://hl7.org/fhir/request-priority";
+            case ASAP: return "http://hl7.org/fhir/request-priority";
+            case STAT: return "http://hl7.org/fhir/request-priority";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ROUTINE: return "The request has normal priority";
+            case URGENT: return "The request should be actioned promptly - higher priority than routine";
+            case ASAP: return "The request should be actioned as soon as possible - higher priority than urgent";
+            case STAT: return "The request should be actioned immediately - highest possible priority.  E.g. an emergency";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ROUTINE: return "Routine";
+            case URGENT: return "Urgent";
+            case ASAP: return "ASAP";
+            case STAT: return "STAT";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class CommunicationPriorityEnumFactory implements EnumFactory<CommunicationPriority> {
+    public CommunicationPriority fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("routine".equals(codeString))
+          return CommunicationPriority.ROUTINE;
+        if ("urgent".equals(codeString))
+          return CommunicationPriority.URGENT;
+        if ("asap".equals(codeString))
+          return CommunicationPriority.ASAP;
+        if ("stat".equals(codeString))
+          return CommunicationPriority.STAT;
+        throw new IllegalArgumentException("Unknown CommunicationPriority code '"+codeString+"'");
+        }
+        public Enumeration<CommunicationPriority> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<CommunicationPriority>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("routine".equals(codeString))
+          return new Enumeration<CommunicationPriority>(this, CommunicationPriority.ROUTINE);
+        if ("urgent".equals(codeString))
+          return new Enumeration<CommunicationPriority>(this, CommunicationPriority.URGENT);
+        if ("asap".equals(codeString))
+          return new Enumeration<CommunicationPriority>(this, CommunicationPriority.ASAP);
+        if ("stat".equals(codeString))
+          return new Enumeration<CommunicationPriority>(this, CommunicationPriority.STAT);
+        throw new FHIRException("Unknown CommunicationPriority code '"+codeString+"'");
+        }
+    public String toCode(CommunicationPriority code) {
+      if (code == CommunicationPriority.ROUTINE)
+        return "routine";
+      if (code == CommunicationPriority.URGENT)
+        return "urgent";
+      if (code == CommunicationPriority.ASAP)
+        return "asap";
+      if (code == CommunicationPriority.STAT)
+        return "stat";
+      return "?";
+      }
+    public String toSystem(CommunicationPriority code) {
       return code.getSystem();
       }
     }
@@ -457,9 +581,21 @@ public class Communication extends DomainResource {
 
 
     /**
+     * Prior communication that this communication is in response to.
+     */
+    @Child(name = "inResponseTo", type = {Communication.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Reply to", formalDefinition="Prior communication that this communication is in response to." )
+    protected List<Reference> inResponseTo;
+    /**
+     * The actual objects that are the target of the reference (Prior communication that this communication is in response to.)
+     */
+    protected List<Communication> inResponseToTarget;
+
+
+    /**
      * The status of the transmission.
      */
-    @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="preparation | in-progress | suspended | aborted | completed | entered-in-error", formalDefinition="The status of the transmission." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-status")
     protected Enumeration<CommunicationStatus> status;
@@ -467,14 +603,14 @@ public class Communication extends DomainResource {
     /**
      * If true, indicates that the described communication event did not actually occur.
      */
-    @Child(name = "notDone", type = {BooleanType.class}, order=5, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "notDone", type = {BooleanType.class}, order=6, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="Communication did not occur", formalDefinition="If true, indicates that the described communication event did not actually occur." )
     protected BooleanType notDone;
 
     /**
      * Describes why the communication event did not occur in coded and/or textual form.
      */
-    @Child(name = "notDoneReason", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "notDoneReason", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Why communication did not occur", formalDefinition="Describes why the communication event did not occur in coded and/or textual form." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/communication-not-done-reason")
     protected CodeableConcept notDoneReason;
@@ -482,15 +618,23 @@ public class Communication extends DomainResource {
     /**
      * The type of message conveyed such as alert, notification, reminder, instruction, etc.
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "category", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Message category", formalDefinition="The type of message conveyed such as alert, notification, reminder, instruction, etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/communication-category")
     protected List<CodeableConcept> category;
 
     /**
+     * Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+     */
+    @Child(name = "priority", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Message urgency", formalDefinition="Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
+    protected Enumeration<CommunicationPriority> priority;
+
+    /**
      * A channel that was used for this communication (e.g. email, fax).
      */
-    @Child(name = "medium", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "medium", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A channel of communication", formalDefinition="A channel that was used for this communication (e.g. email, fax)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ParticipationMode")
     protected List<CodeableConcept> medium;
@@ -498,7 +642,7 @@ public class Communication extends DomainResource {
     /**
      * The patient or group that was the focus of this communication.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Focus of message", formalDefinition="The patient or group that was the focus of this communication." )
     protected Reference subject;
 
@@ -508,13 +652,13 @@ public class Communication extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
+     * The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
      */
-    @Child(name = "recipient", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Group.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Message recipient", formalDefinition="The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time)." )
+    @Child(name = "recipient", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Group.class, CareTeam.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Message recipient", formalDefinition="The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time)." )
     protected List<Reference> recipient;
     /**
-     * The actual objects that are the target of the reference (The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
+     * The actual objects that are the target of the reference (The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
      */
     protected List<Resource> recipientTarget;
 
@@ -522,7 +666,7 @@ public class Communication extends DomainResource {
     /**
      * The resources which were responsible for or related to producing this communication.
      */
-    @Child(name = "topic", type = {Reference.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "topic", type = {Reference.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Focal resources", formalDefinition="The resources which were responsible for or related to producing this communication." )
     protected List<Reference> topic;
     /**
@@ -534,7 +678,7 @@ public class Communication extends DomainResource {
     /**
      * The encounter within which the communication was sent.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter or episode leading to message", formalDefinition="The encounter within which the communication was sent." )
     protected Reference context;
 
@@ -546,21 +690,21 @@ public class Communication extends DomainResource {
     /**
      * The time when this communication was sent.
      */
-    @Child(name = "sent", type = {DateTimeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "sent", type = {DateTimeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When sent", formalDefinition="The time when this communication was sent." )
     protected DateTimeType sent;
 
     /**
      * The time when this communication arrived at the destination.
      */
-    @Child(name = "received", type = {DateTimeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "received", type = {DateTimeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When received", formalDefinition="The time when this communication arrived at the destination." )
     protected DateTimeType received;
 
     /**
      * The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
      */
-    @Child(name = "sender", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "sender", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Message sender", formalDefinition="The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication." )
     protected Reference sender;
 
@@ -572,7 +716,7 @@ public class Communication extends DomainResource {
     /**
      * The reason or justification for the communication.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Indication for message", formalDefinition="The reason or justification for the communication." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
     protected List<CodeableConcept> reasonCode;
@@ -580,7 +724,7 @@ public class Communication extends DomainResource {
     /**
      * Indicates another resource whose existence justifies this communication.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was communication done?", formalDefinition="Indicates another resource whose existence justifies this communication." )
     protected List<Reference> reasonReference;
     /**
@@ -592,18 +736,18 @@ public class Communication extends DomainResource {
     /**
      * Text, attachment(s), or resource(s) that was communicated to the recipient.
      */
-    @Child(name = "payload", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "payload", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Message payload", formalDefinition="Text, attachment(s), or resource(s) that was communicated to the recipient." )
     protected List<CommunicationPayloadComponent> payload;
 
     /**
      * Additional notes or commentary about the communication by the sender, receiver or other interested parties.
      */
-    @Child(name = "note", type = {Annotation.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the communication", formalDefinition="Additional notes or commentary about the communication by the sender, receiver or other interested parties." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -1362735590L;
+    private static final long serialVersionUID = 1533711317L;
 
   /**
    * Constructor
@@ -863,6 +1007,81 @@ public class Communication extends DomainResource {
     }
 
     /**
+     * @return {@link #inResponseTo} (Prior communication that this communication is in response to.)
+     */
+    public List<Reference> getInResponseTo() { 
+      if (this.inResponseTo == null)
+        this.inResponseTo = new ArrayList<Reference>();
+      return this.inResponseTo;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Communication setInResponseTo(List<Reference> theInResponseTo) { 
+      this.inResponseTo = theInResponseTo;
+      return this;
+    }
+
+    public boolean hasInResponseTo() { 
+      if (this.inResponseTo == null)
+        return false;
+      for (Reference item : this.inResponseTo)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addInResponseTo() { //3
+      Reference t = new Reference();
+      if (this.inResponseTo == null)
+        this.inResponseTo = new ArrayList<Reference>();
+      this.inResponseTo.add(t);
+      return t;
+    }
+
+    public Communication addInResponseTo(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.inResponseTo == null)
+        this.inResponseTo = new ArrayList<Reference>();
+      this.inResponseTo.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #inResponseTo}, creating it if it does not already exist
+     */
+    public Reference getInResponseToFirstRep() { 
+      if (getInResponseTo().isEmpty()) {
+        addInResponseTo();
+      }
+      return getInResponseTo().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Communication> getInResponseToTarget() { 
+      if (this.inResponseToTarget == null)
+        this.inResponseToTarget = new ArrayList<Communication>();
+      return this.inResponseToTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Communication addInResponseToTarget() { 
+      Communication r = new Communication();
+      if (this.inResponseToTarget == null)
+        this.inResponseToTarget = new ArrayList<Communication>();
+      this.inResponseToTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #status} (The status of the transmission.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<CommunicationStatus> getStatusElement() { 
@@ -1030,6 +1249,55 @@ public class Communication extends DomainResource {
     }
 
     /**
+     * @return {@link #priority} (Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
+     */
+    public Enumeration<CommunicationPriority> getPriorityElement() { 
+      if (this.priority == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Communication.priority");
+        else if (Configuration.doAutoCreate())
+          this.priority = new Enumeration<CommunicationPriority>(new CommunicationPriorityEnumFactory()); // bb
+      return this.priority;
+    }
+
+    public boolean hasPriorityElement() { 
+      return this.priority != null && !this.priority.isEmpty();
+    }
+
+    public boolean hasPriority() { 
+      return this.priority != null && !this.priority.isEmpty();
+    }
+
+    /**
+     * @param value {@link #priority} (Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
+     */
+    public Communication setPriorityElement(Enumeration<CommunicationPriority> value) { 
+      this.priority = value;
+      return this;
+    }
+
+    /**
+     * @return Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+     */
+    public CommunicationPriority getPriority() { 
+      return this.priority == null ? null : this.priority.getValue();
+    }
+
+    /**
+     * @param value Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.
+     */
+    public Communication setPriority(CommunicationPriority value) { 
+      if (value == null)
+        this.priority = null;
+      else {
+        if (this.priority == null)
+          this.priority = new Enumeration<CommunicationPriority>(new CommunicationPriorityEnumFactory());
+        this.priority.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #medium} (A channel that was used for this communication (e.g. email, fax).)
      */
     public List<CodeableConcept> getMedium() { 
@@ -1122,7 +1390,7 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #recipient} (The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
+     * @return {@link #recipient} (The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).)
      */
     public List<Reference> getRecipient() { 
       if (this.recipient == null)
@@ -1651,13 +1919,15 @@ public class Communication extends DomainResource {
         childrenList.add(new Property("definition", "Reference(PlanDefinition|ActivityDefinition)", "A protocol, guideline, or other definition that was adhered to in whole or in part by this communication event.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("basedOn", "Reference(Any)", "An order, proposal or plan fulfilled in whole or in part by this Communication.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("partOf", "Reference(Any)", "Part of this action.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        childrenList.add(new Property("inResponseTo", "Reference(Communication)", "Prior communication that this communication is in response to.", 0, java.lang.Integer.MAX_VALUE, inResponseTo));
         childrenList.add(new Property("status", "code", "The status of the transmission.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("notDone", "boolean", "If true, indicates that the described communication event did not actually occur.", 0, java.lang.Integer.MAX_VALUE, notDone));
         childrenList.add(new Property("notDoneReason", "CodeableConcept", "Describes why the communication event did not occur in coded and/or textual form.", 0, java.lang.Integer.MAX_VALUE, notDoneReason));
         childrenList.add(new Property("category", "CodeableConcept", "The type of message conveyed such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("priority", "code", "Characterizes how quickly the planned or in progress communication must be addressed. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("medium", "CodeableConcept", "A channel that was used for this communication (e.g. email, fax).", 0, java.lang.Integer.MAX_VALUE, medium));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient or group that was the focus of this communication.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)", "The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).", 0, java.lang.Integer.MAX_VALUE, recipient));
+        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)", "The entity (e.g. person, organization, clinical information system, care team or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("topic", "Reference(Any)", "The resources which were responsible for or related to producing this communication.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter within which the communication was sent.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("sent", "dateTime", "The time when this communication was sent.", 0, java.lang.Integer.MAX_VALUE, sent));
@@ -1676,10 +1946,12 @@ public class Communication extends DomainResource {
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
+        case 1932956065: /*inResponseTo*/ return this.inResponseTo == null ? new Base[0] : this.inResponseTo.toArray(new Base[this.inResponseTo.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CommunicationStatus>
         case 2128257269: /*notDone*/ return this.notDone == null ? new Base[0] : new Base[] {this.notDone}; // BooleanType
         case -1973169255: /*notDoneReason*/ return this.notDoneReason == null ? new Base[0] : new Base[] {this.notDoneReason}; // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<CommunicationPriority>
         case -1078030475: /*medium*/ return this.medium == null ? new Base[0] : this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
@@ -1712,6 +1984,9 @@ public class Communication extends DomainResource {
         case -995410646: // partOf
           this.getPartOf().add(castToReference(value)); // Reference
           return value;
+        case 1932956065: // inResponseTo
+          this.getInResponseTo().add(castToReference(value)); // Reference
+          return value;
         case -892481550: // status
           value = new CommunicationStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<CommunicationStatus>
@@ -1724,6 +1999,10 @@ public class Communication extends DomainResource {
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case -1165461084: // priority
+          value = new CommunicationPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<CommunicationPriority>
           return value;
         case -1078030475: // medium
           this.getMedium().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1776,6 +2055,8 @@ public class Communication extends DomainResource {
           this.getBasedOn().add(castToReference(value));
         } else if (name.equals("partOf")) {
           this.getPartOf().add(castToReference(value));
+        } else if (name.equals("inResponseTo")) {
+          this.getInResponseTo().add(castToReference(value));
         } else if (name.equals("status")) {
           value = new CommunicationStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<CommunicationStatus>
@@ -1785,6 +2066,9 @@ public class Communication extends DomainResource {
           this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
+        } else if (name.equals("priority")) {
+          value = new CommunicationPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<CommunicationPriority>
         } else if (name.equals("medium")) {
           this.getMedium().add(castToCodeableConcept(value));
         } else if (name.equals("subject")) {
@@ -1821,10 +2105,12 @@ public class Communication extends DomainResource {
         case -1014418093:  return addDefinition(); 
         case -332612366:  return addBasedOn(); 
         case -995410646:  return addPartOf(); 
+        case 1932956065:  return addInResponseTo(); 
         case -892481550:  return getStatusElement();
         case 2128257269:  return getNotDoneElement();
         case -1973169255:  return getNotDoneReason(); 
         case 50511102:  return addCategory(); 
+        case -1165461084:  return getPriorityElement();
         case -1078030475:  return addMedium(); 
         case -1867885268:  return getSubject(); 
         case 820081177:  return addRecipient(); 
@@ -1849,10 +2135,12 @@ public class Communication extends DomainResource {
         case -1014418093: /*definition*/ return new String[] {"Reference"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -995410646: /*partOf*/ return new String[] {"Reference"};
+        case 1932956065: /*inResponseTo*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 2128257269: /*notDone*/ return new String[] {"boolean"};
         case -1973169255: /*notDoneReason*/ return new String[] {"CodeableConcept"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case -1165461084: /*priority*/ return new String[] {"code"};
         case -1078030475: /*medium*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 820081177: /*recipient*/ return new String[] {"Reference"};
@@ -1884,6 +2172,9 @@ public class Communication extends DomainResource {
         else if (name.equals("partOf")) {
           return addPartOf();
         }
+        else if (name.equals("inResponseTo")) {
+          return addInResponseTo();
+        }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type Communication.status");
         }
@@ -1896,6 +2187,9 @@ public class Communication extends DomainResource {
         }
         else if (name.equals("category")) {
           return addCategory();
+        }
+        else if (name.equals("priority")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Communication.priority");
         }
         else if (name.equals("medium")) {
           return addMedium();
@@ -1968,6 +2262,11 @@ public class Communication extends DomainResource {
           for (Reference i : partOf)
             dst.partOf.add(i.copy());
         };
+        if (inResponseTo != null) {
+          dst.inResponseTo = new ArrayList<Reference>();
+          for (Reference i : inResponseTo)
+            dst.inResponseTo.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
         dst.notDone = notDone == null ? null : notDone.copy();
         dst.notDoneReason = notDoneReason == null ? null : notDoneReason.copy();
@@ -1976,6 +2275,7 @@ public class Communication extends DomainResource {
           for (CodeableConcept i : category)
             dst.category.add(i.copy());
         };
+        dst.priority = priority == null ? null : priority.copy();
         if (medium != null) {
           dst.medium = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : medium)
@@ -2031,13 +2331,13 @@ public class Communication extends DomainResource {
           return false;
         Communication o = (Communication) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
-           && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true)
-           && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true) && compareDeep(category, o.category, true)
-           && compareDeep(medium, o.medium, true) && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true)
-           && compareDeep(topic, o.topic, true) && compareDeep(context, o.context, true) && compareDeep(sent, o.sent, true)
-           && compareDeep(received, o.received, true) && compareDeep(sender, o.sender, true) && compareDeep(reasonCode, o.reasonCode, true)
-           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(payload, o.payload, true)
-           && compareDeep(note, o.note, true);
+           && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true) && compareDeep(inResponseTo, o.inResponseTo, true)
+           && compareDeep(status, o.status, true) && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true)
+           && compareDeep(category, o.category, true) && compareDeep(priority, o.priority, true) && compareDeep(medium, o.medium, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(topic, o.topic, true)
+           && compareDeep(context, o.context, true) && compareDeep(sent, o.sent, true) && compareDeep(received, o.received, true)
+           && compareDeep(sender, o.sender, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(payload, o.payload, true) && compareDeep(note, o.note, true);
       }
 
       @Override
@@ -2047,15 +2347,15 @@ public class Communication extends DomainResource {
         if (!(other instanceof Communication))
           return false;
         Communication o = (Communication) other;
-        return compareValues(status, o.status, true) && compareValues(notDone, o.notDone, true) && compareValues(sent, o.sent, true)
-           && compareValues(received, o.received, true);
+        return compareValues(status, o.status, true) && compareValues(notDone, o.notDone, true) && compareValues(priority, o.priority, true)
+           && compareValues(sent, o.sent, true) && compareValues(received, o.received, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , partOf, status, notDone, notDoneReason, category, medium, subject, recipient
-          , topic, context, sent, received, sender, reasonCode, reasonReference, payload
-          , note);
+          , partOf, inResponseTo, status, notDone, notDoneReason, category, priority, medium
+          , subject, recipient, topic, context, sent, received, sender, reasonCode, reasonReference
+          , payload, note);
       }
 
   @Override
@@ -2307,7 +2607,7 @@ public class Communication extends DomainResource {
    * Path: <b>Communication.recipient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="recipient", path="Communication.recipient", description="Message recipient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="recipient", path="Communication.recipient", description="Message recipient", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={CareTeam.class, Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_RECIPIENT = "recipient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>recipient</b>
