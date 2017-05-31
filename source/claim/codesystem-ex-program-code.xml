@@ -16,8 +16,8 @@
   </concept>
   <concept>
     <code value="hd"/>
-    <display value="Heamodialisis"/>
-    <definition value="Heamodialisis Program."/>
+    <display value="Hemodialysis"/>
+    <definition value="Hemodialysis Program."/>
   </concept>
   <concept>
     <code value="auscr"/>

@@ -17,7 +17,7 @@
   <concept>
     <code value="sym"/>
     <display value="Start of Symptoms"/>
-    <definition value="Date when symptoms were first noticed.."/>
+    <definition value="Date when symptoms were first noticed."/>
   </concept>
   <concept>
     <code value="lmn"/>

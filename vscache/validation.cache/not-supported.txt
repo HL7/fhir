@@ -25,6 +25,7 @@ http://national.org/form
 http://acme.org/tests
 http://www.nlm.nih.gov/research/umls/rxnorm
 https://meshb.nlm.nih.gov
+https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html
 http://ncforms.org/formid
 http:/acme.ped/apgarheartrate
 http://acme.org/messagetypes
@@ -42,6 +43,7 @@ http://hl7.org/fhir/claim-careteamrole
 http://org.mdhhs.fhir.consent-signer-type
 http://snomed.info.sct
 https://github.com/common-workflow-language/workflows
+https://www.cms.gov/codes/billtype
 http://nucc.org/provider-taxonomy
 http://www.ihe.net/xds/connectathon/practiceSettingCodes
 http://hl7.org/fhir/contract-term-type
@@ -87,6 +89,7 @@ http://ihe.net/connectathon/classCodes
 http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
 http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/
 http:/acme.ec/gcsverbal
+https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf
 urn:iso:std:iso:3166
 http://example.com
 http://tools.ietf.org/html/bcp47

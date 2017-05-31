@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+	<id value="MED-00050"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of a CMS 1500 Claim</div>
+	</text>
+
+	<contained>
+		<Patient>
+			<id value="patient-1"/>
+			<name>
+				<use value="official"/>
+				<family value="Ashcraft"/>
+				<given value="Alvina"/>
+			</name>
+			<gender value="female"/>
+			<birthDate value="1954-06-11"/>
+			<address>
+				<use value="home"/>
+				<line value="123 Main Street"/>
+				<city value="Portland"/>
+				<state value="OR"/>
+				<postalCode value="97125"/>
+				<country value="USA"/>
+			</address>
+		</Patient>
+	</contained>
+
+	<contained>
+		<Coverage>
+			<id value="coverage-1"/>
+
+			<identifier>
+				<system value="http://benefitsinc.com/certificate"/>
+				<value value="10138556"/>
+			</identifier>
+
+			<status value="active"/>
+
+			<type>
+				<coding>
+					<system value="http://hl7.org/fhir/v3/ActCode"/>
+					<code value="HIP"/>
+					<display value="health insurance plan policy"/>
+				</coding>
+			</type>
+
+			<subscriber>
+				<reference value="#patient-1"/>
+			</subscriber>
+
+			<beneficiary>
+				<reference value="#patient-1"/>
+			</beneficiary>
+
+			<relationship>
+				<coding>
+					<code value="self"/>
+				</coding>
+			</relationship>
+
+			<period>
+				<start value="2015-01-01T00:00:00-07:00"/>
+				<end value="2016-01-01T00:00:00-07:00"/>
+			</period>
+			
+			<payor>
+				<identifier>
+					<system value="http://www.bindb.com/bin"/>
+					<value value="123456"/>	
+				</identifier>
+				<display value="Humana Inc."/>
+			</payor>
+
+			<grouping>
+				<group value="80902206"/>
+			</grouping> 
+
+		</Coverage>
+	</contained>
+
+	<identifier>
+		<system value="http://CedarArmsMedicalCenter.com/claim"/>
+		<value value="MED-00050"/>
+	</identifier>
+
+	<status value = "active"/>
+
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/ex-claimtype"/>
+			<code value="institutional"/>
+		</coding>
+	</type>
+
+	<subType>
+		<coding>
+			<system value="https://www.cms.gov/codes/billtype"/>
+			<code value="831"/>
+			<display value="Hospital Outpatient Surgery performed in an Ambulatory ​Surgical Center"/>
+		</coding>
+	</subType>
+
+	<use value="complete"/>
+
+	<patient>
+		<reference value="#patient-1"/>
+	</patient>
+
+	<created value="2015-10-16T00:00:00-07:00"/>
+
+	<insurer>
+		<identifier>
+			<system value="http://www.bindb.com/bin"/>
+			<value value="123456"/>
+		</identifier>
+		<display value="Humana Inc."/>
+	</insurer>
+
+	<organization>
+		<reference value="Organization/1"/>
+	</organization>
+
+	<priority>
+		<coding>
+			<code value="normal"/>
+		</coding>
+	</priority>
+
+	<payee>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/payeetype"/>
+				<code value="provider"/>
+			</coding>
+		</type>
+		<party>
+			<reference value="Organization/1"/>
+		</party>
+	</payee>
+
+	<careTeam>
+		<sequence value="1"/>
+		<provider>
+			<reference value="Practitioner/example"/>
+		</provider>
+	</careTeam>
+
+	<information>
+		<sequence value="1"/>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<code value="discharge"/>
+			</coding>
+		</category>
+		<code>
+			<coding>
+				<system value="https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf"/>
+				<code value="01"/>
+				<display value="Discharge to Home or Self Care"/>
+			</coding>
+		</code>
+	</information>
+
+	<diagnosis>
+		<sequence value="1"/>
+		<diagnosisCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/sid/icd-10"/>
+				<code value="M96.1"/>
+				<display value="Postlaminectomy syndrome"/>
+			</coding>
+		</diagnosisCodeableConcept>
+	</diagnosis>
+
+	<diagnosis>
+		<sequence value="2"/>
+		<diagnosisCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/sid/icd-10"/>
+				<code value="G89.4"/>
+				<display value="Chronic pain syndrome"/>
+			</coding>
+		</diagnosisCodeableConcept>
+	</diagnosis>
+
+	<diagnosis>
+		<sequence value="3"/>
+		<diagnosisCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/sid/icd-10"/>
+				<code value="M53.88"/>
+				<display value="Other specified dorsopathies, sacral and sacrococcygeal region"/>
+			</coding>
+		</diagnosisCodeableConcept>
+	</diagnosis>
+
+	<diagnosis>
+		<sequence value="4"/>
+		<diagnosisCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/sid/icd-10"/>
+				<code value="M47.816"/>
+				<display value="Spondylosis without myelopathy or radiculopathy, lumbar region"/>
+			</coding>
+		</diagnosisCodeableConcept>
+	</diagnosis>
+
+	<insurance>
+		<sequence value="1"/>
+		<focal value="true"/>
+		<coverage>
+			<reference value="#coverage-1"/>
+		</coverage>
+	</insurance>
+
+	<hospitalization>
+		<start value="2015-10-01T00:00:00-07:00"/>
+		<end value="2015-10-05T00:00:00-07:00"/>
+	</hospitalization>
+
+	<item>
+		<sequence value="1"/>
+		<careTeamLinkId value="1"/>
+		<diagnosisLinkId value="2"/>
+		<diagnosisLinkId value="4"/>
+		<informationLinkId value="1"/>
+		<service>
+			<coding>
+				<system value="http://www.ama-assn.org/go/cpt"/>
+				<code value="62264"/>
+				<display value="Surgical Procedures on the Spine and Spinal Cord"/>
+			</coding>
+		</service>
+		<servicedDate value="2015-10-13"/>
+		<locationCodeableConcept>
+			<coding>
+				<system value="https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html"/>
+				<code value="24"/>
+				<display value="Ambulatory Surgical Center"/>
+			</coding>
+		</locationCodeableConcept>
+		<unitPrice>
+			<value value="12500.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+
+		<net>
+			<value value="12500.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+	</item>
+
+	<total>
+		<value value="12500.00"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/> 
+	</total> 
+
+</Claim>

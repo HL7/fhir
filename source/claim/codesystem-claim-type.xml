@@ -27,7 +27,7 @@
   <concept>
     <code value="professional"/>
     <display value="Professional"/>
-    <definition value="Typically outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speach Pathology, rehabilitative, consulting."/>
+    <definition value="Typically outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speech Pathology, rehabilitative, consulting."/>
   </concept>
   <concept>
     <code value="vision"/>
