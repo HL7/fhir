@@ -455,4 +455,10 @@
   Description = Medication Manufacturer
   Filename = organization-example-mmanu.xml
 
+ -- Row 12 -----------------------------------
+  Name = Government Organization
+  Identity = 3
+  Description = Government Department of Health
+  Filename = organization-example-mihealth.xml
+
 === Sheet Examples =====================================
