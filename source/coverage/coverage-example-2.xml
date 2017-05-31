@@ -63,7 +63,7 @@
 	<network value="5"/>
 
 	<contract>
-		<reference value="Contract/563818"/>
+		<reference value="Contract/INS-101"/>
 	</contract>
 
 </Coverage>

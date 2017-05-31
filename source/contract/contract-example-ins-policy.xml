@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
+   <id value="INS-101"/>
+
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+         <p>Plan: Your Choice Split Copay (Non-Grandfathered)</p>
+         <p>Certificate Form Number: YCSCWLN (01-2017)</p>
+      </div>
+   </text>
+
+   <identifier>
+      <system value="http://xyz-insurance.com/forms"/>
+      <value value="YCSCWLN(01-2017)"/>
+   </identifier>
+   
+   <applies>
+      <start value="2017-01-01"/>
+   </applies>
+   
+   <type>
+      <coding>
+         <system value="http://hl7.org/fhir/contracttypecodes"/>
+         <code value="healthinsurance"/>
+         <display value="Health Insurance"/>
+      </coding>
+   </type>
+   
+   <term>
+      <offer>
+         <text value="The benefits, limitations, exclusions and other coverage provisions in this booklet are subject to the terms of our contract with the Group. This booklet is a part of that contract, which is on file in the Group's office."/>
+      </offer>
+      <asset>
+         <class>
+            <system value="urn:ietf:rfc:3986"/>
+            <code value="RicardianContract"/>
+         </class>
+         <code>
+            <display value="sample"/>
+         </code>
+         <period>
+            <start value="2017-06-01"/>
+         </period>
+         <valuedItem>
+            <entityCodeableConcept>
+               <text value="Ford Bobcat"/>
+            </entityCodeableConcept>
+            <identifier>
+               <system value="http://somewhere.motor-vehicle.com/vin"/>
+               <value value="XXSVT34-7665t952236"/>
+            </identifier>
+            <effectiveTime value="1995"/>
+            <quantity>
+               <value value="1"/>
+            </quantity>
+            <unitPrice>
+               <value value="200.00"/>
+               <system value="urn:iso:std:iso:4217"/>
+               <code value="CAD"/>
+            </unitPrice>
+            <factor value="1.0"/>
+            <points value="1.0"/>
+            <net>
+               <value value="200.00"/>
+               <system value="urn:iso:std:iso:4217"/>
+               <code value="CAD"/>
+            </net>
+         </valuedItem>
+      </asset>
+      <group>
+         <offer>
+            <text value="Eligible Providers"/>
+         </offer>
+      </group>
+      <group>
+         <offer>
+            <text value="Responsibility for Payment"/>
+         </offer>
+      </group>
+      <group>
+         <offer>
+            <text value="List of Benefits"/>
+         </offer>
+         <group>
+            <offer>
+               <text value="Copays"/>
+            </offer>
+            <group>
+               <offer>
+                  <text value="Emergency Room Copay"/>
+               </offer>
+            </group>
+            <group>
+               <offer>
+                  <text value="Professional Visit Copay"/>
+               </offer>
+            </group>
+         </group>
+         <group>
+            <offer>
+               <text value="Calendar Year Deductible"/>
+            </offer>
+         </group>
+         <group>
+            <offer>
+               <text value="Out-Of-Pocket Maximum"/>
+            </offer>
+         </group>
+         <group>
+            <offer>
+               <text value="Medical Services"/>
+            </offer>
+            <group>
+               <offer>
+                  <text value="Ambulance Services"/>
+               </offer>
+            </group>
+            <group>
+               <offer>
+                  <text value="Dental Services"/>
+               </offer>
+            </group>
+            <group>
+               <offer>
+                  <text value="Diagnostic Services"/>
+               </offer>
+            </group>
+            <group>
+               <offer>
+                  <text value="Emergency Room Services"/>
+               </offer>
+            </group>
+            <group>
+               <offer>
+                  <text value="Hospital Inpatient Care"/>
+               </offer>
+            </group>
+         </group>
+      </group>
+   </term>
+</Contract>
