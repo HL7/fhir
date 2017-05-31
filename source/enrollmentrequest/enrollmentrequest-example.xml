@@ -15,13 +15,21 @@
  
   <created value="2014-08-16"/>
 
+  <insurer>
+    <reference value="Organization/2"/>
+  </insurer>
+  
+  <provider>
+    <reference value="Practitioner/f201"/>
+  </provider>
+
   <organization>
     <reference value="Organization/1"/>
   </organization>
-
-  <subject>
+  
+  <candidate>
     <reference value="Patient/1"/>
-  </subject>
+  </candidate>
   
   <coverage>
      <reference value="Coverage/9876B1"/>

@@ -1,4 +1,6 @@
-<EnrollmentResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+<EnrollmentResponse xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/enrollmentresponse.xsd">
  <id value="ER2500"/>
 
  <text>
@@ -31,9 +33,13 @@
   <organization>
     <reference value="Organization/2"/>
   </organization>
+  
+  <requestProvider>
+    <reference value="Practitioner/f201"/>
+  </requestProvider>
 
-  <!--requestOrganizationReference> PK don't know why the tooling rejects this.
+  <requestOrganization>
     <reference value="Organization/1"/>
-  </requestOrganizationReference-->
+  </requestOrganization>
  
 </EnrollmentResponse>

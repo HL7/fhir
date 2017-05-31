@@ -99,10 +99,10 @@
   Element = !Patient Information
 
  -- Row 12 -----------------------------------
-  Element = EnrollmentRequest.subject
+  Element = EnrollmentRequest.candidate
   Card. = 0..1
   Type = Reference(Patient)
-  Short Name = The subject of the Products and Services
+  Short Name = The subject to be enrolled
   Definition = Patient Resource
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
   w5 = who.actor
@@ -142,7 +142,7 @@
   Name = subject
   Type = reference
   Description = The party to be enrolled
-  Path = EnrollmentRequest.subject
+  Path = EnrollmentRequest.candidate
 
  -- Row 5 -----------------------------------
   Name = !patient-identifier
@@ -154,7 +154,7 @@
   Name = patient
   Type = reference
   Description = The party to be enrolled
-  Path = EnrollmentRequest.subject
+  Path = EnrollmentRequest.candidate
 
  -- Row 7 -----------------------------------
   Name = status
