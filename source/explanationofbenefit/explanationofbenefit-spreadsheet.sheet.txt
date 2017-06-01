@@ -2159,4 +2159,10 @@
   Description = General Person Primary Coverage EOB Example
   Filename = explanationofbenefit-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = Error
+  Identity = EB3501
+  Description = EOB for an Claim that had errors
+  Filename = explanationofbenefit-example-2.xml
+
 === Sheet Examples =====================================
