@@ -113,18 +113,21 @@ done by using an array type. Note that:
  <li>The name of the array is singular - the same as the XML element</li>
  <li>An item that may repeat is represented as an array even in the case that it doesn't repeat so that the process of parsing the resource is the same either way</li>
  </ul>
-<pre class="xml">
- &lt;<b>coding</b>&gt;
-   &lt;<b>system</b> value="http://snomed.info/sct"/&gt;
-   &lt;<b>code</b> value="104934005"/&gt;
- &lt;/<b>coding</b>/&gt;
- &lt;<b>coding</b>&gt;
-   &lt;<b>system</b> value="http://loinc.org"/&gt;
-   &lt;<b>code</b> value="2947-0"/&gt;
- &lt;/<b>coding</b>/&gt;
+<pre class="xml" fragment="CodeableConcept">
+ &lt;code&gt;
+   &lt;coding&gt;
+     &lt;system value="http://snomed.info/sct"/&gt;
+     &lt;code value="104934005"/&gt;
+   &lt;/coding&gt;
+   &lt;coding&gt;
+     &lt;system value="http://loinc.org"/&gt;
+     &lt;code value="2947-0"/&gt;
+   &lt;/coding&gt;
+ &lt;/code&gt;
 </pre>
 <p>is represented in JSON like this:</p>
-<pre class="json">
+<pre class="json" fragment="CodeableConcept">
+{
  "coding": [
    {
      "system" : "http://snomed.info/sct",
@@ -135,6 +138,7 @@ done by using an array type. Note that:
      "code" : "2947-0"
    }
  ]
+}
 </pre>
 
 <a name="primitive"> </a>
@@ -243,8 +247,8 @@ rarely used with primitive data types.
 Elements, and complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
 a JSON object, containing a member for each element in the datatype. Composites can have id attributes, which are
 converted to JSON member values, in the same manner as described for primitives. For example:</p>
- <pre class="xml">
-&lt;person&gt;
+ <pre class="xml" fragment="Patient">
+&lt;Patient&gt;
   &lt;text&gt;
     &lt;status value="generated" /&gt;
     &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
@@ -254,22 +258,21 @@ converted to JSON member values, in the same manner as described for primitives.
     &lt;given value="Karen" /&gt;
     &lt;family id="a2" value="Van" /&gt;
   &lt;/name&gt;
-&lt;/person&gt;
+&lt;/Patient&gt;
 </pre>
 <p>is represented in JSON as:</p>
-<pre class="json">
+<pre class="json" fragment="Patient">
 {
-  "person" : {
-    "name" : [{
-      "use" : "official" ,
-      "given" : [ "Karen" ],
-      "family" : [ "Van" ]
-      "_family" : [ {"id" : "a2"} ]
-     }],
-    "text" : {
-      "status" : "generated" ,
-      "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;"
-    }
+  "name" : [{
+    "use" : "official" ,
+    "given" : [ "Karen" ],
+    "family" :  "Van",
+    "_family" : {"id" : "a2"}
+   }],
+  "text" : {
+    "status" : "generated" ,
+    "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;"
+  }
 }
 </pre>
 <p>Things to note here are:</p>
@@ -287,14 +290,14 @@ converted to JSON member values, in the same manner as described for primitives.
 A resource is a JSON object with a property <code>resourceType</code> which informs the
 parser which resource type this is:
 </p>
-<pre class="json">
+<pre class="json" fragment="Patient">
 {
   "resourceType" : "Patient",
   "text" : {
     "status" : "generated" ,
     "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;"
   }
-  etc...
+  // etc...
 }
 </pre>
 <p>

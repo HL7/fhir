@@ -8260,11 +8260,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     try {
       e = definitions.getElementByPath(n.split("\\."), "Status Codes", true);
     } catch (Exception ex) {
-      return null;
+      throw new Error("Unable to find "+n, ex);
     }
     if (e == null) {
-      System.out.println("Unable to find "+n);
-      return null;
+      throw new Error("Unable to find "+n);
     }
     if (e.getBinding() == null)
       return null;

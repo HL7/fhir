@@ -536,19 +536,19 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
       throw new Error("A type must be provided");
   }
 
-  public ValidationMessage(Source source, IssueType type, String message, IssueSeverity level) {
-    super();
-    this.line = -1;
-    this.col = -1;
-    if (message == null)
-      throw new Error("message is null");
-    this.message = message;
-    this.level = level;
-    this.source = source;
-    this.type = type;
-    if (type == null)
-      throw new Error("A type must be provided");
-  }
+//  public ValidationMessage(Source source, IssueType type, String message, IssueSeverity level) {
+//    super();
+//    this.line = -1;
+//    this.col = -1;
+//    if (message == null)
+//      throw new Error("message is null");
+//    this.message = message;
+//    this.level = level;
+//    this.source = source;
+//    this.type = type;
+//    if (type == null)
+//      throw new Error("A type must be provided");
+//  }
 
   private IssueSeverity determineLevel(String path) {
     if (isGrandfathered(path))

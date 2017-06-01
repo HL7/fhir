@@ -3641,6 +3641,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void checkFragments() throws Exception {
     for (Fragment f : fragments) {
       try {
+        System.out.println("    "+f.page+"/"+f.id);
         String xml = f.getXml();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -3661,7 +3662,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           }
         }
       } catch (Exception e) {
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() +(f.id != null ? "#"+f.id : "") + ": " + e.getMessage(), IssueSeverity.ERROR));
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, f.getPage(), "Fragment Error in page " + f.getPage() +(f.id != null ? "#"+f.id : "") + ": " + e.getMessage(), IssueSeverity.ERROR));
       }
     }
   }

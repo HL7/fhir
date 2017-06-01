@@ -72,7 +72,7 @@
     <definition value="The process described/requested in the resource could not be completed, and no further action is planned"/>
   </concept>
   <concept>
-    <code value=""/>
+    <code value="replaced"/>
     <display value="replaced"/>
     <definition value="The information in this resource has been replaced by information in another resource"/>
   </concept>

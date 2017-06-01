@@ -261,7 +261,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
       pu.sortDifferential(sd, p, url, errors);
       for (String err : errors)
-        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
+        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION,p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
       pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
       for (ValidationMessage msg : msgs) {
         if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)

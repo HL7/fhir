@@ -214,11 +214,11 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   
   public void checkForPath(FetchedFile f, FetchedResource r, MetadataResource bc) {
     if (!bc.hasUrl())
-      error("Resource has no url: "+bc.getId());
+      error(f.getPath(), "Resource has no url: "+bc.getId());
     else if (bc.getUrl().startsWith(canonical) && !bc.getUrl().endsWith("/"+bc.getId()))
-      error("Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
+      error(f.getPath(), "Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
     if (!r.getId().equals(bc.getId()))
-      error("Resource id/id mismatch: "+r.getId()+"/"+bc.getUrl());
+      error(f.getPath(), "Resource id/id mismatch: "+r.getId()+"/"+bc.getUrl());
     if (r.getConfig() == null)
       findConfiguration(f, r);
     JsonObject e = r.getConfig();
@@ -230,17 +230,17 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       bc.setUserData("path", r.getElement().fhirType()+"/"+r.getId()+".html");
   }
 
-  private void error(String msg) {
+  private void error(String location, String msg) {
     if (!msgs.contains(msg)) {
       msgs.add(msg);
-      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, msg, IssueSeverity.ERROR));
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, location, msg, IssueSeverity.ERROR));
     }
   }
 
-  private void hint(String msg) {
+  private void hint(String location, String msg) {
     if (!msgs.contains(msg)) {
       msgs.add(msg);
-      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, msg, IssueSeverity.INFORMATION));
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, location, msg, IssueSeverity.INFORMATION));
     }
   }
 
@@ -248,11 +248,11 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return Utilities.pathReverse(canonical, ref);
   }
 
-  private void brokenLinkWarning(String ref) {
+  private void brokenLinkWarning(String location, String ref) {
     String s = "The reference "+ref+" could not be resolved";
     if (!msgs.contains(s)) {
       msgs.add(s);
-      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, s, IssueSeverity.ERROR));
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.INVARIANT, location, s, IssueSeverity.ERROR));
     }
   }
 
@@ -284,7 +284,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path");
-    brokenLinkWarning(name);
+    brokenLinkWarning(name, name);
     return name+".html";
   }
 
@@ -327,7 +327,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
         if (vs == null) {
           br.url = ref.substring(9)+".html"; // broken link, 
           br.display = ref.substring(9);
-          brokenLinkWarning(ref);
+          brokenLinkWarning(path, ref);
         } else {
           br.url = vs.getUserString("path");
           br.display = vs.getName(); 
@@ -341,7 +341,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           } else { 
             br.display = ref.substring(29);
             br.url = ref.substring(29)+".html";
-            brokenLinkWarning(ref);
+            brokenLinkWarning(path, ref);
           }
         } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
           br.url = specPath("v3/"+ref.substring(26)+"/index.html"); 
@@ -354,7 +354,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           if (vs == null) {
             br.url = ref+".html"; // broken link, 
             br.display = ref;
-            brokenLinkWarning(ref);
+            brokenLinkWarning(path, ref);
           } else {
             br.url = vs.getUserString("path");
             br.display = vs.getName(); 
@@ -370,7 +370,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path")+"|"+sd.getName();
-    brokenLinkWarning(url);
+    brokenLinkWarning("??", url);
     return "unknown.html|??";
   }
 

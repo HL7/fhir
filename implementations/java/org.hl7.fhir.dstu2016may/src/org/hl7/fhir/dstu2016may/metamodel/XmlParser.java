@@ -264,7 +264,7 @@ public class XmlParser extends ParserBase {
 						}
 					}
 				} else
-					logError(line(child), col(child), path, IssueType.STRUCTURE, "Undefined element '"+child.getLocalName()+'"', IssueSeverity.ERROR);    		
+					logError(line(child), col(child), path, IssueType.STRUCTURE, "Undefined element '"+child.getLocalName()+"'", IssueSeverity.ERROR);    		
 			} else if (child.getNodeType() == Node.CDATA_SECTION_NODE){
 				logError(line(child), col(child), path, IssueType.STRUCTURE, "CDATA is not allowed", IssueSeverity.ERROR);      		
 			} else if (!Utilities.existsInList(child.getNodeType(), 3, 8)) {

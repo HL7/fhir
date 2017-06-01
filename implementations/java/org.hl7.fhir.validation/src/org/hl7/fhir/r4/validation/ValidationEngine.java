@@ -440,7 +440,7 @@ public class ValidationEngine {
     results.setType(Bundle.BundleType.COLLECTION);
     for (String ref : refs) {
       Content cnt = loadContent(ref, "validate");
-      OperationOutcome outcome = validate(cnt.focus, cnt.cntType, profiles);
+      OperationOutcome outcome = validate(ref, cnt.focus, cnt.cntType, profiles);
       ToolingExtensions.addStringExtension(outcome, ToolingExtensions.EXT_OO_FILE, ref);
       results.addEntry().setResource(outcome);
     }
@@ -450,8 +450,8 @@ public class ValidationEngine {
       return results.getEntryFirstRep().getResource();
   }
 
-  public OperationOutcome validateString(String source, FhirFormat format, List<String> profiles) throws Exception {
-    return validate(source.getBytes(), format, profiles);
+  public OperationOutcome validateString(String location, String source, FhirFormat format, List<String> profiles) throws Exception {
+    return validate(location, source.getBytes(), format, profiles);
   }
 
   private boolean handleSources(List<String> sources, List<String> refs) throws IOException {
@@ -500,15 +500,15 @@ public class ValidationEngine {
     return isBundle;
   }
 
-  public OperationOutcome validate(byte[] source, FhirFormat cntType, List<String> profiles) throws Exception {
+  public OperationOutcome validate(String location, byte[] source, FhirFormat cntType, List<String> profiles) throws Exception {
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     if (doNative) {
       if (cntType == FhirFormat.JSON)
-        validateJsonSchema(messages);
+        validateJsonSchema(location, messages);
       if (cntType == FhirFormat.XML)
-        validateXmlSchema(messages);
+        validateXmlSchema(location, messages);
       if (cntType == FhirFormat.TURTLE)
-        validateSHEX(messages);
+        validateSHEX(location, messages);
     }
     InstanceValidator validator = new InstanceValidator(this);
     validator.setNoInvariantChecks(isNoInvariantChecks());
@@ -516,13 +516,13 @@ public class ValidationEngine {
     return messagesToOutcome(messages);
   }
 
-  private void validateSHEX(List<ValidationMessage> messages) {
-    messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "SHEX Validation is not done yet", IssueSeverity.INFORMATION));
+  private void validateSHEX(String location, List<ValidationMessage> messages) {
+    messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, location, "SHEX Validation is not done yet", IssueSeverity.INFORMATION));
 	}
 
-  private void validateXmlSchema(List<ValidationMessage> messages) throws FileNotFoundException, IOException, SAXException {
+  private void validateXmlSchema(String location, List<ValidationMessage> messages) throws FileNotFoundException, IOException, SAXException {
     XmlValidator xml = new XmlValidator(messages, loadSchemas(), loadTransforms());
-    messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "XML Schema Validation is not done yet", IssueSeverity.INFORMATION));
+    messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, location, "XML Schema Validation is not done yet", IssueSeverity.INFORMATION));
 	}
 
   private Map<String, byte[]> loadSchemas() throws IOException {
@@ -545,8 +545,8 @@ public class ValidationEngine {
     return res;
   }
 
-  private void validateJsonSchema(List<ValidationMessage> messages) {
-    messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, "JSON Schema Validation is not done yet", IssueSeverity.INFORMATION));   
+  private void validateJsonSchema(String location, List<ValidationMessage> messages) {
+    messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, location, "JSON Schema Validation is not done yet", IssueSeverity.INFORMATION));   
 	}
 
   private List<ValidationMessage> filterMessages(List<ValidationMessage> messages) {
