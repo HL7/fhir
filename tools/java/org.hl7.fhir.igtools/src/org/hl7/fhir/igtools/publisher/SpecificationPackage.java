@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
+import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
 
 public class SpecificationPackage {
 
@@ -23,7 +24,7 @@ public class SpecificationPackage {
     return self;
   }
 
-  public static SpecificationPackage fromPath(String path, R2ToR4Loader loader) throws FileNotFoundException, IOException, FHIRException {
+  public static SpecificationPackage fromPath(String path, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
      SpecificationPackage self = new SpecificationPackage();
     self.context = SimpleWorkerContext.fromPack(path, loader);
     return self;

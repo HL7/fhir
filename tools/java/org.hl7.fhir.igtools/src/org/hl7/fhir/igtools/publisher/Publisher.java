@@ -48,6 +48,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;
+import org.hl7.fhir.convertors.R3ToR4Loader;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.convertors.VersionConvertor_10_30;
@@ -1004,10 +1005,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       log("Fetch Validation Pack from "+source);
       fn = grabToLocalCache(source);
       }
-    log("Local Validation Pack from cache location " + fn);
+    log("Local Validation Pack from cache location " + fn+" using version "+version);
     if ("1.0.2".equals(version)) {
       return SpecificationPackage.fromPath(fn, new R2ToR4Loader());
-    } else
+    } else if ("3.0.1".equals(version)) {
+      return SpecificationPackage.fromPath(fn, new R3ToR4Loader());
+    } else 
       return SpecificationPackage.fromPath(fn);
   }
 
