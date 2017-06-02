@@ -181,6 +181,7 @@ import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.test.FluentPathTests;
+import org.hl7.fhir.r4.test.NarrativeGeneratorTests;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator;
@@ -5459,6 +5460,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 //    runJUnitClass(InstanceValidatorTests.class);
 //    runJUnitClass(ValidationEngineTests.class);
     runJUnitClass(FluentPathTests.class);
+    runJUnitClass(NarrativeGeneratorTests.class);
     checkAllOk();
   }
 

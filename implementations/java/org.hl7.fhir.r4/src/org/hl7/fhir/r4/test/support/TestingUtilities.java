@@ -285,5 +285,11 @@ public class TestingUtilities {
 		return null;
 	}
 
+  public static String temp() {
+    if (new File("c:\\temp").exists())
+      return "c:\\temp";
+    return System.getProperty("java.io.tmpdir");
+  }
+
 
 }

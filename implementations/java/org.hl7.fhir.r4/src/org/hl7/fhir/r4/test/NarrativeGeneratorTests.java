@@ -8,8 +8,10 @@ import java.io.IOException;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.DomainResource;
+import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.junit.After;
 import org.junit.Before;
@@ -22,8 +24,10 @@ public class NarrativeGeneratorTests {
 	
 	@Before
 	public void setUp() throws FileNotFoundException, IOException, FHIRException {
+    if (TestingUtilities.context == null)
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
 		if (gen == null)
-  		gen = new NarrativeGenerator("", null, SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip"));
+  		gen = new NarrativeGenerator("", null, TestingUtilities.context);
 	}
 
 	@After
@@ -32,14 +36,14 @@ public class NarrativeGeneratorTests {
 
 	@Test
 	public void test() throws FileNotFoundException, IOException, XmlPullParserException, EOperationOutcome, FHIRException {
-		process("C:\\work\\org.hl7.fhir\\build\\source\\questionnaireresponse\\questionnaireresponse-example-f201-lifelines.xml");
+		process(Utilities.path(TestingUtilities.home(), "source", "questionnaireresponse", "questionnaireresponse-example-f201-lifelines.xml"));
 	}
 
 	private void process(String path) throws FileNotFoundException, IOException, XmlPullParserException, EOperationOutcome, FHIRException {
 	  XmlParser p = new XmlParser();
 	  DomainResource r = (DomainResource) p.parse(new FileInputStream(path));
 	  gen.generate(r);
-	  FileOutputStream s = new FileOutputStream("c:\\temp\\gen.xml");
+	  FileOutputStream s = new FileOutputStream(Utilities.path(TestingUtilities.temp(), "gen.xml"));
     new XmlParser().compose(s, r, true);
     s.close();
 	  
