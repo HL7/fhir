@@ -170,7 +170,7 @@
   Binding = BodySite
   Short Name = Target body site
   Definition = Indicates the site on the subject\'s body where the device was used ( i.e. the target site).
-  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-site-instance]]]
+  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-structure]]]
   RIM Mapping = targetSiteCode
 
  -- Row 12 -----------------------------------

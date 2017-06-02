@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><!--This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time--><BodySite xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?><!--This example demonstrates using the bodystructure resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time--><BodyStructure xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="tumor"/>
 	<identifier>
-		<system value="http://goodhealth.org/bodysite/identifiers"/>
+		<system value="http://goodhealth.org/bodystructure/identifiers"/>
 		<value value="12345"/>
 	</identifier>
 	<code>
@@ -29,4 +29,4 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
-</BodySite>
+</BodyStructure>

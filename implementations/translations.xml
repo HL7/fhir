@@ -82,11 +82,11 @@
         <translation lang="es">Binario</translation>
         <translation lang="fr">Binaire</translation>
     </item>
-    <item id="BodySite">
-        <translation lang="en">BodySite</translation>
-        <translation lang="zh">身体部位</translation>
-        <translation lang="es">SitioDelCuerpo</translation>
-        <translation lang="fr">SiteDeCorps</translation>
+    <item id="BodyStructure">
+        <translation lang="en">BodyStructure</translation>
+        <translation lang="zh">身体结构</translation>
+        <translation lang="es">EstructuraDelCuerpo</translation>
+        <translation lang="fr">MorphologieDeCorps</translation>
     </item>
     <item id="Bundle">
         <translation lang="en">Bundle</translation>

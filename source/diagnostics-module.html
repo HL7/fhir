@@ -47,7 +47,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
  <td width="33%">
 <ul>
  <li><a href="specimen.html">Specimen</a></li>
- <li><a href="bodysite.html">BodySite</a></li>
+ <li><a href="bodystructure.html">BodyStructure</a></li>
  </ul>
 </td>
 </tr>
@@ -71,7 +71,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
         [%res-item ImagingManifest%]
         [%res-item Sequence%]
         [%res-item Specimen%]
-        [%res-item BodySite%]
+        [%res-item BodyStructure%]
     </table>
 
 <a name="secpriv"> </a>
@@ -103,7 +103,7 @@ There are many ways to use these resources independently as well.  The Observati
 <li>recording other observations of a patient's social history such as tobacco use</li>
 <li>recording other characteristics of a patient such as pregnancy status (note: The Condition resource may be used to represent these as well)</li>
 <li>recording clinical assessment tool scores such as an <a href="observation-example-5minute-apgar-score.html">Apgar score</a>.</li>
-<li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a href="bodysite-example-tumor.html">body site</a></li>
+<li>identifying and describing a <a href="specimen-example-serum.html">specimen</a> or <a href="bodystructure-example-tumor.html">body site</a></li>
 </ul>
 
 <a name="related"> </a>
@@ -122,7 +122,7 @@ There are many ways to use these resources independently as well.  The Observati
 <li>The <em>ProcedureRequest</em> resources has undergone substantial changes since DSTU2. Foremost of which is the merging of DSTU2 <em>DiagnosticOrder</em> and <em>ProcedureRequest</em>into a single resources. In addition, as a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, its structure and content have been updated to align with the general FHIR workflow "request" pattern.  Because of these, it remains a relatively immature resource.  No more sweeping changes to its structure are expected.  However, its scope and boundaries vis a vis other resources will be the topic of future workgroup efforts. We anticipate its broad use by implementers and that it will mature as a resource throught the upcoming cycle.</li>
 <li>The <em>Specimen</em> resource will be the focus of work group efforts for the upcoming cycle. A new <em>SpecimenDefinition</em> resource is planned for describing specimen types vs specimen instances and will take over some of the Specimen resourc'e's current scope.  We expect to see more widespread use of this resource and future updates to its FMM level</li>
 <li>The <em>Sequence</em> resource remains draft and we expect to see more widespread use of this resource and future updates to its FMM level</li>
-<li>The <em>BodySite</em> resource is an immature resource with a FMM level of 1.  To date there has been little implementation feedback.</li>
+<li>The <em>BodyStructure</em> resource is an immature resource with a FMM level of 1.  To date there has been little implementation feedback.</li>
 <li>The <em>Media</em> resource is the newest member to the Diagnostics module having undergone substantial scope and structural changes to create an specialized observation resource focused on digital media such as images and audio files.  Future work will focus on developing core profiles and providing more domain specific examples.</li>
 </ul>
 

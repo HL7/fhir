@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--This example demonstrates using the bodysite resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time. -->
-<BodySite xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<!--This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time. -->
+<BodyStructure xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="skin-patch"/>
 	<identifier>
-		<system value="http://goodhealth.org/bodysite/identifiers"/>
+		<system value="http://goodhealth.org/bodystructure/identifiers"/>
 		<value value="12345"/>
 	</identifier>
-	<!--	bodysite marked as no longer active - entered in error
+	<!--	bodystructure marked as no longer active - entered in error
 -->
 	<active value="false"/>
 	<code>
@@ -21,4 +21,4 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
-</BodySite>
+</BodyStructure>

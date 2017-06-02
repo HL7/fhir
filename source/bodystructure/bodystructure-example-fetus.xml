@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--This example demonstrates using the bodysite resource to identify of fetus within systems that choose not to treat a fetus as a Patient-->
-<BodySite xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<!--This example demonstrates using the bodystructure resource to identify of fetus within systems that choose not to treat a fetus as a Patient-->
+<BodyStructure xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="fetus"/>
 	<identifier>
-		<system value="http://goodhealth.org/bodysite/identifiers"/>
+		<system value="http://goodhealth.org/bodystructure/identifiers"/>
 		<value value="12345"/>
 	</identifier>
 	<code>
@@ -18,4 +18,4 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
-</BodySite>
+</BodyStructure>

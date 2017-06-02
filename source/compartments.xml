@@ -201,7 +201,7 @@
     <Cell><Data ss:Type="String">Binary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">BodySite</Data></Cell>
+    <Cell><Data ss:Type="String">BodyStructure</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

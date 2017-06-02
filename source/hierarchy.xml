@@ -280,7 +280,7 @@ signatures.html
       <page type="resource" resource="ImagingManifest"/>
       <page type="resource" resource="Sequence"/>
       <page type="resource" resource="Specimen"/>
-      <page type="resource" resource="BodySite"/>
+      <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
     </page>
 

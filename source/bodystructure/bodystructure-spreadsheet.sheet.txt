@@ -4,28 +4,28 @@
  -- Row 1 -----------------------------------
   Binding Name = !Laterality
   Binding = value set
-  Reference = valueset-bodysite-laterality
+  Reference = valueset-bodystructure-laterality
   Definition = Specify lateraility of the anatomical location.
   Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = !AnatomicPlane
   Binding = value set
-  Reference = valueset-bodysite-anatomic-plane
+  Reference = valueset-bodystructure-anatomic-plane
   Definition = Concepts describing anatomical plane in the body
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = !RelativeLocation
   Binding = value set
-  Reference = valueset-bodysite-relative-location
+  Reference = valueset-bodystructure-relative-location
   Definition = Concepts describing the relative locatiion in relation to an identified anatomical landmark
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = BodySiteQualifier
+  Binding Name = BodyStructureQualifier
   Binding = value set
-  Reference = valueset-bodysite-relative-location
+  Reference = valueset-bodystructure-relative-location
   Definition = Concepts modifying the anatomic location
   Conformance = example
 
@@ -42,7 +42,7 @@
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = BodySite
+  Element = BodyStructure
   Aliases = anatomical location
   Type = DomainResource
   Short Name = Specific and identified anatomical location
@@ -52,18 +52,18 @@
   w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
-  Element = BodySite.identifier
+  Element = BodyStructure.identifier
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Bodysite identifier
+  Short Name = Bodystructure identifier
   Definition = Identifier for this instance of the anatomical location.
   RIM Mapping = .id
   OpenEHR mapping = Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = BodySite.active
+  Element = BodyStructure.active
   Card. = 0..1
   Is Modifier = y
   Summary = y
@@ -77,7 +77,7 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = BodySite.code
+  Element = BodyStructure.code
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
@@ -90,10 +90,10 @@
   w5 = what
 
  -- Row 5 -----------------------------------
-  Element = BodySite.qualifier
+  Element = BodyStructure.qualifier
   Card. = 0..*
   Type = CodeableConcept
-  Binding = BodySiteQualifier
+  Binding = BodyStructureQualifier
   Short Name = Modification to location code
   Definition = Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
   v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
@@ -102,7 +102,7 @@
   w5 = what
 
  -- Row 6 -----------------------------------
-  Element = BodySite.description
+  Element = BodyStructure.description
   Card. = 0..1
   Summary = Y
   Type = string
@@ -114,7 +114,7 @@
   w5 = what
 
  -- Row 7 -----------------------------------
-  Element = BodySite.image
+  Element = BodyStructure.image
   Card. = 0..*
   Type = Attachment
   Short Name = Attached images
@@ -124,7 +124,7 @@
   w5 = what
 
  -- Row 8 -----------------------------------
-  Element = BodySite.patient
+  Element = BodyStructure.patient
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
@@ -139,19 +139,19 @@
   Name = code
   Type = token
   Description = Named anatomical location
-  Path = BodySite.code
+  Path = BodyStructure.code
 
  -- Row 2 -----------------------------------
   Name = patient
   Type = reference
-  Description = Patient to whom bodysite belongs
-  Path = BodySite.patient
+  Description = Patient to whom bodystructure belongs
+  Path = BodyStructure.patient
 
  -- Row 3 -----------------------------------
   Name = identifier
   Type = token
   Description = Identifier for this instance of the anatomical location
-  Path = BodySite.identifier
+  Path = BodyStructure.identifier
 
 === Sheet Profiles =====================================
 
@@ -161,24 +161,24 @@
   Name = !Example
   Identity = example
   Description = Simple Body Site Example
-  Filename = bodysite-example.xml
+  Filename = bodystructure-example.xml
 
  -- Row 2 -----------------------------------
   Name = Fetus
   Identity = fetus
-  Description = This example demonstrates using the bodysite resource to identify a fetus within systems that choose not to treat a fetus as a Patient
-  Filename = bodysite-example-fetus.xml
+  Description = This example demonstrates using the bodystructure resource to identify a fetus within systems that choose not to treat a fetus as a Patient
+  Filename = bodystructure-example-fetus.xml
 
  -- Row 3 -----------------------------------
   Name = Tumor
   Identity = tumor
-  Description = This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time
-  Filename = bodysite-example-tumor.xml
+  Description = This example demonstrates using the bodystructure resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time
+  Filename = bodystructure-example-tumor.xml
 
  -- Row 4 -----------------------------------
   Name = Skin Patch
   Identity = skin-patch
-  Description = This example demonstrates using the bodysite resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time
-  Filename = bodysite-example-skin-patch.xml
+  Description = This example demonstrates using the bodystructure resource to identify skin patches or other portions of a person or animal that are a focus of a clinical trial and that are subject to repeated observations and/or procedures over time
+  Filename = bodystructure-example-skin-patch.xml
 
 === Sheet Examples =====================================
