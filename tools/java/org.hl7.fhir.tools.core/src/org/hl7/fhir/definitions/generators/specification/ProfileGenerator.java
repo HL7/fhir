@@ -190,10 +190,10 @@ public class ProfileGenerator {
       de = new StructureDefinition();
       de.setId("de-"+id);
       des.put(id, de);
-      de.setUrl("http://hl7.org/fhir/StructureDefinition/de-"+de.getId());
+      de.setUrl("http://hl7.org/fhir/StructureDefinition/"+de.getId());
       
       if (de.getId().contains("."))
-        definitions.addNs(de.getUrl(), "Data Element "+ed.getPath(), definitions.getSrcFile(de.getId().substring(0, de.getId().indexOf(".")))+"-definitions.html#"+de.getId());
+        definitions.addNs(de.getUrl(), "Data Element "+ed.getPath(), definitions.getSrcFile(id.substring(0, id.indexOf(".")))+"-definitions.html#"+id);
       if (dataElements != null)
         dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
     }
