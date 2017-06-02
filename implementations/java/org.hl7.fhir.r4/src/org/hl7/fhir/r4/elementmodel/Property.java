@@ -209,7 +209,7 @@ public class Property {
       if (ed.getType().size() == 1)
         t = ed.getType().get(0).getCode();
       else if (ed.getType().size() == 0)
-        throw new Error("types == 0, and no children found");
+        throw new Error("types == 0, and no children found on "+getDefinition().getPath());
       else {
         t = ed.getType().get(0).getCode();
         boolean all = true;

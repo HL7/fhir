@@ -10109,7 +10109,7 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.r4.model.StructureDefinition tgt = new org.hl7.fhir.r4.model.StructureDefinition();
     copyDomainResource(src, tgt);
     if (src.hasUrl())
-      tgt.setUrl(src.getUrl());
+      tgt.setUrl(src.getUrl().replace("/DataElement/", "/StructureDefinition/de-"));
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     if (src.hasVersion())

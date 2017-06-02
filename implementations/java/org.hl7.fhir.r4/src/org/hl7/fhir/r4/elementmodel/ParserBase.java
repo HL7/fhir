@@ -77,7 +77,7 @@ public abstract class ParserBase {
       return null;
   	}
 	  for (StructureDefinition sd : context.allStructures()) {
-	    if (name.equals(sd.getIdElement().getIdPart())) {
+	    if (name.equals(sd.getIdElement().getIdPart()) && !sd.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/de-")) {
 	      if((ns == null || ns.equals(FormatUtilities.FHIR_NS)) && !ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))
 	        return sd;
 	      String sns = ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");

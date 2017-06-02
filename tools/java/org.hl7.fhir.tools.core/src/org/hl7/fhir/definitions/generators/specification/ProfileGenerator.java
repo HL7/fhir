@@ -182,15 +182,15 @@ public class ProfileGenerator {
     
     StructureDefinition de;
     if (des.containsKey(id)) {
-      de = des.get(id);
+      de = des.get("de-"+id);
       // do it again because we now have more information to generate with
       de.getSnapshot().getElement().clear();
       de.getExtension().clear();
     } else {
       de = new StructureDefinition();
-      de.setId(id);
+      de.setId("de-"+id);
       des.put(id, de);
-      de.setUrl("http://hl7.org/fhir/StructureDefinition/"+de.getId());
+      de.setUrl("http://hl7.org/fhir/StructureDefinition/de-"+de.getId());
       
       if (de.getId().contains("."))
         definitions.addNs(de.getUrl(), "Data Element "+ed.getPath(), definitions.getSrcFile(de.getId().substring(0, de.getId().indexOf(".")))+"-definitions.html#"+de.getId());
