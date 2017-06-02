@@ -1,0 +1,116 @@
+<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
+
+	<id value="R3501"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ClaimResponse that demonstrates returning errors</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/remittance"/>
+		<value value="R3501"/>
+	</identifier>
+
+	<status value="active"/>
+
+	<patient>
+		<reference value="Patient/1"/>
+	</patient>
+
+	<created value="2014-08-16"/>
+
+	<insurer>
+		<identifier>
+			<system value="http://www.jurisdiction.org/insurers"/>
+			<value value="555123"/>
+		</identifier>
+	</insurer>
+
+	<requestProvider>
+		<reference value="Practitioner/1"/>
+	</requestProvider>
+
+	<requestOrganization>
+		<reference value="Organization/1"/>
+	</requestOrganization>
+
+	<request>
+		<reference value="Claim/100156"/>
+	</request>
+
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/remittance-outcome" />
+			<code value="error" />
+		</coding>
+	</outcome>
+
+	<disposition value="Claim could not be processed"/>
+	
+	<item>
+		<sequenceLinkId value="1"/>
+		<noteNumber value="1"/>
+	</item>
+
+	<item>
+		<sequenceLinkId value="2"/>
+		<noteNumber value="1"/>
+	</item>
+	
+	<item>
+		<sequenceLinkId value="3"/>
+		<noteNumber value="1"/>
+		
+		<detail>
+			<sequenceLinkId value="1"/>
+			<noteNumber value="1"/>
+		</detail>
+		
+		<detail>
+			<sequenceLinkId value="2"/>
+			<noteNumber value="1"/>
+		</detail>
+	</item>
+	
+	<!-- Detailed error description -->
+	<error>
+		<sequenceLinkId value="3"/>
+		<detailSequenceLinkId value="2"/>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/adjudication-error"/>
+				<code value="a002"/>
+			</coding>
+		</code>
+	</error>
+
+	<form>
+		<coding>
+			<system value="http://hl7.org/fhir/forms-codes" />
+			<code value="2" />
+		</coding>
+	</form>
+	
+	<processNote>
+		<number value="1"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type" />
+				<code value="display" />
+			</coding>
+		</type>
+		<text value="Invalid claim"/>
+		<language>
+			<coding>
+				<system value="urn:ietf:bcp:47" />
+				<code value="en-CA" />
+			</coding>
+		</language>
+	</processNote>
+	
+	<communicationRequest>
+		<reference value="CommunicationRequest/fm-solicit"/>
+	</communicationRequest>
+</ClaimResponse>

@@ -844,6 +844,12 @@
   Description = The Provider of the claim
   Path = ClaimResponse.requestProvider
 
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the claim response
+  Path = ClaimResponse.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
@@ -853,5 +859,11 @@
   Identity = R3500
   Description = General Person Primary Coverage Example
   Filename = claimresponse-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Errored
+  Identity = R3501
+  Description = A ClaimResponse for a Claim that contains processing errors
+  Filename = claimresponse-example-2.xml
 
 === Sheet Examples =====================================
