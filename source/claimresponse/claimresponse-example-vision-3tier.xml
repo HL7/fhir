@@ -1,0 +1,368 @@
+<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
+
+	<id value="R3502"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ClaimResponse</div>
+	</text>
+
+	<identifier>
+		<system value="http://thebenefitcompany.com/claimresponse"/>
+		<value value="CR6532875367"/>
+	</identifier>
+
+	<status value="active"/>
+
+	<patient>
+		<reference value="Patient/1"/>
+	</patient>
+
+	<created value="2014-08-16"/>
+
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
+
+	<requestOrganization>
+		<reference value="Organization/1"/>
+	</requestOrganization>
+
+	<request>
+		<identifier> 
+			<system value="http://happysight.com/claim"/>
+			<value value="6612346"/>
+		</identifier>
+	</request>
+
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/remittance-outcome" />
+			<code value="complete" />
+		</coding>
+	</outcome>
+
+	<disposition value="Claim settled as per contract."/>
+
+	<payeeType>
+		<coding>
+			<system value="http://hl7.org/fhir/payeetype"/>
+			<code value="provider"/>
+		</coding>
+	</payeeType>
+
+	<!-- Adjudication details -->
+
+	<item>
+
+		<sequenceLinkId value="1"/> 
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="235.40"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="copay"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="20.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>  
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="80.00"/>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="172.32"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+		<detail>
+			<sequenceLinkId value="1"/> 
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligible"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="100.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="copay"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="20.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>  
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligpercent"/>
+					</coding>
+				</category>
+				<value value="80.00"/>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="80.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>	
+			</adjudication>
+		</detail>
+		<detail>
+			<sequenceLinkId value="2"/> 
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligible"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="110.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligpercent"/>
+					</coding>
+				</category>
+				<value value="80.00"/>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="88.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>	
+			</adjudication>
+
+			<subDetail>
+				<sequenceLinkId value="1"/> 
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligible"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="60.00"/>
+						<system value="urn:iso:std:iso:4217"/>
+						<code value="USD"/>
+					</amount>
+				</adjudication>
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligpercent"/>
+						</coding>
+					</category>
+					<value value="80.00"/>
+				</adjudication>
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="benefit"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="48.00"/>
+						<system value="urn:iso:std:iso:4217"/>
+						<code value="USD"/>
+					</amount>	
+				</adjudication>
+
+			</subDetail>
+			<subDetail>
+				<sequenceLinkId value="2"/> 
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligible"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="30.00"/>
+						<system value="urn:iso:std:iso:4217"/>
+						<code value="USD"/>
+					</amount>
+				</adjudication>
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligpercent"/>
+						</coding>
+					</category>
+					<value value="80.00"/>
+				</adjudication>
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="benefit"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="24.00"/>
+						<system value="urn:iso:std:iso:4217"/>
+						<code value="USD"/>
+					</amount>	
+				</adjudication>
+
+			</subDetail>
+			<subDetail>
+				<sequenceLinkId value="3"/> 
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligible"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="10.00"/>
+						<system value="urn:iso:std:iso:4217"/>
+						<code value="USD"/>
+					</amount>
+				</adjudication>
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="eligpercent"/>
+						</coding>
+					</category>
+					<value value="80.00"/>
+				</adjudication>
+
+				<adjudication>
+					<category>
+						<coding>
+							<code value="benefit"/>
+						</coding>
+					</category>
+					<amount>
+						<value value="8.00"/>
+						<system value="urn:iso:std:iso:4217"/>
+						<code value="USD"/>
+					</amount>	
+				</adjudication>
+
+			</subDetail>
+		</detail>
+		<detail>
+			<sequenceLinkId value="3"/> 
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligible"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="200.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligpercent"/>
+					</coding>
+				</category>
+				<value value="80.00"/>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="14.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>	
+			</adjudication>
+		</detail>
+
+	</item>
+
+	<totalCost>
+		<value value="235.40"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/>
+	</totalCost>	
+
+	<totalBenefit>
+		<value value="182.00"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/>
+	</totalBenefit>
+	
+</ClaimResponse>

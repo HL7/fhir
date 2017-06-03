@@ -866,4 +866,10 @@
   Description = A ClaimResponse for a Claim that contains processing errors
   Filename = claimresponse-example-2.xml
 
+ -- Row 3 -----------------------------------
+  Name = Vision-3Tier
+  Identity = R3502
+  Description = Primary insurance response to a 3Tier Vision Claim
+  Filename = claimresponse-example-vision-3tier.xml
+
 === Sheet Examples =====================================
