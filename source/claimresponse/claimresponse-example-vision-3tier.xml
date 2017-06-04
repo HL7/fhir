@@ -107,6 +107,7 @@
 
 		<detail>
 			<sequenceLinkId value="1"/> 
+			<noteNumber value="1"/>
 
 			<adjudication>
 				<category>
@@ -158,6 +159,7 @@
 		</detail>
 		<detail>
 			<sequenceLinkId value="2"/> 
+			<noteNumber value="1"/>
 
 			<adjudication>
 				<category>
@@ -196,6 +198,7 @@
 
 			<subDetail>
 				<sequenceLinkId value="1"/> 
+				<noteNumber value="1"/>
 
 				<adjudication>
 					<category>
@@ -274,6 +277,7 @@
 			</subDetail>
 			<subDetail>
 				<sequenceLinkId value="3"/> 
+				<noteNumber value="1"/>
 
 				<adjudication>
 					<category>
@@ -314,6 +318,7 @@
 		</detail>
 		<detail>
 			<sequenceLinkId value="3"/> 
+			<noteNumber value="1"/>
 
 			<adjudication>
 				<category>
@@ -364,5 +369,58 @@
 		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	</totalBenefit>
-	
+
+	<!-- Payment details -->
+	<payment>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-paymenttype"/>
+				<code value="complete"/>
+			</coding>
+		</type>	
+
+		<adjustment>
+			<value value="75.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</adjustment>
+
+		<adjustmentReason>
+			<coding>
+				<system value="http://hl7.org/fhir/payment-adjustment-reason"/>
+				<code value="a002"/>
+				<display value="Prior Overpayment"/>
+			</coding>
+		</adjustmentReason>
+
+		<date value="2014-08-16"/>
+
+		<amount>
+			<value value="107.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</amount>	
+
+		<identifier>
+			<system value="http://thebenefitcompany.com/paymentidentifier"/>
+			<value value="201416-123456"/>
+		</identifier>	
+	</payment>
+
+	<processNote>
+		<number value="1"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type" />
+				<code value="display" />
+			</coding>
+		</type>
+		<text value="After hours surcharge declined"/>
+		<language>
+			<coding>
+				<system value="urn:ietf:bcp:47" />
+				<code value="en-CA" />
+			</coding>
+		</language>
+	</processNote>	
 </ClaimResponse>

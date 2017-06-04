@@ -95,15 +95,22 @@
 			</category>
 			<value value="80.00"/>
 		</adjudication>
-
 		<adjudication>
 			<category>
 				<coding>
 					<code value="benefit"/>
 				</coding>
 			</category>
+			<reason>
+				<coding>
+					<system value="http://hl7.org/fhir/adjudication-reason"/>
+					<code value="ar002"/>
+					<display value="Plan Limit Reached"/>
+					<!-- should have paid 100.47 -->
+				</coding>
+			</reason>
 			<amount>
-				<value value="100.47"/>
+				<value value="90.47"/>
 				<system value="urn:iso:std:iso:4217"/>
 				<code value="USD"/>
 			</amount>	
@@ -118,7 +125,7 @@
 	</totalCost>	
 
 	<totalBenefit>
-		<value value="100.47"/>
+		<value value="90.47"/>
 		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
 	</totalBenefit>
