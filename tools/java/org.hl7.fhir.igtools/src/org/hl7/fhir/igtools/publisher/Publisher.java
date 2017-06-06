@@ -727,7 +727,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       } else {
         File igPackFile = new File(igPack);
         log("Loading ig pack from specified path " + igPackFile.getCanonicalPath());
-        spec = SpecificationPackage.fromPath(igPackFile.getCanonicalPath());
+        spec = loadPack(igPackFile.getCanonicalPath());
       }
     } else if (version.equals(Constants.VERSION)) {
       try {
@@ -1006,6 +1006,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       fn = grabToLocalCache(source);
       }
     log("Local Validation Pack from cache location " + fn+" using version "+version);
+    return loadPack(fn);
+  }
+
+  private SpecificationPackage loadPack(String fn) throws FHIRException, IOException {
     if ("1.0.2".equals(version)) {
       return SpecificationPackage.fromPath(fn, new R2ToR4Loader());
     } else if ("1.4.0".equals(version)) {
@@ -1015,7 +1019,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else 
       return SpecificationPackage.fromPath(fn);
   }
-
+  
   private String grabToLocalCache(String source) throws IOException {
     String fn = Utilities.path(vsCache, "validation-"+version+".zip");
     File f = new File(fn);
