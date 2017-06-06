@@ -1008,6 +1008,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("Local Validation Pack from cache location " + fn+" using version "+version);
     if ("1.0.2".equals(version)) {
       return SpecificationPackage.fromPath(fn, new R2ToR4Loader());
+    } else if ("1.4.0".equals(version)) {
+      return SpecificationPackage.fromPath(fn, new R3ToR4Loader());
     } else if ("3.0.1".equals(version)) {
       return SpecificationPackage.fromPath(fn, new R3ToR4Loader());
     } else 
