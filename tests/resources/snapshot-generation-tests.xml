@@ -1115,6 +1115,7 @@
               <type value="value"/>
               <path value="use"/>
             </discriminator>
+            
             <rules value="open"/>
           </slicing>
         </element>
@@ -1146,7 +1147,7 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #25: Constrain base element before slicing when slices were already defined - data type -->
+    <!-- fixture for #25b: Constrain base element before slicing when slices were already defined - data type -->
     <StructureDefinition>
       <id value="t25b"/>
       <url value="urn:uuid:729ce066-281e-48da-b2b7-866c0cf50241"/>
@@ -1155,7 +1156,7 @@
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
-      <!-- baseDefinition = t25a -->
+      <!-- baseDefinition = t25b -->
       <baseDefinition value="urn:uuid:ec0e207d-39e1-46ad-a10f-262029008feb"/>
       <derivation value="constraint"/>
       <differential>
@@ -2461,6 +2462,7 @@
           <code value="snapshot"/>
         </type>
         <resource value="StructureDefinition"/>
+        <params value="sort=true"/>
         <responseId value="t23o"/>
         <sourceId value="t23"/>
       </operation>
@@ -2469,8 +2471,7 @@
       <assert>
         <label value="test23-1"/>
         <description value="element count increased by ??"/>
-        <!-- Update once we know what the new snapshot size should be -->
-        <expression value="fixture('t23o').snapshot.element.count().trace('t23o') = fixture('patient').snapshot.element.count().trace('t23patient') + 1"/>
+        <expression value="fixture('t23o').snapshot.element.count().trace('t23o') = fixture('patient').snapshot.element.count().trace('t23patient') + 11"/>
       </assert>
     </action>
   </test>

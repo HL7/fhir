@@ -258,6 +258,12 @@ public class SnapShotGenerationTests {
           StructureDefinition output = source.copy();
           ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
           pu.setIds(source, false);
+          if ("sort=true".equals(op.getParams())) {
+            List<String> errors = new ArrayList<String>();
+            pu.sortDifferential(base, output, source.getName(), errors);
+            if (errors.size() > 0)
+              throw new FHIRException("Sort failed: "+errors.toString());
+          }
           pu.generateSnapshot(base, output, source.getUrl(), source.getName());
           context.fixtures.put(op.getResponseId(), output);
           context.snapshots.put(output.getUrl(), output);
