@@ -1,0 +1,488 @@
+<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
+
+	<id value="R3503"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ClaimResponse to Claim Oral Average with additional items</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/remittance"/>
+		<value value="R3503"/>
+	</identifier>
+
+	<status value="active"/>
+
+	<patient>
+		<reference value="Patient/1"/>
+	</patient>
+
+	<created value="2014-08-16"/>
+
+	<insurer>
+		<identifier>
+			<system value="http://www.jurisdiction.org/insurers"/>
+			<value value="555123"/>
+		</identifier>
+	</insurer>
+
+	<requestProvider>
+		<reference value="Practitioner/1"/>
+	</requestProvider>
+
+	<requestOrganization>
+		<reference value="Organization/1"/>
+	</requestOrganization>
+
+	<request>
+		<identifier>
+			<system value="http://happyvalley.com/claim"/>
+			<value value="12346"/>
+		</identifier>
+	</request>
+
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/remittance-outcome" />
+			<code value="complete" />
+		</coding>
+	</outcome>
+
+	<disposition value="Claim settled as per contract."/>
+
+	<payeeType>
+		<coding>
+			<system value="http://hl7.org/fhir/payeetype"/>
+			<code value="provider"/>
+		</coding>
+	</payeeType>
+
+	<!-- Adjudication details -->
+
+	<item> <!-- Pays for a claim package code with two actual codes with adjudication details -->
+
+		<sequenceLinkId value="1"/> 
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="0.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="0.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+	</item>
+
+	<item>
+		<sequenceLinkId value="2"/> 
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="105.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="80.00"/>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="84.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+	</item>
+
+	<item>
+		<sequenceLinkId value="3"/> 
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="750.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="80.00"/>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="600.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+		<detail>
+			<sequenceLinkId value="1"/> 
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligible"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="750.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligpercent"/>
+					</coding>
+				</category>
+				<value value="80.00"/>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="600.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>	
+			</adjudication>
+
+		</detail>
+		<detail>  <!-- See the addItem.detail below -->
+			<sequenceLinkId value="2"/> 
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="eligible"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="0.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>
+			</adjudication>
+
+			<adjudication>
+				<category>
+					<coding>
+						<code value="benefit"/>
+					</coding>
+				</category>
+				<amount>
+					<value value="0.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/>
+				</amount>	
+			</adjudication>
+
+		</detail>
+	</item>
+
+
+	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
+	<addItem>
+		<sequenceLinkId value="1"/> 
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="1101"/>
+			</coding>
+		</service>
+		<modifier>
+			<coding>
+				<system value="http://example.org/fhir/modifiers"/>
+				<code value="x"/>
+				<display value="None"/>
+			</coding>
+		</modifier>
+		<fee>
+			<value value="135.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</fee>
+		<noteNumber value="101"/>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="100.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="copay"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="10.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>  
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="80.00"/>
+		</adjudication>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<reason>
+				<coding>
+					<system value="http://hl7.org/fhir/adjudication-reason"/>
+					<code value="ar002"/>
+					<display value="Plan Limit Reached"/>
+					<!-- should have paid 100.47 -->
+				</coding>
+			</reason>
+			<amount>
+				<value value="72.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+	</addItem>
+	<addItem>
+		<sequenceLinkId value="1"/> 
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="2141"/>
+				<display value="Radiograph, bytewing"/>
+			</coding>
+		</service>
+		<fee>
+			<value value="35.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</fee>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="35.57"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="80.00"/>
+		</adjudication>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="28.47"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+	</addItem>
+
+	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
+	<addItem>
+		<sequenceLinkId value="3"/> 
+		<detailSequenceLinkId value="2"/>
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="expense"/>
+			</coding>
+		</service>
+		<modifier>
+			<coding>
+				<system value="http://example.org/fhir/modifiers"/>
+				<code value="x"/>
+				<display value="None"/>
+			</coding>
+		</modifier>
+		<fee>
+			<value value="350.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</fee>
+		<noteNumber value="101"/>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="350.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="80.00"/>
+		</adjudication>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="270.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+	</addItem>
+
+
+	<totalCost>
+		<value value="1340.57"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/>
+	</totalCost>	
+
+	<unallocDeductable>
+		<value value="0.00"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/>
+	</unallocDeductable>
+
+	<totalBenefit>
+		<value value="1054.47"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/>
+	</totalBenefit>
+
+	<!-- Payment details -->
+	<payment>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-paymenttype"/>
+				<code value="complete"/>
+			</coding>
+		</type>	
+
+		<date value="2014-08-31"/>
+
+		<amount>
+			<value value="100.47"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</amount>	
+
+		<identifier>
+			<system value="http://www.BenefitsInc.com/fhir/paymentidentifier"/>
+			<value value="201408-2-15507"/>
+		</identifier>	
+	</payment>
+
+	<processNote>
+		<number value="101"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type" />
+				<code value="print" />
+			</coding>
+		</type>
+		<text value="Package codes are not permitted. Codes replaced by Insurer."/>
+		<language>
+			<coding>
+				<system value="urn:ietf:bcp:47" />
+				<code value="en-CA" />
+			</coding>
+		</language>
+	</processNote>	
+</ClaimResponse>
