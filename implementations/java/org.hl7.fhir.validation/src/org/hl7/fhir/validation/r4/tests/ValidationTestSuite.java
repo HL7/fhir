@@ -92,6 +92,9 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       }
     }
 
+    if (content.has("valid") && !content.get("valid").getAsBoolean())
+      return;
+    
     String path = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", name.substring(name.indexOf(".")+1));
     InstanceValidator val = new InstanceValidator(TestingUtilities.context, this);
     if (content.has("allowed-extension-domain")) 
