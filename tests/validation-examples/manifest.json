@@ -249,6 +249,22 @@
       "code-wrong-system-vs.xml" : {
         "tx-dependent" : true,
         "errorCount": 1
+      },
+      "ccda-example.xml" : {
+        "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
+        "errorCount": 0,
+        "profile" : {
+          "source" : "ccda-profile.xml", 
+          "errorCount": 0          
+        }
+      },
+      "ccda-example-bad.xml" : {
+        "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
+        "errorCount": 0,
+        "profile" : {
+          "source" : "ccda-profile.xml", 
+          "errorCount": 1
+        }
       }
 		}
 	}

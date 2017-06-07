@@ -18,8 +18,10 @@ import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.ExpansionProfile;
+import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
@@ -91,12 +93,30 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
 
     String path = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", name.substring(name.indexOf(".")+1));
     InstanceValidator val = new InstanceValidator(TestingUtilities.context, this);
+    if (content.has("allowed-extension-domain")) 
+      val.getExtensionDomains().add(content.get("allowed-extension-domain").getAsString());
     val.setFetcher(this);
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     if (name.startsWith("Json."))
       val.validate(null, errors, new FileInputStream(path), FhirFormat.JSON);
     else
       val.validate(null, errors, new FileInputStream(path), FhirFormat.XML);
+    checkOutcomes(errors, content);
+    if (content.has("profile")) {
+      errors = new ArrayList<ValidationMessage>();
+      JsonObject profile = content.getAsJsonObject("profile");
+      String filename = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", profile.get("source").getAsString());
+      StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
+      if (name.startsWith("Json."))
+        val.validate(null, errors, new FileInputStream(path), FhirFormat.JSON, sd);
+      else
+        val.validate(null, errors, new FileInputStream(path), FhirFormat.XML, sd);
+      checkOutcomes(errors, profile);
+      
+    }
+  }
+
+  private void checkOutcomes(List<ValidationMessage> errors, JsonObject focus) {
     int ec = 0;
     int wc = 0;
     for (ValidationMessage vm : errors) {
@@ -107,10 +127,10 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       if (vm.getLevel() == IssueSeverity.WARNING) 
         wc++;
     }
-    if (TestingUtilities.context.isNoTerminologyServer() || !content.has("tx-dependent")) {
-      Assert.assertEquals("Expected "+Integer.toString(content.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec)+".", content.get("errorCount").getAsInt(), ec);
-      if (content.has("warningCount"))
-        Assert.assertEquals("Expected "+Integer.toString(content.get("warningCount").getAsInt())+" warnings, but found "+Integer.toString(wc)+".", content.get("warningCount").getAsInt(), wc);
+    if (TestingUtilities.context.isNoTerminologyServer() || !focus.has("tx-dependent")) {
+      Assert.assertEquals("Expected "+Integer.toString(focus.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec)+".", focus.get("errorCount").getAsInt(), ec);
+      if (focus.has("warningCount"))
+        Assert.assertEquals("Expected "+Integer.toString(focus.get("warningCount").getAsInt())+" warnings, but found "+Integer.toString(wc)+".", focus.get("warningCount").getAsInt(), wc);
     }
   }
 
