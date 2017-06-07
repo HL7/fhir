@@ -160,7 +160,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   public static final String IS_DERIVED = "derived.fact";
   public static final String UD_ERROR_STATUS = "error-status";
   private static final String GENERATED_IN_SNAPSHOT = "profileutilities.snapshot.processed";
-  private static final boolean DEBUG = false;
+  private static final boolean DEBUG = true;
 
   // note that ProfileUtilities are used re-entrantly internally, so nothing with process state can be here
   private final IWorkerContext context;
@@ -370,10 +370,10 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (DEBUG) {
       System.out.println("Differential: ");
       for (ElementDefinition ed : derived.getDifferential().getElement())
-        System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId()+" "+constraintSummary(ed));
+        System.out.println("  "+ed.getPath()+" : "+typeSummaryWithProfile(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId()+" "+constraintSummary(ed));
       System.out.println("Snapshot: ");
       for (ElementDefinition ed : derived.getSnapshot().getElement())
-        System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId()+" "+constraintSummary(ed));
+        System.out.println("  "+ed.getPath()+" : "+typeSummaryWithProfile(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId()+" "+constraintSummary(ed));
     }
     //Check that all differential elements have a corresponding snapshot element
     for (ElementDefinition e : derived.getDifferential().getElement()) {
@@ -425,6 +425,25 @@ public class ProfileUtilities extends TranslatingUtilities {
       else
         b.append("|");
       b.append(tr.getCode());
+    }
+    return b.toString();
+  }
+
+  private String typeSummaryWithProfile(ElementDefinition ed) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (TypeRefComponent tr : ed.getType()) {
+      if (first) 
+        first = false;
+      else
+        b.append("|");
+      b.append(tr.getCode());
+      if (tr.hasProfile()) {
+        b.append("(");
+        b.append(tr.getProfile());
+        b.append(")");
+        
+      }
     }
     return b.toString();
   }
@@ -2880,6 +2899,8 @@ public class ProfileUtilities extends TranslatingUtilities {
           String edLastNode = ed.getPath().replaceAll("(.*\\.)*(.*)", "$2");
           String childLastNode = child.getSelf().getPath().replaceAll("(.*\\.)*(.*)", "$2");
           String p = childLastNode.substring(edLastNode.length()-3);
+          if (isPrimitive(Utilities.uncapitalize(p)))
+            p = Utilities.uncapitalize(p);
           StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+p);
           if (sd == null)
             throw new Error("Unable to find profile "+p);
