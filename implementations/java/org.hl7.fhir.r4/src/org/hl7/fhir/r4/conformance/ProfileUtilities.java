@@ -560,9 +560,22 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (differential.getElement().size() > diffCursor && outcome.getPath().contains(".") && (isDataType(outcome.getType()) || outcome.hasContentReference())) {  // don't want to do this for the root, since that's base, and we're already processing it
             if (pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+".") && !baseWalksInto(base.getElement(), baseCursor)) {
               if (outcome.getType().size() > 1) {
-                for (TypeRefComponent t : outcome.getType()) {
-                  if (!t.getCode().equals("Reference"))
-                    throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
+                if (outcome.getPath().endsWith("[x]") && !diffMatches.get(0).getPath().endsWith("[x]")) {
+                  String en = tail(outcome.getPath());
+                  String tn = tail(diffMatches.get(0).getPath());
+                  String t = tn.substring(en.length()-3);
+                  if (isPrimitive(Utilities.uncapitalize(t)))
+                    t = Utilities.uncapitalize(t);
+                  List<TypeRefComponent> ntr = getByTypeName(outcome.getType(), t); // keep any additional information
+                  if (ntr.isEmpty()) 
+                    ntr.add(new TypeRefComponent().setCode(t));
+                  outcome.getType().clear();
+                  outcome.getType().addAll(ntr);
+                }
+                if (outcome.getType().size() > 1)
+                  for (TypeRefComponent t : outcome.getType()) {
+                    if (!t.getCode().equals("Reference"))
+                      throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
                 }
               }
               int start = diffCursor;
@@ -825,6 +838,16 @@ public class ProfileUtilities extends TranslatingUtilities {
       i++;
       if (e.hasMinElement() && e.getMinElement().getValue()==null)
         throw new Error("null min");
+    }
+    return res;
+  }
+
+
+  private List<TypeRefComponent> getByTypeName(List<TypeRefComponent> type, String t) {
+    List<TypeRefComponent> res = new ArrayList<TypeRefComponent>();
+    for (TypeRefComponent tr : type) {
+      if (t.equals(tr.getCode()))
+          res.add(tr);
     }
     return res;
   }
