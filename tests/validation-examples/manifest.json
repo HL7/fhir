@@ -251,7 +251,7 @@
         "errorCount": 1
       },
       "ccda-example.xml" : {
-        "valid" : true,
+        "use-test" : true,
         "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
         "errorCount": 0,
         "profile" : {
@@ -260,11 +260,21 @@
         }
       },
       "ccda-example-bad.xml" : {
-        "valid" : true,
+        "use-test" : true,
         "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
         "errorCount": 0,
         "profile" : {
           "source" : "ccda-profile.xml", 
+          "errorCount": 1
+        }
+      },
+      "uk-nhs-pat.xml" : {
+        "version" : "1.0.2",
+        "use-test" : false,
+        "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
+        "errorCount": 0,
+        "profile" : {
+          "source" : "uk-nhs-sd-pat.xml", 
           "errorCount": 1
         }
       }

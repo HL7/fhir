@@ -11,6 +11,9 @@ import java.util.Map.Entry;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.hl7.fhir.convertors.VersionConvertor_10_40;
+import org.hl7.fhir.convertors.VersionConvertor_14_40;
+import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -21,6 +24,7 @@ import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
@@ -92,7 +96,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       }
     }
 
-    if (content.has("valid") && !content.get("valid").getAsBoolean())
+    if (content.has("use-test") && !content.get("use-test").getAsBoolean())
       return;
     
     String path = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", name.substring(name.indexOf(".")+1));
@@ -104,7 +108,16 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
       JsonObject profile = content.getAsJsonObject("profile");
       String filename = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", profile.get("source").getAsString());
-      StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
+      String v = content.has("version") ? content.get("version").getAsString() : Constants.VERSION;
+      StructureDefinition sd = null;
+      if (Constants.VERSION.equals(v))
+        sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
+      else if (org.hl7.fhir.dstu3.model.Constants.VERSION.equals(v))
+        sd = (StructureDefinition) VersionConvertor_30_40.convertResource(new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(filename)));
+      else if (org.hl7.fhir.dstu2016may.model.Constants.VERSION.equals(v))
+        sd = (StructureDefinition) VersionConvertor_14_40.convertResource(new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new FileInputStream(filename)));
+      else if (org.hl7.fhir.dstu2.model.Constants.VERSION.equals(v))
+        sd = (StructureDefinition) new VersionConvertor_10_40(null).convertResource(new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(filename)));
       if (!sd.hasSnapshot()) {
         ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
         StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
