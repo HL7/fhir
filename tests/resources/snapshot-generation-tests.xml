@@ -1301,6 +1301,7 @@
         </element>
         <element>
           <path value="OperationOutcome.issue.details.text.extension"/>
+          <sliceName value="translation"/>
           <type>
             <code value="Extension"/>
             <targetProfile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation"/>
@@ -1308,12 +1309,13 @@
         </element>
         <element>
           <path value="OperationOutcome.issue.details.text.extension.valueString"/>
-          <type>
+<!--          <type>
             <code value="string"/>
-          </type>
+          </type>-->
         </element>
         <element>
           <path value="OperationOutcome.issue.details.text.extension.valueString.extension"/>
+          <sliceName value="language"/>
           <type>
             <code value="Extension"/>
             <targetProfile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-language"/>
@@ -2671,10 +2673,10 @@
     <action>
       <assert>
         <label value="test28-1"/>
-        <description value="Element count must be increased by 8"/>
+        <description value="Element count must be increased by 16"/>
         <!-- This number may not be correct -->
         <direction value="response"/>
-        <expression value="fixture('t28o').snapshot.element.count().trace('t28o') = fixture('operationoutcome').snapshot.element.count().trace('t28') + 8"/>
+        <expression value="fixture('t28o').snapshot.element.count().trace('t28o') = fixture('operationoutcome').snapshot.element.count().trace('t28') + 16"/>
       </assert>
     </action>
   </test>
