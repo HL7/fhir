@@ -160,6 +160,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   public static final String IS_DERIVED = "derived.fact";
   public static final String UD_ERROR_STATUS = "error-status";
   private static final String GENERATED_IN_SNAPSHOT = "profileutilities.snapshot.processed";
+  private static final boolean DEBUG = false;
 
   // note that ProfileUtilities are used re-entrantly internally, so nothing with process state can be here
   private final IWorkerContext context;
@@ -366,21 +367,35 @@ public class ProfileUtilities extends TranslatingUtilities {
     updateMaps(base, derived);
     setIds(derived, false);
     
+    if (DEBUG) {
+      System.out.println("Differential: ");
+      for (ElementDefinition ed : derived.getDifferential().getElement())
+        System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId()+" "+constraintSummary(ed));
+      System.out.println("Snapshot: ");
+      for (ElementDefinition ed : derived.getSnapshot().getElement())
+        System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId()+" "+constraintSummary(ed));
+    }
     //Check that all differential elements have a corresponding snapshot element
     for (ElementDefinition e : derived.getDifferential().getElement()) {
       if (!e.hasUserData(GENERATED_IN_SNAPSHOT)) {
-        System.out.println("Error in snapshot generation: Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
-        System.out.println("Differential: ");
-        for (ElementDefinition ed : derived.getDifferential().getElement())
-          System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId());
-        System.out.println("Snapshot: ");
-        for (ElementDefinition ed : derived.getSnapshot().getElement())
-          System.out.println("  "+ed.getPath()+" : "+typeSummary(ed)+"["+ed.getMin()+".."+ed.getMax()+"]"+sliceSummary(ed)+"  id = "+ed.getId());
+        System.out.println("Error in snapshot generation: Differential for "+derived.getUrl()+" with id: " + e.getId()+" has an element that is not marked with a snapshot match");
         throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
 //        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
       }
     }
   }
+
+  private String constraintSummary(ElementDefinition ed) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    if (ed.hasPattern())
+      b.append("pattern="+ed.getPattern().fhirType());
+    if (ed.hasFixed())
+      b.append("fixed="+ed.getFixed().fhirType());
+    if (ed.hasConstraint())
+      b.append("constraints="+ed.getConstraint().size());
+    return b.toString();
+  }
+
 
   private String sliceSummary(ElementDefinition ed) {
     if (!ed.hasSlicing() && !ed.hasSliceName())
@@ -435,15 +450,16 @@ public class ProfileUtilities extends TranslatingUtilities {
    */
   private ElementDefinition processPaths(String indent, StructureDefinitionSnapshotComponent result, StructureDefinitionSnapshotComponent base, StructureDefinitionDifferentialComponent differential, int baseCursor, int diffCursor, int baseLimit,
       int diffLimit, String url, String profileName, String contextPathSrc, String contextPathDst, boolean trimDifferential, String contextName, String resultPathBase, boolean slicingDone) throws DefinitionException, FHIRException {
-
-//    System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
+    if (DEBUG) 
+      System.out.println(indent+"PP @ "+resultPathBase+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicing = "+slicingDone+")");
     ElementDefinition res = null; 
     // just repeat processing entries until we run out of our allowed scope (1st entry, the allowed scope is all the entries)
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
       ElementDefinition currentBase = base.getElement().get(baseCursor);
       String cpath = fixedPath(contextPathSrc, currentBase.getPath());
-//      System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicingDone = "+slicingDone+")");
+      if (DEBUG) 
+        System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicingDone = "+slicingDone+")");
       List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit, profileName, url); // get a list of matching elements in scope
 
       // in the simple case, source is not sliced.
@@ -548,7 +564,7 @@ public class ProfileUtilities extends TranslatingUtilities {
                 if (dt == null)
                   throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
                 contextName = dt.getUrl();
-                processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
+                processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start, dt.getSnapshot().getElement().size()-1,
                     diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false);
               }
             }
