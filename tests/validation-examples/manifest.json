@@ -251,7 +251,7 @@
         "errorCount": 1
       },
       "ccda-example.xml" : {
-        "valid" : false,
+        "valid" : true,
         "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
         "errorCount": 0,
         "profile" : {
@@ -260,7 +260,7 @@
         }
       },
       "ccda-example-bad.xml" : {
-        "valid" : false,
+        "valid" : true,
         "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
         "errorCount": 0,
         "profile" : {

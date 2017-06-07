@@ -92,7 +92,7 @@
             <coding>
                 <system value="http://loinc.org"/>
                 <code value="48765-2"/>
-                <display value="Allergies and adverse reactions"/>
+                <display value="Allergies and Adverse Reactions"/>
             </coding>
         </code>
         <text>
@@ -550,9 +550,9 @@
         <title value="Reason for Referral Section"/>
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="42349-1"/>
-                <display value="Reason for Referral"/>
+                    <system value="http://loinc.org"/>
+                    <code value="42349-1"/>
+                    <display value="Reason for Referral"/>
             </coding>
         </code>
         <text>
@@ -611,9 +611,9 @@
         <title value="Medication Section"/>
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="10160-0"/>
-                <display value="History of Medication Use"/>
+                    <system value="http://loinc.org"/>
+                    <code value="10160-0"/>
+                    <display value="History of Medication Use"/>
             </coding>
         </code>
         <text>
@@ -737,9 +737,9 @@
         <title value="Problem Section"/>
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="11450-4"/>
-                <display value="Problem list"/>
+                    <system value="http://loinc.org"/>
+                    <code value="11450-4"/>
+                    <display value="Problem List"/>
             </coding>
         </code>
         <text>

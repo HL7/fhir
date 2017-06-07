@@ -286,7 +286,13 @@ public class ExpressionNode {
 			}
 			break;
 		case Constant:
-  	  b.append(Utilities.escapeJava(constant));
+		  if (Utilities.isInteger(constant) || Utilities.existsInList(constant, "true", "false"))
+	      b.append(Utilities.escapeJava(constant));
+		  else {
+        b.append("'");
+		    b.append(Utilities.escapeJava(constant));
+        b.append("'");
+		  }
 			break;
 		case Group:
 			b.append("(");

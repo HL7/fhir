@@ -92,7 +92,7 @@
             <coding>
                 <system value="http://loinc.org"/>
                 <code value="48765-2"/>
-                <display value="Allergies and adverse reactions"/>
+                <display value="Allergies and Adverse Reactions"/>
             </coding>
         </code>
         <text>
@@ -147,7 +147,7 @@
             <coding>
                 <system value="http://loinc.org"/>
                 <code value="48765-2"/>
-                <display value="Allergies and adverse reactions"/>
+                <display value="Allergies and Adverse Reactions"/>
             </coding>
         </code>
         <text>
@@ -792,9 +792,9 @@
         <title value="Problem Section"/>
         <code>
             <coding>
-                <system value="http://loinc.org"/>
-                <code value="11450-4"/>
-                <display value="Problem list"/>
+                    <system value="http://loinc.org"/>
+                    <code value="11450-4"/>
+                    <display value="Problem List"/>
             </coding>
         </code>
         <text>

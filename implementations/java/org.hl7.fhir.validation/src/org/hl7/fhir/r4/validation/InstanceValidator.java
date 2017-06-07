@@ -2301,57 +2301,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           else
             expression.append(" and " + discriminator + " is " + type);
         } else if (criteriaElement.hasFixed()) {
-          expression.append(" and (" + discriminator + " = ");
-          Type fixed = criteriaElement.getFixed();
-          if (fixed instanceof StringType) {
-            Gson gson = new Gson();
-            String json = gson.toJson((StringType)fixed);
-            String escapedString = json.substring(json.indexOf(":")+2);
-            escapedString = escapedString.substring(0, escapedString.indexOf(",\"myStringValue")-1);
-            expression.append("'" + escapedString + "'");
-          } else if (fixed instanceof UriType) {
-              expression.append("'" + ((UriType)fixed).asStringValue() + "'");
-          } else if (fixed instanceof IntegerType) {
-            expression.append(((IntegerType)fixed).asStringValue());
-          } else if (fixed instanceof DecimalType) {
-            expression.append(((IntegerType)fixed).asStringValue());
-          } else if (fixed instanceof BooleanType) {
-            expression.append(((BooleanType)fixed).asStringValue());
-          } else
-            throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + fixed.getClass().getName());
-            expression.append(")");
+          buildFixedExpression(ed, expression, discriminator, criteriaElement);
         } else if (criteriaElement.hasPattern()) {
-          Type pattern = criteriaElement.getPattern();
-          if (pattern instanceof CodeableConcept) {
-            CodeableConcept cc = (CodeableConcept) pattern;
-            if (cc.hasText())
-              throw new DefinitionException("Unsupported CodeableConcept pattern - using text - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
-            if (!cc.hasCoding() || cc.getCoding().size() > 1)
-              throw new DefinitionException("Unsupported CodeableConcept pattern - must be just one coding - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
-            Coding c = cc.getCodingFirstRep();
-            if (c.hasExtension() || cc.hasExtension())
-              throw new DefinitionException("Unsupported CodeableConcept pattern - extensions are not allowed - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
-            expression.append(" and " + discriminator + ".coding.where(");
-            boolean first = true;
-            if (c.hasSystem()) {
-              first = false;
-              expression.append("system = \""+c.getSystem()+"\"");
-            }
-            if (c.hasVersion()) {
-              if (first) first = false; else expression.append(" and ");
-              expression.append("version = \""+c.getVersion()+"\"");
-            }
-            if (c.hasCode()) {
-              if (first) first = false; else expression.append(" and ");
-              expression.append("code = \""+c.getCode()+"\"");
-            }
-            if (c.hasDisplay()) {
-              if (first) first = false; else expression.append(" and ");
-              expression.append("display = \""+c.getDisplay()+"\"");
-            }
-            expression.append(").exists()");
-          } else
-          throw new DefinitionException("Unsupported fixed pattern type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+          buildPattternExpression(ed, expression, discriminator, criteriaElement);
         } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetReference()!=null) {
           expression.append(" and " + discriminator + " in '" + criteriaElement.getBinding().getValueSetReference().getReference() + "'");
         } else if (criteriaElement.hasMin() && criteriaElement.getMin()>0) {
@@ -2383,6 +2335,62 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       throw new FHIRException("Problem evaluating slicing expression for element in profile " + profile.getUrl() + " path " + path + ": " + ex.getMessage());
     }
     return ok;
+  }
+
+  private void buildPattternExpression(ElementDefinition ed, StringBuilder expression, String discriminator, ElementDefinition criteriaElement) throws DefinitionException {
+    Type pattern = criteriaElement.getPattern();
+    if (pattern instanceof CodeableConcept) {
+      CodeableConcept cc = (CodeableConcept) pattern;
+      if (cc.hasText())
+        throw new DefinitionException("Unsupported CodeableConcept pattern - using text - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+      if (!cc.hasCoding() || cc.getCoding().size() > 1)
+        throw new DefinitionException("Unsupported CodeableConcept pattern - must be just one coding - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+      Coding c = cc.getCodingFirstRep();
+      if (c.hasExtension() || cc.hasExtension())
+        throw new DefinitionException("Unsupported CodeableConcept pattern - extensions are not allowed - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+      expression.append(" and " + discriminator + ".coding.where(");
+      boolean first = true;
+      if (c.hasSystem()) {
+        first = false;
+        expression.append("system = '"+c.getSystem()+"'");
+      }
+      if (c.hasVersion()) {
+        if (first) first = false; else expression.append(" and ");
+        expression.append("version = '"+c.getVersion()+"'");
+      }
+      if (c.hasCode()) {
+        if (first) first = false; else expression.append(" and ");
+        expression.append("code = '"+c.getCode()+"'");
+      }
+      if (c.hasDisplay()) {
+        if (first) first = false; else expression.append(" and ");
+        expression.append("display = '"+c.getDisplay()+"'");
+      }
+      expression.append(").exists()");
+    } else
+      throw new DefinitionException("Unsupported fixed pattern type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+  }
+
+  private void buildFixedExpression(ElementDefinition ed, StringBuilder expression, String discriminator, ElementDefinition criteriaElement) throws DefinitionException {
+    expression.append(" and (" + discriminator + " = ");
+    Type fixed = criteriaElement.getFixed();
+    if (fixed instanceof StringType) {
+      Gson gson = new Gson();
+      String json = gson.toJson((StringType)fixed);
+      String escapedString = json.substring(json.indexOf(":")+2);
+      escapedString = escapedString.substring(0, escapedString.indexOf(",\"myStringValue")-1);
+      expression.append("'" + escapedString + "'");
+    } else if (fixed instanceof UriType) {
+        expression.append("'" + ((UriType)fixed).asStringValue() + "'");
+    } else if (fixed instanceof IntegerType) {
+      expression.append(((IntegerType)fixed).asStringValue());
+    } else if (fixed instanceof DecimalType) {
+      expression.append(((IntegerType)fixed).asStringValue());
+    } else if (fixed instanceof BooleanType) {
+      expression.append(((BooleanType)fixed).asStringValue());
+    } else
+      throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + fixed.getClass().getName());
+      expression.append(")");
   }
 
   // we assume that the following things are true:
@@ -3151,7 +3159,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               }
             }
           }
-        String location = "Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + (ed.hasSliceName()? "[" + ed.getSliceName() + "]": "");
+        String location = "Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + (ed.hasSliceName()? "[" + ed.getSliceName() + (ed.hasLabel() ? " ("+ed.getLabel()+")" : "")+"]": "");
         if (ed.getMin() > 0) {
           if (problematicPaths.contains(ed.getPath()))
             hint(errors, IssueType.NOTSUPPORTED, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
