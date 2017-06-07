@@ -79,10 +79,14 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
   @Test
   public void test() throws Exception {
     if (TestingUtilities.context == null) {
-      SimpleWorkerContext ctxt = SimpleWorkerContext.fromPack("C:\\work\\org.hl7.fhir\\build\\publish\\definitions.xml.zip");
+      SimpleWorkerContext ctxt = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
       TestingUtilities.context = ctxt;
       ctxt.setExpansionProfile(makeExpProfile());
-      ctxt.connectToTSServer("http://tx.fhir.org/r3");
+      try {
+        ctxt.connectToTSServer("http://tx.fhir.org/r3");
+      } catch (Exception e) {
+        ctxt.setCanRunWithoutTerminology(true);
+      }
     }
 
     String path = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", name.substring(name.indexOf(".")+1));
@@ -103,9 +107,11 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       if (vm.getLevel() == IssueSeverity.WARNING) 
         wc++;
     }
-    Assert.assertEquals("Expected "+Integer.toString(content.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec)+".", content.get("errorCount").getAsInt(), ec);
-    if (content.has("warningCount"))
-      Assert.assertEquals("Expected "+Integer.toString(content.get("warningCount").getAsInt())+" warnings, but found "+Integer.toString(wc)+".", content.get("warningCount").getAsInt(), wc);
+    if (TestingUtilities.context.isNoTerminologyServer() || !content.has("tx-dependent")) {
+      Assert.assertEquals("Expected "+Integer.toString(content.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec)+".", content.get("errorCount").getAsInt(), ec);
+      if (content.has("warningCount"))
+        Assert.assertEquals("Expected "+Integer.toString(content.get("warningCount").getAsInt())+" warnings, but found "+Integer.toString(wc)+".", content.get("warningCount").getAsInt(), wc);
+    }
   }
 
   private ExpansionProfile makeExpProfile() {

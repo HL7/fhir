@@ -183,6 +183,7 @@ import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.test.FluentPathTests;
 import org.hl7.fhir.r4.test.NarrativeGeneratorTests;
 import org.hl7.fhir.r4.test.ResourceRoundTripTests;
+import org.hl7.fhir.r4.test.SnapShotGenerationTests;
 import org.hl7.fhir.r4.test.SnomedExpressionsTests;
 import org.hl7.fhir.r4.test.TurtleTests;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
@@ -234,6 +235,7 @@ import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.hl7.fhir.validation.dstu3.tests.InstanceValidatorTests;
 import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
+import org.hl7.fhir.validation.r4.tests.ValidationTestSuite;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -3645,7 +3647,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void checkFragments() throws Exception {
     for (Fragment f : fragments) {
       try {
-        System.out.println("    "+f.page+"/"+f.id);
+        // System.out.println("    "+f.page+"/"+f.id);
         String xml = f.getXml();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -5467,6 +5469,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     runJUnitClass(TurtleTests.class);
     runJUnitClass(SnomedExpressionsTests.class);
     runJUnitClass(ResourceRoundTripTests.class);
+    runJUnitClass(SnapShotGenerationTests.class);
+    runJUnitClass(ValidationTestSuite.class);
     checkAllOk();
   }
 

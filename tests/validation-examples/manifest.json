@@ -234,16 +234,20 @@
 				"errors": ["Error reported by XML parser processing null: Scanner State 24 not Recognized "]
 			},
       "code-correct.xml" : {
+        "tx-dependent" : true,
         "errorCount": 0
       },
       "code-wrong-display.xml" : {
+        "tx-dependent" : true,
         "errorCount": 0,
         "warningCount" : 1
       },
       "code-wrong-system.xml" : {
+        "tx-dependent" : true,
         "errorCount": 1
       },
       "code-wrong-system-vs.xml" : {
+        "tx-dependent" : true,
         "errorCount": 1
       }
 		}

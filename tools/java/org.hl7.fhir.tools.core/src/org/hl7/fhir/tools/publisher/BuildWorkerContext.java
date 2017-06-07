@@ -250,6 +250,25 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (uri.startsWith("http:")) {
       if (uri.contains("#"))
         uri = uri.substring(0, uri.indexOf("#"));
+      if (class_ == Resource.class) {
+        if (profiles.containsKey(uri))
+          return (T) profiles.get(uri);
+        if (extensionDefinitions.containsKey(uri))
+          return (T) extensionDefinitions.get(uri);
+        if (valueSets.containsKey(uri))
+          return (T) valueSets.get(uri);
+        if (codeSystems.containsKey(uri))
+          return (T) codeSystems.get(uri);
+        if (operations.containsKey(uri))
+          return (T) operations.get(uri);
+        if (searchParameters.containsKey(uri))
+          return (T) searchParameters.get(uri);
+        if (maps.containsKey(uri))
+          return (T) maps.get(uri);
+        if (transforms.containsKey(uri))
+          return (T) transforms.get(uri);
+        return null;      
+      }
       if (class_ == StructureDefinition.class) {
         if (profiles.containsKey(uri))
           return (T) profiles.get(uri);
