@@ -4,7 +4,7 @@
     <meta>
         <versionId value="1"/>
         <lastUpdated value="2016-06-15T08:16:14Z"/>
-        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Referral_Note"/>
+        <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Referral-Note"/>
     </meta>
     <text>
         <status value="generated"/>

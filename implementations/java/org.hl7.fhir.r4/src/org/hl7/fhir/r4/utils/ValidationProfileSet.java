@@ -42,6 +42,7 @@ public class ValidationProfileSet {
   public ValidationProfileSet(StructureDefinition profile) {
     super();
     definitions.add(profile);
+    canonical.add(new ProfileRegistration(profile.getUrl(), true));
   }
 
   public ValidationProfileSet(List<String> profiles, boolean isError) {
@@ -77,6 +78,13 @@ public class ValidationProfileSet {
 
   public List<ProfileRegistration> getCanonical() {
     return canonical;
+  }
+
+  public StructureDefinition fetch(String effectiveProfile) {
+    for (StructureDefinition sd : definitions) 
+      if (effectiveProfile.equals(sd.getUrl()))
+        return sd;
+    return null;
   }
 
 }

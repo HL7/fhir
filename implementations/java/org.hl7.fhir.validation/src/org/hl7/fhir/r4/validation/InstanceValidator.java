@@ -156,6 +156,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private HashMap<Element, ResourceProfiles> resourceProfilesMap;
   private IValidatorResourceFetcher fetcher;
   long time = 0;
+  private ValidationProfileSet providedProfiles;
 
   /*
    * Keeps track of whether a particular profile has been checked or not yet
@@ -235,7 +236,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         effectiveProfile = profile.substring(0, profile.indexOf('|'));
         version = profile.substring(profile.indexOf('|')+1);
       }
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, effectiveProfile);
+      StructureDefinition sd = null;
+      if (providedProfiles != null)
+        sd = providedProfiles.fetch(effectiveProfile);
+      if (sd == null)
+        sd = context.fetchResource(StructureDefinition.class, effectiveProfile);
+      
       if (warningOrError(error, errors, IssueType.INVALID, element.line(), element.col(), path, sd != null, "StructureDefinition reference \"{0}\" could not be resolved", profile)) {
         if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, version==null || (sd.getVersion()!=null && sd.getVersion().equals(version)), 
              "Referenced version " + version + " does not match found version " + sd.getVersion() + " for profile " + sd.getUrl(), profile)) {
@@ -523,6 +529,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   @Override
   public void validate(Object appContext, List<ValidationMessage> errors, Element element, ValidationProfileSet profiles) throws FHIRException, IOException {
     // this is the main entry point; all the other entry points end up here coming here...
+    providedProfiles = profiles;
     long t = System.nanoTime();
     boolean isRoot = false;
     if (resourceProfilesMap == null) {
@@ -2267,7 +2274,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (n == null) {
       long t = System.nanoTime();
       // GG: this approach is flawed because it treats discriminators individually rather than collectively 
-      String expression = "true";
+      StringBuilder expression = new StringBuilder("true");
       for (ElementDefinitionSlicingDiscriminatorComponent s : slicer.getSlicing().getDiscriminator()) {
         String discriminator = s.getPath();
         if (s.getType() == DiscriminatorType.PROFILE)
@@ -2290,41 +2297,74 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (type==null)
             throw new DefinitionException("Discriminator (" + discriminator + ") is based on type, but slice " + ed.getId() + " does not declare a type");
           if (discriminator.isEmpty())
-            expression = expression + " and this is " + type;
+            expression.append(" and this is " + type);
           else
-            expression = expression + " and " + discriminator + " is " + type;
+            expression.append(" and " + discriminator + " is " + type);
         } else if (criteriaElement.hasFixed()) {
-          expression = expression + " and " + discriminator + " = ";
+          expression.append(" and (" + discriminator + " = ");
           Type fixed = criteriaElement.getFixed();
           if (fixed instanceof StringType) {
             Gson gson = new Gson();
             String json = gson.toJson((StringType)fixed);
             String escapedString = json.substring(json.indexOf(":")+2);
             escapedString = escapedString.substring(0, escapedString.indexOf(",\"myStringValue")-1);
-            expression = expression + "'" + escapedString + "'";
+            expression.append("'" + escapedString + "'");
           } else if (fixed instanceof UriType) {
-              expression = expression + "'" + ((UriType)fixed).asStringValue() + "'";
+              expression.append("'" + ((UriType)fixed).asStringValue() + "'");
           } else if (fixed instanceof IntegerType) {
-            expression = expression + ((IntegerType)fixed).asStringValue();
+            expression.append(((IntegerType)fixed).asStringValue());
           } else if (fixed instanceof DecimalType) {
-            expression = expression + ((IntegerType)fixed).asStringValue();
+            expression.append(((IntegerType)fixed).asStringValue());
           } else if (fixed instanceof BooleanType) {
-            expression = expression + ((BooleanType)fixed).asStringValue();
+            expression.append(((BooleanType)fixed).asStringValue());
           } else
             throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + fixed.getClass().getName());
+            expression.append(")");
+        } else if (criteriaElement.hasPattern()) {
+          Type pattern = criteriaElement.getPattern();
+          if (pattern instanceof CodeableConcept) {
+            CodeableConcept cc = (CodeableConcept) pattern;
+            if (cc.hasText())
+              throw new DefinitionException("Unsupported CodeableConcept pattern - using text - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+            if (!cc.hasCoding() || cc.getCoding().size() > 1)
+              throw new DefinitionException("Unsupported CodeableConcept pattern - must be just one coding - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+            Coding c = cc.getCodingFirstRep();
+            if (c.hasExtension() || cc.hasExtension())
+              throw new DefinitionException("Unsupported CodeableConcept pattern - extensions are not allowed - for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
+            expression.append(" and " + discriminator + ".coding.where(");
+            boolean first = true;
+            if (c.hasSystem()) {
+              first = false;
+              expression.append("system = \""+c.getSystem()+"\"");
+            }
+            if (c.hasVersion()) {
+              if (first) first = false; else expression.append(" and ");
+              expression.append("version = \""+c.getVersion()+"\"");
+            }
+            if (c.hasCode()) {
+              if (first) first = false; else expression.append(" and ");
+              expression.append("code = \""+c.getCode()+"\"");
+            }
+            if (c.hasDisplay()) {
+              if (first) first = false; else expression.append(" and ");
+              expression.append("display = \""+c.getDisplay()+"\"");
+            }
+            expression.append(").exists()");
+          } else
+          throw new DefinitionException("Unsupported fixed pattern type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + pattern.getClass().getName());
         } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetReference()!=null) {
-          expression = expression + " and " + discriminator + " in '" + criteriaElement.getBinding().getValueSetReference().getReference() + "'";
+          expression.append(" and " + discriminator + " in '" + criteriaElement.getBinding().getValueSetReference().getReference() + "'");
         } else if (criteriaElement.hasMin() && criteriaElement.getMin()>0) {
-          expression = expression + " and " + discriminator + ".exists()";
+          expression.append(" and " + discriminator + ".exists()");
         } else if (criteriaElement.hasMax() && criteriaElement.getMax().equals("0")) {
-          expression = expression + " and " + discriminator + ".exists().not()";
+          expression.append(" and " + discriminator + ".exists().not()");
         } else {
           throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + ed.getId() + " - does not have fixed value, binding or existence assertions");
         }
       }
 
       try {
-        n = fpe.parse(expression);
+        n = fpe.parse(expression.toString());
       } catch (FHIRLexerException e) {
         throw new FHIRException("Problem processing expression "+expression +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
       }
@@ -2361,7 +2401,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided"))) {
         // Don't need to validate against the resource if there's a profile because the profile snapshot will include the relevant parts of the resources
         validateElement(appContext, errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
-      }
+      } 
 
       // specific known special validations
       if (element.getType().equals("Bundle"))
@@ -3032,7 +3072,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                 if (match)
                   ei.slice = slicer;
               } catch (FHIRException e) {
-                warning(errors, IssueType.PROCESSING, ei.line(), ei.col(), ei.path, false, e.getMessage());
+                rule(errors, IssueType.PROCESSING, ei.line(), ei.col(), ei.path, false, e.getMessage());
                 unsupportedSlicing = true;
                 childUnsupportedSlicing = true;
               }

@@ -25,7 +25,7 @@
     <context value="Composition"/>
     <type value="Composition"/>
     <baseDefinition
-        value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-US-Realm-Header"/>
+        value="http://hl7.org/fhir/StructureDefinition/Composition"/>
     <derivation value="constraint"/>
     <differential>
         <element id="7055-00001">

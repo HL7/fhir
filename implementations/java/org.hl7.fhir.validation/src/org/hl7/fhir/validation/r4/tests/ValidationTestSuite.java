@@ -15,6 +15,7 @@ import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
@@ -96,23 +97,28 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
     if (content.has("allowed-extension-domain")) 
       val.getExtensionDomains().add(content.get("allowed-extension-domain").getAsString());
     val.setFetcher(this);
-    List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-    if (name.startsWith("Json."))
-      val.validate(null, errors, new FileInputStream(path), FhirFormat.JSON);
-    else
-      val.validate(null, errors, new FileInputStream(path), FhirFormat.XML);
-    checkOutcomes(errors, content);
     if (content.has("profile")) {
-      errors = new ArrayList<ValidationMessage>();
+      List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
       JsonObject profile = content.getAsJsonObject("profile");
       String filename = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", profile.get("source").getAsString());
       StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
+      if (!sd.hasSnapshot()) {
+        ProfileUtilities pu = new ProfileUtilities(TestingUtilities.context, null, null);
+        StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+        pu.generateSnapshot(base, sd, sd.getUrl(), sd.getTitle());
+      }
       if (name.startsWith("Json."))
         val.validate(null, errors, new FileInputStream(path), FhirFormat.JSON, sd);
       else
-        val.validate(null, errors, new FileInputStream(path), FhirFormat.XML, sd);
+         val.validate(null, errors, new FileInputStream(path), FhirFormat.XML, sd);
       checkOutcomes(errors, profile);
-      
+    } else {
+      List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
+      if (name.startsWith("Json."))
+        val.validate(null, errors, new FileInputStream(path), FhirFormat.JSON);
+      else
+        val.validate(null, errors, new FileInputStream(path), FhirFormat.XML);
+      checkOutcomes(errors, content);
     }
   }
 
