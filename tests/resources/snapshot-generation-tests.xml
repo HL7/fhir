@@ -1291,36 +1291,33 @@
           <path value="OperationOutcome"/>
         </element>
         <element>
+          <path value="OperationOutcome.issue"/>
+        </element>
+        <element>
+          <path value="OperationOutcome.issue.details"/>
+        </element>
+        <element>
           <path value="OperationOutcome.issue.details.text"/>
-          <mustSupport value="true"/>
         </element>
         <element>
           <path value="OperationOutcome.issue.details.text.extension"/>
-          <sliceName value="issue.translation"/>
           <type>
             <code value="Extension"/>
-            <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation"/>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation"/>
           </type>
-          <mustSupport value="true"/>
         </element>
         <element>
           <path value="OperationOutcome.issue.details.text.extension.valueString"/>
-          <min value="1"/>
           <type>
             <code value="string"/>
           </type>
-          <mustSupport value="true"/>
         </element>
         <element>
           <path value="OperationOutcome.issue.details.text.extension.valueString.extension"/>
-          <sliceName value="issue.translation.language"/>
-          <min value="1"/>
-          <max value="1"/>
           <type>
             <code value="Extension"/>
-            <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-language"/>
+            <targetProfile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-language"/>
           </type>
-          <mustSupport value="true"/>
         </element>
       </differential>
     </StructureDefinition>
@@ -1348,6 +1345,11 @@
   <fixture id="organization">
     <resource>
       <reference value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+    </resource>
+  </fixture>
+  <fixture id="operationoutcome">
+    <resource>
+      <reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
     </resource>
   </fixture>
   <!-- test #1: no change in the differential -->
@@ -2661,6 +2663,7 @@
           <code value="snapshot"/>
         </type>
         <resource value="StructureDefinition"/>
+        <params value="sort=true"/>
         <responseId value="t28o"/>
         <sourceId value="t28"/>
       </operation>
@@ -2671,7 +2674,7 @@
         <description value="Element count must be increased by 8"/>
         <!-- This number may not be correct -->
         <direction value="response"/>
-        <expression value="fixture('t28o').differential.element.count() = fixture('t28').differential.element.count() + 8"/>
+        <expression value="fixture('t28o').snapshot.element.count().trace('t28o') = fixture('operationoutcome').snapshot.element.count().trace('t28') + 8"/>
       </assert>
     </action>
   </test>
