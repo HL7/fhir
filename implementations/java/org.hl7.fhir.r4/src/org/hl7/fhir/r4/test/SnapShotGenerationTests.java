@@ -268,7 +268,7 @@ public class SnapShotGenerationTests {
           context.fixtures.put(op.getResponseId(), output);
           context.snapshots.put(output.getUrl(), output);
           
-          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("c:\\temp", op.getResponseId()+".xml")), output);
+          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(System.getProperty("java.io.tmpdir"), op.getResponseId()+".xml")), output);
           
         } else if (opType.getSystem().equals("http://hl7.org/fhir/testscript-operation-codes") && opType.getCode().equals("sortDifferential")) {
           StructureDefinition source = (StructureDefinition) context.fetchFixture(op.getSourceId());
