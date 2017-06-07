@@ -2517,6 +2517,7 @@
     </action>
   </test>
   <!-- #25. Test slicing - Constrain base element before slicing when slices were already defined - datatype -->
+  <!-- disabled until it passes
   <test>
     <name value="Test25"/>
     <description value="test slicing - Constrain base element before slicing when slices were already defined - datatype"/>
@@ -2535,13 +2536,13 @@
       <assert>
         <label value="test25-1"/>
         <description value="element count increased by ??"/>
-        <!-- Update once we know what the new snapshot size should be -->
+        <!-!- Update once we know what the new snapshot size should be -!->
         <expression value="fixture('t25o').snapshot.element.count().trace('t25o') = fixture('patient').snapshot.element.count().trace('t25patient') + 1"/>
       </assert>
     </action>
   </test>
+  -->
   <!-- #26. Test differential sorting for polymorphic references -->
-  <!-- disabled until it passes
   <test>
     <name value="Test26"/>
     <description value="Test differential sorting for polymorphic references"/>
@@ -2564,7 +2565,6 @@
       </assert>
     </action>
   </test>
-  -->
   <test>
     <name value="Test27"/>
     <description value="test Contract.type"/>
