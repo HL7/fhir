@@ -30,6 +30,8 @@
  24. Test slicing - Constrain base element before slicing when slices were already defined - backbone
  25. Test slicing - Constrain base element before slicing when slices were already defined - datatypes
  26. Test differential sorting for polymorphic references
+ 27. Walking into a type for Contract
+ 28. Test children of a polymorphic type
 -->
   <contained>
     <!-- fixture for #1: no change in the differential -->
@@ -1271,6 +1273,59 @@
       </differential>
     </StructureDefinition>
   </contained>
+ 
+  <contained>
+    <!-- fixture for #28: Test children of a polymorphic type -->
+    <StructureDefinition>
+      <id value="t28"/>
+      <url value="urn:uuid:7c3e3bd7-7919-4348-bed7-a65af1690842"/>
+      <name value="t28"/>
+      <status value="draft"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="OperationOutcome"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="OperationOutcome"/>
+        </element>
+        <element>
+          <path value="OperationOutcome.issue.details.text"/>
+          <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="OperationOutcome.issue.details.text.extension"/>
+          <sliceName value="issue.translation"/>
+          <type>
+            <code value="Extension"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-translation"/>
+          </type>
+          <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="OperationOutcome.issue.details.text.extension.valueString"/>
+          <min value="1"/>
+          <type>
+            <code value="string"/>
+          </type>
+          <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="OperationOutcome.issue.details.text.extension.valueString.extension"/>
+          <sliceName value="issue.translation.language"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Extension"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/iso21090-ST-language"/>
+          </type>
+          <mustSupport value="true"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+
   
   <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
@@ -2593,6 +2648,30 @@
         <description value="Contract.type.coding.system must have a pattern"/>
         <direction value="response"/>
         <expression value="fixture('t27o').snapshot.element.where(path = 'Contract.type.coding.system').pattern.exists()"/>
+      </assert>
+    </action>
+  </test>
+  <test>
+    <name value="Test28"/>
+    <description value="Test children of a polymorphic type"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <responseId value="t28o"/>
+        <sourceId value="t28"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test28-1"/>
+        <description value="Element count must be increased by 8"/>
+        <!-- This number may not be correct -->
+        <direction value="response"/>
+        <expression value="fixture('t28o').differential.element.count() = fixture('t28').differential.element.count() + 8"/>
       </assert>
     </action>
   </test>
