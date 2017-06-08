@@ -150,12 +150,20 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     @Override
     public Base resolveConstant(Object appContext, String name) throws PathEngineException {
-      throw new Error("Not done yet");
+      ValidatorHostContext c = (ValidatorHostContext) appContext;
+      if (externalHostServices != null)
+        return externalHostServices.resolveConstant(c.appContext, name);
+      else
+        return null;
     }
 
     @Override
     public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
-      throw new Error("Not done yet");
+      ValidatorHostContext c = (ValidatorHostContext) appContext;
+      if (externalHostServices != null)
+        return externalHostServices.resolveConstantType(c.appContext, name);
+      else
+        return null;
     }
 
     @Override

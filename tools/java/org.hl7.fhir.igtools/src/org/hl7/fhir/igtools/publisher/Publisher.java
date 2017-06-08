@@ -1678,7 +1678,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       Element e = null;
       FetchedResource r = null;
 
-      try {
+      r = file.addResource();
+      try {        
         if (file.getContentType().contains("json"))
           e = loadFromJson(file);
         else if (file.getContentType().contains("xml"))
@@ -1690,21 +1691,38 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       try {
 
-        r = file.addResource();
         String id = e.getChildValue("id");
         if (Utilities.noString(id))
           throw new Exception("Resource has no id in "+file.getPath());
-        r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
+        r.setElement(e).setId(id);
+        igpkp.findConfiguration(file, r);
+        
+        String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
+        if (ver == null)
+          ver = version; // fall back to global version
+        
+        // version check: for some conformance resources, they may be saved in a different vrsion from that stated for the IG. 
+        // so we might need to convert them prior to loading. Note that this is different to the conversion below - we need to 
+        // convert to the current version. Here, we need to convert to the stated version. Note that we need to do this after
+        // the first load above because above, we didn't have enough data to get the configuration, but we do now. 
+        if (!ver.equals(version)) {
+//          System.out.println("Need to do version conversion on "+r.getElement().fhirType()+" from "+ver+" to "+version);
+          if (file.getContentType().contains("json"))
+            e = loadFromJsonWithVersionChange(file, ver, version);
+          else if (file.getContentType().contains("xml"))
+            e = loadFromXmlWithVersionChange(file, ver, version);
+          else
+            throw new Exception("Unable to determine file type for "+file.getName());
+          r.setElement(e);
+        }
+        
+        r.setTitle(e.getChildValue("name"));
         Element m = e.getNamedChild("meta");
         if (m != null) {
           List<Element> profiles = m.getChildrenByName("profile");
           for (Element p : profiles)
             r.getProfiles().add(p.getValue());
         }
-        igpkp.findConfiguration(file, r);
-        String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
-        if (ver == null)
-          ver = version; // fall back to global version
         if ("1.0.1".equals(ver)) {
           file.getErrors().clear();
           org.hl7.fhir.dstu2.model.Resource res2 = null;
@@ -1741,6 +1759,28 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     org.hl7.fhir.r4.elementmodel.JsonParser jp = new org.hl7.fhir.r4.elementmodel.JsonParser(context);
     jp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
     return jp.parse(new ByteArrayInputStream(file.getSource()));
+  }
+
+  private Element loadFromXmlWithVersionChange(FetchedFile file, String srcV, String dstV) throws Exception {
+    InputStream src = new ByteArrayInputStream(file.getSource());
+    ByteArrayOutputStream dst = new ByteArrayOutputStream();
+    if ("3.0.1".equals(srcV) && "1.4.0".equals(dstV)) {
+      org.hl7.fhir.dstu3.model.Resource r3 = new org.hl7.fhir.dstu3.formats.XmlParser().parse(src);
+      org.hl7.fhir.dstu2016may.model.Resource r14 = VersionConvertor_14_30.convertResource(r3);
+      new org.hl7.fhir.dstu2016may.formats.XmlParser().compose(dst, r14);
+    } else 
+      throw new Exception("Conversion from "+srcV+" to "+dstV+" is not supported yet"); // because the only know reason to do this is 3.0.1 --> 1.40
+    org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
+    xp.setAllowXsiLocation(true);
+    xp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
+    Element res = xp.parse(new ByteArrayInputStream(dst.toByteArray()));
+    if (res == null)
+      throw new Exception("Unable to parse XML for "+file.getName());
+    return res;
+  }
+
+  private Element loadFromJsonWithVersionChange(FetchedFile file, String srcV, String dstV) throws Exception {
+    throw new Exception("Version converting JSON resources is not supported yet"); // because the only know reason to do this is Forge, and it only works with XML
   }
 
   private void load(String type) throws Exception {
