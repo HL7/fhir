@@ -1773,6 +1773,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
     xp.setAllowXsiLocation(true);
     xp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
+    file.getErrors().clear();
     Element res = xp.parse(new ByteArrayInputStream(dst.toByteArray()));
     if (res == null)
       throw new Exception("Unable to parse XML for "+file.getName());
