@@ -6,7 +6,7 @@
 <p>FamilyMemberHistory is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
 
 <p> 
-This resource records significant health events and conditions for a particular individual related to the subject. This information can be known to
+This resource records significant health conditions for a particular individual related to the subject. This information can be known to
 different levels of accuracy. Sometimes the exact condition ('asthma') is known, and sometimes it is less precise ('some sort of cancer').
 Equally, sometimes the person can be identified ('my aunt Agatha') and sometimes all that is known is that the person was an uncle.
 </p>

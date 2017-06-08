@@ -126,7 +126,7 @@
   Element = FamilyMemberHistory
   Type = DomainResource
   Short Name = Information about patient\'s relatives, relevant for patient
-  Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+  Definition = Significant health conditions for a person related to the patient relevant in the context of care for the patient.
   Workflow Mapping = Event
   v2 Mapping = Not in scope for v2
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
@@ -266,7 +266,7 @@
   Type = Age | Range | string
   Short Name = (approximate) age
   Definition = The age of the relative at the time the family member history is recorded
-  Requirements = While age can be calculated from date of birth, sometimes recording age directly is more natureal for clinicians.
+  Requirements = While age can be calculated from date of birth, sometimes recording age directly is more natural for clinicians.
   Comments = use estimatedAge to indicate whether the age is actual or not
   RIM Mapping = participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=\"age\"].value
 
