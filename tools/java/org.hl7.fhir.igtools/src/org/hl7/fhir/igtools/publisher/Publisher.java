@@ -1102,7 +1102,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       filename = Utilities.path(source, "definitions.json.zip");
     else
       filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.json.zip");
-    ZipInputStream zip = new ZipInputStream(new FileInputStream(filename));
+    ZipInputStream zip = null;
+    try {
+      zip = new ZipInputStream(new FileInputStream(filename));
+    } catch (Exception e) {
+      if (source.startsWith("http:") || source.startsWith("https:"))
+        throw e;
+      else {
+        if (Utilities.isAbsoluteFileName(source))
+          filename = Utilities.path(source, "definitions.xml.zip");
+        else
+          filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.xml.zip");
+        zip = new ZipInputStream(new FileInputStream(filename));        
+      }
+    }
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
       int size;
