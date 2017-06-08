@@ -10,9 +10,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.elementmodel.Element;
+import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DecimalType;
@@ -34,6 +38,7 @@ import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.TimeType;
 import org.hl7.fhir.r4.model.TypeDetails;
+import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.TypeDetails.ProfiledType;
 import org.hl7.fhir.r4.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
@@ -137,6 +142,7 @@ public class FHIRPathEngine {
      * @return
      */
     public Base resolveReference(Object appContext, String url);
+    
   }
 
 
@@ -429,7 +435,7 @@ public class FHIRPathEngine {
    * @throws FHIRException 
    * @
    */
-  public boolean evaluateToBoolean(Object appInfo, Resource resource, Base base, ExpressionNode node) throws FHIRException {
+  public boolean evaluateToBoolean(Object appInfo, Base resource, Base base, ExpressionNode node) throws FHIRException {
     return convertToBoolean(evaluate(appInfo, resource, base, node));
   }
 
@@ -1137,6 +1143,7 @@ public class FHIRPathEngine {
     case GreaterOrEqual: return opGreaterOrEqual(left, right);
     case Union: return opUnion(left, right);
     case In: return opIn(left, right);
+    case MemberOf: return opMemberOf(left, right);
     case Contains: return opContains(left, right);
     case Or:  return opOr(left, right);
     case And:  return opAnd(left, right);
@@ -1239,6 +1246,7 @@ public class FHIRPathEngine {
         result.addType("decimal");
       return result;
     case In: return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
+    case MemberOf: return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     case Contains: return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     default: 
       return null;
@@ -1436,7 +1444,26 @@ public class FHIRPathEngine {
     return new ArrayList<Base>();
   }
 
-  private List<Base> opIn(List<Base> left, List<Base> right) {
+	private List<Base> opMemberOf(List<Base> left, List<Base> right) throws FHIRException {
+	  boolean ans = false;
+	  ValueSet vs = worker.fetchResource(ValueSet.class, right.get(0).primitiveValue());
+	  if (vs != null) {
+	    for (Base l : left) {
+	      if (l.fhirType().equals("code")) {
+	        throw new Error("Can't do this right now"); // what's the system?
+	      } else if (l.fhirType().equals("Coding")) {
+	        if (worker.validateCode(l.castToCoding(l), vs).isOk())
+	          ans = true;
+	      } else if (l.fhirType().equals("CodeableConcept")) {
+	        if (worker.validateCode(l.castToCodeableConcept(l), vs).isOk())
+	          ans = true;
+	      }
+	    }
+	  }
+	  return makeBoolean(ans);
+	}
+
+  private List<Base> opIn(List<Base> left, List<Base> right) throws FHIRException {
     boolean ans = true;
     for (Base l : left) {
       boolean f = false;
@@ -1795,7 +1822,7 @@ public class FHIRPathEngine {
   }
   
   private TypeDetails executeType(String type, ExpressionNode exp, boolean atEntry) throws PathEngineException, DefinitionException {
-    if (atEntry && Character.isUpperCase(exp.getName().charAt(0)) && tail(type).equals(exp.getName())) // special case for start up
+    if (atEntry && Character.isUpperCase(exp.getName().charAt(0)) && hashTail(type).equals(exp.getName())) // special case for start up
       return new TypeDetails(CollectionStatus.SINGLETON, type);
     TypeDetails result = new TypeDetails(null);
     getChildTypesByName(type, exp.getName(), result);
@@ -1803,7 +1830,7 @@ public class FHIRPathEngine {
   }
 
 
-  private String tail(String type) {
+  private String hashTail(String type) {
     return type.contains("#") ? "" : type.substring(type.lastIndexOf("/")+1);
   }
 
@@ -2418,8 +2445,10 @@ public class FHIRPathEngine {
           String id = s.substring(1);
           Property p = context.resource.getChildByName("contained");
           for (Base c : p.getValues()) {
-            if (id.equals(c.getIdBase()))
+            if (id.equals(c.getIdBase())) {
               res = c;
+              break;
+            }
           }
         } else
          res = hostServices.resolveReference(context.appInfo, s);
@@ -2846,6 +2875,93 @@ public class FHIRPathEngine {
     String s = log.toString();
     log = new StringBuilder();
     return s;
+  }
+
+
+  /** given an element definition in a profile, what element contains the differentiating fixed 
+   * for the element, given the differentiating expresssion. The expression is only allowed to 
+   * use a subset of FHIRPath
+   * 
+   * @param profile
+   * @param element
+   * @return
+   * @throws PathEngineException 
+   * @throws DefinitionException 
+   */
+  public ElementDefinition evaluateDefinition(ExpressionNode expr, StructureDefinition profile, ElementDefinition element) throws DefinitionException {
+    StructureDefinition sd = profile;
+    ElementDefinition focus = null;
+
+    if (expr.getKind() == Kind.Name) {
+      List<ElementDefinition> childDefinitions;
+      childDefinitions = ProfileUtilities.getChildMap(sd, element);
+      // if that's empty, get the children of the type
+      if (childDefinitions.isEmpty()) {
+        sd = fetchStructureByType(element);
+        if (sd == null)
+          throw new DefinitionException("Problem with use of resolve() - profile '"+element.getType().get(0).getProfile()+"' on "+element.getId()+" could not be resolved");
+        childDefinitions = ProfileUtilities.getChildMap(sd, sd.getSnapshot().getElementFirstRep());
+      }
+      for (ElementDefinition t : childDefinitions) {
+        if (tailMatches(t, expr.getName())) {
+          focus = t;
+          break;
+        }
+      }
+    } else if (expr.getKind() == Kind.Function) {
+      if ("resolve".equals(expr.getName())) {
+        if (!element.hasType())
+          throw new DefinitionException("illegal use of resolve() in discriminator - no type on element "+element.getId());
+        if (element.getType().size() > 1)
+          throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible types on "+element.getId());
+        if (!"Reference".equals(element.getType().get(0).getCode()))
+          throw new DefinitionException("illegal use of resolve() in discriminator - type on "+element.getId()+" is not Reference ("+element.getType().get(0).getCode()+")");
+        sd = worker.fetchResource(StructureDefinition.class, element.getType().get(0).getTargetProfile());
+        if (sd == null)
+          throw new DefinitionException("Problem with use of resolve() - profile '"+element.getType().get(0).getTargetProfile()+"' on "+element.getId()+" could not be resolved");
+        focus = sd.getSnapshot().getElementFirstRep();
+      } else if ("extension".equals(expr.getName()))
+        throw new DefinitionException("Not supported yet");
+      else 
+        throw new DefinitionException("illegal function name "+expr.getName()+"() in discriminator");
+    } else if (expr.getKind() == Kind.Group) {
+      throw new DefinitionException("illegal expression syntax in discriminator (group)");
+    } else if (expr.getKind() == Kind.Constant) {
+      throw new DefinitionException("illegal expression syntax in discriminator (const)");
+    }
+
+    if (focus == null)
+      throw new DefinitionException("Unable to resolve discriminator");      
+    else if (expr.getInner() == null)
+      return focus;
+    else
+      return evaluateDefinition(expr.getInner(), sd, focus);
+  }
+
+  private StructureDefinition fetchStructureByType(ElementDefinition ed) throws DefinitionException {
+    if (ed.getType().size() == 0)
+      throw new DefinitionException("Error in discriminator at "+ed.getId()+": no children, no type");
+    if (ed.getType().size() > 1)
+      throw new DefinitionException("Error in discriminator at "+ed.getId()+": no children, multiple types");
+    if (ed.hasSlicing()) 
+      throw new DefinitionException("Error in discriminator at "+ed.getId()+": slicing found");
+    if (ed.getType().get(0).hasProfile()) 
+      return worker.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile());
+    else
+      return worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + ed.getType().get(0).getCode());
+  }
+
+
+  private boolean tailMatches(ElementDefinition t, String d) {
+    String tail = tailDot(t.getPath());
+    if (d.contains("["))
+      return tail.startsWith(d.substring(0, d.indexOf('[')));
+    else
+      return tail.equals(d);
+  }
+
+  private String tailDot(String path) {
+    return path.substring(path.lastIndexOf(".") + 1);
   }
 
 }

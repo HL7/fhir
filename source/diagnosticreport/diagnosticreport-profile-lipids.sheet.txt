@@ -32,8 +32,12 @@
 
  -- Row 3 -----------------------------------
   Element = DiagnosticReport.result
+  Discriminator = resolve().code|true|closed
+  Card. = 3..4
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.result
   Profile Name = Cholesterol
-  Discriminator = reference.code|true|closed
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation) {#Cholesterol}
@@ -41,7 +45,7 @@
   Definition = Reference to Cholesterol Result
   Committee Notes = Now, Slice the result list into 4 parts for the for atomic results
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = DiagnosticReport.result
   Profile Name = Triglyceride
   Card. = 1..1
@@ -51,7 +55,7 @@
   Definition = Group of elements for Triglyceride result
   Committee Notes = the value with a # on a resource reference is reference to another profile wit the #[tab name]
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DiagnosticReport.result
   Profile Name = HDLCholesterol
   Card. = 1..1
@@ -60,7 +64,7 @@
   Short Name = HDL Cholesterol Result
   Definition = Group of elements for HDL Cholesterol result
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DiagnosticReport.result
   Profile Name = LDLCholesterol
   Card. = 0..1
@@ -68,7 +72,7 @@
   Type = Reference(Observation){#LDLCholesterol}
   Short Name = LDL Cholesterol result, if reported
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = DiagnosticReport.conclusion
   Card. = 0..1
   Must Support = Y
@@ -77,7 +81,7 @@
   Definition = May include diagnosis or suggestions for follow up testing
   Comments = It\'s not unusual for the lab to make some kind of interpretative comment on the set of results
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
   Card. = 0..0
   Type = CodeableConcept
@@ -100,7 +104,7 @@
   Type = CodeableConcept
   Short Name = Cholesterol
   Committee Notes = Fix value to a single LOINC Code
-  Value = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35200-5\" , \"display\" : \"Cholesterol\" }]}
+  Value = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35200-5\" , \"display\" : \"Cholesterol [Moles/​volume] in Serum or Plasma\" }]}
 
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity
@@ -214,7 +218,7 @@
   Type = CodeableConcept
   Short Name = Triglyceride
   Committee Notes = Fix value to a single LOINC Code
-  Pattern = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35217-9\"}]}
+  Pattern = { \"coding\" : [{ \"system\" : \"http://loinc.org\", \"code\": \"35217-9\", \"display\" : \"Triglyceride [Moles/​volume] in Serum or Plasma\"}]}
 
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity

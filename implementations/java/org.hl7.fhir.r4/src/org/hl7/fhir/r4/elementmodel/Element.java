@@ -5,8 +5,10 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.Validate;
@@ -275,8 +277,16 @@ public class Element extends Base {
 	@Override
 	protected void listChildren(List<org.hl7.fhir.r4.model.Property> childProps) {
 	  if (children != null) {
+	    Map<String, org.hl7.fhir.r4.model.Property> map = new HashMap<String, org.hl7.fhir.r4.model.Property>();
 	    for (Element c : children) {
-	      childProps.add(new org.hl7.fhir.r4.model.Property(c.getName(), c.fhirType(), c.getProperty().getDefinition().getDefinition(), c.getProperty().getDefinition().getMin(), maxToInt(c.getProperty().getDefinition().getMax()), c));
+	      org.hl7.fhir.r4.model.Property p = map.get(c.getName());
+	      if (p == null) {
+  	      p = new org.hl7.fhir.r4.model.Property(c.getName(), c.fhirType(), c.getProperty().getDefinition().getDefinition(), c.getProperty().getDefinition().getMin(), maxToInt(c.getProperty().getDefinition().getMax()), c);
+          childProps.add(p);
+          map.put(c.getName(), p);
+  	      
+	      } else
+	        p.getValues().add(c);
 	    }
 	  }
 	}

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.r4.elementmodel.Element;
+import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBase;
 import org.hl7.fhir.utilities.Utilities;
@@ -422,7 +423,9 @@ private Map<String, Object> userData;
 	public CodeableConcept castToCodeableConcept(Base b) throws FHIRException {
 		if (b instanceof CodeableConcept)
 			return (CodeableConcept) b;
-		else if (b instanceof CodeType) {
+    else if (b instanceof Element) {
+      return ObjectConverter.readAsCodeableConcept((Element) b);
+    } else if (b instanceof CodeType) {
 		  CodeableConcept cc = new CodeableConcept();
 		  cc.addCoding().setCode(((CodeType) b).asStringValue());
 		  return cc;
@@ -433,7 +436,9 @@ private Map<String, Object> userData;
 	public Coding castToCoding(Base b) throws FHIRException {
 		if (b instanceof Coding)
 			return (Coding) b;
-		else
+		else if (b instanceof Element) {
+		  return ObjectConverter.readAsCoding((Element) b);
+		} else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Coding");
 	}
 	

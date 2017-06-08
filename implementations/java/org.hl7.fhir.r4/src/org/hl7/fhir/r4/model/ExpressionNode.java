@@ -142,7 +142,7 @@ public class ExpressionNode {
 
 	public enum Operation {
 		Equals, Equivalent, NotEquals, NotEquivalent, LessThen, Greater, LessOrEqual, GreaterOrEqual, Is, As, Union, Or, And, Xor, Implies, 
-		Times, DivideBy, Plus, Minus, Concatenate, Div, Mod, In, Contains;
+		Times, DivideBy, Plus, Minus, Concatenate, Div, Mod, In, Contains, MemberOf;
 
 		public static Operation fromCode(String name) {
 			if (Utilities.noString(name))
@@ -195,6 +195,8 @@ public class ExpressionNode {
         return Operation.In;
       if (name.equals("contains"))
         return Operation.Contains;
+      if (name.equals("memberOf"))
+        return Operation.MemberOf;      
 			return null;
 
 		}
@@ -224,6 +226,7 @@ public class ExpressionNode {
       case Mod : return "mod";
       case In : return "in";
       case Contains : return "contains";
+      case MemberOf : return "memberOf";
 			default: return "??";
 			}
 		}
@@ -288,11 +291,8 @@ public class ExpressionNode {
 		case Constant:
 		  if (Utilities.isInteger(constant) || Utilities.existsInList(constant, "true", "false"))
 	      b.append(Utilities.escapeJava(constant));
-		  else {
-        b.append("'");
+		  else 
 		    b.append(Utilities.escapeJava(constant));
-        b.append("'");
-		  }
 			break;
 		case Group:
 			b.append("(");

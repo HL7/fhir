@@ -3,12 +3,15 @@ package org.hl7.fhir.r4.elementmodel;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.PrimitiveType;
@@ -102,5 +105,23 @@ public class ObjectConverter  {
     
   }
 
+  public static CodeableConcept readAsCodeableConcept(Element element) {
+    CodeableConcept cc = new CodeableConcept();
+    List<Element> list = new ArrayList<Element>();
+    element.getNamedChildren("coding", list);
+    for (Element item : list)
+      cc.addCoding(readAsCoding(item));
+    cc.setText(element.getNamedChildValue("text"));
+    return cc;
+  }
+
+  public static Coding readAsCoding(Element item) {
+    Coding c = new Coding();
+    c.setSystem(item.getNamedChildValue("system"));
+    c.setVersion(item.getNamedChildValue("version"));
+    c.setCode(item.getNamedChildValue("code"));
+    c.setDisplay(item.getNamedChildValue("display"));
+    return c;
+  }
 
 }

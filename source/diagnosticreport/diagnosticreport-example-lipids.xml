@@ -39,8 +39,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <status value="final"/>
       <code>
         <coding>
-          <system value="http://loinc.org"/>
-          <code value="14647-2"/>
+          <system value="http://loinc.org"/> 
+          <code value="35200-5"/> 
           <display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
         </coding>
         <text value="Cholesterol"/>
@@ -75,7 +75,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <code>
         <coding>
           <system value="http://loinc.org"/>
-          <code value="14927-8"/>
+          <code value="35217-9"/>
           <display value="Triglyceride [Moles/​volume] in Serum or Plasma"/>
         </coding>
         <text value="Triglyceride"/>
@@ -111,7 +111,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <coding>
           <system value="http://loinc.org"/>
           <code value="2085-9"/>
-          <display value="Cholesterol in HDL [Moles/​volume] in Serum or Plasma"/>
+          <display value="HDL Cholesterol"/>
         </coding>
         <text value="Cholesterol in HDL"/>
       </code>
@@ -145,8 +145,8 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       <code>
         <coding>
           <system value="http://loinc.org"/>
-          <code value="39469-2"/>
-          <display value="Cholesterol in LDL [Moles/​volume] in Serum or Plasma by calculation"/>
+          <code value="13457-7"/>
+          <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
         </coding>
         <text value="LDL Chol. (Calc)"/>
       </code>
@@ -206,16 +206,16 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 		</actor>
 	</performer>
 <!--    now the atomic results    -->
-  <result>
+  <result id="1">
     <reference value="#cholesterol"/>
   </result>
-  <result>
+  <result id="2">
     <reference value="#triglyceride"/>
   </result>
-  <result>
+  <result id="3">
     <reference value="#hdlcholesterol"/>
   </result>
-  <result>
+  <result id="4">
     <reference value="#ldlcholesterol"/>
   </result>
 </DiagnosticReport>

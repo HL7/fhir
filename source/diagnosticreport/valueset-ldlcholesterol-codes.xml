@@ -76,7 +76,7 @@
       </concept>
       <concept>
         <code value="13457-7"/>
-        <display value="LDL Cholesterol (Calc)"/>
+        <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"/>
         <designation>
           <use>
             <system value="http://snomed.info/sct"/>
