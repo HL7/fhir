@@ -253,7 +253,7 @@
         <code>
             <coding>
                 <system value="http://loinc.org"/>
-                <code value="51847-2XXXX"/>
+                <code value="51847-2"/>
                 <display value="Assessment (evaluation) and plan"/>
             </coding>
         </code>
