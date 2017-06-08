@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchParameter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/hl7files/fhir-single.xsd">
+	<id value="sp-test"/>
+	<meta>
+		<lastUpdated value="2016-05-30T00:48:02.872-06:00"/>
+	</meta>
+	<url value="http://example.org/fhir/SearchParameter/sp-test"/>
+	<name value="Test Search Parameter"/>
+	<status value="draft"/>
+	<date value="2016-03-31T08:01:25+11:00"/>
+	<publisher value="HL7"/>
+	<code value="test"/>
+	<base value="Patient"/>
+	<type value="string"/>
+	<description value="Allows searching by Name confirmation extension"/>
+	<xpath value="f:Patient/f:name"/>
+	<xpathUsage value="normal"/>
+</SearchParameter>

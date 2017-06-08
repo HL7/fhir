@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/hl7files/fhir-single.xsd">
+  <id value="name-confirmation-codes"/>
+  <url value="http://example.org/fhir/ValueSet/name-confirmation-codes"/>
+  <name value="Name Confirmation Codes"/>
+  <status value="draft"/>
+  <publisher value="HL7"/>
+  <description value="Test valueset"/>
+  <copyright value="Junk codes - feel free to not use"/>
+  <compose>
+    <include>
+      <system value="http://example.org/fhir/CodeSystem/name-confirmation-codes"/>
+    </include>
+  </compose>
+  <expansion>
+    <identifier value="expand"/>
+    <timestamp value="2016-06-17T13:00:00Z"/>
+    <contains>
+      <system value="http://example.org/fhir/CodeSystem/name-confirmation-codes"/>
+      <code value="1"/>
+      <display value="Not confirmed"/>
+    </contains>
+    <contains>
+      <system value="http://example.org/fhir/CodeSystem/name-confirmation-codes"/>
+      <code value="2"/>
+      <display value="Maybe confirmed"/>
+    </contains>
+    <contains>
+      <system value="http://example.org/fhir/CodeSystem/name-confirmation-codes"/>
+      <code value="3"/>
+      <display value="Definitely confirmed"/>
+    </contains>
+  </expansion>
+</ValueSet>

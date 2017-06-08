@@ -1,0 +1,83 @@
+---
+---
+{% include fragment-pagebegin.html %}
+<div class="col-12">
+  <a name="vs"> </a>
+  <h1 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}</span> Value Set {{data.fhir.canonical}}/ValueSet/{{[id]}} <a title="link to here" class="self-link" href="valueset-{{[id]}}.html#vs">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h1>
+  {% assign intro = site.data.pages[page.path].intro %}
+  {% if site.data.pages[page.path].intro != null %}
+  <div style="display:inline-block">
+  {% include {{intro}} %}
+  </div>
+  {% endif %}
+  <p>
+    <b>Summary</b>
+  </p>
+
+  {%include ValueSet-{{[id]}}-summary.xhtml%}
+  
+  {%include ValueSet-{{[id]}}-xref.xhtml%}
+
+  <a name="definition"> </a>
+  <h2 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.1</span> Content Logical Definition <a title="link to here" class="self-link" href="valueset-{{[id]}}.html#definition">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h2>
+
+  {%include ValueSet-{{[id]}}-cld.xhtml%}
+  
+  <p>&#160;</p>
+  <a name="expansion"> </a>
+  <h2 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.2</span> Expansion <a title="link to here" class="self-link" href="valueset-{{[id]}}.html#expansion">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h2>
+
+  {%include ValueSet-{{[id]}}-expansion.xhtml%}
+
+  <hr/>
+  <p>
+    Explanation of the columns that may appear on this page:
+  </p>
+  <table class="grid">
+    <tr>
+      <td>Level</td>
+      <td>A few code lists that FHIR defines are hierarchical - each code is assigned a level.
+          In this scheme, some codes are under other codes, and imply that the code they are under also applies</td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>The source of the definition of the code (when the value set draws in codes defined elsewhere)</td>
+    </tr>
+    <tr>
+      <td>Code</td>
+      <td>The code (used as the code in the resource instance)</td>
+    </tr>
+    <tr>
+      <td>Display</td>
+      <td>The display (used in the <i>display</i> element of a <a href="{{site.data.fhir.path}}datatypes.html#Coding">Coding</a>). If there is no display, implementers should not simply display the code, but map the concept into their application</td>
+    </tr>
+    <tr>
+      <td>Definition</td>
+      <td>An explanation of the meaning of the concept</td>
+    </tr>
+    <tr>
+      <td>Comments</td>
+      <td>Additional notes about how to use the code</td>
+    </tr>
+  </table>
+
+  {% assign notes = site.data.pages[page.path].notes %}
+  {% if site.data.pages[page.path].notes != null %}
+  <div style="display:inline-block">
+  {% include {{notes}} %}
+  </div>
+  {% endif %}
+</div>
+{% include fragment-pageend.html %}

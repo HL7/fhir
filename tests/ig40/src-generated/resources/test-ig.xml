@@ -1,0 +1,154 @@
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id value="test-ig"/>
+  <url value="http://example.org/fhir/ImplementationGuide/test-ig"/>
+  <name value="Test mixed-version IG"/>
+  <status value="draft"/>
+  <date value="2016-05-30T04:04:46-06:00"/>
+  <description value="IG that tests publishing when mixing source content of different versions"/>
+  <useContext>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="CA"/>
+    </coding>
+  </useContext>
+  <fhirVersion value="1.4.0"/>
+  <package>
+    <name value="Conformance Statements"/>
+    <description value="Test conformance statement - this will be in 1.4.0."/>
+    <resource>
+      <example value="false"/>
+      <name value="Test conformance statement"/>
+      <description value="Tests handling of the switch from CapabilityStatement to Conformance and 1.4.0 source files"/>
+      <sourceReference>
+        <reference value="CapabilityStatement/conformance-test"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Search Parameters"/>
+    <description value="Test search parameter - this will be in 1.4.0"/>
+    <resource>
+      <example value="false"/>
+      <name value="Test search parameter"/>
+      <description value="Tests handling of another type of 1.4.0 source files"/>
+      <sourceReference>
+        <reference value="SearchParameter/sp-test"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Value Sets"/>
+    <description value="Test ValueSet - this will be in 1.4.0."/>
+    <resource>
+      <example value="false"/>
+      <name value="Name Confirmation Codes"/>
+      <description value="Sample value set"/>
+      <sourceReference>
+        <reference value="ValueSet/name-confirmation-codes"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Extensions"/>
+    <description value="3.0.1 extension"/>
+    <resource>
+      <example value="false"/>
+      <name value="Name Confirmation"/>
+      <description value="Test extension"/>
+      <sourceReference>
+        <reference value="StructureDefinition/ext-name-confirmation"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Data Type Profiles"/>
+    <description value="3.0.1 Data type profile"/>
+    <resource>
+      <example value="false"/>
+      <name value="Test Name"/>
+      <description value="Sample data type profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/dtprofile-name"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Payload Resource Profiles"/>
+    <description value="3.0.1 resource profile"/>
+    <resource>
+      <example value="false"/>
+      <name value="Test Patient"/>
+      <description value="Sample resource profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/profile-patient"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="Examples"/>
+    <description value="Test example instance."/>
+    <resource>
+      <example value="true"/>
+      <name value="Test patient instance"/>
+      <description value="A 1.4.0 patient"/>
+      <sourceReference>
+        <reference value="Patient/example-patient"/>
+      </sourceReference>
+      <exampleFor>
+        <reference value="StructureDefinition/profile-patient"/>
+      </exampleFor>
+    </resource>
+  </package>
+  <page>
+    <source value="test-ig.html"/>
+    <name value="IG Home page"/>
+    <kind value="page"/>
+    <page>
+      <source value="artifacts.html"/>
+      <name value="List of artifacts"/>
+      <kind value="page"/>
+      <page>
+        <source value="conformance-test.html"/>
+        <name value="Test conformance example"/>
+        <kind value="example"/>
+        <format value="generated-resource"/>
+      </page>
+      <page>
+        <source value="sp-test.html"/>
+        <name value="Test search parameter"/>
+        <kind value="example"/>
+        <format value="generated-resource"/>
+      </page>
+      <page>
+        <source value="Name-confirmation-codes.html"/>
+        <name value="Name Confirmation Codes"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+      <page>
+        <source value="extension-ext-Name-confirmation.html"/>
+        <name value="Name Confirmation"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+      <page>
+        <source value="dtprofile-Name.html"/>
+        <name value="Test Name"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+      <page>
+        <source value="profile-patient.html"/>
+        <name value="Test Patient"/>
+        <kind value="resource"/>
+        <format value="generated"/>
+      </page>
+      <page>
+        <source value="example-patient.html"/>
+        <name value="Test Patient 1.4 instance"/>
+        <kind value="example"/>
+        <format value="generated"/>
+      </page>
+    </page>
+  </page>
+</ImplementationGuide>

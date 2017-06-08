@@ -1,0 +1,9 @@
+<div xmlns="http://www.w3.org/1999/xhtml" class="col-9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/hl7files/fhir-single.xsd">
+  <div>
+    <a name="intro"> </a>
+    <h2>Introduction and Scope</h2>
+    <p>
+      This is a test IG.  The list of artifacts can be found <a href="artifacts.html">here</a>
+    </p>
+  </div>
+</div>

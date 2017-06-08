@@ -1,0 +1,59 @@
+---
+---
+{% include fragment-pagebegin.html %}
+{% assign excludexml = site.data.info.excludexml | downcase | slice: 0 %}
+{% assign excludejson = site.data.info.excludejson | downcase | slice: 0 %}
+{% assign excludettl = site.data.info.excludettl | downcase | slice: 0 %}
+<div class="col-12">
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="extension-{{[id]}}.html">Content</a>
+    </li>
+    <li>
+      <a href="extension-{{[id]}}-definitions.html">Detailed Descriptions</a>
+    </li>
+    <li class="active">
+      <a href="#">Mappings</a>
+    </li>
+{% unless excludexml == 'y' %}
+    <li>
+      <a href="extension-{{[id]}}.profile.xml.html">XML</a>
+    </li>
+{% endunless %}
+{% unless excludejson == 'y' %}
+    <li>
+      <a href="extension-{{[id]}}.profile.json.html">JSON</a>
+    </li>
+{% endunless %}
+{% unless excludettl == 'y' %}
+    <li>
+      <a href="extension-{{[id]}}.profile.ttl.html">Turtle</a>
+    </li>
+{% endunless %}
+  </ul>
+  <a name="root"> </a>
+  <h4 class="self-link-parent">
+    <span class="sectioncount">{{site.data.pages[page.path].label}}.7</span> Extension: {{[title]}} - Mappings 
+    <a title="link to here" class="self-link" href="extension-{{[id]}}-mappings.html#root">
+      <img src="assets/images/link.svg" class="self-link" width="20" height="20"/>
+    </a>
+  </h4>
+  <p>Mappings for the {{id}} Extension</p>
+  {% assign intro = site.data.pages[page.path].intro %}
+  {% if site.data.pages[page.path].intro != null %}
+  <div style="display:inline-block">
+  {% include {{intro}} %}
+  </div>
+  {% endif %}
+
+  {%include StructureDefinition-{{[id]}}-maps.xhtml%}
+
+  {% assign notes = site.data.pages[page.path].notes %}
+  {% if site.data.pages[page.path].notes != null %}
+  <div style="display:inline-block">
+  {% include {{notes}} %}
+  </div>
+  {% endif %}
+</div>
+{% assign includetabscripts = 'true' %}
+{% include fragment-pageend.html %}

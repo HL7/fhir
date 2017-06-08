@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/forge-schemas/fhir-single.xsd">
+  <id value="ext-name-confirmation"/>
+  <url value="http://example.org/fhir/StructureDefinition/ext-name-confirmation"/>
+  <name value="Name Confirmation"/>
+  <status value="draft"/>
+  <date value="2016-03-31T08:01:25+11:00"/>
+  <description value="Sample extension"/>
+  <fhirVersion value="3.0.1"/>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <contextType value="datatype"/>
+  <context value="HumanName"/>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element>
+      <path value="Extension"/>
+      <max value="1"/>
+    </element>
+    <element>
+      <path value="Extension.url"/>
+      <min value="1"/>
+      <fixedUri value="http://example.org/fhir/StructureDefinition/ext-name-confirmation"/>
+    </element>
+    <element>
+      <path value="Extension.valueCode"/>
+      <min value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="http://example.org/fhir/ValueSet/name-confirmation-codes"/>
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

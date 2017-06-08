@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/hl7files/fhir-single.xsd">
+	<id value="example-patient"/>
+	<meta>
+		<profile value="http://example.org/fhir/StructureDefinition/profile-patient"/>
+	</meta>
+	<name>
+    <extension url="http://example.org/fhir/StructureDefinition/ext-name-confirmation">
+      <valueCode value="1"/>
+    </extension>
+    <family value="Johnson"/>
+    <family value="Smith"/>
+    <given value="John"/>
+	</name>
+</Patient>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/forge-schemas/fhir-single.xsd">
+  <id value="dtprofile-name"/>
+  <url value="http://example.org/fhir/StructureDefinition/dtprofile-name"/>
+  <name value="Test name"/>
+  <status value="draft"/>
+  <date value="2015-09-22T20:02:49+10:00"/>
+  <description value="Test profile for name"/>
+  <fhirVersion value="3.0.1"/>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <type value="HumanName"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/HumanName"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element>
+      <path value="HumanName"/>
+    </element>
+    <element>
+      <path value="HumanName.extension"/>
+      <sliceName value="confirmation"/>
+      <min value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://example.org/fhir/StructureDefinition/ext-name-confirmation"/>
+      </type>
+    </element>
+    <element>
+      <path value="HumanName.family"/>
+      <min value="1"/>
+      <max value="5"/>
+    </element>
+  </differential>
+</StructureDefinition>

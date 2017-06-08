@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../framework/hl7files/fhir-single.xsd">
+  <id value="conformance-test"/>
+  <url value="http://example.org/fhir/Conformance/conformance-test"/>
+  <name value="Test Conformance"/>
+  <status value="draft"/>
+  <date value="2016-06-03"/>
+  <publisher value="HL7"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Test conformance statement"/>
+  <kind value="requirements"/>
+  <fhirVersion value="1.4.0"/>
+  <acceptUnknown value="extensions"/>
+  <format value="xml"/>
+  <rest>
+    <mode value="server"/>
+    <resource>
+      <type value="Patient"/>
+      <profile>
+        <reference value="http://example.org/fhir/StructureDefinition/profile-patient"/>
+      </profile>
+      <interaction>
+        <code value="create"/>
+      </interaction>
+      <interaction>
+        <code value="delete"/>
+      </interaction>
+      <interaction>
+        <code value="search-type"/>
+      </interaction>
+      <searchParam>
+        <name value="test"/>
+        <definition value="http://example.org/fhir/SearchParameter/sp-test"/>
+        <type value="reference"/>
+      </searchParam>
+    </resource>
+  </rest>
+</Conformance>
