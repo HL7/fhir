@@ -3631,7 +3631,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private static ElementDefinitionSlicingDiscriminatorComponent makeDiscriminator(DiscriminatorType profile, String str) {
+  public static ElementDefinitionSlicingDiscriminatorComponent makeDiscriminator(DiscriminatorType profile, String str) {
     return new ElementDefinitionSlicingDiscriminatorComponent().setType(DiscriminatorType.VALUE).setPath(Utilities.noString(str)? "$this" : str);
   }
 
@@ -3641,6 +3641,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     case PROFILE: return t.getPath()+"/@profile";
     case TYPE: return t.getPath()+"/@type";
     case VALUE: return t.getPath();
+    case EXISTS: return t.getPath(); // determination of value vs. exists is based on whether there's only 2 slices - one with minOccurs=1 and other with maxOccur=0
     default: throw new FHIRException("Unable to represent "+t.getType().toCode()+":"+t.getPath()+" in R2");    
     }
   }

@@ -2228,16 +2228,19 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             expression.append(" and this is " + type);
           else
             expression.append(" and " + discriminator + " is " + type);
+        } else if (s.getType() == DiscriminatorType.EXISTS) {
+          if (criteriaElement.hasMin() && criteriaElement.getMin()>=1)
+            expression.append(" and (" + discriminator + ".exists())");
+          else if (criteriaElement.hasMax() && criteriaElement.getMax().equals("0"))
+            expression.append(" and (" + discriminator + ".exists().not())");
+          else
+            throw new FHIRException("Discriminator (" + discriminator + ") is based on element existence, but slice " + ed.getId() + " neither sets min>=1 or max=0");
         } else if (criteriaElement.hasFixed()) {
           buildFixedExpression(ed, expression, discriminator, criteriaElement);
         } else if (criteriaElement.hasPattern()) {
           buildPattternExpression(ed, expression, discriminator, criteriaElement);
         } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetReference()!=null) {
           expression.append(" and (" + discriminator + " memberOf '" + criteriaElement.getBinding().getValueSetReference().getReference() + "')");
-        } else if (criteriaElement.hasMin() && criteriaElement.getMin()>0) {
-          expression.append(" and " + discriminator + ".exists()");
-        } else if (criteriaElement.hasMax() && criteriaElement.getMax().equals("0")) {
-          expression.append(" and " + discriminator + ".exists().not()");
         } else {
           throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + ed.getId() + " - does not have fixed value, binding or existence assertions");
         }
@@ -2860,6 +2863,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     unusedResources.removeAll(visitedResources);
     int i = 0;
     for (Element entry : entries) {
+      // TODO: Need to add support for tracking Bundle.link entries so that embedded stylesheets won't trigger this
       warning(errors, IssueType.INFORMATIONAL, entry.line(), entry.col(), stack.addToLiteralPath("entry", Integer.toString(i)), !unusedResources.contains(entry.getNamedChild("resource")), "Entry isn't reachable by traversing from first Bundle entry");
       i++;
     }
@@ -3184,6 +3188,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (isPrimitiveType(type)) {
             checkPrimitive(hostContext, errors, ei.path, type, ei.definition, ei.element, profile);
           } else {
+//            checkNonPrimitive(appContext, errors, ei.path, type, ei.definition, ei.element, profile);
             if (type.equals("Identifier"))
               checkIdentifier(errors, ei.path, ei.element, ei.definition);
             else if (type.equals("Coding"))
