@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Consent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-notTime"/>
-
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
@@ -15,36 +14,28 @@
    </p>
    </div>
   </text>
-
   <status value="active"/>
-    
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
-
   <dateTime value="2015-11-18"/>
-   <!-- not bound by a timeframe - Consent.period -->
- 
+  <!-- not bound by a timeframe - Consent.period -->
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
   <organization>
     <reference value="Organization/f001"/>
   </organization>
-	  
   <!-- the text terms of the consent in lawyer speak -->
   <sourceAttachment>
-	   <title value="The terms of the consent in lawyer speak."/>
-	   <!-- likely use url pointer to common text -->
-	</sourceAttachment>
-
+    <title value="The terms of the consent in lawyer speak."/>
+    <!-- likely use url pointer to common text -->
+  </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
-
-  <except>
-    <type value="deny"/>
- 	  <period>
-		  <start value="2015-01-01"/>
-		  <end value="2015-02-01"/>
-	  </period>
-	</except>
+  <rule>
+    <period>
+      <start value="2015-01-01"/>
+      <end value="2015-02-01"/>
+    </period>
+  </rule>
 </Consent>

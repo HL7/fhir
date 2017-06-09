@@ -1,4 +1,5 @@
-﻿<!--
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
   This example provides a basic template for recording 
   the consent associated with a SMART on FHIR OAuth dance.
 
@@ -24,7 +25,7 @@
   authorises the application to access information on a general
   set of patients does not count as 'consent'. 
 -->
-<Consent xmlns="http://hl7.org/fhir"> 
+<Consent xmlns="http://hl7.org/fhir">
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
   <!-- 
@@ -34,12 +35,7 @@
   <patient>
     <reference value="Patient/xcda"/>
   </patient>
-  <period>
-    <start value="2016-06-23T17:02:33+10:00"/>
-    <end value="2016-06-23T17:32:33+10:00"/>
-  </period>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
-
   <consentingParty>
     <!-- this is the patient record that matches the person
       making the decision. note: it's not always a related person
@@ -50,28 +46,30 @@
     <!-- The organization running the Authentication server -->
     <reference value="Organization/f001"/>
   </organization>
-
   <!-- there's no source record for a Smart on FHIR consent -->
-
   <!-- now the consent details itself start -->
-
   <!-- smart on fhir is always the base opt-in policy -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
-
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
-  <except>  
-    <!-- this except corresponds to MedicationRequest/read -->
-    <type value="permit"/>
-    <!-- no actors here, or anything, just read/write and the resource type -->
-    <action> 
-      <coding>
-        <system value="http://hl7.org/fhir/consentaction"/>
-        <code value="access"/>
-      </coding>
-    </action>
-    <class>
-      <system value="http://hl7.org/fhir/resource-types"/>
-      <code value="MedicationRequest"/>
-    </class>
-  </except>
+  <rule>
+    <period>
+      <start value="2016-06-23T17:02:33+10:00"/>
+      <end value="2016-06-23T17:32:33+10:00"/>
+    </period>
+    <rule>
+      <!-- this rule corresponds to MedicationRequest/read -->
+      <type value="permit"/>
+      <!-- no actors here, or anything, just read/write and the resource type -->
+      <action>
+        <coding>
+          <system value="http://hl7.org/fhir/consentaction"/>
+          <code value="access"/>
+        </coding>
+      </action>
+      <class>
+        <system value="http://hl7.org/fhir/resource-types"/>
+        <code value="MedicationRequest"/>
+      </class>
+    </rule>
+  </rule>
 </Consent>
