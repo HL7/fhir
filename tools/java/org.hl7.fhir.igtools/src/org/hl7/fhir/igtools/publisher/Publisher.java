@@ -1078,6 +1078,24 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             context.seeResource(u, r);
           }
         }
+      } else if (fn.endsWith(".xml")) {
+        Resource r;
+        try {
+          org.hl7.fhir.r4.formats.XmlParser xp = new org.hl7.fhir.r4.formats.XmlParser();
+          r = xp.parse(new ByteArrayInputStream(files.get(fn)));
+        } catch (Exception e) {
+          throw new Exception("Unable to parse "+fn+" from IG "+name, e);
+        }
+        if (r instanceof MetadataResource) {
+          String u = ((MetadataResource) r).getUrl();
+          if (u != null) {
+            String p = igm.getPath(u);
+            if (p == null)
+              throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
+            r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
+            context.seeResource(u, r);
+          }
+        }        
       }
     }
   }
