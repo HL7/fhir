@@ -2242,7 +2242,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetReference()!=null) {
           expression.append(" and (" + discriminator + " memberOf '" + criteriaElement.getBinding().getValueSetReference().getReference() + "')");
         } else {
-          throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + ed.getId() + " - does not have fixed value, binding or existence assertions");
+          throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + ed.getId() + " in profile " + profile.getUrl() + " - does not have fixed value, binding or existence assertions");
         }
       }
 

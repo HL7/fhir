@@ -41,6 +41,9 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   }
   
   public String generate(String title, List<ValidationMessage> allErrors, List<FetchedFile> files, String path, List<String> filteredMessages) throws IOException {
+    int err = 0;
+    int warn = 0;
+    int info = 0;
     List<ValidationMessage> linkErrors = removeDupMessages(allErrors); 
     StringBuilder b = new StringBuilder();
     b.append(genHeader(title));
@@ -55,8 +58,15 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     b.append(genEnd());
     for (FetchedFile f : files) {
       b.append(genStart(f));
-      for (ValidationMessage vm : removeDupMessages(f.getErrors()))
+      for (ValidationMessage vm : removeDupMessages(f.getErrors())) {
         b.append(genDetails(vm));
+        if (vm.getLevel().equals(ValidationMessage.IssueSeverity.FATAL)||vm.getLevel().equals(ValidationMessage.IssueSeverity.ERROR))
+          err++;
+        else if (vm.getLevel().equals(ValidationMessage.IssueSeverity.WARNING))
+          warn++;
+        else
+          info++;
+      }
       b.append(genEnd());
     }    
     b.append(genFooter(title));
@@ -102,7 +112,8 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     b.append(genFooterTxt(title));
     TextFile.stringToFile(b.toString(), Utilities.changeFileExt(path, ".txt"));
     
-    return path;
+    String summary = "Errors: " + err + "  Warnings: " + warn + "  Info: " + info;
+    return path + "\r\n" + summary;
   }
 
   public static void filterMessages(List<ValidationMessage> messages, List<String> suppressedMessages, boolean suppressErrors) {
