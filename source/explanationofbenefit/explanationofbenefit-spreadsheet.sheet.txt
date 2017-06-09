@@ -1566,15 +1566,29 @@
   Definition = List of input service items which this service line is intended to replace.
 
  -- Row 151 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.revenue
+  Element = ExplanationOfBenefit.addItem.detailSequenceLinkId
+  Card. = 0..*
+  Type = positiveInt
+  Short Name = Detail sequence number
+  Definition = The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
+
+ -- Row 152 -----------------------------------
+  Element = ExplanationOfBenefit.addItem.subdetailSequenceLinkId
+  Card. = 0..*
+  Type = positiveInt
+  Short Name = Subdetail sequence number
+  Definition = The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
+
+ -- Row 153 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.revenue
   Card. = 0..1
   Type = CodeableConcept
   Binding = RevenueCenter
   Short Name = Revenue or cost center code
   Definition = The type of reveneu or cost center providing the product and/or service.
 
- -- Row 152 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.category
+ -- Row 154 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.category
   Card. = 0..1
   Type = CodeableConcept
   Binding = BenefitSubCategory
@@ -1582,7 +1596,7 @@
   Definition = Health Care Service Type Codes  to identify the classification of service or benefits.
   CDAnet v4 Mapping = F06
 
- -- Row 153 -----------------------------------
+ -- Row 155 -----------------------------------
   Element = ExplanationOfBenefit.addItem.service
   Card. = 0..1
   Type = CodeableConcept
@@ -1590,7 +1604,7 @@
   Short Name = Billing Code
   Definition = If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. \'glasses\' or \'compound\'.
 
- -- Row 154 -----------------------------------
+ -- Row 156 -----------------------------------
   Element = ExplanationOfBenefit.addItem.modifier
   Card. = 0..*
   Type = CodeableConcept
@@ -1600,21 +1614,21 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F16 (required field for Oral) and F05
 
- -- Row 155 -----------------------------------
+ -- Row 157 -----------------------------------
   Element = ExplanationOfBenefit.addItem.fee
   Card. = 0..1
   Type = Money
   Short Name = Professional fee or Product charge
   Definition = The fee charged for the professional service or product.
 
- -- Row 156 -----------------------------------
+ -- Row 158 -----------------------------------
   Element = ExplanationOfBenefit.addItem.noteNumber
   Card. = 0..*
   Type = positiveInt
   Short Name = List of note numbers which apply
   Definition = A list of note references to the notes provided below.
 
- -- Row 157 -----------------------------------
+ -- Row 159 -----------------------------------
   Element = ExplanationOfBenefit.addItem.adjudication
   Card. = 0..*
   UML = 600;0
@@ -1622,24 +1636,24 @@
   Short Name = Added items adjudication
   Definition = The adjudications results.
 
- -- Row 158 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail
+ -- Row 160 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail
   Card. = 0..*
   UML = 780;780
   Type = =AddedItemsDetail
   Short Name = Added items details
   Definition = The second tier service adjudications for payor added services.
 
- -- Row 159 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.revenue
+ -- Row 161 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.revenue
   Card. = 0..1
   Type = CodeableConcept
   Binding = RevenueCenter
   Short Name = Revenue or cost center code
   Definition = The type of reveneu or cost center providing the product and/or service.
 
- -- Row 160 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.category
+ -- Row 162 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.category
   Card. = 0..1
   Type = CodeableConcept
   Binding = BenefitSubCategory
@@ -1647,16 +1661,16 @@
   Definition = Health Care Service Type Codes  to identify the classification of service or benefits.
   CDAnet v4 Mapping = F06
 
- -- Row 161 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.service
+ -- Row 163 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.service
   Card. = 0..1
   Type = CodeableConcept
   Binding = ServiceProduct
   Short Name = Billing Code
   Definition = A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
 
- -- Row 162 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.modifier
+ -- Row 164 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.modifier
   Card. = 0..*
   Type = CodeableConcept
   Binding = Modifiers
@@ -1665,39 +1679,39 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F16 (required field for Oral) and F05
 
- -- Row 163 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.fee
+ -- Row 165 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.fee
   Card. = 0..1
   Type = Money
   Short Name = Professional fee or Product charge
   Definition = The fee charged for the professional service or product.
 
- -- Row 164 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.noteNumber
+ -- Row 166 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.noteNumber
   Card. = 0..*
   Type = positiveInt
   Short Name = List of note numbers which apply
   Definition = A list of note references to the notes provided below.
 
- -- Row 165 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.adjudication
+ -- Row 167 -----------------------------------
+  Element = !ExplanationOfBenefit.addItem.detail.adjudication
   Card. = 0..*
   UML = 600;370
   Type = @ExplanationOfBenefit.item.adjudication
   Short Name = Added items detail adjudication
   Definition = The adjudications results.
 
- -- Row 166 -----------------------------------
+ -- Row 168 -----------------------------------
   Element = !ExplanationOfBenefit.claimTotal
   Card. = 0..1
   Type = Money
   Short Name = Total claim cost
   Definition = The total value of the claim.
 
- -- Row 167 -----------------------------------
+ -- Row 169 -----------------------------------
   Element = !Oral Health Specific Item Elements
 
- -- Row 168 -----------------------------------
+ -- Row 170 -----------------------------------
   Element = !ExplanationOfBenefit.item.prosthesis
   Card. = 0..1
   UML = 0;990
@@ -1705,7 +1719,7 @@
   Short Name = Prosthetic details
   Definition = The materials and placement date of prior fixed prosthesis.
 
- -- Row 169 -----------------------------------
+ -- Row 171 -----------------------------------
   Element = !ExplanationOfBenefit.item.prosthesis.initial
   Card. = 0..1
   Type = boolean
@@ -1714,7 +1728,7 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F15/F18 Only for Denture, Crown, Bridge
 
- -- Row 170 -----------------------------------
+ -- Row 172 -----------------------------------
   Element = !ExplanationOfBenefit.item.prosthesis.priorDate
   Card. = 0..1
   Type = date
@@ -1723,7 +1737,7 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F04/F19
 
- -- Row 171 -----------------------------------
+ -- Row 173 -----------------------------------
   Element = !ExplanationOfBenefit.item.prosthesis.priorMaterial
   Card. = 0..1
   Type = CodeableConcept
@@ -1733,10 +1747,10 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F20/F21
 
- -- Row 172 -----------------------------------
+ -- Row 174 -----------------------------------
   Element = !Oral Health Specific
 
- -- Row 173 -----------------------------------
+ -- Row 175 -----------------------------------
   Element = !ExplanationOfBenefit.missingTeeth
   Card. = 0..*
   UML = 0;400
@@ -1745,7 +1759,7 @@
   Definition = A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
   Requirements = The list of missing teeth may influence the adjudication of services for example with Bridges.
 
- -- Row 174 -----------------------------------
+ -- Row 176 -----------------------------------
   Element = !ExplanationOfBenefit.missingTeeth.tooth
   Card. = 1..1
   Type = CodeableConcept
@@ -1755,7 +1769,7 @@
   Requirements = Provides the tooth number of the missing tooth.
   CDAnet v4 Mapping = F23
 
- -- Row 175 -----------------------------------
+ -- Row 177 -----------------------------------
   Element = !ExplanationOfBenefit.missingTeeth.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -1765,7 +1779,7 @@
   Requirements = Provides the reason for the missing tooth.
   CDAnet v4 Mapping = not used
 
- -- Row 176 -----------------------------------
+ -- Row 178 -----------------------------------
   Element = !ExplanationOfBenefit.missingTeeth.extractionDate
   Card. = 0..1
   Type = date
@@ -1774,11 +1788,11 @@
   Requirements = Some services and adjudications require this information.
   CDAnet v4 Mapping = F24
 
- -- Row 177 -----------------------------------
+ -- Row 179 -----------------------------------
   Element = !Response Information
   Short Name = Financial Information
 
- -- Row 178 -----------------------------------
+ -- Row 180 -----------------------------------
   Element = ExplanationOfBenefit.totalCost
   Card. = 0..1
   Type = Money
@@ -1786,21 +1800,21 @@
   Definition = The total cost of the services reported.
   Requirements = This is a check value that the receiver calculates and returns.
 
- -- Row 179 -----------------------------------
+ -- Row 181 -----------------------------------
   Element = ExplanationOfBenefit.unallocDeductable
   Card. = 0..1
   Type = Money
   Short Name = Unallocated deductable
   Definition = The amount of deductable applied which was not allocated to any particular service line.
 
- -- Row 180 -----------------------------------
+ -- Row 182 -----------------------------------
   Element = ExplanationOfBenefit.totalBenefit
   Card. = 0..1
   Type = Money
   Short Name = Total benefit payable for the Claim
   Definition = Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable).
 
- -- Row 181 -----------------------------------
+ -- Row 183 -----------------------------------
   Element = ExplanationOfBenefit.payment
   Card. = 0..1
   UML = 360;650
@@ -1808,7 +1822,7 @@
   Short Name = Payment (if paid)
   Definition = Payment details for the claim if the claim has been paid.
 
- -- Row 182 -----------------------------------
+ -- Row 184 -----------------------------------
   Element = ExplanationOfBenefit.payment.type
   Card. = 0..1
   Type = CodeableConcept
@@ -1816,14 +1830,14 @@
   Short Name = Partial or Complete
   Definition = Whether this represents partial or complete payment of the claim.
 
- -- Row 183 -----------------------------------
+ -- Row 185 -----------------------------------
   Element = ExplanationOfBenefit.payment.adjustment
   Card. = 0..1
   Type = Money
   Short Name = Payment adjustment for non-Claim issues
   Definition = Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
 
- -- Row 184 -----------------------------------
+ -- Row 186 -----------------------------------
   Element = ExplanationOfBenefit.payment.adjustmentReason
   Card. = 0..1
   Type = CodeableConcept
@@ -1831,21 +1845,21 @@
   Short Name = Explanation for the non-claim adjustment
   Definition = Reason for the payment adjustment.
 
- -- Row 185 -----------------------------------
+ -- Row 187 -----------------------------------
   Element = ExplanationOfBenefit.payment.date
   Card. = 0..1
   Type = date
   Short Name = Expected date of Payment
   Definition = Estimated payment date.
 
- -- Row 186 -----------------------------------
+ -- Row 188 -----------------------------------
   Element = ExplanationOfBenefit.payment.amount
   Card. = 0..1
   Type = Money
   Short Name = Payable amount after adjustment
   Definition = Payable less any payment adjustment.
 
- -- Row 187 -----------------------------------
+ -- Row 189 -----------------------------------
   Element = ExplanationOfBenefit.payment.identifier
   Card. = 0..1
   Type = Identifier
@@ -1853,7 +1867,7 @@
   Definition = Payment identifer.
   CDAnet v4 Mapping = G01, B.23
 
- -- Row 188 -----------------------------------
+ -- Row 190 -----------------------------------
   Element = ExplanationOfBenefit.form
   Card. = 0..1
   Type = CodeableConcept
@@ -1862,7 +1876,7 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 189 -----------------------------------
+ -- Row 191 -----------------------------------
   Element = ExplanationOfBenefit.processNote
   Card. = 0..*
   UML = 0;110
@@ -1870,14 +1884,14 @@
   Short Name = Processing notes
   Definition = Note text.
 
- -- Row 190 -----------------------------------
+ -- Row 192 -----------------------------------
   Element = ExplanationOfBenefit.processNote.number
   Card. = 0..1
   Type = positiveInt
   Short Name = Sequence number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
- -- Row 191 -----------------------------------
+ -- Row 193 -----------------------------------
   Element = ExplanationOfBenefit.processNote.type
   Card. = 0..1
   Type = CodeableConcept
@@ -1885,7 +1899,7 @@
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.
 
- -- Row 192 -----------------------------------
+ -- Row 194 -----------------------------------
   Element = ExplanationOfBenefit.processNote.text
   Card. = 0..1
   Type = string
@@ -1893,7 +1907,7 @@
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
- -- Row 193 -----------------------------------
+ -- Row 195 -----------------------------------
   Element = ExplanationOfBenefit.processNote.language
   Card. = 0..1
   Type = CodeableConcept
@@ -1901,10 +1915,10 @@
   Short Name = Language if different from the resource
   Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
 
- -- Row 194 -----------------------------------
+ -- Row 196 -----------------------------------
   Element = !Plan Balance Information
 
- -- Row 195 -----------------------------------
+ -- Row 197 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance
   Card. = 0..*
   UML = 770;290
@@ -1912,7 +1926,7 @@
   Short Name = Balance by Benefit Category
   Definition = Balance by Benefit Category.
 
- -- Row 196 -----------------------------------
+ -- Row 198 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.category
   Card. = 1..1
   Type = CodeableConcept
@@ -1920,7 +1934,7 @@
   Short Name = Type of services covered
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
- -- Row 197 -----------------------------------
+ -- Row 199 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.subCategory
   Card. = 0..1
   Type = CodeableConcept
@@ -1928,28 +1942,28 @@
   Short Name = Detailed services covered within the type
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
 
- -- Row 198 -----------------------------------
+ -- Row 200 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.excluded
   Card. = 0..1
   Type = boolean
   Short Name = Excluded from the plan
   Definition = True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
 
- -- Row 199 -----------------------------------
+ -- Row 201 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.name
   Card. = 0..1
   Type = string
   Short Name = Short name for the benefit
   Definition = A short name or tag for the benefit, for example MED01, or DENT2.
 
- -- Row 200 -----------------------------------
+ -- Row 202 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.description
   Card. = 0..1
   Type = string
   Short Name = Description of the benefit or services covered
   Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
 
- -- Row 201 -----------------------------------
+ -- Row 203 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.network
   Card. = 0..1
   Type = CodeableConcept
@@ -1957,7 +1971,7 @@
   Short Name = In or out of network
   Definition = Network designation.
 
- -- Row 202 -----------------------------------
+ -- Row 204 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.unit
   Card. = 0..1
   Type = CodeableConcept
@@ -1965,7 +1979,7 @@
   Short Name = Individual or family
   Definition = Unit designation: individual or family
 
- -- Row 203 -----------------------------------
+ -- Row 205 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.term
   Card. = 0..1
   Type = CodeableConcept
@@ -1973,7 +1987,7 @@
   Short Name = Annual or lifetime
   Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
 
- -- Row 204 -----------------------------------
+ -- Row 206 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial
   Card. = 0..*
   UML = 790;480
@@ -1981,7 +1995,7 @@
   Short Name = Benefit Summary
   Definition = Benefits Used to date
 
- -- Row 205 -----------------------------------
+ -- Row 207 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.type
   Card. = 1..1
   Type = CodeableConcept
@@ -1989,14 +2003,14 @@
   Short Name = Deductable, visits, benefit amount
   Definition = Deductable, visits, benefit amount.
 
- -- Row 206 -----------------------------------
+ -- Row 208 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.allowed[x]
   Card. = 0..1
   Type = unsignedInt|string|Money
   Short Name = Benefits allowed
   Definition = Benefits allowed.
 
- -- Row 207 -----------------------------------
+ -- Row 209 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.used[x]
   Card. = 0..1
   Type = unsignedInt|Money
