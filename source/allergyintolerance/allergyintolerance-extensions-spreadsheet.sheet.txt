@@ -20,7 +20,7 @@
   Binding = code list
   Reference = #reaction-event-certainty
   Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in a reaction event.
-  Conformance = required
+  Conformance = extensible
 
 === Sheet allerg-intol-substance-exp-risk =====================================
 
