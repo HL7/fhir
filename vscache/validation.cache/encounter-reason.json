@@ -8,8 +8,8 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|18099001|Retropharyngeal abscess",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -19,8 +19,8 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -30,8 +30,8 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|34068001|Partial lobectomy of lung",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "The display \"Partial lobectomy of lung\" is not a valid display for the code {http://snomed.info/sct}34068001",
       "definition": {
         "abstract": false,
         "code": null,
@@ -41,8 +41,8 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|413095006|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,

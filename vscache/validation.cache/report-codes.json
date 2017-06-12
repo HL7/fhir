@@ -24,7 +24,7 @@
     {
       "hash": "#|http://loinc.org|null|13303-3|HLA-A+​B+​C (class I) [Type]",
       "severity": "warning",
-      "message": "The display \"HLA-A+​B+​C (class I) [Type]\" is not a valid display for the code ,{http://loinc.org}13303-3",
+      "message": "The display \"HLA-A+​B+​C (class I) [Type]\" is not a valid display for the code {http://loinc.org}13303-3",
       "definition": {
         "abstract": false,
         "code": null,

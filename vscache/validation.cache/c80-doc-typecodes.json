@@ -8,8 +8,8 @@
     },
     {
       "hash": "#|http://loinc.org|null|34108-1|Outpatient Note",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,

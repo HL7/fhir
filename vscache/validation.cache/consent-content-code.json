@@ -3,8 +3,8 @@
   "outcomes": [
     {
       "hash": "|http://loinc.org|null|18842-5|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,
@@ -14,8 +14,8 @@
     },
     {
       "hash": "|http://loinc.org|null|34133-9|null",
-      "severity": null,
-      "message": null,
+      "severity": "warning",
+      "message": "No Message returned",
       "definition": {
         "abstract": false,
         "code": null,

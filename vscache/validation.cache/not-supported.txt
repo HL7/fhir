@@ -7,6 +7,7 @@ http://hl7.org/fhir/pharmacy-refill
 http://fdi.org/fhir/oralsurfacecodes
 http://hl7.org/fhir/v3/ActIncidentCode
 http://snomed.info/id
+http://snomed.info/sct/32506021000036107/version/20170403
 http://hl7.org/fhir/pharmacy-form
 http://snomed/sct
 https://precision.fda.gov/files/
@@ -34,6 +35,7 @@ urn:ietf:bcp:47
 http://www.radlex.org
 http://hl7.org/fhir/sid/icd-10
 http://fdi.org/fhir/oraltoothcodes
+http://hl7.org/fhir/sid/cvx
 urn:ietf:rfc:3986
 https://system/PGxReport
 https://rtmms.nist.gov
@@ -75,6 +77,7 @@ http://www.ensembl.org
 http://www.infoway-inforoute.ca.org/Consent-subtype-codes
 https://intranet.aumc.nl/labtestcodes
 http://acmelabs.org
+http://hl7.org/fhir/ValueSet/account-type
 http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor
 http://hl7.org/fhir/patient-contact-relationship

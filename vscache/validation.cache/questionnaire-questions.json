@@ -84,7 +84,7 @@
     {
       "hash": "|http://loinc.org|null|44249-1|PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9",
       "severity": "warning",
-      "message": "The display \"PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9\" is not a valid display for the code ,{http://loinc.org}44249-1",
+      "message": "The display \"PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9\" is not a valid display for the code {http://loinc.org}44249-1",
       "definition": {
         "abstract": false,
         "code": null,
