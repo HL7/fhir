@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -539,7 +539,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         /**
          * The device, practitioner or organization who initiated the request.
          */
-        @Child(name = "agent", type = {Device.class, Practitioner.class, Organization.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "agent", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner or organization who initiated the request." )
         protected Reference agent;
 
@@ -662,7 +662,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("agent", "Reference(Device|Practitioner|Organization)", "The device, practitioner or organization who initiated the request.", 0, java.lang.Integer.MAX_VALUE, agent));
+          childrenList.add(new Property("agent", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The device, practitioner or organization who initiated the request.", 0, java.lang.Integer.MAX_VALUE, agent));
           childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         }
 
@@ -796,7 +796,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Plan/proposal/order fulfilled by this request.
      */
-    @Child(name = "basedOn", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {CarePlan.class, ProcedureRequest.class, MedicationRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What request fulfills", formalDefinition="Plan/proposal/order fulfilled by this request." )
     protected List<Reference> basedOn;
     /**
@@ -808,13 +808,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The request takes the place of the referenced completed or terminated request(s).
      */
-    @Child(name = "replaces", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "replaces", type = {ProcedureRequest.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What request replaces", formalDefinition="The request takes the place of the referenced completed or terminated request(s)." )
     protected List<Reference> replaces;
     /**
      * The actual objects that are the target of the reference (The request takes the place of the referenced completed or terminated request(s).)
      */
-    protected List<Resource> replacesTarget;
+    protected List<ProcedureRequest> replacesTarget;
 
 
     /**
@@ -860,7 +860,6 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Classification of procedure", formalDefinition="A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-category")
     protected List<CodeableConcept> category;
 
     /**
@@ -1004,9 +1003,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Annotation> note;
 
     /**
+     * A textual description of the referral.
+     */
+    @Child(name = "description", type = {StringType.class}, order=25, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Text Summary", formalDefinition="A textual description of the referral." )
+    protected StringType description;
+
+    /**
      * Key events in the history of the request.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Request provenance", formalDefinition="Key events in the history of the request." )
     protected List<Reference> relevantHistory;
     /**
@@ -1015,7 +1021,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = 184396216L;
+    private static final long serialVersionUID = 254629109L;
 
   /**
    * Constructor
@@ -1270,10 +1276,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getReplacesTarget() { 
+    public List<ProcedureRequest> getReplacesTarget() { 
       if (this.replacesTarget == null)
-        this.replacesTarget = new ArrayList<Resource>();
+        this.replacesTarget = new ArrayList<ProcedureRequest>();
       return this.replacesTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public ProcedureRequest addReplacesTarget() { 
+      ProcedureRequest r = new ProcedureRequest();
+      if (this.replacesTarget == null)
+        this.replacesTarget = new ArrayList<ProcedureRequest>();
+      this.replacesTarget.add(r);
+      return r;
     }
 
     /**
@@ -2239,6 +2257,55 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
+     * @return {@link #description} (A textual description of the referral.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     */
+    public StringType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ProcedureRequest.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new StringType(); // bb
+      return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    /**
+     * @param value {@link #description} (A textual description of the referral.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     */
+    public ProcedureRequest setDescriptionElement(StringType value) { 
+      this.description = value;
+      return this;
+    }
+
+    /**
+     * @return A textual description of the referral.
+     */
+    public String getDescription() { 
+      return this.description == null ? null : this.description.getValue();
+    }
+
+    /**
+     * @param value A textual description of the referral.
+     */
+    public ProcedureRequest setDescription(String value) { 
+      if (Utilities.noString(value))
+        this.description = null;
+      else {
+        if (this.description == null)
+          this.description = new StringType();
+        this.description.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #relevantHistory} (Key events in the history of the request.)
      */
     public List<Reference> getRelevantHistory() { 
@@ -2317,8 +2384,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("basedOn", "Reference(Any)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        childrenList.add(new Property("replaces", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
+        childrenList.add(new Property("basedOn", "Reference(CarePlan|ProcedureRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("replaces", "Reference(ProcedureRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
         childrenList.add(new Property("requisition", "Identifier", "A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, java.lang.Integer.MAX_VALUE, requisition));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("intent", "code", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, java.lang.Integer.MAX_VALUE, intent));
@@ -2340,6 +2407,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("specimen", "Reference(Specimen)", "One or more specimens that the laboratory procedure will use.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Anatomic location where the procedure should be performed. This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("note", "Annotation", "Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("description", "string", "A textual description of the referral.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("relevantHistory", "Reference(Provenance)", "Key events in the history of the request.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
       }
 
@@ -2371,6 +2439,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 1538891575: /*relevantHistory*/ return this.relevantHistory == null ? new Base[0] : this.relevantHistory.toArray(new Base[this.relevantHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2458,6 +2527,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
+        case -1724546052: // description
+          this.description = castToString(value); // StringType
+          return value;
         case 1538891575: // relevantHistory
           this.getRelevantHistory().add(castToReference(value)); // Reference
           return value;
@@ -2521,6 +2593,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
+        } else if (name.equals("description")) {
+          this.description = castToString(value); // StringType
         } else if (name.equals("relevantHistory")) {
           this.getRelevantHistory().add(castToReference(value));
         } else
@@ -2558,6 +2632,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -2132868344:  return addSpecimen(); 
         case 1702620169:  return addBodySite(); 
         case 3387378:  return addNote(); 
+        case -1724546052:  return getDescriptionElement();
         case 1538891575:  return addRelevantHistory(); 
         default: return super.makeProperty(hash, name);
         }
@@ -2592,6 +2667,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -2132868344: /*specimen*/ return new String[] {"Reference"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -1724546052: /*description*/ return new String[] {"string"};
         case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -2696,6 +2772,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("note")) {
           return addNote();
         }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.description");
+        }
         else if (name.equals("relevantHistory")) {
           return addRelevantHistory();
         }
@@ -2780,6 +2859,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           for (Annotation i : note)
             dst.note.add(i.copy());
         };
+        dst.description = description == null ? null : description.copy();
         if (relevantHistory != null) {
           dst.relevantHistory = new ArrayList<Reference>();
           for (Reference i : relevantHistory)
@@ -2808,8 +2888,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
            && compareDeep(performerType, o.performerType, true) && compareDeep(performer, o.performer, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(specimen, o.specimen, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true)
-          ;
+           && compareDeep(bodySite, o.bodySite, true) && compareDeep(note, o.note, true) && compareDeep(description, o.description, true)
+           && compareDeep(relevantHistory, o.relevantHistory, true);
       }
 
       @Override
@@ -2821,7 +2901,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         ProcedureRequest o = (ProcedureRequest) other;
         return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
            && compareValues(doNotPerform, o.doNotPerform, true) && compareValues(authoredOn, o.authoredOn, true)
-          ;
+           && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
@@ -2829,7 +2909,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           , replaces, requisition, status, intent, priority, doNotPerform, category, code
           , subject, context, occurrence, asNeeded, authoredOn, requester, performerType
           , performer, reasonCode, reasonReference, supportingInfo, specimen, bodySite, note
-          , relevantHistory);
+          , description, relevantHistory);
       }
 
   @Override
@@ -2865,7 +2945,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ProcedureRequest.requester.agent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="ProcedureRequest.requester.agent", description="Individual making the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="requester", path="ProcedureRequest.requester.agent", description="Individual making the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>
@@ -2977,7 +3057,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ProcedureRequest.replaces</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="replaces", path="ProcedureRequest.replaces", description="What request replaces", type="reference" )
+  @SearchParamDefinition(name="replaces", path="ProcedureRequest.replaces", description="What request replaces", type="reference", target={ProcedureRequest.class } )
   public static final String SP_REPLACES = "replaces";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>replaces</b>
@@ -3135,7 +3215,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>ProcedureRequest.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="ProcedureRequest.basedOn", description="What request fulfills", type="reference" )
+  @SearchParamDefinition(name="based-on", path="ProcedureRequest.basedOn", description="What request fulfills", type="reference", target={CarePlan.class, MedicationRequest.class, ProcedureRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
@@ -3276,6 +3356,26 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
+
+ /**
+   * Search parameter: <b>category</b>
+   * <p>
+   * Description: <b>Classification of procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.category</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="category", path="ProcedureRequest.category", description="Classification of procedure", type="token" )
+  public static final String SP_CATEGORY = "category";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>category</b>
+   * <p>
+   * Description: <b>Classification of procedure</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ProcedureRequest.category</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
 
  /**
    * Search parameter: <b>status</b>

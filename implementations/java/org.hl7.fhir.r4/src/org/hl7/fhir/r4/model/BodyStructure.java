@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -45,14 +45,14 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
  */
-@ResourceDef(name="BodySite", profile="http://hl7.org/fhir/Profile/BodySite")
-public class BodySite extends DomainResource {
+@ResourceDef(name="BodyStructure", profile="http://hl7.org/fhir/Profile/BodyStructure")
+public class BodyStructure extends DomainResource {
 
     /**
      * Identifier for this instance of the anatomical location.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Bodysite identifier", formalDefinition="Identifier for this instance of the anatomical location." )
+    @Description(shortDefinition="Bodystructure identifier", formalDefinition="Identifier for this instance of the anatomical location." )
     protected List<Identifier> identifier;
 
     /**
@@ -75,7 +75,7 @@ public class BodySite extends DomainResource {
      */
     @Child(name = "qualifier", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Modification to location code", formalDefinition="Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/bodysite-relative-location")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/bodystructure-relative-location")
     protected List<CodeableConcept> qualifier;
 
     /**
@@ -109,14 +109,14 @@ public class BodySite extends DomainResource {
   /**
    * Constructor
    */
-    public BodySite() {
+    public BodyStructure() {
       super();
     }
 
   /**
    * Constructor
    */
-    public BodySite(Reference patient) {
+    public BodyStructure(Reference patient) {
       super();
       this.patient = patient;
     }
@@ -133,7 +133,7 @@ public class BodySite extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public BodySite setIdentifier(List<Identifier> theIdentifier) { 
+    public BodyStructure setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -155,7 +155,7 @@ public class BodySite extends DomainResource {
       return t;
     }
 
-    public BodySite addIdentifier(Identifier t) { //3
+    public BodyStructure addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -180,7 +180,7 @@ public class BodySite extends DomainResource {
     public BooleanType getActiveElement() { 
       if (this.active == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.active");
+          throw new Error("Attempt to auto-create BodyStructure.active");
         else if (Configuration.doAutoCreate())
           this.active = new BooleanType(); // bb
       return this.active;
@@ -197,7 +197,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BodySite setActiveElement(BooleanType value) { 
+    public BodyStructure setActiveElement(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -212,7 +212,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value Whether this body site is in active use.
      */
-    public BodySite setActive(boolean value) { 
+    public BodyStructure setActive(boolean value) { 
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
@@ -225,7 +225,7 @@ public class BodySite extends DomainResource {
     public CodeableConcept getCode() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.code");
+          throw new Error("Attempt to auto-create BodyStructure.code");
         else if (Configuration.doAutoCreate())
           this.code = new CodeableConcept(); // cc
       return this.code;
@@ -238,7 +238,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value {@link #code} (Named anatomical location - ideally coded where possible.)
      */
-    public BodySite setCode(CodeableConcept value) { 
+    public BodyStructure setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
@@ -255,7 +255,7 @@ public class BodySite extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public BodySite setQualifier(List<CodeableConcept> theQualifier) { 
+    public BodyStructure setQualifier(List<CodeableConcept> theQualifier) { 
       this.qualifier = theQualifier;
       return this;
     }
@@ -277,7 +277,7 @@ public class BodySite extends DomainResource {
       return t;
     }
 
-    public BodySite addQualifier(CodeableConcept t) { //3
+    public BodyStructure addQualifier(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.qualifier == null)
@@ -302,7 +302,7 @@ public class BodySite extends DomainResource {
     public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.description");
+          throw new Error("Attempt to auto-create BodyStructure.description");
         else if (Configuration.doAutoCreate())
           this.description = new StringType(); // bb
       return this.description;
@@ -319,7 +319,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value {@link #description} (A summary, charactarization or explanation of the anatomic location.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public BodySite setDescriptionElement(StringType value) { 
+    public BodyStructure setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -334,7 +334,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value A summary, charactarization or explanation of the anatomic location.
      */
-    public BodySite setDescription(String value) { 
+    public BodyStructure setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -357,7 +357,7 @@ public class BodySite extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public BodySite setImage(List<Attachment> theImage) { 
+    public BodyStructure setImage(List<Attachment> theImage) { 
       this.image = theImage;
       return this;
     }
@@ -379,7 +379,7 @@ public class BodySite extends DomainResource {
       return t;
     }
 
-    public BodySite addImage(Attachment t) { //3
+    public BodyStructure addImage(Attachment t) { //3
       if (t == null)
         return this;
       if (this.image == null)
@@ -404,7 +404,7 @@ public class BodySite extends DomainResource {
     public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.patient");
+          throw new Error("Attempt to auto-create BodyStructure.patient");
         else if (Configuration.doAutoCreate())
           this.patient = new Reference(); // cc
       return this.patient;
@@ -417,7 +417,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value {@link #patient} (The person to which the body site belongs.)
      */
-    public BodySite setPatient(Reference value) { 
+    public BodyStructure setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -428,7 +428,7 @@ public class BodySite extends DomainResource {
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.patient");
+          throw new Error("Attempt to auto-create BodyStructure.patient");
         else if (Configuration.doAutoCreate())
           this.patientTarget = new Patient(); // aa
       return this.patientTarget;
@@ -437,7 +437,7 @@ public class BodySite extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person to which the body site belongs.)
      */
-    public BodySite setPatientTarget(Patient value) { 
+    public BodyStructure setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -554,7 +554,7 @@ public class BodySite extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("active")) {
-          throw new FHIRException("Cannot call addChild on a primitive type BodySite.active");
+          throw new FHIRException("Cannot call addChild on a primitive type BodyStructure.active");
         }
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
@@ -564,7 +564,7 @@ public class BodySite extends DomainResource {
           return addQualifier();
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type BodySite.description");
+          throw new FHIRException("Cannot call addChild on a primitive type BodyStructure.description");
         }
         else if (name.equals("image")) {
           return addImage();
@@ -578,12 +578,12 @@ public class BodySite extends DomainResource {
       }
 
   public String fhirType() {
-    return "BodySite";
+    return "BodyStructure";
 
   }
 
-      public BodySite copy() {
-        BodySite dst = new BodySite();
+      public BodyStructure copy() {
+        BodyStructure dst = new BodyStructure();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -607,7 +607,7 @@ public class BodySite extends DomainResource {
         return dst;
       }
 
-      protected BodySite typedCopy() {
+      protected BodyStructure typedCopy() {
         return copy();
       }
 
@@ -615,9 +615,9 @@ public class BodySite extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof BodySite))
+        if (!(other instanceof BodyStructure))
           return false;
-        BodySite o = (BodySite) other;
+        BodyStructure o = (BodyStructure) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(code, o.code, true)
            && compareDeep(qualifier, o.qualifier, true) && compareDeep(description, o.description, true) && compareDeep(image, o.image, true)
            && compareDeep(patient, o.patient, true);
@@ -627,9 +627,9 @@ public class BodySite extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof BodySite))
+        if (!(other instanceof BodyStructure))
           return false;
-        BodySite o = (BodySite) other;
+        BodyStructure o = (BodyStructure) other;
         return compareValues(active, o.active, true) && compareValues(description, o.description, true);
       }
 
@@ -640,7 +640,7 @@ public class BodySite extends DomainResource {
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.BodySite;
+    return ResourceType.BodyStructure;
    }
 
  /**
@@ -648,17 +648,17 @@ public class BodySite extends DomainResource {
    * <p>
    * Description: <b>Identifier for this instance of the anatomical location</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>BodySite.identifier</b><br>
+   * Path: <b>BodyStructure.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="BodySite.identifier", description="Identifier for this instance of the anatomical location", type="token" )
+  @SearchParamDefinition(name="identifier", path="BodyStructure.identifier", description="Identifier for this instance of the anatomical location", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>Identifier for this instance of the anatomical location</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>BodySite.identifier</b><br>
+   * Path: <b>BodyStructure.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -668,17 +668,17 @@ public class BodySite extends DomainResource {
    * <p>
    * Description: <b>Named anatomical location</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>BodySite.code</b><br>
+   * Path: <b>BodyStructure.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
+  @SearchParamDefinition(name="code", path="BodyStructure.code", description="Named anatomical location", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
    * Description: <b>Named anatomical location</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>BodySite.code</b><br>
+   * Path: <b>BodyStructure.code</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
@@ -686,28 +686,28 @@ public class BodySite extends DomainResource {
  /**
    * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Patient to whom bodysite belongs</b><br>
+   * Description: <b>Patient to whom bodystructure belongs</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>BodySite.patient</b><br>
+   * Path: <b>BodyStructure.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="BodySite.patient", description="Patient to whom bodysite belongs", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="BodyStructure.patient", description="Patient to whom bodystructure belongs", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Patient to whom bodysite belongs</b><br>
+   * Description: <b>Patient to whom bodystructure belongs</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>BodySite.patient</b><br>
+   * Path: <b>BodyStructure.patient</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>BodySite:patient</b>".
+   * the path value of "<b>BodyStructure:patient</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("BodySite:patient").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("BodyStructure:patient").toLocked();
 
 
 }

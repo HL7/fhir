@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -233,14 +233,14 @@ public class EnrollmentRequest extends DomainResource {
     /**
      * Patient Resource.
      */
-    @Child(name = "subject", type = {Patient.class}, order=6, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
-    protected Reference subject;
+    @Child(name = "candidate", type = {Patient.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="The subject to be enrolled", formalDefinition="Patient Resource." )
+    protected Reference candidate;
 
     /**
      * The actual object that is the target of the reference (Patient Resource.)
      */
-    protected Patient subjectTarget;
+    protected Patient candidateTarget;
 
     /**
      * Reference to the program or plan identification, underwriter or payor.
@@ -254,7 +254,7 @@ public class EnrollmentRequest extends DomainResource {
      */
     protected Coverage coverageTarget;
 
-    private static final long serialVersionUID = -214445454L;
+    private static final long serialVersionUID = -1139381600L;
 
   /**
    * Constructor
@@ -547,46 +547,46 @@ public class EnrollmentRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (Patient Resource.)
+     * @return {@link #candidate} (Patient Resource.)
      */
-    public Reference getSubject() { 
-      if (this.subject == null)
+    public Reference getCandidate() { 
+      if (this.candidate == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EnrollmentRequest.subject");
+          throw new Error("Attempt to auto-create EnrollmentRequest.candidate");
         else if (Configuration.doAutoCreate())
-          this.subject = new Reference(); // cc
-      return this.subject;
+          this.candidate = new Reference(); // cc
+      return this.candidate;
     }
 
-    public boolean hasSubject() { 
-      return this.subject != null && !this.subject.isEmpty();
+    public boolean hasCandidate() { 
+      return this.candidate != null && !this.candidate.isEmpty();
     }
 
     /**
-     * @param value {@link #subject} (Patient Resource.)
+     * @param value {@link #candidate} (Patient Resource.)
      */
-    public EnrollmentRequest setSubject(Reference value) { 
-      this.subject = value;
+    public EnrollmentRequest setCandidate(Reference value) { 
+      this.candidate = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient Resource.)
+     * @return {@link #candidate} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public Patient getSubjectTarget() { 
-      if (this.subjectTarget == null)
+    public Patient getCandidateTarget() { 
+      if (this.candidateTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EnrollmentRequest.subject");
+          throw new Error("Attempt to auto-create EnrollmentRequest.candidate");
         else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient(); // aa
-      return this.subjectTarget;
+          this.candidateTarget = new Patient(); // aa
+      return this.candidateTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient Resource.)
+     * @param value {@link #candidate} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public EnrollmentRequest setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
+    public EnrollmentRequest setCandidateTarget(Patient value) { 
+      this.candidateTarget = value;
       return this;
     }
 
@@ -642,7 +642,7 @@ public class EnrollmentRequest extends DomainResource {
         childrenList.add(new Property("insurer", "Reference(Organization)", "The Insurer who is target  of the request.", 0, java.lang.Integer.MAX_VALUE, insurer));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("subject", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("candidate", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, candidate));
         childrenList.add(new Property("coverage", "Reference(Coverage)", "Reference to the program or plan identification, underwriter or payor.", 0, java.lang.Integer.MAX_VALUE, coverage));
       }
 
@@ -655,7 +655,7 @@ public class EnrollmentRequest extends DomainResource {
         case 1957615864: /*insurer*/ return this.insurer == null ? new Base[0] : new Base[] {this.insurer}; // Reference
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
-        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 508663171: /*candidate*/ return this.candidate == null ? new Base[0] : new Base[] {this.candidate}; // Reference
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -684,8 +684,8 @@ public class EnrollmentRequest extends DomainResource {
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
           return value;
-        case -1867885268: // subject
-          this.subject = castToReference(value); // Reference
+        case 508663171: // candidate
+          this.candidate = castToReference(value); // Reference
           return value;
         case -351767064: // coverage
           this.coverage = castToReference(value); // Reference
@@ -710,8 +710,8 @@ public class EnrollmentRequest extends DomainResource {
           this.provider = castToReference(value); // Reference
         } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        } else if (name.equals("subject")) {
-          this.subject = castToReference(value); // Reference
+        } else if (name.equals("candidate")) {
+          this.candidate = castToReference(value); // Reference
         } else if (name.equals("coverage")) {
           this.coverage = castToReference(value); // Reference
         } else
@@ -728,7 +728,7 @@ public class EnrollmentRequest extends DomainResource {
         case 1957615864:  return getInsurer(); 
         case -987494927:  return getProvider(); 
         case 1178922291:  return getOrganization(); 
-        case -1867885268:  return getSubject(); 
+        case 508663171:  return getCandidate(); 
         case -351767064:  return getCoverage(); 
         default: return super.makeProperty(hash, name);
         }
@@ -744,7 +744,7 @@ public class EnrollmentRequest extends DomainResource {
         case 1957615864: /*insurer*/ return new String[] {"Reference"};
         case -987494927: /*provider*/ return new String[] {"Reference"};
         case 1178922291: /*organization*/ return new String[] {"Reference"};
-        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 508663171: /*candidate*/ return new String[] {"Reference"};
         case -351767064: /*coverage*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -774,9 +774,9 @@ public class EnrollmentRequest extends DomainResource {
           this.organization = new Reference();
           return this.organization;
         }
-        else if (name.equals("subject")) {
-          this.subject = new Reference();
-          return this.subject;
+        else if (name.equals("candidate")) {
+          this.candidate = new Reference();
+          return this.candidate;
         }
         else if (name.equals("coverage")) {
           this.coverage = new Reference();
@@ -804,7 +804,7 @@ public class EnrollmentRequest extends DomainResource {
         dst.insurer = insurer == null ? null : insurer.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
-        dst.subject = subject == null ? null : subject.copy();
+        dst.candidate = candidate == null ? null : candidate.copy();
         dst.coverage = coverage == null ? null : coverage.copy();
         return dst;
       }
@@ -822,7 +822,7 @@ public class EnrollmentRequest extends DomainResource {
         EnrollmentRequest o = (EnrollmentRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(created, o.created, true)
            && compareDeep(insurer, o.insurer, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(coverage, o.coverage, true);
+           && compareDeep(candidate, o.candidate, true) && compareDeep(coverage, o.coverage, true);
       }
 
       @Override
@@ -837,7 +837,7 @@ public class EnrollmentRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, created
-          , insurer, provider, organization, subject, coverage);
+          , insurer, provider, organization, candidate, coverage);
       }
 
   @Override
@@ -870,17 +870,17 @@ public class EnrollmentRequest extends DomainResource {
    * <p>
    * Description: <b>The party to be enrolled</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EnrollmentRequest.subject</b><br>
+   * Path: <b>EnrollmentRequest.candidate</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="subject", path="EnrollmentRequest.candidate", description="The party to be enrolled", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
    * Description: <b>The party to be enrolled</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EnrollmentRequest.subject</b><br>
+   * Path: <b>EnrollmentRequest.candidate</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
@@ -896,17 +896,17 @@ public class EnrollmentRequest extends DomainResource {
    * <p>
    * Description: <b>The party to be enrolled</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EnrollmentRequest.subject</b><br>
+   * Path: <b>EnrollmentRequest.candidate</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EnrollmentRequest.subject", description="The party to be enrolled", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="EnrollmentRequest.candidate", description="The party to be enrolled", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>The party to be enrolled</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EnrollmentRequest.subject</b><br>
+   * Path: <b>EnrollmentRequest.candidate</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
@@ -942,6 +942,26 @@ public class EnrollmentRequest extends DomainResource {
    * the path value of "<b>EnrollmentRequest:organization</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("EnrollmentRequest:organization").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status fo the enrollment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EnrollmentRequest.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="EnrollmentRequest.status", description="The status fo the enrollment", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status fo the enrollment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EnrollmentRequest.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

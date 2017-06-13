@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -4201,7 +4201,7 @@ public class Contract extends DomainResource {
     /**
      * Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.
      */
-    @Child(name = "legallyBinding", type = {Attachment.class, Composition.class, DocumentReference.class, QuestionnaireResponse.class, Contract.class, Consent.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "legallyBinding", type = {Attachment.class, Composition.class, DocumentReference.class, QuestionnaireResponse.class, Contract.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Binding Contract", formalDefinition="Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract." )
     protected Type legallyBinding;
 
@@ -4972,7 +4972,7 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("friendly", "", "The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.", 0, java.lang.Integer.MAX_VALUE, friendly));
         childrenList.add(new Property("legal", "", "List of Legal expressions or representations of this Contract.", 0, java.lang.Integer.MAX_VALUE, legal));
         childrenList.add(new Property("rule", "", "List of Computable Policy Rule Language Representations of this Contract.", 0, java.lang.Integer.MAX_VALUE, rule));
-        childrenList.add(new Property("legallyBinding[x]", "Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse|Contract|Consent)", "Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.", 0, java.lang.Integer.MAX_VALUE, legallyBinding));
+        childrenList.add(new Property("legallyBinding[x]", "Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse|Contract)", "Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.", 0, java.lang.Integer.MAX_VALUE, legallyBinding));
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -74,6 +74,10 @@ public class MedicationStatement extends DomainResource {
          */
         ONHOLD, 
         /**
+         * The state of the medication use is not currently known.
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -92,6 +96,8 @@ public class MedicationStatement extends DomainResource {
           return STOPPED;
         if ("on-hold".equals(codeString))
           return ONHOLD;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -105,6 +111,7 @@ public class MedicationStatement extends DomainResource {
             case INTENDED: return "intended";
             case STOPPED: return "stopped";
             case ONHOLD: return "on-hold";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -116,6 +123,7 @@ public class MedicationStatement extends DomainResource {
             case INTENDED: return "http://hl7.org/fhir/medication-statement-status";
             case STOPPED: return "http://hl7.org/fhir/medication-statement-status";
             case ONHOLD: return "http://hl7.org/fhir/medication-statement-status";
+            case UNKNOWN: return "http://hl7.org/fhir/medication-statement-status";
             default: return "?";
           }
         }
@@ -127,6 +135,7 @@ public class MedicationStatement extends DomainResource {
             case INTENDED: return "The medication may be taken at some time in the future.";
             case STOPPED: return "Actions implied by the statement have been permanently halted, before all of them occurred.";
             case ONHOLD: return "Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
+            case UNKNOWN: return "The state of the medication use is not currently known.";
             default: return "?";
           }
         }
@@ -138,6 +147,7 @@ public class MedicationStatement extends DomainResource {
             case INTENDED: return "Intended";
             case STOPPED: return "Stopped";
             case ONHOLD: return "On Hold";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -160,6 +170,8 @@ public class MedicationStatement extends DomainResource {
           return MedicationStatementStatus.STOPPED;
         if ("on-hold".equals(codeString))
           return MedicationStatementStatus.ONHOLD;
+        if ("unknown".equals(codeString))
+          return MedicationStatementStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
         public Enumeration<MedicationStatementStatus> fromType(Base code) throws FHIRException {
@@ -182,6 +194,8 @@ public class MedicationStatement extends DomainResource {
           return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.STOPPED);
         if ("on-hold".equals(codeString))
           return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.ONHOLD);
+        if ("unknown".equals(codeString))
+          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.UNKNOWN);
         throw new FHIRException("Unknown MedicationStatementStatus code '"+codeString+"'");
         }
     public String toCode(MedicationStatementStatus code) {
@@ -197,6 +211,8 @@ public class MedicationStatement extends DomainResource {
         return "stopped";
       if (code == MedicationStatementStatus.ONHOLD)
         return "on-hold";
+      if (code == MedicationStatementStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(MedicationStatementStatus code) {
@@ -338,7 +354,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * A plan, proposal or order that is fulfilled in whole or in part by this event.
      */
-    @Child(name = "basedOn", type = {MedicationRequest.class, CarePlan.class, ProcedureRequest.class, ReferralRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {MedicationRequest.class, CarePlan.class, ProcedureRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Fulfils plan, proposal or order", formalDefinition="A plan, proposal or order that is fulfilled in whole or in part by this event." )
     protected List<Reference> basedOn;
     /**
@@ -375,7 +391,7 @@ public class MedicationStatement extends DomainResource {
      * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
      */
     @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | completed | entered-in-error | intended | stopped | on-hold", formalDefinition="A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed." )
+    @Description(shortDefinition="active | completed | entered-in-error | intended | stopped | on-hold | unknown", formalDefinition="A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-status")
     protected Enumeration<MedicationStatementStatus> status;
 
@@ -1405,7 +1421,7 @@ public class MedicationStatement extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("basedOn", "Reference(MedicationRequest|CarePlan|ProcedureRequest|ReferralRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("basedOn", "Reference(MedicationRequest|CarePlan|ProcedureRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("partOf", "Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("status", "code", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, java.lang.Integer.MAX_VALUE, status));

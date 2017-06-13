@@ -20,6 +20,11 @@
   
 ----
 
+-- ElementDefinition.imports --
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+
+----
+
 // todo: should this be .getId()> 
 -- ElementDefinition --
   
@@ -125,3 +130,22 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities;
       }
 ----
 
+-- BackboneElement --
+
+  public void checkNoModifiers(String noun, String verb) throws FHIRException {
+        if (hasModifierExtension()) {
+          throw new FHIRException("Found unknown Modifier Exceptions on "+noun+" doing "+verb);
+        }
+        
+  }
+----
+
+-- DomainResource --
+
+  public void checkNoModifiers(String noun, String verb) throws FHIRException {
+        if (hasModifierExtension()) {
+          throw new FHIRException("Found unknown Modifier Exceptions on "+noun+" doing "+verb);
+        }
+        
+  }
+----

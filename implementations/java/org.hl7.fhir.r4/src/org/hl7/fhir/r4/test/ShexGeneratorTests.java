@@ -17,11 +17,11 @@ import org.junit.Test;
 public class ShexGeneratorTests {
 
   private void doTest(String name) throws FileNotFoundException, IOException, FHIRException {
-    String workingDirectory = "C:\\work\\org.hl7.fhir.2016May\\build\\publish"; // FileSystems.getDefault().getPath(System.getProperty("user.dir"), "data").toString();
+    String workingDirectory = "C:\\work\\org.hl7.fhir\\build\\publish"; // FileSystems.getDefault().getPath(System.getProperty("user.dir"), "data").toString();
     // String workingDirectory = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "..", "..", "..", "publish").toString();
     if (TestingUtilities.context == null) {
       // For the time being, put the validation entry in org/hl7/fhir/r4/data
-      Path path = FileSystems.getDefault().getPath(workingDirectory, "validation-min.xml.zip");
+      Path path = FileSystems.getDefault().getPath(workingDirectory, "definitions.xml.zip");
       TestingUtilities.context = SimpleWorkerContext.fromPack(path.toString());
     }
     StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -798,13 +798,13 @@ public class EpisodeOfCare extends DomainResource {
     /**
      * Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.
      */
-    @Child(name = "referralRequest", type = {ReferralRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "referralRequest", type = {ProcedureRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Originating Referral Request(s)", formalDefinition="Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals." )
     protected List<Reference> referralRequest;
     /**
      * The actual objects that are the target of the reference (Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.)
      */
-    protected List<ReferralRequest> referralRequestTarget;
+    protected List<ProcedureRequest> referralRequestTarget;
 
 
     /**
@@ -843,7 +843,7 @@ public class EpisodeOfCare extends DomainResource {
     protected List<Account> accountTarget;
 
 
-    private static final long serialVersionUID = 76719771L;
+    private static final long serialVersionUID = 826333451L;
 
   /**
    * Constructor
@@ -1287,9 +1287,9 @@ public class EpisodeOfCare extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<ReferralRequest> getReferralRequestTarget() { 
+    public List<ProcedureRequest> getReferralRequestTarget() { 
       if (this.referralRequestTarget == null)
-        this.referralRequestTarget = new ArrayList<ReferralRequest>();
+        this.referralRequestTarget = new ArrayList<ProcedureRequest>();
       return this.referralRequestTarget;
     }
 
@@ -1297,10 +1297,10 @@ public class EpisodeOfCare extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public ReferralRequest addReferralRequestTarget() { 
-      ReferralRequest r = new ReferralRequest();
+    public ProcedureRequest addReferralRequestTarget() { 
+      ProcedureRequest r = new ProcedureRequest();
       if (this.referralRequestTarget == null)
-        this.referralRequestTarget = new ArrayList<ReferralRequest>();
+        this.referralRequestTarget = new ArrayList<ProcedureRequest>();
       this.referralRequestTarget.add(r);
       return r;
     }
@@ -1509,7 +1509,7 @@ public class EpisodeOfCare extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient who is the focus of this episode of care.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization that has assumed the specific responsibilities for the specified duration.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
         childrenList.add(new Property("period", "Period", "The interval during which the managing organization assumes the defined responsibility.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("referralRequest", "Reference(ReferralRequest)", "Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.", 0, java.lang.Integer.MAX_VALUE, referralRequest));
+        childrenList.add(new Property("referralRequest", "Reference(ProcedureRequest)", "Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals.", 0, java.lang.Integer.MAX_VALUE, referralRequest));
         childrenList.add(new Property("careManager", "Reference(Practitioner)", "The practitioner that is the care manager/care co-ordinator for this patient.", 0, java.lang.Integer.MAX_VALUE, careManager));
         childrenList.add(new Property("team", "Reference(CareTeam)", "The list of practitioners that may be facilitating this episode of care for specific purposes.", 0, java.lang.Integer.MAX_VALUE, team));
         childrenList.add(new Property("account", "Reference(Account)", "The set of accounts that may be used for billing for this EpisodeOfCare.", 0, java.lang.Integer.MAX_VALUE, account));
@@ -1862,7 +1862,7 @@ public class EpisodeOfCare extends DomainResource {
    * Path: <b>EpisodeOfCare.referralRequest</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference", target={ReferralRequest.class } )
+  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference", target={ProcedureRequest.class } )
   public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>

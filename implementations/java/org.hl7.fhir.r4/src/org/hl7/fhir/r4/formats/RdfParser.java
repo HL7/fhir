@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -1869,7 +1869,7 @@ public class RdfParser extends RdfParserBase {
       composeBase64Binary(t, "Binary", "content", element.getContentElement(), -1);
   }
 
-  protected void composeBodySite(Complex parent, String parentType, String name, BodySite element, int index) {
+  protected void composeBodyStructure(Complex parent, String parentType, String name, BodyStructure element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -1878,21 +1878,21 @@ public class RdfParser extends RdfParserBase {
     else {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
-    composeDomainResource(t, "BodySite", name, element, index);
+    composeDomainResource(t, "BodyStructure", name, element, index);
     for (int i = 0; i < element.getIdentifier().size(); i++)
-      composeIdentifier(t, "BodySite", "identifier", element.getIdentifier().get(i), i);
+      composeIdentifier(t, "BodyStructure", "identifier", element.getIdentifier().get(i), i);
     if (element.hasActiveElement())
-      composeBoolean(t, "BodySite", "active", element.getActiveElement(), -1);
+      composeBoolean(t, "BodyStructure", "active", element.getActiveElement(), -1);
     if (element.hasCode())
-      composeCodeableConcept(t, "BodySite", "code", element.getCode(), -1);
+      composeCodeableConcept(t, "BodyStructure", "code", element.getCode(), -1);
     for (int i = 0; i < element.getQualifier().size(); i++)
-      composeCodeableConcept(t, "BodySite", "qualifier", element.getQualifier().get(i), i);
+      composeCodeableConcept(t, "BodyStructure", "qualifier", element.getQualifier().get(i), i);
     if (element.hasDescriptionElement())
-      composeString(t, "BodySite", "description", element.getDescriptionElement(), -1);
+      composeString(t, "BodyStructure", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getImage().size(); i++)
-      composeAttachment(t, "BodySite", "image", element.getImage().get(i), i);
+      composeAttachment(t, "BodyStructure", "image", element.getImage().get(i), i);
     if (element.hasPatient())
-      composeReference(t, "BodySite", "patient", element.getPatient(), -1);
+      composeReference(t, "BodyStructure", "patient", element.getPatient(), -1);
   }
 
   protected void composeBundle(Complex parent, String parentType, String name, Bundle element, int index) {
@@ -2745,8 +2745,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "payee", name, element, index);
     if (element.hasType())
       composeCodeableConcept(t, "Claim", "type", element.getType(), -1);
-    if (element.hasResourceType())
-      composeCoding(t, "Claim", "resourceType", element.getResourceType(), -1);
+    if (element.hasResource())
+      composeCoding(t, "Claim", "resource", element.getResource(), -1);
     if (element.hasParty())
       composeReference(t, "Claim", "party", element.getParty(), -1);
   }
@@ -3149,38 +3149,10 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "addItem", name, element, index);
     for (int i = 0; i < element.getSequenceLinkId().size(); i++)
       composePositiveInt(t, "ClaimResponse", "sequenceLinkId", element.getSequenceLinkId().get(i), i);
-    if (element.hasRevenue())
-      composeCodeableConcept(t, "ClaimResponse", "revenue", element.getRevenue(), -1);
-    if (element.hasCategory())
-      composeCodeableConcept(t, "ClaimResponse", "category", element.getCategory(), -1);
-    if (element.hasService())
-      composeCodeableConcept(t, "ClaimResponse", "service", element.getService(), -1);
-    for (int i = 0; i < element.getModifier().size(); i++)
-      composeCodeableConcept(t, "ClaimResponse", "modifier", element.getModifier().get(i), i);
-    if (element.hasFee())
-      composeMoney(t, "ClaimResponse", "fee", element.getFee(), -1);
-    for (int i = 0; i < element.getNoteNumber().size(); i++)
-      composePositiveInt(t, "ClaimResponse", "noteNumber", element.getNoteNumber().get(i), i);
-    for (int i = 0; i < element.getAdjudication().size(); i++)
-      composeClaimResponseAdjudicationComponent(t, "ClaimResponse", "adjudication", element.getAdjudication().get(i), i);
-    for (int i = 0; i < element.getDetail().size(); i++)
-      composeClaimResponseAddedItemsDetailComponent(t, "ClaimResponse", "detail", element.getDetail().get(i), i);
-  }
-
-  protected void composeClaimResponseAddedItemsDetailComponent(Complex parent, String parentType, String name, ClaimResponse.AddedItemsDetailComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "detail", name, element, index);
-    if (element.hasRevenue())
-      composeCodeableConcept(t, "ClaimResponse", "revenue", element.getRevenue(), -1);
-    if (element.hasCategory())
-      composeCodeableConcept(t, "ClaimResponse", "category", element.getCategory(), -1);
+    for (int i = 0; i < element.getDetailSequenceLinkId().size(); i++)
+      composePositiveInt(t, "ClaimResponse", "detailSequenceLinkId", element.getDetailSequenceLinkId().get(i), i);
+    for (int i = 0; i < element.getSubdetailSequenceLinkId().size(); i++)
+      composePositiveInt(t, "ClaimResponse", "subdetailSequenceLinkId", element.getSubdetailSequenceLinkId().get(i), i);
     if (element.hasService())
       composeCodeableConcept(t, "ClaimResponse", "service", element.getService(), -1);
     for (int i = 0; i < element.getModifier().size(); i++)
@@ -4069,6 +4041,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Condition", "summary", element.getSummary(), -1);
     for (int i = 0; i < element.getAssessment().size(); i++)
       composeReference(t, "Condition", "assessment", element.getAssessment().get(i), i);
+    if (element.hasType())
+      composeCodeableConcept(t, "Condition", "type", element.getType(), -1);
   }
 
   protected void composeConditionConditionEvidenceComponent(Complex parent, String parentType, String name, Condition.ConditionEvidenceComponent element, int index) {
@@ -4105,16 +4079,10 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Consent", "category", element.getCategory().get(i), i);
     if (element.hasPatient())
       composeReference(t, "Consent", "patient", element.getPatient(), -1);
-    if (element.hasPeriod())
-      composePeriod(t, "Consent", "period", element.getPeriod(), -1);
     if (element.hasDateTimeElement())
       composeDateTime(t, "Consent", "dateTime", element.getDateTimeElement(), -1);
     for (int i = 0; i < element.getConsentingParty().size(); i++)
       composeReference(t, "Consent", "consentingParty", element.getConsentingParty().get(i), i);
-    for (int i = 0; i < element.getActor().size(); i++)
-      composeConsentConsentActorComponent(t, "Consent", "actor", element.getActor().get(i), i);
-    for (int i = 0; i < element.getAction().size(); i++)
-      composeCodeableConcept(t, "Consent", "action", element.getAction().get(i), i);
     for (int i = 0; i < element.getOrganization().size(); i++)
       composeReference(t, "Consent", "organization", element.getOrganization().get(i), i);
     if (element.hasSource())
@@ -4123,32 +4091,10 @@ public class RdfParser extends RdfParserBase {
       composeConsentConsentPolicyComponent(t, "Consent", "policy", element.getPolicy().get(i), i);
     if (element.hasPolicyRuleElement())
       composeUri(t, "Consent", "policyRule", element.getPolicyRuleElement(), -1);
-    for (int i = 0; i < element.getSecurityLabel().size(); i++)
-      composeCoding(t, "Consent", "securityLabel", element.getSecurityLabel().get(i), i);
-    for (int i = 0; i < element.getPurpose().size(); i++)
-      composeCoding(t, "Consent", "purpose", element.getPurpose().get(i), i);
-    if (element.hasDataPeriod())
-      composePeriod(t, "Consent", "dataPeriod", element.getDataPeriod(), -1);
-    for (int i = 0; i < element.getData().size(); i++)
-      composeConsentConsentDataComponent(t, "Consent", "data", element.getData().get(i), i);
-    for (int i = 0; i < element.getExcept().size(); i++)
-      composeConsentExceptComponent(t, "Consent", "except", element.getExcept().get(i), i);
-  }
-
-  protected void composeConsentConsentActorComponent(Complex parent, String parentType, String name, Consent.ConsentActorComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "actor", name, element, index);
-    if (element.hasRole())
-      composeCodeableConcept(t, "Consent", "role", element.getRole(), -1);
-    if (element.hasReference())
-      composeReference(t, "Consent", "reference", element.getReference(), -1);
+    for (int i = 0; i < element.getVerification().size(); i++)
+      composeConsentConsentVerificationComponent(t, "Consent", "verification", element.getVerification().get(i), i);
+    for (int i = 0; i < element.getRule().size(); i++)
+      composeConsentruleComponent(t, "Consent", "rule", element.getRule().get(i), i);
   }
 
   protected void composeConsentConsentPolicyComponent(Complex parent, String parentType, String name, Consent.ConsentPolicyComponent element, int index) {
@@ -4167,7 +4113,7 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "Consent", "uri", element.getUriElement(), -1);
   }
 
-  protected void composeConsentConsentDataComponent(Complex parent, String parentType, String name, Consent.ConsentDataComponent element, int index) {
+  protected void composeConsentConsentVerificationComponent(Complex parent, String parentType, String name, Consent.ConsentVerificationComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -4176,14 +4122,16 @@ public class RdfParser extends RdfParserBase {
     else {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
-    composeBackboneElement(t, "data", name, element, index);
-    if (element.hasMeaningElement())
-      composeEnum(t, "Consent", "meaning", element.getMeaningElement(), -1);
-    if (element.hasReference())
-      composeReference(t, "Consent", "reference", element.getReference(), -1);
+    composeBackboneElement(t, "verification", name, element, index);
+    if (element.hasVerifiedElement())
+      composeBoolean(t, "Consent", "verified", element.getVerifiedElement(), -1);
+    if (element.hasVerifiedWith())
+      composeReference(t, "Consent", "verifiedWith", element.getVerifiedWith(), -1);
+    if (element.hasVerificationDateElement())
+      composeDateTime(t, "Consent", "verificationDate", element.getVerificationDateElement(), -1);
   }
 
-  protected void composeConsentExceptComponent(Complex parent, String parentType, String name, Consent.ExceptComponent element, int index) {
+  protected void composeConsentruleComponent(Complex parent, String parentType, String name, Consent.ruleComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -4192,13 +4140,13 @@ public class RdfParser extends RdfParserBase {
     else {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
-    composeBackboneElement(t, "except", name, element, index);
+    composeBackboneElement(t, "rule", name, element, index);
     if (element.hasTypeElement())
       composeEnum(t, "Consent", "type", element.getTypeElement(), -1);
     if (element.hasPeriod())
       composePeriod(t, "Consent", "period", element.getPeriod(), -1);
     for (int i = 0; i < element.getActor().size(); i++)
-      composeConsentExceptActorComponent(t, "Consent", "actor", element.getActor().get(i), i);
+      composeConsentruleActorComponent(t, "Consent", "actor", element.getActor().get(i), i);
     for (int i = 0; i < element.getAction().size(); i++)
       composeCodeableConcept(t, "Consent", "action", element.getAction().get(i), i);
     for (int i = 0; i < element.getSecurityLabel().size(); i++)
@@ -4212,10 +4160,12 @@ public class RdfParser extends RdfParserBase {
     if (element.hasDataPeriod())
       composePeriod(t, "Consent", "dataPeriod", element.getDataPeriod(), -1);
     for (int i = 0; i < element.getData().size(); i++)
-      composeConsentExceptDataComponent(t, "Consent", "data", element.getData().get(i), i);
+      composeConsentruleDataComponent(t, "Consent", "data", element.getData().get(i), i);
+    for (int i = 0; i < element.getRule().size(); i++)
+      composeConsentruleComponent(t, "Consent", "rule", element.getRule().get(i), i);
   }
 
-  protected void composeConsentExceptActorComponent(Complex parent, String parentType, String name, Consent.ExceptActorComponent element, int index) {
+  protected void composeConsentruleActorComponent(Complex parent, String parentType, String name, Consent.ruleActorComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -4231,7 +4181,7 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Consent", "reference", element.getReference(), -1);
   }
 
-  protected void composeConsentExceptDataComponent(Complex parent, String parentType, String name, Consent.ExceptDataComponent element, int index) {
+  protected void composeConsentruleDataComponent(Complex parent, String parentType, String name, Consent.ruleDataComponent element, int index) {
     if (element == null) 
       return;
     Complex t;
@@ -5551,8 +5501,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "EnrollmentRequest", "provider", element.getProvider(), -1);
     if (element.hasOrganization())
       composeReference(t, "EnrollmentRequest", "organization", element.getOrganization(), -1);
-    if (element.hasSubject())
-      composeReference(t, "EnrollmentRequest", "subject", element.getSubject(), -1);
+    if (element.hasCandidate())
+      composeReference(t, "EnrollmentRequest", "candidate", element.getCandidate(), -1);
     if (element.hasCoverage())
       composeReference(t, "EnrollmentRequest", "coverage", element.getCoverage(), -1);
   }
@@ -5945,8 +5895,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "payee", name, element, index);
     if (element.hasType())
       composeCodeableConcept(t, "ExplanationOfBenefit", "type", element.getType(), -1);
-    if (element.hasResourceType())
-      composeCodeableConcept(t, "ExplanationOfBenefit", "resourceType", element.getResourceType(), -1);
+    if (element.hasResource())
+      composeCoding(t, "ExplanationOfBenefit", "resource", element.getResource(), -1);
     if (element.hasParty())
       composeReference(t, "ExplanationOfBenefit", "party", element.getParty(), -1);
   }
@@ -6241,38 +6191,10 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "addItem", name, element, index);
     for (int i = 0; i < element.getSequenceLinkId().size(); i++)
       composePositiveInt(t, "ExplanationOfBenefit", "sequenceLinkId", element.getSequenceLinkId().get(i), i);
-    if (element.hasRevenue())
-      composeCodeableConcept(t, "ExplanationOfBenefit", "revenue", element.getRevenue(), -1);
-    if (element.hasCategory())
-      composeCodeableConcept(t, "ExplanationOfBenefit", "category", element.getCategory(), -1);
-    if (element.hasService())
-      composeCodeableConcept(t, "ExplanationOfBenefit", "service", element.getService(), -1);
-    for (int i = 0; i < element.getModifier().size(); i++)
-      composeCodeableConcept(t, "ExplanationOfBenefit", "modifier", element.getModifier().get(i), i);
-    if (element.hasFee())
-      composeMoney(t, "ExplanationOfBenefit", "fee", element.getFee(), -1);
-    for (int i = 0; i < element.getNoteNumber().size(); i++)
-      composePositiveInt(t, "ExplanationOfBenefit", "noteNumber", element.getNoteNumber().get(i), i);
-    for (int i = 0; i < element.getAdjudication().size(); i++)
-      composeExplanationOfBenefitAdjudicationComponent(t, "ExplanationOfBenefit", "adjudication", element.getAdjudication().get(i), i);
-    for (int i = 0; i < element.getDetail().size(); i++)
-      composeExplanationOfBenefitAddedItemsDetailComponent(t, "ExplanationOfBenefit", "detail", element.getDetail().get(i), i);
-  }
-
-  protected void composeExplanationOfBenefitAddedItemsDetailComponent(Complex parent, String parentType, String name, ExplanationOfBenefit.AddedItemsDetailComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "detail", name, element, index);
-    if (element.hasRevenue())
-      composeCodeableConcept(t, "ExplanationOfBenefit", "revenue", element.getRevenue(), -1);
-    if (element.hasCategory())
-      composeCodeableConcept(t, "ExplanationOfBenefit", "category", element.getCategory(), -1);
+    for (int i = 0; i < element.getDetailSequenceLinkId().size(); i++)
+      composePositiveInt(t, "ExplanationOfBenefit", "detailSequenceLinkId", element.getDetailSequenceLinkId().get(i), i);
+    for (int i = 0; i < element.getSubdetailSequenceLinkId().size(); i++)
+      composePositiveInt(t, "ExplanationOfBenefit", "subdetailSequenceLinkId", element.getSubdetailSequenceLinkId().get(i), i);
     if (element.hasService())
       composeCodeableConcept(t, "ExplanationOfBenefit", "service", element.getService(), -1);
     for (int i = 0; i < element.getModifier().size(); i++)
@@ -8275,6 +8197,8 @@ public class RdfParser extends RdfParserBase {
       composeMedicationRequestMedicationRequestRequesterComponent(t, "MedicationRequest", "requester", element.getRequester(), -1);
     if (element.hasRecorder())
       composeReference(t, "MedicationRequest", "recorder", element.getRecorder(), -1);
+    if (element.hasPerformer())
+      composeReference(t, "MedicationRequest", "performer", element.getPerformer(), -1);
     for (int i = 0; i < element.getReasonCode().size(); i++)
       composeCodeableConcept(t, "MedicationRequest", "reasonCode", element.getReasonCode().get(i), i);
     for (int i = 0; i < element.getReasonReference().size(); i++)
@@ -8505,8 +8429,6 @@ public class RdfParser extends RdfParserBase {
       composeCoding(t, "MessageHeader", "event", element.getEvent(), -1);
     for (int i = 0; i < element.getDestination().size(); i++)
       composeMessageHeaderMessageDestinationComponent(t, "MessageHeader", "destination", element.getDestination().get(i), i);
-    if (element.hasReceiver())
-      composeReference(t, "MessageHeader", "receiver", element.getReceiver(), -1);
     if (element.hasSender())
       composeReference(t, "MessageHeader", "sender", element.getSender(), -1);
     if (element.hasTimestampElement())
@@ -8543,6 +8465,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MessageHeader", "target", element.getTarget(), -1);
     if (element.hasEndpointElement())
       composeUri(t, "MessageHeader", "endpoint", element.getEndpointElement(), -1);
+    if (element.hasReceiver())
+      composeReference(t, "MessageHeader", "receiver", element.getReceiver(), -1);
   }
 
   protected void composeMessageHeaderMessageSourceComponent(Complex parent, String parentType, String name, MessageHeader.MessageSourceComponent element, int index) {
@@ -9951,6 +9875,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "ProcedureRequest", "bodySite", element.getBodySite().get(i), i);
     for (int i = 0; i < element.getNote().size(); i++)
       composeAnnotation(t, "ProcedureRequest", "note", element.getNote().get(i), i);
+    if (element.hasDescriptionElement())
+      composeString(t, "ProcedureRequest", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getRelevantHistory().size(); i++)
       composeReference(t, "ProcedureRequest", "relevantHistory", element.getRelevantHistory().get(i), i);
   }
@@ -10351,80 +10277,6 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "QuestionnaireResponse", "value", element.getValue(), -1);
     for (int i = 0; i < element.getItem().size(); i++)
       composeQuestionnaireResponseQuestionnaireResponseItemComponent(t, "QuestionnaireResponse", "item", element.getItem().get(i), i);
-  }
-
-  protected void composeReferralRequest(Complex parent, String parentType, String name, ReferralRequest element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeDomainResource(t, "ReferralRequest", name, element, index);
-    for (int i = 0; i < element.getIdentifier().size(); i++)
-      composeIdentifier(t, "ReferralRequest", "identifier", element.getIdentifier().get(i), i);
-    for (int i = 0; i < element.getDefinition().size(); i++)
-      composeReference(t, "ReferralRequest", "definition", element.getDefinition().get(i), i);
-    for (int i = 0; i < element.getBasedOn().size(); i++)
-      composeReference(t, "ReferralRequest", "basedOn", element.getBasedOn().get(i), i);
-    for (int i = 0; i < element.getReplaces().size(); i++)
-      composeReference(t, "ReferralRequest", "replaces", element.getReplaces().get(i), i);
-    if (element.hasGroupIdentifier())
-      composeIdentifier(t, "ReferralRequest", "groupIdentifier", element.getGroupIdentifier(), -1);
-    if (element.hasStatusElement())
-      composeEnum(t, "ReferralRequest", "status", element.getStatusElement(), -1);
-    if (element.hasIntentElement())
-      composeEnum(t, "ReferralRequest", "intent", element.getIntentElement(), -1);
-    if (element.hasType())
-      composeCodeableConcept(t, "ReferralRequest", "type", element.getType(), -1);
-    if (element.hasPriorityElement())
-      composeEnum(t, "ReferralRequest", "priority", element.getPriorityElement(), -1);
-    for (int i = 0; i < element.getServiceRequested().size(); i++)
-      composeCodeableConcept(t, "ReferralRequest", "serviceRequested", element.getServiceRequested().get(i), i);
-    if (element.hasSubject())
-      composeReference(t, "ReferralRequest", "subject", element.getSubject(), -1);
-    if (element.hasContext())
-      composeReference(t, "ReferralRequest", "context", element.getContext(), -1);
-    if (element.hasOccurrence())
-      composeType(t, "ReferralRequest", "occurrence", element.getOccurrence(), -1);
-    if (element.hasAuthoredOnElement())
-      composeDateTime(t, "ReferralRequest", "authoredOn", element.getAuthoredOnElement(), -1);
-    if (element.hasRequester())
-      composeReferralRequestReferralRequestRequesterComponent(t, "ReferralRequest", "requester", element.getRequester(), -1);
-    if (element.hasSpecialty())
-      composeCodeableConcept(t, "ReferralRequest", "specialty", element.getSpecialty(), -1);
-    for (int i = 0; i < element.getRecipient().size(); i++)
-      composeReference(t, "ReferralRequest", "recipient", element.getRecipient().get(i), i);
-    for (int i = 0; i < element.getReasonCode().size(); i++)
-      composeCodeableConcept(t, "ReferralRequest", "reasonCode", element.getReasonCode().get(i), i);
-    for (int i = 0; i < element.getReasonReference().size(); i++)
-      composeReference(t, "ReferralRequest", "reasonReference", element.getReasonReference().get(i), i);
-    if (element.hasDescriptionElement())
-      composeString(t, "ReferralRequest", "description", element.getDescriptionElement(), -1);
-    for (int i = 0; i < element.getSupportingInfo().size(); i++)
-      composeReference(t, "ReferralRequest", "supportingInfo", element.getSupportingInfo().get(i), i);
-    for (int i = 0; i < element.getNote().size(); i++)
-      composeAnnotation(t, "ReferralRequest", "note", element.getNote().get(i), i);
-    for (int i = 0; i < element.getRelevantHistory().size(); i++)
-      composeReference(t, "ReferralRequest", "relevantHistory", element.getRelevantHistory().get(i), i);
-  }
-
-  protected void composeReferralRequestReferralRequestRequesterComponent(Complex parent, String parentType, String name, ReferralRequest.ReferralRequestRequesterComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "requester", name, element, index);
-    if (element.hasAgent())
-      composeReference(t, "ReferralRequest", "agent", element.getAgent(), -1);
-    if (element.hasOnBehalfOf())
-      composeReference(t, "ReferralRequest", "onBehalfOf", element.getOnBehalfOf(), -1);
   }
 
   protected void composeRelatedPerson(Complex parent, String parentType, String name, RelatedPerson element, int index) {
@@ -12975,8 +12827,8 @@ public class RdfParser extends RdfParserBase {
       composeBasic(parent, null, "Basic", (Basic)resource, -1);
     else if (resource instanceof Binary)
       composeBinary(parent, null, "Binary", (Binary)resource, -1);
-    else if (resource instanceof BodySite)
-      composeBodySite(parent, null, "BodySite", (BodySite)resource, -1);
+    else if (resource instanceof BodyStructure)
+      composeBodyStructure(parent, null, "BodyStructure", (BodyStructure)resource, -1);
     else if (resource instanceof Bundle)
       composeBundle(parent, null, "Bundle", (Bundle)resource, -1);
     else if (resource instanceof CapabilityStatement)
@@ -13141,8 +12993,6 @@ public class RdfParser extends RdfParserBase {
       composeQuestionnaire(parent, null, "Questionnaire", (Questionnaire)resource, -1);
     else if (resource instanceof QuestionnaireResponse)
       composeQuestionnaireResponse(parent, null, "QuestionnaireResponse", (QuestionnaireResponse)resource, -1);
-    else if (resource instanceof ReferralRequest)
-      composeReferralRequest(parent, null, "ReferralRequest", (ReferralRequest)resource, -1);
     else if (resource instanceof RelatedPerson)
       composeRelatedPerson(parent, null, "RelatedPerson", (RelatedPerson)resource, -1);
     else if (resource instanceof RequestGroup)

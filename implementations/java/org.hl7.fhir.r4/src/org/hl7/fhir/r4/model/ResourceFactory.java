@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -38,8 +38,6 @@ public class ResourceFactory extends Factory {
     public static Resource createResource(String name) throws FHIRException {
         if ("Appointment".equals(name))
             return new Appointment();
-        if ("ReferralRequest".equals(name))
-            return new ReferralRequest();
         if ("Account".equals(name))
             return new Account();
         if ("DocumentManifest".equals(name))
@@ -84,6 +82,8 @@ public class ResourceFactory extends Factory {
             return new Practitioner();
         if ("ExpansionProfile".equals(name))
             return new ExpansionProfile();
+        if ("BodyStructure".equals(name))
+            return new BodyStructure();
         if ("Slot".equals(name))
             return new Slot();
         if ("Person".equals(name))
@@ -134,8 +134,6 @@ public class ResourceFactory extends Factory {
             return new MessageHeader();
         if ("ImmunizationRecommendation".equals(name))
             return new ImmunizationRecommendation();
-        if ("BodySite".equals(name))
-            return new BodySite();
         if ("Provenance".equals(name))
             return new Provenance();
         if ("Task".equals(name))
@@ -394,7 +392,7 @@ public class ResourceFactory extends Factory {
         case -632949857: return new AuditEvent();
         case 63955982: return new Basic();
         case 1989867553: return new Binary();
-        case 1767264297: return new BodySite();
+        case -202769967: return new BodyStructure();
         case 2000952482: return new Bundle();
         case -871422185: return new CapabilityStatement();
         case 57208314: return new CarePlan();
@@ -501,7 +499,6 @@ public class ResourceFactory extends Factory {
         case 78727453: return new Range();
         case 78733291: return new Ratio();
         case 1078812459: return new Reference();
-        case -1307317230: return new ReferralRequest();
         case -330210563: return new RelatedArtifact();
         case 846088000: return new RelatedPerson();
         case 1445374288: return new RequestGroup();

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -414,7 +414,15 @@ public class Condition extends DomainResource {
         protected List<Resource> assessmentTarget;
 
 
-        private static final long serialVersionUID = -1961530405L;
+        /**
+         * The kind of staging, such as pathological or clinical staging.
+         */
+        @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Kind of staging", formalDefinition="The kind of staging, such as pathological or clinical staging." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-stage-type")
+        protected CodeableConcept type;
+
+        private static final long serialVersionUID = 668627986L;
 
     /**
      * Constructor
@@ -510,10 +518,35 @@ public class Condition extends DomainResource {
           return this.assessmentTarget;
         }
 
+        /**
+         * @return {@link #type} (The kind of staging, such as pathological or clinical staging.)
+         */
+        public CodeableConcept getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConditionStageComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeableConcept(); // cc
+          return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (The kind of staging, such as pathological or clinical staging.)
+         */
+        public ConditionStageComponent setType(CodeableConcept value) { 
+          this.type = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("summary", "CodeableConcept", "A simple summary of the stage such as \"Stage 3\". The determination of the stage is disease-specific.", 0, java.lang.Integer.MAX_VALUE, summary));
           childrenList.add(new Property("assessment", "Reference(ClinicalImpression|DiagnosticReport|Observation)", "Reference to a formal record of the evidence on which the staging assessment is based.", 0, java.lang.Integer.MAX_VALUE, assessment));
+          childrenList.add(new Property("type", "CodeableConcept", "The kind of staging, such as pathological or clinical staging.", 0, java.lang.Integer.MAX_VALUE, type));
         }
 
       @Override
@@ -521,6 +554,7 @@ public class Condition extends DomainResource {
         switch (hash) {
         case -1857640538: /*summary*/ return this.summary == null ? new Base[0] : new Base[] {this.summary}; // CodeableConcept
         case 2119382722: /*assessment*/ return this.assessment == null ? new Base[0] : this.assessment.toArray(new Base[this.assessment.size()]); // Reference
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -535,6 +569,9 @@ public class Condition extends DomainResource {
         case 2119382722: // assessment
           this.getAssessment().add(castToReference(value)); // Reference
           return value;
+        case 3575610: // type
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -546,6 +583,8 @@ public class Condition extends DomainResource {
           this.summary = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("assessment")) {
           this.getAssessment().add(castToReference(value));
+        } else if (name.equals("type")) {
+          this.type = castToCodeableConcept(value); // CodeableConcept
         } else
           return super.setProperty(name, value);
         return value;
@@ -556,6 +595,7 @@ public class Condition extends DomainResource {
         switch (hash) {
         case -1857640538:  return getSummary(); 
         case 2119382722:  return addAssessment(); 
+        case 3575610:  return getType(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -566,6 +606,7 @@ public class Condition extends DomainResource {
         switch (hash) {
         case -1857640538: /*summary*/ return new String[] {"CodeableConcept"};
         case 2119382722: /*assessment*/ return new String[] {"Reference"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -580,6 +621,10 @@ public class Condition extends DomainResource {
         else if (name.equals("assessment")) {
           return addAssessment();
         }
+        else if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
         else
           return super.addChild(name);
       }
@@ -593,6 +638,7 @@ public class Condition extends DomainResource {
           for (Reference i : assessment)
             dst.assessment.add(i.copy());
         };
+        dst.type = type == null ? null : type.copy();
         return dst;
       }
 
@@ -603,7 +649,8 @@ public class Condition extends DomainResource {
         if (!(other instanceof ConditionStageComponent))
           return false;
         ConditionStageComponent o = (ConditionStageComponent) other;
-        return compareDeep(summary, o.summary, true) && compareDeep(assessment, o.assessment, true);
+        return compareDeep(summary, o.summary, true) && compareDeep(assessment, o.assessment, true) && compareDeep(type, o.type, true)
+          ;
       }
 
       @Override
@@ -617,7 +664,8 @@ public class Condition extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(summary, assessment);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(summary, assessment, type
+          );
       }
 
   public String fhirType() {

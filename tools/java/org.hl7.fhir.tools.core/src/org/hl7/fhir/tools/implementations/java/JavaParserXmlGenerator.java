@@ -765,6 +765,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     for (ElementDefn n : definitions.getInfrastructure().values()) {
       if (!n.getName().equals("Element") && !n.getName().equals("BackboneElement")) {
         generateComposer(n, JavaGenClass.Structure);
+        String nn = javaClassName(n.getName());
+        regtn.append("    else if (type instanceof "+nn+")\r\n       compose"+nn+"(prefix+\""+n.getName()+"\", ("+nn+") type);\r\n");
       }
     }
 

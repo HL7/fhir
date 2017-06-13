@@ -26,7 +26,6 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Immunization.ImmunizationPractitionerComponent;
-import org.hl7.fhir.r4.model.ReferralRequest.ReferralPriority;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.Timing.EventTiming;
@@ -6438,7 +6437,7 @@ public class VersionConvertor_10_40 {
 //    tgt.setTarget(convertReference(src.getTarget()));
     tgt.setProvider(convertReference(src.getProvider()));
     tgt.setOrganization(convertReference(src.getOrganization()));
-    tgt.setSubject(convertReference(src.getSubject()));
+    tgt.setCandidate(convertReference(src.getSubject()));
     tgt.setCoverage(convertReference(src.getCoverage()));
 //    tgt.setRelationship(convertCoding(src.getRelationship()));
     return tgt;
@@ -8609,7 +8608,6 @@ public class VersionConvertor_10_40 {
       tgt.addDestination(convertMessageDestinationComponent(t));
     tgt.setEnterer(convertReference(src.getEnterer()));
     tgt.setAuthor(convertReference(src.getAuthor()));
-    tgt.setReceiver(convertReference(src.getReceiver()));
     tgt.setResponsible(convertReference(src.getResponsible()));
     tgt.setReason(convertCodeableConcept(src.getReason()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getData())
@@ -8630,7 +8628,6 @@ public class VersionConvertor_10_40 {
       tgt.addDestination(convertMessageDestinationComponent(t));
     tgt.setEnterer(convertReference(src.getEnterer()));
     tgt.setAuthor(convertReference(src.getAuthor()));
-    tgt.setReceiver(convertReference(src.getReceiver()));
     tgt.setResponsible(convertReference(src.getResponsible()));
     tgt.setReason(convertCodeableConcept(src.getReason()));
     for (org.hl7.fhir.r4.model.Reference t : src.getFocus())
@@ -10640,109 +10637,53 @@ public class VersionConvertor_10_40 {
     return tgt;
   }
 
-  public org.hl7.fhir.r4.model.ReferralRequest convertReferralRequest(org.hl7.fhir.dstu2.model.ReferralRequest src) throws FHIRException {
+  public org.hl7.fhir.r4.model.ProcedureRequest convertReferralRequest(org.hl7.fhir.dstu2.model.ReferralRequest src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.r4.model.ReferralRequest tgt = new org.hl7.fhir.r4.model.ReferralRequest();
+    org.hl7.fhir.r4.model.ProcedureRequest tgt = new org.hl7.fhir.r4.model.ProcedureRequest();
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertReferralStatus(src.getStatus()));
-    tgt.setType(convertCodeableConcept(src.getType()));
+    tgt.setCode(convertCodeableConcept(src.getType()));
     tgt.setPriority(convertReferralPriorityCode(src.getPriority()));
     tgt.setSubject(convertReference(src.getPatient()));
     tgt.setOccurrence(convertPeriod(src.getFulfillmentTime()));
     tgt.getRequester().setAgent(convertReference(src.getRequester()));
-    tgt.setSpecialty(convertCodeableConcept(src.getSpecialty()));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getRecipient())
-      tgt.addRecipient(convertReference(t));
     tgt.addReasonCode(convertCodeableConcept(src.getReason()));
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getServiceRequested())
-      tgt.addServiceRequested(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
       tgt.addSupportingInfo(convertReference(t));
     return tgt;
   }
 
-  private ReferralPriority convertReferralPriorityCode(CodeableConcept priority) {
+  private org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestPriority convertReferralPriorityCode(CodeableConcept priority) {
     for (org.hl7.fhir.dstu2.model.Coding c : priority.getCoding()) {
       if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "routine".equals(c.getCode()))
-        return org.hl7.fhir.r4.model.ReferralRequest.ReferralPriority.ROUTINE;
+        return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestPriority.ROUTINE;
       if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "urgent".equals(c.getCode()))
-        return org.hl7.fhir.r4.model.ReferralRequest.ReferralPriority.URGENT;
+        return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestPriority.URGENT;
       if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "stat".equals(c.getCode()))
-        return org.hl7.fhir.r4.model.ReferralRequest.ReferralPriority.STAT;
+        return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestPriority.STAT;
       if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "asap".equals(c.getCode()))
-        return org.hl7.fhir.r4.model.ReferralRequest.ReferralPriority.ASAP;
+        return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestPriority.ASAP;
     }
     return null;
   }
 
-  public org.hl7.fhir.dstu2.model.ReferralRequest convertReferralRequest(org.hl7.fhir.r4.model.ReferralRequest src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ReferralRequest tgt = new org.hl7.fhir.dstu2.model.ReferralRequest();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setStatus(convertReferralStatus(src.getStatus()));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setPriority(convertReferralPriorityCode(src.getPriority()));
-    tgt.setPatient(convertReference(src.getSubject()));
-    tgt.setFulfillmentTime(convertPeriod(src.getOccurrencePeriod()));
-    tgt.setRequester(convertReference(src.getRequester().getAgent()));
-    tgt.setSpecialty(convertCodeableConcept(src.getSpecialty()));
-    for (org.hl7.fhir.r4.model.Reference t : src.getRecipient())
-      tgt.addRecipient(convertReference(t));
-    for (org.hl7.fhir.r4.model.CodeableConcept cc : src.getReasonCode())
-      tgt.setReason(convertCodeableConcept(cc));
-    tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getServiceRequested())
-      tgt.addServiceRequested(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getSupportingInfo())
-      tgt.addSupportingInformation(convertReference(t));
-    return tgt;
-  }
 
-  private org.hl7.fhir.dstu2.model.CodeableConcept convertReferralPriorityCode(org.hl7.fhir.r4.model.ReferralRequest.ReferralPriority priority) {
-    org.hl7.fhir.dstu2.model.CodeableConcept cc = new org.hl7.fhir.dstu2.model.CodeableConcept();
-    switch (priority) {
-    case ROUTINE: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("routine"); break;
-    case URGENT: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("urgent"); break;
-    case STAT: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("stat"); break;
-    case ASAP: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("asap"); break;
-    default: return null;
-    }
-    return cc;
-  }
-
-
-  public org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus convertReferralStatus(org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus src) throws FHIRException {
+  public org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus convertReferralStatus(org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.DRAFT;
-    case REQUESTED: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.DRAFT;
-    case ACTIVE: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.ACTIVE;
-    case CANCELLED: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.CANCELLED;
-    case ACCEPTED: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.ACTIVE;
-    case REJECTED: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.ENTEREDINERROR;
-    case COMPLETED: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.COMPLETED;
-    default: return org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus convertReferralStatus(org.hl7.fhir.r4.model.ReferralRequest.ReferralRequestStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case DRAFT: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.DRAFT;
-    case ACTIVE: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.ACTIVE;
-    case CANCELLED: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.CANCELLED;
-    case COMPLETED: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.REJECTED;
-    default: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.NULL;
+    case DRAFT: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.DRAFT;
+    case REQUESTED: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.DRAFT;
+    case ACTIVE: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.ACTIVE;
+    case CANCELLED: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.CANCELLED;
+    case ACCEPTED: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.ACTIVE;
+    case REJECTED: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.ENTEREDINERROR;
+    case COMPLETED: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.COMPLETED;
+    default: return org.hl7.fhir.r4.model.ProcedureRequest.ProcedureRequestStatus.NULL;
     }
   }
 
@@ -13050,8 +12991,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertQuestionnaire((org.hl7.fhir.r4.model.Questionnaire) src);
     if (src instanceof org.hl7.fhir.r4.model.QuestionnaireResponse)
       return convertQuestionnaireResponse((org.hl7.fhir.r4.model.QuestionnaireResponse) src);
-    if (src instanceof org.hl7.fhir.r4.model.ReferralRequest)
-      return convertReferralRequest((org.hl7.fhir.r4.model.ReferralRequest) src);
     if (src instanceof org.hl7.fhir.r4.model.RelatedPerson)
       return convertRelatedPerson((org.hl7.fhir.r4.model.RelatedPerson) src);
     if (src instanceof org.hl7.fhir.r4.model.RiskAssessment)

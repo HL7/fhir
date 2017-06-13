@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -90,7 +90,7 @@ public class ActivityDefinition extends MetadataResource {
         /**
          * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSITE, 
+        BODYSTRUCTURE, 
         /**
          * A container for a collection of resources.
          */
@@ -240,7 +240,7 @@ public class ActivityDefinition extends MetadataResource {
          */
         EXPLANATIONOFBENEFIT, 
         /**
-         * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+         * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
          */
         FAMILYMEMBERHISTORY, 
         /**
@@ -428,10 +428,6 @@ public class ActivityDefinition extends MetadataResource {
          */
         QUESTIONNAIRERESPONSE, 
         /**
-         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
-         */
-        REFERRALREQUEST, 
-        /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
         RELATEDPERSON, 
@@ -548,8 +544,8 @@ public class ActivityDefinition extends MetadataResource {
           return BASIC;
         if ("Binary".equals(codeString))
           return BINARY;
-        if ("BodySite".equals(codeString))
-          return BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -718,8 +714,6 @@ public class ActivityDefinition extends MetadataResource {
           return QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -782,7 +776,7 @@ public class ActivityDefinition extends MetadataResource {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -867,7 +861,6 @@ public class ActivityDefinition extends MetadataResource {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -905,7 +898,7 @@ public class ActivityDefinition extends MetadataResource {
             case AUDITEVENT: return "http://hl7.org/fhir/resource-types";
             case BASIC: return "http://hl7.org/fhir/resource-types";
             case BINARY: return "http://hl7.org/fhir/resource-types";
-            case BODYSITE: return "http://hl7.org/fhir/resource-types";
+            case BODYSTRUCTURE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
@@ -990,7 +983,6 @@ public class ActivityDefinition extends MetadataResource {
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
-            case REFERRALREQUEST: return "http://hl7.org/fhir/resource-types";
             case RELATEDPERSON: return "http://hl7.org/fhir/resource-types";
             case REQUESTGROUP: return "http://hl7.org/fhir/resource-types";
             case RESEARCHSTUDY: return "http://hl7.org/fhir/resource-types";
@@ -1028,7 +1020,7 @@ public class ActivityDefinition extends MetadataResource {
             case AUDITEVENT: return "A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.";
             case BASIC: return "Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.";
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
-            case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
+            case BODYSTRUCTURE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
@@ -1066,7 +1058,7 @@ public class ActivityDefinition extends MetadataResource {
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
-            case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
+            case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
             case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
@@ -1113,7 +1105,6 @@ public class ActivityDefinition extends MetadataResource {
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
-            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
             case REQUESTGROUP: return "A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\".";
             case RESEARCHSTUDY: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.";
@@ -1151,7 +1142,7 @@ public class ActivityDefinition extends MetadataResource {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -1236,7 +1227,6 @@ public class ActivityDefinition extends MetadataResource {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -1288,8 +1278,8 @@ public class ActivityDefinition extends MetadataResource {
           return ActivityDefinitionKind.BASIC;
         if ("Binary".equals(codeString))
           return ActivityDefinitionKind.BINARY;
-        if ("BodySite".equals(codeString))
-          return ActivityDefinitionKind.BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return ActivityDefinitionKind.BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return ActivityDefinitionKind.BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -1458,8 +1448,6 @@ public class ActivityDefinition extends MetadataResource {
           return ActivityDefinitionKind.QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return ActivityDefinitionKind.QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return ActivityDefinitionKind.REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return ActivityDefinitionKind.RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -1534,8 +1522,8 @@ public class ActivityDefinition extends MetadataResource {
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.BASIC);
         if ("Binary".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.BINARY);
-        if ("BodySite".equals(codeString))
-          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.BODYSITE);
+        if ("BodyStructure".equals(codeString))
+          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.BODYSTRUCTURE);
         if ("Bundle".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.BUNDLE);
         if ("CapabilityStatement".equals(codeString))
@@ -1704,8 +1692,6 @@ public class ActivityDefinition extends MetadataResource {
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.QUESTIONNAIRE);
         if ("QuestionnaireResponse".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.QUESTIONNAIRERESPONSE);
-        if ("ReferralRequest".equals(codeString))
-          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.REFERRALREQUEST);
         if ("RelatedPerson".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.RELATEDPERSON);
         if ("RequestGroup".equals(codeString))
@@ -1773,8 +1759,8 @@ public class ActivityDefinition extends MetadataResource {
         return "Basic";
       if (code == ActivityDefinitionKind.BINARY)
         return "Binary";
-      if (code == ActivityDefinitionKind.BODYSITE)
-        return "BodySite";
+      if (code == ActivityDefinitionKind.BODYSTRUCTURE)
+        return "BodyStructure";
       if (code == ActivityDefinitionKind.BUNDLE)
         return "Bundle";
       if (code == ActivityDefinitionKind.CAPABILITYSTATEMENT)
@@ -1943,8 +1929,6 @@ public class ActivityDefinition extends MetadataResource {
         return "Questionnaire";
       if (code == ActivityDefinitionKind.QUESTIONNAIRERESPONSE)
         return "QuestionnaireResponse";
-      if (code == ActivityDefinitionKind.REFERRALREQUEST)
-        return "ReferralRequest";
       if (code == ActivityDefinitionKind.RELATEDPERSON)
         return "RelatedPerson";
       if (code == ActivityDefinitionKind.REQUESTGROUP)

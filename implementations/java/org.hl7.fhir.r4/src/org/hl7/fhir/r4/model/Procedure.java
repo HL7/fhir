@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -751,7 +751,7 @@ public class Procedure extends DomainResource {
     /**
      * A reference to a resource that contains details of the request for this procedure.
      */
-    @Child(name = "basedOn", type = {CarePlan.class, ProcedureRequest.class, ReferralRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {CarePlan.class, ProcedureRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="A request for this procedure", formalDefinition="A reference to a resource that contains details of the request for this procedure." )
     protected List<Reference> basedOn;
     /**
@@ -836,10 +836,10 @@ public class Procedure extends DomainResource {
     protected Resource contextTarget;
 
     /**
-     * The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
+     * Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
      */
-    @Child(name = "performed", type = {DateTimeType.class, Period.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date/Period the procedure was performed", formalDefinition="The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured." )
+    @Child(name = "performed", type = {DateTimeType.class, Period.class, StringType.class, Age.class, Range.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When the procedure was performed", formalDefinition="Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured." )
     protected Type performed;
 
     /**
@@ -1472,14 +1472,14 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Type getPerformed() { 
       return this.performed;
     }
 
     /**
-     * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public DateTimeType getPerformedDateTimeType() throws FHIRException { 
       if (!(this.performed instanceof DateTimeType))
@@ -1492,7 +1492,7 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Period getPerformedPeriod() throws FHIRException { 
       if (!(this.performed instanceof Period))
@@ -1504,12 +1504,51 @@ public class Procedure extends DomainResource {
       return this.performed instanceof Period;
     }
 
+    /**
+     * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     */
+    public StringType getPerformedStringType() throws FHIRException { 
+      if (!(this.performed instanceof StringType))
+        throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.performed.getClass().getName()+" was encountered");
+      return (StringType) this.performed;
+    }
+
+    public boolean hasPerformedStringType() { 
+      return this.performed instanceof StringType;
+    }
+
+    /**
+     * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     */
+    public Age getPerformedAge() throws FHIRException { 
+      if (!(this.performed instanceof Age))
+        throw new FHIRException("Type mismatch: the type Age was expected, but "+this.performed.getClass().getName()+" was encountered");
+      return (Age) this.performed;
+    }
+
+    public boolean hasPerformedAge() { 
+      return this.performed instanceof Age;
+    }
+
+    /**
+     * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     */
+    public Range getPerformedRange() throws FHIRException { 
+      if (!(this.performed instanceof Range))
+        throw new FHIRException("Type mismatch: the type Range was expected, but "+this.performed.getClass().getName()+" was encountered");
+      return (Range) this.performed;
+    }
+
+    public boolean hasPerformedRange() { 
+      return this.performed instanceof Range;
+    }
+
     public boolean hasPerformed() { 
       return this.performed != null && !this.performed.isEmpty();
     }
 
     /**
-     * @param value {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
+     * @param value {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Procedure setPerformed(Type value) { 
       this.performed = value;
@@ -2288,7 +2327,7 @@ public class Procedure extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition", "Reference(PlanDefinition|ActivityDefinition|HealthcareService)", "A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this procedure.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("basedOn", "Reference(CarePlan|ProcedureRequest|ReferralRequest)", "A reference to a resource that contains details of the request for this procedure.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("basedOn", "Reference(CarePlan|ProcedureRequest)", "A reference to a resource that contains details of the request for this procedure.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("partOf", "Reference(Procedure|Observation|MedicationAdministration)", "A larger event of which this particular procedure is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("status", "code", "A code specifying the state of the procedure. Generally this will be in-progress or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("notDone", "boolean", "Set this to true if the record is saying that the procedure was NOT performed.", 0, java.lang.Integer.MAX_VALUE, notDone));
@@ -2297,7 +2336,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("code", "CodeableConcept", "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group on which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter during which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("performed[x]", "dateTime|Period", "The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, performed));
+        childrenList.add(new Property("performed[x]", "dateTime|Period|string|Age|Range", "Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, performed));
         childrenList.add(new Property("performer", "", "Limited to 'real' people rather than equipment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("location", "Reference(Location)", "The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
@@ -2544,7 +2583,7 @@ public class Procedure extends DomainResource {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
-        case 481140672: /*performed*/ return new String[] {"dateTime", "Period"};
+        case 481140672: /*performed*/ return new String[] {"dateTime", "Period", "string", "Age", "Range"};
         case 481140686: /*performer*/ return new String[] {};
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
@@ -2610,6 +2649,18 @@ public class Procedure extends DomainResource {
         }
         else if (name.equals("performedPeriod")) {
           this.performed = new Period();
+          return this.performed;
+        }
+        else if (name.equals("performedString")) {
+          this.performed = new StringType();
+          return this.performed;
+        }
+        else if (name.equals("performedAge")) {
+          this.performed = new Age();
+          return this.performed;
+        }
+        else if (name.equals("performedRange")) {
+          this.performed = new Range();
           return this.performed;
         }
         else if (name.equals("performer")) {
@@ -2811,17 +2862,17 @@ public class Procedure extends DomainResource {
  /**
    * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Date/Period the procedure was performed</b><br>
+   * Description: <b>When the procedure was performed</b><br>
    * Type: <b>date</b><br>
    * Path: <b>Procedure.performed[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="Procedure.performed", description="Date/Period the procedure was performed", type="date" )
+  @SearchParamDefinition(name="date", path="Procedure.performed", description="When the procedure was performed", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Date/Period the procedure was performed</b><br>
+   * Description: <b>When the procedure was performed</b><br>
    * Type: <b>date</b><br>
    * Path: <b>Procedure.performed[x]</b><br>
    * </p>
@@ -2980,7 +3031,7 @@ public class Procedure extends DomainResource {
    * Path: <b>Procedure.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="Procedure.basedOn", description="A request for this procedure", type="reference", target={CarePlan.class, ProcedureRequest.class, ReferralRequest.class } )
+  @SearchParamDefinition(name="based-on", path="Procedure.basedOn", description="A request for this procedure", type="reference", target={CarePlan.class, ProcedureRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2257,7 +2257,7 @@ public class Enumerations {
         /**
          * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSITE, 
+        BODYSTRUCTURE, 
         /**
          * A container for a collection of resources.
          */
@@ -2407,7 +2407,7 @@ public class Enumerations {
          */
         EXPLANATIONOFBENEFIT, 
         /**
-         * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+         * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
          */
         FAMILYMEMBERHISTORY, 
         /**
@@ -2594,10 +2594,6 @@ public class Enumerations {
          * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
          */
         QUESTIONNAIRERESPONSE, 
-        /**
-         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
-         */
-        REFERRALREQUEST, 
         /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
@@ -2831,8 +2827,8 @@ public class Enumerations {
           return BASIC;
         if ("Binary".equals(codeString))
           return BINARY;
-        if ("BodySite".equals(codeString))
-          return BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -3001,8 +2997,6 @@ public class Enumerations {
           return QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -3120,7 +3114,7 @@ public class Enumerations {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -3205,7 +3199,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -3299,7 +3292,7 @@ public class Enumerations {
             case AUDITEVENT: return "http://hl7.org/fhir/resource-types";
             case BASIC: return "http://hl7.org/fhir/resource-types";
             case BINARY: return "http://hl7.org/fhir/resource-types";
-            case BODYSITE: return "http://hl7.org/fhir/resource-types";
+            case BODYSTRUCTURE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
@@ -3384,7 +3377,6 @@ public class Enumerations {
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
-            case REFERRALREQUEST: return "http://hl7.org/fhir/resource-types";
             case RELATEDPERSON: return "http://hl7.org/fhir/resource-types";
             case REQUESTGROUP: return "http://hl7.org/fhir/resource-types";
             case RESEARCHSTUDY: return "http://hl7.org/fhir/resource-types";
@@ -3478,7 +3470,7 @@ public class Enumerations {
             case AUDITEVENT: return "A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.";
             case BASIC: return "Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.";
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
-            case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
+            case BODYSTRUCTURE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
@@ -3516,7 +3508,7 @@ public class Enumerations {
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
-            case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
+            case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
             case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
@@ -3563,7 +3555,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
-            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
             case REQUESTGROUP: return "A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\".";
             case RESEARCHSTUDY: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.";
@@ -3657,7 +3648,7 @@ public class Enumerations {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -3742,7 +3733,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -3904,8 +3894,8 @@ public class Enumerations {
           return FHIRAllTypes.BASIC;
         if ("Binary".equals(codeString))
           return FHIRAllTypes.BINARY;
-        if ("BodySite".equals(codeString))
-          return FHIRAllTypes.BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return FHIRAllTypes.BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return FHIRAllTypes.BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -4074,8 +4064,6 @@ public class Enumerations {
           return FHIRAllTypes.QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return FHIRAllTypes.QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return FHIRAllTypes.REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return FHIRAllTypes.RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -4262,8 +4250,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BASIC);
         if ("Binary".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BINARY);
-        if ("BodySite".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BODYSITE);
+        if ("BodyStructure".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BODYSTRUCTURE);
         if ("Bundle".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.BUNDLE);
         if ("CapabilityStatement".equals(codeString))
@@ -4432,8 +4420,6 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.QUESTIONNAIRE);
         if ("QuestionnaireResponse".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.QUESTIONNAIRERESPONSE);
-        if ("ReferralRequest".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.REFERRALREQUEST);
         if ("RelatedPerson".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.RELATEDPERSON);
         if ("RequestGroup".equals(codeString))
@@ -4613,8 +4599,8 @@ public class Enumerations {
         return "Basic";
       if (code == FHIRAllTypes.BINARY)
         return "Binary";
-      if (code == FHIRAllTypes.BODYSITE)
-        return "BodySite";
+      if (code == FHIRAllTypes.BODYSTRUCTURE)
+        return "BodyStructure";
       if (code == FHIRAllTypes.BUNDLE)
         return "Bundle";
       if (code == FHIRAllTypes.CAPABILITYSTATEMENT)
@@ -4783,8 +4769,6 @@ public class Enumerations {
         return "Questionnaire";
       if (code == FHIRAllTypes.QUESTIONNAIRERESPONSE)
         return "QuestionnaireResponse";
-      if (code == FHIRAllTypes.REFERRALREQUEST)
-        return "ReferralRequest";
       if (code == FHIRAllTypes.RELATEDPERSON)
         return "RelatedPerson";
       if (code == FHIRAllTypes.REQUESTGROUP)
@@ -5098,7 +5082,7 @@ public class Enumerations {
         /**
          * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSITE, 
+        BODYSTRUCTURE, 
         /**
          * A container for a collection of resources.
          */
@@ -5248,7 +5232,7 @@ public class Enumerations {
          */
         EXPLANATIONOFBENEFIT, 
         /**
-         * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+         * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
          */
         FAMILYMEMBERHISTORY, 
         /**
@@ -5435,10 +5419,6 @@ public class Enumerations {
          * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
          */
         QUESTIONNAIRERESPONSE, 
-        /**
-         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
-         */
-        REFERRALREQUEST, 
         /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
@@ -5664,8 +5644,8 @@ public class Enumerations {
           return BASIC;
         if ("Binary".equals(codeString))
           return BINARY;
-        if ("BodySite".equals(codeString))
-          return BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -5834,8 +5814,6 @@ public class Enumerations {
           return QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -5949,7 +5927,7 @@ public class Enumerations {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -6034,7 +6012,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -6126,7 +6103,7 @@ public class Enumerations {
             case AUDITEVENT: return "http://hl7.org/fhir/resource-types";
             case BASIC: return "http://hl7.org/fhir/resource-types";
             case BINARY: return "http://hl7.org/fhir/resource-types";
-            case BODYSITE: return "http://hl7.org/fhir/resource-types";
+            case BODYSTRUCTURE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
@@ -6211,7 +6188,6 @@ public class Enumerations {
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
-            case REFERRALREQUEST: return "http://hl7.org/fhir/resource-types";
             case RELATEDPERSON: return "http://hl7.org/fhir/resource-types";
             case REQUESTGROUP: return "http://hl7.org/fhir/resource-types";
             case RESEARCHSTUDY: return "http://hl7.org/fhir/resource-types";
@@ -6303,7 +6279,7 @@ public class Enumerations {
             case AUDITEVENT: return "A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.";
             case BASIC: return "Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.";
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
-            case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
+            case BODYSTRUCTURE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
@@ -6341,7 +6317,7 @@ public class Enumerations {
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
-            case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
+            case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
             case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
@@ -6388,7 +6364,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
-            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
             case REQUESTGROUP: return "A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\".";
             case RESEARCHSTUDY: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.";
@@ -6480,7 +6455,7 @@ public class Enumerations {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -6565,7 +6540,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -6725,8 +6699,8 @@ public class Enumerations {
           return FHIRDefinedType.BASIC;
         if ("Binary".equals(codeString))
           return FHIRDefinedType.BINARY;
-        if ("BodySite".equals(codeString))
-          return FHIRDefinedType.BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return FHIRDefinedType.BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return FHIRDefinedType.BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -6895,8 +6869,6 @@ public class Enumerations {
           return FHIRDefinedType.QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return FHIRDefinedType.QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return FHIRDefinedType.REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return FHIRDefinedType.RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -7079,8 +7051,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BASIC);
         if ("Binary".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BINARY);
-        if ("BodySite".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BODYSITE);
+        if ("BodyStructure".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BODYSTRUCTURE);
         if ("Bundle".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BUNDLE);
         if ("CapabilityStatement".equals(codeString))
@@ -7249,8 +7221,6 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.QUESTIONNAIRE);
         if ("QuestionnaireResponse".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.QUESTIONNAIRERESPONSE);
-        if ("ReferralRequest".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.REFERRALREQUEST);
         if ("RelatedPerson".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.RELATEDPERSON);
         if ("RequestGroup".equals(codeString))
@@ -7426,8 +7396,8 @@ public class Enumerations {
         return "Basic";
       if (code == FHIRDefinedType.BINARY)
         return "Binary";
-      if (code == FHIRDefinedType.BODYSITE)
-        return "BodySite";
+      if (code == FHIRDefinedType.BODYSTRUCTURE)
+        return "BodyStructure";
       if (code == FHIRDefinedType.BUNDLE)
         return "Bundle";
       if (code == FHIRDefinedType.CAPABILITYSTATEMENT)
@@ -7596,8 +7566,6 @@ public class Enumerations {
         return "Questionnaire";
       if (code == FHIRDefinedType.QUESTIONNAIRERESPONSE)
         return "QuestionnaireResponse";
-      if (code == FHIRDefinedType.REFERRALREQUEST)
-        return "ReferralRequest";
       if (code == FHIRDefinedType.RELATEDPERSON)
         return "RelatedPerson";
       if (code == FHIRDefinedType.REQUESTGROUP)
@@ -8271,7 +8239,7 @@ public class Enumerations {
         /**
          * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSITE, 
+        BODYSTRUCTURE, 
         /**
          * A container for a collection of resources.
          */
@@ -8421,7 +8389,7 @@ public class Enumerations {
          */
         EXPLANATIONOFBENEFIT, 
         /**
-         * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+         * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
          */
         FAMILYMEMBERHISTORY, 
         /**
@@ -8609,10 +8577,6 @@ public class Enumerations {
          */
         QUESTIONNAIRERESPONSE, 
         /**
-         * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
-         */
-        REFERRALREQUEST, 
-        /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
         RELATEDPERSON, 
@@ -8729,8 +8693,8 @@ public class Enumerations {
           return BASIC;
         if ("Binary".equals(codeString))
           return BINARY;
-        if ("BodySite".equals(codeString))
-          return BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -8899,8 +8863,6 @@ public class Enumerations {
           return QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -8960,7 +8922,7 @@ public class Enumerations {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -9045,7 +9007,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -9083,7 +9044,7 @@ public class Enumerations {
             case AUDITEVENT: return "http://hl7.org/fhir/resource-types";
             case BASIC: return "http://hl7.org/fhir/resource-types";
             case BINARY: return "http://hl7.org/fhir/resource-types";
-            case BODYSITE: return "http://hl7.org/fhir/resource-types";
+            case BODYSTRUCTURE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
@@ -9168,7 +9129,6 @@ public class Enumerations {
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
-            case REFERRALREQUEST: return "http://hl7.org/fhir/resource-types";
             case RELATEDPERSON: return "http://hl7.org/fhir/resource-types";
             case REQUESTGROUP: return "http://hl7.org/fhir/resource-types";
             case RESEARCHSTUDY: return "http://hl7.org/fhir/resource-types";
@@ -9206,7 +9166,7 @@ public class Enumerations {
             case AUDITEVENT: return "A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.";
             case BASIC: return "Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.";
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
-            case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
+            case BODYSTRUCTURE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
@@ -9244,7 +9204,7 @@ public class Enumerations {
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
-            case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
+            case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
             case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
@@ -9291,7 +9251,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
-            case REFERRALREQUEST: return "Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.";
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
             case REQUESTGROUP: return "A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\".";
             case RESEARCHSTUDY: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.";
@@ -9329,7 +9288,7 @@ public class Enumerations {
             case AUDITEVENT: return "AuditEvent";
             case BASIC: return "Basic";
             case BINARY: return "Binary";
-            case BODYSITE: return "BodySite";
+            case BODYSTRUCTURE: return "BodyStructure";
             case BUNDLE: return "Bundle";
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
@@ -9414,7 +9373,6 @@ public class Enumerations {
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
-            case REFERRALREQUEST: return "ReferralRequest";
             case RELATEDPERSON: return "RelatedPerson";
             case REQUESTGROUP: return "RequestGroup";
             case RESEARCHSTUDY: return "ResearchStudy";
@@ -9466,8 +9424,8 @@ public class Enumerations {
           return ResourceType.BASIC;
         if ("Binary".equals(codeString))
           return ResourceType.BINARY;
-        if ("BodySite".equals(codeString))
-          return ResourceType.BODYSITE;
+        if ("BodyStructure".equals(codeString))
+          return ResourceType.BODYSTRUCTURE;
         if ("Bundle".equals(codeString))
           return ResourceType.BUNDLE;
         if ("CapabilityStatement".equals(codeString))
@@ -9636,8 +9594,6 @@ public class Enumerations {
           return ResourceType.QUESTIONNAIRE;
         if ("QuestionnaireResponse".equals(codeString))
           return ResourceType.QUESTIONNAIRERESPONSE;
-        if ("ReferralRequest".equals(codeString))
-          return ResourceType.REFERRALREQUEST;
         if ("RelatedPerson".equals(codeString))
           return ResourceType.RELATEDPERSON;
         if ("RequestGroup".equals(codeString))
@@ -9712,8 +9668,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.BASIC);
         if ("Binary".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.BINARY);
-        if ("BodySite".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.BODYSITE);
+        if ("BodyStructure".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.BODYSTRUCTURE);
         if ("Bundle".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.BUNDLE);
         if ("CapabilityStatement".equals(codeString))
@@ -9882,8 +9838,6 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.QUESTIONNAIRE);
         if ("QuestionnaireResponse".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.QUESTIONNAIRERESPONSE);
-        if ("ReferralRequest".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.REFERRALREQUEST);
         if ("RelatedPerson".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.RELATEDPERSON);
         if ("RequestGroup".equals(codeString))
@@ -9951,8 +9905,8 @@ public class Enumerations {
         return "Basic";
       if (code == ResourceType.BINARY)
         return "Binary";
-      if (code == ResourceType.BODYSITE)
-        return "BodySite";
+      if (code == ResourceType.BODYSTRUCTURE)
+        return "BodyStructure";
       if (code == ResourceType.BUNDLE)
         return "Bundle";
       if (code == ResourceType.CAPABILITYSTATEMENT)
@@ -10121,8 +10075,6 @@ public class Enumerations {
         return "Questionnaire";
       if (code == ResourceType.QUESTIONNAIRERESPONSE)
         return "QuestionnaireResponse";
-      if (code == ResourceType.REFERRALREQUEST)
-        return "ReferralRequest";
       if (code == ResourceType.RELATEDPERSON)
         return "RelatedPerson";
       if (code == ResourceType.REQUESTGROUP)

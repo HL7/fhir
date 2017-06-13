@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -571,10 +571,10 @@ public class Claim extends DomainResource {
         /**
          * organization | patient | practitioner | relatedperson.
          */
-        @Child(name = "resourceType", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="organization | patient | practitioner | relatedperson", formalDefinition="organization | patient | practitioner | relatedperson." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-payee-resource-type")
-        protected Coding resourceType;
+        protected Coding resource;
 
         /**
          * Party to be reimbursed: Subscriber, provider, other.
@@ -588,7 +588,7 @@ public class Claim extends DomainResource {
          */
         protected Resource partyTarget;
 
-        private static final long serialVersionUID = -1395150769L;
+        private static final long serialVersionUID = -553403531L;
 
     /**
      * Constructor
@@ -630,26 +630,26 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #resourceType} (organization | patient | practitioner | relatedperson.)
+         * @return {@link #resource} (organization | patient | practitioner | relatedperson.)
          */
-        public Coding getResourceType() { 
-          if (this.resourceType == null)
+        public Coding getResource() { 
+          if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PayeeComponent.resourceType");
+              throw new Error("Attempt to auto-create PayeeComponent.resource");
             else if (Configuration.doAutoCreate())
-              this.resourceType = new Coding(); // cc
-          return this.resourceType;
+              this.resource = new Coding(); // cc
+          return this.resource;
         }
 
-        public boolean hasResourceType() { 
-          return this.resourceType != null && !this.resourceType.isEmpty();
+        public boolean hasResource() { 
+          return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
-         * @param value {@link #resourceType} (organization | patient | practitioner | relatedperson.)
+         * @param value {@link #resource} (organization | patient | practitioner | relatedperson.)
          */
-        public PayeeComponent setResourceType(Coding value) { 
-          this.resourceType = value;
+        public PayeeComponent setResource(Coding value) { 
+          this.resource = value;
           return this;
         }
 
@@ -695,7 +695,7 @@ public class Claim extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "CodeableConcept", "Type of Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("resourceType", "Coding", "organization | patient | practitioner | relatedperson.", 0, java.lang.Integer.MAX_VALUE, resourceType));
+          childrenList.add(new Property("resource", "Coding", "organization | patient | practitioner | relatedperson.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("party", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "Party to be reimbursed: Subscriber, provider, other.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
@@ -703,7 +703,7 @@ public class Claim extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -384364440: /*resourceType*/ return this.resourceType == null ? new Base[0] : new Base[] {this.resourceType}; // Coding
+        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // Coding
         case 106437350: /*party*/ return this.party == null ? new Base[0] : new Base[] {this.party}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -716,8 +716,8 @@ public class Claim extends DomainResource {
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -384364440: // resourceType
-          this.resourceType = castToCoding(value); // Coding
+        case -341064690: // resource
+          this.resource = castToCoding(value); // Coding
           return value;
         case 106437350: // party
           this.party = castToReference(value); // Reference
@@ -731,8 +731,8 @@ public class Claim extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("resourceType")) {
-          this.resourceType = castToCoding(value); // Coding
+        } else if (name.equals("resource")) {
+          this.resource = castToCoding(value); // Coding
         } else if (name.equals("party")) {
           this.party = castToReference(value); // Reference
         } else
@@ -744,7 +744,7 @@ public class Claim extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); 
-        case -384364440:  return getResourceType(); 
+        case -341064690:  return getResource(); 
         case 106437350:  return getParty(); 
         default: return super.makeProperty(hash, name);
         }
@@ -755,7 +755,7 @@ public class Claim extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
-        case -384364440: /*resourceType*/ return new String[] {"Coding"};
+        case -341064690: /*resource*/ return new String[] {"Coding"};
         case 106437350: /*party*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -768,9 +768,9 @@ public class Claim extends DomainResource {
           this.type = new CodeableConcept();
           return this.type;
         }
-        else if (name.equals("resourceType")) {
-          this.resourceType = new Coding();
-          return this.resourceType;
+        else if (name.equals("resource")) {
+          this.resource = new Coding();
+          return this.resource;
         }
         else if (name.equals("party")) {
           this.party = new Reference();
@@ -784,7 +784,7 @@ public class Claim extends DomainResource {
         PayeeComponent dst = new PayeeComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
-        dst.resourceType = resourceType == null ? null : resourceType.copy();
+        dst.resource = resource == null ? null : resource.copy();
         dst.party = party == null ? null : party.copy();
         return dst;
       }
@@ -796,7 +796,7 @@ public class Claim extends DomainResource {
         if (!(other instanceof PayeeComponent))
           return false;
         PayeeComponent o = (PayeeComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(resourceType, o.resourceType, true) && compareDeep(party, o.party, true)
+        return compareDeep(type, o.type, true) && compareDeep(resource, o.resource, true) && compareDeep(party, o.party, true)
           ;
       }
 
@@ -811,8 +811,7 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resourceType, party
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource, party);
       }
 
   public String fhirType() {
@@ -6658,14 +6657,14 @@ public class Claim extends DomainResource {
     /**
      * The referral resource which lists the date, practitioner, reason and other supporting information.
      */
-    @Child(name = "referral", type = {ReferralRequest.class}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "referral", type = {ProcedureRequest.class}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Treatment Referral", formalDefinition="The referral resource which lists the date, practitioner, reason and other supporting information." )
     protected Reference referral;
 
     /**
      * The actual object that is the target of the reference (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    protected ReferralRequest referralTarget;
+    protected ProcedureRequest referralTarget;
 
     /**
      * Facility where the services were provided.
@@ -6749,7 +6748,7 @@ public class Claim extends DomainResource {
     @Description(shortDefinition="Total claim cost", formalDefinition="The total value of the claim." )
     protected Money total;
 
-    private static final long serialVersionUID = 1731171342L;
+    private static final long serialVersionUID = 1359646878L;
 
   /**
    * Constructor
@@ -7514,19 +7513,19 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #referral} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    public ReferralRequest getReferralTarget() { 
+    public ProcedureRequest getReferralTarget() { 
       if (this.referralTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.referral");
         else if (Configuration.doAutoCreate())
-          this.referralTarget = new ReferralRequest(); // aa
+          this.referralTarget = new ProcedureRequest(); // aa
       return this.referralTarget;
     }
 
     /**
      * @param value {@link #referral} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    public Claim setReferralTarget(ReferralRequest value) { 
+    public Claim setReferralTarget(ProcedureRequest value) { 
       this.referralTarget = value;
       return this;
     }
@@ -8009,7 +8008,7 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("prescription", "Reference(MedicationRequest|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("originalPrescription", "Reference(MedicationRequest)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
-        childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
+        childrenList.add(new Property("referral", "Reference(ProcedureRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
         childrenList.add(new Property("careTeam", "", "The members of the team who provided the overall service as well as their role and whether responsible and qualifications.", 0, java.lang.Integer.MAX_VALUE, careTeam));
         childrenList.add(new Property("information", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, information));
@@ -8858,6 +8857,26 @@ public class Claim extends DomainResource {
    * the path value of "<b>Claim:facility</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_FACILITY = new ca.uhn.fhir.model.api.Include("Claim:facility").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the Claim instance.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Claim.status", description="The status of the Claim instance.", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the Claim instance.</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Claim.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

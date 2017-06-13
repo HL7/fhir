@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -215,6 +215,16 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(modifierExtension);
       }
 
+// added from java-adornments.txt:
+
+  public void checkNoModifiers(String noun, String verb) throws FHIRException {
+        if (hasModifierExtension()) {
+          throw new FHIRException("Found unknown Modifier Exceptions on "+noun+" doing "+verb);
+        }
+        
+  }
+
+// end addition
 
 }
 

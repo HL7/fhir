@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 public enum ResourceType {
     Account,
@@ -14,7 +14,7 @@ public enum ResourceType {
     AuditEvent,
     Basic,
     Binary,
-    BodySite,
+    BodyStructure,
     Bundle,
     CapabilityStatement,
     CarePlan,
@@ -98,7 +98,6 @@ public enum ResourceType {
     Provenance,
     Questionnaire,
     QuestionnaireResponse,
-    ReferralRequest,
     RelatedPerson,
     RequestGroup,
     ResearchStudy,
@@ -143,8 +142,8 @@ public enum ResourceType {
       return "basic";
     case Binary:
       return "binary";
-    case BodySite:
-      return "bodysite";
+    case BodyStructure:
+      return "bodystructure";
     case Bundle:
       return "bundle";
     case CapabilityStatement:
@@ -311,8 +310,6 @@ public enum ResourceType {
       return "questionnaire";
     case QuestionnaireResponse:
       return "questionnaireresponse";
-    case ReferralRequest:
-      return "referralrequest";
     case RelatedPerson:
       return "relatedperson";
     case RequestGroup:
@@ -381,8 +378,8 @@ public enum ResourceType {
       return Basic;
     if ("Binary".equals(code))
       return Binary;
-    if ("BodySite".equals(code))
-      return BodySite;
+    if ("BodyStructure".equals(code))
+      return BodyStructure;
     if ("Bundle".equals(code))
       return Bundle;
     if ("CapabilityStatement".equals(code))
@@ -549,8 +546,6 @@ public enum ResourceType {
       return Questionnaire;
     if ("QuestionnaireResponse".equals(code))
       return QuestionnaireResponse;
-    if ("ReferralRequest".equals(code))
-      return ReferralRequest;
     if ("RelatedPerson".equals(code))
       return RelatedPerson;
     if ("RequestGroup".equals(code))

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1675,20 +1675,18 @@ public class ClaimResponse extends DomainResource {
         protected List<PositiveIntType> sequenceLinkId;
 
         /**
-         * The type of reveneu or cost center providing the product and/or service.
+         * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        @Child(name = "revenue", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-revenue-center")
-        protected CodeableConcept revenue;
+        @Child(name = "detailSequenceLinkId", type = {PositiveIntType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Detail sequence number", formalDefinition="The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition." )
+        protected List<PositiveIntType> detailSequenceLinkId;
 
         /**
-         * Health Care Service Type Codes  to identify the classification of service or benefits.
+         * The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
          */
-        @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
-        protected CodeableConcept category;
+        @Child(name = "subdetailSequenceLinkId", type = {PositiveIntType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Subdetail sequence number", formalDefinition="The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition." )
+        protected List<PositiveIntType> subdetailSequenceLinkId;
 
         /**
          * A code to indicate the Professional Service or Product supplied.
@@ -1727,14 +1725,7 @@ public class ClaimResponse extends DomainResource {
         @Description(shortDefinition="Added items adjudication", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
-        /**
-         * The second tier service adjudications for payor added services.
-         */
-        @Child(name = "detail", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Added items details", formalDefinition="The second tier service adjudications for payor added services." )
-        protected List<AddedItemsDetailComponent> detail;
-
-        private static final long serialVersionUID = 1969703165L;
+        private static final long serialVersionUID = 286653346L;
 
     /**
      * Constructor
@@ -1805,51 +1796,125 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
+         * @return {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
          */
-        public CodeableConcept getRevenue() { 
-          if (this.revenue == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemComponent.revenue");
-            else if (Configuration.doAutoCreate())
-              this.revenue = new CodeableConcept(); // cc
-          return this.revenue;
-        }
-
-        public boolean hasRevenue() { 
-          return this.revenue != null && !this.revenue.isEmpty();
+        public List<PositiveIntType> getDetailSequenceLinkId() { 
+          if (this.detailSequenceLinkId == null)
+            this.detailSequenceLinkId = new ArrayList<PositiveIntType>();
+          return this.detailSequenceLinkId;
         }
 
         /**
-         * @param value {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
+         * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public AddedItemComponent setRevenue(CodeableConcept value) { 
-          this.revenue = value;
+        public AddedItemComponent setDetailSequenceLinkId(List<PositiveIntType> theDetailSequenceLinkId) { 
+          this.detailSequenceLinkId = theDetailSequenceLinkId;
+          return this;
+        }
+
+        public boolean hasDetailSequenceLinkId() { 
+          if (this.detailSequenceLinkId == null)
+            return false;
+          for (PositiveIntType item : this.detailSequenceLinkId)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
+         */
+        public PositiveIntType addDetailSequenceLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.detailSequenceLinkId == null)
+            this.detailSequenceLinkId = new ArrayList<PositiveIntType>();
+          this.detailSequenceLinkId.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
+         */
+        public AddedItemComponent addDetailSequenceLinkId(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.detailSequenceLinkId == null)
+            this.detailSequenceLinkId = new ArrayList<PositiveIntType>();
+          this.detailSequenceLinkId.add(t);
           return this;
         }
 
         /**
-         * @return {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
+         * @param value {@link #detailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
          */
-        public CodeableConcept getCategory() { 
-          if (this.category == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemComponent.category");
-            else if (Configuration.doAutoCreate())
-              this.category = new CodeableConcept(); // cc
-          return this.category;
-        }
-
-        public boolean hasCategory() { 
-          return this.category != null && !this.category.isEmpty();
+        public boolean hasDetailSequenceLinkId(int value) { 
+          if (this.detailSequenceLinkId == null)
+            return false;
+          for (PositiveIntType v : this.detailSequenceLinkId)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
+         * @return {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
          */
-        public AddedItemComponent setCategory(CodeableConcept value) { 
-          this.category = value;
+        public List<PositiveIntType> getSubdetailSequenceLinkId() { 
+          if (this.subdetailSequenceLinkId == null)
+            this.subdetailSequenceLinkId = new ArrayList<PositiveIntType>();
+          return this.subdetailSequenceLinkId;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public AddedItemComponent setSubdetailSequenceLinkId(List<PositiveIntType> theSubdetailSequenceLinkId) { 
+          this.subdetailSequenceLinkId = theSubdetailSequenceLinkId;
           return this;
+        }
+
+        public boolean hasSubdetailSequenceLinkId() { 
+          if (this.subdetailSequenceLinkId == null)
+            return false;
+          for (PositiveIntType item : this.subdetailSequenceLinkId)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
+         */
+        public PositiveIntType addSubdetailSequenceLinkIdElement() {//2 
+          PositiveIntType t = new PositiveIntType();
+          if (this.subdetailSequenceLinkId == null)
+            this.subdetailSequenceLinkId = new ArrayList<PositiveIntType>();
+          this.subdetailSequenceLinkId.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
+         */
+        public AddedItemComponent addSubdetailSequenceLinkId(int value) { //1
+          PositiveIntType t = new PositiveIntType();
+          t.setValue(value);
+          if (this.subdetailSequenceLinkId == null)
+            this.subdetailSequenceLinkId = new ArrayList<PositiveIntType>();
+          this.subdetailSequenceLinkId.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #subdetailSequenceLinkId} (The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.)
+         */
+        public boolean hasSubdetailSequenceLinkId(int value) { 
+          if (this.subdetailSequenceLinkId == null)
+            return false;
+          for (PositiveIntType v : this.subdetailSequenceLinkId)
+            if (v.equals(value)) // positiveInt
+              return true;
+          return false;
         }
 
         /**
@@ -2067,84 +2132,29 @@ public class ClaimResponse extends DomainResource {
           return getAdjudication().get(0);
         }
 
-        /**
-         * @return {@link #detail} (The second tier service adjudications for payor added services.)
-         */
-        public List<AddedItemsDetailComponent> getDetail() { 
-          if (this.detail == null)
-            this.detail = new ArrayList<AddedItemsDetailComponent>();
-          return this.detail;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public AddedItemComponent setDetail(List<AddedItemsDetailComponent> theDetail) { 
-          this.detail = theDetail;
-          return this;
-        }
-
-        public boolean hasDetail() { 
-          if (this.detail == null)
-            return false;
-          for (AddedItemsDetailComponent item : this.detail)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public AddedItemsDetailComponent addDetail() { //3
-          AddedItemsDetailComponent t = new AddedItemsDetailComponent();
-          if (this.detail == null)
-            this.detail = new ArrayList<AddedItemsDetailComponent>();
-          this.detail.add(t);
-          return t;
-        }
-
-        public AddedItemComponent addDetail(AddedItemsDetailComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.detail == null)
-            this.detail = new ArrayList<AddedItemsDetailComponent>();
-          this.detail.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
-         */
-        public AddedItemsDetailComponent getDetailFirstRep() { 
-          if (getDetail().isEmpty()) {
-            addDetail();
-          }
-          return getDetail().get(0);
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "List of input service items which this service line is intended to replace.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
-          childrenList.add(new Property("revenue", "CodeableConcept", "The type of reveneu or cost center providing the product and/or service.", 0, java.lang.Integer.MAX_VALUE, revenue));
-          childrenList.add(new Property("category", "CodeableConcept", "Health Care Service Type Codes  to identify the classification of service or benefits.", 0, java.lang.Integer.MAX_VALUE, category));
+          childrenList.add(new Property("detailSequenceLinkId", "positiveInt", "The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, detailSequenceLinkId));
+          childrenList.add(new Property("subdetailSequenceLinkId", "positiveInt", "The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.", 0, java.lang.Integer.MAX_VALUE, subdetailSequenceLinkId));
           childrenList.add(new Property("service", "CodeableConcept", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("modifier", "CodeableConcept", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
           childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
           childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
-          childrenList.add(new Property("detail", "", "The second tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return this.sequenceLinkId == null ? new Base[0] : this.sequenceLinkId.toArray(new Base[this.sequenceLinkId.size()]); // PositiveIntType
-        case 1099842588: /*revenue*/ return this.revenue == null ? new Base[0] : new Base[] {this.revenue}; // CodeableConcept
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 516748423: /*detailSequenceLinkId*/ return this.detailSequenceLinkId == null ? new Base[0] : this.detailSequenceLinkId.toArray(new Base[this.detailSequenceLinkId.size()]); // PositiveIntType
+        case -1061088569: /*subdetailSequenceLinkId*/ return this.subdetailSequenceLinkId == null ? new Base[0] : this.subdetailSequenceLinkId.toArray(new Base[this.subdetailSequenceLinkId.size()]); // PositiveIntType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // CodeableConcept
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
         case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
         case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
         case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
-        case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // AddedItemsDetailComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2156,11 +2166,11 @@ public class ClaimResponse extends DomainResource {
         case -1422298666: // sequenceLinkId
           this.getSequenceLinkId().add(castToPositiveInt(value)); // PositiveIntType
           return value;
-        case 1099842588: // revenue
-          this.revenue = castToCodeableConcept(value); // CodeableConcept
+        case 516748423: // detailSequenceLinkId
+          this.getDetailSequenceLinkId().add(castToPositiveInt(value)); // PositiveIntType
           return value;
-        case 50511102: // category
-          this.category = castToCodeableConcept(value); // CodeableConcept
+        case -1061088569: // subdetailSequenceLinkId
+          this.getSubdetailSequenceLinkId().add(castToPositiveInt(value)); // PositiveIntType
           return value;
         case 1984153269: // service
           this.service = castToCodeableConcept(value); // CodeableConcept
@@ -2177,9 +2187,6 @@ public class ClaimResponse extends DomainResource {
         case -231349275: // adjudication
           this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
           return value;
-        case -1335224239: // detail
-          this.getDetail().add((AddedItemsDetailComponent) value); // AddedItemsDetailComponent
-          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -2189,10 +2196,10 @@ public class ClaimResponse extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequenceLinkId")) {
           this.getSequenceLinkId().add(castToPositiveInt(value));
-        } else if (name.equals("revenue")) {
-          this.revenue = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("category")) {
-          this.category = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("detailSequenceLinkId")) {
+          this.getDetailSequenceLinkId().add(castToPositiveInt(value));
+        } else if (name.equals("subdetailSequenceLinkId")) {
+          this.getSubdetailSequenceLinkId().add(castToPositiveInt(value));
         } else if (name.equals("service")) {
           this.service = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("modifier")) {
@@ -2203,8 +2210,6 @@ public class ClaimResponse extends DomainResource {
           this.getNoteNumber().add(castToPositiveInt(value));
         } else if (name.equals("adjudication")) {
           this.getAdjudication().add((AdjudicationComponent) value);
-        } else if (name.equals("detail")) {
-          this.getDetail().add((AddedItemsDetailComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2214,14 +2219,13 @@ public class ClaimResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666:  return addSequenceLinkIdElement();
-        case 1099842588:  return getRevenue(); 
-        case 50511102:  return getCategory(); 
+        case 516748423:  return addDetailSequenceLinkIdElement();
+        case -1061088569:  return addSubdetailSequenceLinkIdElement();
         case 1984153269:  return getService(); 
         case -615513385:  return addModifier(); 
         case 101254:  return getFee(); 
         case -1110033957:  return addNoteNumberElement();
         case -231349275:  return addAdjudication(); 
-        case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2231,14 +2235,13 @@ public class ClaimResponse extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1422298666: /*sequenceLinkId*/ return new String[] {"positiveInt"};
-        case 1099842588: /*revenue*/ return new String[] {"CodeableConcept"};
-        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 516748423: /*detailSequenceLinkId*/ return new String[] {"positiveInt"};
+        case -1061088569: /*subdetailSequenceLinkId*/ return new String[] {"positiveInt"};
         case 1984153269: /*service*/ return new String[] {"CodeableConcept"};
         case -615513385: /*modifier*/ return new String[] {"CodeableConcept"};
         case 101254: /*fee*/ return new String[] {"Money"};
         case -1110033957: /*noteNumber*/ return new String[] {"positiveInt"};
         case -231349275: /*adjudication*/ return new String[] {"@ClaimResponse.item.adjudication"};
-        case -1335224239: /*detail*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2249,13 +2252,11 @@ public class ClaimResponse extends DomainResource {
         if (name.equals("sequenceLinkId")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.sequenceLinkId");
         }
-        else if (name.equals("revenue")) {
-          this.revenue = new CodeableConcept();
-          return this.revenue;
+        else if (name.equals("detailSequenceLinkId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.detailSequenceLinkId");
         }
-        else if (name.equals("category")) {
-          this.category = new CodeableConcept();
-          return this.category;
+        else if (name.equals("subdetailSequenceLinkId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.subdetailSequenceLinkId");
         }
         else if (name.equals("service")) {
           this.service = new CodeableConcept();
@@ -2273,9 +2274,6 @@ public class ClaimResponse extends DomainResource {
         }
         else if (name.equals("adjudication")) {
           return addAdjudication();
-        }
-        else if (name.equals("detail")) {
-          return addDetail();
         }
         else
           return super.addChild(name);
@@ -2289,538 +2287,16 @@ public class ClaimResponse extends DomainResource {
           for (PositiveIntType i : sequenceLinkId)
             dst.sequenceLinkId.add(i.copy());
         };
-        dst.revenue = revenue == null ? null : revenue.copy();
-        dst.category = category == null ? null : category.copy();
-        dst.service = service == null ? null : service.copy();
-        if (modifier != null) {
-          dst.modifier = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : modifier)
-            dst.modifier.add(i.copy());
+        if (detailSequenceLinkId != null) {
+          dst.detailSequenceLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : detailSequenceLinkId)
+            dst.detailSequenceLinkId.add(i.copy());
         };
-        dst.fee = fee == null ? null : fee.copy();
-        if (noteNumber != null) {
-          dst.noteNumber = new ArrayList<PositiveIntType>();
-          for (PositiveIntType i : noteNumber)
-            dst.noteNumber.add(i.copy());
+        if (subdetailSequenceLinkId != null) {
+          dst.subdetailSequenceLinkId = new ArrayList<PositiveIntType>();
+          for (PositiveIntType i : subdetailSequenceLinkId)
+            dst.subdetailSequenceLinkId.add(i.copy());
         };
-        if (adjudication != null) {
-          dst.adjudication = new ArrayList<AdjudicationComponent>();
-          for (AdjudicationComponent i : adjudication)
-            dst.adjudication.add(i.copy());
-        };
-        if (detail != null) {
-          dst.detail = new ArrayList<AddedItemsDetailComponent>();
-          for (AddedItemsDetailComponent i : detail)
-            dst.detail.add(i.copy());
-        };
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof AddedItemComponent))
-          return false;
-        AddedItemComponent o = (AddedItemComponent) other;
-        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(revenue, o.revenue, true)
-           && compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
-           && compareDeep(fee, o.fee, true) && compareDeep(noteNumber, o.noteNumber, true) && compareDeep(adjudication, o.adjudication, true)
-           && compareDeep(detail, o.detail, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof AddedItemComponent))
-          return false;
-        AddedItemComponent o = (AddedItemComponent) other;
-        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(noteNumber, o.noteNumber, true)
-          ;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, revenue, category
-          , service, modifier, fee, noteNumber, adjudication, detail);
-      }
-
-  public String fhirType() {
-    return "ClaimResponse.addItem";
-
-  }
-
-  }
-
-    @Block()
-    public static class AddedItemsDetailComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The type of reveneu or cost center providing the product and/or service.
-         */
-        @Child(name = "revenue", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Revenue or cost center code", formalDefinition="The type of reveneu or cost center providing the product and/or service." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-revenue-center")
-        protected CodeableConcept revenue;
-
-        /**
-         * Health Care Service Type Codes  to identify the classification of service or benefits.
-         */
-        @Child(name = "category", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
-        protected CodeableConcept category;
-
-        /**
-         * A code to indicate the Professional Service or Product supplied.
-         */
-        @Child(name = "service", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Service or Product", formalDefinition="A code to indicate the Professional Service or Product supplied." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-uscls")
-        protected CodeableConcept service;
-
-        /**
-         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
-         */
-        @Child(name = "modifier", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-modifiers")
-        protected List<CodeableConcept> modifier;
-
-        /**
-         * The fee charged for the professional service or product..
-         */
-        @Child(name = "fee", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Professional fee or Product charge", formalDefinition="The fee charged for the professional service or product.." )
-        protected Money fee;
-
-        /**
-         * A list of note references to the notes provided below.
-         */
-        @Child(name = "noteNumber", type = {PositiveIntType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="List of note numbers which apply", formalDefinition="A list of note references to the notes provided below." )
-        protected List<PositiveIntType> noteNumber;
-
-        /**
-         * The adjudications results.
-         */
-        @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Added items detail adjudication", formalDefinition="The adjudications results." )
-        protected List<AdjudicationComponent> adjudication;
-
-        private static final long serialVersionUID = -311484980L;
-
-    /**
-     * Constructor
-     */
-      public AddedItemsDetailComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
-         */
-        public CodeableConcept getRevenue() { 
-          if (this.revenue == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemsDetailComponent.revenue");
-            else if (Configuration.doAutoCreate())
-              this.revenue = new CodeableConcept(); // cc
-          return this.revenue;
-        }
-
-        public boolean hasRevenue() { 
-          return this.revenue != null && !this.revenue.isEmpty();
-        }
-
-        /**
-         * @param value {@link #revenue} (The type of reveneu or cost center providing the product and/or service.)
-         */
-        public AddedItemsDetailComponent setRevenue(CodeableConcept value) { 
-          this.revenue = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
-         */
-        public CodeableConcept getCategory() { 
-          if (this.category == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemsDetailComponent.category");
-            else if (Configuration.doAutoCreate())
-              this.category = new CodeableConcept(); // cc
-          return this.category;
-        }
-
-        public boolean hasCategory() { 
-          return this.category != null && !this.category.isEmpty();
-        }
-
-        /**
-         * @param value {@link #category} (Health Care Service Type Codes  to identify the classification of service or benefits.)
-         */
-        public AddedItemsDetailComponent setCategory(CodeableConcept value) { 
-          this.category = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #service} (A code to indicate the Professional Service or Product supplied.)
-         */
-        public CodeableConcept getService() { 
-          if (this.service == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemsDetailComponent.service");
-            else if (Configuration.doAutoCreate())
-              this.service = new CodeableConcept(); // cc
-          return this.service;
-        }
-
-        public boolean hasService() { 
-          return this.service != null && !this.service.isEmpty();
-        }
-
-        /**
-         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied.)
-         */
-        public AddedItemsDetailComponent setService(CodeableConcept value) { 
-          this.service = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.)
-         */
-        public List<CodeableConcept> getModifier() { 
-          if (this.modifier == null)
-            this.modifier = new ArrayList<CodeableConcept>();
-          return this.modifier;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public AddedItemsDetailComponent setModifier(List<CodeableConcept> theModifier) { 
-          this.modifier = theModifier;
-          return this;
-        }
-
-        public boolean hasModifier() { 
-          if (this.modifier == null)
-            return false;
-          for (CodeableConcept item : this.modifier)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public CodeableConcept addModifier() { //3
-          CodeableConcept t = new CodeableConcept();
-          if (this.modifier == null)
-            this.modifier = new ArrayList<CodeableConcept>();
-          this.modifier.add(t);
-          return t;
-        }
-
-        public AddedItemsDetailComponent addModifier(CodeableConcept t) { //3
-          if (t == null)
-            return this;
-          if (this.modifier == null)
-            this.modifier = new ArrayList<CodeableConcept>();
-          this.modifier.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
-         */
-        public CodeableConcept getModifierFirstRep() { 
-          if (getModifier().isEmpty()) {
-            addModifier();
-          }
-          return getModifier().get(0);
-        }
-
-        /**
-         * @return {@link #fee} (The fee charged for the professional service or product..)
-         */
-        public Money getFee() { 
-          if (this.fee == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AddedItemsDetailComponent.fee");
-            else if (Configuration.doAutoCreate())
-              this.fee = new Money(); // cc
-          return this.fee;
-        }
-
-        public boolean hasFee() { 
-          return this.fee != null && !this.fee.isEmpty();
-        }
-
-        /**
-         * @param value {@link #fee} (The fee charged for the professional service or product..)
-         */
-        public AddedItemsDetailComponent setFee(Money value) { 
-          this.fee = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
-         */
-        public List<PositiveIntType> getNoteNumber() { 
-          if (this.noteNumber == null)
-            this.noteNumber = new ArrayList<PositiveIntType>();
-          return this.noteNumber;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public AddedItemsDetailComponent setNoteNumber(List<PositiveIntType> theNoteNumber) { 
-          this.noteNumber = theNoteNumber;
-          return this;
-        }
-
-        public boolean hasNoteNumber() { 
-          if (this.noteNumber == null)
-            return false;
-          for (PositiveIntType item : this.noteNumber)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #noteNumber} (A list of note references to the notes provided below.)
-         */
-        public PositiveIntType addNoteNumberElement() {//2 
-          PositiveIntType t = new PositiveIntType();
-          if (this.noteNumber == null)
-            this.noteNumber = new ArrayList<PositiveIntType>();
-          this.noteNumber.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
-         */
-        public AddedItemsDetailComponent addNoteNumber(int value) { //1
-          PositiveIntType t = new PositiveIntType();
-          t.setValue(value);
-          if (this.noteNumber == null)
-            this.noteNumber = new ArrayList<PositiveIntType>();
-          this.noteNumber.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #noteNumber} (A list of note references to the notes provided below.)
-         */
-        public boolean hasNoteNumber(int value) { 
-          if (this.noteNumber == null)
-            return false;
-          for (PositiveIntType v : this.noteNumber)
-            if (v.equals(value)) // positiveInt
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #adjudication} (The adjudications results.)
-         */
-        public List<AdjudicationComponent> getAdjudication() { 
-          if (this.adjudication == null)
-            this.adjudication = new ArrayList<AdjudicationComponent>();
-          return this.adjudication;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public AddedItemsDetailComponent setAdjudication(List<AdjudicationComponent> theAdjudication) { 
-          this.adjudication = theAdjudication;
-          return this;
-        }
-
-        public boolean hasAdjudication() { 
-          if (this.adjudication == null)
-            return false;
-          for (AdjudicationComponent item : this.adjudication)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public AdjudicationComponent addAdjudication() { //3
-          AdjudicationComponent t = new AdjudicationComponent();
-          if (this.adjudication == null)
-            this.adjudication = new ArrayList<AdjudicationComponent>();
-          this.adjudication.add(t);
-          return t;
-        }
-
-        public AddedItemsDetailComponent addAdjudication(AdjudicationComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.adjudication == null)
-            this.adjudication = new ArrayList<AdjudicationComponent>();
-          this.adjudication.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #adjudication}, creating it if it does not already exist
-         */
-        public AdjudicationComponent getAdjudicationFirstRep() { 
-          if (getAdjudication().isEmpty()) {
-            addAdjudication();
-          }
-          return getAdjudication().get(0);
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("revenue", "CodeableConcept", "The type of reveneu or cost center providing the product and/or service.", 0, java.lang.Integer.MAX_VALUE, revenue));
-          childrenList.add(new Property("category", "CodeableConcept", "Health Care Service Type Codes  to identify the classification of service or benefits.", 0, java.lang.Integer.MAX_VALUE, category));
-          childrenList.add(new Property("service", "CodeableConcept", "A code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
-          childrenList.add(new Property("modifier", "CodeableConcept", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
-          childrenList.add(new Property("fee", "Money", "The fee charged for the professional service or product..", 0, java.lang.Integer.MAX_VALUE, fee));
-          childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
-          childrenList.add(new Property("adjudication", "@ClaimResponse.item.adjudication", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 1099842588: /*revenue*/ return this.revenue == null ? new Base[0] : new Base[] {this.revenue}; // CodeableConcept
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // CodeableConcept
-        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
-        case 101254: /*fee*/ return this.fee == null ? new Base[0] : new Base[] {this.fee}; // Money
-        case -1110033957: /*noteNumber*/ return this.noteNumber == null ? new Base[0] : this.noteNumber.toArray(new Base[this.noteNumber.size()]); // PositiveIntType
-        case -231349275: /*adjudication*/ return this.adjudication == null ? new Base[0] : this.adjudication.toArray(new Base[this.adjudication.size()]); // AdjudicationComponent
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 1099842588: // revenue
-          this.revenue = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 50511102: // category
-          this.category = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 1984153269: // service
-          this.service = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case -615513385: // modifier
-          this.getModifier().add(castToCodeableConcept(value)); // CodeableConcept
-          return value;
-        case 101254: // fee
-          this.fee = castToMoney(value); // Money
-          return value;
-        case -1110033957: // noteNumber
-          this.getNoteNumber().add(castToPositiveInt(value)); // PositiveIntType
-          return value;
-        case -231349275: // adjudication
-          this.getAdjudication().add((AdjudicationComponent) value); // AdjudicationComponent
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("revenue")) {
-          this.revenue = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("category")) {
-          this.category = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("service")) {
-          this.service = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("modifier")) {
-          this.getModifier().add(castToCodeableConcept(value));
-        } else if (name.equals("fee")) {
-          this.fee = castToMoney(value); // Money
-        } else if (name.equals("noteNumber")) {
-          this.getNoteNumber().add(castToPositiveInt(value));
-        } else if (name.equals("adjudication")) {
-          this.getAdjudication().add((AdjudicationComponent) value);
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 1099842588:  return getRevenue(); 
-        case 50511102:  return getCategory(); 
-        case 1984153269:  return getService(); 
-        case -615513385:  return addModifier(); 
-        case 101254:  return getFee(); 
-        case -1110033957:  return addNoteNumberElement();
-        case -231349275:  return addAdjudication(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 1099842588: /*revenue*/ return new String[] {"CodeableConcept"};
-        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
-        case 1984153269: /*service*/ return new String[] {"CodeableConcept"};
-        case -615513385: /*modifier*/ return new String[] {"CodeableConcept"};
-        case 101254: /*fee*/ return new String[] {"Money"};
-        case -1110033957: /*noteNumber*/ return new String[] {"positiveInt"};
-        case -231349275: /*adjudication*/ return new String[] {"@ClaimResponse.item.adjudication"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("revenue")) {
-          this.revenue = new CodeableConcept();
-          return this.revenue;
-        }
-        else if (name.equals("category")) {
-          this.category = new CodeableConcept();
-          return this.category;
-        }
-        else if (name.equals("service")) {
-          this.service = new CodeableConcept();
-          return this.service;
-        }
-        else if (name.equals("modifier")) {
-          return addModifier();
-        }
-        else if (name.equals("fee")) {
-          this.fee = new Money();
-          return this.fee;
-        }
-        else if (name.equals("noteNumber")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClaimResponse.noteNumber");
-        }
-        else if (name.equals("adjudication")) {
-          return addAdjudication();
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public AddedItemsDetailComponent copy() {
-        AddedItemsDetailComponent dst = new AddedItemsDetailComponent();
-        copyValues(dst);
-        dst.revenue = revenue == null ? null : revenue.copy();
-        dst.category = category == null ? null : category.copy();
         dst.service = service == null ? null : service.copy();
         if (modifier != null) {
           dst.modifier = new ArrayList<CodeableConcept>();
@@ -2845,10 +2321,11 @@ public class ClaimResponse extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof AddedItemsDetailComponent))
+        if (!(other instanceof AddedItemComponent))
           return false;
-        AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
-        return compareDeep(revenue, o.revenue, true) && compareDeep(category, o.category, true) && compareDeep(service, o.service, true)
+        AddedItemComponent o = (AddedItemComponent) other;
+        return compareDeep(sequenceLinkId, o.sequenceLinkId, true) && compareDeep(detailSequenceLinkId, o.detailSequenceLinkId, true)
+           && compareDeep(subdetailSequenceLinkId, o.subdetailSequenceLinkId, true) && compareDeep(service, o.service, true)
            && compareDeep(modifier, o.modifier, true) && compareDeep(fee, o.fee, true) && compareDeep(noteNumber, o.noteNumber, true)
            && compareDeep(adjudication, o.adjudication, true);
       }
@@ -2857,19 +2334,21 @@ public class ClaimResponse extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof AddedItemsDetailComponent))
+        if (!(other instanceof AddedItemComponent))
           return false;
-        AddedItemsDetailComponent o = (AddedItemsDetailComponent) other;
-        return compareValues(noteNumber, o.noteNumber, true);
+        AddedItemComponent o = (AddedItemComponent) other;
+        return compareValues(sequenceLinkId, o.sequenceLinkId, true) && compareValues(detailSequenceLinkId, o.detailSequenceLinkId, true)
+           && compareValues(subdetailSequenceLinkId, o.subdetailSequenceLinkId, true) && compareValues(noteNumber, o.noteNumber, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(revenue, category, service
-          , modifier, fee, noteNumber, adjudication);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequenceLinkId, detailSequenceLinkId
+          , subdetailSequenceLinkId, service, modifier, fee, noteNumber, adjudication);
       }
 
   public String fhirType() {
-    return "ClaimResponse.addItem.detail";
+    return "ClaimResponse.addItem";
 
   }
 
@@ -6288,6 +5767,26 @@ public class ClaimResponse extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the claim response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ClaimResponse.status", description="The status of the claim response", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the claim response</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ClaimResponse.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

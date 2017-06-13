@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, May 31, 2017 12:25+1000 for FHIR v3.1.0
+// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2419,6 +2419,26 @@ public class VisionPrescription extends DomainResource {
    * the path value of "<b>VisionPrescription:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("VisionPrescription:encounter").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the vision prescription</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>VisionPrescription.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="VisionPrescription.status", description="The status of the vision prescription", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the vision prescription</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>VisionPrescription.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }
