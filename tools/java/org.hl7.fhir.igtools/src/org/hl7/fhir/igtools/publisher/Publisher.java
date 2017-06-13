@@ -1831,6 +1831,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
             }
           MetadataResource bc = (MetadataResource) r.getResource();
+          if (bc == null)
+            throw new Exception("Error: conformance resource could not be loaded");
           boolean altered = false;
           if (businessVersion != null) {
             if (!bc.hasVersion()) {
