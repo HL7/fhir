@@ -610,7 +610,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       copyTemplate = true;
     } else
       log("Load Configuration from "+configFile);
-    configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    try {
+      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    } catch (Exception e) {
+      throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
+    }
     if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
       String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
       log("Redirecting to Configuration from " + redirectFile);
@@ -3629,7 +3633,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       logMessage(msg);
   }
 
-  public static String buildReport(String ig, String source, String log, String qafile) throws FileNotFoundException, IOException {
+  public static String buildReport(String ig, String source, String log, String qafile) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("= Log =\r\n");
     b.append(log);
@@ -3675,7 +3679,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     if (ig != null) {
       b.append("= IG =\r\n");
-      b.append(TextFile.fileToString(ig));
+      b.append(TextFile.fileToString(determineActualIG(ig)));
     }
 
     b.append("\r\n");
@@ -3727,7 +3731,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           System.out.println("=======================================================================================");
           System.out.println("Publish IG "+ig);
           Publisher self = new Publisher();
-          self.setConfigFile(ig);
+          self.setConfigFile(determineActualIG(ig));
           self.setTxServer(getNamedParam(args, "-tx"));
           if (hasParam(args, "-resetTx"))
             self.setCacheOption(CacheOption.CLEAR_ALL);
@@ -3763,7 +3767,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       } else if(!hasParam(args, "-ig") && args.length == 1 && new File(args[0]).exists()) {
         self.setConfigFile(args[0]);
       } else {
-        self.setConfigFile(getNamedParam(args, "-ig"));
+        self.setConfigFile(determineActualIG(getNamedParam(args, "-ig")));
         if (Utilities.noString(self.getConfigFile()))
           throw new Exception("No Implementation Guide Specified (-ig parameter)");
         if (!(new File(self.getConfigFile()).isAbsolute()))
@@ -3801,6 +3805,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     System.exit(exitCode);
   }
+
+  private static String determineActualIG(String ig) throws Exception {
+    File f = new File(ig);
+    if (!f.exists())
+      throw new Exception("Unable to find the nominrated IG at "+f.getAbsolutePath());
+    if (f.isDirectory() && new File(Utilities.path(ig, "ig.json")).exists())
+      return Utilities.path(ig, "ig.json");
+    else
+      return ig;
+  }
+
 
   private String getToolingVersion() {
     InputStream vis = Publisher.class.getResourceAsStream("/version.info");
