@@ -3329,7 +3329,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         boolean ok;
         try {
           long t = System.nanoTime();
-          ok = fpe.evaluateToBoolean(resource, element, n);
+          ok = fpe.evaluateToBoolean(hostContext, resource, element, n);
           fpeTime = fpeTime + (System.nanoTime() - t);
           msg = fpe.forLog();
         } catch (Exception ex) {

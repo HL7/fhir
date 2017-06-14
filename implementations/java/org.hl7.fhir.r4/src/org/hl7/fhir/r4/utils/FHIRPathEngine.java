@@ -2437,23 +2437,27 @@ public class FHIRPathEngine {
         String s = convertToString(item);
         if (item.fhirType().equals("Reference")) {
           Property p = item.getChildByName("reference");
-          if (p.hasValues())
+          if (p != null && p.hasValues())
             s = convertToString(p.getValues().get(0));
+          else
+            s = null; // a reference without any valid actual reference (just identifier or display, but we can't resolve it)
         }
-        Base res = null;
-        if (s.startsWith("#")) {
-          String id = s.substring(1);
-          Property p = context.resource.getChildByName("contained");
-          for (Base c : p.getValues()) {
-            if (id.equals(c.getIdBase())) {
-              res = c;
-              break;
+        if (s != null) {
+          Base res = null;
+          if (s.startsWith("#")) {
+            String id = s.substring(1);
+            Property p = context.resource.getChildByName("contained");
+            for (Base c : p.getValues()) {
+              if (id.equals(c.getIdBase())) {
+                res = c;
+                break;
+              }
             }
-          }
-        } else
-         res = hostServices.resolveReference(context.appInfo, s);
-        if (res != null)
-          result.add(res);
+          } else
+            res = hostServices.resolveReference(context.appInfo, s);
+          if (res != null)
+            result.add(res);
+        }
       }
     }
     return result;
