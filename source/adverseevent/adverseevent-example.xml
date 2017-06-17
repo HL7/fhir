@@ -9,7 +9,7 @@
   </identifier>
 
   <!-- this was an actual adverse event, not just a potential one -->
-  <actuality value="AE"/>
+  <actuality value="actual"/>
 
   <!-- high level categorision. The "event" below will say more -->
   <category value="ProductUseError"/>

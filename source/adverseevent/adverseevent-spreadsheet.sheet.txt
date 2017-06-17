@@ -61,12 +61,12 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = AE
+  Code = actual
   Display = Adverse Event
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = PAE
+  Code = potential
   Display = Potential Adverse Event
 
 === Sheet adverse-event-category =====================================
@@ -335,7 +335,7 @@
   Is Modifier = y
   Type = code
   Binding = AdverseEventActuality
-  Short Name = AE | PAE
+  Short Name = actual | potential
   Definition = Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
   w5 = class
 
@@ -361,8 +361,8 @@
   Element = AdverseEvent.subject
   Card. = 0..1
   Aliases = patient
-  Type = Reference(Patient|ResearchSubject|Medication|Device)
-  Short Name = Subject or group impacted by event
+  Type = Reference(Patient|ResearchSubject|Practitioner|Person)
+  Short Name = Subject impacted by event
   Definition = This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
   w5 = who
 
