@@ -23,7 +23,6 @@
   <WindowTopY>0</WindowTopY>
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -956,7 +955,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">AdverseEventActuality</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">AE | PAE</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">actual | potential</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1288,7 +1287,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1296,15 +1295,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7977,7 +7975,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">AE</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">actual</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s142"/>
@@ -7988,7 +7986,7 @@
     <Cell ss:StyleID="s131"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">PAE</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">potential</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s143"/>
@@ -8527,8 +8525,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
