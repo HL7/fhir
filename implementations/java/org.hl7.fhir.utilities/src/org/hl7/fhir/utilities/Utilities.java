@@ -41,10 +41,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.channels.FileChannel;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
@@ -505,9 +502,11 @@ public class Utilities {
       
       while (a.startsWith(".."+File.separator)) {
         String p = s.toString().substring(0, s.length()-1);
-        if (!p.contains(File.separator))
-          throw new IOException("illegal path underrun "+args);
-        s = new StringBuilder(p.substring(0,  p.lastIndexOf(File.separator))+File.separator);
+        if (!p.contains(File.separator)) {
+          s = new StringBuilder();
+        } else {
+          s = new StringBuilder(p.substring(0,  p.lastIndexOf(File.separator))+File.separator);
+        }
         a = a.substring(3);
       }
       if ("..".equals(a)) {
