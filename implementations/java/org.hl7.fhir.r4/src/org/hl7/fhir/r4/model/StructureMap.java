@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1303,12 +1303,24 @@ public class StructureMap extends MetadataResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("url", "uri", "The canonical URL that identifies the structure.", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("mode", "code", "How the referenced structure is used in this mapping.", 0, java.lang.Integer.MAX_VALUE, mode));
-          childrenList.add(new Property("alias", "string", "The name used for this type in the map.", 0, java.lang.Integer.MAX_VALUE, alias));
-          childrenList.add(new Property("documentation", "string", "Documentation that describes how the structure is used in the mapping.", 0, java.lang.Integer.MAX_VALUE, documentation));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("url", "uri", "The canonical URL that identifies the structure.", 0, 1, url));
+          children.add(new Property("mode", "code", "How the referenced structure is used in this mapping.", 0, 1, mode));
+          children.add(new Property("alias", "string", "The name used for this type in the map.", 0, 1, alias));
+          children.add(new Property("documentation", "string", "Documentation that describes how the structure is used in the mapping.", 0, 1, documentation));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 116079: /*url*/  return new Property("url", "uri", "The canonical URL that identifies the structure.", 0, 1, url);
+          case 3357091: /*mode*/  return new Property("mode", "code", "How the referenced structure is used in this mapping.", 0, 1, mode);
+          case 92902992: /*alias*/  return new Property("alias", "string", "The name used for this type in the map.", 0, 1, alias);
+          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Documentation that describes how the structure is used in the mapping.", 0, 1, documentation);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1803,14 +1815,28 @@ public class StructureMap extends MetadataResource {
           return getRule().get(0);
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "id", "A unique name for the group for the convenience of human readers.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("extends", "id", "Another group that this group adds rules to.", 0, java.lang.Integer.MAX_VALUE, extends_));
-          childrenList.add(new Property("typeMode", "code", "If this is the default rule set to apply for thie source type, or this combination of types.", 0, java.lang.Integer.MAX_VALUE, typeMode));
-          childrenList.add(new Property("documentation", "string", "Additional supporting documentation that explains the purpose of the group and the types of mappings within it.", 0, java.lang.Integer.MAX_VALUE, documentation));
-          childrenList.add(new Property("input", "", "A name assigned to an instance of data. The instance must be provided when the mapping is invoked.", 0, java.lang.Integer.MAX_VALUE, input));
-          childrenList.add(new Property("rule", "", "Transform Rule from source to target.", 0, java.lang.Integer.MAX_VALUE, rule));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "id", "A unique name for the group for the convenience of human readers.", 0, 1, name));
+          children.add(new Property("extends", "id", "Another group that this group adds rules to.", 0, 1, extends_));
+          children.add(new Property("typeMode", "code", "If this is the default rule set to apply for thie source type, or this combination of types.", 0, 1, typeMode));
+          children.add(new Property("documentation", "string", "Additional supporting documentation that explains the purpose of the group and the types of mappings within it.", 0, 1, documentation));
+          children.add(new Property("input", "", "A name assigned to an instance of data. The instance must be provided when the mapping is invoked.", 0, java.lang.Integer.MAX_VALUE, input));
+          children.add(new Property("rule", "", "Transform Rule from source to target.", 0, java.lang.Integer.MAX_VALUE, rule));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "id", "A unique name for the group for the convenience of human readers.", 0, 1, name);
+          case -1305664359: /*extends*/  return new Property("extends", "id", "Another group that this group adds rules to.", 0, 1, extends_);
+          case -676524035: /*typeMode*/  return new Property("typeMode", "code", "If this is the default rule set to apply for thie source type, or this combination of types.", 0, 1, typeMode);
+          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Additional supporting documentation that explains the purpose of the group and the types of mappings within it.", 0, 1, documentation);
+          case 100358090: /*input*/  return new Property("input", "", "A name assigned to an instance of data. The instance must be provided when the mapping is invoked.", 0, java.lang.Integer.MAX_VALUE, input);
+          case 3512060: /*rule*/  return new Property("rule", "", "Transform Rule from source to target.", 0, java.lang.Integer.MAX_VALUE, rule);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -2226,12 +2252,24 @@ public class StructureMap extends MetadataResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "id", "Name for this instance of data.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("type", "string", "Type for this instance of data.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("mode", "code", "Mode for this instance of data.", 0, java.lang.Integer.MAX_VALUE, mode));
-          childrenList.add(new Property("documentation", "string", "Documentation for this instance of data.", 0, java.lang.Integer.MAX_VALUE, documentation));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "id", "Name for this instance of data.", 0, 1, name));
+          children.add(new Property("type", "string", "Type for this instance of data.", 0, 1, type));
+          children.add(new Property("mode", "code", "Mode for this instance of data.", 0, 1, mode));
+          children.add(new Property("documentation", "string", "Documentation for this instance of data.", 0, 1, documentation));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "id", "Name for this instance of data.", 0, 1, name);
+          case 3575610: /*type*/  return new Property("type", "string", "Type for this instance of data.", 0, 1, type);
+          case 3357091: /*mode*/  return new Property("mode", "code", "Mode for this instance of data.", 0, 1, mode);
+          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Documentation for this instance of data.", 0, 1, documentation);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -2736,14 +2774,28 @@ public class StructureMap extends MetadataResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "id", "Name of the rule for internal references.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("source", "", "Source inputs to the mapping.", 0, java.lang.Integer.MAX_VALUE, source));
-          childrenList.add(new Property("target", "", "Content to create because of this mapping rule.", 0, java.lang.Integer.MAX_VALUE, target));
-          childrenList.add(new Property("rule", "@StructureMap.group.rule", "Rules contained in this rule.", 0, java.lang.Integer.MAX_VALUE, rule));
-          childrenList.add(new Property("dependent", "", "Which other rules to apply in the context of this rule.", 0, java.lang.Integer.MAX_VALUE, dependent));
-          childrenList.add(new Property("documentation", "string", "Documentation for this instance of data.", 0, java.lang.Integer.MAX_VALUE, documentation));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "id", "Name of the rule for internal references.", 0, 1, name));
+          children.add(new Property("source", "", "Source inputs to the mapping.", 0, java.lang.Integer.MAX_VALUE, source));
+          children.add(new Property("target", "", "Content to create because of this mapping rule.", 0, java.lang.Integer.MAX_VALUE, target));
+          children.add(new Property("rule", "@StructureMap.group.rule", "Rules contained in this rule.", 0, java.lang.Integer.MAX_VALUE, rule));
+          children.add(new Property("dependent", "", "Which other rules to apply in the context of this rule.", 0, java.lang.Integer.MAX_VALUE, dependent));
+          children.add(new Property("documentation", "string", "Documentation for this instance of data.", 0, 1, documentation));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "id", "Name of the rule for internal references.", 0, 1, name);
+          case -896505829: /*source*/  return new Property("source", "", "Source inputs to the mapping.", 0, java.lang.Integer.MAX_VALUE, source);
+          case -880905839: /*target*/  return new Property("target", "", "Content to create because of this mapping rule.", 0, java.lang.Integer.MAX_VALUE, target);
+          case 3512060: /*rule*/  return new Property("rule", "@StructureMap.group.rule", "Rules contained in this rule.", 0, java.lang.Integer.MAX_VALUE, rule);
+          case -1109226753: /*dependent*/  return new Property("dependent", "", "Which other rules to apply in the context of this rule.", 0, java.lang.Integer.MAX_VALUE, dependent);
+          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Documentation for this instance of data.", 0, 1, documentation);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -3469,18 +3521,70 @@ public class StructureMap extends MetadataResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("context", "id", "Type or variable this rule applies to.", 0, java.lang.Integer.MAX_VALUE, context));
-          childrenList.add(new Property("min", "integer", "Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.", 0, java.lang.Integer.MAX_VALUE, min));
-          childrenList.add(new Property("max", "string", "Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).", 0, java.lang.Integer.MAX_VALUE, max));
-          childrenList.add(new Property("type", "string", "Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
-          childrenList.add(new Property("element", "string", "Optional field for this source.", 0, java.lang.Integer.MAX_VALUE, element));
-          childrenList.add(new Property("listMode", "code", "How to handle the list mode for this element.", 0, java.lang.Integer.MAX_VALUE, listMode));
-          childrenList.add(new Property("variable", "id", "Named context for field, if a field is specified.", 0, java.lang.Integer.MAX_VALUE, variable));
-          childrenList.add(new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, java.lang.Integer.MAX_VALUE, condition));
-          childrenList.add(new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, java.lang.Integer.MAX_VALUE, check));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("context", "id", "Type or variable this rule applies to.", 0, 1, context));
+          children.add(new Property("min", "integer", "Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.", 0, 1, min));
+          children.add(new Property("max", "string", "Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).", 0, 1, max));
+          children.add(new Property("type", "string", "Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.", 0, 1, type));
+          children.add(new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue));
+          children.add(new Property("element", "string", "Optional field for this source.", 0, 1, element));
+          children.add(new Property("listMode", "code", "How to handle the list mode for this element.", 0, 1, listMode));
+          children.add(new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable));
+          children.add(new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, 1, condition));
+          children.add(new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, 1, check));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 951530927: /*context*/  return new Property("context", "id", "Type or variable this rule applies to.", 0, 1, context);
+          case 108114: /*min*/  return new Property("min", "integer", "Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.", 0, 1, min);
+          case 107876: /*max*/  return new Property("max", "string", "Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).", 0, 1, max);
+          case 3575610: /*type*/  return new Property("type", "string", "Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.", 0, 1, type);
+          case 587922128: /*defaultValue[x]*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -659125328: /*defaultValue*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 600437336: /*defaultValueBoolean*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1801189522: /*defaultValueInteger*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 2077989249: /*defaultValueDecimal*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1470297600: /*defaultValueBase64Binary*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1801671663: /*defaultValueInstant*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -320515103: /*defaultValueString*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 587916188: /*defaultValueUri*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1045010302: /*defaultValueDate*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1220374379: /*defaultValueDateTime*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1045494429: /*defaultValueTime*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1044993469: /*defaultValueCode*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 587910138: /*defaultValueOid*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -2059245333: /*defaultValueId*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 539117290: /*defaultValueUnsignedInt*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -737344154: /*defaultValuePositiveInt*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -325436225: /*defaultValueMarkdown*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1851689217: /*defaultValueAnnotation*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 2034820339: /*defaultValueAttachment*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1915078535: /*defaultValueIdentifier*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -410434095: /*defaultValueCodeableConcept*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -783616198: /*defaultValueCoding*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1857379237: /*defaultValueQuantity*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1951495315: /*defaultValueRange*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -420255343: /*defaultValuePeriod*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1951489477: /*defaultValueRatio*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -449641228: /*defaultValueSampledData*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 509825768: /*defaultValueSignature*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -975393912: /*defaultValueHumanName*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -611966428: /*defaultValueAddress*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -344740576: /*defaultValueContactPoint*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -302193638: /*defaultValueTiming*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1488914053: /*defaultValueReference*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1045282261: /*defaultValueMeta*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1662836996: /*element*/  return new Property("element", "string", "Optional field for this source.", 0, 1, element);
+          case 1345445729: /*listMode*/  return new Property("listMode", "code", "How to handle the list mode for this element.", 0, 1, listMode);
+          case -1249586564: /*variable*/  return new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable);
+          case -861311717: /*condition*/  return new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, 1, condition);
+          case 94627080: /*check*/  return new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, 1, check);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -4310,16 +4414,32 @@ public class StructureMap extends MetadataResource {
           return getParameter().get(0);
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("context", "id", "Type or variable this rule applies to.", 0, java.lang.Integer.MAX_VALUE, context));
-          childrenList.add(new Property("contextType", "code", "How to interpret the context.", 0, java.lang.Integer.MAX_VALUE, contextType));
-          childrenList.add(new Property("element", "string", "Field to create in the context.", 0, java.lang.Integer.MAX_VALUE, element));
-          childrenList.add(new Property("variable", "id", "Named context for field, if desired, and a field is specified.", 0, java.lang.Integer.MAX_VALUE, variable));
-          childrenList.add(new Property("listMode", "code", "If field is a list, how to manage the list.", 0, java.lang.Integer.MAX_VALUE, listMode));
-          childrenList.add(new Property("listRuleId", "id", "Internal rule reference for shared list items.", 0, java.lang.Integer.MAX_VALUE, listRuleId));
-          childrenList.add(new Property("transform", "code", "How the data is copied / created.", 0, java.lang.Integer.MAX_VALUE, transform));
-          childrenList.add(new Property("parameter", "", "Parameters to the transform.", 0, java.lang.Integer.MAX_VALUE, parameter));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("context", "id", "Type or variable this rule applies to.", 0, 1, context));
+          children.add(new Property("contextType", "code", "How to interpret the context.", 0, 1, contextType));
+          children.add(new Property("element", "string", "Field to create in the context.", 0, 1, element));
+          children.add(new Property("variable", "id", "Named context for field, if desired, and a field is specified.", 0, 1, variable));
+          children.add(new Property("listMode", "code", "If field is a list, how to manage the list.", 0, java.lang.Integer.MAX_VALUE, listMode));
+          children.add(new Property("listRuleId", "id", "Internal rule reference for shared list items.", 0, 1, listRuleId));
+          children.add(new Property("transform", "code", "How the data is copied / created.", 0, 1, transform));
+          children.add(new Property("parameter", "", "Parameters to the transform.", 0, java.lang.Integer.MAX_VALUE, parameter));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 951530927: /*context*/  return new Property("context", "id", "Type or variable this rule applies to.", 0, 1, context);
+          case -102839927: /*contextType*/  return new Property("contextType", "code", "How to interpret the context.", 0, 1, contextType);
+          case -1662836996: /*element*/  return new Property("element", "string", "Field to create in the context.", 0, 1, element);
+          case -1249586564: /*variable*/  return new Property("variable", "id", "Named context for field, if desired, and a field is specified.", 0, 1, variable);
+          case 1345445729: /*listMode*/  return new Property("listMode", "code", "If field is a list, how to manage the list.", 0, java.lang.Integer.MAX_VALUE, listMode);
+          case 337117045: /*listRuleId*/  return new Property("listRuleId", "id", "Internal rule reference for shared list items.", 0, 1, listRuleId);
+          case 1052666732: /*transform*/  return new Property("transform", "code", "How the data is copied / created.", 0, 1, transform);
+          case 1954460585: /*parameter*/  return new Property("parameter", "", "Parameters to the transform.", 0, java.lang.Integer.MAX_VALUE, parameter);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -4637,9 +4757,24 @@ public class StructureMap extends MetadataResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, java.lang.Integer.MAX_VALUE, value));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1410166417: /*value[x]*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          case 231604844: /*valueId*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          case -1424603934: /*valueString*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          case 733421943: /*valueBoolean*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          case -1668204915: /*valueInteger*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          case -2083993440: /*valueDecimal*/  return new Property("value[x]", "id|string|boolean|integer|decimal", "Parameter value - variable or literal.", 0, 1, value);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -4902,10 +5037,20 @@ public class StructureMap extends MetadataResource {
           return false;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "id", "Name of a rule or group to apply.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("variable", "string", "Variable to pass to the rule or group.", 0, java.lang.Integer.MAX_VALUE, variable));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "id", "Name of a rule or group to apply.", 0, 1, name));
+          children.add(new Property("variable", "string", "Variable to pass to the rule or group.", 0, java.lang.Integer.MAX_VALUE, variable));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "id", "Name of a rule or group to apply.", 0, 1, name);
+          case -1249586564: /*variable*/  return new Property("variable", "string", "Variable to pass to the rule or group.", 0, java.lang.Integer.MAX_VALUE, variable);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -5981,26 +6126,52 @@ public class StructureMap extends MetadataResource {
       return getGroup().get(0);
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure map is (or will be) published. The URL SHOULD include the major version of the structure map. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the structure map.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("status", "code", "The status of this structure map. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("experimental", "boolean", "A boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the structure map was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the structure map.", 0, java.lang.Integer.MAX_VALUE, publisher));
-        childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("description", "markdown", "A free text natural language description of the structure map from a consumer's perspective.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate structure map instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        childrenList.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the structure map is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
-        childrenList.add(new Property("purpose", "markdown", "Explaination of why this structure map is needed and why it has been designed as it has.", 0, java.lang.Integer.MAX_VALUE, purpose));
-        childrenList.add(new Property("copyright", "markdown", "A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure map.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("structure", "", "A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.", 0, java.lang.Integer.MAX_VALUE, structure));
-        childrenList.add(new Property("import", "uri", "Other maps used by this map (canonical URLs).", 0, java.lang.Integer.MAX_VALUE, import_));
-        childrenList.add(new Property("group", "", "Organizes the mapping into managable chunks for human review/ease of maintenance.", 0, java.lang.Integer.MAX_VALUE, group));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure map is (or will be) published. The URL SHOULD include the major version of the structure map. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url));
+        children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
+        children.add(new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
+        children.add(new Property("title", "string", "A short, descriptive, user-friendly title for the structure map.", 0, 1, title));
+        children.add(new Property("status", "code", "The status of this structure map. Enables tracking the life-cycle of the content.", 0, 1, status));
+        children.add(new Property("experimental", "boolean", "A boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
+        children.add(new Property("date", "dateTime", "The date  (and optionally time) when the structure map was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.", 0, 1, date));
+        children.add(new Property("publisher", "string", "The name of the individual or organization that published the structure map.", 0, 1, publisher));
+        children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
+        children.add(new Property("description", "markdown", "A free text natural language description of the structure map from a consumer's perspective.", 0, 1, description));
+        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate structure map instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the structure map is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
+        children.add(new Property("purpose", "markdown", "Explaination of why this structure map is needed and why it has been designed as it has.", 0, 1, purpose));
+        children.add(new Property("copyright", "markdown", "A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure map.", 0, 1, copyright));
+        children.add(new Property("structure", "", "A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.", 0, java.lang.Integer.MAX_VALUE, structure));
+        children.add(new Property("import", "uri", "Other maps used by this map (canonical URLs).", 0, java.lang.Integer.MAX_VALUE, import_));
+        children.add(new Property("group", "", "Organizes the mapping into managable chunks for human review/ease of maintenance.", 0, java.lang.Integer.MAX_VALUE, group));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure map is (or will be) published. The URL SHOULD include the major version of the structure map. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
+        case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
+        case 110371416: /*title*/  return new Property("title", "string", "A short, descriptive, user-friendly title for the structure map.", 0, 1, title);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of this structure map. Enables tracking the life-cycle of the content.", 0, 1, status);
+        case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A boolean value to indicate that this structure map is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental);
+        case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the structure map was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure map changes.", 0, 1, date);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the structure map.", 0, 1, publisher);
+        case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
+        case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the structure map from a consumer's perspective.", 0, 1, description);
+        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate structure map instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
+        case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the structure map is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
+        case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explaination of why this structure map is needed and why it has been designed as it has.", 0, 1, purpose);
+        case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the structure map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure map.", 0, 1, copyright);
+        case 144518515: /*structure*/  return new Property("structure", "", "A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced.", 0, java.lang.Integer.MAX_VALUE, structure);
+        case -1184795739: /*import*/  return new Property("import", "uri", "Other maps used by this map (canonical URLs).", 0, java.lang.Integer.MAX_VALUE, import_);
+        case 98629247: /*group*/  return new Property("group", "", "Organizes the mapping into managable chunks for human review/ease of maintenance.", 0, java.lang.Integer.MAX_VALUE, group);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

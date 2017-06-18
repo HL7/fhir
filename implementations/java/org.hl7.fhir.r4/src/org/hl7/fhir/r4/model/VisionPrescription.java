@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1319,23 +1319,46 @@ public class VisionPrescription extends DomainResource {
           return getNote().get(0);
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("product", "CodeableConcept", "Identifies the type of vision correction product which is required for the patient.", 0, java.lang.Integer.MAX_VALUE, product));
-          childrenList.add(new Property("eye", "code", "The eye for which the lens applies.", 0, java.lang.Integer.MAX_VALUE, eye));
-          childrenList.add(new Property("sphere", "decimal", "Lens power measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, sphere));
-          childrenList.add(new Property("cylinder", "decimal", "Power adjustment for astigmatism measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, cylinder));
-          childrenList.add(new Property("axis", "integer", "Adjustment for astigmatism measured in integer degrees.", 0, java.lang.Integer.MAX_VALUE, axis));
-          childrenList.add(new Property("prism", "decimal", "Amount of prism to compensate for eye alignment in fractional units.", 0, java.lang.Integer.MAX_VALUE, prism));
-          childrenList.add(new Property("base", "code", "The relative base, or reference lens edge, for the prism.", 0, java.lang.Integer.MAX_VALUE, base));
-          childrenList.add(new Property("add", "decimal", "Power adjustment for multifocal lenses measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, add));
-          childrenList.add(new Property("power", "decimal", "Contact lens power measured in diopters (0.25 units).", 0, java.lang.Integer.MAX_VALUE, power));
-          childrenList.add(new Property("backCurve", "decimal", "Back curvature measured in millimeters.", 0, java.lang.Integer.MAX_VALUE, backCurve));
-          childrenList.add(new Property("diameter", "decimal", "Contact lens diameter measured in millimeters.", 0, java.lang.Integer.MAX_VALUE, diameter));
-          childrenList.add(new Property("duration", "SimpleQuantity", "The recommended maximum wear period for the lens.", 0, java.lang.Integer.MAX_VALUE, duration));
-          childrenList.add(new Property("color", "string", "Special color or pattern.", 0, java.lang.Integer.MAX_VALUE, color));
-          childrenList.add(new Property("brand", "string", "Brand recommendations or restrictions.", 0, java.lang.Integer.MAX_VALUE, brand));
-          childrenList.add(new Property("note", "Annotation", "Notes for special requirements such as coatings and lens materials.", 0, java.lang.Integer.MAX_VALUE, note));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("product", "CodeableConcept", "Identifies the type of vision correction product which is required for the patient.", 0, 1, product));
+          children.add(new Property("eye", "code", "The eye for which the lens applies.", 0, 1, eye));
+          children.add(new Property("sphere", "decimal", "Lens power measured in diopters (0.25 units).", 0, 1, sphere));
+          children.add(new Property("cylinder", "decimal", "Power adjustment for astigmatism measured in diopters (0.25 units).", 0, 1, cylinder));
+          children.add(new Property("axis", "integer", "Adjustment for astigmatism measured in integer degrees.", 0, 1, axis));
+          children.add(new Property("prism", "decimal", "Amount of prism to compensate for eye alignment in fractional units.", 0, 1, prism));
+          children.add(new Property("base", "code", "The relative base, or reference lens edge, for the prism.", 0, 1, base));
+          children.add(new Property("add", "decimal", "Power adjustment for multifocal lenses measured in diopters (0.25 units).", 0, 1, add));
+          children.add(new Property("power", "decimal", "Contact lens power measured in diopters (0.25 units).", 0, 1, power));
+          children.add(new Property("backCurve", "decimal", "Back curvature measured in millimeters.", 0, 1, backCurve));
+          children.add(new Property("diameter", "decimal", "Contact lens diameter measured in millimeters.", 0, 1, diameter));
+          children.add(new Property("duration", "SimpleQuantity", "The recommended maximum wear period for the lens.", 0, 1, duration));
+          children.add(new Property("color", "string", "Special color or pattern.", 0, 1, color));
+          children.add(new Property("brand", "string", "Brand recommendations or restrictions.", 0, 1, brand));
+          children.add(new Property("note", "Annotation", "Notes for special requirements such as coatings and lens materials.", 0, java.lang.Integer.MAX_VALUE, note));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -309474065: /*product*/  return new Property("product", "CodeableConcept", "Identifies the type of vision correction product which is required for the patient.", 0, 1, product);
+          case 100913: /*eye*/  return new Property("eye", "code", "The eye for which the lens applies.", 0, 1, eye);
+          case -895981619: /*sphere*/  return new Property("sphere", "decimal", "Lens power measured in diopters (0.25 units).", 0, 1, sphere);
+          case -349378602: /*cylinder*/  return new Property("cylinder", "decimal", "Power adjustment for astigmatism measured in diopters (0.25 units).", 0, 1, cylinder);
+          case 3008417: /*axis*/  return new Property("axis", "integer", "Adjustment for astigmatism measured in integer degrees.", 0, 1, axis);
+          case 106935105: /*prism*/  return new Property("prism", "decimal", "Amount of prism to compensate for eye alignment in fractional units.", 0, 1, prism);
+          case 3016401: /*base*/  return new Property("base", "code", "The relative base, or reference lens edge, for the prism.", 0, 1, base);
+          case 96417: /*add*/  return new Property("add", "decimal", "Power adjustment for multifocal lenses measured in diopters (0.25 units).", 0, 1, add);
+          case 106858757: /*power*/  return new Property("power", "decimal", "Contact lens power measured in diopters (0.25 units).", 0, 1, power);
+          case 1309344840: /*backCurve*/  return new Property("backCurve", "decimal", "Back curvature measured in millimeters.", 0, 1, backCurve);
+          case -233204595: /*diameter*/  return new Property("diameter", "decimal", "Contact lens diameter measured in millimeters.", 0, 1, diameter);
+          case -1992012396: /*duration*/  return new Property("duration", "SimpleQuantity", "The recommended maximum wear period for the lens.", 0, 1, duration);
+          case 94842723: /*color*/  return new Property("color", "string", "Special color or pattern.", 0, 1, color);
+          case 93997959: /*brand*/  return new Property("brand", "string", "Brand recommendations or restrictions.", 0, 1, brand);
+          case 3387378: /*note*/  return new Property("note", "Annotation", "Notes for special requirements such as coatings and lens materials.", 0, java.lang.Integer.MAX_VALUE, note);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -2083,16 +2106,35 @@ public class VisionPrescription extends DomainResource {
       return getDispense().get(0);
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Business identifier which may be used by other parties to reference or identify the prescription.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the vision products will be supplied.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was written.", 0, java.lang.Integer.MAX_VALUE, dateWritten));
-        childrenList.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, java.lang.Integer.MAX_VALUE, prescriber));
-        childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("dispense", "", "Deals with details of the dispense part of the supply specification.", 0, java.lang.Integer.MAX_VALUE, dispense));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "Business identifier which may be used by other parties to reference or identify the prescription.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("status", "code", "The status of the resource instance.", 0, 1, status));
+        children.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the vision products will be supplied.", 0, 1, patient));
+        children.add(new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, 1, encounter));
+        children.add(new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was written.", 0, 1, dateWritten));
+        children.add(new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, 1, prescriber));
+        children.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, 1, reason));
+        children.add(new Property("dispense", "", "Deals with details of the dispense part of the supply specification.", 0, java.lang.Integer.MAX_VALUE, dispense));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifier which may be used by other parties to reference or identify the prescription.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of the resource instance.", 0, 1, status);
+        case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the vision products will be supplied.", 0, 1, patient);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "A link to a resource that identifies the particular occurrence of contact between patient and health care provider.", 0, 1, encounter);
+        case -1496880759: /*dateWritten*/  return new Property("dateWritten", "dateTime", "The date (and perhaps time) when the prescription was written.", 0, 1, dateWritten);
+        case 1430631077: /*prescriber*/  return new Property("prescriber", "Reference(Practitioner)", "The healthcare professional responsible for authorizing the prescription.", 0, 1, prescriber);
+        case -669418564: /*reason[x]*/  return new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, 1, reason);
+        case -934964668: /*reason*/  return new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, 1, reason);
+        case -610155331: /*reasonCodeableConcept*/  return new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, 1, reason);
+        case -1146218137: /*reasonReference*/  return new Property("reason[x]", "CodeableConcept|Reference(Condition)", "Can be the reason or the indication for writing the prescription.", 0, 1, reason);
+        case 284885341: /*dispense*/  return new Property("dispense", "", "Deals with details of the dispense part of the supply specification.", 0, java.lang.Integer.MAX_VALUE, dispense);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

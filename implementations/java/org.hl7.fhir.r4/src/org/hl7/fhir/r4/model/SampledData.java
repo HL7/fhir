@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -495,15 +495,30 @@ public class SampledData extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("origin", "SimpleQuantity", "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.", 0, java.lang.Integer.MAX_VALUE, origin));
-        childrenList.add(new Property("period", "decimal", "The length of time between sampling times, measured in milliseconds.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("factor", "decimal", "A correction factor that is applied to the sampled data points before they are added to the origin.", 0, java.lang.Integer.MAX_VALUE, factor));
-        childrenList.add(new Property("lowerLimit", "decimal", "The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit).", 0, java.lang.Integer.MAX_VALUE, lowerLimit));
-        childrenList.add(new Property("upperLimit", "decimal", "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit).", 0, java.lang.Integer.MAX_VALUE, upperLimit));
-        childrenList.add(new Property("dimensions", "positiveInt", "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.", 0, java.lang.Integer.MAX_VALUE, dimensions));
-        childrenList.add(new Property("data", "string", "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value.", 0, java.lang.Integer.MAX_VALUE, data));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("origin", "SimpleQuantity", "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.", 0, 1, origin));
+        children.add(new Property("period", "decimal", "The length of time between sampling times, measured in milliseconds.", 0, 1, period));
+        children.add(new Property("factor", "decimal", "A correction factor that is applied to the sampled data points before they are added to the origin.", 0, 1, factor));
+        children.add(new Property("lowerLimit", "decimal", "The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit).", 0, 1, lowerLimit));
+        children.add(new Property("upperLimit", "decimal", "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit).", 0, 1, upperLimit));
+        children.add(new Property("dimensions", "positiveInt", "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.", 0, 1, dimensions));
+        children.add(new Property("data", "string", "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value.", 0, 1, data));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1008619738: /*origin*/  return new Property("origin", "SimpleQuantity", "The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.", 0, 1, origin);
+        case -991726143: /*period*/  return new Property("period", "decimal", "The length of time between sampling times, measured in milliseconds.", 0, 1, period);
+        case -1282148017: /*factor*/  return new Property("factor", "decimal", "A correction factor that is applied to the sampled data points before they are added to the origin.", 0, 1, factor);
+        case 1209133370: /*lowerLimit*/  return new Property("lowerLimit", "decimal", "The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit).", 0, 1, lowerLimit);
+        case -1681713095: /*upperLimit*/  return new Property("upperLimit", "decimal", "The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit).", 0, 1, upperLimit);
+        case 414334925: /*dimensions*/  return new Property("dimensions", "positiveInt", "The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.", 0, 1, dimensions);
+        case 3076010: /*data*/  return new Property("data", "string", "A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value.", 0, 1, data);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

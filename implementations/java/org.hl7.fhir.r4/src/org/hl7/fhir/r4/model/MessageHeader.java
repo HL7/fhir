@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -391,12 +391,24 @@ public class MessageHeader extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "Human-readable name for the target system.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("target", "Reference(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, java.lang.Integer.MAX_VALUE, target));
-          childrenList.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
-          childrenList.add(new Property("receiver", "Reference(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, java.lang.Integer.MAX_VALUE, receiver));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "string", "Human-readable name for the target system.", 0, 1, name));
+          children.add(new Property("target", "Reference(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, 1, target));
+          children.add(new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, 1, endpoint));
+          children.add(new Property("receiver", "Reference(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, 1, receiver));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "string", "Human-readable name for the target system.", 0, 1, name);
+          case -880905839: /*target*/  return new Property("target", "Reference(Device)", "Identifies the target end system in situations where the initial message transmission is to an intermediary system.", 0, 1, target);
+          case 1741102485: /*endpoint*/  return new Property("endpoint", "uri", "Indicates where the message should be routed to.", 0, 1, endpoint);
+          case -808719889: /*receiver*/  return new Property("receiver", "Reference(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, 1, receiver);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -803,13 +815,26 @@ public class MessageHeader extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "Human-readable name for the source system.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("software", "string", "May include configuration or other information useful in debugging.", 0, java.lang.Integer.MAX_VALUE, software));
-          childrenList.add(new Property("version", "string", "Can convey versions of multiple systems in situations where a message passes through multiple hands.", 0, java.lang.Integer.MAX_VALUE, version));
-          childrenList.add(new Property("contact", "ContactPoint", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, java.lang.Integer.MAX_VALUE, contact));
-          childrenList.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, java.lang.Integer.MAX_VALUE, endpoint));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "string", "Human-readable name for the source system.", 0, 1, name));
+          children.add(new Property("software", "string", "May include configuration or other information useful in debugging.", 0, 1, software));
+          children.add(new Property("version", "string", "Can convey versions of multiple systems in situations where a message passes through multiple hands.", 0, 1, version));
+          children.add(new Property("contact", "ContactPoint", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, 1, contact));
+          children.add(new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, 1, endpoint));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "string", "Human-readable name for the source system.", 0, 1, name);
+          case 1319330215: /*software*/  return new Property("software", "string", "May include configuration or other information useful in debugging.", 0, 1, software);
+          case 351608024: /*version*/  return new Property("version", "string", "Can convey versions of multiple systems in situations where a message passes through multiple hands.", 0, 1, version);
+          case 951526432: /*contact*/  return new Property("contact", "ContactPoint", "An e-mail, phone, website or other contact point to use to resolve issues with message communications.", 0, 1, contact);
+          case 1741102485: /*endpoint*/  return new Property("endpoint", "uri", "Identifies the routing target to send acknowledgements to.", 0, 1, endpoint);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1139,11 +1164,22 @@ public class MessageHeader extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("identifier", "id", "The MessageHeader.id of the message to which this message is a response.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("details", "Reference(OperationOutcome)", "Full details of any issues found in the message.", 0, java.lang.Integer.MAX_VALUE, details));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("identifier", "id", "The MessageHeader.id of the message to which this message is a response.", 0, 1, identifier));
+          children.add(new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, 1, code));
+          children.add(new Property("details", "Reference(OperationOutcome)", "Full details of any issues found in the message.", 0, 1, details));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1618432855: /*identifier*/  return new Property("identifier", "id", "The MessageHeader.id of the message to which this message is a response.", 0, 1, identifier);
+          case 3059181: /*code*/  return new Property("code", "code", "Code that identifies the type of response to the message - whether it was successful or not, and whether it should be resent or not.", 0, 1, code);
+          case 1557721666: /*details*/  return new Property("details", "Reference(OperationOutcome)", "Full details of any issues found in the message.", 0, 1, details);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1815,19 +1851,38 @@ public class MessageHeader extends DomainResource {
       return this.focusTarget;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("event", "Coding", "Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\".", 0, java.lang.Integer.MAX_VALUE, event));
-        childrenList.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));
-        childrenList.add(new Property("sender", "Reference(Practitioner|Organization)", "Identifies the sending system to allow the use of a trust relationship.", 0, java.lang.Integer.MAX_VALUE, sender));
-        childrenList.add(new Property("timestamp", "instant", "The time that the message was sent.", 0, java.lang.Integer.MAX_VALUE, timestamp));
-        childrenList.add(new Property("enterer", "Reference(Practitioner)", "The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, java.lang.Integer.MAX_VALUE, enterer));
-        childrenList.add(new Property("author", "Reference(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("source", "", "The source application from which this message originated.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("responsible", "Reference(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
-        childrenList.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, java.lang.Integer.MAX_VALUE, response));
-        childrenList.add(new Property("focus", "Reference(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, focus));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("event", "Coding", "Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\".", 0, 1, event));
+        children.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));
+        children.add(new Property("sender", "Reference(Practitioner|Organization)", "Identifies the sending system to allow the use of a trust relationship.", 0, 1, sender));
+        children.add(new Property("timestamp", "instant", "The time that the message was sent.", 0, 1, timestamp));
+        children.add(new Property("enterer", "Reference(Practitioner)", "The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, 1, enterer));
+        children.add(new Property("author", "Reference(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, 1, author));
+        children.add(new Property("source", "", "The source application from which this message originated.", 0, 1, source));
+        children.add(new Property("responsible", "Reference(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, 1, responsible));
+        children.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.", 0, 1, reason));
+        children.add(new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, 1, response));
+        children.add(new Property("focus", "Reference(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, focus));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 96891546: /*event*/  return new Property("event", "Coding", "Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\".", 0, 1, event);
+        case -1429847026: /*destination*/  return new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination);
+        case -905962955: /*sender*/  return new Property("sender", "Reference(Practitioner|Organization)", "Identifies the sending system to allow the use of a trust relationship.", 0, 1, sender);
+        case 55126294: /*timestamp*/  return new Property("timestamp", "instant", "The time that the message was sent.", 0, 1, timestamp);
+        case -1591951995: /*enterer*/  return new Property("enterer", "Reference(Practitioner)", "The person or device that performed the data entry leading to this message. When there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, 1, enterer);
+        case -1406328437: /*author*/  return new Property("author", "Reference(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. When there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, 1, author);
+        case -896505829: /*source*/  return new Property("source", "", "The source application from which this message originated.", 0, 1, source);
+        case 1847674614: /*responsible*/  return new Property("responsible", "Reference(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, 1, responsible);
+        case -934964668: /*reason*/  return new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.", 0, 1, reason);
+        case -340323263: /*response*/  return new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, 1, response);
+        case 97604824: /*focus*/  return new Property("focus", "Reference(Any)", "The actual data of the message - a reference to the root/focus class of the event.", 0, java.lang.Integer.MAX_VALUE, focus);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

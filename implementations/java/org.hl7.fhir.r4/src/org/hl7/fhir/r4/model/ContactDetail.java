@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -172,10 +172,20 @@ public class ContactDetail extends Type implements ICompositeType {
       return getTelecom().get(0);
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("name", "string", "The name of an individual to contact.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("telecom", "ContactPoint", "The contact details for the individual (if a name was provided) or the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("name", "string", "The name of an individual to contact.", 0, 1, name));
+        children.add(new Property("telecom", "ContactPoint", "The contact details for the individual (if a name was provided) or the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 3373707: /*name*/  return new Property("name", "string", "The name of an individual to contact.", 0, 1, name);
+        case -1429363305: /*telecom*/  return new Property("telecom", "ContactPoint", "The contact details for the individual (if a name was provided) or the organization.", 0, java.lang.Integer.MAX_VALUE, telecom);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

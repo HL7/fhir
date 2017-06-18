@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -222,11 +222,22 @@ public class Binary extends BaseBinary implements IBaseBinary {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, java.lang.Integer.MAX_VALUE, contentType));
-        childrenList.add(new Property("securityContext", "Reference(Any)", "Treat this binary as if it was this other resource for access control purposes.", 0, java.lang.Integer.MAX_VALUE, securityContext));
-        childrenList.add(new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, java.lang.Integer.MAX_VALUE, content));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, 1, contentType));
+        children.add(new Property("securityContext", "Reference(Any)", "Treat this binary as if it was this other resource for access control purposes.", 0, 1, securityContext));
+        children.add(new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, 1, content));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -389131437: /*contentType*/  return new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, 1, contentType);
+        case -1622888881: /*securityContext*/  return new Property("securityContext", "Reference(Any)", "Treat this binary as if it was this other resource for access control purposes.", 0, 1, securityContext);
+        case 951530617: /*content*/  return new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, 1, content);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

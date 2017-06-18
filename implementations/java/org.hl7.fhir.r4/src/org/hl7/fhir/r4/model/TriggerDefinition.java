@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -454,12 +454,29 @@ public class TriggerDefinition extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("type", "code", "The type of triggering event.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("eventName", "string", "The name of the event (if this is a named-event trigger).", 0, java.lang.Integer.MAX_VALUE, eventName));
-        childrenList.add(new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, java.lang.Integer.MAX_VALUE, eventTiming));
-        childrenList.add(new Property("eventData", "DataRequirement", "The triggering data of the event (if this is a data trigger).", 0, java.lang.Integer.MAX_VALUE, eventData));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("type", "code", "The type of triggering event.", 0, 1, type));
+        children.add(new Property("eventName", "string", "The name of the event (if this is a named-event trigger).", 0, 1, eventName));
+        children.add(new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming));
+        children.add(new Property("eventData", "DataRequirement", "The triggering data of the event (if this is a data trigger).", 0, 1, eventData));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 3575610: /*type*/  return new Property("type", "code", "The type of triggering event.", 0, 1, type);
+        case 31228997: /*eventName*/  return new Property("eventName", "string", "The name of the event (if this is a named-event trigger).", 0, 1, eventName);
+        case 1120539260: /*eventTiming[x]*/  return new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming);
+        case 125465476: /*eventTiming*/  return new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming);
+        case 1285594350: /*eventTimingTiming*/  return new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming);
+        case -171794393: /*eventTimingReference*/  return new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming);
+        case 376272210: /*eventTimingDate*/  return new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming);
+        case -1923726529: /*eventTimingDateTime*/  return new Property("eventTiming[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a period trigger).", 0, 1, eventTiming);
+        case 30931300: /*eventData*/  return new Property("eventData", "DataRequirement", "The triggering data of the event (if this is a data trigger).", 0, 1, eventData);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

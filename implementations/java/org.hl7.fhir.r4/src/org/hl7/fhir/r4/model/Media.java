@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1091,26 +1091,55 @@ public class Media extends DomainResource {
       return getNote().get(0);
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("basedOn", "Reference(ProcedureRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        childrenList.add(new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, java.lang.Integer.MAX_VALUE, subtype));
-        childrenList.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, java.lang.Integer.MAX_VALUE, view));
-        childrenList.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this media.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, java.lang.Integer.MAX_VALUE, occurrence));
-        childrenList.add(new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, java.lang.Integer.MAX_VALUE, operator));
-        childrenList.add(new Property("reasonCode", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
-        childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the media was collected (i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, bodySite));
-        childrenList.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to collect the media.", 0, java.lang.Integer.MAX_VALUE, device));
-        childrenList.add(new Property("height", "positiveInt", "Height of the image in pixels (photo/video).", 0, java.lang.Integer.MAX_VALUE, height));
-        childrenList.add(new Property("width", "positiveInt", "Width of the image in pixels (photo/video).", 0, java.lang.Integer.MAX_VALUE, width));
-        childrenList.add(new Property("frames", "positiveInt", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, java.lang.Integer.MAX_VALUE, frames));
-        childrenList.add(new Property("duration", "unsignedInt", "The duration of the recording in seconds - for audio and video.", 0, java.lang.Integer.MAX_VALUE, duration));
-        childrenList.add(new Property("content", "Attachment", "The actual content of the media - inline or by direct reference to the media source file.", 0, java.lang.Integer.MAX_VALUE, content));
-        childrenList.add(new Property("note", "Annotation", "Comments made about the media by the performer, subject or other participants.", 0, java.lang.Integer.MAX_VALUE, note));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("basedOn", "Reference(ProcedureRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, 1, type));
+        children.add(new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, subtype));
+        children.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view));
+        children.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, 1, subject));
+        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this media.", 0, 1, context));
+        children.add(new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence));
+        children.add(new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, 1, operator));
+        children.add(new Property("reasonCode", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        children.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the media was collected (i.e. the target site).", 0, 1, bodySite));
+        children.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to collect the media.", 0, 1, device));
+        children.add(new Property("height", "positiveInt", "Height of the image in pixels (photo/video).", 0, 1, height));
+        children.add(new Property("width", "positiveInt", "Width of the image in pixels (photo/video).", 0, 1, width));
+        children.add(new Property("frames", "positiveInt", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, 1, frames));
+        children.add(new Property("duration", "unsignedInt", "The duration of the recording in seconds - for audio and video.", 0, 1, duration));
+        children.add(new Property("content", "Attachment", "The actual content of the media - inline or by direct reference to the media source file.", 0, 1, content));
+        children.add(new Property("note", "Annotation", "Comments made about the media by the performer, subject or other participants.", 0, java.lang.Integer.MAX_VALUE, note));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(ProcedureRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case 3575610: /*type*/  return new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, 1, type);
+        case -1867567750: /*subtype*/  return new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, subtype);
+        case 3619493: /*view*/  return new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, 1, subject);
+        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this media.", 0, 1, context);
+        case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
+        case 1687874001: /*occurrence*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
+        case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
+        case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
+        case -500553564: /*operator*/  return new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, 1, operator);
+        case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
+        case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the media was collected (i.e. the target site).", 0, 1, bodySite);
+        case -1335157162: /*device*/  return new Property("device", "Reference(Device|DeviceMetric)", "The device used to collect the media.", 0, 1, device);
+        case -1221029593: /*height*/  return new Property("height", "positiveInt", "Height of the image in pixels (photo/video).", 0, 1, height);
+        case 113126854: /*width*/  return new Property("width", "positiveInt", "Width of the image in pixels (photo/video).", 0, 1, width);
+        case -1266514778: /*frames*/  return new Property("frames", "positiveInt", "The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.", 0, 1, frames);
+        case -1992012396: /*duration*/  return new Property("duration", "unsignedInt", "The duration of the recording in seconds - for audio and video.", 0, 1, duration);
+        case 951530617: /*content*/  return new Property("content", "Attachment", "The actual content of the media - inline or by direct reference to the media source file.", 0, 1, content);
+        case 3387378: /*note*/  return new Property("note", "Annotation", "Comments made about the media by the performer, subject or other participants.", 0, java.lang.Integer.MAX_VALUE, note);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

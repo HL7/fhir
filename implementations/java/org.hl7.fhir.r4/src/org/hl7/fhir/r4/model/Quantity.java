@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -531,13 +531,26 @@ public class Quantity extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("value", "decimal", "The value of the measured amount. The value includes an implicit precision in the presentation of the value.", 0, java.lang.Integer.MAX_VALUE, value));
-        childrenList.add(new Property("comparator", "code", "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.", 0, java.lang.Integer.MAX_VALUE, comparator));
-        childrenList.add(new Property("unit", "string", "A human-readable form of the unit.", 0, java.lang.Integer.MAX_VALUE, unit));
-        childrenList.add(new Property("system", "uri", "The identification of the system that provides the coded form of the unit.", 0, java.lang.Integer.MAX_VALUE, system));
-        childrenList.add(new Property("code", "code", "A computer processable form of the unit in some unit representation system.", 0, java.lang.Integer.MAX_VALUE, code));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("value", "decimal", "The value of the measured amount. The value includes an implicit precision in the presentation of the value.", 0, 1, value));
+        children.add(new Property("comparator", "code", "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.", 0, 1, comparator));
+        children.add(new Property("unit", "string", "A human-readable form of the unit.", 0, 1, unit));
+        children.add(new Property("system", "uri", "The identification of the system that provides the coded form of the unit.", 0, 1, system));
+        children.add(new Property("code", "code", "A computer processable form of the unit in some unit representation system.", 0, 1, code));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 111972721: /*value*/  return new Property("value", "decimal", "The value of the measured amount. The value includes an implicit precision in the presentation of the value.", 0, 1, value);
+        case -844673834: /*comparator*/  return new Property("comparator", "code", "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.", 0, 1, comparator);
+        case 3594628: /*unit*/  return new Property("unit", "string", "A human-readable form of the unit.", 0, 1, unit);
+        case -887328209: /*system*/  return new Property("system", "uri", "The identification of the system that provides the coded form of the unit.", 0, 1, system);
+        case 3059181: /*code*/  return new Property("code", "code", "A computer processable form of the unit in some unit representation system.", 0, 1, code);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

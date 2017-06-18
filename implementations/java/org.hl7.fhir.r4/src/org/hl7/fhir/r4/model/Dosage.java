@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -671,22 +671,54 @@ public class Dosage extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("sequence", "integer", "Indicates the order in which the dosage instructions should be applied or interpreted.", 0, java.lang.Integer.MAX_VALUE, sequence));
-        childrenList.add(new Property("text", "string", "Free text dosage instructions e.g. SIG.", 0, java.lang.Integer.MAX_VALUE, text));
-        childrenList.add(new Property("additionalInstruction", "CodeableConcept", "Supplemental instruction - e.g. \"with meals\".", 0, java.lang.Integer.MAX_VALUE, additionalInstruction));
-        childrenList.add(new Property("patientInstruction", "string", "Instructions in terms that are understood by the patient or consumer.", 0, java.lang.Integer.MAX_VALUE, patientInstruction));
-        childrenList.add(new Property("timing", "Timing", "When medication should be administered.", 0, java.lang.Integer.MAX_VALUE, timing));
-        childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, asNeeded));
-        childrenList.add(new Property("site", "CodeableConcept", "Body site to administer to.", 0, java.lang.Integer.MAX_VALUE, site));
-        childrenList.add(new Property("route", "CodeableConcept", "How drug should enter body.", 0, java.lang.Integer.MAX_VALUE, route));
-        childrenList.add(new Property("method", "CodeableConcept", "Technique for administering medication.", 0, java.lang.Integer.MAX_VALUE, method));
-        childrenList.add(new Property("dose[x]", "Range|SimpleQuantity", "Amount of medication per dose.", 0, java.lang.Integer.MAX_VALUE, dose));
-        childrenList.add(new Property("maxDosePerPeriod", "Ratio", "Upper limit on medication per unit of time.", 0, java.lang.Integer.MAX_VALUE, maxDosePerPeriod));
-        childrenList.add(new Property("maxDosePerAdministration", "SimpleQuantity", "Upper limit on medication per administration.", 0, java.lang.Integer.MAX_VALUE, maxDosePerAdministration));
-        childrenList.add(new Property("maxDosePerLifetime", "SimpleQuantity", "Upper limit on medication per lifetime of the patient.", 0, java.lang.Integer.MAX_VALUE, maxDosePerLifetime));
-        childrenList.add(new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, java.lang.Integer.MAX_VALUE, rate));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("sequence", "integer", "Indicates the order in which the dosage instructions should be applied or interpreted.", 0, 1, sequence));
+        children.add(new Property("text", "string", "Free text dosage instructions e.g. SIG.", 0, 1, text));
+        children.add(new Property("additionalInstruction", "CodeableConcept", "Supplemental instruction - e.g. \"with meals\".", 0, java.lang.Integer.MAX_VALUE, additionalInstruction));
+        children.add(new Property("patientInstruction", "string", "Instructions in terms that are understood by the patient or consumer.", 0, 1, patientInstruction));
+        children.add(new Property("timing", "Timing", "When medication should be administered.", 0, 1, timing));
+        children.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, 1, asNeeded));
+        children.add(new Property("site", "CodeableConcept", "Body site to administer to.", 0, 1, site));
+        children.add(new Property("route", "CodeableConcept", "How drug should enter body.", 0, 1, route));
+        children.add(new Property("method", "CodeableConcept", "Technique for administering medication.", 0, 1, method));
+        children.add(new Property("dose[x]", "Range|SimpleQuantity", "Amount of medication per dose.", 0, 1, dose));
+        children.add(new Property("maxDosePerPeriod", "Ratio", "Upper limit on medication per unit of time.", 0, 1, maxDosePerPeriod));
+        children.add(new Property("maxDosePerAdministration", "SimpleQuantity", "Upper limit on medication per administration.", 0, 1, maxDosePerAdministration));
+        children.add(new Property("maxDosePerLifetime", "SimpleQuantity", "Upper limit on medication per lifetime of the patient.", 0, 1, maxDosePerLifetime));
+        children.add(new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, 1, rate));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 1349547969: /*sequence*/  return new Property("sequence", "integer", "Indicates the order in which the dosage instructions should be applied or interpreted.", 0, 1, sequence);
+        case 3556653: /*text*/  return new Property("text", "string", "Free text dosage instructions e.g. SIG.", 0, 1, text);
+        case 1623641575: /*additionalInstruction*/  return new Property("additionalInstruction", "CodeableConcept", "Supplemental instruction - e.g. \"with meals\".", 0, java.lang.Integer.MAX_VALUE, additionalInstruction);
+        case 737543241: /*patientInstruction*/  return new Property("patientInstruction", "string", "Instructions in terms that are understood by the patient or consumer.", 0, 1, patientInstruction);
+        case -873664438: /*timing*/  return new Property("timing", "Timing", "When medication should be administered.", 0, 1, timing);
+        case -544329575: /*asNeeded[x]*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, 1, asNeeded);
+        case -1432923513: /*asNeeded*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, 1, asNeeded);
+        case -591717471: /*asNeededBoolean*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, 1, asNeeded);
+        case 1556420122: /*asNeededCodeableConcept*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, 1, asNeeded);
+        case 3530567: /*site*/  return new Property("site", "CodeableConcept", "Body site to administer to.", 0, 1, site);
+        case 108704329: /*route*/  return new Property("route", "CodeableConcept", "How drug should enter body.", 0, 1, route);
+        case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Technique for administering medication.", 0, 1, method);
+        case 1843195715: /*dose[x]*/  return new Property("dose[x]", "Range|SimpleQuantity", "Amount of medication per dose.", 0, 1, dose);
+        case 3089437: /*dose*/  return new Property("dose[x]", "Range|SimpleQuantity", "Amount of medication per dose.", 0, 1, dose);
+        case 1775578912: /*doseRange*/  return new Property("dose[x]", "Range|SimpleQuantity", "Amount of medication per dose.", 0, 1, dose);
+        case 1230053850: /*doseSimpleQuantity*/  return new Property("dose[x]", "Range|SimpleQuantity", "Amount of medication per dose.", 0, 1, dose);
+        case 1506263709: /*maxDosePerPeriod*/  return new Property("maxDosePerPeriod", "Ratio", "Upper limit on medication per unit of time.", 0, 1, maxDosePerPeriod);
+        case 2004889914: /*maxDosePerAdministration*/  return new Property("maxDosePerAdministration", "SimpleQuantity", "Upper limit on medication per administration.", 0, 1, maxDosePerAdministration);
+        case 642099621: /*maxDosePerLifetime*/  return new Property("maxDosePerLifetime", "SimpleQuantity", "Upper limit on medication per lifetime of the patient.", 0, 1, maxDosePerLifetime);
+        case 983460768: /*rate[x]*/  return new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, 1, rate);
+        case 3493088: /*rate*/  return new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, 1, rate);
+        case 204021515: /*rateRatio*/  return new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, 1, rate);
+        case 204015677: /*rateRange*/  return new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, 1, rate);
+        case -2121057955: /*rateSimpleQuantity*/  return new Property("rate[x]", "Ratio|Range|SimpleQuantity", "Amount of medication per unit of time.", 0, 1, rate);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -162,10 +162,24 @@ public class UsageContext extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("code", "Coding", "A code that identifies the type of context being specified by this usage context.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, java.lang.Integer.MAX_VALUE, value));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("code", "Coding", "A code that identifies the type of context being specified by this usage context.", 0, 1, code));
+        children.add(new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, 1, value));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 3059181: /*code*/  return new Property("code", "Coding", "A code that identifies the type of context being specified by this usage context.", 0, 1, code);
+        case -1410166417: /*value[x]*/  return new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, 1, value);
+        case 111972721: /*value*/  return new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, 1, value);
+        case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, 1, value);
+        case -2029823716: /*valueQuantity*/  return new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, 1, value);
+        case 2030761548: /*valueRange*/  return new Property("value[x]", "CodeableConcept|Quantity|Range", "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.", 0, 1, value);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

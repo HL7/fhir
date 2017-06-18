@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -555,14 +555,28 @@ public class RelatedArtifact extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("type", "code", "The type of relationship to the related artifact.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("display", "string", "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.", 0, java.lang.Integer.MAX_VALUE, display));
-        childrenList.add(new Property("citation", "string", "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.", 0, java.lang.Integer.MAX_VALUE, citation));
-        childrenList.add(new Property("url", "uri", "A url for the artifact that can be followed to access the actual content.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("document", "Attachment", "The document being referenced, represented as an attachment. This is exclusive with the resource element.", 0, java.lang.Integer.MAX_VALUE, document));
-        childrenList.add(new Property("resource", "Reference(Any)", "The related resource, such as a library, value set, profile, or other knowledge resource.", 0, java.lang.Integer.MAX_VALUE, resource));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("type", "code", "The type of relationship to the related artifact.", 0, 1, type));
+        children.add(new Property("display", "string", "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.", 0, 1, display));
+        children.add(new Property("citation", "string", "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.", 0, 1, citation));
+        children.add(new Property("url", "uri", "A url for the artifact that can be followed to access the actual content.", 0, 1, url));
+        children.add(new Property("document", "Attachment", "The document being referenced, represented as an attachment. This is exclusive with the resource element.", 0, 1, document));
+        children.add(new Property("resource", "Reference(Any)", "The related resource, such as a library, value set, profile, or other knowledge resource.", 0, 1, resource));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 3575610: /*type*/  return new Property("type", "code", "The type of relationship to the related artifact.", 0, 1, type);
+        case 1671764162: /*display*/  return new Property("display", "string", "A brief description of the document or knowledge resource being referenced, suitable for display to a consumer.", 0, 1, display);
+        case -1442706713: /*citation*/  return new Property("citation", "string", "A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format.", 0, 1, citation);
+        case 116079: /*url*/  return new Property("url", "uri", "A url for the artifact that can be followed to access the actual content.", 0, 1, url);
+        case 861720859: /*document*/  return new Property("document", "Attachment", "The document being referenced, represented as an attachment. This is exclusive with the resource element.", 0, 1, document);
+        case -341064690: /*resource*/  return new Property("resource", "Reference(Any)", "The related resource, such as a library, value set, profile, or other knowledge resource.", 0, 1, resource);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

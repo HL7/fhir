@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -511,15 +511,30 @@ public class Patient extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
-          childrenList.add(new Property("name", "HumanName", "A name associated with the contact person.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
-          childrenList.add(new Property("address", "Address", "Address for the contact person.", 0, java.lang.Integer.MAX_VALUE, address));
-          childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
-          childrenList.add(new Property("organization", "Reference(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, java.lang.Integer.MAX_VALUE, organization));
-          childrenList.add(new Property("period", "Period", "The period during which this contact person or organization is valid to be contacted relating to this patient.", 0, java.lang.Integer.MAX_VALUE, period));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship));
+          children.add(new Property("name", "HumanName", "A name associated with the contact person.", 0, 1, name));
+          children.add(new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom));
+          children.add(new Property("address", "Address", "Address for the contact person.", 0, 1, address));
+          children.add(new Property("gender", "code", "Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.", 0, 1, gender));
+          children.add(new Property("organization", "Reference(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, 1, organization));
+          children.add(new Property("period", "Period", "The period during which this contact person or organization is valid to be contacted relating to this patient.", 0, 1, period));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -261851592: /*relationship*/  return new Property("relationship", "CodeableConcept", "The nature of the relationship between the patient and the contact person.", 0, java.lang.Integer.MAX_VALUE, relationship);
+          case 3373707: /*name*/  return new Property("name", "HumanName", "A name associated with the contact person.", 0, 1, name);
+          case -1429363305: /*telecom*/  return new Property("telecom", "ContactPoint", "A contact detail for the person, e.g. a telephone number or an email address.", 0, java.lang.Integer.MAX_VALUE, telecom);
+          case -1147692044: /*address*/  return new Property("address", "Address", "Address for the contact person.", 0, 1, address);
+          case -1249512767: /*gender*/  return new Property("gender", "code", "Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.", 0, 1, gender);
+          case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "Organization on behalf of which the contact is acting or for which the contact is working.", 0, 1, organization);
+          case -991726143: /*period*/  return new Property("period", "Period", "The period during which this contact person or organization is valid to be contacted relating to this patient.", 0, 1, period);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -820,11 +835,22 @@ public class Patient extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("species", "CodeableConcept", "Identifies the high level taxonomic categorization of the kind of animal.", 0, java.lang.Integer.MAX_VALUE, species));
-          childrenList.add(new Property("breed", "CodeableConcept", "Identifies the detailed categorization of the kind of animal.", 0, java.lang.Integer.MAX_VALUE, breed));
-          childrenList.add(new Property("genderStatus", "CodeableConcept", "Indicates the current state of the animal's reproductive organs.", 0, java.lang.Integer.MAX_VALUE, genderStatus));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("species", "CodeableConcept", "Identifies the high level taxonomic categorization of the kind of animal.", 0, 1, species));
+          children.add(new Property("breed", "CodeableConcept", "Identifies the detailed categorization of the kind of animal.", 0, 1, breed));
+          children.add(new Property("genderStatus", "CodeableConcept", "Indicates the current state of the animal's reproductive organs.", 0, 1, genderStatus));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -2008465092: /*species*/  return new Property("species", "CodeableConcept", "Identifies the high level taxonomic categorization of the kind of animal.", 0, 1, species);
+          case 94001524: /*breed*/  return new Property("breed", "CodeableConcept", "Identifies the detailed categorization of the kind of animal.", 0, 1, breed);
+          case -678569453: /*genderStatus*/  return new Property("genderStatus", "CodeableConcept", "Indicates the current state of the animal's reproductive organs.", 0, 1, genderStatus);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1053,10 +1079,20 @@ public class Patient extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("language", "CodeableConcept", "The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English.", 0, java.lang.Integer.MAX_VALUE, language));
-          childrenList.add(new Property("preferred", "boolean", "Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).", 0, java.lang.Integer.MAX_VALUE, preferred));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("language", "CodeableConcept", "The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English.", 0, 1, language));
+          children.add(new Property("preferred", "boolean", "Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).", 0, 1, preferred));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1613589672: /*language*/  return new Property("language", "CodeableConcept", "The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English.", 0, 1, language);
+          case -1294005119: /*preferred*/  return new Property("preferred", "boolean", "Indicates whether or not the patient prefers this language (over other languages he masters up a certain level).", 0, 1, preferred);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1290,10 +1326,20 @@ public class Patient extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("other", "Reference(Patient|RelatedPerson)", "The other patient resource that the link refers to.", 0, java.lang.Integer.MAX_VALUE, other));
-          childrenList.add(new Property("type", "code", "The type of link between this patient resource and another patient resource.", 0, java.lang.Integer.MAX_VALUE, type));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("other", "Reference(Patient|RelatedPerson)", "The other patient resource that the link refers to.", 0, 1, other));
+          children.add(new Property("type", "code", "The type of link between this patient resource and another patient resource.", 0, 1, type));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 106069776: /*other*/  return new Property("other", "Reference(Patient|RelatedPerson)", "The other patient resource that the link refers to.", 0, 1, other);
+          case 3575610: /*type*/  return new Property("type", "code", "The type of link between this patient resource and another patient resource.", 0, 1, type);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -2357,25 +2403,56 @@ public class Patient extends DomainResource {
       return getLink().get(0);
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "An identifier for this patient.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("active", "boolean", "Whether this patient record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
-        childrenList.add(new Property("name", "HumanName", "A name associated with the individual.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
-        childrenList.add(new Property("birthDate", "date", "The date of birth for the individual.", 0, java.lang.Integer.MAX_VALUE, birthDate));
-        childrenList.add(new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, java.lang.Integer.MAX_VALUE, deceased));
-        childrenList.add(new Property("address", "Address", "Addresses for the individual.", 0, java.lang.Integer.MAX_VALUE, address));
-        childrenList.add(new Property("maritalStatus", "CodeableConcept", "This field contains a patient's most recent marital (civil) status.", 0, java.lang.Integer.MAX_VALUE, maritalStatus));
-        childrenList.add(new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, java.lang.Integer.MAX_VALUE, multipleBirth));
-        childrenList.add(new Property("photo", "Attachment", "Image of the patient.", 0, java.lang.Integer.MAX_VALUE, photo));
-        childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("animal", "", "This patient is known to be an animal.", 0, java.lang.Integer.MAX_VALUE, animal));
-        childrenList.add(new Property("communication", "", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
-        childrenList.add(new Property("generalPractitioner", "Reference(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, generalPractitioner));
-        childrenList.add(new Property("managingOrganization", "Reference(Organization)", "Organization that is the custodian of the patient record.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
-        childrenList.add(new Property("link", "", "Link to another patient resource that concerns the same actual patient.", 0, java.lang.Integer.MAX_VALUE, link));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "An identifier for this patient.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("active", "boolean", "Whether this patient record is in active use.", 0, 1, active));
+        children.add(new Property("name", "HumanName", "A name associated with the individual.", 0, java.lang.Integer.MAX_VALUE, name));
+        children.add(new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        children.add(new Property("gender", "code", "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.", 0, 1, gender));
+        children.add(new Property("birthDate", "date", "The date of birth for the individual.", 0, 1, birthDate));
+        children.add(new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, 1, deceased));
+        children.add(new Property("address", "Address", "Addresses for the individual.", 0, java.lang.Integer.MAX_VALUE, address));
+        children.add(new Property("maritalStatus", "CodeableConcept", "This field contains a patient's most recent marital (civil) status.", 0, 1, maritalStatus));
+        children.add(new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, 1, multipleBirth));
+        children.add(new Property("photo", "Attachment", "Image of the patient.", 0, java.lang.Integer.MAX_VALUE, photo));
+        children.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
+        children.add(new Property("animal", "", "This patient is known to be an animal.", 0, 1, animal));
+        children.add(new Property("communication", "", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication));
+        children.add(new Property("generalPractitioner", "Reference(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, generalPractitioner));
+        children.add(new Property("managingOrganization", "Reference(Organization)", "Organization that is the custodian of the patient record.", 0, 1, managingOrganization));
+        children.add(new Property("link", "", "Link to another patient resource that concerns the same actual patient.", 0, java.lang.Integer.MAX_VALUE, link));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "An identifier for this patient.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1422950650: /*active*/  return new Property("active", "boolean", "Whether this patient record is in active use.", 0, 1, active);
+        case 3373707: /*name*/  return new Property("name", "HumanName", "A name associated with the individual.", 0, java.lang.Integer.MAX_VALUE, name);
+        case -1429363305: /*telecom*/  return new Property("telecom", "ContactPoint", "A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.", 0, java.lang.Integer.MAX_VALUE, telecom);
+        case -1249512767: /*gender*/  return new Property("gender", "code", "Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.", 0, 1, gender);
+        case -1210031859: /*birthDate*/  return new Property("birthDate", "date", "The date of birth for the individual.", 0, 1, birthDate);
+        case -1311442804: /*deceased[x]*/  return new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, 1, deceased);
+        case 561497972: /*deceased*/  return new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, 1, deceased);
+        case 497463828: /*deceasedBoolean*/  return new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, 1, deceased);
+        case -1971804369: /*deceasedDateTime*/  return new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, 1, deceased);
+        case -1147692044: /*address*/  return new Property("address", "Address", "Addresses for the individual.", 0, java.lang.Integer.MAX_VALUE, address);
+        case 1756919302: /*maritalStatus*/  return new Property("maritalStatus", "CodeableConcept", "This field contains a patient's most recent marital (civil) status.", 0, 1, maritalStatus);
+        case -1764672111: /*multipleBirth[x]*/  return new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, 1, multipleBirth);
+        case -677369713: /*multipleBirth*/  return new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, 1, multipleBirth);
+        case -247534439: /*multipleBirthBoolean*/  return new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, 1, multipleBirth);
+        case 1645805999: /*multipleBirthInteger*/  return new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, 1, multipleBirth);
+        case 106642994: /*photo*/  return new Property("photo", "Attachment", "Image of the patient.", 0, java.lang.Integer.MAX_VALUE, photo);
+        case 951526432: /*contact*/  return new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact);
+        case -1413116420: /*animal*/  return new Property("animal", "", "This patient is known to be an animal.", 0, 1, animal);
+        case -1035284522: /*communication*/  return new Property("communication", "", "Languages which may be used to communicate with the patient about his or her health.", 0, java.lang.Integer.MAX_VALUE, communication);
+        case 1488292898: /*generalPractitioner*/  return new Property("generalPractitioner", "Reference(Organization|Practitioner)", "Patient's nominated care provider.", 0, java.lang.Integer.MAX_VALUE, generalPractitioner);
+        case -2058947787: /*managingOrganization*/  return new Property("managingOrganization", "Reference(Organization)", "Organization that is the custodian of the patient record.", 0, 1, managingOrganization);
+        case 3321850: /*link*/  return new Property("link", "", "Link to another patient resource that concerns the same actual patient.", 0, java.lang.Integer.MAX_VALUE, link);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

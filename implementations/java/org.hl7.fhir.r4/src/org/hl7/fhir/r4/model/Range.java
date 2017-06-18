@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -117,10 +117,20 @@ public class Range extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("low", "SimpleQuantity", "The low limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, low));
-        childrenList.add(new Property("high", "SimpleQuantity", "The high limit. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, high));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("low", "SimpleQuantity", "The low limit. The boundary is inclusive.", 0, 1, low));
+        children.add(new Property("high", "SimpleQuantity", "The high limit. The boundary is inclusive.", 0, 1, high));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 107348: /*low*/  return new Property("low", "SimpleQuantity", "The low limit. The boundary is inclusive.", 0, 1, low);
+        case 3202466: /*high*/  return new Property("high", "SimpleQuantity", "The high limit. The boundary is inclusive.", 0, 1, high);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

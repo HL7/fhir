@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -540,15 +540,30 @@ public class ParameterDefinition extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("name", "code", "The name of the parameter used to allow access to the value of the parameter in evaluation contexts.", 0, java.lang.Integer.MAX_VALUE, name));
-        childrenList.add(new Property("use", "code", "Whether the parameter is input or output for the module.", 0, java.lang.Integer.MAX_VALUE, use));
-        childrenList.add(new Property("min", "integer", "The minimum number of times this parameter SHALL appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, min));
-        childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
-        childrenList.add(new Property("documentation", "string", "A brief discussion of what the parameter is for and how it is used by the module.", 0, java.lang.Integer.MAX_VALUE, documentation));
-        childrenList.add(new Property("type", "code", "The type of the parameter.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("profile", "Reference(StructureDefinition)", "If specified, this indicates a profile that the input data must conform to, or that the output data will conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("name", "code", "The name of the parameter used to allow access to the value of the parameter in evaluation contexts.", 0, 1, name));
+        children.add(new Property("use", "code", "Whether the parameter is input or output for the module.", 0, 1, use));
+        children.add(new Property("min", "integer", "The minimum number of times this parameter SHALL appear in the request or response.", 0, 1, min));
+        children.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, 1, max));
+        children.add(new Property("documentation", "string", "A brief discussion of what the parameter is for and how it is used by the module.", 0, 1, documentation));
+        children.add(new Property("type", "code", "The type of the parameter.", 0, 1, type));
+        children.add(new Property("profile", "Reference(StructureDefinition)", "If specified, this indicates a profile that the input data must conform to, or that the output data will conform to.", 0, 1, profile));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 3373707: /*name*/  return new Property("name", "code", "The name of the parameter used to allow access to the value of the parameter in evaluation contexts.", 0, 1, name);
+        case 116103: /*use*/  return new Property("use", "code", "Whether the parameter is input or output for the module.", 0, 1, use);
+        case 108114: /*min*/  return new Property("min", "integer", "The minimum number of times this parameter SHALL appear in the request or response.", 0, 1, min);
+        case 107876: /*max*/  return new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, 1, max);
+        case 1587405498: /*documentation*/  return new Property("documentation", "string", "A brief discussion of what the parameter is for and how it is used by the module.", 0, 1, documentation);
+        case 3575610: /*type*/  return new Property("type", "code", "The type of the parameter.", 0, 1, type);
+        case -309425751: /*profile*/  return new Property("profile", "Reference(StructureDefinition)", "If specified, this indicates a profile that the input data must conform to, or that the output data will conform to.", 0, 1, profile);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

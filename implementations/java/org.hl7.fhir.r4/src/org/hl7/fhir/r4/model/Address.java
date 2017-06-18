@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -837,18 +837,36 @@ public class Address extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("use", "code", "The purpose of this address.", 0, java.lang.Integer.MAX_VALUE, use));
-        childrenList.add(new Property("type", "code", "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("text", "string", "A full text representation of the address.", 0, java.lang.Integer.MAX_VALUE, text));
-        childrenList.add(new Property("line", "string", "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line));
-        childrenList.add(new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, java.lang.Integer.MAX_VALUE, city));
-        childrenList.add(new Property("district", "string", "The name of the administrative area (county).", 0, java.lang.Integer.MAX_VALUE, district));
-        childrenList.add(new Property("state", "string", "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).", 0, java.lang.Integer.MAX_VALUE, state));
-        childrenList.add(new Property("postalCode", "string", "A postal code designating a region defined by the postal service.", 0, java.lang.Integer.MAX_VALUE, postalCode));
-        childrenList.add(new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, java.lang.Integer.MAX_VALUE, country));
-        childrenList.add(new Property("period", "Period", "Time period when address was/is in use.", 0, java.lang.Integer.MAX_VALUE, period));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("use", "code", "The purpose of this address.", 0, 1, use));
+        children.add(new Property("type", "code", "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.", 0, 1, type));
+        children.add(new Property("text", "string", "A full text representation of the address.", 0, 1, text));
+        children.add(new Property("line", "string", "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line));
+        children.add(new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, 1, city));
+        children.add(new Property("district", "string", "The name of the administrative area (county).", 0, 1, district));
+        children.add(new Property("state", "string", "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).", 0, 1, state));
+        children.add(new Property("postalCode", "string", "A postal code designating a region defined by the postal service.", 0, 1, postalCode));
+        children.add(new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, 1, country));
+        children.add(new Property("period", "Period", "Time period when address was/is in use.", 0, 1, period));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 116103: /*use*/  return new Property("use", "code", "The purpose of this address.", 0, 1, use);
+        case 3575610: /*type*/  return new Property("type", "code", "Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.", 0, 1, type);
+        case 3556653: /*text*/  return new Property("text", "string", "A full text representation of the address.", 0, 1, text);
+        case 3321844: /*line*/  return new Property("line", "string", "This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information.", 0, java.lang.Integer.MAX_VALUE, line);
+        case 3053931: /*city*/  return new Property("city", "string", "The name of the city, town, village or other community or delivery center.", 0, 1, city);
+        case 288961422: /*district*/  return new Property("district", "string", "The name of the administrative area (county).", 0, 1, district);
+        case 109757585: /*state*/  return new Property("state", "string", "Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (i.e. US 2 letter state codes).", 0, 1, state);
+        case 2011152728: /*postalCode*/  return new Property("postalCode", "string", "A postal code designating a region defined by the postal service.", 0, 1, postalCode);
+        case 957831062: /*country*/  return new Property("country", "string", "Country - a nation as commonly understood or generally accepted.", 0, 1, country);
+        case -991726143: /*period*/  return new Property("period", "Period", "Time period when address was/is in use.", 0, 1, period);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -367,9 +367,18 @@ public class ProcessRequest extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("sequenceLinkId", "integer", "A service line number.", 0, 1, sequenceLinkId));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1422298666: /*sequenceLinkId*/  return new Property("sequenceLinkId", "integer", "A service line number.", 0, 1, sequenceLinkId);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1310,23 +1319,46 @@ public class ProcessRequest extends DomainResource {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "The ProcessRequest business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("action", "code", "The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.", 0, java.lang.Integer.MAX_VALUE, action));
-        childrenList.add(new Property("target", "Reference(Organization)", "The organization which is the target of the request.", 0, java.lang.Integer.MAX_VALUE, target));
-        childrenList.add(new Property("created", "dateTime", "The date when this resource was created.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the action specified in this request.", 0, java.lang.Integer.MAX_VALUE, provider));
-        childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the action speccified in this request.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("request", "Reference(Any)", "Reference of resource which is the target or subject of this action.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("response", "Reference(Any)", "Reference of a prior response to resource which is the target or subject of this action.", 0, java.lang.Integer.MAX_VALUE, response));
-        childrenList.add(new Property("nullify", "boolean", "If true remove all history excluding audit.", 0, java.lang.Integer.MAX_VALUE, nullify));
-        childrenList.add(new Property("reference", "string", "A reference to supply which authenticates the process.", 0, java.lang.Integer.MAX_VALUE, reference));
-        childrenList.add(new Property("item", "", "List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.", 0, java.lang.Integer.MAX_VALUE, item));
-        childrenList.add(new Property("include", "string", "Names of resource types to include.", 0, java.lang.Integer.MAX_VALUE, include));
-        childrenList.add(new Property("exclude", "string", "Names of resource types to exclude.", 0, java.lang.Integer.MAX_VALUE, exclude));
-        childrenList.add(new Property("period", "Period", "A period of time during which the fulfilling resources would have been created.", 0, java.lang.Integer.MAX_VALUE, period));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "The ProcessRequest business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("status", "code", "The status of the resource instance.", 0, 1, status));
+        children.add(new Property("action", "code", "The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.", 0, 1, action));
+        children.add(new Property("target", "Reference(Organization)", "The organization which is the target of the request.", 0, 1, target));
+        children.add(new Property("created", "dateTime", "The date when this resource was created.", 0, 1, created));
+        children.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the action specified in this request.", 0, 1, provider));
+        children.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the action speccified in this request.", 0, 1, organization));
+        children.add(new Property("request", "Reference(Any)", "Reference of resource which is the target or subject of this action.", 0, 1, request));
+        children.add(new Property("response", "Reference(Any)", "Reference of a prior response to resource which is the target or subject of this action.", 0, 1, response));
+        children.add(new Property("nullify", "boolean", "If true remove all history excluding audit.", 0, 1, nullify));
+        children.add(new Property("reference", "string", "A reference to supply which authenticates the process.", 0, 1, reference));
+        children.add(new Property("item", "", "List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.", 0, java.lang.Integer.MAX_VALUE, item));
+        children.add(new Property("include", "string", "Names of resource types to include.", 0, java.lang.Integer.MAX_VALUE, include));
+        children.add(new Property("exclude", "string", "Names of resource types to exclude.", 0, java.lang.Integer.MAX_VALUE, exclude));
+        children.add(new Property("period", "Period", "A period of time during which the fulfilling resources would have been created.", 0, 1, period));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "The ProcessRequest business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of the resource instance.", 0, 1, status);
+        case -1422950858: /*action*/  return new Property("action", "code", "The type of processing action being requested, for example Reversal, Readjudication, StatusRequest,PendedRequest.", 0, 1, action);
+        case -880905839: /*target*/  return new Property("target", "Reference(Organization)", "The organization which is the target of the request.", 0, 1, target);
+        case 1028554472: /*created*/  return new Property("created", "dateTime", "The date when this resource was created.", 0, 1, created);
+        case -987494927: /*provider*/  return new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the action specified in this request.", 0, 1, provider);
+        case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "The organization which is responsible for the action speccified in this request.", 0, 1, organization);
+        case 1095692943: /*request*/  return new Property("request", "Reference(Any)", "Reference of resource which is the target or subject of this action.", 0, 1, request);
+        case -340323263: /*response*/  return new Property("response", "Reference(Any)", "Reference of a prior response to resource which is the target or subject of this action.", 0, 1, response);
+        case -2001137643: /*nullify*/  return new Property("nullify", "boolean", "If true remove all history excluding audit.", 0, 1, nullify);
+        case -925155509: /*reference*/  return new Property("reference", "string", "A reference to supply which authenticates the process.", 0, 1, reference);
+        case 3242771: /*item*/  return new Property("item", "", "List of top level items to be re-adjudicated, if none specified then the entire submission is re-adjudicated.", 0, java.lang.Integer.MAX_VALUE, item);
+        case 1942574248: /*include*/  return new Property("include", "string", "Names of resource types to include.", 0, java.lang.Integer.MAX_VALUE, include);
+        case -1321148966: /*exclude*/  return new Property("exclude", "string", "Names of resource types to exclude.", 0, java.lang.Integer.MAX_VALUE, exclude);
+        case -991726143: /*period*/  return new Property("period", "Period", "A period of time during which the fulfilling resources would have been created.", 0, 1, period);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

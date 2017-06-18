@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -272,10 +272,20 @@ public class ProcessResponse extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("type", "CodeableConcept", "The note purpose: Print/Display.", 0, 1, type));
+          children.add(new Property("text", "string", "The note text.", 0, 1, text));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The note purpose: Print/Display.", 0, 1, type);
+          case 3556653: /*text*/  return new Property("text", "string", "The note text.", 0, 1, text);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1114,21 +1124,42 @@ public class ProcessResponse extends DomainResource {
       return r;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("organization", "Reference(Organization)", "The organization who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("request", "Reference(Any)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("outcome", "CodeableConcept", "Transaction status: error, complete, held.", 0, java.lang.Integer.MAX_VALUE, outcome));
-        childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication or processing.", 0, java.lang.Integer.MAX_VALUE, disposition));
-        childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
-        childrenList.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
-        childrenList.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
-        childrenList.add(new Property("processNote", "", "Suite of processing notes or additional requirements if the processing has been held.", 0, java.lang.Integer.MAX_VALUE, processNote));
-        childrenList.add(new Property("error", "CodeableConcept", "Processing errors.", 0, java.lang.Integer.MAX_VALUE, error));
-        childrenList.add(new Property("communicationRequest", "Reference(CommunicationRequest)", "Request for additional supporting or authorizing information, such as: documents, images or resources.", 0, java.lang.Integer.MAX_VALUE, communicationRequest));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("status", "code", "The status of the resource instance.", 0, 1, status));
+        children.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created));
+        children.add(new Property("organization", "Reference(Organization)", "The organization who produced this adjudicated response.", 0, 1, organization));
+        children.add(new Property("request", "Reference(Any)", "Original request resource reference.", 0, 1, request));
+        children.add(new Property("outcome", "CodeableConcept", "Transaction status: error, complete, held.", 0, 1, outcome));
+        children.add(new Property("disposition", "string", "A description of the status of the adjudication or processing.", 0, 1, disposition));
+        children.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, 1, requestProvider));
+        children.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, 1, requestOrganization));
+        children.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, 1, form));
+        children.add(new Property("processNote", "", "Suite of processing notes or additional requirements if the processing has been held.", 0, java.lang.Integer.MAX_VALUE, processNote));
+        children.add(new Property("error", "CodeableConcept", "Processing errors.", 0, java.lang.Integer.MAX_VALUE, error));
+        children.add(new Property("communicationRequest", "Reference(CommunicationRequest)", "Request for additional supporting or authorizing information, such as: documents, images or resources.", 0, java.lang.Integer.MAX_VALUE, communicationRequest));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of the resource instance.", 0, 1, status);
+        case 1028554472: /*created*/  return new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created);
+        case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "The organization who produced this adjudicated response.", 0, 1, organization);
+        case 1095692943: /*request*/  return new Property("request", "Reference(Any)", "Original request resource reference.", 0, 1, request);
+        case -1106507950: /*outcome*/  return new Property("outcome", "CodeableConcept", "Transaction status: error, complete, held.", 0, 1, outcome);
+        case 583380919: /*disposition*/  return new Property("disposition", "string", "A description of the status of the adjudication or processing.", 0, 1, disposition);
+        case 1601527200: /*requestProvider*/  return new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, 1, requestProvider);
+        case 599053666: /*requestOrganization*/  return new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, 1, requestOrganization);
+        case 3148996: /*form*/  return new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, 1, form);
+        case 202339073: /*processNote*/  return new Property("processNote", "", "Suite of processing notes or additional requirements if the processing has been held.", 0, java.lang.Integer.MAX_VALUE, processNote);
+        case 96784904: /*error*/  return new Property("error", "CodeableConcept", "Processing errors.", 0, java.lang.Integer.MAX_VALUE, error);
+        case -2071896615: /*communicationRequest*/  return new Property("communicationRequest", "Reference(CommunicationRequest)", "Request for additional supporting or authorizing information, such as: documents, images or resources.", 0, java.lang.Integer.MAX_VALUE, communicationRequest);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

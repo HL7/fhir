@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -525,15 +525,30 @@ public class PaymentReconciliation extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "Code to indicate the nature of the payment, adjustment, funds advance, etc.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("request", "Reference(Any)", "The claim or financial resource.", 0, java.lang.Integer.MAX_VALUE, request));
-          childrenList.add(new Property("response", "Reference(Any)", "The claim response resource.", 0, java.lang.Integer.MAX_VALUE, response));
-          childrenList.add(new Property("submitter", "Reference(Organization)", "The Organization which submitted the claim or financial transaction.", 0, java.lang.Integer.MAX_VALUE, submitter));
-          childrenList.add(new Property("payee", "Reference(Organization)", "The organization which is receiving the payment.", 0, java.lang.Integer.MAX_VALUE, payee));
-          childrenList.add(new Property("date", "date", "The date of the invoice or financial resource.", 0, java.lang.Integer.MAX_VALUE, date));
-          childrenList.add(new Property("amount", "Money", "Amount paid for this detail.", 0, java.lang.Integer.MAX_VALUE, amount));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("type", "CodeableConcept", "Code to indicate the nature of the payment, adjustment, funds advance, etc.", 0, 1, type));
+          children.add(new Property("request", "Reference(Any)", "The claim or financial resource.", 0, 1, request));
+          children.add(new Property("response", "Reference(Any)", "The claim response resource.", 0, 1, response));
+          children.add(new Property("submitter", "Reference(Organization)", "The Organization which submitted the claim or financial transaction.", 0, 1, submitter));
+          children.add(new Property("payee", "Reference(Organization)", "The organization which is receiving the payment.", 0, 1, payee));
+          children.add(new Property("date", "date", "The date of the invoice or financial resource.", 0, 1, date));
+          children.add(new Property("amount", "Money", "Amount paid for this detail.", 0, 1, amount));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Code to indicate the nature of the payment, adjustment, funds advance, etc.", 0, 1, type);
+          case 1095692943: /*request*/  return new Property("request", "Reference(Any)", "The claim or financial resource.", 0, 1, request);
+          case -340323263: /*response*/  return new Property("response", "Reference(Any)", "The claim response resource.", 0, 1, response);
+          case 348678409: /*submitter*/  return new Property("submitter", "Reference(Organization)", "The Organization which submitted the claim or financial transaction.", 0, 1, submitter);
+          case 106443592: /*payee*/  return new Property("payee", "Reference(Organization)", "The organization which is receiving the payment.", 0, 1, payee);
+          case 3076014: /*date*/  return new Property("date", "date", "The date of the invoice or financial resource.", 0, 1, date);
+          case -1413853096: /*amount*/  return new Property("amount", "Money", "Amount paid for this detail.", 0, 1, amount);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -810,10 +825,20 @@ public class PaymentReconciliation extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("type", "CodeableConcept", "The note purpose: Print/Display.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("text", "string", "The note text.", 0, java.lang.Integer.MAX_VALUE, text));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("type", "CodeableConcept", "The note purpose: Print/Display.", 0, 1, type));
+          children.add(new Property("text", "string", "The note text.", 0, 1, text));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The note purpose: Print/Display.", 0, 1, type);
+          case 3556653: /*text*/  return new Property("text", "string", "The note text.", 0, 1, text);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1631,22 +1656,44 @@ public class PaymentReconciliation extends DomainResource {
       return getProcessNote().get(0);
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "The status of the resource instance.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("period", "Period", "The period of time for which payments have been gathered into this bulk payment for settlement.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));
-        childrenList.add(new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, java.lang.Integer.MAX_VALUE, organization));
-        childrenList.add(new Property("request", "Reference(ProcessRequest)", "Original request resource reference.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("outcome", "CodeableConcept", "Transaction status: error, complete.", 0, java.lang.Integer.MAX_VALUE, outcome));
-        childrenList.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, java.lang.Integer.MAX_VALUE, disposition));
-        childrenList.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestProvider));
-        childrenList.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, requestOrganization));
-        childrenList.add(new Property("detail", "", "List of individual settlement amounts and the corresponding transaction.", 0, java.lang.Integer.MAX_VALUE, detail));
-        childrenList.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
-        childrenList.add(new Property("total", "Money", "Total payment amount.", 0, java.lang.Integer.MAX_VALUE, total));
-        childrenList.add(new Property("processNote", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, processNote));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("status", "code", "The status of the resource instance.", 0, 1, status));
+        children.add(new Property("period", "Period", "The period of time for which payments have been gathered into this bulk payment for settlement.", 0, 1, period));
+        children.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created));
+        children.add(new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, 1, organization));
+        children.add(new Property("request", "Reference(ProcessRequest)", "Original request resource reference.", 0, 1, request));
+        children.add(new Property("outcome", "CodeableConcept", "Transaction status: error, complete.", 0, 1, outcome));
+        children.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, 1, disposition));
+        children.add(new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, 1, requestProvider));
+        children.add(new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, 1, requestOrganization));
+        children.add(new Property("detail", "", "List of individual settlement amounts and the corresponding transaction.", 0, java.lang.Integer.MAX_VALUE, detail));
+        children.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, 1, form));
+        children.add(new Property("total", "Money", "Total payment amount.", 0, 1, total));
+        children.add(new Property("processNote", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, processNote));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of the resource instance.", 0, 1, status);
+        case -991726143: /*period*/  return new Property("period", "Period", "The period of time for which payments have been gathered into this bulk payment for settlement.", 0, 1, period);
+        case 1028554472: /*created*/  return new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created);
+        case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, 1, organization);
+        case 1095692943: /*request*/  return new Property("request", "Reference(ProcessRequest)", "Original request resource reference.", 0, 1, request);
+        case -1106507950: /*outcome*/  return new Property("outcome", "CodeableConcept", "Transaction status: error, complete.", 0, 1, outcome);
+        case 583380919: /*disposition*/  return new Property("disposition", "string", "A description of the status of the adjudication.", 0, 1, disposition);
+        case 1601527200: /*requestProvider*/  return new Property("requestProvider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, 1, requestProvider);
+        case 599053666: /*requestOrganization*/  return new Property("requestOrganization", "Reference(Organization)", "The organization which is responsible for the services rendered to the patient.", 0, 1, requestOrganization);
+        case -1335224239: /*detail*/  return new Property("detail", "", "List of individual settlement amounts and the corresponding transaction.", 0, java.lang.Integer.MAX_VALUE, detail);
+        case 3148996: /*form*/  return new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, 1, form);
+        case 110549828: /*total*/  return new Property("total", "Money", "Total payment amount.", 0, 1, total);
+        case 202339073: /*processNote*/  return new Property("processNote", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, processNote);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

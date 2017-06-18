@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -618,16 +618,32 @@ public class ResearchSubject extends DomainResource {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "The current state of the subject.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, java.lang.Integer.MAX_VALUE, period));
-        childrenList.add(new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, java.lang.Integer.MAX_VALUE, study));
-        childrenList.add(new Property("individual", "Reference(Patient)", "The record of the person or animal who is involved in the study.", 0, java.lang.Integer.MAX_VALUE, individual));
-        childrenList.add(new Property("assignedArm", "string", "The name of the arm in the study the subject is expected to follow as part of this study.", 0, java.lang.Integer.MAX_VALUE, assignedArm));
-        childrenList.add(new Property("actualArm", "string", "The name of the arm in the study the subject actually followed as part of this study.", 0, java.lang.Integer.MAX_VALUE, actualArm));
-        childrenList.add(new Property("consent", "Reference(Consent)", "A record of the patient's informed agreement to participate in the study.", 0, java.lang.Integer.MAX_VALUE, consent));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, 1, identifier));
+        children.add(new Property("status", "code", "The current state of the subject.", 0, 1, status));
+        children.add(new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, 1, period));
+        children.add(new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, 1, study));
+        children.add(new Property("individual", "Reference(Patient)", "The record of the person or animal who is involved in the study.", 0, 1, individual));
+        children.add(new Property("assignedArm", "string", "The name of the arm in the study the subject is expected to follow as part of this study.", 0, 1, assignedArm));
+        children.add(new Property("actualArm", "string", "The name of the arm in the study the subject actually followed as part of this study.", 0, 1, actualArm));
+        children.add(new Property("consent", "Reference(Consent)", "A record of the patient's informed agreement to participate in the study.", 0, 1, consent));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, 1, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "The current state of the subject.", 0, 1, status);
+        case -991726143: /*period*/  return new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, 1, period);
+        case 109776329: /*study*/  return new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, 1, study);
+        case -46292327: /*individual*/  return new Property("individual", "Reference(Patient)", "The record of the person or animal who is involved in the study.", 0, 1, individual);
+        case 1741912494: /*assignedArm*/  return new Property("assignedArm", "string", "The name of the arm in the study the subject is expected to follow as part of this study.", 0, 1, assignedArm);
+        case 528827886: /*actualArm*/  return new Property("actualArm", "string", "The name of the arm in the study the subject actually followed as part of this study.", 0, 1, actualArm);
+        case 951500826: /*consent*/  return new Property("consent", "Reference(Consent)", "A record of the patient's informed agreement to participate in the study.", 0, 1, consent);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

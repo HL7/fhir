@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -55,8 +55,16 @@ public class Count extends Quantity implements ICompositeType {
       super();
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

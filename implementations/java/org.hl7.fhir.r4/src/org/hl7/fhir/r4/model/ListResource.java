@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -474,12 +474,24 @@ public class ListResource extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to indicate the role and significance of the item in the list.", 0, java.lang.Integer.MAX_VALUE, flag));
-          childrenList.add(new Property("deleted", "boolean", "True if this item is marked as deleted in the list.", 0, java.lang.Integer.MAX_VALUE, deleted));
-          childrenList.add(new Property("date", "dateTime", "When this item was added to the list.", 0, java.lang.Integer.MAX_VALUE, date));
-          childrenList.add(new Property("item", "Reference(Any)", "A reference to the actual resource from which data was derived.", 0, java.lang.Integer.MAX_VALUE, item));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to indicate the role and significance of the item in the list.", 0, 1, flag));
+          children.add(new Property("deleted", "boolean", "True if this item is marked as deleted in the list.", 0, 1, deleted));
+          children.add(new Property("date", "dateTime", "When this item was added to the list.", 0, 1, date));
+          children.add(new Property("item", "Reference(Any)", "A reference to the actual resource from which data was derived.", 0, 1, item));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3145580: /*flag*/  return new Property("flag", "CodeableConcept", "The flag allows the system constructing the list to indicate the role and significance of the item in the list.", 0, 1, flag);
+          case 1550463001: /*deleted*/  return new Property("deleted", "boolean", "True if this item is marked as deleted in the list.", 0, 1, deleted);
+          case 3076014: /*date*/  return new Property("date", "dateTime", "When this item was added to the list.", 0, 1, date);
+          case 3242771: /*item*/  return new Property("item", "Reference(Any)", "A reference to the actual resource from which data was derived.", 0, 1, item);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1286,21 +1298,42 @@ public class ListResource extends DomainResource {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "code", "Indicates the current state of this list.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("mode", "code", "How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.", 0, java.lang.Integer.MAX_VALUE, mode));
-        childrenList.add(new Property("title", "string", "A label for the list assigned by the author.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("code", "CodeableConcept", "This code defines the purpose of the list - why it was created.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("encounter", "Reference(Encounter)", "The encounter that is the context in which this list was created.", 0, java.lang.Integer.MAX_VALUE, encounter));
-        childrenList.add(new Property("date", "dateTime", "The date that the list was prepared.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("source", "Reference(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("orderedBy", "CodeableConcept", "What order applies to the items in the list.", 0, java.lang.Integer.MAX_VALUE, orderedBy));
-        childrenList.add(new Property("note", "Annotation", "Comments that apply to the overall list.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("entry", "", "Entries in this list.", 0, java.lang.Integer.MAX_VALUE, entry));
-        childrenList.add(new Property("emptyReason", "CodeableConcept", "If the list is empty, why the list is empty.", 0, java.lang.Integer.MAX_VALUE, emptyReason));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("status", "code", "Indicates the current state of this list.", 0, 1, status));
+        children.add(new Property("mode", "code", "How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.", 0, 1, mode));
+        children.add(new Property("title", "string", "A label for the list assigned by the author.", 0, 1, title));
+        children.add(new Property("code", "CodeableConcept", "This code defines the purpose of the list - why it was created.", 0, 1, code));
+        children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, 1, subject));
+        children.add(new Property("encounter", "Reference(Encounter)", "The encounter that is the context in which this list was created.", 0, 1, encounter));
+        children.add(new Property("date", "dateTime", "The date that the list was prepared.", 0, 1, date));
+        children.add(new Property("source", "Reference(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, 1, source));
+        children.add(new Property("orderedBy", "CodeableConcept", "What order applies to the items in the list.", 0, 1, orderedBy));
+        children.add(new Property("note", "Annotation", "Comments that apply to the overall list.", 0, java.lang.Integer.MAX_VALUE, note));
+        children.add(new Property("entry", "", "Entries in this list.", 0, java.lang.Integer.MAX_VALUE, entry));
+        children.add(new Property("emptyReason", "CodeableConcept", "If the list is empty, why the list is empty.", 0, 1, emptyReason));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifier for the List assigned for business purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "Indicates the current state of this list.", 0, 1, status);
+        case 3357091: /*mode*/  return new Property("mode", "code", "How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted.", 0, 1, mode);
+        case 110371416: /*title*/  return new Property("title", "string", "A label for the list assigned by the author.", 0, 1, title);
+        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "This code defines the purpose of the list - why it was created.", 0, 1, code);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, 1, subject);
+        case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The encounter that is the context in which this list was created.", 0, 1, encounter);
+        case 3076014: /*date*/  return new Property("date", "dateTime", "The date that the list was prepared.", 0, 1, date);
+        case -896505829: /*source*/  return new Property("source", "Reference(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, 1, source);
+        case -391079516: /*orderedBy*/  return new Property("orderedBy", "CodeableConcept", "What order applies to the items in the list.", 0, 1, orderedBy);
+        case 3387378: /*note*/  return new Property("note", "Annotation", "Comments that apply to the overall list.", 0, java.lang.Integer.MAX_VALUE, note);
+        case 96667762: /*entry*/  return new Property("entry", "", "Entries in this list.", 0, java.lang.Integer.MAX_VALUE, entry);
+        case 1140135409: /*emptyReason*/  return new Property("emptyReason", "CodeableConcept", "If the list is empty, why the list is empty.", 0, 1, emptyReason);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

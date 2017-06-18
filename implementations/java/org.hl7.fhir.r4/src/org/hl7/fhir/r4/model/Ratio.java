@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -117,10 +117,20 @@ public class Ratio extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("numerator", "Quantity", "The value of the numerator.", 0, java.lang.Integer.MAX_VALUE, numerator));
-        childrenList.add(new Property("denominator", "Quantity", "The value of the denominator.", 0, java.lang.Integer.MAX_VALUE, denominator));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("numerator", "Quantity", "The value of the numerator.", 0, 1, numerator));
+        children.add(new Property("denominator", "Quantity", "The value of the denominator.", 0, 1, denominator));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 1747334793: /*numerator*/  return new Property("numerator", "Quantity", "The value of the numerator.", 0, 1, numerator);
+        case -1983274394: /*denominator*/  return new Property("denominator", "Quantity", "The value of the denominator.", 0, 1, denominator);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

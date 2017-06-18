@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -193,10 +193,20 @@ public class Period extends Type implements ICompositeType {
     return this; 
   }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, java.lang.Integer.MAX_VALUE, start));
-        childrenList.add(new Property("end", "dateTime", "The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 0, java.lang.Integer.MAX_VALUE, end));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, 1, start));
+        children.add(new Property("end", "dateTime", "The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 0, 1, end));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case 109757538: /*start*/  return new Property("start", "dateTime", "The start of the period. The boundary is inclusive.", 0, 1, start);
+        case 100571: /*end*/  return new Property("end", "dateTime", "The end of the period. If the end of the period is missing, it means that the period is ongoing. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.", 0, 1, end);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

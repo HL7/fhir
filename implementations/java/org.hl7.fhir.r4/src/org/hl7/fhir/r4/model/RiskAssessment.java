@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -553,14 +553,34 @@ public class RiskAssessment extends DomainResource {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, java.lang.Integer.MAX_VALUE, outcome));
-          childrenList.add(new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, java.lang.Integer.MAX_VALUE, probability));
-          childrenList.add(new Property("qualitativeRisk", "CodeableConcept", "How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).", 0, java.lang.Integer.MAX_VALUE, qualitativeRisk));
-          childrenList.add(new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, java.lang.Integer.MAX_VALUE, relativeRisk));
-          childrenList.add(new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, java.lang.Integer.MAX_VALUE, when));
-          childrenList.add(new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, java.lang.Integer.MAX_VALUE, rationale));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, 1, outcome));
+          children.add(new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability));
+          children.add(new Property("qualitativeRisk", "CodeableConcept", "How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).", 0, 1, qualitativeRisk));
+          children.add(new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, 1, relativeRisk));
+          children.add(new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when));
+          children.add(new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, 1, rationale));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1106507950: /*outcome*/  return new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, 1, outcome);
+          case 1430185003: /*probability[x]*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
+          case -1290561483: /*probability*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
+          case 888495452: /*probabilityDecimal*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
+          case 9275912: /*probabilityRange*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
+          case 123308730: /*qualitativeRisk*/  return new Property("qualitativeRisk", "CodeableConcept", "How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).", 0, 1, qualitativeRisk);
+          case -70741061: /*relativeRisk*/  return new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, 1, relativeRisk);
+          case 1312831238: /*when[x]*/  return new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when);
+          case 3648314: /*when*/  return new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when);
+          case 251476379: /*whenPeriod*/  return new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when);
+          case -1098542557: /*whenRange*/  return new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when);
+          case 345689335: /*rationale*/  return new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, 1, rationale);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1560,24 +1580,54 @@ public class RiskAssessment extends DomainResource {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Business identifier assigned to the risk assessment.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("basedOn", "Reference(Any)", "A reference to the request that is fulfilled by this risk assessment.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        childrenList.add(new Property("parent", "Reference(Any)", "A reference to a resource that this risk assessment is part of, such as a Procedure.", 0, java.lang.Integer.MAX_VALUE, parent));
-        childrenList.add(new Property("status", "code", "The status of the RiskAssessment, using the same statuses as an Observation.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("method", "CodeableConcept", "The algorithm, process or mechanism used to evaluate the risk.", 0, java.lang.Integer.MAX_VALUE, method));
-        childrenList.add(new Property("code", "CodeableConcept", "The type of the risk assessment performed.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient or group the risk assessment applies to.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter where the assessment was performed.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("occurrence[x]", "dateTime|Period", "The date (and possibly time) the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, occurrence));
-        childrenList.add(new Property("condition", "Reference(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, java.lang.Integer.MAX_VALUE, condition));
-        childrenList.add(new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
-        childrenList.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
-        childrenList.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, java.lang.Integer.MAX_VALUE, mitigation));
-        childrenList.add(new Property("comment", "string", "Additional comments about the risk assessment.", 0, java.lang.Integer.MAX_VALUE, comment));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "Business identifier assigned to the risk assessment.", 0, 1, identifier));
+        children.add(new Property("basedOn", "Reference(Any)", "A reference to the request that is fulfilled by this risk assessment.", 0, 1, basedOn));
+        children.add(new Property("parent", "Reference(Any)", "A reference to a resource that this risk assessment is part of, such as a Procedure.", 0, 1, parent));
+        children.add(new Property("status", "code", "The status of the RiskAssessment, using the same statuses as an Observation.", 0, 1, status));
+        children.add(new Property("method", "CodeableConcept", "The algorithm, process or mechanism used to evaluate the risk.", 0, 1, method));
+        children.add(new Property("code", "CodeableConcept", "The type of the risk assessment performed.", 0, 1, code));
+        children.add(new Property("subject", "Reference(Patient|Group)", "The patient or group the risk assessment applies to.", 0, 1, subject));
+        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter where the assessment was performed.", 0, 1, context));
+        children.add(new Property("occurrence[x]", "dateTime|Period", "The date (and possibly time) the risk assessment was performed.", 0, 1, occurrence));
+        children.add(new Property("condition", "Reference(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, 1, condition));
+        children.add(new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, 1, performer));
+        children.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, 1, reason));
+        children.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
+        children.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
+        children.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, 1, mitigation));
+        children.add(new Property("comment", "string", "Additional comments about the risk assessment.", 0, 1, comment));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifier assigned to the risk assessment.", 0, 1, identifier);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(Any)", "A reference to the request that is fulfilled by this risk assessment.", 0, 1, basedOn);
+        case -995424086: /*parent*/  return new Property("parent", "Reference(Any)", "A reference to a resource that this risk assessment is part of, such as a Procedure.", 0, 1, parent);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of the RiskAssessment, using the same statuses as an Observation.", 0, 1, status);
+        case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "The algorithm, process or mechanism used to evaluate the risk.", 0, 1, method);
+        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "The type of the risk assessment performed.", 0, 1, code);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient or group the risk assessment applies to.", 0, 1, subject);
+        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter where the assessment was performed.", 0, 1, context);
+        case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period", "The date (and possibly time) the risk assessment was performed.", 0, 1, occurrence);
+        case 1687874001: /*occurrence*/  return new Property("occurrence[x]", "dateTime|Period", "The date (and possibly time) the risk assessment was performed.", 0, 1, occurrence);
+        case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period", "The date (and possibly time) the risk assessment was performed.", 0, 1, occurrence);
+        case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period", "The date (and possibly time) the risk assessment was performed.", 0, 1, occurrence);
+        case -861311717: /*condition*/  return new Property("condition", "Reference(Condition)", "For assessments or prognosis specific to a particular condition, indicates the condition being assessed.", 0, 1, condition);
+        case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, 1, performer);
+        case -669418564: /*reason[x]*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, 1, reason);
+        case -934964668: /*reason*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, 1, reason);
+        case -610155331: /*reasonCodeableConcept*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, 1, reason);
+        case -1146218137: /*reasonReference*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "The reason the risk assessment was performed.", 0, 1, reason);
+        case 93508670: /*basis*/  return new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis);
+        case 1161234575: /*prediction*/  return new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction);
+        case 1293793087: /*mitigation*/  return new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, 1, mitigation);
+        case 950398559: /*comment*/  return new Property("comment", "string", "Additional comments about the risk assessment.", 0, 1, comment);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

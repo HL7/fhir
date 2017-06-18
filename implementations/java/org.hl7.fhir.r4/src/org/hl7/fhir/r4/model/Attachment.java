@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -502,16 +502,32 @@ public class Attachment extends Type implements ICompositeType {
       return this;
     }
 
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("contentType", "code", "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.", 0, java.lang.Integer.MAX_VALUE, contentType));
-        childrenList.add(new Property("language", "code", "The human language of the content. The value can be any valid value according to BCP 47.", 0, java.lang.Integer.MAX_VALUE, language));
-        childrenList.add(new Property("data", "base64Binary", "The actual data of the attachment - a sequence of bytes. In XML, represented using base64.", 0, java.lang.Integer.MAX_VALUE, data));
-        childrenList.add(new Property("url", "uri", "An alternative location where the data can be accessed.", 0, java.lang.Integer.MAX_VALUE, url));
-        childrenList.add(new Property("size", "unsignedInt", "The number of bytes of data that make up this attachment (before base64 encoding, if that is done).", 0, java.lang.Integer.MAX_VALUE, size));
-        childrenList.add(new Property("hash", "base64Binary", "The calculated hash of the data using SHA-1. Represented using base64.", 0, java.lang.Integer.MAX_VALUE, hash));
-        childrenList.add(new Property("title", "string", "A label or set of text to display in place of the data.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("creation", "dateTime", "The date that the attachment was first created.", 0, java.lang.Integer.MAX_VALUE, creation));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("contentType", "code", "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.", 0, 1, contentType));
+        children.add(new Property("language", "code", "The human language of the content. The value can be any valid value according to BCP 47.", 0, 1, language));
+        children.add(new Property("data", "base64Binary", "The actual data of the attachment - a sequence of bytes. In XML, represented using base64.", 0, 1, data));
+        children.add(new Property("url", "uri", "An alternative location where the data can be accessed.", 0, 1, url));
+        children.add(new Property("size", "unsignedInt", "The number of bytes of data that make up this attachment (before base64 encoding, if that is done).", 0, 1, size));
+        children.add(new Property("hash", "base64Binary", "The calculated hash of the data using SHA-1. Represented using base64.", 0, 1, hash));
+        children.add(new Property("title", "string", "A label or set of text to display in place of the data.", 0, 1, title));
+        children.add(new Property("creation", "dateTime", "The date that the attachment was first created.", 0, 1, creation));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -389131437: /*contentType*/  return new Property("contentType", "code", "Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.", 0, 1, contentType);
+        case -1613589672: /*language*/  return new Property("language", "code", "The human language of the content. The value can be any valid value according to BCP 47.", 0, 1, language);
+        case 3076010: /*data*/  return new Property("data", "base64Binary", "The actual data of the attachment - a sequence of bytes. In XML, represented using base64.", 0, 1, data);
+        case 116079: /*url*/  return new Property("url", "uri", "An alternative location where the data can be accessed.", 0, 1, url);
+        case 3530753: /*size*/  return new Property("size", "unsignedInt", "The number of bytes of data that make up this attachment (before base64 encoding, if that is done).", 0, 1, size);
+        case 3195150: /*hash*/  return new Property("hash", "base64Binary", "The calculated hash of the data using SHA-1. Represented using base64.", 0, 1, hash);
+        case 110371416: /*title*/  return new Property("title", "string", "A label or set of text to display in place of the data.", 0, 1, title);
+        case 1820421855: /*creation*/  return new Property("creation", "dateTime", "The date that the attachment was first created.", 0, 1, creation);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

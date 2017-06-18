@@ -149,12 +149,11 @@ private Map<String, Object> userData;
   }
 
   public Property getChildByName(String name) {
-    List<Property> children = new ArrayList<Property>();
-    listChildren(children);
-    for (Property c : children)
-      if (c.getName().equals(name))
-        return c;
-    return null;
+    try {
+      return getNamedProperty(name.hashCode(), name, false);
+    } catch (FHIRException e) {
+      return null;
+    }
   }  
   
   public List<Base> listChildrenByName(String name) throws FHIRException {
@@ -699,5 +698,14 @@ private Map<String, Object> userData;
 
   public abstract String getIdBase();
   public abstract void setIdBase(String value);
+
+  public Property getNamedProperty(String _name) throws FHIRException {
+    return getNamedProperty(_name.hashCode(), _name, false);
+  }
+  public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+    if (_checkValid)
+      throw new FHIRException("Attempt to read invalid property '"+_name+"' on type "+fhirType());
+    return null; 
+  }
 
 }

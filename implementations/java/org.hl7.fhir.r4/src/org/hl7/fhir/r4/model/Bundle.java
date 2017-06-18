@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jun 13, 2017 12:05+1000 for FHIR v3.1.0
+// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -609,10 +609,20 @@ public class Bundle extends Resource implements IBaseBundle {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("relation", "string", "A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).", 0, java.lang.Integer.MAX_VALUE, relation));
-          childrenList.add(new Property("url", "uri", "The reference details for the link.", 0, java.lang.Integer.MAX_VALUE, url));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("relation", "string", "A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).", 0, 1, relation));
+          children.add(new Property("url", "uri", "The reference details for the link.", 0, 1, url));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -554436100: /*relation*/  return new Property("relation", "string", "A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).", 0, 1, relation);
+          case 116079: /*url*/  return new Property("url", "uri", "The reference details for the link.", 0, 1, url);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1024,14 +1034,28 @@ public class Bundle extends Resource implements IBaseBundle {
     getLink().add(retVal);
     return retVal;
   }
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link));
-          childrenList.add(new Property("fullUrl", "uri", "The Absolute URL for the resource.  The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: \n* fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)\n* Results from operations might involve resources that are not identified.", 0, java.lang.Integer.MAX_VALUE, fullUrl));
-          childrenList.add(new Property("resource", "Resource", "The Resources for the entry.", 0, java.lang.Integer.MAX_VALUE, resource));
-          childrenList.add(new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, java.lang.Integer.MAX_VALUE, search));
-          childrenList.add(new Property("request", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, request));
-          childrenList.add(new Property("response", "", "Additional information about how this entry should be processed as part of a transaction.", 0, java.lang.Integer.MAX_VALUE, response));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link));
+          children.add(new Property("fullUrl", "uri", "The Absolute URL for the resource.  The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: \n* fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)\n* Results from operations might involve resources that are not identified.", 0, 1, fullUrl));
+          children.add(new Property("resource", "Resource", "The Resources for the entry.", 0, 1, resource));
+          children.add(new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, 1, search));
+          children.add(new Property("request", "", "Additional information about how this entry should be processed as part of a transaction.", 0, 1, request));
+          children.add(new Property("response", "", "Additional information about how this entry should be processed as part of a transaction.", 0, 1, response));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3321850: /*link*/  return new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link);
+          case -511251360: /*fullUrl*/  return new Property("fullUrl", "uri", "The Absolute URL for the resource.  The fullUrl SHALL not disagree with the id in the resource. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: \n* fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)\n* Results from operations might involve resources that are not identified.", 0, 1, fullUrl);
+          case -341064690: /*resource*/  return new Property("resource", "Resource", "The Resources for the entry.", 0, 1, resource);
+          case -906336856: /*search*/  return new Property("search", "", "Information about the search process that lead to the creation of this entry.", 0, 1, search);
+          case 1095692943: /*request*/  return new Property("request", "", "Additional information about how this entry should be processed as part of a transaction.", 0, 1, request);
+          case -340323263: /*response*/  return new Property("response", "", "Additional information about how this entry should be processed as part of a transaction.", 0, 1, response);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1340,10 +1364,20 @@ public class Bundle extends Resource implements IBaseBundle {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("mode", "code", "Why this entry is in the result set - whether it's included as a match or because of an _include requirement.", 0, java.lang.Integer.MAX_VALUE, mode));
-          childrenList.add(new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, java.lang.Integer.MAX_VALUE, score));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("mode", "code", "Why this entry is in the result set - whether it's included as a match or because of an _include requirement.", 0, 1, mode));
+          children.add(new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, 1, score));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3357091: /*mode*/  return new Property("mode", "code", "Why this entry is in the result set - whether it's included as a match or because of an _include requirement.", 0, 1, mode);
+          case 109264530: /*score*/  return new Property("score", "decimal", "When searching, the server's search ranking score for the entry.", 0, 1, score);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -1803,14 +1837,28 @@ public class Bundle extends Resource implements IBaseBundle {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("method", "code", "The HTTP verb for this entry in either a change history, or a transaction/ transaction response.", 0, java.lang.Integer.MAX_VALUE, method));
-          childrenList.add(new Property("url", "uri", "The URL for this entry, relative to the root (the address to which the request is posted).", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not Modified status. See the API documentation for [\"Conditional Read\"](http.html#cread).", 0, java.lang.Integer.MAX_VALUE, ifNoneMatch));
-          childrenList.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. See the API documentation for [\"Conditional Read\"](http.html#cread).", 0, java.lang.Integer.MAX_VALUE, ifModifiedSince));
-          childrenList.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section [\"Managing Resource Contention\"](http.html#concurrency).", 0, java.lang.Integer.MAX_VALUE, ifMatch));
-          childrenList.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\").", 0, java.lang.Integer.MAX_VALUE, ifNoneExist));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("method", "code", "The HTTP verb for this entry in either a change history, or a transaction/ transaction response.", 0, 1, method));
+          children.add(new Property("url", "uri", "The URL for this entry, relative to the root (the address to which the request is posted).", 0, 1, url));
+          children.add(new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not Modified status. See the API documentation for [\"Conditional Read\"](http.html#cread).", 0, 1, ifNoneMatch));
+          children.add(new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. See the API documentation for [\"Conditional Read\"](http.html#cread).", 0, 1, ifModifiedSince));
+          children.add(new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section [\"Managing Resource Contention\"](http.html#concurrency).", 0, 1, ifMatch));
+          children.add(new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\").", 0, 1, ifNoneExist));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1077554975: /*method*/  return new Property("method", "code", "The HTTP verb for this entry in either a change history, or a transaction/ transaction response.", 0, 1, method);
+          case 116079: /*url*/  return new Property("url", "uri", "The URL for this entry, relative to the root (the address to which the request is posted).", 0, 1, url);
+          case 171868368: /*ifNoneMatch*/  return new Property("ifNoneMatch", "string", "If the ETag values match, return a 304 Not Modified status. See the API documentation for [\"Conditional Read\"](http.html#cread).", 0, 1, ifNoneMatch);
+          case -2061602860: /*ifModifiedSince*/  return new Property("ifModifiedSince", "instant", "Only perform the operation if the last updated date matches. See the API documentation for [\"Conditional Read\"](http.html#cread).", 0, 1, ifModifiedSince);
+          case 1692894888: /*ifMatch*/  return new Property("ifMatch", "string", "Only perform the operation if the Etag value matches. For more information, see the API section [\"Managing Resource Contention\"](http.html#concurrency).", 0, 1, ifMatch);
+          case 165155330: /*ifNoneExist*/  return new Property("ifNoneExist", "string", "Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\").", 0, 1, ifNoneExist);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -2239,13 +2287,26 @@ public class Bundle extends Resource implements IBaseBundle {
           return this;
         }
 
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("status", "string", "The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code.", 0, java.lang.Integer.MAX_VALUE, status));
-          childrenList.add(new Property("location", "uri", "The location header created by processing this operation.", 0, java.lang.Integer.MAX_VALUE, location));
-          childrenList.add(new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).", 0, java.lang.Integer.MAX_VALUE, etag));
-          childrenList.add(new Property("lastModified", "instant", "The date/time that the resource was modified on the server.", 0, java.lang.Integer.MAX_VALUE, lastModified));
-          childrenList.add(new Property("outcome", "Resource", "An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction.", 0, java.lang.Integer.MAX_VALUE, outcome));
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("status", "string", "The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code.", 0, 1, status));
+          children.add(new Property("location", "uri", "The location header created by processing this operation.", 0, 1, location));
+          children.add(new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).", 0, 1, etag));
+          children.add(new Property("lastModified", "instant", "The date/time that the resource was modified on the server.", 0, 1, lastModified));
+          children.add(new Property("outcome", "Resource", "An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction.", 0, 1, outcome));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -892481550: /*status*/  return new Property("status", "string", "The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code.", 0, 1, status);
+          case 1901043637: /*location*/  return new Property("location", "uri", "The location header created by processing this operation.", 0, 1, location);
+          case 3123477: /*etag*/  return new Property("etag", "string", "The etag for the resource, it the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).", 0, 1, etag);
+          case 1959003007: /*lastModified*/  return new Property("lastModified", "instant", "The date/time that the resource was modified on the server.", 0, 1, lastModified);
+          case -1106507950: /*outcome*/  return new Property("outcome", "Resource", "An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction.", 0, 1, outcome);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
         }
 
       @Override
@@ -2744,14 +2805,28 @@ public class Bundle extends Resource implements IBaseBundle {
     getLink().add(retVal);
     return retVal;
   }
-      protected void listChildren(List<Property> childrenList) {
-        super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "A persistent identifier for the batch that won't change as a batch is copied from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("type", "code", "Indicates the purpose of this bundle - how it was intended to be used.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
-        childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
-        childrenList.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
-        childrenList.add(new Property("signature", "Signature", "Digital Signature - base64 encoded. XML-DSIg or a JWT.", 0, java.lang.Integer.MAX_VALUE, signature));
+      protected void listChildren(List<Property> children) {
+        super.listChildren(children);
+        children.add(new Property("identifier", "Identifier", "A persistent identifier for the batch that won't change as a batch is copied from server to server.", 0, 1, identifier));
+        children.add(new Property("type", "code", "Indicates the purpose of this bundle - how it was intended to be used.", 0, 1, type));
+        children.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, 1, total));
+        children.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
+        children.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
+        children.add(new Property("signature", "Signature", "Digital Signature - base64 encoded. XML-DSIg or a JWT.", 0, 1, signature));
+      }
+
+      @Override
+      public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+        switch (_hash) {
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A persistent identifier for the batch that won't change as a batch is copied from server to server.", 0, 1, identifier);
+        case 3575610: /*type*/  return new Property("type", "code", "Indicates the purpose of this bundle - how it was intended to be used.", 0, 1, type);
+        case 110549828: /*total*/  return new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, 1, total);
+        case 3321850: /*link*/  return new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link);
+        case 96667762: /*entry*/  return new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry);
+        case 1073584312: /*signature*/  return new Property("signature", "Signature", "Digital Signature - base64 encoded. XML-DSIg or a JWT.", 0, 1, signature);
+        default: return super.getNamedProperty(_hash, _name, _checkValid);
+        }
+
       }
 
       @Override

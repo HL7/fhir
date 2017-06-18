@@ -985,14 +985,44 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   }
 
 	private void generateChildrenRegister(ElementDefn p, String indent, boolean isAbstract) throws Exception {
-	  write(indent+"  protected void listChildren(List<Property> childrenList) {\r\n");
+	  write(indent+"  protected void listChildren(List<Property> children) {\r\n");
 	  if (!isAbstract)
-	    write(indent+"    super.listChildren(childrenList);\r\n");
+	    write(indent+"    super.listChildren(children);\r\n");
 	  for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e) && !e.typeCode().equals("xhtml"))
-	      write(indent+"    childrenList.add(new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, java.lang.Integer.MAX_VALUE, "+getElementName(e.getName(), true)+"));\r\n");    
+	      write(indent+"    children.add(new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+"));\r\n");    
 	  }
 	  write(indent+"  }\r\n\r\n");  
+    write(indent+"  @Override\r\n");
+    write(indent+"  public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {\r\n");
+    write(indent+"    switch (_hash) {\r\n");
+    for (ElementDefn e : p.getElements()) {
+      if (doGenerateAccessors(e) && !e.typeCode().equals("xhtml")) {
+        write(indent+"    case "+propId(e.getName())+": /*"+e.getName()+"*/ ");
+        write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
+        if (e.getName().endsWith("[x]")) {
+          String n = e.getName().substring(0, e.getName().length()-3);
+          write(indent+"    case "+propId(n)+": /*"+n+"*/ ");
+          write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
+          if (e.typeCode().equals("*")) {
+            for (String t : new String[] {"boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", 
+                "time", "code", "oid", "id", "unsignedInt", "positiveInt", "markdown", "Annotation", "Attachment", "Identifier", "CodeableConcept", "Coding", 
+                "Quantity", "Range", "Period", "Ratio", "SampledData", "Signature", "HumanName", "Address", "ContactPoint", "Timing", "Reference", "Meta"}) {
+              String tn = n + Utilities.capitalize(t);
+              write(indent+"    case "+propId(tn)+": /*"+tn+"*/ ");
+              write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
+            }
+          } else for (TypeRef tr : e.getTypes()) {
+            String tn = n + Utilities.capitalize(tr.getName());
+            write(indent+"    case "+propId(tn)+": /*"+tn+"*/ ");
+            write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
+          }
+        }
+      }
+    }
+    write(indent+"    default: return super.getNamedProperty(_hash, _name, _checkValid);\r\n");
+    write(indent+"    }\r\n\r\n");  
+    write(indent+"  }\r\n\r\n");  
   }
 	
   private void generatePropertyMaker(ElementDefn p, String indent) throws Exception {
