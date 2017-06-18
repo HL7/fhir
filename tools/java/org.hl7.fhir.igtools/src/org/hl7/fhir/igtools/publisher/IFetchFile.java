@@ -19,4 +19,5 @@ public interface IFetchFile {
 
   public ILoggingService getLogger();
   public void setLogger(ILoggingService log);
+  void setResourceDirs(List<String> theResourceDirs);
 }

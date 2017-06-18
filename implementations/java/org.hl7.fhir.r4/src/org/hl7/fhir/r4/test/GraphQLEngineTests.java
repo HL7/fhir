@@ -105,7 +105,8 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
       gql.execute();
       ok = true;
     } catch (Exception e) {
-      e.printStackTrace();
+      if (!output.equals("$error"))
+        e.printStackTrace();
       ok = false;
       msg = e.getMessage();
     }

@@ -229,7 +229,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String igName;
   private boolean autoBuildMode; // for the IG publication infrastructure
 
-  private IFetchFile fetcher = new SimpleFetcher(resourceDirs, this);
+  private IFetchFile fetcher = new SimpleFetcher(this);
   private SimpleWorkerContext context; // 
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
@@ -570,7 +570,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private String str(JsonObject obj, String name, String defValue) throws Exception {
-    if (!obj.has(name))
+    if (obj == null || !obj.has(name))
       return defValue;
     if (!(obj.get(name) instanceof JsonPrimitive))
       throw new Exception("Property "+name+" not a primitive");
@@ -603,29 +603,32 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public void initialize() throws Exception {
+    fetcher.setResourceDirs(resourceDirs);
     first = true;
     boolean copyTemplate = false;
-    if (configFile == null) {
-      buildConfigFile();
-      copyTemplate = true;
-    } else
-      log("Load Configuration from "+configFile);
-    try {
-      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
-    } catch (Exception e) {
-      throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
-    }
-    if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
-      String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
-      log("Redirecting to Configuration from " + redirectFile);
-      configFile = redirectFile;
-      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
-    }
-    if (configuration.has("logging")) {
-      for (JsonElement n : configuration.getAsJsonArray("logging")) {
-        String level = ((JsonPrimitive) n).getAsString();
-        System.out.println("Logging " + level);
-        logOptions.add(level);
+    if (configuration == null) {
+      if (configFile == null) {
+        buildConfigFile();
+        copyTemplate = true;
+      } else
+        log("Load Configuration from "+configFile);
+      try {
+        configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+      } catch (Exception e) {
+        throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
+      }
+      if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
+        String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
+        log("Redirecting to Configuration from " + redirectFile);
+        configFile = redirectFile;
+        configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
+      }
+      if (configuration.has("logging")) {
+        for (JsonElement n : configuration.getAsJsonArray("logging")) {
+          String level = ((JsonPrimitive) n).getAsString();
+          System.out.println("Logging " + level);
+          logOptions.add(level);
+        }
       }
     }
     if (!"jekyll".equals(str(configuration, "tool")))

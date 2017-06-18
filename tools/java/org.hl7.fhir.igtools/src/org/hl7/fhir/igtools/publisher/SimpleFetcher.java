@@ -22,11 +22,15 @@ public class SimpleFetcher implements IFetchFile {
   private List<String> resourceDirs;
   private ILoggingService log;
   
-  public SimpleFetcher(List<String> resourceDirs, ILoggingService log) {
-    this.resourceDirs = resourceDirs;
+  public SimpleFetcher(ILoggingService log) {
     this.log = log;
   }
 
+  @Override
+  public void setResourceDirs(List<String> resourceDirs) {
+    this.resourceDirs = resourceDirs;
+  }
+  
   @Override
   public void setPkp(IGKnowledgeProvider pkp) {
     this.pkp = pkp;
@@ -108,7 +112,7 @@ public class SimpleFetcher implements IFetchFile {
     throw new Exception("Unable to find resource file "+name);
   }
   
-  private String fileTitle(String path) {
+  static String fileTitle(String path) {
     if (path.contains(".")) {
       String ext = path.substring(path.lastIndexOf(".")+1);
       if (Utilities.isInteger(ext))
@@ -177,7 +181,7 @@ public class SimpleFetcher implements IFetchFile {
     }
   }
 
-  private String findFile(List<String> dirs, String name) throws IOException {
+  String findFile(List<String> dirs, String name) throws IOException {
     for (String dir : dirs) {
       String fn = Utilities.path(dir, name);
       if (new File(fn).exists())
