@@ -149,12 +149,13 @@ private Map<String, Object> userData;
   }
 
   public Property getChildByName(String name) {
-    try {
-      return getNamedProperty(name.hashCode(), name, false);
-    } catch (FHIRException e) {
+    List<Property> children = new ArrayList<Property>();
+    listChildren(children);
+    for (Property c : children)
+      if (c.getName().equals(name))
+        return c;
       return null;
     }
-  }  
   
   public List<Base> listChildrenByName(String name) throws FHIRException {
     List<Base> result = new ArrayList<Base>();

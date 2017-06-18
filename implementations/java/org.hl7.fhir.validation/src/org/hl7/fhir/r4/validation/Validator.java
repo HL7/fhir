@@ -221,6 +221,8 @@ public class Validator {
               map = args[++i];
           else
             throw new Exception("Can only nominate a single -map parameter");
+        else if (args[i].startsWith("-x"))
+          i++;
         else
           sources.add(args[i]);
         }
