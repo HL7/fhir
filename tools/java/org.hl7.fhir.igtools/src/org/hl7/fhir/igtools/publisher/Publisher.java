@@ -260,6 +260,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private HashMap<String, ImplementationGuidePageComponent> igPages = new HashMap<String, ImplementationGuidePageComponent>();
   private List<String> logOptions = new ArrayList<String>();
   private List<String> listedURLExemptions = new ArrayList<String>();
+  private String jekyllCommand = "jekyll";
 
   private long globalStart;
 
@@ -284,6 +285,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private CacheOption cacheOption;
 
   private List<CodeableConcept> jurisdictions;
+  private String configFileRootPath;
 
   private class PreProcessInfo {
     private String xsltName;
@@ -312,6 +314,32 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     globalStart = System.nanoTime();
     initialize();
     log("Load Content");
+    createIg();
+
+    if (watch) {
+      first = false;
+      log("Watching for changes on a 5sec cycle");
+      while (watch) { // terminated externally
+        Thread.sleep(5000);
+        if (load()) {
+          log("Processing changes to "+Integer.toString(changeList.size())+(changeList.size() == 1 ? " file" : " files")+" @ "+genTime());
+          long startTime = System.nanoTime();
+          loadConformance();
+          generateNarratives();
+          checkDependencies();
+          validate();
+          generate();
+          clean();
+          long endTime = System.nanoTime();
+          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+        }
+      }
+    } else
+      log("Done");
+  }
+
+
+  public void createIg() throws Exception, IOException, EOperationOutcome, FHIRException {
     load();
 
     long startTime = System.nanoTime();
@@ -331,27 +359,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     long endTime = System.nanoTime();
     clean();
     log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
-
-    if (watch) {
-      first = false;
-      log("Watching for changes on a 5sec cycle");
-      while (watch) { // terminated externally
-        Thread.sleep(5000);
-        if (load()) {
-          log("Processing changes to "+Integer.toString(changeList.size())+(changeList.size() == 1 ? " file" : " files")+" @ "+genTime());
-          startTime = System.nanoTime();
-          loadConformance();
-          generateNarratives();
-          checkDependencies();
-          validate();
-          generate();
-          clean();
-          endTime = System.nanoTime();
-          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
-        }
-      }
-    } else
-      log("Done");
   }
 
 
@@ -641,11 +648,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!configuration.has("paths") || !(configuration.get("paths") instanceof JsonObject))
       throw new Exception("Error: configuration file must include a \"paths\" object");
     JsonObject paths = configuration.getAsJsonObject("paths");
-    String root = Utilities.getDirectoryForFile(configFile);
-    if (Utilities.noString(root))
-      root = getCurentDirectory();
-    // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
-    root = new File(root).getCanonicalPath();
+    String root;
+    if (fetcher instanceof ZipFetcher) {
+      root = configFileRootPath;
+    } else {
+      root = Utilities.getDirectoryForFile(configFile);
+      if (Utilities.noString(root))
+        root = getCurentDirectory();
+      // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
+      root = new File(root).getCanonicalPath();
+    }
+        
     log("Root directory: "+root);
     if (paths.get("resources") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("resources"))
@@ -2506,9 +2519,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     try {
 	    if (SystemUtils.IS_OS_WINDOWS)
-	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C jekyll build --destination \""+outputDir+"\""));
+	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C "+jekyllCommand+" build --destination \""+outputDir+"\""));
 	    else
-	      exec.execute(org.apache.commons.exec.CommandLine.parse("jekyll build --destination \""+outputDir+"\""));
+	      exec.execute(org.apache.commons.exec.CommandLine.parse(jekyllCommand+" build --destination \""+outputDir+"\""));
     } catch (IOException ioex) {
     	log("Complete output from Jekyll: " + pumpHandler.getBufferString());
     	throw ioex;
@@ -3776,6 +3789,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         if (!(new File(self.getConfigFile()).isAbsolute()))
           self.setConfigFile(Utilities.path(System.getProperty("user.dir"), self.getConfigFile()));
       }
+      self.setJekyllCommand(getNamedParam(args, "-jekyll"));
       self.setIgPack(getNamedParam(args, "-spec"));
       self.setTxServer(getNamedParam(args, "-tx"));
       self.setAutoBuildMode(hasNamedParam(args, "-auto-ig-build"));
@@ -3808,6 +3822,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     System.exit(exitCode);
   }
+
+  public void setJekyllCommand(String theJekyllCommand) {
+    if (!Utilities.noString(theJekyllCommand)) {
+      this.jekyllCommand = theJekyllCommand;
+    }
+  }
+
 
   private static String determineActualIG(String ig) throws Exception {
     File f = new File(ig);
@@ -3856,5 +3877,38 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     this.specifications = specifications;
   }
 
- 
+
+  public void setFetcher(ZipFetcher theFetcher) {
+    fetcher = theFetcher;
+  }
+
+
+  public void setContext(SimpleWorkerContext theContext) {
+    context = theContext;
+  }
+
+
+  public void setSpecPath(String theSpecPath) {
+    specPath = theSpecPath;
+  }
+
+
+  public void setTempDir(String theTempDir) {
+    tempDir = theTempDir;
+  }
+
+
+  public void setIgName(String theIgName) {
+    igName = theIgName;
+  }
+
+  public void setConfigFileRootPath(String theConfigFileRootPath) {
+    configFileRootPath = theConfigFileRootPath;
+  }
+
+
+  public void setConfiguration(JsonObject theConfiguration) {
+    configuration = theConfiguration;
+  }
+
 }

@@ -87,8 +87,9 @@
 		<dependency org="org.typelevel" name="cats-kernel_2.12" rev="0.9.0" />
 		<dependency org="org.antlr" name="antlr4-runtime" rev="4.6"/>
 		<dependency org="io.circe" name="circe-core_2.11" rev="0.7.0-M2" />
+    <dependency org="com.atlassian.commonmark" name="commonmark" rev="0.9.0"/>
 
-    <!-- IG web server dependencies 
+    <!-- IG web server dependencies -->
     <dependency org="commons-cli" name="commons-cli" rev="1.4"/>
     <dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0"/>
     <dependency org="org.eclipse.jetty" name="jetty-http" rev="9.4.5.v20170502"/>
@@ -97,7 +98,7 @@
     <dependency org="org.eclipse.jetty" name="jetty-server" rev="9.4.5.v20170502"/>
     <dependency org="org.eclipse.jetty" name="jetty-servlet" rev="9.4.5.v20170502"/>
     <dependency org="org.eclipse.jetty" name="jetty-util" rev="9.4.5.v20170502"/>
--->
+ 
 		<!--
 		A note on logging: A few of the Ivy dependencies bring in slf4j-log4j12 so
 		I've set this file up to bring in that library explicitly (in order to
