@@ -57,10 +57,10 @@
 	</subject>
 	<issued value="2013-03-11T10:28:00+01:00"/>
 	<performer>
-		<actor>
+		
 			<reference value="Organization/f201"/>
 			<display value="AUMC"/>
-		</actor>
+		
 	</performer>
 	<result>
 		<reference value="Observation/f206"/>

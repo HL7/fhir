@@ -12,14 +12,14 @@
 		<system value="http://www.acmehosp.com/bodystructures"/>
 		<value value="12345"/>
 	</identifier>
-	<code>
+	<location>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="53120007"/>
 			<display value="Arm"/>
 		</coding>
 		<text value="Arm"/>
-	</code>
+	</location>
 	<qualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>

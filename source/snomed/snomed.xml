@@ -10737,6 +10737,11 @@
     <display value="Hospital-based outpatient psychiatric clinic"/>
     <display value="Hospital-based outpatient mental health clinic (environment)"/>
   </concept>
+  <concept id="14975008" display="Forearm">
+    <display value="Forearm"/>
+    <display value="Forearm structure"/>
+    <display value="Forearm structure (body structure)"/>
+  </concept>
   <concept id="15108003" display="Restricted fiber diet">
     <display value="Restricted fiber diet"/>
     <display value="Low fiber diet"/>
@@ -11772,6 +11777,10 @@
     <display value="Subcutaneous"/>
     <display value="SC - Subcutaneous"/>
     <display value="Subcutaneous (qualifier value)"/>
+  </concept>
+  <concept id="263929005" display="Volar">
+    <display value="Volar"/>
+    <display value="Volar (qualifier value)"/>
   </concept>
   <concept id="264217000" display="Superior">
     <display value="Superior"/>
@@ -14837,6 +14846,11 @@
   <concept id="4960000" display="Peruvian Paso horse">
     <display value="Peruvian Paso horse"/>
     <display value="Peruvian Paso horse (organism)"/>
+  </concept>
+  <concept id="49755003" display="Abnormal tissue appearance">
+    <display value="Abnormal tissue appearance"/>
+    <display value="Morphologically abnormal structure"/>
+    <display value="Morphologically abnormal structure (morphologic abnormality)"/>
   </concept>
   <concept id="49852007" display="Median cubital vein">
     <display value="Median cubital vein"/>

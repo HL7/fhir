@@ -989,9 +989,9 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 		<!--   patient chosen at random   -->
 	</subject><issued value="2009-08-10T08:25:44+10:00"/>
 	<performer>
-		<actor>
+		
 			<display value="Todd Ashby"/>
-		</actor>
+		
 	</performer>
 	<result>
 		<reference value="#org1"/>

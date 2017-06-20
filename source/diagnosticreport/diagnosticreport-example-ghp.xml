@@ -2263,10 +2263,10 @@
 	<effectiveDateTime value="2015-08-16T06:40:17Z"/>
 	<issued value="2015-08-17T06:40:17Z"/>
 	<performer>
-		<actor>
+		
 			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 			<display value="Acme Laboratory, Inc"/>
-		</actor>
+		
 	</performer>
 	<specimen>
 		<reference value="#rtt"/>

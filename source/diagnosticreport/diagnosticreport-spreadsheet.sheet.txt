@@ -253,11 +253,11 @@
  -- Row 10 -----------------------------------
   Element = DiagnosticReport.issued
   Card. = 0..1
-  Aliases = Date Created, Date published, Date Issued
+  Aliases = Date published; Date Issued; Date Verified
   Summary = y
   Type = instant
-  Short Name = DateTime this version was released
-  Definition = The date and time that this version of the report was released from the source diagnostic service
+  Short Name = DateTime this version was made
+  Definition = The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
   Requirements = Clinicians need to be able to check the date that the report was released
   Comments = May be different from the update time of the resource itself, because that is the status of the record (potentially a secondary copy), not the actual release time of the report
   v2 Mapping = OBR-22
@@ -268,18 +268,21 @@
  -- Row 11 -----------------------------------
   Element = DiagnosticReport.performer
   Card. = 0..*
-  Aliases = Laboratory, Service, Practitioner, Department, Company
+  Aliases = Laboratory, Service, Practitioner, Department, Company, Authorized by, Director
   Summary = y
-  Short Name = Participants in producing the report
-  Definition = Indicates who or what participated in producing the report.
+  Type = Reference(Practitioner|Organization)
+  Short Name = Responsible Diagnostic Service
+  Definition = The diagnostic service that is responsible for issuing the report
+  Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
+  Comments = This is not necessarily the source of the atomic data items or the entity that interpreted the results. It is the entity that takes responsibility for the clinical report.
   Workflow Mapping = Event.performer
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = .participation[typeCode=PRF]
-  Committee Notes = 12/22/2016 EH: 8936,11428
-  w5 = who.witness
+  Committee Notes = 12/22/2016 EH: 8936,11428,13169
+  w5 = who.actor
 
  -- Row 12 -----------------------------------
-  Element = DiagnosticReport.performer.role
+  Element = !DiagnosticReport.performer.role
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
@@ -291,7 +294,7 @@
   RIM Mapping = .functionCode
 
  -- Row 13 -----------------------------------
-  Element = DiagnosticReport.performer.actor
+  Element = !DiagnosticReport.performer.actor
   Card. = 1..1
   Summary = y
   Type = Reference(Practitioner|Organization)
@@ -304,6 +307,22 @@
   RIM Mapping = .role
 
  -- Row 14 -----------------------------------
+  Element = DiagnosticReport.resultsInterpreter
+  Card. = 0..*
+  Aliases = Analyzed by, Reported by
+  Summary = y
+  Type = Reference(Practitioner|Organization)
+  Short Name = Primary result interpreter
+  Definition = The practitioner or organization that is responsible for the report\'s conclusions and interpretations
+  Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
+  Comments = May not be the same entity that takes responsibility for the clinical report.
+  Workflow Mapping = Event.performer
+  v2 Mapping = OBR-32, PRT-8 (where this PRT-4-Participation = \"PI\")
+  RIM Mapping = .participation[typeCode=PRF]
+  Committee Notes = 13169
+  w5 = who.actor
+
+ -- Row 15 -----------------------------------
   Element = DiagnosticReport.specimen
   Card. = 0..*
   Type = Reference(Specimen)
@@ -314,7 +333,7 @@
   v2 Mapping = SPM
   RIM Mapping = participation[typeCode=SBJ]
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DiagnosticReport.result
   Card. = 0..*
   Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organizer
@@ -325,7 +344,7 @@
   v2 Mapping = OBXs
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DiagnosticReport.imagingStudy
   Card. = 0..*
   Type = Reference(ImagingStudy|ImagingManifest)
@@ -335,7 +354,7 @@
   RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
   Committee Notes = 6246
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DiagnosticReport.image
   Card. = 0..*
   Aliases = DICOM, Slides, Scans
@@ -347,7 +366,7 @@
   v2 Mapping = OBX?
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DiagnosticReport.image.comment
   Card. = 0..1
   Type = string
@@ -357,7 +376,7 @@
   Comments = The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DiagnosticReport.image.link
   Card. = 1..1
   Summary = Y
@@ -365,7 +384,7 @@
   Short Name = Reference to the image source
   RIM Mapping = .value.reference
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DiagnosticReport.conclusion
   Card. = 0..1
   Aliases = Report
@@ -376,7 +395,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=\"SPRT\"].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
   Card. = 0..*
   Type = CodeableConcept
@@ -385,7 +404,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DiagnosticReport.presentedForm
   Card. = 0..*
   Type = Attachment
@@ -419,78 +438,84 @@
  -- Row 4 -----------------------------------
   Name = performer
   Type = reference
-  Description = Who was the source of the report (organization)
-  Path = DiagnosticReport.performer.actor
+  Description = Who is responsible for the report
+  Path = DiagnosticReport.performer
 
  -- Row 5 -----------------------------------
+  Name = results-interpreter
+  Type = reference
+  Description = Who was the source of the report
+  Path = DiagnosticReport.resultsInterpreter
+
+ -- Row 6 -----------------------------------
   Name = identifier
   Type = token
   Description = An identifier for the report
   Path = DiagnosticReport.identifier
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = category
   Type = token
   Description = Which diagnostic discipline/department created the report
   Path = DiagnosticReport.category
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = date
   Type = date
   Description = The clinically relevant time of the report
   Path = DiagnosticReport.effective[x]
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = specimen
   Type = reference
   Description = The specimen details
   Path = DiagnosticReport.specimen
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = code
   Type = token
   Description = The code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result
   Path = DiagnosticReport.code
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = result
   Type = reference
   Description = Link to an atomic result (observation resource)
   Path = DiagnosticReport.result
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = diagnosis
   Type = token
   Description = A coded diagnosis on the report
   Path = DiagnosticReport.codedDiagnosis
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = image
   Type = reference
   Description = A reference to the image source.
   Path = DiagnosticReport.image.link
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = based-on
   Type = reference
   Description = Reference to the procedure request.
   Path = DiagnosticReport.basedOn
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = patient
   Type = reference
   Description = The subject of the report if a patient
   Path = DiagnosticReport.subject
   Target Types = Patient
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = encounter
   Type = reference
   Description = The Encounter when the order was made
   Path = DiagnosticReport.context
   Target Types = Encounter
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = context
   Type = reference
   Description = Healthcare event (Episode of Care or Encounter) related to the report

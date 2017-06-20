@@ -79,10 +79,10 @@
 	</subject>
 	<issued value="2013-05-15T19:32:52+01:00"/>
 	<performer>
-		<actor>
+		
 			<reference value="Organization/f001"/>
 			<display value="Burgers University Medical Centre"/>
-		</actor>
+		
 	</performer>
 	<result>
 		<reference value="Observation/f001"/>

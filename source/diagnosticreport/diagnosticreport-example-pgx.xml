@@ -20,9 +20,9 @@
 	<effectiveDateTime value="2016-10-15T12:34:56+11:00"/>
 	<issued value="2016-10-20T14:00:05+11:00"/>
 	<performer>
-		<actor>
+		
 			<reference value="Organization/4829"/>
-		</actor>
+		
 	</performer>
 
 	<result>

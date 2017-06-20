@@ -2,39 +2,25 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = !Laterality
-  Binding = value set
-  Reference = valueset-bodystructure-laterality
-  Definition = Specify lateraility of the anatomical location.
-  Conformance = example
-
- -- Row 2 -----------------------------------
-  Binding Name = !AnatomicPlane
-  Binding = value set
-  Reference = valueset-bodystructure-anatomic-plane
-  Definition = Concepts describing anatomical plane in the body
-  Conformance = example
-
- -- Row 3 -----------------------------------
-  Binding Name = !RelativeLocation
-  Binding = value set
-  Reference = valueset-bodystructure-relative-location
-  Definition = Concepts describing the relative locatiion in relation to an identified anatomical landmark
-  Conformance = example
-
- -- Row 4 -----------------------------------
   Binding Name = BodyStructureQualifier
   Binding = value set
   Reference = valueset-bodystructure-relative-location
   Definition = Concepts modifying the anatomic location
   Conformance = example
 
- -- Row 5 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = valueset-body-site
   Definition = Codes describing anatomical locations. May include laterality
   Description = SNOMED CT Body site concepts
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = BodyStructureCode
+  Binding = value set
+  Reference = valueset-bodystructure-code
+  Definition = Codes describing anatomic morphology.
   Conformance = example
 
 === Sheet Invariants =====================================
@@ -81,15 +67,27 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
+  Binding = BodyStructureCode
+  Short Name = Morphologic description
+  Definition = The kind of morphology being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.
+  Comments = The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology.
+  Committee Notes = #13394
+  w5 = what
+
+ -- Row 5 -----------------------------------
+  Element = BodyStructure.location
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
   Binding = BodySite
-  Short Name = Named anatomical location
-  Definition = Named anatomical location - ideally coded where possible.
+  Short Name = Body site
+  Definition = The anatomical location or region of the specimen, lesion, or body structure.
   v2 Mapping = OBX-20
   RIM Mapping = .targetSiteCode
   OpenEHR mapping = Name of location
   w5 = what
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = BodyStructure.qualifier
   Card. = 0..*
   Type = CodeableConcept
@@ -101,7 +99,7 @@
   OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
   w5 = what
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = BodyStructure.description
   Card. = 0..1
   Summary = Y
@@ -113,7 +111,7 @@
   OpenEHR mapping = Description of anatomical location/Visual markings/orientation
   w5 = what
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = BodyStructure.image
   Card. = 0..*
   Type = Attachment
@@ -123,7 +121,7 @@
   OpenEHR mapping = Image
   w5 = what
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = BodyStructure.patient
   Card. = 1..1
   Summary = Y
@@ -138,19 +136,21 @@
  -- Row 1 -----------------------------------
   Name = code
   Type = token
-  Description = Named anatomical location
   Path = BodyStructure.code
 
  -- Row 2 -----------------------------------
-  Name = patient
-  Type = reference
-  Description = Patient to whom bodystructure belongs
-  Path = BodyStructure.patient
+  Name = location
+  Type = token
+  Path = BodyStructure.location
 
  -- Row 3 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = BodyStructure.patient
+
+ -- Row 4 -----------------------------------
   Name = identifier
   Type = token
-  Description = Identifier for this instance of the anatomical location
   Path = BodyStructure.identifier
 
 === Sheet Profiles =====================================

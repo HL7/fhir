@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><!--This example demonstrates using the bodystructure resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time--><BodyStructure xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This example demonstrates using the bodystructure resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time-->
+<BodyStructure xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="tumor"/>
 	<identifier>
 		<system value="http://goodhealth.org/bodystructure/identifiers"/>
@@ -12,17 +14,17 @@
 		</coding>
 		<text value="Splenic mass"/>
 	</code>
-	<qualifier>
+	<location>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="78961009"/>
 			<display value="Splenic structure (body structure)"/>
 		</coding>
-		<text value="Splenic mass"/>
-	</qualifier>
+		<text value="Spleen"/>
+	</location>
 	<description value="7 cm maximum diameter"/>
 	<image>
-	<!--   The actual image could be anywhere. This is a WADO example using a ficitious url  -->
+		<!--   The actual image could be anywhere. This is a WADO example using a ficitious url  -->
 		<contentType value="application/dicom"/>
 		<url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;amp;wado_details"/>
 	</image>

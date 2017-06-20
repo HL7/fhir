@@ -16,8 +16,8 @@
 
 <table class="<%fmm-style%>"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><td><%complinks%></td></tr></table>
 
-<p> 
-<%definition%> 
+<p>
+<%definition%>
 </p>
 
 <%introduction%>
@@ -53,7 +53,7 @@ Resource Content
 
   </div>
   <div id="tabs-uml">
-  
+
 <div id="uml">
 <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
  <div id="uml-inner">
@@ -100,7 +100,7 @@ Resource Content
   <%diff-analysis%>
   <p>
   This analysis is available as <a href="<%name%>.diff.xml">XML</a> or <a href="<%name%>.diff.json">JSON</a>.
-  </p>  
+  </p>
   <%r2r3transforms%>
  </div>
 </div>
@@ -116,7 +116,7 @@ Resource Content
  </div>
 </div>
 
- 
+
 <div id="uml">
 <a name="uml"> </a>
 <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
@@ -140,7 +140,7 @@ Resource Content
   <%json%>
  </div>
 </div>
-  
+
 <div id="ttl2">
 <a name="ttl"> </a>
 <p><b>Turtle Template</b></p>
@@ -155,18 +155,18 @@ Resource Content
   <%diff-analysis%>
   <p>
   This analysis is available as <a href="<%name%>.diff.xml">XML</a> or <a href="<%name%>.diff.json">JSON</a>.
-  </p>  
+  </p>
   <%r2r3transforms%>
  </div>
 </div>
-  
+
   </div>
 </div>
-  
-<p>&nbsp;</p>  
-<p>Alternate definitions: 
+
+<p>&nbsp;</p>
+<p>Alternate definitions:
 Master Definition (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%>.profile.json.html">JSON</a>),
-<a href="xml.html">XML</a> <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a> (for ) + <a href="json.html">JSON</a> <a href="<%cname%>.schema.json">Schema</a>, <a href="<%name%>.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>)</p>
+<a href="xml.html">XML</a> <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a> + <a href="json.html">JSON</a> <a href="<%cname%>.schema.json">Schema</a>, <a href="<%name%>.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>)</p>
 
 <a name="tx"> </a>
 <%tx%>
@@ -191,7 +191,7 @@ Master Definition (<a href="<%name%>.profile.xml.html">XML</a>, <a href="<%name%
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
 }
-catch(exception){ 
+catch(exception){
 }
 
 if (!currentTabIndex)
@@ -206,11 +206,11 @@ $( '#tabs' ).tabs({
              try {
                sessionStorage.setItem('fhir-resource-tab-index', currentTabIndex);
              }
-             catch(exception){ 
+             catch(exception){
              }
          }
      });
 </script>
-    
+
 </body>
 </html>

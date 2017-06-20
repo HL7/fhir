@@ -1213,10 +1213,10 @@
         <effectiveDateTime value="2005-01-27T06:40:17Z"/>
         <issued value="2005-01-27T06:40:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -2313,10 +2313,10 @@
         <effectiveDateTime value="2004-12-08T07:45:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -3398,10 +3398,10 @@
         <effectiveDateTime value="2004-12-15T07:20:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -4478,10 +4478,10 @@
         <effectiveDateTime value="2004-12-22T07:45:17Z"/>
         <issued value="2004-12-21T00:00:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -5538,10 +5538,10 @@
         <effectiveDateTime value="2004-12-03T09:45:17Z"/>
         <issued value="2004-12-03T00:00:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -6600,10 +6600,10 @@
         <effectiveDateTime value="2004-12-03T20:30:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -7662,10 +7662,10 @@
         <effectiveDateTime value="2004-12-05T07:15:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -8731,10 +8731,10 @@
         <effectiveDateTime value="2005-01-27T06:40:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -9828,10 +9828,10 @@
         <effectiveDateTime value="2004-12-08T07:45:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -10913,10 +10913,10 @@
         <effectiveDateTime value="2004-12-15T07:20:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -11993,10 +11993,10 @@
         <effectiveDateTime value="2004-12-22T07:45:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -13053,10 +13053,10 @@
         <effectiveDateTime value="2004-12-03T09:45:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -14115,10 +14115,10 @@
         <effectiveDateTime value="2004-12-03T20:30:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -15177,10 +15177,10 @@
         <effectiveDateTime value="2004-12-05T07:15:17Z"/>
         <issued value="2005-02-23T10:04:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -15823,10 +15823,10 @@
         <effectiveDateTime value="2005-11-07T21:44:17Z"/>
         <issued value="2005-11-07T23:38:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <specimen>
           <display value="URINE, CLEAN CATCH/MIDSTREAM"/>
@@ -15936,10 +15936,10 @@
         <effectiveDateTime value="2005-03-07T14:02:17Z"/>
         <issued value="2005-03-07T14:02:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>
@@ -16025,10 +16025,10 @@
         <effectiveDateTime value="2012-05-21T10:45:00Z"/>
         <issued value="2012-05-23T14:27:01Z"/>
         <performer>
-					<actor>
+					
 						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 						<display value="Acme Laboratory, Inc"/>
-					</actor>
+					
 				</performer>
         <result>
           <reference value="#o1"/>

@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-07T23:34:47Z</LastSaved>
+  <LastSaved>2017-06-19T20:43:20Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,6 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -810,15 +811,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s157">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
   <Style ss:ID="s158">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
@@ -860,6 +852,22 @@
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s164">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s165">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -907,10 +915,10 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R94C25"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R95C25"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="94" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="95" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:Width="227.25"/>
@@ -1147,6 +1155,45 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">BodyStructure.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">BodyStructureCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Morphologic description</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">The kind of morphology being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="Number">3</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">what</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">#13394</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s97"><Data ss:Type="String">BodyStructure.location</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1161,9 +1208,9 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Named anatomical location </Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Body site</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Named anatomical location - ideally coded where possible.</Data><NamedCell
+    <Cell ss:StyleID="s164"><Data ss:Type="String">The anatomical location or region of the specimen, lesion, or body structure.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3646,9 +3693,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3660,11 +3707,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>12</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -3672,7 +3718,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R94C25"
+  <AutoFilter x:Range="R1C1:R95C25"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -4210,7 +4256,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="19" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="20" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s123" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s123" ss:AutoFitWidth="0" ss:Width="71.25"/>
@@ -4244,21 +4290,28 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">BodyStructure.code</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Named anatomical location </Data></Cell>
+    <Cell ss:StyleID="s89"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s125"><Data ss:Type="String">location</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">BodyStructure.location</Data></Cell>
+    <Cell ss:StyleID="s89"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">BodyStructure.patient</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Patient to whom bodystructure belongs</Data></Cell>
+    <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">BodyStructure.identifier</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Identifier for this instance of the anatomical location</Data></Cell>
+    <Cell ss:StyleID="s90"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"/>
@@ -4391,8 +4444,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6056,8 +6109,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6073,7 +6126,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s123" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s123" ss:Width="114.75"/>
@@ -6140,51 +6193,6 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s157"><Data ss:Type="String">!Laterality</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Specify lateraility of the anatomical location.</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">valueset-bodystructure-laterality</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s137"/>
-    <Cell ss:StyleID="s147"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"><Data ss:Type="String">!AnatomicPlane</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Concepts describing anatomical plane in the body</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-bodystructure-anatomic-plane</Data></Cell>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s89"><Data ss:Type="String">!RelativeLocation</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Concepts describing the relative locatiion in relation to an identified anatomical landmark</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-bodystructure-relative-location</Data></Cell>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s89"><Data ss:Type="String">BodyStructureQualifier</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Concepts modifying the anatomic location</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
@@ -6215,11 +6223,11 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">BodyStructureCode</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Codes describing anatomic morphology.</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-bodystructure-code</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -6607,7 +6615,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

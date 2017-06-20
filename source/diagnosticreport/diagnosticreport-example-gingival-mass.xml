@@ -30,11 +30,12 @@
 	<effectiveDateTime value="2017-03-02"/>
 	<issued value="2017-03-15T08:13:08Z"/>
 	<performer>
-		<actor>
-			<display value="Acme Animal Labs"/>
-		</actor>
+		<display value="Acme Animal Labs"/>
 	</performer>
-<!--	This is a pretty pdf with a picture -->
+	<resultsInterpreter>
+		<display value="Sean Stover, BS, DVM, DABVP (Canine/Feline), DACVP"/>
+	</resultsInterpreter>
+	<!--	This is a pretty pdf with a picture -->
 	<presentedForm>
 		<contentType value="application/pdf"/>
 		<language value="en"/>

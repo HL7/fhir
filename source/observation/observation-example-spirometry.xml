@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="656"/>
+	<identifier>
+		<value value="patientId-urn:oid:1.2.4~0000000000000000~152584~20170503155426~820"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="urn:iso:std:iso:11073:10101"/>
+			<code value="152584"/>
+			<display value="MDC_FLOW_AWAY_EXP_FORCED_PEAK"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/PatientId-patientId"/>
+	</subject>
+	<effectiveDateTime value="2017-05-03T15:54:26-04:00"/>
+	<performer>
+		<reference value="Patient/PatientId-patientId"/>
+	</performer>
+	<valueQuantity>
+		<value value="820"/>
+		<unit value="cL/s"/>
+		<system value="urn:iso:std:iso:11073:10101"/>
+		<code value="265201"/>
+	</valueQuantity>
+	<device>
+		<reference value="DeviceComponent/DeviceComponent-SysId-E239000000000001"/>
+	</device>
+	<related>
+		<type value="qualified-by"/>
+		<target>
+			<identifier>
+				<value value="3.14159.20170619185932"/>
+			</identifier>
+		</target>
+	</related>
+</Observation>

@@ -93,7 +93,7 @@ narrative contains clinically relevant data from the form. Commonly, the followi
 	<ul>
 		<li>Simple Laboratory Reports: A single set of atomic observations, and a tabular presentation in narrative. Typically this is encountered in high volume areas such as Biochemistry and Hematology</li>
 		<li>Histopathology Report: A document report in a presented form and the narrative. Possibly a few key images, and some coded diagnoses for registries. If the service is creating a structured report, some atomic data may be included</li>
-		<li>imaging Report; A document report in a presented form and the narrative, with an imaging study reference and possibly some key images. Some imaging reports such as a Bone Density Scan may include some atomic data</li>
+		<li>imaging Report: A document report in a presented form and the narrative, with an imaging study reference and possibly some key images. Some imaging reports such as a Bone Density Scan may include some atomic data</li>
 	</ul>
 	<p>
 Note that the nature of reports from the various disciplines that provide diagnostic reports are changing quickly,

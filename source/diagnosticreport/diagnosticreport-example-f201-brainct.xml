@@ -30,10 +30,10 @@
 	<effectiveDateTime value="2012-12-01T12:00:00+01:00"/>
 	<issued value="2012-12-01T12:00:00+01:00"/>
 	<performer>
-		<actor>
+		
 			<reference value="Organization/f203"/>
 			<display value="Blijdorp MC"/>
-		</actor>
+		
 	</performer>
 	<!-- The actual CT imagenot available -  following reference used to demonstrate the usage of the element-->
 	<imagingStudy>
