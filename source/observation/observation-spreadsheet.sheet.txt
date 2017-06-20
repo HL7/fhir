@@ -606,7 +606,7 @@
   Type = Reference(Device|DeviceComponent|DeviceMetric)
   Short Name = (Measurement) Device
   Definition = The device used to generate the observation data.
-  Comments = An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using an extension or the Provenance resource. (e.g., a device gateway such as a smart phone).
+  Comments = An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using an extension or the [Provenance](provenance.html) resource. (e.g., a device gateway such as a smart phone).
   SNOMED CT Concept Domain = < 49062001 |Device|
   v2 Mapping = OBX-17 / PRT -10
   RIM Mapping = participation[typeCode=DEV]

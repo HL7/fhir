@@ -32,7 +32,7 @@
   Aliases = anatomical location
   Type = DomainResource
   Short Name = Specific and identified anatomical location
-  Definition = Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
+  Definition = Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
   RIM Mapping = ActSIte
   OpenEHR mapping = Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1      Concept name   Anatomical Location      Concept description   Record details about an anatomical location.      Keywords   location, site, anatomical      Copyright   © openEHR Foundation      Purpose   To record details about anatomical location.      Misuse   Not for specifiying unilateral/bilateral occurrence - this is related to an evaluation which perhaps includes multiple locations.      Author   Author name: Heather Leslie Organization: Ocean Informatics Email: heather.leslie@oceaninformatics.com Date of Origination: 2008-11-10       Translator   Norwegian Bokmål: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine. Arabic (Syria): Mona Saleh       Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor) Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor) Dunmail Hodkinson, Black Pear Software Ltd, UK      References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail.
   w5 = clinical.diagnostics
@@ -43,7 +43,7 @@
   Summary = Y
   Type = Identifier
   Short Name = Bodystructure identifier
-  Definition = Identifier for this instance of the anatomical location.
+  Definition = Identifier for this instance of the anatomical structure.
   RIM Mapping = .id
   OpenEHR mapping = Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)
   w5 = id
@@ -68,7 +68,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = BodyStructureCode
-  Short Name = Morphologic description
+  Short Name = Morphology
   Definition = The kind of morphology being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.
   Comments = The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology.
   Committee Notes = #13394
@@ -92,7 +92,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = BodyStructureQualifier
-  Short Name = Modification to location code
+  Short Name = Body site modifier
   Definition = Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
   v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
   RIM Mapping = .targetSiteCode
@@ -104,8 +104,8 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Name = Anatomical location description
-  Definition = A summary, charactarization or explanation of the anatomic location.
+  Short Name = Text description
+  Definition = A summary, charactarization or explanation of the body structure.
   Comments = This description could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.
   RIM Mapping = .text
   OpenEHR mapping = Description of anatomical location/Visual markings/orientation
