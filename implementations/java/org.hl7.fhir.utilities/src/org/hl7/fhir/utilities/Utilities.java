@@ -541,6 +541,8 @@ public class Utilities {
 //  }
 
   public static String nmtokenize(String cs) {
+    if (cs == null)
+      return "";
     StringBuilder s = new StringBuilder();
     for (int i = 0; i < cs.length(); i++) {
       char c = cs.charAt(i);
