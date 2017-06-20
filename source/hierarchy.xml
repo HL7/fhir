@@ -71,6 +71,7 @@ signatures.html
 
       <page title="RESTful API" filename="http.html">
         <page title="Search" filename="search.html"/>
+        <page title="GraphQL" filename="graphql.html"/>
         <page title="_filter Parameter" filename="search_filter.html"/>
         <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
         <page title="FHIRPath Patch" filename="fhirpatch.html"/>

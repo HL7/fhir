@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+
+
+
+[%settitle Using GraphQL with FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<a name="root"> </a>
+<h2>Using GraphQL with FHIR</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: <a href="versions.html#std-process">Draft</a></td></tr></table>
+<p>
+GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
+This page describes how to use GraphQL with FHIR. The GraphQL interface may be implemented by
+any server, and may be provided as a facade service in front of a conformant RESTful API. For GraphQL 
+documentation, see <a href="http://graphql.org">http://graphql.org</a>.
+</p>
+<p>
+Note: this page is a draft. For ongoing discussion, see <a href="https://chat.fhir.org/#narrow/stream/implementers/subject/GraphQL">chat.fhir.org</a>.
+</p>
+
+<a name="invoking"> </a>
+<h3>Invoking GraphQL</h3>
+<p>
+For reasons of consistency with other aspects of FHIR, the standard end points for graphQL are
+</p>
+<pre>
+[base]/$graphql
+</pre>
+<p>
+A System level query. The query must start by selecting a resource type and some search criteria, as defined <a href="#search">below</a>.
+</p>
+<pre>
+[base]/[Type]/[id]/$graphql
+</pre>
+<p>
+A Resource Instance level the query assumes a single resource is in scope, and just queries on the data available in the given resource.
+</p>
+<p>
+GraphQL can be invoked by get with a query parameter, or a POST with the graphQL as the body, or a JSON body. (see <a href="http://graphql.org/learn/serving-over-http/">the GraphQL documentation</a>). 
+</p>
+<p>
+The mime type of the response is application/json. Other formats are not described by the specification. The mimetype is *not* application/fhir+json - the response is not a FHIR resource, though it may look like one closely.
+</p>
+
+<a name="conformance"> </a>
+<h3>Conformance</h3>
+
+<p>
+Servers that conform to FHIR/GraphQL specification:
+</p>
+<ul>
+ <li>SHALL use types, queries and mutations that conform to those provided in the GraphQL definitions in the specification</li>
+ <li>SHOULD support the @skip and @include directives</li>
+ <li>SHALL indicate in their conformance statement that they support graphQL queries (todo: how)</li>
+ <li>SHOULD provide the same functionality as that defined in their conformance statement for read/search/create/update/delete/patch operations</li>
+ <li>SHALL provide introspection services that correctly describe the services they offer</li>
+ <li>MAY provide additional queries and mutations beyond those defined listed here</li>
+</ul>
+
+<p>
+Note that most servers only provide a subset of the full functionality described by the FHIR interface. 
+Where servers support FHIR features, and implement GraphQL, they must make them available as defined
+by this page, but these rules do not require that servers implement all (or even any) of the functionality 
+defined here. Also, these rules do not prevent servers providing additional end-points, queries or 
+mutations that provide additional functionality. 
+</p>
+
+<a name="errors"> </a>
+<h4>Error Handling</h4>
+
+<p>
+With regard to handling errors, FHIR GraphQL servers:
+</p>
+<ul>
+ <li>SHALL return a 200 ok with a "data" field, or a 3xx, 4xx or 5xx response with an OperationOutcome</li>
+ <li>SHALL not include an "errors" property in their response</li>
+ <li>MAY include an operation outcome in a mutation response in the "extensions" property along with a "data" element, if the mutation succeeded. The OperationOutcome SHALL only include information and warning messages</li> 
+ <li>SHALL return an error when fields that are not valid or not supported are used, or when queries, mutations, arguments, types, and directives that are not recognized or supported are encountered</li>
+</ul>
+
+<a name="fields"> </a>
+<h3>Field Selection</h3>
+
+<p>
+Any FHIR defined field can be used directly e.g. this graphql against the Patient resource (r3)
+</p>
+<pre class="graphql">
+ { 
+  name { text given family } 
+ }
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}</a> (note: examples are only informative).
+</p>
+<p>
+Polymorphic fields are represented by their JSON property name E.g. for Observation.value[x]:
+</p>
+<pre class="graphql">
+ { 
+  valueQuantity { value unit } 
+ }
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Observation/example/$graphql?query={valueQuantity{value,unit}}">http://test.fhir.org/r3/Observation/example/$graphql?query={valueQuantity{value,unit}}</a> (note: examples are only informative).
+</p>
+<p>
+Note: This is because the leaf names have to correspond to scalar types, so there is no use selecting all the variants at once 
+</p>
+<p>
+Extensions on primitives: the JSON convention for primitives is observed. e.g. use _[name] for accessing extensions on primitives. So
+</p>
+<pre class="graphql">
+ {
+  birthDate _birthDate { extension {valueDateTime} } 
+ }
+</pre>
+<p>
+results in 
+</p>
+<pre class="json">
+ {
+  "birthDate":"2016-05-18",
+  "_birthDate":{
+    "extension":[{
+      "valueDateTime":"2016-05-18T10:28:45Z"
+     }]
+  }
+ }
+</pre> 
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}">http://test.fhir.org/r3/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}</a> (note: examples are only informative).
+</p>
+
+<a name="arguments"> </a>
+<h4>Field Arguments</h4>
+
+<p>
+Primitive fields SHALL not have any arguments at all.
+</p>
+<p>
+Complex fields may have one of more of the following parameters:
+</p>
+<ul>
+ <li><code>fhirpath</code> - a fhir path statement selecting which of the subnodes is to be included. e.g. 
+  <pre class="graphql">
+ { 
+  name(fhirpath: "family.exists()") { text given family } 
+ }
+  </pre>
+  <p class="example">  
+  Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name(fhirpath:%22family.exists()%22){text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name(fhirpath:%22family.exists()%22){text,given,family}}</a> (as compared to <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}</a>) (note: examples are only informative).
+ </p>
+</li>
+ <li><code>[field]</code> - the name of a sub-property with a specified value that must be matched for the field to be included. e.g.
+    <pre class="graphql">
+ { 
+  name(use: official) { text given family } 
+ }
+  </pre>
+  <p class="example">
+  Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name(use:official){text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name(use:official){text,given,family}}</a> (note: examples are only informative).
+ </p>
+</li>
+</ul>
+<p>
+One way this can be used is to select particular extensions:
+</p>
+<pre class="graphql">
+ { 
+  myext: extension(url: "http://myextension.url/details") { value : valueString } 
+ }
+</pre>
+<p>
+will result in
+</p>
+<pre class="json">
+ {
+  "myext" : {
+    "value" : "some value"
+   }
+ }
+</pre>
+
+<a name="additional"> </a>
+<h4>Additional Selectors</h4>
+
+<a name="references"> </a>
+<h5>Resource references</h5>
+
+<p>
+An object of type <a href="references.html#Reference">Reference</a> can have an additional selection <code>resource</code>. This is an instruction to the server to resolve the reference, and then include the contents of the resource as specified by sub-selections in the property name "resource" (can be aliased). e.g. On Observation:
+</p>
+<pre class="graphql">
+ { 
+   subject { reference, resource {active} } 
+ }
+</pre>
+<p>
+The resource selector has two arguments: 
+</p>
+<ul>
+<li><code>optional</code> : true | false. (default is false). If the server cannot resolve the reference (e.g. resource does not exist, or user security rights or choices do not permit resource to be seen), and optional is not true, the server returns an error instead of the graph output</li>
+<li>type : [Resource] - only selects resources of a particular type, or ignores them if are they not of the right type. Note that this is similar in effect to 
+<pre class="graphql">
+ { 
+  id
+  subject { 
+   reference
+   resource {
+      ...on Patient {
+          birthDate
+    }
+    ...on Group {
+        name
+    }
+   }
+  }  
+  code {coding {system code} }
+ }
+</pre>
+</li>
+</ul>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practioner{practitionerRole{speciality}}}}code{coding{system,code}}}">http://test.fhir.org/r3/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practioner{practitionerRole{speciality}}}}code{coding{system,code}}}</a> (note: examples are only informative).
+</p>
+<p>
+but slightly denser:
+</p>
+<pre class="graphql">
+ { 
+  id
+  subject { 
+   reference
+    resource(type : Patient) { birthDate }
+    resource(type : Practioner) { practitionerRole {  speciality } }
+  }  
+  code {coding {system code} }
+ }
+ </pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practioner){practitionerRole{speciality}}}code{coding{system,code}}}">http://test.fhir.org/r3/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practioner){practitionerRole{speciality}}}code{coding{system,code}}}</a> (note: examples are only informative).
+</p>
+<p>
+Clients can use either approach - type selection as a parameter, of using a fragment type condition - the first is shorter while the second aligns with the GraphQL schema more explicitly.
+</p>
+
+<a name="searching"> </a>
+<h3>Searching resources</h3>
+
+<p>
+When a GraphQL statement is run at the system level, rather than against a particular resource, 
+the first thing the query must do is select the resource(s) of interest. The logic of this
+follows the FHIR search API, but reimplements in a GraphQL centric way. 
+</p>
+<p>
+There are 3 ways to query, for a single resource, for a simple list of resources, and a full API. 
+For a single resource, the client names the type of the resource, and provides an id:
+</p>
+<pre class="graphql">
+ { 
+   Patient(id: example) { id, active } 
+ }
+</pre>
+<p>
+This returns a single Patient with the name id. The output from this is a single resource:
+</p>
+<pre class="json">
+ {
+   "data" : {
+     "Patient" { 
+       "id" : "example",
+       "active" : "true",
+     }
+   }
+ }
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/$graphql?query={Patient(id:example){id,name{given,family}}}">http://test.fhir.org/r3/$graphql?query={Patient(id:example){id,name{given,family}}}</a> (note: examples are only informative).
+</p>
+<p>
+Alternatively, the client can ask for a list of resources.  Here, the client simply asks for a list of resources:
+</p>
+<pre class="graphql">
+ { 
+   ConditionList(clinical_status: relapse, patient: example) { id, clinicalStatus } 
+ }
+</pre>
+<p>
+This is a request to list all the Condition resources that have a status if 'relapsed' for the patient with id = example. The arguments are most of the search parameters defined on or for the specified resource. Notes:
+</p>
+<ul>
+<li>the parameter's names are changed by replacing '-' in the name with '_' (for graphql syntax requirements) (FHIR defines parameters starting with _ but will never define search parameters starting with '-')</li>
+<li>The search parameters _include, _revinclude, _contained, _containedType are not supported</li>
+<li>Unlike the RESTful search API, the composite syntax (multiple arguments separated by comma) is not used. Instead, supply an array of parameters (_id: [1,2,example]). Values in an array or ORed</li>
+<li>For And functionality, or to use chain searches or modifiers, use the _filter parameter</li>
+<li>There is one additional possible argument, "fhirpath" which the server evaluates on all the possible matches</li>
+</ul>
+
+<p>
+The output of this is a list:
+</p>
+<pre class="json">
+ {
+   "data" : {
+     "ConditionList" : [{ 
+       "id" : "100",
+       "clinicalStatus" : "relapse"
+     },{ 
+       "id" : "100",
+       "clinicalStatus" : "relapse"
+     }]
+   }
+ }
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/$graphql?query={PatientList(name:%22pet%22){name{family,given}}}">http://test.fhir.org/r3/$graphql?query={PatientList(name:%22pet%22){name{family,given}}}</a> 
+(note: examples are only informative).
+</p>
+<p>
+Servers may reject the request if there are too many matches to return in a single request. If they do so, they SHALL return an error indicating that the query could not be fulfilled. (rather than silently filtering the list).
+</p>
+<p>
+The simple list approach does not allow for the management of long lists. To do this, clients are able to request a Connection based approach (based on <a href="http://graphql.org/learn/pagination/">http://graphql.org/learn/pagination/</a>, but adapted to the existing FHIR Search API). 
+</p>
+<pre class="graphql">
+ { 
+   ConditionConnection (clinical_status: active, patient: example) { 
+     count offset pagesize
+     edges {
+       mode, score, resource { id, active }
+     }
+     first previous next last
+   } 
+ }
+</pre>
+<p>
+The arguments are the same as for the simple List case, with the addition of the special argument 'cursor' (see below). The server returns a connection object that contains information about the search, along with a list of 'edges', one for each match. Each edge has 3 properties: mode, score (match the same properties on Bundle.entry.search) and "resource" which is the actual matches. 
+</p>
+<pre class="json">
+ {
+  "data" : {
+    "ConditionConnection" : {
+      "count": 50,
+      "offset" : 0,
+      "pageSize" : 25,
+      "next" : "45f9ada8-db37-4498-ba7d-75a044668387:3"
+      "edges" : [{
+         "resource" : { 
+           "id" : "100",
+           "clinicalStatus" : "relapse",
+         }
+     },{ 
+       "resource" : {
+         "id" : "100",
+         "clinicalStatus" : "relapse",
+        }
+     }]
+   }
+  }
+ }
+</pre>
+<p>
+Example 1: <a href="http://test.fhir.org/r3/$graphql?query={PatientConnection(name:%22pet%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{name{family,given}}}}}">http://test.fhir.org/r3/$graphql?query={PatientConnection(name:%22pet%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{name{family,given}}}}}</a> (note: examples are only informative).
+</p>
+<p>
+Example 2 (cursor): <a href="http://test.fhir.org/r3/$graphql?query={PatientConnection(){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}">http://test.fhir.org/r3/$graphql?query={PatientConnection(){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}</a> (note: examples are only informative).
+</p>
+<p>
+Notes: 
+</p>
+<ul>
+<li>When using the fhirpath argument with Connection based searches, the server may choose to apply the fhirpath filter after the search paging is performed, so that individual pages may be shorter (or empty)</li>
+</ul>
+
+<p>
+The client can follow up on the first/previous/next/last links using the argument 'cursor':
+</p>
+<pre class="graphql">
+ { 
+   ConditionConnection (_cursor : "45f9ada8-db37-4498-ba7d-75a044668387") { 
+     count offset pagesize
+     edges {
+       id, clinicalStatus
+     }
+     first previous next last
+   } 
+ }
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/$graphql?query={PatientConnection(cursor:%225b0719b5-0f01-442e-9576-5b0514c19a:50%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}">http://test.fhir.org/r3/$graphql?query={PatientConnection(cursor:%225b0719b5-0f01-442e-9576-5b0514c19a:50%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}</a> (note: examples are only informative). (note, though, that to make this one work, you have to replace the cursor token with one that you got from the link above).
+</p>
+
+<p>
+Notes:
+</p>
+<ul>
+<li>The client can not change the parameters for the search (and should not specify them) when providing a cursor. The value of the token is opaque to the client, and only understood by the server</li>
+</ul>
+
+<a name="list"> </a>
+<h5>List vs Connection Searches</h5>
+
+<p>
+The specification defines the 2 forms of searches to meet differing requirements. For the List search:
+</p>
+<ul>
+<li>the returned graph is simpler to iterate</li>
+<li>in particular, the returned graph doesn't need to be considered with logic asking 'is there more pages to get' (the server returns everything, or an error)</li>
+<li>servers can fulfill the simpler search with much less resources, because they do not need to remember state about the searches in order to correctly construct follow up pages</li>
+</ul>
+<p>
+In general, clients should use the simple search, for efficiency purposes, where appropriate (e.g. where the user is not going see a 'next' button). This particularly applies when doing reverse reference resolution.
+</p>
+
+<a name="reverse"> </a>
+<h5>Reverse References</h5>
+
+<p>
+It's also possible to use search is a special mode, doing reverse lookups - e.g. list all the resources that refer to this resource. 
+An example of this use is to look up a patient, and also retrieve all the Condition resources for the patient. 
+</p>
+<p>
+This is a special case of search, above, but with an additional mandatory parameter <code>_reference</code>. For example:
+</p>
+<pre class="graphql">
+ {
+   name { [some fields] }
+   ConditionList(_reference: patient) {
+    [some fields from Condition]
+   }
+ }
+</pre>
+<p>
+There must be at least the argument "_reference" which identifies which of the search parameters for the target resource is used to match the resource that has focus. In addition, there may be other arguments as defined above in search (except that the "id" argument is prohibited here as non-sensical)
+</p>
+<p>
+The response for the query above would be 
+</p>
+<pre class="json">
+{
+  "name: [ [some fields] ],
+  "ConditionList" : [
+    { [some fields from matching Condition resource] }
+  ]
+}
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}</a> (note: examples are only informative).
+</p>
+<p>
+The "connection" based search option is also supported, as described above, with the addition of _reference. If the client wishes to pursue any of the cursor based links in the graphQL results it asks for back, then it initiates this a new separate query as defined above, rather than repeating the nested query. I.e. the 'cursor' argument is prohibited, except at the root of query.
+</p>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}</a> (note: examples are only informative).
+</p>
+
+<a name="operations"> </a>
+<h3>Operations</h3>
+
+<p>
+It's also possible to apply graphql to the results of other operations. This is done by adding the parameter "_graphql" when invoking the operation. e.g.
+</p>
+<pre>
+  GET [base]/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:"result"){value:valueBoolean}}
+</pre>
+<p class="example">
+Example: <a href="http://test.fhir.org/r3/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:%22result%22){value:valueBoolean}}">http://test.fhir.org/r3/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:%22result%22){value:valueBoolean}}</a> (note: examples are only informative).
+</p>
+<p>
+The graphQL is executed on the output of the operation. If the operation fails, and returns an operation outcome, then the graphQL is not executed.
+</p>
+
+<a name="mutations"> </a>
+<h3>Mutations</h3>
+
+<p>
+Mutations are defined for the operations Create, Update, and Delete. 
+</p>
+<p>
+Create:
+</p>
+<pre class="graphql">
+ PatientCreate(res : Patient) {
+   returns a Patient 
+ }
+</pre>
+<p>
+Like the API, the Patient resource may or may not have an ID; if it is present, the value is overwritten by the server.
+</p>
+<p>
+Update:
+</p>
+<pre class="graphql">
+ PatientUpdate(id : ID, res : Patient) {
+   returns a Patient 
+ }
+</pre>
+<p>
+Delete:
+</p>
+<pre class="graphql">
+ PatientDelete(id : ID) {
+   [no return]
+ }
+</pre>
+<p>
+The parameters are input types that are resources that exactly match the output types. If these operations fail, an http error is returned.
+</p>
+<p>
+Todo: mutations for patch, batch, transaction?
+</p>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

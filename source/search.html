@@ -109,6 +109,10 @@ search set is indeterminate: <a href="patient.html#mpi">Patient MPI Search</a>.
 Search using <code>GET</code> may include sensitive information in the search parameters.  Therefore,
 secure communications and endpoint management are recommended, see <a href="security.html#http">Security Communications</a>
 </p>
+<p>
+The response to any search operation is always a list of resources in a Bundle. 
+An alternative approach is to <a href="graphql.html">use GraphQL</a>.
+</p>
 
 <a name="errors"> </a>
 <h3>Handling Errors</h3>
