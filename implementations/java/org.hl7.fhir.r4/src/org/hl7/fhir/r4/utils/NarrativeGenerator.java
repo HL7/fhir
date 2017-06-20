@@ -2896,8 +2896,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     for (String lang : langs) {
       ConceptDefinitionDesignationComponent d = null;
       for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
-        if (lang.equals(designation.getLanguage()))
-          d = designation;
+        if (designation.hasLanguage()) {
+          if (lang.equals(designation.getLanguage()))
+            d = designation;
+        }
       }
       tr.td().addText(d == null ? "" : d.getValue());
     }
@@ -2905,9 +2907,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private void scanLangs(ConceptDefinitionComponent c, List<String> langs) {
     for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
-      String lang = designation.getLanguage();
-      if (langs != null && !langs.contains(lang))
-        langs.add(lang);
+      if (designation.hasLanguage()) {
+        String lang = designation.getLanguage();
+        if (langs != null && !langs.contains(lang))
+          langs.add(lang);
+      }
     }
     for (ConceptDefinitionComponent g : c.getConcept())
       scanLangs(g, langs);
