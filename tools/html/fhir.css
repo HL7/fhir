@@ -356,12 +356,26 @@ pre.json             {
 	width: 650px;
 }
 
+pre.graphql             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+        background: #f7e6ff ; 
+	padding: 5px;
+	width: 650px;
+}
+
 pre.xml              {
 	font-family: 'Courier New';
  	font-size: 9pt;
         padding: 2px;
         background: #F0FFFF ; 
 	width: 650px;
+}
+
+p.example {
+        background: #fff2e6 ; 
+        padding: 5px;
+	border: 1px solid #dcdcdc;
 }
 
 a.xmltag   {
