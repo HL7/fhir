@@ -150,7 +150,7 @@ public class ValueSetValidator extends BaseValidator {
       if (!oids.containsKey(oid)) {
         oids.put(oid, cs);
       } else 
-        rule(errors, IssueType.DUPLICATE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"]", oids.get(oid).getUrl().equals(cs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+cs.getUrl());  
+        rule(errors, IssueType.DUPLICATE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"]", oid.endsWith(".0")|| oids.get(oid).getUrl().equals(cs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+cs.getUrl());  
     } 
     rule(errors, IssueType.BUSINESSRULE, cs.getUserString("committee")+":CodeSystem["+cs.getId()+"].codeSystem", cs.getUrl().startsWith("http://") || 
         cs.getUrl().startsWith("urn:") , "Unacceptable code system url "+cs.getUrl());
@@ -195,7 +195,7 @@ public class ValueSetValidator extends BaseValidator {
       if (!oids.containsKey(oid)) {
         oids.put(oid, vs);
       } else 
-        rule(errors, IssueType.DUPLICATE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", oids.get(oid).getUrl().equals(vs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+vs.getUrl());  
+        rule(errors, IssueType.DUPLICATE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", oid.endsWith(".0")|| oids.get(oid).getUrl().equals(vs.getUrl()), "Duplicate OID for "+oid+" on "+oids.get(oid).getUrl()+" and "+vs.getUrl());  
     }
     
     rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", vs.hasDescription(), "Value Sets in the build must have a description");

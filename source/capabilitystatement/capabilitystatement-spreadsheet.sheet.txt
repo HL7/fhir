@@ -659,6 +659,7 @@
   Card. = 1..1
   Summary = y
   Type = id
+  Binding = FHIRVersions
   Short Name = FHIR Version the system uses
   Definition = The version of the FHIR specification on which this capability statement is based.
 

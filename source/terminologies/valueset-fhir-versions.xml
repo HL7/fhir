@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fhir-versions"/>
+  <url value="http://hl7.org/fhir/ValueSet/fhir-versions"/>
+  <name value="All Published FHIR versions"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="A historical list of all published FHIR versions. These are the correct values to be used in CapabilityStatement.fhirVersion and StructureDefinition.fhirVersion across all published versions of the specification. Note that other versions have existed, but have not been retained on the HL7 website as they were not advertised milestones. This value set is labelled extensible because the list of published "/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/fhir-versions"/>
+    </include>
+  </compose>
+</ValueSet>

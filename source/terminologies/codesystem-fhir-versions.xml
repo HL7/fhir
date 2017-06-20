@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="fhir-versions"/>
+  <url value="http://hl7.org/fhir/fhir-versions"/>
+  <name value="All Published FHIR versions"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="A historical list of all published FHIR versions. These are the correct values to be used in CapabilityStatement.fhirVersion and StructureDefinition.fhirVersion across all published versions of the specification. Note that other versions have existed, but have not been retained on the HL7 website as they were not advertised milestones. This value set is labelled extensible because the list of published"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/fhir-versions"/>
+  <hierarchyMeaning value="is-a"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="0.01"/>
+    <display value="0.01"/>
+    <definition value="Oldest archived version of FHIR"/>
+  </concept>
+  <concept>
+    <code value="0.05"/>
+    <display value="0.05"/>
+    <definition value="1st Draft for Comment (Sept 2012 Ballot)"/>
+  </concept>
+  <concept>
+    <code value="0.06"/>
+    <display value="0.06"/>
+    <definition value="2nd Draft for Comment (January 2013 Ballot)"/>
+  </concept>
+  <concept>
+    <code value="0.11"/>
+    <display value="0.11"/>
+    <definition value="DSTU 1 Ballot version"/>
+  </concept>
+  <concept>
+    <code value="0.0.80"/>
+    <display value="0.0.80"/>
+    <definition value="DSTU 1 Official version"/>
+  </concept>
+  <concept>
+    <code value="0.0.81"/>
+    <display value="0.0.81"/>
+    <definition value="DSTU 1 Official version Technical Errata #1"/>
+  </concept>
+  <concept>
+    <code value="0.0.82"/>
+    <display value="0.0.82"/>
+    <definition value="DSTU 1 Official version Technical Errata #2"/>
+  </concept>
+  <concept>
+    <code value="0.4.0"/>
+    <display value="0.4.0"/>
+    <definition value="Draft For Comment (January 2015 Ballot)"/>
+  </concept>  
+  <concept>
+    <code value="0.5.0"/>
+    <display value="0.5.0"/>
+    <definition value="DSTU 2 Ballot version (May 2015 Ballot)"/>
+  </concept>
+  <concept>
+    <code value="1.0.0"/>
+    <display value="1.0.0"/>
+    <definition value="DSTU 2 QA Preview + CQIF Ballot (Sep 2015)"/>
+  </concept>
+  <concept>
+    <code value="1.0.1"/>
+    <display value="1.0.1"/>
+    <definition value="DSTU 2 (Official version)"/>
+  </concept>
+  <concept>
+    <display value="1.0.2"/>
+    <definition value="DSTU 2 (Official version) with 1 technical errata"/>
+  </concept>
+  <concept>
+    <code value="1.1.0"/>
+    <display value="1.1.0"/>
+    <definition value="GAO Ballot + draft changes to main FHIR standard"/>
+  </concept>
+  <concept>
+    <code value="1.4.0"/>
+    <display value="1.4.0"/>
+    <definition value="CQF on FHIR Ballot + Connectathon 12 (Montreal)"/>
+  </concept>
+  <concept>
+    <code value="1.6.0"/>
+    <display value="1.6.0"/>
+    <definition value="FHIR STU3 Ballot + Connectathon 13 (Baltimore)"/>
+  </concept>
+  <concept>
+    <code value="1.8.0"/>
+    <display value="1.8.0"/>
+    <definition value="FHIR STU3 Candidate + Connectathon 14 (San Antonio)"/>
+  </concept>
+  <concept>
+    <code value="3.0.0"/>
+    <display value="3.0.0"/>
+    <definition value="FHIR Release 3 (STU)"/>
+  </concept>
+  <concept>
+    <code value="3.0.1"/>
+    <display value="3.0.1"/>
+    <definition value="FHIR Release 3 (STU) with 1 technical errata"/>
+  </concept>
+  <concept>
+    <code value="3.1.0"/>
+    <display value="3.1.0"/>
+    <definition value="Current Development build"/>
+  </concept>
+</CodeSystem>
