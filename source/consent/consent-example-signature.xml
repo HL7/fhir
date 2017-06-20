@@ -45,7 +45,7 @@
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
   <!-- here's an opt-in: share CDA documents of type Discharge Summary 
     + Summarization of Episode Note from a specific author -->
-<rule>
+<provision>
     <period>
       <start value="2015-10-10"/>
       <end value="2016-10-10"/>
@@ -62,7 +62,7 @@
         <!-- Stock practitioner -->
       </reference>
     </actor>
-    <rule>
+    <provision>
       <type value="permit"/>
       <actor>
         <role>
@@ -89,6 +89,6 @@
         <system value="http://loinc.org"/>
         <code value="18842-5"/>
       </code>
-    </rule>
-  </rule>
+    </provision>
+  </provision>
 </Consent>

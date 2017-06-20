@@ -26,7 +26,7 @@
   </organization>
   <!-- nothing is approved unless the patient says it is -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
-  <rule>
+  <provision>
     <!-- we permit -->
     <actor>
       <!-- as a receiver of data -->
@@ -53,8 +53,8 @@
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
       <code value="N"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <!-- we permit -->
     <actor>
       <!-- as a receiver of data -->
@@ -81,8 +81,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="PSY"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <!-- we permit -->
     <actor>
       <!-- as a receiver of data -->
@@ -109,9 +109,9 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="SOC"/>
     </securityLabel>
-  </rule>
+  </provision>
   <!-- other teams follow the same pattern -->
-  <rule>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -133,8 +133,8 @@
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
       <code value="N"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -156,8 +156,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="PSY"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -179,8 +179,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="SOC"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -202,8 +202,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="SEX"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -225,8 +225,8 @@
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
       <code value="N"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -248,8 +248,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="PSY"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -271,8 +271,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="SOC"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -294,8 +294,8 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="SEX"/>
     </securityLabel>
-  </rule>
-  <rule>
+  </provision>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -317,5 +317,5 @@
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
       <code value="N"/>
     </securityLabel>
-  </rule>
+  </provision>
 </Consent>

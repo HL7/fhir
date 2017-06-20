@@ -29,11 +29,11 @@
   </sourceAttachment>
   <!-- this is plain out opt-in with no exceptions -->
   <policyRule value="http://goodhealth.org/consent/policy/opt-in"/>
-  <rule>
+  <provision>
         <!-- bound by a timeframe between 1964 and 2016 - consent.applies -->
     <period>
       <start value="1964-01-01"/>
       <end value="2016-01-01"/>
     </period>
-  </rule>
+  </provision>
   </Consent>

@@ -32,10 +32,10 @@
   </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
-  <rule>
+  <provision>
     <period>
       <start value="2015-01-01"/>
       <end value="2015-02-01"/>
     </period>
-  </rule>
+  </provision>
 </Consent>

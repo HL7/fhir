@@ -35,12 +35,12 @@
   </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
-  <rule>
+  <provision>
     <data>
       <meaning value="related"/>
       <reference>
         <reference value="Task/example3"/>
       </reference>
     </data>
-  </rule>
+  </provision>
 </Consent>

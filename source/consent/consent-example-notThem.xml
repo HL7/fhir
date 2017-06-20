@@ -35,7 +35,7 @@
   </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
-  <rule>
+  <provision>
     <!-- no read or write access for this individual -->
     <actor>
       <role>
@@ -62,5 +62,5 @@
         <code value="correct"/>
       </coding>
     </action>
-  </rule>
+  </provision>
 </Consent>

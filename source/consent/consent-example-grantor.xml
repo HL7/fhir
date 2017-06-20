@@ -31,7 +31,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
   </sourceAttachment>
   <!-- this is opt-out - e.g. nothing approved unless otherwise stated -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
-  <rule>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -61,5 +61,5 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
         <code value="access"/>
       </coding>
     </action>
-  </rule>
+  </provision>
 </Consent>

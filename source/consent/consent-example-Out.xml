@@ -33,7 +33,7 @@
   </sourceAttachment>
   <!-- this is opt-out - e.g. everything approved unless otherwise stated -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
-  <rule>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -45,5 +45,5 @@
         <reference value="Organization/f001"/>
       </reference>
     </actor>
-  </rule>
+  </provision>
 </Consent>

@@ -35,7 +35,7 @@
     this is opt-out - e.g. nothing approved unless otherwise stated.
   -->
   <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
-  <rule>
+  <provision>
     <actor>
       <role>
         <coding>
@@ -52,7 +52,7 @@
       <code value="ETREAT"/>
     </purpose>
     <!-- this rule overrides the other one -->
-    <rule>
+    <provision>
       <type value="deny"/>
       <actor>
         <role>
@@ -65,6 +65,6 @@
           <reference value="Organization/f001"/>
         </reference>
       </actor>
-    </rule>
-  </rule>
+    </provision>
+  </provision>
 </Consent>

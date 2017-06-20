@@ -23,9 +23,9 @@
   Conformance = required
 
  -- Row 4 -----------------------------------
-  Binding Name = ConsentRuleType
+  Binding Name = ConsentProvisionType
   Binding = code list
-  Reference = #consent-rule-type
+  Reference = #consent-provision-type
   Definition = How a rule statement is applied, such as adding additional consent or removing consent
   Conformance = required
 
@@ -102,7 +102,7 @@
   Display = Entered in Error
   Definition = The consent was created wrongly (e.g. wrong patient) and should be ignored
 
-=== Sheet consent-rule-type =====================================
+=== Sheet consent-provision-type =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -153,8 +153,8 @@
 
  -- Row 2 -----------------------------------
   Id = 2
-  Context = Consent.rule
-  English = No Rule.Type at root
+  Context = Consent.provision
+  English = No Provision.Type at root
   XPath = exists(f:type)!=exists(f:parent::f:Consent)
   Expression = type.empty()
 
@@ -442,25 +442,25 @@
   Definition = Date verification was collected
 
  -- Row 29 -----------------------------------
-  Element = Consent.rule
+  Element = Consent.provision
   Card. = 0..*
   Summary = Y
   UML = right
-  Type = =rule
-  Short Name = Additional rule - addition or removal of permissions
+  Type = =provision
+  Short Name = Consent provision - addition or removal of permissions
   Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 
  -- Row 30 -----------------------------------
-  Element = Consent.rule.type
+  Element = Consent.provision.type
   Card. = 0..1
   Summary = Y
   Type = code
-  Binding = ConsentRuleType
+  Binding = ConsentProvisionType
   Short Name = deny | permit
   Definition = Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
 
  -- Row 31 -----------------------------------
-  Element = Consent.rule.period
+  Element = Consent.provision.period
   Card. = 0..1
   Summary = Y
   Type = Period
@@ -468,17 +468,17 @@
   Definition = The timeframe in this rule is valid
 
  -- Row 32 -----------------------------------
-  Element = Consent.rule.actor
+  Element = Consent.provision.actor
   Card. = 0..*
   Summary = Y
   UML = up
-  Type = =ruleActor
+  Type = =provisionActor
   Short Name = Who|what controlled by this rule (or group, by role)
   Definition = Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
 
  -- Row 33 -----------------------------------
-  Element = Consent.rule.actor.role
+  Element = Consent.provision.actor.role
   Card. = 1..1
   Type = CodeableConcept
   Binding = ConsentActorRole
@@ -486,14 +486,14 @@
   Definition = How the individual is involved in the resources content that is described in the exception
 
  -- Row 34 -----------------------------------
-  Element = Consent.rule.actor.reference
+  Element = Consent.provision.actor.reference
   Card. = 1..1
   Type = Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Resource for the actor (or group, by role)
   Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
 
  -- Row 35 -----------------------------------
-  Element = Consent.rule.action
+  Element = Consent.provision.action
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -504,7 +504,7 @@
   Missing Meaning = all actions
 
  -- Row 36 -----------------------------------
-  Element = Consent.rule.securityLabel
+  Element = Consent.provision.securityLabel
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -514,7 +514,7 @@
   Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 37 -----------------------------------
-  Element = Consent.rule.purpose
+  Element = Consent.provision.purpose
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -524,7 +524,7 @@
   Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
 
  -- Row 38 -----------------------------------
-  Element = Consent.rule.class
+  Element = Consent.provision.class
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -534,7 +534,7 @@
   Comments = Multiple types are or\'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere
 
  -- Row 39 -----------------------------------
-  Element = Consent.rule.code
+  Element = Consent.provision.code
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -544,7 +544,7 @@
   Comments = Typical use of this is a Document code with class = CDA
 
  -- Row 40 -----------------------------------
-  Element = Consent.rule.dataPeriod
+  Element = Consent.provision.dataPeriod
   Card. = 0..1
   Summary = Y
   Type = Period
@@ -553,18 +553,18 @@
   Comments = This has a different sense to the Consent.period - that is when the consent agreement holds. This is the time period of the data that is controlled by the agreement
 
  -- Row 41 -----------------------------------
-  Element = Consent.rule.data
+  Element = Consent.provision.data
   Card. = 0..*
   Summary = Y
   UML = down
-  Type = =ruleData
+  Type = =provisionData
   Short Name = Data controlled by this rule
   Definition = The resources controlled by this rule if specific resources are referenced
   RIM Mapping = Role
   Missing Meaning = all data
 
  -- Row 42 -----------------------------------
-  Element = Consent.rule.data.meaning
+  Element = Consent.provision.data.meaning
   Card. = 1..1
   Summary = Y
   Type = code
@@ -573,7 +573,7 @@
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 43 -----------------------------------
-  Element = Consent.rule.data.reference
+  Element = Consent.provision.data.reference
   Card. = 1..1
   Summary = Y
   Type = Reference(Any)
@@ -581,164 +581,8 @@
   Definition = A reference to a specific resource that defines which resources are covered by this consent
 
  -- Row 44 -----------------------------------
-  Element = Consent.rule.rule
+  Element = Consent.provision.provision
   Card. = 0..*
-  Type = @Consent.rule
+  Type = @Consent.provision
   Short Name = Nested Exception Rules
   Definition = Rules which provide exceptions to the base rule or subrules
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = data
-  Type = reference
-  Path = Consent.rule.data.reference
-
- -- Row 2 -----------------------------------
-  Name = patient
-  Type = reference
-  Path = Consent.patient
-
- -- Row 3 -----------------------------------
-  Name = identifier
-  Type = token
-  Path = Consent.identifier
-
- -- Row 4 -----------------------------------
-  Name = organization
-  Type = reference
-  Path = Consent.organization
-
- -- Row 5 -----------------------------------
-  Name = date
-  Type = date
-  Path = Consent.dateTime
-
- -- Row 6 -----------------------------------
-  Name = period
-  Type = date
-  Path = Consent.rule.period
-
- -- Row 7 -----------------------------------
-  Name = status
-  Type = token
-  Path = Consent.status
-
- -- Row 8 -----------------------------------
-  Name = category
-  Type = token
-  Path = Consent.category
-
- -- Row 9 -----------------------------------
-  Name = consentor
-  Type = reference
-  Path = Consent.consentingParty
-
- -- Row 10 -----------------------------------
-  Name = source
-  Type = reference
-  Path = Consent.source[x]
-
- -- Row 11 -----------------------------------
-  Name = actor
-  Type = reference
-  Path = Consent.rule.actor.reference
-
- -- Row 12 -----------------------------------
-  Name = action
-  Type = token
-  Path = Consent.rule.action
-
- -- Row 13 -----------------------------------
-  Name = securitylabel
-  Type = token
-  Path = Consent.rule.securityLabel
-
- -- Row 14 -----------------------------------
-  Name = purpose
-  Type = token
-  Path = Consent.rule.purpose
-
-=== Sheet Profiles =====================================
-
- -- Row 1 -----------------------------------
-  Name = Consent Extension
-  IG Name = core
-  Filename = consent-extensions.xml
-  Type = spreadsheet
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = Consent-In
-  Identity = consent-example-basic
-  Description = General Consent Example
-  Filename = consent-example.xml
-
- -- Row 2 -----------------------------------
-  Name = Consent-Out
-  Identity = consent-example-Out
-  Description = Consent withholding access
-  Filename = consent-example-Out.xml
-
- -- Row 3 -----------------------------------
-  Name = Consent-Emergency
-  Identity = consent-example-Emergency
-  Description = Consent withholding access to data for Treatment exept for Emergency Treatment
-  Filename = consent-example-Emergency.xml
-
- -- Row 4 -----------------------------------
-  Name = Consent-Not-This
-  Identity = consent-example-notThis
-  Description = Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)
-  Filename = consent-example-notThis.xml
-
- -- Row 5 -----------------------------------
-  Name = Consent-Not-Time
-  Identity = consent-example-notTime
-  Description = Withhold or withdraw consent for disclosure of a specific timeframe
-  Filename = consent-example-notTime.xml
-
- -- Row 6 -----------------------------------
-  Name = Consent-Not-Org
-  Identity = consent-example-notOrg
-  Description = Withhold or withdraw consent for disclosure to a specific provider organization
-  Filename = consent-example-notOrg.xml
-
- -- Row 7 -----------------------------------
-  Name = Consent-Not-Them
-  Identity = consent-example-notThem
-  Description = Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization)
-  Filename = consent-example-notThem.xml
-
- -- Row 8 -----------------------------------
-  Name = Consent-Not-Author
-  Identity = consent-example-notAuthor
-  Description = Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).
-  Filename = consent-example-notAuthor.xml
-
- -- Row 9 -----------------------------------
-  Name = Consent-Grantor
-  Identity = consent-example-grantor
-  Description = Patient grants access to a specified individual for read-only access
-  Filename = consent-example-grantor.xml
-
- -- Row 10 -----------------------------------
-  Name = Consent from Patients Know Best
-  Identity = consent-example-pkb
-  Description = Example of Patients Know Best Usage
-  Filename = consent-example-pkb.xml
-
- -- Row 11 -----------------------------------
-  Name = Smart on FHIR example
-  Identity = consent-example-smartonfhir
-  Description = Template for recording a Smart on FHIR Authorization
-  Filename = consent-example-smartonfhir.xml
-
- -- Row 12 -----------------------------------
-  Name = Consent with Signature
-  Identity = consent-example-signature
-  Description = Consent Example with a signature
-  Filename = consent-example-signature.xml
-
-=== Sheet Examples =====================================
