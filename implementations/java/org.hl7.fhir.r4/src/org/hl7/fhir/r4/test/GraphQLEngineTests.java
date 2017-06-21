@@ -78,7 +78,6 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
 
   @Test
   public void test() throws Exception {
-    System.out.println("GQL test: "+name);
     String filename = null;
     if (!Utilities.noString(context)) {
       String[] parts = context.split("/");

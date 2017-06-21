@@ -11,23 +11,24 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.utils.TranslatingUtilities;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
+import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
-
-import com.github.rjeschke.txtmark.Processor;
 
 public class BaseRenderer extends TranslatingUtilities {
   protected IWorkerContext context;
   protected String prefix;
   protected IGKnowledgeProvider igp;
   protected List<SpecMapManager> specmaps;
+  private MarkDownProcessor markdownEngine;
 
 
-  public BaseRenderer(IWorkerContext context, String prefix, IGKnowledgeProvider igp, List<SpecMapManager> specmaps) {
+  public BaseRenderer(IWorkerContext context, String prefix, IGKnowledgeProvider igp, List<SpecMapManager> specmaps, MarkDownProcessor markdownEngine) {
     super();
     this.context = context;
     this.prefix = prefix;
     this.igp = igp;
     this.specmaps = specmaps;
+    this.markdownEngine = markdownEngine;
   }
 
   @SuppressWarnings("rawtypes")
@@ -80,7 +81,7 @@ public class BaseRenderer extends TranslatingUtilities {
 	      }
 	    }
 	    // 3. markdown
-	    String s = Processor.process(checkEscape(text));
+	    String s = markdownEngine.process(checkEscape(text));
 	    return s;
 	  } catch (Throwable e) {
 		  throw new Exception ("Error processing string: " + text, e);
