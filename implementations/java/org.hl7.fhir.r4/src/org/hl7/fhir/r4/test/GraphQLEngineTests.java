@@ -150,6 +150,8 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
         String filename = Utilities.path(TestingUtilities.home(), "publish", parts[0].toLowerCase()+'-'+parts[1].toLowerCase()+".xml");
         if (new File(filename).exists())
           return new ReferenceResolution(null, new XmlParser().parse(new FileInputStream(filename)));
+        else if (reference.getReference().equals("Patient/example"))
+          throw new Error("Unable to find file "+filename);
       }
       return null;
     } catch (Exception e) {
