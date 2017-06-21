@@ -40,7 +40,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.UIManager;
 
@@ -123,7 +125,9 @@ public class Validator {
       System.out.println("     Default value is http://tx.fhir.org/r3");
       System.out.println("     To run without terminology value, specific n/a as the URL");
       System.out.println("-profile [url]: a canonical URL to validate against (same as if it was specified in Resource.meta.profile)");
-      System.out.println("     no default value. This parameter can appear any number of times");
+      System.out.println("     no default value. This parameter can appear any number of times.");
+      System.out.println("     A profile may be followed by a @ [location] that specifies where the profile can be retrieved ");
+      System.out.println("     from if the validator should not use the canonical URL as the actual location");
       System.out.println("-questionnaire [file|url}: the location of a questionnaire. If provided, then the validator will validate");
       System.out.println("     any QuestionnaireResponse that claims to match the Questionnaire against it");
       System.out.println("     no default value. This parameter can appear any number of times");
@@ -172,6 +176,7 @@ public class Validator {
       String map = null;
       String output = null;
       List<String> sources= new ArrayList<String>();
+      Map<String, String> locations = new HashMap<String, String>();
 
         // load the parameters - so order doesn't matter
       for (int i = 0; i < args.length; i++) {
@@ -185,12 +190,22 @@ public class Validator {
             throw new Error("Specified -output without indicating output file");
           else
             output = args[++i];
-        else if (args[i].equals("-profile"))
+        else if (args[i].equals("-profile")) {
+          String p = null;
           if (i+1 == args.length)
-            throw new Error("Specified -profile without indicating profile file");
-          else
-            profiles.add(args[++i]);
-        else if (args[i].equals("-questionnaire"))
+            throw new Error("Specified -profile without indicating profile source");
+          else {
+            p = args[++i];
+            profiles.add(p);
+          }
+          if (p != null && i+1 < args.length && args[i+1].equals("@")) {
+            i++;
+            if (i+1 == args.length)
+              throw new Error("Specified -profile with @ without indicating profile location");
+            else 
+              locations.put(p, args[++i]);
+          }
+        } else if (args[i].equals("-questionnaire"))
           if (i+1 == args.length)
             throw new Error("Specified -questionnaire without indicating questionnaire file");
           else
@@ -275,6 +290,12 @@ public class Validator {
       } else {
         if  (definitions == null)
           throw new Exception("Must provide a defn when doing validation");
+        for (String s : profiles) {
+          if (validator.getContext().fetchResource(StructureDefinition.class, s) == null) {
+            System.out.println("Fetch Profile from "+s);
+            validator.loadProfile(locations.getOrDefault(s, s));
+          }
+        }
         System.out.println("  .. validate");
         Resource r = validator.validate(sources, profiles);
         if (output == null) {

@@ -307,8 +307,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         StructureDefinition sd = profiles.fetch(profile.getProfile());
         if (sd == null)
           sd = context.fetchResource(StructureDefinition.class, profile.getProfile());
-        if (sd != null && sd.getType().equals(element.fhirType()))
-          addProfile(errors, profile.getProfile(), profile.isError(), path, element);
+        if (sd == null)
+          errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Unable to locate profile "+profile.getProfile(), IssueSeverity.ERROR));
+        else if (!sd.getType().equals(element.fhirType()))
+          errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Profile mismatch on type for "+profile.getProfile()+": the profile constrains "+sd.getType()+" but the element is "+element.fhirType(), IssueSeverity.ERROR));
+        else 
+          addProfile(errors, profile.getProfile(), profile.isError(), path, element);          
       }
     }
     
@@ -2362,7 +2366,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     for (ProfileUsage profileUsage : resourceProfiles.uncheckedProfiles()) {
       profileUsage.setChecked();
-// todo: re-enable this when I can deal with the impact...      
+// todo: re-enable this when I can deal with the impact...   (GG)   
 //      if (!profileUsage.getProfile().getType().equals(resource.fhirType()))
 //        throw new FHIRException("Profile type mismatch - resource is "+resource.fhirType()+", and profile is for "+profileUsage.getProfile().getType());
       validateElement(hostContext, errors, profileUsage.getProfile(), profileUsage.getProfile().getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);

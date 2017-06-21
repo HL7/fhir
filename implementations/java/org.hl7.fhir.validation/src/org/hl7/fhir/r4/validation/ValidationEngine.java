@@ -55,6 +55,7 @@ import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.r4.elementmodel.Manager;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.RdfParser;
 import org.hl7.fhir.r4.formats.XmlParser;
@@ -179,7 +180,7 @@ public class ValidationEngine {
   }
   
   private void loadDefinitions(String src) throws Exception {
-    Map<String, byte[]> source = loadSource(src, "igpack.zip");   
+    Map<String, byte[]> source = loadIgSource(src, "igpack.zip");   
     if (version == null)
       version = getVersionFromPack(source);
     context = SimpleWorkerContext.fromDefinitions(source, loaderForVersion());
@@ -225,19 +226,48 @@ public class ValidationEngine {
     return ep;
   }
 
-  private Map<String, byte[]> loadSource(String src, String defname) throws Exception {
+  private byte[] loadProfileSource(String src) throws Exception {
+    if (Utilities.noString(src)) {
+      throw new FHIRException("Profile Source '" + src + "' could not be processed");
+    } else if (src.startsWith("https:") || src.startsWith("http:")) {
+      return loadProfileFromUrl(src);
+    } else if (new File(src).exists()) {
+      return loadProfileFromFile(src);      
+    } else {
+      throw new FHIRException("Definitions Source '"+src+"' could not be processed");
+    }
+  }
+
+  private byte[] loadProfileFromUrl(String src) throws Exception {
+    try {
+      URL url = new URL(src);
+      URLConnection c = url.openConnection();
+      return IOUtils.toByteArray(c.getInputStream());
+    } catch (Exception e) {
+      throw new Exception("Unable to find definitions at URL '"+src+"': "+e.getMessage(), e);
+  }
+    }
+
+  private byte[] loadProfileFromFile(String src) throws FileNotFoundException, IOException {
+    File f = new File(src);
+    if (f.isDirectory()) 
+      throw new IOException("You must provide a file name, not a directory name");
+    return TextFile.fileToBytes(src);
+  }
+
+  private Map<String, byte[]> loadIgSource(String src, String defname) throws Exception {
     if (Utilities.noString(src)) {
       throw new FHIRException("Definitions Source '" + src + "' could not be processed");
     } else if (src.startsWith("https:") || src.startsWith("http:")) {
-      return loadFromUrl(src, defname);
+      return loadIgFromUrl(src, defname);
     } else if (new File(src).exists()) {
-      return loadFromFile(src, defname);      
+      return loadIgFromFile(src, defname);      
     } else {
       throw new FHIRException("Definitions Source '"+src+"' could not be processed");
+    }
   }
-  }
-  
-  private Map<String, byte[]> loadFromUrl(String src, String defname) throws Exception {
+
+  private Map<String, byte[]> loadIgFromUrl(String src, String defname) throws Exception {
     if (Utilities.noString(defname))
       defname = "validator.pack";
     if (!src.endsWith(defname))
@@ -253,7 +283,7 @@ public class ValidationEngine {
 	}
     }
 
-  private Map<String, byte[]> loadFromFile(String src, String defname) throws FileNotFoundException, IOException {
+  private Map<String, byte[]> loadIgFromFile(String src, String defname) throws FileNotFoundException, IOException {
     File f = new File(src);
     if (f.isDirectory()) {
       if (defname == null)
@@ -358,9 +388,19 @@ public class ValidationEngine {
     context.connectToTSServer(url);
 	}
 
+  public void loadProfile(String src) throws Exception {
+    byte[] source = loadProfileSource(src);
+    FhirFormat fmt = FormatUtilities.determineFormat(source);
+    Resource r = FormatUtilities.makeParser(fmt).parse(source);
+    if (r instanceof MetadataResource) {
+      MetadataResource mr = (MetadataResource) r;
+      context.seeResource(mr.getUrl(), mr);
+    }
+  }
+  
   public void loadIg(String src) throws IOException, FHIRException, Exception {
     String canonical = null;
-    Map<String, byte[]> source = loadSource(src, "validator.pack");
+    Map<String, byte[]> source = loadIgSource(src, "validator.pack");
     for (Entry<String, byte[]> t : source.entrySet()) {
       String fn = t.getKey();
       Resource res = null;
@@ -409,7 +449,7 @@ public class ValidationEngine {
   }
   
   public Content loadContent(String source, String opName) throws Exception {
-    Map<String, byte[]> s = loadSource(source, null);
+    Map<String, byte[]> s = loadIgSource(source, null);
     Content res = new Content();
     if (s.size() != 1)
       throw new Exception("Unable to find resource " + source + " to "+opName);
