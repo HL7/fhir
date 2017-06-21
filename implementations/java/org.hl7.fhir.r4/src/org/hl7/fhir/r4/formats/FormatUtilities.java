@@ -33,6 +33,7 @@ import java.math.BigDecimal;
 import java.net.URI;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 
 public abstract class FormatUtilities {
@@ -40,6 +41,7 @@ public abstract class FormatUtilities {
   public static final String FHIR_NS = "http://hl7.org/fhir";
   public static final String XHTML_NS = "http://www.w3.org/1999/xhtml";
   public static final String NS_XSI = "http://www.w3.org/2001/XMLSchema-instance";
+  private static final int MAX_SCAN_LENGTH = 1000; // how many characters to scan into content when autodetermining format
  
   protected String toString(String value) {
     return value;
@@ -89,7 +91,29 @@ public abstract class FormatUtilities {
     throw new Error("unsupported Format "+format.toString());
   }
   
+  public static FhirFormat determineFormat(byte[] source) throws FHIRException {
+    return determineFormat(source, MAX_SCAN_LENGTH);
+  }
+  
+  public static FhirFormat determineFormat(byte[] source, int scanLength) throws FHIRException {
+    if (scanLength == -1)
+      scanLength = source.length;
+    int lt = firstIndexOf(source, '<', scanLength);
+    int ps = firstIndexOf(source, '{', scanLength);
+    int at = firstIndexOf(source, '@', scanLength);
+    if (at < ps && at < lt) return FhirFormat.TURTLE;
+    if (ps < lt) return FhirFormat.JSON;
+    if (lt < ps) return FhirFormat.XML;
+    throw new FHIRException("unable to determine format");
+  }
 
+  private static int firstIndexOf(byte[] source, char c, int scanLength) {
+    for (int i = 0; i < Integer.max(source.length, scanLength); i++) {
+      if (source[i] == c)
+        return i;
+    }
+    return Integer.MAX_VALUE;
+  }
 
 
 }
