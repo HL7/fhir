@@ -75,7 +75,7 @@ public class CodeSystemUtilities {
 
   private static String getCodeDefinition(List<ConceptDefinitionComponent> list, String code) {
     for (ConceptDefinitionComponent c : list) {
-      if (c.getCode().equals(code))
+      if (c.hasCode() &&  c.getCode().equals(code))
         return c.getDefinition();
       String s = getCodeDefinition(c.getConcept(), code);
       if (s != null)
