@@ -137,6 +137,7 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
 
   @Override
   public ReferenceResolution lookup(Object appInfo, Resource context, Reference reference) throws FHIRException {
+    System.out.println("test lookup");
     try {
       if (reference.getReference().startsWith("#")) {
         if (!(context instanceof DomainResource)) 
