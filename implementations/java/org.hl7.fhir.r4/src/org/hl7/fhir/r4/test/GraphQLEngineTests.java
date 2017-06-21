@@ -142,18 +142,20 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
       if (reference.getReference().startsWith("#")) {
         if (!(context instanceof DomainResource)) 
           return null;
-        for (Resource r : ((DomainResource)context).getContained()) 
+        for (Resource r : ((DomainResource)context).getContained()) {
+          System.out.println("  contained: "+r.getId());
           if (('#'+r.getId()).equals(reference.getReference())) {
             return new ReferenceResolution(context, r);
           }
+        }
       } else {
         String[] parts = reference.getReference().split("/");
         String filename = Utilities.path(TestingUtilities.home(), "publish", parts[0].toLowerCase()+'-'+parts[1].toLowerCase()+".xml");
-        System.out.println("test lookup: "+filename);
+        System.out.println(" filename: "+filename);
         if (new File(filename).exists())
           return new ReferenceResolution(null, new XmlParser().parse(new FileInputStream(filename)));
-        else if (reference.getReference().equals("Patient/example"))
-          throw new Error("Unable to find file "+filename);
+        else 
+          System.out.println(" ..not found");
       }
       return null;
     } catch (Exception e) {
