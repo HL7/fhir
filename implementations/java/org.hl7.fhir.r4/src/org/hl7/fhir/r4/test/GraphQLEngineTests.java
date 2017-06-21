@@ -126,7 +126,7 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
   @Override
   public Resource lookup(Object appInfo, String type, String id) throws FHIRException  {
     try {
-      String filename = Utilities.path(TestingUtilities.home(), "publish", type+'-'+id+".xml");
+      String filename = Utilities.path(TestingUtilities.home(), "publish", type.toLowerCase()+'-'+id.toLowerCase()+".xml");
       if (new File(filename).exists())
         return new XmlParser().parse(new FileInputStream(filename));
       else
@@ -138,13 +138,11 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
 
   @Override
   public ReferenceResolution lookup(Object appInfo, Resource context, Reference reference) throws FHIRException {
-    System.out.println("test lookup: "+reference.getReference());
     try {
       if (reference.getReference().startsWith("#")) {
         if (!(context instanceof DomainResource)) 
           return null;
         for (Resource r : ((DomainResource)context).getContained()) {
-          System.out.println("  contained: "+r.getId());
           if (('#'+r.getId()).equals(reference.getReference())) {
             return new ReferenceResolution(context, r);
           }
@@ -152,11 +150,8 @@ public class GraphQLEngineTests implements IGraphQLStorageServices {
       } else {
         String[] parts = reference.getReference().split("/");
         String filename = Utilities.path(TestingUtilities.home(), "publish", parts[0].toLowerCase()+'-'+parts[1].toLowerCase()+".xml");
-        System.out.println(" filename: "+filename);
         if (new File(filename).exists())
           return new ReferenceResolution(null, new XmlParser().parse(new FileInputStream(filename)));
-        else 
-          System.out.println(" ..not found");
       }
       return null;
     } catch (Exception e) {
