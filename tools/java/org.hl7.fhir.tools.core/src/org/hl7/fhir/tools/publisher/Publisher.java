@@ -181,6 +181,8 @@ import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.test.FluentPathTests;
+import org.hl7.fhir.r4.test.GraphQLEngineTests;
+import org.hl7.fhir.r4.test.GraphQLParserTests;
 import org.hl7.fhir.r4.test.NarrativeGeneratorTests;
 import org.hl7.fhir.r4.test.ResourceRoundTripTests;
 import org.hl7.fhir.r4.test.SnapShotGenerationTests;
@@ -2343,7 +2345,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + "profiles-types.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, page.getTypeBundle());
       s.close();
-
+      
       Bundle extensionsFeed = new Bundle();
       extensionsFeed.setId("extensions");
       extensionsFeed.setType(BundleType.COLLECTION);
@@ -5471,6 +5473,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     runJUnitClass(ResourceRoundTripTests.class);
     runJUnitClass(SnapShotGenerationTests.class);
     runJUnitClass(ValidationTestSuite.class);
+    runJUnitClass(GraphQLParserTests.class);
+    runJUnitClass(GraphQLEngineTests.class);
     checkAllOk();
   }
 
