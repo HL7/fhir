@@ -302,16 +302,29 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return !profiles.isEmpty();
     }
 
-    public void addProfiles(List<ValidationMessage> errors, ValidationProfileSet profiles, String path, Element element) throws FHIRException {
+    public void addProfiles(List<ValidationMessage> errors, ValidationProfileSet profiles, String path, Element element, boolean external) throws FHIRException {
       for (ProfileRegistration profile : profiles.getCanonical()) {
         StructureDefinition sd = profiles.fetch(profile.getProfile());
         if (sd == null)
           sd = context.fetchResource(StructureDefinition.class, profile.getProfile());
-        if (sd == null)
-          errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Unable to locate profile "+profile.getProfile(), IssueSeverity.ERROR));
-        else if (!sd.getType().equals(element.fhirType()))
-          errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Profile mismatch on type for "+profile.getProfile()+": the profile constrains "+sd.getType()+" but the element is "+element.fhirType(), IssueSeverity.ERROR));
-        else 
+        if (sd == null) {
+          errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Unable to locate profile "+profile.getProfile(), external ? IssueSeverity.ERROR : IssueSeverity.WARNING));
+        } else if (!sd.getType().equals(element.fhirType())) {
+          boolean ok = false;
+          if (element.fhirType().equals("Bundle")) { // special case: if the profile type isn't 'Bundle', then the profile applies to the first resource
+            List<Element> entries = element.getChildren("entry");
+            if (entries.size() > 0) {
+              Element res = entries.get(0).getNamedChild("resource");
+              if (res != null) {
+                ok = true;
+          //       addProfile(errors, profile.getProfile(), profile.isError(), path, res);  ggtodo: we need to go add this to a different profile          
+              }
+            }
+          }
+            
+          if (!ok)
+            errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Profile mismatch on type for "+profile.getProfile()+": the profile constrains "+sd.getType()+" but the element is "+element.fhirType(), IssueSeverity.ERROR));
+        } else 
           addProfile(errors, profile.getProfile(), profile.isError(), path, element);          
       }
     }
@@ -626,7 +639,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       resourceProfilesMap = new HashMap<Element, ResourceProfiles>();
       isRoot = true;
     }
-    validateResource(new ValidatorHostContext(appContext, element), errors, element, element, null, profiles, resourceIdRule, new NodeStack(element));
+    validateResource(new ValidatorHostContext(appContext, element), errors, element, element, null, profiles, resourceIdRule, new NodeStack(element), true);
     if (isRoot) {
       validateRemainder(appContext, errors);
       resourceProfilesMap = null;
@@ -2932,7 +2945,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY || element.getSpecial() == SpecialElement.BUNDLE_OUTCOME || element.getSpecial() == SpecialElement.PARAMETER ) 
       resource = element;
     if (rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), profile != null, "No profile found for contained resource of type '" + resourceName + "'"))
-      validateResource(hostContext.forContained(element), errors, resource, element, profile, null, idstatus, stack);
+      validateResource(hostContext.forContained(element), errors, resource, element, profile, null, idstatus, stack, false);
   }
 
   private void validateDocument(List<ValidationMessage> errors, List<Element> entries, Element composition, NodeStack stack, String fullUrl, String id) {
@@ -3399,7 +3412,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       validateResource2(errors, resource, element, defn, profiles, idstatus, stack);
   }*/
 
-  private void validateResource(ValidatorHostContext hostContext, List<ValidationMessage> errors, Element resource, Element element, StructureDefinition defn, ValidationProfileSet profiles, IdStatus idstatus, NodeStack stack) throws FHIRException, FHIRException, IOException {
+  private void validateResource(ValidatorHostContext hostContext, List<ValidationMessage> errors, Element resource, Element element, StructureDefinition defn, ValidationProfileSet profiles, IdStatus idstatus, NodeStack stack, boolean isEntry) throws FHIRException, FHIRException, IOException {
     assert stack != null;
     assert resource != null;
 
@@ -3412,7 +3425,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (defn == null)
         defn = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
       if (profiles!=null)
-        getResourceProfiles(resource, stack).addProfiles(errors, profiles, stack.getLiteralPath(), element);
+        getResourceProfiles(resource, stack).addProfiles(errors, profiles, stack.getLiteralPath(), element, isEntry);
       sdTime = sdTime + (System.nanoTime() - t);
       ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), defn != null, "No definition found for resource type '" + resourceName + "'");
     }
