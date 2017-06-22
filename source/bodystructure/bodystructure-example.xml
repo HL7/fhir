@@ -20,30 +20,30 @@
 		</coding>
 		<text value="Arm"/>
 	</location>
-	<qualifier>
+	<locationQualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="419161000"/>
 			<display value="Unilateral left"/>
 		</coding>
 		<text value="Left"/>
-	</qualifier>
-	<qualifier>
+	</locationQualifier>
+	<locationQualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="261183002"/>
 			<display value="Upper"/>
 		</coding>
 		<text value="Upper"/>
-	</qualifier>
-	<qualifier>
+	</locationQualifier>
+	<locationQualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="255549009"/>
 			<display value="Anterior"/>
 		</coding>
 		<text value="Anterior"/>
-	</qualifier>
+	</locationQualifier>
 	<description value="front of upper left arm directly below the tattoo"/>
 	<image>
 		<contentType value="image/png;base64"/>

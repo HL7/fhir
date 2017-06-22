@@ -9,9 +9,9 @@
 	<!--	bodystructure marked as no longer active - entered in error
 -->
 	<active value="false"/>
-		<code>
+		<morphology>
 		<text value="Skin patch"/>
-	</code>
+	</morphology>
 	<location>
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -20,22 +20,22 @@
 		</coding>
 		<text value="Forearm"/>
 	</location>
-		<qualifier>
+		<locationQualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="419161000"/>
 			<display value="Unilateral left"/>
 		</coding>
 		<text value="Left"/>
-	</qualifier>
-			<qualifier>
+	</locationQualifier>
+			<locationQualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="263929005"/>
 			<display value="Volar"/>
 		</coding>
 		<text value="Volar"/>
-	</qualifier>
+	</locationQualifier>
 	<description value="inner surface (volar) of the left forearm"/>
 	<patient>
 		<reference value="Patient/example"/>
