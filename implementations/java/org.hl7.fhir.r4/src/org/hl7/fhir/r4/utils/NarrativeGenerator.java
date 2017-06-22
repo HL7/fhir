@@ -149,7 +149,9 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ConceptMapRenderInstructions;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.UsedConceptMap;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -168,6 +170,50 @@ import com.github.rjeschke.txtmark.Processor;
 import com.sun.webkit.BackForwardList;
 
 public class NarrativeGenerator implements INarrativeGenerator {
+
+  public class ConceptMapRenderInstructions {
+    private String name;
+    private String url;
+    private boolean doDescription;
+    public ConceptMapRenderInstructions(String name, String url, boolean doDescription) {
+      super();
+      this.name = name;
+      this.url = url;
+      this.doDescription = doDescription;
+    }
+    public String getName() {
+      return name;
+    }
+    public String getUrl() {
+      return url;
+    }
+    public boolean isDoDescription() {
+      return doDescription;
+    }
+    
+  }
+
+  public class UsedConceptMap {
+
+    private ConceptMapRenderInstructions details;
+    private String link;
+    private ConceptMap map;
+    public UsedConceptMap(ConceptMapRenderInstructions details, String link, ConceptMap map) {
+      super();
+      this.details = details;
+      this.link = link;
+      this.map = map;
+    }
+    public ConceptMapRenderInstructions getDetails() {
+      return details;
+    }
+    public ConceptMap getMap() {
+      return map;
+    }
+    public String getLink() {
+      return link;
+    }    
+  }
 
   public class ResourceContext {
     Bundle bundleResource;
@@ -896,12 +942,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String tooCostlyNoteNotEmpty;
   private IReferenceResolver resolver;
   private int headerLevelContext;
+  private List<ConceptMapRenderInstructions> renderingMaps = new ArrayList<ConceptMapRenderInstructions>();
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
     super();
     this.prefix = prefix;
     this.context = context;
     this.basePath = basePath;
+    init();
   }
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context, IReferenceResolver resolver) {
@@ -910,8 +958,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
     this.context = context;
     this.basePath = basePath;
     this.resolver = resolver;
+    init();
   }
 
+
+  private void init() {
+    renderingMaps.add(new ConceptMapRenderInstructions("Canonical Status", "http://hl7.org/fhir/ValueSet/resource-status", false));
+  }
+
+  public List<ConceptMapRenderInstructions> getRenderingMaps() {
+    return renderingMaps;
+  }
 
   public int getHeaderLevelContext() {
     return headerLevelContext;
@@ -2153,14 +2210,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
           XhtmlNode td = tr.td();
           td.addText(ccl.getCode());
           display = getDisplayForConcept(grp.getSource(), ccl.getCode());
-          if (display != null)
+          if (display != null && !isSameCodeAndDisplay(ccl.getCode(), display))
             td.tx(" ("+display+")");
           TargetElementComponent ccm = ccl.getTarget().get(0);
           tr.td().addText(!ccm.hasEquivalence() ? "" : ccm.getEquivalence().toCode());
           td = tr.td();
           td.addText(ccm.getCode());
           display = getDisplayForConcept(grp.getTarget(), ccm.getCode());
-          if (display != null)
+          if (display != null && !isSameCodeAndDisplay(ccm.getCode(), display))
             td.tx(" ("+display+")");
           if (comment)
             tr.td().addText(ccm.getComment());
@@ -2257,6 +2314,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
+
+  private boolean isSameCodeAndDisplay(String code, String display) {
+    String c = code.replace(" ", "").replace("-", "").toLowerCase();
+    String d = display.replace(" ", "").replace("-", "").toLowerCase();
+    return c.equals(d);
+  }
 
   private void inject(DomainResource r, XhtmlNode x, NarrativeStatus status) {
     if (!x.hasAttribute("xmlns"))
@@ -2415,27 +2478,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
-    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-//    for (ConceptMap a : context.findMapsForSource(cs.getValueSet())) {
-//      String url = "";
-//      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
-//      if (vsr != null)
-//        url = (String) vsr.getUserData("filename");
-//      mymaps.put(a, url);
-//    }
-    // also, look in the contained resources for a concept map
-    for (Resource r : cs.getContained()) {
-      if (r instanceof ConceptMap) {
-        ConceptMap cm = (ConceptMap) r;
-        if (((Reference) cm.getSource()).getReference().equals(cs.getValueSet())) {
-          String url = "";
-          ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) cm.getTarget()).getReference());
-          if (vsr != null)
-              url = (String) vsr.getUserData("filename");
-        mymaps.put(cm, url);
-        }
-      }
-    }
     List<String> langs = new ArrayList<String>();
 
     if (header) {
@@ -2448,7 +2490,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     generateProperties(x, cs);
     generateFilters(x, cs);
-    hasExtensions = generateCodeSystemContent(x, cs, hasExtensions, mymaps, langs);
+    List<UsedConceptMap> maps = new ArrayList<UsedConceptMap>();
+    hasExtensions = generateCodeSystemContent(x, cs, hasExtensions, langs, maps );
 
     return hasExtensions;
   }
@@ -2493,8 +2536,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private boolean generateCodeSystemContent(XhtmlNode x, CodeSystem cs, boolean hasExtensions, Map<ConceptMap, String> mymaps, List<String> langs)
-      throws FHIRFormatError, DefinitionException, IOException {
+  private boolean generateCodeSystemContent(XhtmlNode x, CodeSystem cs, boolean hasExtensions, List<String> langs, List<UsedConceptMap> maps) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode p = x.para();
     if (cs.getContent() == CodeSystemContentMode.COMPLETE)
       p.tx("This code system "+cs.getUrl()+" defines the following codes:");
@@ -2518,9 +2560,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       hierarchy = hierarchy || c.hasConcept();
       scanLangs(c, langs);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), mymaps);
+    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), maps);
     for (ConceptDefinitionComponent c : cs.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, cs.getUrl(), cs) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, maps, cs.getUrl(), cs) || hasExtensions;
     }
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -2569,15 +2611,85 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   public void generate(ResourceContext rcontext, ValueSet vs, ValueSet src, boolean header) throws FHIRException, IOException {
+    List<UsedConceptMap> maps = findReleventMaps(vs);
+    
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     boolean hasExtensions;
     if (vs.hasExpansion()) {
       // for now, we just accept an expansion if there is one
-      hasExtensions = generateExpansion(x, vs, src, header);
+      hasExtensions = generateExpansion(x, vs, src, header, maps);
     } else {
-      hasExtensions = generateComposition(rcontext, x, vs, header);
+      hasExtensions = generateComposition(rcontext, x, vs, header, maps);
     }
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
+  }
+
+  private List<UsedConceptMap> findReleventMaps(ValueSet vs) throws FHIRException {
+    List<UsedConceptMap> res = new ArrayList<UsedConceptMap>();
+    for (MetadataResource md : context.allConformanceResources()) {
+      if (md instanceof ConceptMap) {
+        ConceptMap cm = (ConceptMap) md;
+        if (isSource(vs, cm.getSource())) {
+          ConceptMapRenderInstructions re = findByTarget(cm.getTarget());
+          if (re != null) {
+            ValueSet vst = cm.hasTarget() ? context.fetchResource(ValueSet.class, cm.hasTargetReference() ? cm.getTargetReference().getReference() : cm.getTargetUriType().asStringValue()) : null;
+            res.add(new UsedConceptMap(re, vst == null ? cm.getUserString("path") : vst.getUserString("path"), cm));
+          }
+        }
+      }
+    }
+    return res;
+//    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
+//  for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
+//    String url = "";
+//    ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+//    if (vsr != null)
+//      url = (String) vsr.getUserData("filename");
+//    mymaps.put(a, url);
+//  }
+//    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
+//  for (ConceptMap a : context.findMapsForSource(cs.getValueSet())) {
+//    String url = "";
+//    ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+//    if (vsr != null)
+//      url = (String) vsr.getUserData("filename");
+//    mymaps.put(a, url);
+//  }
+    // also, look in the contained resources for a concept map
+//    for (Resource r : cs.getContained()) {
+//      if (r instanceof ConceptMap) {
+//        ConceptMap cm = (ConceptMap) r;
+//        if (((Reference) cm.getSource()).getReference().equals(cs.getValueSet())) {
+//          String url = "";
+//          ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) cm.getTarget()).getReference());
+//          if (vsr != null)
+//              url = (String) vsr.getUserData("filename");
+//        mymaps.put(cm, url);
+//        }
+//      }
+//    }
+  }
+
+  private ConceptMapRenderInstructions findByTarget(Type source) {
+    String src = null;
+    if (source instanceof UriType)
+      src = ((UriType) source).asStringValue();
+    if (source instanceof Reference)
+      src = ((Reference) source).getReference();
+    if (src != null)
+      for (ConceptMapRenderInstructions t : renderingMaps) {
+        if (src.equals(t.url))
+          return t;
+      }
+    return null;
+  }
+
+  private boolean isSource(ValueSet vs, Type source) {
+    if (source instanceof UriType)
+      return vs.getUrl().equals(((UriType) source).asStringValue());
+    if (source instanceof Reference)
+      return vs.getUrl().equals(((Reference) source).getReference());
+    return false;
   }
 
   private Integer countMembership(ValueSet vs) {
@@ -2618,18 +2730,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header) throws FHIRFormatError, DefinitionException, IOException {
+  private boolean generateExpansion(XhtmlNode x, ValueSet vs, ValueSet src, boolean header, List<UsedConceptMap> maps) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
     List<String> langs = new ArrayList<String>();
 
-    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-//    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
-//      String url = "";
-//      ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
-//      if (vsr != null)
-//        url = (String) vsr.getUserData("filename");
-//      mymaps.put(a, url);
-//    }
 
     if (header) {
       XhtmlNode h = x.addTag(getHeader());
@@ -2676,9 +2780,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (doDefinition)
       tr.td().b().tx("Definition");
 
-    addMapHeaders(tr, mymaps);
+    addMapHeaders(tr, maps);
     for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
-      addExpansionRowToTable(t, c, 0, doSystem, doDefinition, mymaps, allCS, langs);
+      addExpansionRowToTable(t, c, 0, doSystem, doDefinition, maps, allCS, langs);
     }
 
     // now, build observed languages
@@ -2917,14 +3021,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
       scanLangs(g, langs);
   }
 
-  private void addMapHeaders(XhtmlNode tr, Map<ConceptMap, String> mymaps) throws FHIRFormatError, DefinitionException, IOException {
-	  for (ConceptMap m : mymaps.keySet()) {
+  private void addMapHeaders(XhtmlNode tr, List<UsedConceptMap> maps) throws FHIRFormatError, DefinitionException, IOException {
+	  for (UsedConceptMap m : maps) {
 	  	XhtmlNode td = tr.td();
 	  	XhtmlNode b = td.b();
-	  	XhtmlNode a = b.ah(prefix+mymaps.get(m));
-      a.addText(m.getName());
-      if (m.hasDescription())
-        addMarkdown(td, m.getDescription());
+	  	XhtmlNode a = b.ah(prefix+m.getLink());
+      a.addText(m.getDetails().getName());
+      if (m.getDetails().isDoDescription() && m.getMap().hasDescription())
+        addMarkdown(td, m.getMap().getDescription());
 	  }
   }
 
@@ -2990,7 +3094,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, boolean doDefinition, Map<ConceptMap, String> mymaps, CodeSystem allCS, List<String> langs) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, boolean doDefinition, List<UsedConceptMap> maps, CodeSystem allCS, List<String> langs) {
     XhtmlNode tr = t.tr();
     XhtmlNode td = tr.td();
 
@@ -3017,9 +3121,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (cs != null)
         td.addText(CodeSystemUtilities.getCodeDefinition(cs, c.getCode()));
     }
-    for (ConceptMap m : mymaps.keySet()) {
+    for (UsedConceptMap m : maps) {
       td = tr.td();
-      List<TargetElementComponentWrapper> mappings = findMappingsForCode(c.getCode(), m);
+      List<TargetElementComponentWrapper> mappings = findMappingsForCode(c.getCode(), m.getMap());
       boolean first = true;
       for (TargetElementComponentWrapper mapping : mappings) {
         if (!first)
@@ -3027,8 +3131,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         first = false;
         XhtmlNode span = td.span(null, mapping.comp.getEquivalence().toString());
         span.addText(getCharForEquivalence(mapping.comp));
-        XhtmlNode a = td.ah(prefix+mymaps.get(m)+"#"+mapping.comp.getCode());
-        a.addText(mapping.comp.getCode());
+        addRefToCode(td, mapping.group.getTarget(), m.getLink(), mapping.comp.getCode()); 
         if (!Utilities.noString(mapping.comp.getComment()))
           td.i().tx("("+mapping.comp.getComment()+")");
       }
@@ -3041,7 +3144,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
     }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
-      addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, mymaps, allCS, langs);
+      addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, maps, allCS, langs);
     }
   }
 
@@ -3080,7 +3183,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system, CodeSystem cs) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, List<UsedConceptMap> maps, String system, CodeSystem cs) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.tr();
     XhtmlNode td = tr.td();
@@ -3130,9 +3233,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
         hasExtensions = true;
       }
     }
-    for (ConceptMap m : maps.keySet()) {
+    for (UsedConceptMap m : maps) {
       td = tr.td();
-      List<TargetElementComponentWrapper> mappings = findMappingsForCode(c.getCode(), m);
+      List<TargetElementComponentWrapper> mappings = findMappingsForCode(c.getCode(), m.getMap());
       boolean first = true;
       for (TargetElementComponentWrapper mapping : mappings) {
       	if (!first)
@@ -3140,7 +3243,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       	first = false;
       	XhtmlNode span = td.span(null, mapping.comp.hasEquivalence() ?  mapping.comp.getEquivalence().toCode() : "");
         span.addText(getCharForEquivalence(mapping.comp));
-      	a = td.ah(prefix+maps.get(m)+"#"+makeAnchor(mapping.group.getTarget(), mapping.comp.getCode()));
+      	a = td.ah(prefix+m.getLink()+"#"+makeAnchor(mapping.group.getTarget(), mapping.comp.getCode()));
         a.addText(mapping.comp.getCode());
         if (!Utilities.noString(mapping.comp.getComment()))
           td.i().tx("("+mapping.comp.getComment()+")");
@@ -3212,7 +3315,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  return mappings;
   }
 
-  private boolean generateComposition(ResourceContext rcontext, XhtmlNode x, ValueSet vs, boolean header) throws FHIRException, IOException {
+  private boolean generateComposition(ResourceContext rcontext, XhtmlNode x, ValueSet vs, boolean header, List<UsedConceptMap> maps) throws FHIRException, IOException {
 	  boolean hasExtensions = false;
     List<String> langs = new ArrayList<String>();
 
@@ -3229,10 +3332,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode ul = x.ul();
     XhtmlNode li;
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
-      hasExtensions = genInclude(rcontext, ul, inc, "Include", langs) || hasExtensions;
+      hasExtensions = genInclude(rcontext, ul, inc, "Include", langs, maps) || hasExtensions;
     }
     for (ConceptSetComponent exc : vs.getCompose().getExclude()) {
-      hasExtensions = genInclude(rcontext, ul, exc, "Exclude", langs) || hasExtensions;
+      hasExtensions = genInclude(rcontext, ul, exc, "Exclude", langs, maps) || hasExtensions;
     }
 
     // now, build observed languages
@@ -3316,7 +3419,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return prefix+ref;
   }
 
-  private boolean genInclude(ResourceContext rcontext, XhtmlNode ul, ConceptSetComponent inc, String type, List<String> langs) throws FHIRException {
+  private boolean genInclude(ResourceContext rcontext, XhtmlNode ul, ConceptSetComponent inc, String type, List<String> langs, List<UsedConceptMap> maps) throws FHIRException, IOException {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.li();
@@ -3340,7 +3443,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           }
           if (hasComments || hasDefinition)
             hasExtensions = true;
-          addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false);
+          addMapHeaders(addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false), maps);
           for (ConceptReferenceComponent c : inc.getConcept()) {
             XhtmlNode tr = t.tr();
             XhtmlNode td = tr.td();
@@ -3493,6 +3596,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
         return v;
     }
     return null;
+  }
+
+  private void addRefToCode(XhtmlNode td, String target, String vslink, String code) {
+    CodeSystem cs = context.fetchCodeSystem(target);
+    String cslink = getCsRef(cs);
+    XhtmlNode a = null;
+    if (cslink != null) 
+      a = td.ah(prefix+cslink+"#"+cs.getId()+"-"+code);
+    else
+      a = td.ah(prefix+vslink+"#"+code);
+    a.addText(code);
   }
 
   private  <T extends Resource> void addCsRef(ConceptSetComponent inc, XhtmlNode li, T cs) {

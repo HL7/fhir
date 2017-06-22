@@ -665,7 +665,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader")) {
         StructureDefinition sd = (StructureDefinition) resource;
-        src = s1+resHeader(sd.getId().toLowerCase(), sd.getId(), com.length > 1 ? com[1] : null)+s3;
+        if (sd != null)
+          src = s1+resHeader(sd.getId().toLowerCase(), sd.getId(), com.length > 1 ? com[1] : null)+s3;
+        else if (rd != null) {
+          src = s1+resHeader(rd.getName().toLowerCase(), rd.getName(), com.length > 1 ? com[1] : null)+s3;
+        } else 
+          src = s1+s3;
       } else if (com[0].equals("aresheader"))
         src = s1+abstractResHeader("document", "Document", com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("onthispage"))
@@ -1128,7 +1133,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
          src = s1 + s3;
        else
          src = s1 + "<p><a href=\"#DomainResource.text.div-end\">Jump past Narrative</a></p>" + s3;
-      } else
+      } else if (others != null && others.containsKey(s2))
+        src = s1+others.get(s2)+s3;
+      else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
@@ -2241,7 +2248,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         return "Snomed CT";
       else
         return ref;
-    } else
+    } else if (vs.hasTitle())
+      return vs.getTitle();
+    else
       return vs.getName();
   }
 

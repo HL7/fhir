@@ -613,30 +613,36 @@
   Filename = valueset-ucum-common.xml
 
  -- Row 6 -----------------------------------
+  Name = Canonical Resource Status
+  Identity = resource-status
+  Description = All Canonical Resource Status
+  Filename = valueset-resource-status.xml
+
+ -- Row 7 -----------------------------------
   Name = cpt-all
   Identity = cpt-all
   Description = All CPT codes
   Filename = valueset-cpt-all.xml
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = Yes/No/Don\'t know
   Identity = yesnodontknow
   Description = Yes/No/Don\'t know, for capturing a common answer set in questionnaires
   Filename = valueset-example-yesnodontknow.xml
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = NHIN PurposeOfUse
   Identity = nhin-purposeofuse
   Description = NHIN Purpose of Use
   Filename = valueset-nhin-purposeofuse.xml
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = inactive
   Identity = inactive
   Description = Valueset including inactive concepts
   Filename = valueset-example-inactive.xml
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = !Zika Affected Areas
   Identity = zika-affected-areas
   Description = ValueSet Example referencing PHINVADS value set by OID

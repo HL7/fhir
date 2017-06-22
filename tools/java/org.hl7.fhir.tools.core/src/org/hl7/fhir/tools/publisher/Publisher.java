@@ -144,12 +144,16 @@ import org.hl7.fhir.r4.model.CompartmentDefinition;
 import org.hl7.fhir.r4.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.CompartmentDefinition.CompartmentType;
 import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
+import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.r4.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.Factory;
@@ -189,6 +193,7 @@ import org.hl7.fhir.r4.test.SnapShotGenerationTests;
 import org.hl7.fhir.r4.test.SnomedExpressionsTests;
 import org.hl7.fhir.r4.test.TurtleTests;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
+import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator;
 import org.hl7.fhir.r4.utils.GraphQLSchemaGenerator.FHIROperationType;
@@ -414,6 +419,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private String singlePage;
   private PublisherTestSuites tester;
   private List<FHIRPathUsage> fpUsages = new ArrayList<FHIRPathUsage>();
+  private List<ConceptMap> statusCodeConceptMaps = new ArrayList<ConceptMap>();
 
   private ProfileGenerator pgen;
 
@@ -597,6 +603,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       prsr.getRegistry().commit();
 
 
+      generateSCMaps();
       validate();
       processProfiles();
       checkAllOk();
@@ -668,6 +675,74 @@ public class Publisher implements URIResolver, SectionNumberer {
       e.printStackTrace();
       System.exit(1);
     }
+  }
+
+  private void generateSCMaps() throws Exception {
+    page.log("Generate Status Code Concept Maps", LogMessageType.Process);
+    for (ResourceDefn rd : page.getDefinitions().getResources().values()) {
+      generateSCMaps(rd.getRoot().getName(), rd.getRoot(), rd); 
+    }
+  }
+
+  private void generateSCMaps(String path, ElementDefn element, ResourceDefn rd) throws Exception {
+    
+    if (elementHasSCMapping(path)) {
+      ValueSet vs = element.getBinding().getValueSet();
+      if (vs == null)
+        throw new Exception("Element has a Status Code binding, but no ValueSet");
+      ConceptMap cm = (ConceptMap) vs.getUserData("build.statuscodes.map");
+      if (cm == null) {
+        cm = buildConceptMap(path, vs, rd);
+        if (cm != null)
+          vs.setUserData("build.statuscodes.map", cm);
+      }
+    }
+    for (ElementDefn child : element.getElements()) {
+      generateSCMaps(path+"."+child.getName(), child, rd);
+    }
+  }
+
+  private ConceptMap buildConceptMap(String path, ValueSet vs, ResourceDefn rd) throws EOperationOutcome, FHIRException, IOException {
+    ConceptMap cm = new ConceptMap();
+    cm.setUserData("path", "sc-"+vs.getUserString("path"));
+    cm.setUserData("resource-definition", rd);
+    cm.setId("sc-"+vs.getId());
+    cm.setUrl("http://hl7.org/fhir/ConceptMap/"+cm.getId());
+    cm.setVersion(page.getVersion());
+    cm.setName(vs.getName()+"CanonicalMap");  
+    cm.setTitle("Canonical Mapping for \""+vs.getTitle()+"\""); 
+    cm.setStatus(PublicationStatus.DRAFT);  
+    cm.setDate(vs.getDate());  
+    cm.setPublisher(vs.getPublisher());
+    cm.addContact(vs.getContactFirstRep());
+    cm.setDescription("Canonical Mapping for \""+vs.getDescription()+"\"");
+    cm.setSource(new Reference(vs.getUrl()));
+    cm.setTarget(new Reference("http://hl7.org/fhir/ValueSet/resource-status"));
+    List<String> canonical = page.getDefinitions().getStatusCodes().get("@code");
+    List<String> self = page.getDefinitions().getStatusCodes().get(path);
+    ConceptMapGroupComponent grp = cm.addGroup();
+    grp.setTarget("http://hl7.org/fhir/resource-status");
+    grp.setSource(vs.getCompose().getIncludeFirstRep().getSystem());
+    for (int i =0; i < self.size(); i++) {
+      if (!Utilities.noString(self.get(i))) {
+        String cc = canonical.get(i);
+        String sc = self.get(i);
+        SourceElementComponent e = grp.addElement();
+        e.setCode(sc);
+        TargetElementComponent t = e.addTarget();
+        t.setCode(cc);
+        t.setEquivalence(ConceptMapEquivalence.EQUIVALENT);
+      }
+    }
+    if (!grp.hasElement())
+      return null;
+    page.getConceptMaps().put(cm.getUrl(), cm);
+    statusCodeConceptMaps.add(cm);
+    return cm;
+  }
+
+  private boolean elementHasSCMapping(String path) {
+    return page.getDefinitions().getStatusCodes().containsKey(path);
   }
 
   private void generateRedirects() throws Exception {
@@ -2220,7 +2295,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         ResourceDefn r = page.getDefinitions().getResourceTemplates().get(rname);
         produceResource2(r, false, null, true);
     }
-
+    
     for (Compartment c : page.getDefinitions().getCompartments()) {
       if (buildFlags.get("all")) {
         page.log(" ...compartment " + c.getName(), LogMessageType.Process);
@@ -2675,6 +2750,33 @@ public class Publisher implements URIResolver, SectionNumberer {
       checkAllOk();
     } else
       page.log("Partial Build - terminating now", LogMessageType.Error);
+  }
+
+  private void produceConceptMap(ConceptMap cm, ResourceDefn rd, SectionTracker st) throws Exception {
+    new NarrativeGenerator("", "", page.getWorkerContext()).generate(cm);
+    String n = cm.getUserString("path");
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(n, ".xml"));
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cm);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(n, ".canonical.xml"));
+    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, cm);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(n, ".json"));
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cm);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(n, ".canonical.json"));
+    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, cm);
+    s.close();
+
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + Utilities.changeFileExt(n, ".xml")), new CSFile(page.getFolders().dstDir + "examples" + File.separator + Utilities.changeFileExt(n, ".xml")));
+//    saveAsPureHtml(cm, new FileOutputStream(Utilities.path(page.getFolders().dstDir, "html", n)), true);
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-status-map.html");
+    Map<String, String> others = new HashMap<String, String>();
+    others.put("status-map", new XhtmlComposer().compose(cm.getText().getDiv()));
+    TextFile.stringToFile(insertSectionNumbers(page.processPageIncludes(n, src, "conceptmap-instance", others, null, null, "Profile", null, rd, rd.getWg()), st, n, 0, null), page.getFolders().dstDir + n);
+    page.getHTMLChecker().registerFile(n, cm.getTitle(), HTMLLinkChecker.XHTML_TYPE, true);
+    cloneToXhtml(Utilities.changeFileExt(n, ""), cm.getTitle(), true, "conceptmap-instance", "Profile", null, ((ResourceDefn) cm.getUserData("resource-definition")).getWg());
+    jsonToXhtml(Utilities.changeFileExt(n, ""), cm.getTitle(), resource2Json(cm), "conceptmap-instance", "Profile", null, ((ResourceDefn) cm.getUserData("resource-definition")).getWg());
   }
 
   public class ProfileBundleSorter implements Comparator<BundleEntryComponent> {
@@ -3867,6 +3969,9 @@ public class Publisher implements URIResolver, SectionNumberer {
         //      cachePage(n + "-definitions.html", src, "Resource Definitions for " + resource.getName(), true);
       }
       produceMap(resource.getName(), st, resource);
+      for (ConceptMap cm : statusCodeConceptMaps)
+        if (cm.getUserData("resource-definition") == resource) 
+          produceConceptMap(cm, resource, st);
 
       // xml to json
       // todo - fix this up
@@ -3875,6 +3980,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       // File(page.getFolders().dstDir+n+".json"));
     }
     tmp.delete();
+
     // because we'll pick up a little more information as we process the
     // resource
     StructureDefinition p = generateProfile(resource, n, xml, json, ttl, !logicalOnly);
@@ -4449,7 +4555,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       feed.getEntry().remove(index);
   }
 
-  private void saveAsPureHtml(StructureDefinition resource, FileOutputStream stream) throws Exception {
+  private void saveAsPureHtml(DomainResource resource, FileOutputStream stream) throws Exception {
+    saveAsPureHtml(resource, stream, false); 
+  }
+  private void saveAsPureHtml(DomainResource resource, FileOutputStream stream, boolean isPretty) throws Exception {
     XhtmlDocument html = new XhtmlDocument();
     html.setNodeType(NodeType.Document);
     html.addComment("Generated by automatically by FHIR Tooling");
@@ -4468,8 +4577,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       work.getChildNodes().addAll(resource.getText().getDiv().getChildNodes());
     }
     XhtmlComposer xml = new XhtmlComposer();
-    xml.setPretty(false);
+    xml.setPretty(isPretty);
     xml.compose(stream, html);
+    stream.close();
   }
 
   private void addToResourceFeed(DomainResource resource, Bundle dest, String filename) throws Exception {
