@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12045</WindowHeight>
-  <WindowWidth>25200</WindowWidth>
+  <WindowHeight>4755</WindowHeight>
+  <WindowWidth>17970</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
@@ -1155,7 +1155,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">provisional | differential | confirmed | refuted | entered-in-error | unknown</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">unconfirmed | provisional | differential | confirmed | refuted | entered-in-error | unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The verification status to support the clinical status of the condition.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3884,9 +3884,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3902,8 +3902,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6873,7 +6873,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='condition-ver-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s139" ss:Width="79.5"/>
@@ -6921,11 +6921,17 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="29.25">
+    <Cell><Data ss:Type="String">unconfirmed</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Unconfirmed</Data></Cell>
+    <Cell><Data ss:Type="String">There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">provisional</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">#1</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Provisional</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">This is a tentative diagnosis - still a candidate that is under consideration.</Data></Cell>
     <Cell ss:StyleID="s127"/>
@@ -6934,9 +6940,9 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s143"><Data ss:Type="String">differential</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">#1</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Differential</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.</Data></Cell>
     <Cell ss:StyleID="s130"/>
@@ -6945,7 +6951,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s143"><Data ss:Type="String">confirmed</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Confirmed</Data></Cell>
@@ -6956,7 +6962,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s143"><Data ss:Type="String">refuted</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Refuted</Data></Cell>
@@ -6967,7 +6973,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s143"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Entered In Error</Data></Cell>
@@ -6978,7 +6984,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s143"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Unknown</Data></Cell>
@@ -7493,7 +7499,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

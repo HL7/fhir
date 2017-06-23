@@ -76,37 +76,45 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = provisional
-  Display = Provisional
-  Definition = This is a tentative diagnosis - still a candidate that is under consideration.
+  Code = unconfirmed
+  Display = Unconfirmed
+  Definition = There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = differential
-  Display = Differential
-  Definition = One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
+  Code = provisional
+  Display = Provisional
+  Definition = This is a tentative diagnosis - still a candidate that is under consideration.
+  Parent = #1
 
  -- Row 3 -----------------------------------
   Id = 3
+  Code = differential
+  Display = Differential
+  Definition = One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
+  Parent = #1
+
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = confirmed
   Display = Confirmed
   Definition = There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = refuted
   Display = Refuted
   Definition = This condition has been ruled out by diagnostic and clinical evidence.
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = entered-in-error
   Display = Entered In Error
   Definition = The statement was entered in error and is not valid.
   v3 = ActStatus.nullified
 
- -- Row 6 -----------------------------------
-  Id = 6
+ -- Row 7 -----------------------------------
+  Id = 7
   Code = unknown
   Display = Unknown
   Definition = The condition status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".
@@ -192,7 +200,7 @@
   Inv. = 3
   Type = code
   Binding = ConditionVerificationStatus
-  Short Name = provisional | differential | confirmed | refuted | entered-in-error | unknown
+  Short Name = unconfirmed | provisional | differential | confirmed | refuted | entered-in-error | unknown
   Definition = The verification status to support the clinical status of the condition.
   Comments = verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.\n\nThis element is labeled as a modifier because the status contains the code refuted and entered-in-error that mark the Condition as not currently valid
   Workflow Mapping = Event.status

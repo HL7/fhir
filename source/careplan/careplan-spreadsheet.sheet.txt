@@ -151,19 +151,26 @@
   Id = 5
   Code = completed
   Display = Completed
-  Definition = The activities have been completed (more or less) as planned.
+  Definition = The activity has been completed (more or less) as planned.
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = cancelled
   Display = Cancelled
-  Definition = The activities have been ended prior to completion (perhaps even before they were started).
+  Definition = The planned activity has been withdrawn.
 
  -- Row 7 -----------------------------------
-  Id = y
+  Id = 7
+  Code = stopped
+  Display = Stopped
+  Definition = The planned activity has been ended prior to completion after the activity was started.
+  Parent = #6
+
+ -- Row 8 -----------------------------------
+  Id = 8
   Code = unknown
   Display = Unknown
-  Definition = The authoring system doesn\'t know the current state of the activity.
+  Definition = The current state of the activity is not known.  Note: This concept is not to be used for \"other\".
 
 === Sheet care-plan-intent =====================================
 
@@ -565,7 +572,7 @@
   Is Modifier = Y
   Type = code
   Binding = CarePlanActivityStatus
-  Short Name = not-started | scheduled | in-progress | on-hold | completed | cancelled | unknown
+  Short Name = not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown
   Definition = Identifies what progress is being made for the specific activity.
   Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
   Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.  \nThe unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the activity.

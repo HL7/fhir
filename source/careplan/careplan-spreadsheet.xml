@@ -20,12 +20,12 @@
    <Path>\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>9210</WindowHeight>
+  <WindowHeight>8310</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>777</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2094,7 +2094,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">not-started | scheduled | in-progress | on-hold | completed | cancelled | unknown</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies what progress is being made for the specific activity.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4189,10 +4189,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>29</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4209,7 +4210,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7223,7 +7225,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7909,7 +7910,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='care-plan-activity-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s136" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s136" ss:Width="80.25"/>
@@ -8007,7 +8008,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The activities have been completed (more or less) as planned.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The activity has been completed (more or less) as planned.</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s141"/>
@@ -8018,43 +8019,32 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The activities have been ended prior to completion (perhaps even before they were started).</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The planned activity has been withdrawn.</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s140"><Data ss:Type="String">stopped</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">#6</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Stopped</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The planned activity has been ended prior to completion after the activity was started.</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The authoring system doesn't know the current state of the activity.  </Data></Cell>
+    <Cell><Data ss:Type="String">The current state of the activity is not known.  Note: This concept is not to be used for &quot;other&quot;.  </Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell><Data ss:Type="String">GF#10617</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"/>
@@ -8524,8 +8514,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
