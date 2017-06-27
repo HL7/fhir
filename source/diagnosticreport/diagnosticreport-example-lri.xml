@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+	<id value="lri-example"/>
+	<meta>
+		<versionId value="1"/>
+		<lastUpdated value="2017-06-27T00:52:51Z"/>
+	</meta>
+	<type value="collection"/>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/DiagnosticReport/lri-example"/>
+		<resource>
+			<DiagnosticReport>
+				<id value="lri-example"/>
+				<identifier>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/identifier-type"/>
+							<code value="PLAC"/>
+							<display value="Placer Identifier"/>
+						</coding>
+					</type>
+					<system value="https://acme.org/identifiers"/>
+					<value value="RP723234"/>
+				</identifier>
+				<identifier>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/identifier-type"/>
+							<code value="FILL"/>
+							<display value="Filler Identifier"/>
+						</coding>
+					</type>
+					<system value="https://acme.org/identifiers"/>
+					<value value="250401"/>
+				</identifier>
+				<identifier>
+					<type>
+						<coding>
+							<system value="https://acme.org/identifiers"/>
+							<code value="GRP"/>
+							<display value="Group"/>
+						</coding>
+					</type>
+					<system value="https://acme.org/identifiers"/>
+					<value value="RFP 123456"/>
+				</identifier>
+				<basedOn>
+					<reference value="ProcedureRequest/example"/>
+				</basedOn>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="LAB"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-15"/>
+				<issued value="2016-08-18T18:14:35Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<specimen>
+					<reference value="Specimen/example"/>
+				</specimen>
+				<result>
+					<reference value="Observation/organism1"/>
+					<display value="Normal Flora"/>
+				</result>
+				<result>
+					<reference value="Observation/organism2"/>
+					<display value="Klebsiella pneumoniae"/>
+				</result>
+				<result>
+					<reference value="Observation/organism3"/>
+					<display value="Staphlyococcuc aureus"/>
+				</result>
+				<result>
+					<reference value="Observation/gramstain1"/>
+					<display value="Many WBCs"/>
+				</result>
+				<result>
+					<reference value="Observation/gramstain2"/>
+					<display value="Moderate Gram Positive Rods"/>
+				</result>
+				<result>
+					<reference value="Observation/gramstain3"/>
+					<display value="Moderate Gram Positive Cocci in Chains"/>
+				</result>
+				<result>
+					<reference value="Observation/gramstain4"/>
+					<display value="Many Gram Negative Rods"/>
+				</result>
+			</DiagnosticReport>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-gramstain1"/>
+		<resource>
+			<Observation>
+				<id value="gramstain1"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="gramstain1"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="664-3"/>
+						<display value="Gram Stn XXX"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GMST"/>
+						<display value="Gram Stain"/>
+					</coding>
+					<text value="Gram Stain"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="MNY"/>
+							<display value="Many"/>
+						</coding>
+						<text value="Many"/>
+					</valueCodeableConcept>
+				</component>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="WBCS"/>
+							<display value="WBCS"/>
+						</coding>
+						<text value="WBCS"/>
+					</valueCodeableConcept>
+				</component>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-gramstain2"/>
+		<resource>
+			<Observation>
+				<id value="gramstain2"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="gramstain2"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="664-3"/>
+						<display value="Gram Stn XXX"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GMST"/>
+						<display value="Gram Stain"/>
+					</coding>
+					<text value="Gram Stain"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="MOD"/>
+							<display value="Moderate"/>
+						</coding>
+						<text value="Moderate"/>
+					</valueCodeableConcept>
+				</component>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="GPR"/>
+							<display value="Moderate"/>
+						</coding>
+						<text value="Gram Positive Rods"/>
+					</valueCodeableConcept>
+				</component>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-gramstain3"/>
+		<resource>
+			<Observation>
+				<id value="gramstain3"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="gramstain3"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="664-3"/>
+						<display value="Gram Stn XXX"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GMST"/>
+						<display value="Gram Stain"/>
+					</coding>
+					<text value="Gram Stain"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="MOD"/>
+							<display value="Moderate"/>
+						</coding>
+						<text value="Moderate"/>
+					</valueCodeableConcept>
+				</component>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="GPCCH"/>
+							<display value="Gram Positive Cocci in Chains"/>
+						</coding>
+						<text value="Gram Positive Cocci in Chains"/>
+					</valueCodeableConcept>
+				</component>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-gramstain4"/>
+		<resource>
+			<Observation>
+				<id value="gramstain4"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="gramstain4"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="664-3"/>
+						<display value="Gram Stn XXX"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GMST"/>
+						<display value="Gram Stain"/>
+					</coding>
+					<text value="Gram Stain"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="MNY"/>
+							<display value="Many"/>
+						</coding>
+						<text value="Many"/>
+					</valueCodeableConcept>
+				</component>
+				<component>
+					<code>
+						<coding>
+							<system value="http://loinc.org"/>
+							<code value="664-3"/>
+							<display value="Gram Stn XXX"/>
+						</coding>
+						<text value="Gram Stain"/>
+					</code>
+					<valueCodeableConcept>
+						<coding>
+							<system value="https://acme.org/codes"/>
+							<code value="GNR"/>
+							<display value="Gram Negative Rods"/>
+						</coding>
+						<text value="Gram Negative Rods"/>
+					</valueCodeableConcept>
+				</component>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-growth1"/>
+		<resource>
+			<Observation>
+				<id value="growth1"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="growth1"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GROWTH"/>
+						<display value="Growth"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="263812008"/>
+						<display value="Moderate Growth"/>
+					</coding>
+					<text value="Moderate Growth"/>
+				</valueCodeableConcept>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-growth2"/>
+		<resource>
+			<Observation>
+				<id value="growth2"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="growth2"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GROWTH"/>
+						<display value="Growth"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="263776006"/>
+						<display value="Heavy growth"/>
+					</coding>
+					<text value="Heavy growth"/>
+				</valueCodeableConcept>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-growth3"/>
+		<resource>
+			<Observation>
+				<id value="growth3"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="growth3"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="GROWTH"/>
+						<display value="Growth"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="263776006"/>
+						<display value="Heavy growth"/>
+					</coding>
+					<text value="Heavy growth"/>
+				</valueCodeableConcept>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-org2-amp"/>
+		<resource>
+			<Observation>
+				<id value="org2-amp"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="org2-amp"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="28-1"/>
+						<display value="Ampicilin Islt MIC"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="AMPMIC"/>
+						<display value="Ampicilin MIC"/>
+					</coding>
+					<text value="Ampicilin MIC"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueQuantity>
+					<value value="0.06"/>
+					<comparator value="&lt;"/>
+					<unit value="ug/ml"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="ug/mL"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+						<display value="Susceptible"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-org2-cip"/>
+		<resource>
+			<Observation>
+				<id value="org2-cip"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="org2-cip"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="185-9"/>
+						<display value="Ciprofloxacin Islt MIC"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="CIPMIC"/>
+						<display value="Ciprofloxacin MIC"/>
+					</coding>
+					<text value="Ciprofloxacin MIC"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueQuantity>
+					<value value="0.05"/>
+					<comparator value="&lt;"/>
+					<unit value="ug/ml"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="ug/mL"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+						<display value="Susceptible"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-org2-gent"/>
+		<resource>
+			<Observation>
+				<id value="org2-gent"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="org2-gent"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="267-5"/>
+						<display value="Gentamicin Islt MIC"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="CIPMIC"/>
+						<display value="Gentamicin MIC"/>
+					</coding>
+					<text value="Gentamicin MIC"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueQuantity>
+					<value value="0.05"/>
+					<comparator value="&lt;"/>
+					<unit value="ug/ml"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="ug/mL"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+						<display value="Susceptible"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-org3-amp"/>
+		<resource>
+			<Observation>
+				<id value="org3-amp"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="org3-amp"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="28-1"/>
+						<display value="Ampicilin Islt MIC"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="AMPMIC"/>
+						<display value="Ampicilin MIC"/>
+					</coding>
+					<text value="Ampicilin MIC"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueQuantity>
+					<value value="0.06"/>
+					<comparator value="&lt;"/>
+					<unit value="ug/ml"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="ug/mL"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+						<display value="Susceptible"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-org3-cip"/>
+		<resource>
+			<Observation>
+				<id value="org3-cip"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="org3-cip"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="185-9"/>
+						<display value="Ciprofloxacin Islt MIC"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="CIPMIC"/>
+						<display value="Ciprofloxacin MIC"/>
+					</coding>
+					<text value="Ciprofloxacin MIC"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueQuantity>
+					<value value="0.05"/>
+					<comparator value="&lt;"/>
+					<unit value="ug/ml"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="ug/mL"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+						<display value="Susceptible"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-org3-gent"/>
+		<resource>
+			<Observation>
+				<id value="org3-gent"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="org3-gent"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="267-5"/>
+						<display value="Gentamicin Islt MIC"/>
+					</coding>
+					<text value="Gentamicin MIC"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueQuantity>
+					<value value="0.05"/>
+					<comparator value="&lt;"/>
+					<unit value="ug/ml"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="ug/mL"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+						<display value="Susceptible"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-organism1"/>
+		<resource>
+			<Observation>
+				<id value="organism1"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="organism1"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="CULTID"/>
+						<display value="Culture ID"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="23506009"/>
+						<display value="Normal flora"/>
+					</coding>
+					<text value="Normal flora"/>
+				</valueCodeableConcept>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/growth1"/>
+						<display value="Moderate growth"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-organism2"/>
+		<resource>
+			<Observation>
+				<id value="organism2"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="organism2"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="CULTID"/>
+						<display value="Culture ID"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="56415008"/>
+						<display value="Klebsiella pneumonia"/>
+					</coding>
+					<text value="Klebsiella pneumonia"/>
+				</valueCodeableConcept>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/growth2"/>
+						<display value="Heavy growth"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/org2-amp"/>
+						<display value="Ampicillin MIC - Susceptible"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/org2-cip"/>
+						<display value="Ciprofloxacin MIC - Susceptible"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/org2-gent"/>
+						<display value="Gentamicin MIC  - Susceptible"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://test.fhir.org/r4/Observation/lri-organism3"/>
+		<resource>
+			<Observation>
+				<id value="organism3"/>
+				<identifier>
+					<system value="https://acme.org/identifiers"/>
+					<value value="organism3"/>
+				</identifier>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+						<display value="microbiology"/>
+					</coding>
+					<text value="Micro"/>
+				</category>
+				<category>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.9.195.4.61"/>
+						<code value="RSLT"/>
+						<display value="Result"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cul"/>
+					</coding>
+					<coding>
+						<system value="https://acme.org/codes"/>
+						<code value="CULTID"/>
+						<display value="Culture ID"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+				<effectiveDateTime value="2016-08-18"/>
+				<issued value="2016-08-18T23:06:32Z"/>
+				<performer>
+					<reference value="Organization/example"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="3092008"/>
+						<display value="Staphlyococcuc aureus"/>
+					</coding>
+					<text value="Staphlyococcuc aureus"/>
+				</valueCodeableConcept>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/growth3"/>
+						<display value="Heavy growth"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/org3-amp"/>
+						<display value="Ampicillin MIC - Susceptible"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/org3-cip"/>
+						<display value="Ciprofloxacin MIC - Susceptible"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/org3-gent"/>
+						<display value="Gentamicin MIC  - Susceptible"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+	</entry>
+</Bundle>

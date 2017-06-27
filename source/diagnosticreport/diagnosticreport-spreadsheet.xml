@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-06-19T22:10:50Z</LastSaved>
+  <LastSaved>2017-06-27T15:13:03Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,10 +17,10 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>9675</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowWidth>19230</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4185,7 +4185,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>130</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6264,10 +6263,10 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="38" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="39" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s139" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s139" ss:Width="108"/>
+   <Column ss:StyleID="s139" ss:AutoFitWidth="0" ss:Width="149.25"/>
    <Column ss:StyleID="s139" ss:Width="45"/>
    <Column ss:StyleID="s139" ss:Width="300.75"/>
    <Column ss:StyleID="s139" ss:Width="194.25"/>
@@ -6373,11 +6372,20 @@
     <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Micro Isolate and Sensitivities</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Micro Isolate and Sensitivities-1</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">An example of a complex Micro Isolate and Sensitivities</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An example of a complex Micro Isolate and Sensitivities.</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">micro</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">diagnosticreport-micro1.xml</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Micro Isolate and Sensitivities-2</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An collection Bundle showing an example of a complex Micro Isolate and Sensitivities</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">lri-example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">diagnosticreport-example-lri.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -6643,12 +6651,13 @@
    </PageSetup>
    <Unsynced/>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6656,14 +6665,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

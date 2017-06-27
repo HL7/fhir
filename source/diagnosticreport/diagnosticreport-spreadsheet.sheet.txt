@@ -592,65 +592,71 @@
   Filename = diagnosticreport-example-dxa.xml
 
  -- Row 8 -----------------------------------
-  Name = Micro Isolate and Sensitivities
+  Name = Micro Isolate and Sensitivities-1
   Identity = micro
-  Description = An example of a complex Micro Isolate and Sensitivities
+  Description = An example of a complex Micro Isolate and Sensitivities.
   Filename = diagnosticreport-micro1.xml
 
  -- Row 9 -----------------------------------
+  Name = Micro Isolate and Sensitivities-2
+  Identity = lri-example
+  Description = An collection Bundle showing an example of a complex Micro Isolate and Sensitivities
+  Filename = diagnosticreport-example-lri.xml
+
+ -- Row 10 -----------------------------------
   Name = Lipid profile
   Identity = lipids
   Description = Lipid profile
   Filename = diagnosticreport-example-lipids.xml
   Profile = Example Lipid Profile
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = Ultrasound
   Identity = ultrasound
   Description = Abdominal Ultrasound  example
   Filename = diagnosticreport-example-ultrasound.xml
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = GHP
   Identity = ghp
   Description = An Example of a report with multiple specimen and panels
   Filename = diagnosticreport-example-ghp.xml
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = Genetics -with family
   Identity = dg2
   Description = An example of a genetics test report with Family member history
   Filename = diagnosticreport-genetics-example-2-familyhistory.xml
   Profile = Diagnostic Report-Genetics
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = HLA genotyping
   Identity = hla-1
   Description = An example of a HLA genotyping results report
   Filename = diagnosticreport-hla-genetics-results-example.xml
   Profile = Profile for HLA Genotyping Results
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = Comprehensive report
   Identity = report
   Description = An example of a comprehensive bone marrow report
   Filename = diagnosticreport-genetics-comprehensive-bone-marrow-report.xml
   Profile = Diagnostic Report-Genetics
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = Pap smear
   Identity = pap
   Description = An example of a  principally narrative anatomic pathology report
   Filename = diagnosticreport-example-papsmear.xml
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = PGx Example
   Identity = example-pgx
   Description = An example of a PGx haplotype report
   Filename = diagnosticreport-example-pgx.xml
   Profile = Diagnostic Report-Genetics
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = Gingival Mass
   Identity = gingival-mass
   Description = An example of a presented form anatomic pathology report

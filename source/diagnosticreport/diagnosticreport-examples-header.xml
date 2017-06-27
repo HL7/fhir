@@ -1,8 +1,85 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<?xml version="1.0" encoding="UTF-8"?>
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd">
-
-<!-- content goes here -->
-
-</div>
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<h3>Laboratory Results</h3>
+	<p>The following examples of DiagnosticReport resources show examples of laboratory reports:
+    </p>
+	<ul>
+		<li>
+			<a href="diagnosticreport-example.html">General Lab Report Example</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-examples-general.html">Various reports gathered from v2 messages</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-f001-bloodexam.html">Real-world patient example</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-f202-bloodculture.html">Real-world patient example</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-lipids.html">Lipid profile</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-ghp.html">An Example of a report with multiple specimen and panels</a>
+		</li>
+	</ul>
+	<h4>Micro Isolate(Culture) and Susceptibility</h4>
+	<p>The following 2 examples of DiagnosticReport resources show example of a complex Micro Isolate and Sensitivities with both 1 and 2  levels of nested Organism and Susceptibilty panels using the related Observation Structure
+    </p>
+	<p>
+		<strong>
+			<a href="diagnosticreport-micro1.html">Micro Isolate and Sensitivities-1: </a>
+		</strong>
+An example of a complex Micro Isolate and Sensitivities with 2 level nested Organism and Susceptibilty panels using the related Observation Structure.  The following diagram is provided above to help teh reader navigate the nested structures.</p>
+	<img src="cands1.png" alt="Micro Isolate and Sensitivities-1 structure" width="800px"/>
+	<p></p>
+	<p>
+		<strong>
+			<a href="diagnosticreport-micro1.html">Micro Isolate and Sensitivities-2: </a>
+		</strong>
+An collection Bundle showing an example of a complex Micro Isolate and Sensitivities based on the HL7 V2 Lab Reports Interface (LRI) example. This example has a single level nested Organism panels using the related Observation Structure.  The following diagram is provided  to help the reader navigate the nested structures.</p>
+	<img src="cands2.png" alt="Micro Isolate and Sensitivities-2 structure" width="800px"/>
+<p></p>
+	<h3>Imaging Studies</h3>
+	<p>The following examples of DiagnosticReport resources show examples of various imaging reports:
+    </p>
+	<ul>
+		<li>
+			<a href="diagnosticreport-example-f201-brainct.html">Real-world patient example</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-dxa.html">Imaging Example (Bone Density DXA)</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-ultrasound.xml">Abdominal Ultrasound example</a>
+		</li>
+	</ul>
+	<h3>Genomics</h3>
+	<p>The following examples of DiagnosticReport resources show examples of genomics studies:
+    </p>
+	<ul>
+		<li>
+			<a href="diagnosticreport-genetics-example-2-familyhistory.html">An example of a genetics test report with Family member history</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-hla-genetics-results-example.html">An example of a HLA genotyping results report </a>
+		</li>
+		<li>
+			<a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.html">An example of a comprehensive bone marrow report</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-pgx.html">An example of a PGx haplotype report</a>
+		</li>
+	</ul>
+	<h3>Anatomic Pathology</h3>
+	<p>The following examples of DiagnosticReport resources show examples of anatomic pathology reports:
+    </p>
+	<ul>
+		<li>
+			<a href="diagnosticreport-example-gingival-mass.html">An example of a presented form anatomic pathology report</a>
+		</li>
+		<li>
+			<a href="diagnosticreport-example-papsmear.html">An example of a  principally narrative anatomic pathology report</a>
+		</li>
+	</ul>
+	<br />
 </div>
