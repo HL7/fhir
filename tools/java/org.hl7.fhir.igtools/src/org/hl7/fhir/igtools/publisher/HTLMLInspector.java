@@ -255,8 +255,9 @@ public class HTLMLInspector {
   private void checkHtmlStructure(String s, XhtmlNode x, List<ValidationMessage> messages) {
     if (x.getNodeType() == NodeType.Document)
       x = x.getFirstElement();
-    if (!"html".equals(x.getName()))
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "Root node must be 'html', but is "+x.getName(), IssueSeverity.ERROR));
+    if (!"html".equals(x.getName()) && !"div".equals(x.getName()))
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "Root node must be 'html' or 'div', but is "+x.getName(), IssueSeverity.ERROR));
+    // We support div as well because with HTML 5, referenced files might just start with <div>
     // todo: check secure?
   }
 
