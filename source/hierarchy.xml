@@ -345,6 +345,7 @@ signatures.html
     </page>
 
     <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
+      <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="ServiceDefinition"/>
       <page type="resource" resource="GuidanceResponse"/>

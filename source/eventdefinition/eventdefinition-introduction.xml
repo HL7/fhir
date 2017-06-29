@@ -1,0 +1,25 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"> </a>
+<h2>Scope and Usage</h2>
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
+
+<p>The EventDefinition provides a reusable description of an event. The resource supports describing different kinds of events, including named events, periodic events, and data-based events. For each of these, the resource also supports a formal description of the event. For example, a 'monitor-emergency-admissions' event can be a named event, but also provide a formal description of the event as monitoring for encounters that occur in emergency department locations.</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>The EventDefinition resource is intended to be used to provide resuable description of events for use by other resources that require event definition, such as Subscription.</p>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

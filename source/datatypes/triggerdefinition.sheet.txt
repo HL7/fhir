@@ -90,3 +90,33 @@
   Type = DataRequirement
   Short Name = Triggering data of the event
   Definition = The triggering data of the event (if this is a data trigger)
+
+ -- Row 6 -----------------------------------
+  Element = TriggerDefinition.eventCondition
+  Card. = 0..1
+  Short Name = Whether the event triggers
+  Definition = A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.
+  Requirements = Need to be able to formally describe the triggering criteria
+  Comments = This element can be specified for any type of trigger definition and provides explicit formal semantic for the trigger. For example, when specifying a named event, this element can be used to describe the formal equivalent of the event.
+
+ -- Row 7 -----------------------------------
+  Element = TriggerDefinition.eventCondition.description
+  Card. = 0..1
+  Type = string
+  Short Name = Natural language description of the condition
+  Definition = A brief, natural language description of the condition that effectively communicates the intended semantics
+
+ -- Row 8 -----------------------------------
+  Element = TriggerDefinition.eventCondition.language
+  Card. = 0..1
+  Type = string
+  Short Name = Language of the expression
+  Definition = The media type of the language for the expression
+
+ -- Row 9 -----------------------------------
+  Element = TriggerDefinition.eventCondition.expression
+  Card. = 0..1
+  Type = string
+  Short Name = Boolean-valued expression
+  Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
+  Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element

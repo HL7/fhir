@@ -259,6 +259,9 @@
         <translation lang="en">EnrollmentResponse</translation>
         <translation lang="fr">RéponseInscription</translation>
     </item>
+    <item id="EventDefinition">
+        <translation lang="en">EventDefinition</translation>
+    </item>
     <item id="ExpansionProfile">
         <translation lang="en">ExpansionProfile</translation>
     </item>

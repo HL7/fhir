@@ -678,7 +678,6 @@
   Element = PlanDefinition.action.condition
   Card. = 0..*
   UML = 320;380
-  Type = string
   Short Name = Whether or not the action is applicable
   Definition = An expression that describes applicability criteria, or start/stop conditions for the action
 
