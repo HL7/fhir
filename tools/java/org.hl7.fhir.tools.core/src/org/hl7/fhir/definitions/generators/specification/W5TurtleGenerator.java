@@ -67,10 +67,17 @@ public class W5TurtleGenerator {
             Set<String> escs = e.getSubClasses();
             if (!escs.isEmpty()) {
                 w5classes.add(e.getCode());
-                for (String s : e.getSubClasses())
+                for (String s : e.getSubClasses()) {
+                    if (!s.contains("."))
+                        s = e.getCode() + '.' + s;
                     w5classes.add(s);
+                }
             }
         }
+        // TODO: Temporary fix -- add 'when' element
+        OntProperty wp = model.createObjectProperty(RDFNamespace.W5.uriFor("when"));
+        wp.addLabel("when", null);
+        wp.addComment("point in time", null);
 
         for (W5Entry e : definitions.getW5list()) {
             String es = e.getCode();
@@ -79,8 +86,10 @@ public class W5TurtleGenerator {
                 ec.addLabel(es, null);
                 ec.addComment(e.getDescription(), null);
                 for (String s : e.getSubClasses()) {
-                    model.createClass(RDFNamespace.W5.uriFor(s))
-                            .addSuperClass(ec);
+                    String s_uri = RDFNamespace.W5.uriFor(s.contains(".")? s : e.getCode() + "." + s);
+                    OntClass c = model.createClass(s_uri);
+                    c.addSuperClass(ec);
+                    c.addLabel(s, null);
                 }
             } else {
                 OntProperty ep = model.createObjectProperty(RDFNamespace.W5.uriFor(es));
