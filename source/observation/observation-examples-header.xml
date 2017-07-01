@@ -1,5 +1,140 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<!-- content goes here -->
-
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<h3>Laboratory Results</h3>
+	<p>The following examples of Observation resources show examples of laboratory observations:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-f001-glucose.xml">Real-world patient - glucose</a>
+		</li>
+		<li>
+			<a href="observation-example-unsat.xml">Specimen Reject Example</a>
+		</li>
+		<li>
+			<a href="observation-example-f002-excess.xml">Real-world patient -base excess</a>
+		</li>
+		<li>
+			<a href="observation-example-f003-co2.xml">Real-world patient - CO2</a>
+		</li>
+		<li>
+			<a href="observation-example-f004-erythrocyte.xml">Real-world patient - erythrocyte</a>
+		</li>
+		<li>
+			<a href="observation-example-f005-hemoglobin.xml">Real-world patient - hemoglobin</a>
+		</li>
+		<li>
+			<a href="observation-example-date-lastmp.xml">An "ask at order" response using the datetime datetype for the result value</a>
+		</li>
+		<li>
+			<a href="observation-example-f203-bicarbonate.xml">Real-world patient - CO2</a>
+		</li>
+		<li>
+			<a href="observation-example-f204-creatinine.xml">Real-world patient - creatinine</a>
+		</li>
+		<li>
+			<a href="observation-example-f205-egfr.xml">Real-world patient - estimated gfr</a>
+		</li>
+		<li>
+			<a href="observation-example-f206-staphylococcus.xml">Real-world patient - staphylococcus</a>
+		</li>
+	</ul>
+	<h3>Imaging Studies</h3>
+	<p>The following examples of Observation resources show examples of imaging results:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-bmd.xml">Example of an encoded BMD measurements of left femur</a>
+		</li>
+	</ul>
+	<h3>Genomics</h3>
+	<p>The following examples of Observation resources show examples of genomics observations:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-genetics-1.xml">Genetics example 1</a>
+		</li>
+		<li>
+			<a href="observation-example-genetics-2.xml">Genetics example 2</a>
+		</li>
+		<li>
+			<a href="observation-example-genetics-3.xml">Genetics example 3</a>
+		</li>
+		<li>
+			<a href="observation-example-genetics-4.xml">Genetics example 4</a>
+		</li>
+		<li>
+			<a href="observation-example-genetics-5.xml">Genetics example 5</a>
+		</li>
+		<li>
+			<a href="observation-example-diplotype1.xml">Example of diplotype data (with haplotypes observation as reference)</a>
+		</li>
+		<li>
+			<a href="observation-example-haplotype1.xml">Example of haplotype data that is basis of a diplotype data</a>
+		</li>
+		<li>
+			<a href="observation-example-haplotype2.xml">Example of another haplotype data that is basis of a diplotype data</a>
+		</li>
+		<li>
+			<a href="observation-example-phenotype.xml">Example of phenotype data</a>
+		</li>
+		<li>
+			<a href="observation-example-TPMT-diplotype.xml">Example of a TPMT diplotype that link to two TPMT haplotype observations</a>
+		</li>
+		<li>
+			<a href="observation-example-TPMT-haplotype-one.xml">Example of a TPMT haplotype observation </a>
+		</li>
+		<li>
+			<a href="observation-example-TPMT-haplotype-two.xml">Example of another TPMT haplotype observation </a>
+		</li>
+	</ul>
+	<h3>Personal Characteristics</h3>
+	<p>The following examples of Observation resources show examples of personal characteristics observation:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-eye-color.xml">Example of a very simple personal characteristic observation</a>
+		</li>
+	</ul>
+	<h3>Assessment Tools Scores</h3>
+	<p>The following examples of Observation resources show examples of assessment tool scores:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-glasgow.xml">Clinical assessment tool example - GCS using related Observations</a>
+		</li>
+		<li>
+			<a href="observation-example-glasgow-qa.xml">Clinical assessment tool example - GCS using related QuestionnaireAnswer</a>
+		</li>
+		<li>
+			<a href="observation-example-1minute-apgar-score.xml">Example of a 1 minute Apgar score including the individual score components</a>
+		</li>
+		<li>
+			<a href="observation-example-2minute-apgar-score.xml">Example of a 2 minute Apgar score including the individual score components</a>
+		</li>
+		<li>
+			<a href="observation-example-5minute-apgar-score.xml">Example of a 5 minute Apgar score including the individual score components</a>
+		</li>
+		<li>
+			<a href="observation-example-10minute-apgar-score.xml">Example of a 10 minute Apgar score including the individual score components</a>
+		</li>
+		<li>
+			<a href="observation-example-20minute-apgar-score.xml">Example of a 20 minute Apgar score including the individual score components</a>
+		</li>
+	</ul>
+	<h3>Device Generated Data</h3>
+	<p>The following examples of Observation resources show examples of observations generated by a device:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-sample-data.xml">EKG Example using SampledData data type</a>
+		</li>
+	</ul>
+	<h4>PHD Generated Data</h4>
+	<p>The following examples of Observation resources show examples of observations generated by a personal healthcare device:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-spirometry.xml">Spirometry Example referencing DeviceComponent</a>
+		</li>
+	</ul>
+	<br/>
 </div>
