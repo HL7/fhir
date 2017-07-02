@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/poi-3.10.1.jar"/>
 	<classpathentry kind="lib" path="jars/commons-lang-2.6.jar"/>
@@ -10,5 +9,10 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/implementations/java/imports/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/implementations/java/imports/hsqldb.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/implementations/java/imports/jackcess-2.1.6.jar"/>
+	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/implementations/java/imports/ucanaccess-4.0.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

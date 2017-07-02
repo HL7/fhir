@@ -1,12 +1,17 @@
 package org.hl7.fhir.convertors.v2;
 
-//import com.healthintersections.ihc.utils.V2TableSourceGenerator.Table;
-//import com.healthintersections.ihc.utils.V2TableSourceGenerator.TableEntry;
-//import com.healthintersections.ihc.utils.V2TableSourceGenerator.TableEntryComparator;
-//import com.healthintersections.ihc.utils.V2TableSourceGenerator.TableVersion;
-//import com.healthmarketscience.jackcess.Database;
-//import com.healthmarketscience.jackcess.DatabaseBuilder;
-//import com.healthmarketscience.jackcess.Row;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.hl7.fhir.utilities.Utilities;
+
+import com.healthmarketscience.jackcess.Database;
+import com.healthmarketscience.jackcess.DatabaseBuilder;
+import com.healthmarketscience.jackcess.Row;
 
 /**
  * This unit take the v2 access database, and generates source for the FHIR build tool
@@ -16,67 +21,67 @@ package org.hl7.fhir.convertors.v2;
  */
 public class V2TableSourceGenerator {
 
-//  public class TableEntryComparator implements Comparator<TableEntry> {
-//
-//    @Override
-//    public int compare(TableEntry arg0, TableEntry arg1) {
-//      return arg0.sortNo - arg1.sortNo;
-//    }
-//  }
-//
-//  public class TableEntry {
-//    private String code;
-//    private String display;
-//    private String german;
-//    private String comments;
-//    public int sortNo;
-//    public boolean hasGerman() {
-//      return !Utilities.noString(german);
-//    }
-//  }
-//  
-//  public class TableVersion {
-//    private String name;
-//    private List<TableEntry> entries = new ArrayList<TableEntry>();
-//    public TableVersion(String name) {
-//      this.name = name;
-//    }
-//    public boolean hasGerman() {
-//      for (TableEntry v : entries)
-//        if (v.hasGerman())
-//          return true;
-//      return false;
-//    }
-//    public void sort() {
-//      Collections.sort(entries, new TableEntryComparator());
-//    }
-//  }
-//
-//  public class Table {
-//    private String id;
-//    private Map<String, TableVersion> versions = new HashMap<String, TableVersion>();
-//    public Table(String tableid) {
-//      id = tableid;
-//    }
-//    public void item(String version, String code, String display, String german, String table_name, String comments, int sno) {
-//      if (!versions.containsKey(version))
-//        versions.put(version, new TableVersion(table_name));
-//      TableEntry entry = new TableEntry();
-//      entry.code = code;
-//      entry.display = display;
-//      entry.german = german;
-//      entry.comments = comments;
-//      entry.sortNo = sno;
-//      versions.get(version).entries.add(entry);
-//    }
-//    public boolean hasGerman() {
-//      for (TableVersion v : versions.values())
-//        if (v.hasGerman())
-//          return true;
-//      return false;
-//    }    
-//  }
-//
+  public class TableEntryComparator implements Comparator<TableEntry> {
+
+    @Override
+    public int compare(TableEntry arg0, TableEntry arg1) {
+      return arg0.sortNo - arg1.sortNo;
+    }
+  }
+
+  public class TableEntry {
+    private String code;
+    private String display;
+    private String german;
+    private String comments;
+    public int sortNo;
+    public boolean hasGerman() {
+      return !Utilities.noString(german);
+    }
+  }
+  
+  public class TableVersion {
+    private String name;
+    private List<TableEntry> entries = new ArrayList<TableEntry>();
+    public TableVersion(String name) {
+      this.name = name;
+    }
+    public boolean hasGerman() {
+      for (TableEntry v : entries)
+        if (v.hasGerman())
+          return true;
+      return false;
+    }
+    public void sort() {
+      Collections.sort(entries, new TableEntryComparator());
+    }
+  }
+
+  public class Table {
+    private String id;
+    private Map<String, TableVersion> versions = new HashMap<String, TableVersion>();
+    public Table(String tableid) {
+      id = tableid;
+    }
+    public void item(String version, String code, String display, String german, String table_name, String comments, int sno) {
+      if (!versions.containsKey(version))
+        versions.put(version, new TableVersion(table_name));
+      TableEntry entry = new TableEntry();
+      entry.code = code;
+      entry.display = display;
+      entry.german = german;
+      entry.comments = comments;
+      entry.sortNo = sno;
+      versions.get(version).entries.add(entry);
+    }
+    public boolean hasGerman() {
+      for (TableVersion v : versions.values())
+        if (v.hasGerman())
+          return true;
+      return false;
+    }    
+  }
+
 //  /**
 //   * two arguments:
 //   * - ms access database
