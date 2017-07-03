@@ -53,7 +53,7 @@ public class RDFNamespace {
     public static final RDFNamespace CS = new RDFNamespace("cs", "http://hl7.org/orim/codesystem/");
     public static final RDFNamespace VS = new RDFNamespace("vs", "http://hl7.org/orim/valueset/");
     public static final RDFNamespace DT = new RDFNamespace("dt", "http://hl7.org/orim/datatype/");
-    public static final RDFNamespace LOINC = new RDFNamespace("loinc", "http://loinc.org/owl#");
+    public static final RDFNamespace LOINC = new RDFNamespace("loinc", "http://loinc.org/rdf#");
     public static final RDFNamespace W5 = new RDFNamespace("w5", "http://hl7.org/fhir/w5#");
 
     // For some reason these aren't included in the XSD and RDF namespaces -- do we need to update Jena library?

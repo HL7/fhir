@@ -329,7 +329,7 @@ public class TurtleParser extends ParserBase {
 			t.prefix("sct", "http://snomed.info/id/");
 			t.linkedPredicate("a", "sct:" + urlescape(code), null);
     } else if ("http://loinc.org".equals(system)) {
-			t.prefix("loinc", "http://loinc.org/owl#");
+			t.prefix("loinc", "http://loinc.org/rdf#");
 			t.linkedPredicate("a", "loinc:"+urlescape(code).toUpperCase(), null);
 		}  
 	}

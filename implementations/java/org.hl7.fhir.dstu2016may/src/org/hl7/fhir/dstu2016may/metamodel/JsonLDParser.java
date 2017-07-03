@@ -192,7 +192,7 @@ public class JsonLDParser extends ParserBase {
       json.value("http://snomed.info/sct#"+code);
     } else if ("http://loinc.org".equals(system)) {
       json.name("concept");
-      json.value("http://loinc.org/owl#"+code);
+      json.value("http://loinc.org/rdf#"+code);
     }  
   }
 
