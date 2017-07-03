@@ -187,7 +187,8 @@ import com.google.gson.JsonPrimitive;
  *
  *   generate summary file
  *
- *
+ * Documentation: see http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation
+ * 
  * @author Grahame Grieve
  *
  */
@@ -248,7 +249,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private Set<String> bndIds = new HashSet<String>();
   private List<Resource> loaded = new ArrayList<Resource>();
   private ImplementationGuide sourceIg;
-  private ImplementationGuide pubIg;
+  private ImplementationGuide publishedIg;
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private JsonObject configuration;
   private Calendar execTime = Calendar.getInstance();
@@ -412,7 +413,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     gen.setPkp(igpkp);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
+        log(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
           boolean regen = false;
           gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
@@ -437,6 +438,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
   }
+
+  private void log(LogCategory progress, String message) {
+    log(message);
+  }
+
 
   private boolean hasNarrative(Element element) {
     return element.hasChild("text") && element.getNamedChild("text").hasChild("div");
@@ -1287,10 +1293,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       altMap.get(IG_NAME).getResources().get(0).setResource(sourceIg);
     }
 
-    pubIg = sourceIg.copy();
+    publishedIg = sourceIg.copy();
 
     // load any bundles
-    if (sourceDir != null)
+    if (sourceDir != null || igpkp.isAutoPath())
       needToBuild = loadResources(needToBuild, igf);
     needToBuild = loadSpreadsheets(needToBuild, igf);
     needToBuild = loadBundles(needToBuild, igf);
@@ -1472,7 +1478,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else
       f = altMap.get("Bundle/"+be.getAsString());
-    ImplementationGuidePackageComponent pck = pubIg.addPackage().setName(f.getTitle());
+    ImplementationGuidePackageComponent pck = publishedIg.addPackage().setName(f.getTitle());
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuidePackageResourceComponent res = pck.addResource();
@@ -1481,10 +1487,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return changed || needToBuild;
   }
 
-  private boolean loadResources(boolean needToBuild, FetchedFile igf) throws Exception {
-    List<FetchedFile> resources = fetcher.scan(sourceDir, context);
+  private boolean loadResources(boolean needToBuild, FetchedFile igf) throws Exception { // igf is not currently used, but it was about relative references? 
+    List<FetchedFile> resources = fetcher.scan(sourceDir, context, igpkp.isAutoPath());
     for (FetchedFile ff : resources) {
-      needToBuild = loadResource(needToBuild, ff);
+      if (!ff.matches(igf))
+        needToBuild = loadResource(needToBuild, ff);
     }
     return needToBuild;
   }
@@ -1495,7 +1502,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (changed) {
       determineType(f);
     }
-    ImplementationGuidePackageComponent pck = pubIg.getPackageFirstRep();
+    ImplementationGuidePackageComponent pck = publishedIg.getPackageFirstRep();
     for (FetchedResource r : f.getResources()) {
       ImplementationGuidePackageResourceComponent res = pck.addResource();
       res.setExample(false).setName(r.getTitle()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
@@ -1563,7 +1570,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         changed = changed || vrchanged || crchanged;
       }
     }
-    ImplementationGuidePackageComponent pck = pubIg.addPackage().setName(f.getTitle());
+    ImplementationGuidePackageComponent pck = publishedIg.addPackage().setName(f.getTitle());
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuidePackageResourceComponent res = pck.addResource();
@@ -2200,7 +2207,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void updateImplementationGuide() throws Exception {
-    for (ImplementationGuidePackageComponent pck : pubIg.getPackage()) {
+    for (ImplementationGuidePackageComponent pck : publishedIg.getPackage()) {
       for (ImplementationGuidePackageResourceComponent res : pck.getResource()) {
         FetchedResource r = null;
         for (FetchedFile tf : fileList) {
@@ -2219,10 +2226,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
 
     FetchedResource r = altMap.get(IG_NAME).getResources().get(0);
-    if (!pubIg.hasText() || !pubIg.getText().hasDiv())
-      pubIg.setText(((ImplementationGuide)r.getResource()).getText());
-    r.setResource(pubIg);
-    r.setElement(convertToElement(pubIg));
+    if (!publishedIg.hasText() || !publishedIg.getText().hasDiv())
+      publishedIg.setText(((ImplementationGuide)r.getResource()).getText());
+    r.setResource(publishedIg);
+    r.setElement(convertToElement(publishedIg));
   }
 
   private String checkPlural(String word, int c) {
@@ -3003,20 +3010,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
 
+    StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
+    StringBuilder table = new StringBuilder();
     if (items.size() > 0) {
-      StringBuilder list = new StringBuilder();
-      StringBuilder lists = new StringBuilder();
-      StringBuilder table = new StringBuilder();
       for (Item i : items) {
         String name = i.r.getTitle();
         if (Utilities.noString(name))
           name = rt.toString();
         genEntryItem(list, lists, table, i.f, i.r, i.sort);
       }
-      fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
-      fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), lists.toString(), otherFilesRun);
-      fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), table.toString(), otherFilesRun);
     }
+    fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
+    fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), lists.toString(), otherFilesRun);
+    fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), table.toString(), otherFilesRun);
   }
 
   @SuppressWarnings("rawtypes")

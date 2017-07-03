@@ -153,6 +153,7 @@ import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
@@ -180,6 +181,7 @@ import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
@@ -1249,8 +1251,41 @@ public class Publisher implements URIResolver, SectionNumberer {
       generateConformanceStatement(false, "base2", true);
     }
     generateCodeSystemRegistry();
-
+    copyTerminologyToVocabPoC();
   }
+  
+  private void copyTerminologyToVocabPoC() throws FileNotFoundException, IOException {
+    Map<String, ValueSet> hardBoundVS = new HashMap<String, ValueSet>();
+    for (ResourceDefn rd : page.getDefinitions().getResources().values()) {
+      listBoundValueSets(rd.getRoot(), hardBoundVS);
+    }
+    Map<String, CodeSystem> hardBoundCS = new HashMap<String, CodeSystem>();
+    for (ValueSet vs : hardBoundVS.values()) {
+      for (ConceptSetComponent cset : vs.getCompose().getInclude()) {
+        if (cset.hasSystem()) {
+          CodeSystem cs = page.getCodeSystems().get(cset.getSystem());
+          if (cs != null)
+            hardBoundCS.put(cs.getUrl(), cs);
+        }
+      }
+    }
+    for (ValueSet vs : page.getValueSets().values()) {
+      if (!hardBoundVS.containsValue(vs) && !vs.getId().startsWith("v2-")&& !vs.getId().startsWith("v3-"))
+        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "valueSets", vs.getId()+".xml")), vs);      
+    }
+    for (CodeSystem cs : page.getCodeSystems().values()) {
+      if (!hardBoundCS.containsValue(cs) && !cs.getId().startsWith("v2-")&& !cs.getId().startsWith("v3-"))
+        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "codeSystems", cs.getId()+".xml")), cs);      
+    }
+  }
+
+  private void listBoundValueSets(ElementDefn element, Map<String, ValueSet> list) {
+    if (element.hasBinding() && element.typeCode().equals("code") && element.getBinding().getStrength() == BindingStrength.REQUIRED && element.getBinding().getValueSet() != null) 
+      list.put(element.getBinding().getValueSet().getUrl(), element.getBinding().getValueSet());
+    for (ElementDefn child : element.getElements()) 
+      listBoundValueSets(child, list);
+  }
+
   private void generateCodeSystemRegistry() throws FileNotFoundException, IOException, Exception {
     XmlParser xml = new XmlParser();
     xml.setOutputStyle(OutputStyle.PRETTY);

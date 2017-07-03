@@ -1069,6 +1069,21 @@ public class Utilities {
     return i;
   }
 
+  public static String makeId(String name) {
+    StringBuilder b = new StringBuilder();
+    for (char ch : name.toCharArray()) {
+      if (ch >= 'a' && ch <= 'z')
+        b.append(ch);
+      else if (ch >= 'A' && ch <= 'Z')
+        b.append(ch);
+      else if (ch >= '0' && ch <= '9')
+        b.append(ch);
+      else if (ch == '-' || ch == '.')
+        b.append(ch);
+    }
+    return b.toString();
+  }
+
 
 
 

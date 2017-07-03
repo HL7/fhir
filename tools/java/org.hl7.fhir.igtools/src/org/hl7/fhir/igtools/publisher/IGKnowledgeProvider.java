@@ -42,6 +42,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   private List<ValidationMessage> errors;
   private JsonObject defaultConfig;
   private JsonObject resourceConfig;
+  private boolean autoPath = false;
   
   public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, List<ValidationMessage> errors) throws Exception {
     super();
@@ -63,7 +64,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     if (resourceConfig == null)
       throw new Exception("You must provide a list of resources in the json file");
     for (Entry<String, JsonElement> pp : resourceConfig.entrySet()) {
-      if (!pp.getKey().startsWith("_")) {
+      if (pp.getKey().equals("*")) {
+        autoPath = true;
+      } else if (!pp.getKey().startsWith("_")) {
         String s = pp.getKey();
         if (!s.contains("/"))
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id]:" + s);
@@ -78,8 +81,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           throw new Exception("Unexpected type in resource list - must be an object");
         JsonObject o = (JsonObject) pp.getValue();
         JsonElement p = o.get("base");
-//        if (p == null)
-//          throw new Exception("You must provide a base on each path in the json file");
+        //        if (p == null)
+        //          throw new Exception("You must provide a base on each path in the json file");
         if (p != null && !(p instanceof JsonPrimitive) && !((JsonPrimitive) p).isString())
           throw new Exception("Unexpected type in paths - base must be a string");
         p = o.get("defns");
@@ -409,6 +412,10 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   public IWorkerContext getContext() {
     return context;
+  }
+
+  public boolean isAutoPath() {
+    return autoPath;
   }
 
 }

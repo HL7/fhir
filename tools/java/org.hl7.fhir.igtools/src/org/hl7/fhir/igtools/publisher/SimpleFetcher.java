@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r4.formats.FormatUtilities;
@@ -193,43 +194,59 @@ public class SimpleFetcher implements IFetchFile {
   private boolean exists(String fn) {
     return new File(fn).exists();
   }
-
   
   @Override
-  public List<FetchedFile> scan(String sourceDir, IWorkerContext context) throws IOException {
+  public List<FetchedFile> scan(String sourceDir, IWorkerContext context, boolean autoPath) throws IOException, FHIRException {
+    List<String> sources = new ArrayList<String>();
+    if (sourceDir != null)
+      sources.add(sourceDir);
+    if (autoPath)
+      sources.addAll(resourceDirs);
+    if (sources.isEmpty())
+      throw new FHIRException("No Source directories to scan found"); // though it's not possible to get to this point...
+
     List<FetchedFile> res = new ArrayList<>();
-    for (File f : new File(sourceDir).listFiles()) {
-      if (!f.isDirectory()) {
-        String fn = f.getCanonicalPath();
-        String ext = Utilities.getFileExtension(fn);
-        boolean ok = false;
-        if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
-          try {
-            org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
-            addFile(res, f, "application/fhir+xml");
-            ok = true;
-          } catch (Exception e) {
-            log.logMessage(e.getMessage());
-          }
-        if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
-          try {
-            org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
-            addFile(res, f, "application/fhir+json");
-            ok = true;
-          } catch (Exception e) {
-            log.logMessage(e.getMessage());
-          }
-        }
-        if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
-          try {
-            org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
-            addFile(res, f, "text/turtle");
-            ok = true;
-          } catch (Exception e) {
-            log.logMessage(e.getMessage());
+    for (String s : sources) {
+      int count = 0;
+      for (File f : new File(s).listFiles()) {
+        if (!f.isDirectory()) {
+          String fn = f.getCanonicalPath();
+          String ext = Utilities.getFileExtension(fn);
+          if (!Utilities.existsInList(ext, "md", "txt")) {
+            boolean ok = false;
+            if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
+              try {
+                org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
+                addFile(res, f, "application/fhir+xml");
+                count++;
+                ok = true;
+              } catch (Exception e) {
+                log.logMessage(e.getMessage() +" loading "+f);
+              }
+            if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
+              try {
+                org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
+                addFile(res, f, "application/fhir+json");
+                count++;
+                ok = true;
+              } catch (Exception e) {
+                log.logMessage(e.getMessage() +" loading "+f);
+              }
+            }
+            if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
+              try {
+                org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
+                addFile(res, f, "text/turtle");
+                count++;
+                ok = true;
+              } catch (Exception e) {
+                log.logMessage(e.getMessage() +" loading "+f);
+              }
+            }
           }
         }
       }
+      log.logMessage("Loaded "+Integer.toString(count)+" files from "+s);
     }
     return res;
   }

@@ -586,3 +586,159 @@
   Type = @Consent.provision
   Short Name = Nested Exception Rules
   Definition = Rules which provide exceptions to the base rule or subrules
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = data
+  Type = reference
+  Path = Consent.provision.data.reference
+
+ -- Row 2 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Consent.patient
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Consent.identifier
+
+ -- Row 4 -----------------------------------
+  Name = organization
+  Type = reference
+  Path = Consent.organization
+
+ -- Row 5 -----------------------------------
+  Name = date
+  Type = date
+  Path = Consent.dateTime
+
+ -- Row 6 -----------------------------------
+  Name = period
+  Type = date
+  Path = Consent.provision.period
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Path = Consent.status
+
+ -- Row 8 -----------------------------------
+  Name = category
+  Type = token
+  Path = Consent.category
+
+ -- Row 9 -----------------------------------
+  Name = consentor
+  Type = reference
+  Path = Consent.consentingParty
+
+ -- Row 10 -----------------------------------
+  Name = source
+  Type = reference
+  Path = Consent.source[x]
+
+ -- Row 11 -----------------------------------
+  Name = actor
+  Type = reference
+  Path = Consent.provision.actor.reference
+
+ -- Row 12 -----------------------------------
+  Name = action
+  Type = token
+  Path = Consent.provision.action
+
+ -- Row 13 -----------------------------------
+  Name = securitylabel
+  Type = token
+  Path = Consent.provision.securityLabel
+
+ -- Row 14 -----------------------------------
+  Name = purpose
+  Type = token
+  Path = Consent.provision.purpose
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Consent Extension
+  IG Name = core
+  Filename = consent-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Consent-In
+  Identity = consent-example-basic
+  Description = General Consent Example
+  Filename = consent-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Consent-Out
+  Identity = consent-example-Out
+  Description = Consent withholding access
+  Filename = consent-example-Out.xml
+
+ -- Row 3 -----------------------------------
+  Name = Consent-Emergency
+  Identity = consent-example-Emergency
+  Description = Consent withholding access to data for Treatment exept for Emergency Treatment
+  Filename = consent-example-Emergency.xml
+
+ -- Row 4 -----------------------------------
+  Name = Consent-Not-This
+  Identity = consent-example-notThis
+  Description = Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)
+  Filename = consent-example-notThis.xml
+
+ -- Row 5 -----------------------------------
+  Name = Consent-Not-Time
+  Identity = consent-example-notTime
+  Description = Withhold or withdraw consent for disclosure of a specific timeframe
+  Filename = consent-example-notTime.xml
+
+ -- Row 6 -----------------------------------
+  Name = Consent-Not-Org
+  Identity = consent-example-notOrg
+  Description = Withhold or withdraw consent for disclosure to a specific provider organization
+  Filename = consent-example-notOrg.xml
+
+ -- Row 7 -----------------------------------
+  Name = Consent-Not-Them
+  Identity = consent-example-notThem
+  Description = Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization)
+  Filename = consent-example-notThem.xml
+
+ -- Row 8 -----------------------------------
+  Name = Consent-Not-Author
+  Identity = consent-example-notAuthor
+  Description = Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location).
+  Filename = consent-example-notAuthor.xml
+
+ -- Row 9 -----------------------------------
+  Name = Consent-Grantor
+  Identity = consent-example-grantor
+  Description = Patient grants access to a specified individual for read-only access
+  Filename = consent-example-grantor.xml
+
+ -- Row 10 -----------------------------------
+  Name = Consent from Patients Know Best
+  Identity = consent-example-pkb
+  Description = Example of Patients Know Best Usage
+  Filename = consent-example-pkb.xml
+
+ -- Row 11 -----------------------------------
+  Name = Smart on FHIR example
+  Identity = consent-example-smartonfhir
+  Description = Template for recording a Smart on FHIR Authorization
+  Filename = consent-example-smartonfhir.xml
+
+ -- Row 12 -----------------------------------
+  Name = Consent with Signature
+  Identity = consent-example-signature
+  Description = Consent Example with a signature
+  Filename = consent-example-signature.xml
+
+=== Sheet Examples =====================================

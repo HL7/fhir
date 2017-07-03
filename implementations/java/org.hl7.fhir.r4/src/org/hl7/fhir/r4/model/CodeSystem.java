@@ -34,6 +34,7 @@ package org.hl7.fhir.r4.model;
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.r4.model.CodeSystem.PropertyComponent;
 import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
@@ -4718,6 +4719,14 @@ public class CodeSystem extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+  public PropertyComponent getProperty(String code) {
+    for (PropertyComponent pd : getProperty()) {
+      if (pd.getCode().equalsIgnoreCase(code))
+        return pd;
+    }
+    return null;
+  }
 
 
 }

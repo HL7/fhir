@@ -147,4 +147,7 @@ public class FetchedFile {
   public void setTitle(String title) {
     this.title = title;
   }
+  public boolean matches(FetchedFile other) {
+    return this.path.equals(other.path);
+  }
 }

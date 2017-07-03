@@ -196,7 +196,7 @@ public class ZipFetcher implements IFetchFile {
   }
 
   @Override
-  public List<FetchedFile> scan(String theSourceDir, IWorkerContext theContext) throws IOException {
+  public List<FetchedFile> scan(String theSourceDir, IWorkerContext theContext, boolean autoScan) throws IOException {
     throw new UnsupportedOperationException();
   }
 

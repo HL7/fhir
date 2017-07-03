@@ -2688,7 +2688,6 @@ public class StructureMapUtilities {
     b.append("\r\n");
     b.append(suffix);
     b.append("\r\n");
-    TextFile.stringToFile(b.toString(), "c:\\temp\\test.map");
     StructureMap map = parse(b.toString());
     map.setId(tail(map.getUrl()));
     if (!map.hasStatus())

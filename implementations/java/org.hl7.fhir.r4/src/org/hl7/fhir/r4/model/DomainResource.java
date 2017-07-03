@@ -429,6 +429,13 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
         
   }
 
+ public void addExtension(String url, Type value) {
+   Extension ex = new Extension();
+   ex.setUrl(url);
+   ex.setValue(value);
+   getExtension().add(ex);    
+ }
+
 // end addition
 
 }

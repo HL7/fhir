@@ -50,17 +50,29 @@ public class RedirectPatcher {
 
 
   private void execute() throws FileNotFoundException, IOException {
-    for (String dir : directories("F:\\fhir\\web")) {
-      if (!isSubVersion(dir)) {
-        processDirectory(dir);
-      }
+    // for main redirectors
+//    for (String dir : directories("F:\\fhir\\web")) {
+//      if (!isSubVersion(dir)) {
+//        processDirectory(dir);
+//      }
+//    }
+    for (String f : filesByType("F:\\fhir\\web\\json-schema", ".schema.json")) {
+      processJsonSchema(f);
     }
-    
+  }
+
+  private void processJsonSchema(String f) throws IOException {
+    String sname = f.split("\\\\")[4];
+    sname = sname.substring(0, sname.indexOf("."));
+    String rd = "<%@ language=\"javascript\"%>\r\n\r\n<%\r\n  Response.Redirect(\"http://hl7.org/fhir/json-schema/$s.schema.json\");\r\n\r\n%>\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n<body>\r\nYou should not be seeing this page. If you do, ASP has failed badly.\r\n</body>\r\n</html>";
+    rd = rd.replace("$s", sname);
+    Utilities.createDirectory(path("F:\\fhir\\web\\json-schema", sname));
+    TextFile.stringToFile(rd, path("F:\\fhir\\web\\json-schema", sname, "index.asp"));
   }
 
   private void processDirectory(String dir) throws FileNotFoundException, IOException {
     int i = 0;
-    for (String f : aspFiles(dir)) {
+    for (String f : filesByType(dir, ".asp")) {
       processAspFile(f);
       i++;
     }
@@ -203,11 +215,11 @@ You should not be seeing this page. If you do, ASP has failed badly.
     return fragments[11].substring(20);
   }
 
-  private List<String> aspFiles(String dir) {
+  private List<String> filesByType(String dir, String ext) {
     File d = new File(dir);
     List<String> res = new ArrayList<String>();
     for (String f : d.list()) {
-      if (f.endsWith(".asp")) {
+      if (f.endsWith(ext)) {
         res.add(path(dir, f));
       }
     }
