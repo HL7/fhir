@@ -1251,34 +1251,34 @@ public class Publisher implements URIResolver, SectionNumberer {
       generateConformanceStatement(false, "base2", true);
     }
     generateCodeSystemRegistry();
-    copyTerminologyToVocabPoC();
+//    copyTerminologyToVocabPoC();
   }
   
-  private void copyTerminologyToVocabPoC() throws FileNotFoundException, IOException {
-    Map<String, ValueSet> hardBoundVS = new HashMap<String, ValueSet>();
-    for (ResourceDefn rd : page.getDefinitions().getResources().values()) {
-      listBoundValueSets(rd.getRoot(), hardBoundVS);
-    }
-    Map<String, CodeSystem> hardBoundCS = new HashMap<String, CodeSystem>();
-    for (ValueSet vs : hardBoundVS.values()) {
-      for (ConceptSetComponent cset : vs.getCompose().getInclude()) {
-        if (cset.hasSystem()) {
-          CodeSystem cs = page.getCodeSystems().get(cset.getSystem());
-          if (cs != null)
-            hardBoundCS.put(cs.getUrl(), cs);
-        }
-      }
-    }
-    for (ValueSet vs : page.getValueSets().values()) {
-      if (!hardBoundVS.containsValue(vs) && !vs.getId().startsWith("v2-")&& !vs.getId().startsWith("v3-"))
-        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "valueSets", vs.getId()+".xml")), vs);      
-    }
-    for (CodeSystem cs : page.getCodeSystems().values()) {
-      if (!hardBoundCS.containsValue(cs) && !cs.getId().startsWith("v2-")&& !cs.getId().startsWith("v3-"))
-        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "codeSystems", cs.getId()+".xml")), cs);      
-    }
-  }
-
+//  private void copyTerminologyToVocabPoC() throws FileNotFoundException, IOException {
+//    Map<String, ValueSet> hardBoundVS = new HashMap<String, ValueSet>();
+//    for (ResourceDefn rd : page.getDefinitions().getResources().values()) {
+//      listBoundValueSets(rd.getRoot(), hardBoundVS);
+//    }
+//    Map<String, CodeSystem> hardBoundCS = new HashMap<String, CodeSystem>();
+//    for (ValueSet vs : hardBoundVS.values()) {
+//      for (ConceptSetComponent cset : vs.getCompose().getInclude()) {
+//        if (cset.hasSystem()) {
+//          CodeSystem cs = page.getCodeSystems().get(cset.getSystem());
+//          if (cs != null)
+//            hardBoundCS.put(cs.getUrl(), cs);
+//        }
+//      }
+//    }
+//    for (ValueSet vs : page.getValueSets().values()) {
+//      if (!hardBoundVS.containsValue(vs) && !vs.getId().startsWith("v2-")&& !vs.getId().startsWith("v3-"))
+//        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "valueSets", vs.getId()+".xml")), vs);      
+//    }
+//    for (CodeSystem cs : page.getCodeSystems().values()) {
+//      if (!hardBoundCS.containsValue(cs) && !cs.getId().startsWith("v2-")&& !cs.getId().startsWith("v3-"))
+//        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path("C:\\work\\org.hl7.fhir.intl\\vocab-poc\\fhir", "codeSystems", cs.getId()+".xml")), cs);      
+//    }
+//  }
+//
   private void listBoundValueSets(ElementDefn element, Map<String, ValueSet> list) {
     if (element.hasBinding() && element.typeCode().equals("code") && element.getBinding().getStrength() == BindingStrength.REQUIRED && element.getBinding().getValueSet() != null) 
       list.put(element.getBinding().getValueSet().getUrl(), element.getBinding().getValueSet());
