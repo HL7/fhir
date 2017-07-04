@@ -6,53 +6,69 @@
         <lastUpdated value="2016-06-15T08:16:14Z"/>
         <profile value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Diagnostic-Imaging"/>
     </meta>
-    <language value="en-US"/>
     <text>
         <status value="generated"/>
         <div
             xmlns="http://www.w3.org/1999/xhtml">
-            <p>Diagnostic Imaging Report document for Henry Jones</p>
+            <p>Diagnostic Imaging Report document for Amy Shaw</p>
             <p>Managed by Community Health and Hospitals</p>
         </div>
     </text>
-    <!--<extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-data-enterer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-informant-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-information-recipient-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-participant-extension"><valueUri value="http://fhirtest.uhn.ca/baseDstu3/RelatedPerson/117466"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-performer-extension"><valueUri value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/></extension><extension url="http://hl7.org/fhir/ccda/StructureDefinition/ccda-authorization-extension"><valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/></extension>-->
+    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Data-Enterer">
+        <valueUri value="http://hl7.org/fhir/us/core/Practitioner-practitioner-1.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Informant">
+        <valueUri value="http://hl7.org/fhir/us/core/Practitioner-practitioner-1.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Information-Recipient">
+        <valueUri value="http://hl7.org/fhir/us/core/Practitioner-practitioner-1.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Participant">
+        <valueUri value="http://hl7.org/fhir/relatedperson-example-peter.xml.html"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Performer">
+        <valueUri value="http://hl7.org/fhir/us/core/Practitioner-practitioner-1.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Authorization">
+        <valueUri value="http://hl7.org/fhir/ccda/StructureDefinition/ccda-consent"/>
+    </extension>
     <identifier>
-        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA-on-FHIR-Diagnostic-Imaging"/>
+        <system value="http://hl7.org/fhir/ccda/StructureDefinition/CCDA_on_FHIR_Diagnostic_Imaging"/>
         <value value="1"/>
     </identifier>
-    <date value="2016-03-22T09:10:14Z"/>
+    <status value="preliminary"/>
     <type>
         <coding>
             <system value="http://loinc.org"/>
             <code value="18748-4"/>
-            <display value="Diagnostic imaging study"/>
+            <display value="Diagnostic Imaging Report"/>
         </coding>
     </type>
-    <title value="Diagnostic Imaging Report"/>
-    <status value="preliminary"/>
-    <confidentiality value="N"/>
     <!--  Patient Resource -->
     <subject>
-        <reference value="http://fhir3.healthintersections.com.au/open/Patient/c493f2f2-28d5-49ab-90e8-9e8be341f7"/>
-        <display value="Henry Jones"/>
+        <reference value="http://hl7.org/fhir/us/core/Patient-example.xml"/>
+        <display value="Amy V. Shaw"/>
     </subject>
+    <date value="2016-02-28T09:10:14Z"/>
     <!--  Practitioner Resource -->
     <author>
-        <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-        <display value="Adam Everyman, MD"/>
+        <reference value="http://hl7.org/fhir/us/core/Practitioner-practitioner-1.xml"/>
+        <display value="Ronald Boone, MD"/>
     </author>
+    <title value="Diagnostic Imaging Report"/>
+    <confidentiality value="N"/>
     <attester>
         <mode value="legal"/>
         <time value="2012-01-04T09:10:14Z"/>
         <party>
-            <reference value="http://fhir3.healthintersections.com.au/open/Practitioner/2679baa7-5dac-4d22-81ae-daded84500"/>
-            <display value="Adam Everyman, MD"/>
+            <reference value="http://hl7.org/fhir/us/core/Practitioner-practitioner-1.xml"/>
+            <display value="Ronald Boone, MD"/>
         </party>
     </attester>
     <!--  Organization Resource -->
     <custodian>
-        <reference value="http://fhir3.healthintersections.com.au/open/Organization/1213e1ae-afc2-4a7c-8ed3-43b7a4e3d7"/>
-        <display value="Community Health and Hospitals"/>
+        <reference value="http://hl7.org/fhir/us/core/Organization-acme-lab.xml"/>
+        <display value="Acme Labs"/>
     </custodian>
     <event>
         <code>
