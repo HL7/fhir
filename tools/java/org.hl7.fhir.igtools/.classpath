@@ -26,6 +26,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.validation"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr-runtime-3.5.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commonmark-0.9.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/commonmark-0.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
