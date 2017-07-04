@@ -271,7 +271,7 @@ public class ValidationEngine {
     if (Utilities.noString(defname))
       defname = "validator.pack";
     if (!src.endsWith(defname))
-      src = Utilities.pathReverse(src, defname);
+      src = Utilities.pathURL(src, defname);
 
 		try {
       URL url = new URL(src);

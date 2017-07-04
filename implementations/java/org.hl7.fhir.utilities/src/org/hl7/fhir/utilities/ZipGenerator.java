@@ -95,9 +95,9 @@ public class ZipGenerator {
 		String files[] = fd.list();
 		for (String f : files) {
 			if (new CSFile(Utilities.path(actualDir, f)).isDirectory())
-				addFolder(Utilities.path(actualDir, f), Utilities.pathReverse(statedDir, f), omitIfExists);
+				addFolder(Utilities.path(actualDir, f), Utilities.pathURL(statedDir, f), omitIfExists);
 			else
-				addFileName(Utilities.pathReverse(statedDir, f), Utilities.path(actualDir, f), omitIfExists);
+				addFileName(Utilities.pathURL(statedDir, f), Utilities.path(actualDir, f), omitIfExists);
 		}
 	}
 
@@ -106,9 +106,9 @@ public class ZipGenerator {
     String files[] = fd.list();
     for (String f : files) {
       if (new CSFile(Utilities.path(actualDir, f)).isDirectory())
-        addFolder(Utilities.path(actualDir, f), Utilities.pathReverse(statedDir, f), omitIfExists, noExt);
+        addFolder(Utilities.path(actualDir, f), Utilities.pathURL(statedDir, f), omitIfExists, noExt);
       else if (noExt == null || !f.endsWith(noExt))
-        addFileName(Utilities.pathReverse(statedDir, f), Utilities.path(actualDir, f), omitIfExists);
+        addFileName(Utilities.pathURL(statedDir, f), Utilities.path(actualDir, f), omitIfExists);
     }
   }
 

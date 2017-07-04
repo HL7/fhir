@@ -2357,7 +2357,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (ed != null) {
             String p = ed.getUserString("path");
             if (p != null) {
-              ref = p.startsWith("http:") || igmode ? p : Utilities.pathReverse(corePath, p);
+              ref = p.startsWith("http:") || igmode ? p : Utilities.pathURL(corePath, p);
             }
           }
           c.getPieces().add(gen.new Piece(null, translate("sd.table", "URL")+": ", null).addStyle("font-weight:bold"));
@@ -2513,7 +2513,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (ed != null) {
             String p = ed.getUserString("path");
             if (p != null) {
-              ref = p.startsWith("http:") || igmode ? p : Utilities.pathReverse(corePath, p);
+              ref = p.startsWith("http:") || igmode ? p : Utilities.pathURL(corePath, p);
             }
           }
           c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));

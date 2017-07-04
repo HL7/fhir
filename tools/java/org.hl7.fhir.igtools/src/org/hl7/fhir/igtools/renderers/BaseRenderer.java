@@ -93,7 +93,7 @@ public class BaseRenderer extends TranslatingUtilities {
     for (SpecMapManager map : specmaps) {
       String url = map.getPage(linkText);
       if (url != null)
-        return Utilities.pathReverse(map.getBase(), url);
+        return Utilities.pathURL(map.getBase(), url);
     }      
     return null;
   }

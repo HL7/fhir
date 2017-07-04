@@ -519,7 +519,7 @@ public class IgSpreadsheetParser {
         String id = ref.startsWith("valueset-") ? ref.substring(9) : ref;
         if (!ref.startsWith("http:") && !ref.startsWith("https:") && !ref.startsWith("ValueSet/")) {
           valuesetsToLoad.put(id, ref);
-          ref = Utilities.pathReverse(base, "ValueSet", id);
+          ref = Utilities.pathURL(base, "ValueSet", id);
         }
         bs.setValueSet(new Reference(ref));
       } else {

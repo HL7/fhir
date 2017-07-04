@@ -518,7 +518,7 @@ public class Utilities {
     return s.toString();
   }
 
-  public static String pathReverse(String... args) {
+  public static String pathURL(String... args) {
     StringBuilder s = new StringBuilder();
     boolean d = false;
     for(String arg: args) {

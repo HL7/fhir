@@ -264,6 +264,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private List<String> logOptions = new ArrayList<String>();
   private List<String> listedURLExemptions = new ArrayList<String>();
   private String jekyllCommand = "jekyll";
+  private boolean makeQA = true;
 
   private long globalStart;
 
@@ -413,7 +414,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     gen.setPkp(igpkp);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        log(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
+        dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
           boolean regen = false;
           gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
@@ -711,6 +712,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       inspector.getManual().add(historyPage);
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
     inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
+    makeQA = !"true".equals(ostr(configuration, "suppress-qa"));
 
     dlog(LogCategory.INIT, "Check folders");
     for (String s : resourceDirs) {
@@ -855,7 +857,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validator.setFetcher(new ValidationServices(context, igpkp, fileList));
     for (String s : context.getBinaries().keySet())
       if (needFile(s)) {
-        checkMakeFile(context.getBinaries().get(s), Utilities.path(qaDir, s), otherFilesStartup);
+        if (makeQA)
+          checkMakeFile(context.getBinaries().get(s), Utilities.path(qaDir, s), otherFilesStartup);
         checkMakeFile(context.getBinaries().get(s), Utilities.path(tempDir, s), otherFilesStartup);
       }
     otherFilesStartup.add(Utilities.path(tempDir, "_data"));
@@ -1193,7 +1196,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       return filename;
 
     if (!source.endsWith("definitions.json.zip") && !source.endsWith("definitions.xml.zip"))
-      source = Utilities.pathReverse(source, "definitions.json.zip");
+      source = Utilities.pathURL(source, "definitions.json.zip");
     try {
       URL url = new URL(source);
       URLConnection c = url.openConnection();
@@ -1319,7 +1322,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             } else if (sourceIg.getUrl().contains("ImplementationGuide/"))
               r.setExampleUri(sourceIg.getUrl().substring(0, sourceIg.getUrl().indexOf("ImplementationGuide/")) + ref);
             else
-              r.setExampleUri(Utilities.pathReverse(sourceIg.getUrl(), ref));
+              r.setExampleUri(Utilities.pathURL(sourceIg.getUrl(), ref));
           }
         }
       }
@@ -1865,8 +1868,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             }
           MetadataResource bc = (MetadataResource) r.getResource();
           if (bc == null)
-            throw new Exception("Error: conformance resource could not be loaded");
+            throw new Exception("Error: conformance resource "+f.getPath()+" could not be loaded");
           boolean altered = false;
+          if (bc.hasUrl()) {
+            if (!listedURLExemptions.contains(bc.getUrl()) && !bc.getUrl().equals(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())))
+              throw new Exception("Error: conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")");            
+          } else if (bc.hasId())
+            bc.setUrl(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId()));
+          else
+            throw new Exception("Error: conformance resource "+f.getPath()+" has neither id nor url");
+            
+            
           if (businessVersion != null) {
             if (!bc.hasVersion()) {
               altered = true;
@@ -3536,7 +3548,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void fragment(String name, String content, Set<String> outputTracker, FetchedResource r, Map<String, String> vars, String format) throws IOException {
     String fixedContent = (r==null? content : igpkp.doReplacements(content, r, vars, format));
     if (checkMakeFile(fixedContent.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
-      if (!autoBuildMode)
+      if (!autoBuildMode && makeQA)
         TextFile.stringToFile(pageWrap(fixedContent, name), Utilities.path(qaDir, name+".html"), true);
     }
   }

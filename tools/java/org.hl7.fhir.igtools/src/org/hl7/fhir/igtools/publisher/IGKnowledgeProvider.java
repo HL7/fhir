@@ -248,7 +248,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   private String makeCanonical(String ref) {
-    return Utilities.pathReverse(canonical, ref);
+    return Utilities.pathURL(canonical, ref);
   }
 
   private void brokenLinkWarning(String location, String ref) {
@@ -260,7 +260,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   private String specPath(String path) {
-    return Utilities.pathReverse(pathToSpec, path);
+    return Utilities.pathURL(pathToSpec, path);
   }
 
   // ---- overrides ---------------------------------------------------------------------------

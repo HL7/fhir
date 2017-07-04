@@ -341,7 +341,7 @@ public class TurtleParser extends ParserBase {
     else if (base.endsWith("#"))
       return "<" + base + e.getType() + "-" + id + ">";
     else
-      return "<" + Utilities.pathReverse(base, e.getType(), id) + ">";
+      return "<" + Utilities.pathURL(base, e.getType(), id) + ">";
   }
 
 	private String urlescape(String s) {

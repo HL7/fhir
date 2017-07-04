@@ -201,7 +201,7 @@ public class ValidationEngine {
   
   private Map<String, byte[]> loadFromUrl(String src) throws Exception {
     if (!src.endsWith("validator.pack"))
-      src = Utilities.pathReverse(src, "validator.pack");
+      src = Utilities.pathURL(src, "validator.pack");
 
 		try {
       URL url = new URL(src);

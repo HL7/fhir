@@ -80,7 +80,7 @@ public class JsonLDParser extends ParserBase {
        if (base.endsWith("#"))
          prop("@id", base + e.getType() + "-" + id + ">");
       else
-        prop("@id", Utilities.pathReverse(base, e.getType(), id));
+        prop("@id", Utilities.pathURL(base, e.getType(), id));
     }
 		Set<String> done = new HashSet<String>();
 		for (Element child : e.getChildren()) {
@@ -210,7 +210,7 @@ public class JsonLDParser extends ParserBase {
       json.value(ref);
     } else if (base != null && ref != null && ref.contains("/")) {
       json.name("link");
-      json.value(Utilities.pathReverse(base, ref));
+      json.value(Utilities.pathURL(base, ref));
     }
   }
 
