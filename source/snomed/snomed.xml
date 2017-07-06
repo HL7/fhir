@@ -11328,6 +11328,11 @@
     <display value="Domestic goose"/>
     <display value="Domestic goose (organism)"/>
   </concept>
+  <concept id="23506009" display="Normal flora">
+    <display value="Normal flora"/>
+    <display value="Pathogenic bacteria not recovered"/>
+    <display value="Normal flora (finding)"/>
+  </concept>
   <concept id="235157009" display="Endoscopic brushings of GIT">
     <display value="Endoscopic brushings of GIT"/>
     <display value="Endoscopic brushings of gastrointestinal tract (procedure)"/>
@@ -11772,6 +11777,14 @@
   <concept id="263204007" display="Fracture of shaft of ulna">
     <display value="Fracture of shaft of ulna"/>
     <display value="Fracture of shaft of ulna (disorder)"/>
+  </concept>
+  <concept id="263776006" display="Heavy growth">
+    <display value="Heavy growth"/>
+    <display value="Heavy growth (qualifier value)"/>
+  </concept>
+  <concept id="263812008" display="Moderate growth">
+    <display value="Moderate growth"/>
+    <display value="Moderate growth (qualifier value)"/>
   </concept>
   <concept id="263887005" display="Subcutaneous">
     <display value="Subcutaneous"/>
@@ -15049,6 +15062,11 @@
   <concept id="56342008" display="Temperature taking">
     <display value="Temperature taking"/>
     <display value="Temperature taking (procedure)"/>
+  </concept>
+  <concept id="56415008" display="Klebsiella pneumoniae">
+    <display value="Klebsiella pneumoniae"/>
+    <display value="Friedlander&#39;s bacillus"/>
+    <display value="Klebsiella pneumoniae (organism)"/>
   </concept>
   <concept id="56764001" display="Holland chicken">
     <display value="Holland chicken"/>
