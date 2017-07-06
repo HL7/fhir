@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
@@ -373,9 +374,15 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           } else {
             String uri = ((Reference)tx.getValueSet()).getReference();
             ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(uri));
-            if (vs == null)
-              vss = "<a href=\""+prefix+uri+"\">"+Utilities.escapeXml(uri)+"</a>";
-            else { 
+            if (vs == null) {
+              BindingResolution br = igp.resolveActualUrl(uri);
+              if (br.url == null)
+                vss = "<code>"+Utilities.escapeXml(br.display)+"</code>";
+              else if (Utilities.isAbsoluteUrl(br.url))
+                vss = "<a href=\""+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>";
+              else
+                vss = "<a href=\""+prefix+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>";
+            } else { 
               String p = vs.getUserString("path");
               if (p == null)
                 vss = "<a href=\"??\">"+Utilities.escapeXml(gt(vs.getNameElement()))+" ("+translate("sd.tx", "missing link")+")</a>";

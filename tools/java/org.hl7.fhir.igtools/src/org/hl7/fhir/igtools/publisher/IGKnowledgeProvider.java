@@ -354,11 +354,13 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           br.display = ref.substring(26);
         } else if (ref.startsWith("http://loinc.org/vs/")) {
           String code = tail(ref);
-          if (code.startsWith("LL"))
+          if (code.startsWith("LL")) {
             br.url = "https://r.details.loinc.org/AnswerList/"+code+".html";
-          else
+            br.display = "LOINC Answer List "+code;
+          } else {
             br.url = "https://r.details.loinc.org/LOINC/"+code+".html";
-          br.display = ref.substring(26);
+            br.display = "LOINC "+code;
+          }
         } else {
           ValueSet vs = context.fetchResource(ValueSet.class, ref);
           if (vs == null) {
@@ -377,7 +379,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   private String tail(String ref) {
     if  (ref.contains("/"))
-      return ref.substring(ref.indexOf("/")+1);
+      return ref.substring(ref.lastIndexOf("/")+1);
     else
       return ref;
   }
@@ -430,6 +432,27 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   public boolean isAutoPath() {
     return autoPath;
+  }
+
+  public BindingResolution resolveActualUrl(String uri) {
+    BindingResolution br = new BindingResolution();
+    if (uri.startsWith("http://loinc.org/vs/")) {
+      String code = tail(uri);
+      if (code.startsWith("LL")) {
+        br.url = "https://r.details.loinc.org/AnswerList/"+code+".html";
+        br.display = "LOINC Answer List "+code;
+      } else {
+        br.url = "https://r.details.loinc.org/LOINC/"+code+".html";
+        br.display = "LOINC "+code;
+      }
+    } else if (uri.startsWith("urn:")) {
+      br.url = null;
+      br.display = uri;
+    } else {
+      br.url = uri;
+      br.display = uri;
+    }
+    return br;
   }
 
 }
