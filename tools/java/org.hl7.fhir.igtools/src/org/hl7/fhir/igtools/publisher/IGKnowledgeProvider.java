@@ -352,6 +352,13 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
         } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
           br.url = specPath("v2/"+ref.substring(26)+"/index.html"); 
           br.display = ref.substring(26);
+        } else if (ref.startsWith("http://loinc.org/vs/")) {
+          String code = tail(ref);
+          if (code.startsWith("LL"))
+            br.url = "https://r.details.loinc.org/AnswerList/"+code+".html";
+          else
+            br.url = "https://r.details.loinc.org/LOINC/"+code+".html";
+          br.display = ref.substring(26);
         } else {
           ValueSet vs = context.fetchResource(ValueSet.class, ref);
           if (vs == null) {
@@ -366,6 +373,13 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       }
     }
     return br;
+  }
+
+  private String tail(String ref) {
+    if  (ref.contains("/"))
+      return ref.substring(ref.indexOf("/")+1);
+    else
+      return ref;
   }
 
   @Override
