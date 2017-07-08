@@ -156,7 +156,6 @@ public class SpreadsheetParser {
   private Calendar genDate;
   private boolean isAbstract;
   private Map<String, BindingSpecification> bindings = new HashMap<String, BindingSpecification>();
-  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   private ProfileKnowledgeProvider pkp;
   private ImplementationGuideDefn ig;
   private String txFolder;
@@ -173,7 +172,7 @@ public class SpreadsheetParser {
   private ResourceDefn template;
   private String templateTitle;
 
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, name);
@@ -195,7 +194,6 @@ public class SpreadsheetParser {
 		this.context = context;
 		this.genDate = genDate;
 		this.isAbstract = isAbstract;
-		this.extensionDefinitions = extensionDefinitions;
 		this.pkp = pkp;
 		this.ini = ini;
 		this.committee = committee;
@@ -207,7 +205,7 @@ public class SpreadsheetParser {
 		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
@@ -231,7 +229,6 @@ public class SpreadsheetParser {
     this.context = context;
     this.genDate = genDate;
     this.isAbstract = isAbstract;
-    this.extensionDefinitions = extensionDefinitions;
     this.pkp = pkp;
     this.committee = committee;
     this.tabfmt = new TabDelimitedSpreadSheet();
@@ -878,7 +875,7 @@ public class SpreadsheetParser {
                 pn.add(t.getValue()+".extension{"+ex.getUrl()+"}");
             } else if (p.contains(".extension{")) {
               String url = extractExtensionUrl(p);
-              StructureDefinition ex = extensionDefinitions.get(url); // not created yet?
+              StructureDefinition ex = context.fetchResource(StructureDefinition.class, url); // not created yet?
               if (ex == null)
                 ex = context.getExtensionStructure(null, url);
               if (ex == null)
@@ -1006,7 +1003,7 @@ public class SpreadsheetParser {
                 d = e.getShortDefn();
               if (p.startsWith("Extension(")) {
                 String url = extractExtensionUrl(p);
-                StructureDefinition ex = extensionDefinitions.get(url);
+                StructureDefinition ex = context.fetchResource(StructureDefinition.class, url);
                 if (ex == null)
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" refers to unknown extension '"+url+"' "+ getLocation(row));
                 if (Utilities.noString(d))
@@ -2028,7 +2025,7 @@ public class SpreadsheetParser {
       if (definitions.getConstraints().containsKey(type))
         type = definitions.getConstraints().get(type).getBaseType();
     } else {
-      StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+type);
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
       if (sd != null) // not loaded yet?
         type = sd.getType();
       if (type.equals("SimpleQuantity"))
@@ -2279,14 +2276,14 @@ public class SpreadsheetParser {
     ex.getDifferential().getElementFirstRep().getType().clear();
     utils.setIds(ex, false);
 
-    StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/Extension");
+    StructureDefinition base = definitions != null ? definitions.getSnapShotForType("Extension") : this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Extension");
     List<String> errors = new ArrayList<String>();
     utils.sortDifferential(base, ex, "extension "+ex.getUrl(), errors);
     assert(errors.size() == 0);
     utils.generateSnapshot(base, ex, ex.getUrl(), ex.getName());
     utils.setIds(ex, true);
     new ExtensionDefinitionValidator(context).validate(ex);
-	  this.context.seeExtensionDefinition("http://hl7.org/fhir", ex);
+	  this.context.cacheResource(ex);
 	  return row;
 	}
 

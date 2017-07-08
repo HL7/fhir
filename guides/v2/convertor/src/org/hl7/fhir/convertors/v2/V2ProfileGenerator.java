@@ -393,7 +393,7 @@ public class V2ProfileGenerator {
 
   private void loadFile(String path) throws FileNotFoundException, IOException, FHIRException {
     StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(path));
-    context.seeResource(sd.getUrl(), sd);
+    context.cacheResource(sd);
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
   }
 

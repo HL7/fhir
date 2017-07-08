@@ -81,6 +81,7 @@ http://hl7.org/fhir/ValueSet/account-type
 http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor
 http://hl7.org/fhir/patient-contact-relationship
+https://acme.org/codes
 http://unstats.un.org/unsd/methods/m49/m49.htm
 http:/acme.ped/apgarrespiratoryeffort
 https://www.census.gov/geo/reference/
@@ -93,6 +94,7 @@ http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
 http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/
 http:/acme.ec/gcsverbal
 https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf
+https://acme.org/identifiers
 urn:iso:std:iso:3166
 http://example.com
 http://tools.ietf.org/html/bcp47

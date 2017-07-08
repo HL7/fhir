@@ -81,12 +81,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     IResourceValidator makeValidator(IWorkerContext ctxts) throws FHIRException;
   }
 
-  // all maps are to the full URI
-	private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
-	private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 	private Questionnaire questionnaire;
 	private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
-  private boolean allowLoadingDuplicates;
   private String version;
   private String revision;
   private String date;
@@ -103,11 +99,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   
   protected void copy(SimpleWorkerContext other) {
     super.copy(other);
-    structures.putAll(other.structures);
     systems.addAll(other.systems);
     questionnaire = other.questionnaire;
     binaries.putAll(other.binaries);
-    allowLoadingDuplicates = other.allowLoadingDuplicates;
     version = other.version;
     revision = other.revision;
     date = other.date;
@@ -134,7 +128,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
   public static SimpleWorkerContext fromPack(String path, boolean allowDuplicates) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
-    res.allowLoadingDuplicates = allowDuplicates;
+    res.setAllowLoadingDuplicates(allowDuplicates);
     res.loadFromPack(path, null);
     return res;
   }
@@ -210,11 +204,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		    if (e.getFullUrl() == null) {
 		      logger.logDebugMessage(LogCategory.CONTEXT, "unidentified resource in " + name+" (no fullUrl)");
 		    }
-		    seeResource(e.getFullUrl(), e.getResource());
+		    cacheResource(e.getResource());
 		  }
 		} else if (f instanceof MetadataResource) {
 		  MetadataResource m = (MetadataResource) f;
-		  seeResource(m.getUrl(), m);
+		  cacheResource(m);
 		}
 	}
 
@@ -235,78 +229,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       if (e.getFullUrl() == null) {
         logger.logDebugMessage(LogCategory.CONTEXT, "unidentified resource in " + name+" (no fullUrl)");
       }
-      seeResource(e.getFullUrl(), e.getResource());
+      cacheResource(e.getResource());
     }
   }
-
-	public void seeResource(String url, Resource r) throws FHIRException {
-    if (r instanceof StructureDefinition)
-      seeProfile(url, (StructureDefinition) r);
-    else if (r instanceof ValueSet)
-      seeValueSet(url, (ValueSet) r);
-    else if (r instanceof CodeSystem)
-      seeCodeSystem(url, (CodeSystem) r);
-    else if (r instanceof OperationDefinition)
-      seeOperationDefinition(url, (OperationDefinition) r);
-    else if (r instanceof ConceptMap)
-      maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
-    else if (r instanceof StructureMap)
-      transforms.put(((StructureMap) r).getUrl(), (StructureMap) r);
-    else if (r instanceof NamingSystem)
-    	systems.add((NamingSystem) r);
-	}
-	
-	private void seeOperationDefinition(String url, OperationDefinition r) {
-    operations.put(r.getUrl(), r);
-  }
-
-  public void seeValueSet(String url, ValueSet vs) throws DefinitionException {
-	  if (Utilities.noString(url))
-	    url = vs.getUrl();
-		if (valueSets.containsKey(vs.getUrl()) && !allowLoadingDuplicates)
-			throw new DefinitionException("Duplicate Profile " + vs.getUrl());
-		valueSets.put(vs.getId(), vs);
-		valueSets.put(vs.getUrl(), vs);
-		if (!vs.getUrl().equals(url))
-			valueSets.put(url, vs);
-	}
-
-	private void seeCodeSystem(String url, CodeSystem cs) throws DefinitionException {
-		codeSystems.put(cs.getUrl(), cs);
-	}
-
-	public void seeProfile(String url, StructureDefinition p) throws FHIRException {
-    if (Utilities.noString(url))
-      url = p.getUrl();
-    
-    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
-      if (!p.hasBaseDefinition())
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
-      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
-      if (sd == null)
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
-      List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
-      List<String> errors = new ArrayList<String>();
-      ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
-      pu.sortDifferential(sd, p, url, errors);
-      for (String err : errors)
-        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
-      pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
-      for (ValidationMessage msg : msgs) {
-        if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
-          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
-      }
-      if (!p.hasSnapshot())
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
-      pu = null;
-    }
-		if (structures.containsKey(p.getUrl()) && !allowLoadingDuplicates)
-			throw new DefinitionException("Duplicate structures " + p.getUrl());
-		structures.put(p.getId(), p);
-		structures.put(p.getUrl(), p);
-		if (!p.getUrl().equals(url))
-			structures.put(url, p);
-	}
 
 	private void loadFromPack(String path, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
 		loadFromStream(new CSFileInputStream(path), loader);
@@ -379,15 +304,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
 	@Override
-	public <T extends Resource> boolean hasResource(Class<T> class_, String uri) {
-		try {
-			return fetchResource(class_, uri) != null;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	@Override
 	public INarrativeGenerator getNarrativeGenerator(String prefix, String basePath) {
 		return new NarrativeGenerator(prefix, basePath, this);
 	}
@@ -397,84 +313,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	  if (validatorFactory == null)
 	    throw new Error("No validator configured");
 	  return validatorFactory.makeValidator(this);
-	}
-
-  @Override
-  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
-    try {
-      return fetchResourceWithException(class_, uri);
-    } catch (FHIRException e) {
-      throw new Error(e);
-    }
-  }
-	@SuppressWarnings("unchecked")
-	@Override
-	public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
-    if (class_ == null) {
-      return null;      
-    }
-
-	  if (class_ == Questionnaire.class)
-	    return (T) questionnaire;
-	  
-		if (class_ == StructureDefinition.class && !uri.contains("/"))
-			uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
-
-		if (uri.startsWith("http:") || uri.startsWith("urn:") ) {
-			if (uri.contains("#"))
-				uri = uri.substring(0, uri.indexOf("#"));
-			if (class_ == Resource.class) {
-        if (structures.containsKey(uri))
-          return (T) structures.get(uri);
-        if (valueSets.containsKey(uri))
-          return (T) valueSets.get(uri);
-        if (codeSystems.containsKey(uri))
-          return (T) codeSystems.get(uri);
-        if (operations.containsKey(uri))
-          return (T) operations.get(uri);
-        if (searchParameters.containsKey(uri))
-          return (T) searchParameters.get(uri);
-        if (maps.containsKey(uri))
-          return (T) maps.get(uri);
-        if (transforms.containsKey(uri))
-          return (T) transforms.get(uri);
-        return null;      
-			}
-			if (class_ == StructureDefinition.class) {
-				if (structures.containsKey(uri))
-					return (T) structures.get(uri);
-				else
-					return null;
-			} else if (class_ == ValueSet.class) {
-				if (valueSets.containsKey(uri))
-					return (T) valueSets.get(uri);
-				else
-					return null;      
-			} else if (class_ == CodeSystem.class) {
-				if (codeSystems.containsKey(uri))
-					return (T) codeSystems.get(uri);
-				else
-					return null;      
-      } else if (class_ == OperationDefinition.class) {
-        OperationDefinition od = operations.get(uri);
-        return (T) od;
-      } else if (class_ == SearchParameter.class) {
-        SearchParameter od = searchParameters.get(uri);
-        return (T) od;
-			} else if (class_ == ConceptMap.class) {
-				if (maps.containsKey(uri))
-					return (T) maps.get(uri);
-				else
-					return null;      
-      } else if (class_ == StructureMap.class) {
-        if (transforms.containsKey(uri))
-          return (T) transforms.get(uri);
-        else
-          return null;      
-			}
-		}
-		
-		throw new FHIRException("fetching "+class_.getName()+" not done yet for URI '"+uri+"'");
 	}
 
 
@@ -641,10 +479,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   		r = p.parse(new FileInputStream(filename));
       if (r.getResourceType() == ResourceType.Bundle) {
         for (BundleEntryComponent e : ((Bundle) r).getEntry()) {
-          seeResource(null, e.getResource());
+          cacheResource(e.getResource());
         }
      } else {
-       seeResource(null, r);
+       cacheResource(r);
      }
   	} catch (Exception e) {
     	return;
@@ -658,14 +496,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
   public Map<String, byte[]> getBinaries() {
     return binaries;
-  }
-
-  public boolean isAllowLoadingDuplicates() {
-    return allowLoadingDuplicates;
-  }
-
-  public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
-    this.allowLoadingDuplicates = allowLoadingDuplicates;
   }
 
   @Override
@@ -712,6 +542,33 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     this.validatorFactory = validatorFactory;
   }
 
- 
+  @Override
+  protected void seeStructureDefinition(String url, StructureDefinition p) throws FHIRException {
+    if (Utilities.noString(url))
+      url = p.getUrl();
+    
+    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
+      if (!p.hasBaseDefinition())
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
+      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
+      if (sd == null)
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
+      List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
+      List<String> errors = new ArrayList<String>();
+      ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
+      pu.sortDifferential(sd, p, url, errors);
+      for (String err : errors)
+        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
+      pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
+      for (ValidationMessage msg : msgs) {
+        if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
+          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
+      }
+      if (!p.hasSnapshot())
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
+      pu = null;
+    }
+    super.seeStructureDefinition(url, p);
+  }
   
 }

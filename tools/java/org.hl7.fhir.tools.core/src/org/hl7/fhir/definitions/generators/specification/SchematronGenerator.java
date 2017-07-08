@@ -39,7 +39,7 @@ public class SchematronGenerator {
       generateInvariants(s, null, root.getRoot(), definitions, parents, root.getName());
     }
     Set<StructureDefinition> processed = new HashSet<StructureDefinition>(); 
-    for (StructureDefinition exd : page.getWorkerContext().getExtensionDefinitions().values()) {
+    for (StructureDefinition exd : page.getWorkerContext().getExtensionDefinitions()) {
       if (exd.getSnapshot().getElement().get(0).hasConstraint() && !processed.contains(exd)) {
         processed.add(exd);
         Section s = sch.section("Extension: "+exd.getName());

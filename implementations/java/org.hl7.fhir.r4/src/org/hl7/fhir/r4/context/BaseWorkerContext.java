@@ -15,6 +15,7 @@ import java.util.Set;
 
 import org.apache.commons.codec.Charsets;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService.LogCategory;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -29,10 +30,13 @@ import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ExpansionProfile;
+import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Reference;
@@ -55,31 +59,38 @@ import org.hl7.fhir.r4.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.r4.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
+import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.NoTerminologyServiceException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 import com.google.gson.JsonSyntaxException;
 
 public abstract class BaseWorkerContext implements IWorkerContext {
 
+  protected Map<String, Map<String, Resource>> allResourcesById = new HashMap<String, Map<String, Resource>>();
   // all maps are to the full URI
   protected Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
   protected Set<String> nonSupportedCodeSystems = new HashSet<String>();
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   protected Map<String, StructureMap> transforms = new HashMap<String, StructureMap>();
-  protected Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+//  private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+  protected Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
+//  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   protected Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
-  protected Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   protected Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
   protected Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
+  protected List<NamingSystem> systems = new ArrayList<NamingSystem>();
 
+  
   protected ValueSetExpanderFactory expansionCache = new ValueSetExpansionCache(this);
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion
   private Set<String> failed = new HashSet<String>(); // value sets for which we don't try to do expansion, since the first attempt to get a comprehensive expansion was not successful
@@ -87,6 +98,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected String tsServer;
   protected String validationCachePath;
   protected String name;
+  private boolean allowLoadingDuplicates;
 
   // private ValueSetExpansionCache expansionCache; //   
 
@@ -100,16 +112,19 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected ExpansionProfile expProfile;
 
   protected void copy(BaseWorkerContext other) {
+    allResourcesById.putAll(other.allResourcesById);
     codeSystems.putAll(other.codeSystems);
     nonSupportedCodeSystems.addAll(other.nonSupportedCodeSystems);
     valueSets.putAll(other.valueSets);
     maps.putAll(other.maps);
     transforms.putAll(other.transforms);
-    profiles.putAll(other.profiles);
+    structures.putAll(other.structures);
     searchParameters.putAll(other.searchParameters);
-    extensionDefinitions.putAll(other.extensionDefinitions);
     questionnaires.putAll(other.questionnaires);
     operations.putAll(other.operations);
+    systems.addAll(other.systems);
+
+    allowLoadingDuplicates = other.allowLoadingDuplicates;
     cacheValidation = other.cacheValidation;
     tsServer = other.tsServer;
     validationCachePath = other.validationCachePath;
@@ -124,73 +139,61 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     expProfile = other.expProfile;
   }
   
-  public Map<String, CodeSystem> getCodeSystems() {
-    return codeSystems;
+  public void cacheResource(Resource r) throws FHIRException {
+    Map<String, Resource> map = allResourcesById.get(r.fhirType());
+    if (map == null) {
+      map = new HashMap<String, Resource>();
+      allResourcesById.put(r.fhirType(), map);
+    }
+    map.put(r.getId(), r);
+    
+    if (r instanceof MetadataResource) {
+      String url = ((MetadataResource) r).getUrl();
+      if (hasResource(r.getClass(), url) && !allowLoadingDuplicates)
+        throw new DefinitionException("Duplicate Resource " + url);
+      if (r instanceof StructureDefinition)
+        seeStructureDefinition(url, (StructureDefinition) r);
+      else if (r instanceof ValueSet)
+        seeValueSet(url, (ValueSet) r);
+      else if (r instanceof CodeSystem)
+        seeCodeSystem(url, (CodeSystem) r);
+      else if (r instanceof OperationDefinition)
+        seeOperationDefinition(url, (OperationDefinition) r);
+      else if (r instanceof Questionnaire)
+        seeQuestionnaire(url, (Questionnaire) r);
+      else if (r instanceof ConceptMap)
+        maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
+      else if (r instanceof StructureMap)
+        transforms.put(((StructureMap) r).getUrl(), (StructureMap) r);
+      else if (r instanceof NamingSystem)
+        systems.add((NamingSystem) r);
+    }
+  }
+  
+  private void seeOperationDefinition(String url, OperationDefinition r) {
+    operations.put(r.getUrl(), r);
   }
 
-
-  public Map<String, ValueSet> getValueSets() {
-    return valueSets;
+  private void seeValueSet(String url, ValueSet vs) throws FHIRException {
+    valueSets.put(vs.getId(), vs); // todo: why?
+    valueSets.put(vs.getUrl(), vs);
   }
 
-  public Map<String, ConceptMap> getMaps() {
-    return maps;
+  private void seeCodeSystem(String url, CodeSystem cs) throws DefinitionException {
+    codeSystems.put(cs.getUrl(), cs);
   }
 
-  public Map<String, StructureDefinition> getProfiles() {
-    return profiles;
+  protected void seeStructureDefinition(String url, StructureDefinition p) throws FHIRException {
+    structures.put(p.getId(), p);
+    structures.put(url, p);
+    structures.put(p.getUrl(), p);
   }
 
-  public Map<String, StructureDefinition> getExtensionDefinitions() {
-    return extensionDefinitions;
-  }
-
-  public Map<String, Questionnaire> getQuestionnaires() {
-    return questionnaires;
-  }
-
-  public Map<String, OperationDefinition> getOperations() {
-    return operations;
-  }
-
-  public void seeExtensionDefinition(String url, StructureDefinition ed) throws Exception {
-    if (extensionDefinitions.get(ed.getUrl()) != null)
-      throw new Exception("duplicate extension definition: " + ed.getUrl());
-    extensionDefinitions.put(ed.getId(), ed);
-    extensionDefinitions.put(url, ed);
-    extensionDefinitions.put(ed.getUrl(), ed);
-  }
-
-  public void seeQuestionnaire(String url, Questionnaire theQuestionnaire) throws Exception {
-    if (questionnaires.get(theQuestionnaire.getId()) != null)
-      throw new Exception("duplicate extension definition: "+theQuestionnaire.getId());
+  private void seeQuestionnaire(String url, Questionnaire theQuestionnaire) {
     questionnaires.put(theQuestionnaire.getId(), theQuestionnaire);
     questionnaires.put(url, theQuestionnaire);
   }
-
-  public void seeOperation(OperationDefinition opd) throws Exception {
-    if (operations.get(opd.getUrl()) != null)
-      throw new Exception("duplicate extension definition: "+opd.getUrl());
-    operations.put(opd.getUrl(), opd);
-    operations.put(opd.getId(), opd);
-  }
-
-  public void seeValueSet(String url, ValueSet vs) throws Exception {
-    if (valueSets.containsKey(vs.getUrl()))
-      throw new Exception("Duplicate value set "+vs.getUrl());
-    valueSets.put(vs.getId(), vs);
-    valueSets.put(url, vs);
-    valueSets.put(vs.getUrl(), vs);
-    throw new Error("this is not used");
-  }
-
-  public void seeProfile(String url, StructureDefinition p) throws Exception {
-    if (profiles.containsKey(p.getUrl()))
-      throw new Exception("Duplicate Profile "+p.getUrl());
-    profiles.put(p.getId(), p);
-    profiles.put(url, p);
-    profiles.put(p.getUrl(), p);
-  }
+  
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -908,6 +911,102 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     Set<String> res = new HashSet<String>();
     res.addAll(getResourceNames());
     return res;
+  }
+
+  public boolean isAllowLoadingDuplicates() {
+    return allowLoadingDuplicates;
+  }
+
+  public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
+    this.allowLoadingDuplicates = allowLoadingDuplicates;
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
+    if (class_ == null) {
+      return null;      
+    }
+    
+    if (class_ == StructureDefinition.class && !uri.contains("/"))
+      uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
+    
+    if (uri.startsWith("http:")) {
+      if (uri.contains("#"))
+        uri = uri.substring(0, uri.indexOf("#"));
+      if (class_ == Resource.class) {
+        if (structures.containsKey(uri))
+          return (T) structures.get(uri);
+        if (valueSets.containsKey(uri))
+          return (T) valueSets.get(uri);
+        if (codeSystems.containsKey(uri))
+          return (T) codeSystems.get(uri);
+        if (operations.containsKey(uri))
+          return (T) operations.get(uri);
+        if (searchParameters.containsKey(uri))
+          return (T) searchParameters.get(uri);
+        if (maps.containsKey(uri))
+          return (T) maps.get(uri);
+        if (transforms.containsKey(uri))
+          return (T) transforms.get(uri);
+        return null;      
+      } else if (class_ == StructureDefinition.class) {
+        return (T) structures.get(uri);
+      } else if (class_ == ValueSet.class) {
+        return (T) valueSets.get(uri);
+      } else if (class_ == CodeSystem.class) {
+        return (T) codeSystems.get(uri);
+      } else if (class_ == OperationDefinition.class) {
+        OperationDefinition od = operations.get(uri);
+        return (T) od;
+      } else if (class_ == SearchParameter.class) {
+        SearchParameter res = searchParameters.get(uri);
+        if (res == null) {
+          StringBuilder b = new StringBuilder();
+          for (String s : searchParameters.keySet()) {
+            b.append(s);
+            b.append("\r\n");
+          }
+        }
+        
+          
+        return (T) res;
+      }
+    }
+    if (class_ == Questionnaire.class)
+      return null;
+    throw new FHIRException("not done yet: can't fetch "+uri);
+  }
+
+  @Override
+  public Resource fetchResourceById(String type, String uri) {
+    String[] parts = uri.split("\\/");
+    if (!Utilities.noString(type) && parts.length == 1)
+      return allResourcesById.get(type).get(parts[0]);
+    if (parts.length >= 2) {
+      if (!Utilities.noString(type))
+        if (!type.equals(parts[parts.length-2])) 
+          throw new Error("Resource type mismatch for "+type+" / "+uri);
+      return allResourcesById.get(parts[parts.length-2]).get(parts[parts.length-1]);
+    } else
+      throw new Error("Unable to process request for resource for "+type+" / "+uri);
+  }
+
+  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
+    try {
+      return fetchResourceWithException(class_, uri);
+    } catch (FHIRException e) {
+      throw new Error(e);
+    }
+  }
+  
+  @Override
+  public <T extends Resource> boolean hasResource(Class<T> class_, String uri) {
+    try {
+      return fetchResourceWithException(class_, uri) != null;
+    } catch (Exception e) {
+      return false;
+    }
   }
 
 }

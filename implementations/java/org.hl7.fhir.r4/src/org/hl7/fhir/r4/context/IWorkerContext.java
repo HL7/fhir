@@ -140,6 +140,22 @@ public interface IWorkerContext {
   public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException;
 
   /**
+   * Variation of fetchResource when you have a string type, and don't need the right class
+   * 
+   * The URI can have one of 3 formats:
+   *  - a full URL e.g. http://acme.org/fhir/ValueSet/[id]
+   *  - a relative URL e.g. ValueSet/[id]
+   *  - a logical id e.g. [id]
+   *  
+   * if type == null, the URI can't be a simple logical id
+   * 
+   * @param type
+   * @param uri
+   * @return
+   */
+  public Resource fetchResourceById(String type, String uri);
+  
+  /**
    * find whether a resource is available. 
    * 
    * Implementations of the interface can assume that if hasResource ruturns 
@@ -151,6 +167,16 @@ public interface IWorkerContext {
    */
   public <T extends Resource> boolean hasResource(Class<T> class_, String uri);
 
+  /**
+   * cache a resource for later retrieval using fetchResource.
+   * 
+   * Note that various context implementations will have their own ways of loading
+   * rseources, and not all need implement cacheResource 
+   * @param res
+   * @throws FHIRException 
+   */
+  public void cacheResource(Resource res) throws FHIRException;
+  
   // -- profile services ---------------------------------------------------------
   
   public List<String> getResourceNames();

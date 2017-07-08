@@ -339,7 +339,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private void addProfileReference(StringBuilder b, String s) {
-    StructureDefinition p = page.getWorkerContext().getProfiles().get(s);
+    StructureDefinition p = page.getWorkerContext().fetchResource(StructureDefinition.class, s);
     if (p == null)
       b.append(s);
     else {

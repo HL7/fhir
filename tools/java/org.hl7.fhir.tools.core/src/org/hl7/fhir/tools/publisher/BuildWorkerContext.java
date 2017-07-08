@@ -52,6 +52,7 @@ import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
@@ -132,7 +133,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.codeSystems = codeSystems;
     this.valueSets = valueSets;
     this.maps = maps;
-    this.profiles = profiles;
+    this.structures = profiles;
     this.cacheValidation = true;
     setExpansionProfile(buildExpansionProfile());
   }
@@ -161,9 +162,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     } else {
       if (url.contains("#"))
         url = url.substring(0, url.indexOf("#"));
-      StructureDefinition res = extensionDefinitions.get(url);
-      if (res == null)
-        res = profiles.get(url);
+      StructureDefinition res = structures.get(url);
       if (res == null)
         return null;
       if (res.getSnapshot() == null || res.getSnapshot().getElement().isEmpty())
@@ -184,7 +183,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public boolean isResource(String name) {
     if (resourceNames.contains(name))
       return true;
-    StructureDefinition sd = profiles.get("http://hl7.org/fhir/StructureDefinition/" + name);
+    StructureDefinition sd = structures.get("http://hl7.org/fhir/StructureDefinition/" + name);
     return sd != null && (sd.getBaseDefinition().endsWith("Resource") || sd.getBaseDefinition().endsWith("DomainResource"));
   }
 
@@ -194,9 +193,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public StructureDefinition getTypeStructure(TypeRefComponent type) {
     if (type.hasProfile())
-      return profiles.get(type.getProfile());
+      return structures.get(type.getProfile());
     else
-      return profiles.get(type.getCode());
+      return structures.get(type.getCode());
   }
 
   public Map<String, SearchParameter> getSearchParameters() {
@@ -230,94 +229,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public IParser newXmlParser() {
     return new XmlParser();
-  }
-
-  public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
-    try {
-      return fetchResourceWithException(class_, uri);
-    } catch (FHIRException e) {
-      throw new Error(e);
-    }
-  }
-  
-  @SuppressWarnings("unchecked")
-  @Override
-  public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
-    if (class_ == StructureDefinition.class && !uri.contains("/"))
-      uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
-
-    
-    if (uri.startsWith("http:")) {
-      if (uri.contains("#"))
-        uri = uri.substring(0, uri.indexOf("#"));
-      if (class_ == Resource.class) {
-        if (profiles.containsKey(uri))
-          return (T) profiles.get(uri);
-        if (extensionDefinitions.containsKey(uri))
-          return (T) extensionDefinitions.get(uri);
-        if (valueSets.containsKey(uri))
-          return (T) valueSets.get(uri);
-        if (codeSystems.containsKey(uri))
-          return (T) codeSystems.get(uri);
-        if (operations.containsKey(uri))
-          return (T) operations.get(uri);
-        if (searchParameters.containsKey(uri))
-          return (T) searchParameters.get(uri);
-        if (maps.containsKey(uri))
-          return (T) maps.get(uri);
-        if (transforms.containsKey(uri))
-          return (T) transforms.get(uri);
-        return null;      
-      }
-      if (class_ == StructureDefinition.class) {
-        if (profiles.containsKey(uri))
-          return (T) profiles.get(uri);
-        else if (extensionDefinitions.containsKey(uri))
-          return (T) extensionDefinitions.get(uri);
-        else
-          return null;
-      } else if (class_ == ValueSet.class) {
-        if (valueSets.containsKey(uri))
-          return (T) valueSets.get(uri);
-        else if (codeSystems.containsKey(uri))
-          return (T) codeSystems.get(uri);
-        else
-          return null;      
-      } else if (class_ == OperationDefinition.class) {
-        OperationDefinition od = operations.get(uri);
-        if (od == null)
-          System.out.println("Unable to resolve OperationDefinition "+uri);
-        return (T) od;
-      } else if (class_ == SearchParameter.class) {
-        SearchParameter res = searchParameters.get(uri);
-        if (res == null) {
-          StringBuilder b = new StringBuilder();
-          for (String s : searchParameters.keySet()) {
-            b.append(s);
-            b.append("\r\n");
-          }
-        }
-        
-          
-        return (T) res;
-      }
-    }
-    if (class_ == null && uri.contains("/")) {
-      return null;      
-    }
-      
-    if (class_ == Questionnaire.class)
-      return null;
-    throw new FHIRException("not done yet: can't fetch "+uri);
-  }
-
-  @Override
-  public <T extends Resource> boolean hasResource(Class<T> class_, String uri) {
-    try {
-      return fetchResource(class_, uri) != null;
-    } catch (Exception e) {
-      return false;
-    }
   }
 
   @Override
@@ -995,14 +906,14 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
-    result.addAll(profiles.values());
+    result.addAll(structures.values());
     return result;
   }
 
   @Override
   public List<MetadataResource> allConformanceResources() {
     List<MetadataResource> result = new ArrayList<MetadataResource>();
-    result.addAll(profiles.values());
+    result.addAll(structures.values());
     result.addAll(valueSets.values());
     result.addAll(codeSystems.values());
     result.addAll(maps.values());
@@ -1053,6 +964,24 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     for (TypeRef tr : definitions.getKnownTypes())
       names.add(tr.getName());
     return names;
+  }
+
+  public List<StructureDefinition> getExtensionDefinitions() {
+    List<StructureDefinition> res = new ArrayList<StructureDefinition>();
+    for (StructureDefinition sd : structures.values()) {
+      if (sd.getType().equals("Extension") && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
+        res.add(sd);
+    }
+    return res;
+  }
+
+  public List<StructureDefinition> getProfiles() {
+    List<StructureDefinition> res = new ArrayList<StructureDefinition>();
+    for (StructureDefinition sd : structures.values()) {
+      if (!sd.getType().equals("Extension") && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
+        res.add(sd);
+    }
+    return res;
   }
 
 

@@ -392,10 +392,7 @@ public class ValidationEngine {
     byte[] source = loadProfileSource(src);
     FhirFormat fmt = FormatUtilities.determineFormat(source);
     Resource r = FormatUtilities.makeParser(fmt).parse(source);
-    if (r instanceof MetadataResource) {
-      MetadataResource mr = (MetadataResource) r;
-      context.seeResource(mr.getUrl(), mr);
-    }
+    context.cacheResource(r);
   }
   
   public void loadIg(String src) throws IOException, FHIRException, Exception {
@@ -416,12 +413,7 @@ public class ValidationEngine {
       } catch (Exception e) {
         throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
       }
-
-      if (res != null && res instanceof MetadataResource) {
-        context.seeResource(((MetadataResource) res).getUrl(), res);
-      } else if (res != null && res instanceof Questionnaire) {
-        context.seeResource(((Questionnaire) res).getUrl(), res);
-	}
+      context.cacheResource(res);
       if (res instanceof ImplementationGuide)
         canonical = ((ImplementationGuide) res).getUrl();
 		}

@@ -763,7 +763,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("dtextras")) {
         src = s1+produceDataTypeExtras(com[1])+s3;
       } else if (com[0].equals("extension-diff")) {
-        StructureDefinition ed = workerContext.getExtensionDefinitions().get(com[1]);
+        StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, com[1]);
         src = s1+generateExtensionTable(ed, "extension-"+com[1], "false", genlevel(level))+s3;
       } else if (com[0].equals("profile-diff")) {
         ConstraintStructure p = definitions.findProfile(com[1]);
@@ -1756,14 +1756,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("</tr>");
 
     List<String> names = new ArrayList<String>();
-    names.addAll(workerContext.getExtensionDefinitions().keySet());
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions())
+      names.add(sd.getUrl());
     Collections.sort(names);
     Set<StructureDefinition> processed = new HashSet<StructureDefinition>();
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (ig.isCore()) {
         boolean started = false;
         for (String n : names) {
-          StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
+          StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, n);
           if (!processed.contains(ed)) {
             processed.add(ed);
             if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
@@ -2905,11 +2906,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         scanForUsage(b, vs, e, "datatypes.html#"+e.getName(), prefix);
 
 
-    for (String n : workerContext.getExtensionDefinitions().keySet()) {
-      if (n.startsWith("http:")) {
-        StructureDefinition exd = workerContext.getExtensionDefinitions().get(n);
-        scanForUsage(b, vs, exd, exd.getUserString("path"), prefix);
-      }
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
+      scanForUsage(b, vs, sd, sd.getUserString("path"), prefix);
     }
 
     for (ValueSet vsi : definitions.getValuesets().values()) {
@@ -4730,7 +4728,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         Example e = findExample(parts[0], parts[1]);
         src = s1+genExample(e, com.length > 2 ? Integer.parseInt(com[2]) : 0, genlevel(level))+s3;
       } else if (com[0].equals("extension-diff")) {
-        StructureDefinition ed = workerContext.getExtensionDefinitions().get(com[1]);
+        StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, com[1]);
         src = s1+generateExtensionTable(ed, "extension-"+com[1], "false", genlevel(level))+s3;
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
@@ -5144,13 +5142,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               found = true;
           }
         } else if ("extension".equals(purpose)) {
-          for (StructureDefinition ex : workerContext.getExtensionDefinitions().values()) {
+          for (StructureDefinition ex : workerContext.getExtensionDefinitions()) {
             if (ig.getCode().equals(ToolResourceUtilities.getUsage(ex))) {
               found = true;
             }
           }
         } else if ("profile".equals(purpose)) {
-          for (StructureDefinition ex : workerContext.getProfiles().values()) {
+          for (StructureDefinition ex : workerContext.getProfiles()) {
             if (ig.getCode().equals(ToolResourceUtilities.getUsage(ex))) {
               found = true;
             }
@@ -5978,7 +5976,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String produceExtensions(ResourceDefn resource) {
     int count = 0;
     Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
-    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values()) {
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
       if (sd.getContextType() == ExtensionContext.RESOURCE) {
         boolean inc = false;
         for (StringType s : sd.getContext()) {
@@ -6015,7 +6013,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String produceRefExtensions(ResourceDefn resource) {
     int count = 0;
     Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
-    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values()) {
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
       boolean refers  = false;
       for (ElementDefinition ed : sd.getSnapshot().getElement()) {
         for (TypeRefComponent tr : ed.getType()) {
@@ -6053,7 +6051,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String produceDataTypeExtras(String tn) {
     int count = 0;
     Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
-    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values()) {
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
       if (sd.getContextType() == ExtensionContext.DATATYPE) {
         boolean inc = false;
         for (StringType s : sd.getContext()) {
@@ -6339,12 +6337,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     s.append("<table class=\"list\">\r\n");
     names.clear();
-    names.addAll(workerContext.getExtensionDefinitions().keySet());
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions())
+      names.add(sd.getUrl());
     Collections.sort(names);
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       boolean started = false;
       for (String n : names) {
-        StructureDefinition ed = workerContext.getExtensionDefinitions().get(n);
+        StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, n);
         if (ig.getCode().equals(ToolResourceUtilities.getUsage(ed))) {
           if (!started) {
             started = true;
@@ -6973,15 +6972,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (url.startsWith("http://hl7.org/fhir/StructureDefinition/") && (definitions.hasType(url.substring(40)) || definitions.hasResource(url.substring(40)) || "Resource".equals(url.substring(40))))
       return null;
 
-    StructureDefinition ed = workerContext.getProfiles().get(url);
-    if (ed == null) {
-      // work around for case consistency problems in ballot package
-
-      for (String s : workerContext.getProfiles().keySet())
-        if (s.equalsIgnoreCase(url)) {
-          ed = workerContext.getProfiles().get(s);
-        }
-    }
+    StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, url);
     if (ed == null)
       return "<li>unable to summarise profile "+url+" (no profile found)</li>";
     return "<li><a href=\""+prefix+ed.getUserString("path")+"\">"+url+"</a></li>\r\n";
@@ -6994,7 +6985,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     } if (binding.getValueSet() instanceof Reference) {
       Reference ref = (Reference) binding.getValueSet();
       String disp = ref.getDisplay();
-      ValueSet vs = workerContext.getValueSets().get(ref.getReference());
+      ValueSet vs = workerContext.fetchResource(ValueSet.class, ref.getReference());
       if (disp == null && vs != null)
         disp = vs.getName();
       return "<a href=\""+(vs == null ? ref.getReference() : vs.getUserData("filename"))+"\">"+disp+"</a>";
@@ -7036,8 +7027,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "SNOMED CT code "+coding.getCode()+ (coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
     if ("http://loinc.org".equals(coding.getSystem()))
       return "LOINC code "+coding.getCode()+ (coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
-    if (workerContext.getCodeSystems().containsKey(coding.getSystem())) {
-      CodeSystem vs = workerContext.getCodeSystems().get(coding.getSystem());
+    CodeSystem vs = workerContext.fetchResource(CodeSystem.class, coding.getSystem());
+    if (vs != null) {
       return "<a href=\""+vs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
     }
     throw new Exception("Unknown system "+coding.getSystem()+" generating fixed value description");
@@ -8510,7 +8501,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (StructureDefinition sd : profiles.values())
       if (sd.getUrl().startsWith("http://hl7.org/fhir") && !definitions.getResourceTemplates().containsKey(sd.getName()))
         definitions.addNs(sd.getUrl(), "Profile "+sd.getName(), sd.getUserString("path"));
-    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values())
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions())
       if (sd.getUrl().startsWith("http://hl7.org/fhir"))
         definitions.addNs(sd.getUrl(), "Profile "+sd.getName(), sd.getUserString("path"));
     for (NamingSystem nss : definitions.getNamingSystems()) {

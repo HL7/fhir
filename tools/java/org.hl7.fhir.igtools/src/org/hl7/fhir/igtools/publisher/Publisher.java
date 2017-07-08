@@ -1110,8 +1110,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             if (p == null)
               throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
             r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
-            context.seeResource(u, r);
           }
+          context.cacheResource(r);
         }
       } else if (fn.endsWith(".xml")) {
         Resource r;
@@ -1128,8 +1128,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             if (p == null)
               throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
             r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
-            context.seeResource(u, r);
           }
+          context.cacheResource(r);
         }        
       }
     }
@@ -1904,7 +1904,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           igpkp.checkForPath(f, r, bc);
           try {
 //            if (!(bc instanceof StructureDefinition))
-            context.seeResource(bc.getUrl(), bc);
+            context.cacheResource(bc);
           } catch (Exception e) {
             throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
           }
@@ -2000,7 +2000,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       r.setElement(convertToElement(sd));
     r.setSnapshotted(true);
     dlog(LogCategory.CONTEXT, "Context.See "+sd.getUrl());
-    context.seeResource(sd.getUrl(), sd);
+    context.cacheResource(sd);
   }
 
   private void validateExpressions() {

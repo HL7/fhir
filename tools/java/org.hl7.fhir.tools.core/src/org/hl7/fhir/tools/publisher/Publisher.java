@@ -869,7 +869,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
 
     page.log(" ...process profiles (extensions)", LogMessageType.Process);
-    for (StructureDefinition ex : page.getWorkerContext().getExtensionDefinitions().values())
+    for (StructureDefinition ex : page.getWorkerContext().getExtensionDefinitions())
         processExtension(ex);
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) {
@@ -1197,7 +1197,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (vs == null)
           vs = page.getDefinitions().getExtraValuesets().get(ref);
         if (vs == null)
-          vs = page.getWorkerContext().getValueSets().get(ref);
+          vs = page.getWorkerContext().fetchResource(ValueSet.class, ref);
         if (vs == null) {
           if (page.getDefinitions().getBoundValueSets().containsKey(ref))
             throw new Exception("Unable to resolve the value set reference "+ref+" but found it in load list");
@@ -1212,7 +1212,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (vs == null)
           vs = ig.getValueSet(cd.getReference());
         if (vs == null)
-          vs = page.getWorkerContext().getValueSets().get(cd.getReference());
+          vs = page.getWorkerContext().fetchResource(ValueSet.class, cd.getReference());
         if (vs == null)
           throw new Exception("unable to resolve value set "+cd.getReference());
         cd.setValueSet(vs);
@@ -1688,7 +1688,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page.getWorkerContext().getExtensionDefinitions(), page, fpUsages);
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page, fpUsages);
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
       page.getDiffEngine().loadFromIni(prsr.getIni());
@@ -1946,7 +1946,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (ref.type.equals("StructureDefinition")) {
       if (page.getDefinitions().hasResource(ref.getId()))
         return true;
-      if (page.getProfiles().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()) || page.getWorkerContext().getExtensionDefinitions().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()))
+      if (page.getProfiles().containsKey("http://hl7.org/fhir/"+ref.type+"/"+ref.getId()) || page.getWorkerContext().hasResource(StructureDefinition.class, "http://hl7.org/fhir/"+ref.type+"/"+ref.getId()))
         return true;
       for (Profile cp : page.getDefinitions().getPackList())
         for (ConstraintStructure p : cp.getProfiles())
@@ -2285,7 +2285,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     }
     
-    for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
+    for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions()) {
       String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
       ed.setUserData("filename", filename);
       ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
@@ -2295,7 +2295,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     loadValueSets2();
     page.log(" ...extensions", LogMessageType.Process);
 
-    for (StructureDefinition ae : page.getWorkerContext().getExtensionDefinitions().values())
+    for (StructureDefinition ae : page.getWorkerContext().getExtensionDefinitions())
       produceExtensionDefinition(ae);
     checkAllOk();
 
@@ -2461,7 +2461,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       extensionsFeed.setType(BundleType.COLLECTION);
       extensionsFeed.setMeta(new Meta().setLastUpdated(page.getResourceBundle().getMeta().getLastUpdated()));
       Set<String> urls = new HashSet<String>();
-      for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions().values()) {
+      for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions()) {
         if (!urls.contains(ed.getUrl())) {
           urls.add(ed.getUrl());
           extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed).setFullUrl(ed.getUrl()));
@@ -2887,7 +2887,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         spm.target(sd.getUserString("path").replace("\\", "/"));
       }
     }
-    for (StructureDefinition sd : page.getWorkerContext().getExtensionDefinitions().values()) {
+    for (StructureDefinition sd : page.getWorkerContext().getExtensionDefinitions()) {
       if (sd.hasUserData("path")) {
         spm.path(sd.getUrl(), sd.getUserString("path").replace("\\", "/"));
         spm.target(sd.getUserString("path").replace("\\", "/"));
@@ -3017,7 +3017,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         String pt = tr.getProfile();
         if (pt.contains("#")) {
           String[] parts = pt.split("\\#");
-          StructureDefinition exd = page.getWorkerContext().getExtensionDefinitions().get(parts[0]);
+          StructureDefinition exd = page.getWorkerContext().fetchResource(StructureDefinition.class, parts[0]);
           if (exd == null)
             check(false, sd, ed.getPath()+": profile '"+pt+"' is not valid (definition not found)");
           else {
@@ -3028,14 +3028,14 @@ public class Publisher implements URIResolver, SectionNumberer {
               check(ex != null, sd, ed.getPath()+": profile '"+pt+"' is not valid (inner path not found)");
           }
         } else
-          check((page.getWorkerContext().getProfiles().containsKey(pt) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt))
+          check((page.getWorkerContext().hasResource(StructureDefinition.class, pt))
           || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
       }
       if (tr.hasTargetProfile()) {
         String pt = tr.getTargetProfile();
         if (pt.contains("#")) {
           String[] parts = pt.split("\\#");
-          StructureDefinition exd = page.getWorkerContext().getExtensionDefinitions().get(parts[0]);
+          StructureDefinition exd = page.getWorkerContext().fetchResource(StructureDefinition.class, parts[0]);
           if (exd == null)
             check(false, sd, ed.getPath()+": profile '"+pt+"' is not valid (definition not found)");
           else {
@@ -3046,7 +3046,7 @@ public class Publisher implements URIResolver, SectionNumberer {
               check(ex != null, sd, ed.getPath()+": profile '"+pt+"' is not valid (inner path not found)");
           }
         } else
-          check((page.getWorkerContext().getProfiles().containsKey(pt) || page.getWorkerContext().getExtensionDefinitions().containsKey(pt))
+          check((page.getWorkerContext().hasResource(StructureDefinition.class, pt))
           || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
       }
     }
@@ -3167,10 +3167,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       String[] pair = page.getIni().getStringProperty(n, "pair"+Integer.toString(i)).split(",");
       if (pair.length != 2)
         throw new Exception("Didn't find a pair for "+n+".pair"+Integer.toString(i));
-      StructureDefinition sdl = page.getWorkerContext().getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+pair[0]);
+      StructureDefinition sdl = page.getWorkerContext().fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+pair[0]);
       if (sdl == null)
         throw new Exception("Unable to find structure "+pair[0]);
-      StructureDefinition sdr = page.getWorkerContext().getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+pair[1]);
+      StructureDefinition sdr = page.getWorkerContext().fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+pair[1]);
       if (sdr == null)
         throw new Exception("Unable to find structure "+pair[1]);
       pc.compareProfiles(sdl, sdr);
@@ -4045,7 +4045,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void produceOperation(ImplementationGuideDefn ig, String name, String id, ResourceDefn resource, Operation op) throws Exception {
     OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(name, id, resource.getName(), op);
-
+    
     String dir = ig == null ? "" : ig.getCode()+File.separator;
 
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + dir+"operation-" + name + ".xml");
@@ -4071,7 +4071,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + dir+"operation-" + name + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator + "operation-" + name + ".xml"));
     if (buildFlags.get("all")) {
       addToResourceFeed(opd, page.getResourceBundle(), name);
-      page.getWorkerContext().seeOperation(opd);
+      page.getWorkerContext().cacheResource(opd);
     }
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
