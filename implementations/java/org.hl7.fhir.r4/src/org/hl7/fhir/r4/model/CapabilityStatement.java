@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -7696,6 +7696,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
      */
     @Child(name = "fhirVersion", type = {IdType.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version the system uses", formalDefinition="The version of the FHIR specification on which this capability statement is based." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
     protected IdType fhirVersion;
 
     /**

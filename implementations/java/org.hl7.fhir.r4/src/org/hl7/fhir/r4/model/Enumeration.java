@@ -42,7 +42,7 @@ POSSIBILITY OF SUCH DAMAGE.
  * 
  */
 @DatatypeDef(name = "code", isSpecialization = true)
-public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements IBaseEnumeration<T> {
+public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements IBaseEnumeration<T>, ICoding {
 
 	private static final long serialVersionUID = 1L;
 	private EnumFactory<T> myEnumFactory;
@@ -131,4 +131,54 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
 		theOut.writeObject(myEnumFactory);
 		super.writeExternal(theOut);
 	}
+
+  @Override
+  public String getSystem() {
+    return myEnumFactory.toSystem(myEnumFactory.fromCode(asStringValue()));
+  }
+
+  @Override
+  public boolean hasSystem() {
+    return myEnumFactory.toSystem(myEnumFactory.fromCode(asStringValue())) != null;
+  }
+
+  @Override
+  public String getVersion() {
+    return null;
+  }
+
+  @Override
+  public boolean hasVersion() {
+    return false;
+  }
+
+  @Override
+  public boolean supportsVersion() {
+    return false;
+  }
+
+  @Override
+  public String getCode() {
+    return asStringValue();
+  }
+
+  @Override
+  public boolean hasCode() {
+    return asStringValue() != null;
+  }
+
+  @Override
+  public String getDisplay() {
+    return null;
+  }
+
+  @Override
+  public boolean hasDisplay() {
+    return false;
+  }
+
+  @Override
+  public boolean supportsDisplay() {
+    return false;
+  }
 }

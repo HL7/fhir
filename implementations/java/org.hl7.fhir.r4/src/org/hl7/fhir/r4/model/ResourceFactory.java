@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -40,6 +40,8 @@ public class ResourceFactory extends Factory {
             return new Appointment();
         if ("Account".equals(name))
             return new Account();
+        if ("EventDefinition".equals(name))
+            return new EventDefinition();
         if ("DocumentManifest".equals(name))
             return new DocumentManifest();
         if ("MessageDefinition".equals(name))
@@ -438,6 +440,7 @@ public class ResourceFactory extends Factory {
         case -1377846581: return new EnrollmentRequest();
         case 289362821: return new EnrollmentResponse();
         case -1093178557: return new EpisodeOfCare();
+        case 1851868013: return new EventDefinition();
         case -1136815094: return new ExpansionProfile();
         case -1001676601: return new ExplanationOfBenefit();
         case 1391410207: return new Extension();

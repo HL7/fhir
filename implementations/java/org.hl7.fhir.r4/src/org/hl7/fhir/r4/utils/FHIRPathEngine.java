@@ -1450,7 +1450,8 @@ public class FHIRPathEngine {
 	  if (vs != null) {
 	    for (Base l : left) {
 	      if (l.fhirType().equals("code")) {
-	        throw new Error("todo: unable to determine whether a code is part of a system"); // what's the system?
+          if (worker.validateCode(l.castToCoding(l), vs).isOk())
+            ans = true;
 	      } else if (l.fhirType().equals("Coding")) {
 	        if (worker.validateCode(l.castToCoding(l), vs).isOk())
 	          ans = true;

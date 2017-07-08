@@ -2280,7 +2280,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       fpeTime = fpeTime + (System.nanoTime() - t);
       msg = fpe.forLog();
     } catch (Exception ex) {
-      throw new FHIRException("Problem evaluating slicing expression for element in profile " + profile.getUrl() + " path " + path + ": " + ex.getMessage());
+      throw new FHIRException("Problem evaluating slicing expression for element in profile " + profile.getUrl() + " path " + path + " (fhirPath = "+n+"): " + ex.getMessage());
     }
     return ok;
   }

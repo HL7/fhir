@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -52,11 +52,11 @@ public class AdverseEvent extends DomainResource {
         /**
          * null
          */
-        AE, 
+        ACTUAL, 
         /**
          * null
          */
-        PAE, 
+        POTENTIAL, 
         /**
          * added to help the parsers with the generic types
          */
@@ -64,10 +64,10 @@ public class AdverseEvent extends DomainResource {
         public static AdverseEventActuality fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("AE".equals(codeString))
-          return AE;
-        if ("PAE".equals(codeString))
-          return PAE;
+        if ("actual".equals(codeString))
+          return ACTUAL;
+        if ("potential".equals(codeString))
+          return POTENTIAL;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -75,29 +75,29 @@ public class AdverseEvent extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case AE: return "AE";
-            case PAE: return "PAE";
+            case ACTUAL: return "actual";
+            case POTENTIAL: return "potential";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case AE: return "http://hl7.org/fhir/adverse-event-actuality";
-            case PAE: return "http://hl7.org/fhir/adverse-event-actuality";
+            case ACTUAL: return "http://hl7.org/fhir/adverse-event-actuality";
+            case POTENTIAL: return "http://hl7.org/fhir/adverse-event-actuality";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case AE: return "";
-            case PAE: return "";
+            case ACTUAL: return "";
+            case POTENTIAL: return "";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case AE: return "Adverse Event";
-            case PAE: return "Potential Adverse Event";
+            case ACTUAL: return "Adverse Event";
+            case POTENTIAL: return "Potential Adverse Event";
             default: return "?";
           }
         }
@@ -108,10 +108,10 @@ public class AdverseEvent extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("AE".equals(codeString))
-          return AdverseEventActuality.AE;
-        if ("PAE".equals(codeString))
-          return AdverseEventActuality.PAE;
+        if ("actual".equals(codeString))
+          return AdverseEventActuality.ACTUAL;
+        if ("potential".equals(codeString))
+          return AdverseEventActuality.POTENTIAL;
         throw new IllegalArgumentException("Unknown AdverseEventActuality code '"+codeString+"'");
         }
         public Enumeration<AdverseEventActuality> fromType(Base code) throws FHIRException {
@@ -122,17 +122,17 @@ public class AdverseEvent extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("AE".equals(codeString))
-          return new Enumeration<AdverseEventActuality>(this, AdverseEventActuality.AE);
-        if ("PAE".equals(codeString))
-          return new Enumeration<AdverseEventActuality>(this, AdverseEventActuality.PAE);
+        if ("actual".equals(codeString))
+          return new Enumeration<AdverseEventActuality>(this, AdverseEventActuality.ACTUAL);
+        if ("potential".equals(codeString))
+          return new Enumeration<AdverseEventActuality>(this, AdverseEventActuality.POTENTIAL);
         throw new FHIRException("Unknown AdverseEventActuality code '"+codeString+"'");
         }
     public String toCode(AdverseEventActuality code) {
-      if (code == AdverseEventActuality.AE)
-        return "AE";
-      if (code == AdverseEventActuality.PAE)
-        return "PAE";
+      if (code == AdverseEventActuality.ACTUAL)
+        return "actual";
+      if (code == AdverseEventActuality.POTENTIAL)
+        return "potential";
       return "?";
       }
     public String toSystem(AdverseEventActuality code) {
@@ -1029,7 +1029,7 @@ public class AdverseEvent extends DomainResource {
      * Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.
      */
     @Child(name = "actuality", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="AE | PAE", formalDefinition="Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely." )
+    @Description(shortDefinition="actual | potential", formalDefinition="Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adverse-event-actuality")
     protected Enumeration<AdverseEventActuality> actuality;
 
@@ -1052,8 +1052,8 @@ public class AdverseEvent extends DomainResource {
     /**
      * This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
      */
-    @Child(name = "subject", type = {Patient.class, ResearchSubject.class, Medication.class, Device.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Subject or group impacted by event", formalDefinition="This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented." )
+    @Child(name = "subject", type = {Patient.class, ResearchSubject.class, Practitioner.class, Person.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Subject impacted by event", formalDefinition="This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented." )
     protected Reference subject;
 
     /**
@@ -2027,7 +2027,7 @@ public class AdverseEvent extends DomainResource {
         children.add(new Property("actuality", "code", "Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.", 0, 1, actuality));
         children.add(new Property("category", "code", "The overall type of event, intended for search and filtering purposes.", 0, 1, category));
         children.add(new Property("event", "CodeableConcept", "This element defines the specific type of event that occurred or that was prevented from occurring.", 0, 1, event));
-        children.add(new Property("subject", "Reference(Patient|ResearchSubject|Medication|Device)", "This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.", 0, 1, subject));
+        children.add(new Property("subject", "Reference(Patient|ResearchSubject|Practitioner|Person)", "This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date (and perhaps time) when the adverse event occurred.", 0, 1, date));
         children.add(new Property("resultingCondition", "Reference(Condition)", "Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).", 0, java.lang.Integer.MAX_VALUE, resultingCondition));
         children.add(new Property("location", "Reference(Location)", "The information about where the adverse event occurred.", 0, 1, location));
@@ -2050,7 +2050,7 @@ public class AdverseEvent extends DomainResource {
         case 528866400: /*actuality*/  return new Property("actuality", "code", "Whether the event actually happened, or just had the potential to. Note that this is independent of whether anyone was affected or harmed or how severely.", 0, 1, actuality);
         case 50511102: /*category*/  return new Property("category", "code", "The overall type of event, intended for search and filtering purposes.", 0, 1, category);
         case 96891546: /*event*/  return new Property("event", "CodeableConcept", "This element defines the specific type of event that occurred or that was prevented from occurring.", 0, 1, event);
-        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|ResearchSubject|Medication|Device)", "This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.", 0, 1, subject);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|ResearchSubject|Practitioner|Person)", "This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date (and perhaps time) when the adverse event occurred.", 0, 1, date);
         case -830261258: /*resultingCondition*/  return new Property("resultingCondition", "Reference(Condition)", "Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).", 0, java.lang.Integer.MAX_VALUE, resultingCondition);
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The information about where the adverse event occurred.", 0, 1, location);
@@ -2513,17 +2513,17 @@ public class AdverseEvent extends DomainResource {
  /**
    * Search parameter: <b>actuality</b>
    * <p>
-   * Description: <b>AE | PAE</b><br>
+   * Description: <b>actual | potential</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AdverseEvent.actuality</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="actuality", path="AdverseEvent.actuality", description="AE | PAE", type="token" )
+  @SearchParamDefinition(name="actuality", path="AdverseEvent.actuality", description="actual | potential", type="token" )
   public static final String SP_ACTUALITY = "actuality";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>actuality</b>
    * <p>
-   * Description: <b>AE | PAE</b><br>
+   * Description: <b>actual | potential</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AdverseEvent.actuality</b><br>
    * </p>
@@ -2553,17 +2553,17 @@ public class AdverseEvent extends DomainResource {
  /**
    * Search parameter: <b>subject</b>
    * <p>
-   * Description: <b>Subject or group impacted by event</b><br>
+   * Description: <b>Subject impacted by event</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>AdverseEvent.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="AdverseEvent.subject", description="Subject or group impacted by event", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Device.class, Medication.class, Patient.class, ResearchSubject.class } )
+  @SearchParamDefinition(name="subject", path="AdverseEvent.subject", description="Subject impacted by event", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class, Person.class, Practitioner.class, ResearchSubject.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
-   * Description: <b>Subject or group impacted by event</b><br>
+   * Description: <b>Subject impacted by event</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>AdverseEvent.subject</b><br>
    * </p>

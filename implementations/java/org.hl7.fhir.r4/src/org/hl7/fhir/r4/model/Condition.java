@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -238,6 +238,10 @@ public class Condition extends DomainResource {
 
     public enum ConditionVerificationStatus {
         /**
+         * There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
+         */
+        UNCONFIRMED, 
+        /**
          * This is a tentative diagnosis - still a candidate that is under consideration.
          */
         PROVISIONAL, 
@@ -268,6 +272,8 @@ public class Condition extends DomainResource {
         public static ConditionVerificationStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("unconfirmed".equals(codeString))
+          return UNCONFIRMED;
         if ("provisional".equals(codeString))
           return PROVISIONAL;
         if ("differential".equals(codeString))
@@ -287,6 +293,7 @@ public class Condition extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case UNCONFIRMED: return "unconfirmed";
             case PROVISIONAL: return "provisional";
             case DIFFERENTIAL: return "differential";
             case CONFIRMED: return "confirmed";
@@ -298,6 +305,7 @@ public class Condition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
+            case UNCONFIRMED: return "http://hl7.org/fhir/condition-ver-status";
             case PROVISIONAL: return "http://hl7.org/fhir/condition-ver-status";
             case DIFFERENTIAL: return "http://hl7.org/fhir/condition-ver-status";
             case CONFIRMED: return "http://hl7.org/fhir/condition-ver-status";
@@ -309,6 +317,7 @@ public class Condition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
+            case UNCONFIRMED: return "There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
             case PROVISIONAL: return "This is a tentative diagnosis - still a candidate that is under consideration.";
             case DIFFERENTIAL: return "One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.";
             case CONFIRMED: return "There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
@@ -320,6 +329,7 @@ public class Condition extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
+            case UNCONFIRMED: return "Unconfirmed";
             case PROVISIONAL: return "Provisional";
             case DIFFERENTIAL: return "Differential";
             case CONFIRMED: return "Confirmed";
@@ -336,6 +346,8 @@ public class Condition extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("unconfirmed".equals(codeString))
+          return ConditionVerificationStatus.UNCONFIRMED;
         if ("provisional".equals(codeString))
           return ConditionVerificationStatus.PROVISIONAL;
         if ("differential".equals(codeString))
@@ -358,6 +370,8 @@ public class Condition extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("unconfirmed".equals(codeString))
+          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.UNCONFIRMED);
         if ("provisional".equals(codeString))
           return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.PROVISIONAL);
         if ("differential".equals(codeString))
@@ -373,6 +387,8 @@ public class Condition extends DomainResource {
         throw new FHIRException("Unknown ConditionVerificationStatus code '"+codeString+"'");
         }
     public String toCode(ConditionVerificationStatus code) {
+      if (code == ConditionVerificationStatus.UNCONFIRMED)
+        return "unconfirmed";
       if (code == ConditionVerificationStatus.PROVISIONAL)
         return "provisional";
       if (code == ConditionVerificationStatus.DIFFERENTIAL)
@@ -982,7 +998,7 @@ public class Condition extends DomainResource {
      * The verification status to support the clinical status of the condition.
      */
     @Child(name = "verificationStatus", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="provisional | differential | confirmed | refuted | entered-in-error | unknown", formalDefinition="The verification status to support the clinical status of the condition." )
+    @Description(shortDefinition="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error | unknown", formalDefinition="The verification status to support the clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-ver-status")
     protected Enumeration<ConditionVerificationStatus> verificationStatus;
 
@@ -2481,17 +2497,17 @@ public class Condition extends DomainResource {
  /**
    * Search parameter: <b>verification-status</b>
    * <p>
-   * Description: <b>provisional | differential | confirmed | refuted | entered-in-error | unknown</b><br>
+   * Description: <b>unconfirmed | provisional | differential | confirmed | refuted | entered-in-error | unknown</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Condition.verificationStatus</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="verification-status", path="Condition.verificationStatus", description="provisional | differential | confirmed | refuted | entered-in-error | unknown", type="token" )
+  @SearchParamDefinition(name="verification-status", path="Condition.verificationStatus", description="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error | unknown", type="token" )
   public static final String SP_VERIFICATION_STATUS = "verification-status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>verification-status</b>
    * <p>
-   * Description: <b>provisional | differential | confirmed | refuted | entered-in-error | unknown</b><br>
+   * Description: <b>unconfirmed | provisional | differential | confirmed | refuted | entered-in-error | unknown</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Condition.verificationStatus</b><br>
    * </p>

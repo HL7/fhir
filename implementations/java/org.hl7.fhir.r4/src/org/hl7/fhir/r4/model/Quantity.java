@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
  */
 @DatatypeDef(name="Quantity")
-public class Quantity extends Type implements ICompositeType {
+public class Quantity extends Type implements ICompositeType, ICoding {
 
     public enum QuantityComparator {
         /**
@@ -702,6 +702,36 @@ public class Quantity extends Type implements ICompositeType {
           , system, code);
       }
 
+
+      @Override
+      public String getVersion() {
+        return null;
+      }
+
+      @Override
+      public boolean hasVersion() {
+        return false;
+      }
+
+      @Override
+      public boolean supportsVersion() {
+        return false;
+      }
+
+      @Override
+      public String getDisplay() {
+        return null;
+      }
+
+      @Override
+      public boolean hasDisplay() {
+        return false;
+      }
+
+      @Override
+      public boolean supportsDisplay() {
+        return false;
+      }
 
 }
 

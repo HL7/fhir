@@ -53,7 +53,7 @@ public interface EnumFactory<T extends Enum<?>> extends IBaseEnumFactory<T> {
   public String toCode(T code);
 
   /**
-   * Get the XML/JSON representation for an enumerated value
+   * Get the system URI for an enumerated value
    * @param code - the enumeration value
    * @return the XML/JSON representation
    */

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1166,6 +1166,7 @@ public class StructureDefinition extends MetadataResource {
      */
     @Child(name = "fhirVersion", type = {IdType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version this StructureDefinition targets", formalDefinition="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.1.0 for this version." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
     protected IdType fhirVersion;
 
     /**

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -267,232 +267,6 @@ public class DiagnosticReport extends DomainResource {
       return code.getSystem();
       }
     }
-
-    @Block()
-    public static class DiagnosticReportPerformerComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Describes the type of participation (e.g.  a responsible party, author, or verifier).
-         */
-        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Type of performer", formalDefinition="Describes the type of participation (e.g.  a responsible party, author, or verifier)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
-        protected CodeableConcept role;
-
-        /**
-         * The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.
-         */
-        @Child(name = "actor", type = {Practitioner.class, Organization.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Practitioner or Organization  participant", formalDefinition="The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report." )
-        protected Reference actor;
-
-        /**
-         * The actual object that is the target of the reference (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
-         */
-        protected Resource actorTarget;
-
-        private static final long serialVersionUID = 805521719L;
-
-    /**
-     * Constructor
-     */
-      public DiagnosticReportPerformerComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public DiagnosticReportPerformerComponent(Reference actor) {
-        super();
-        this.actor = actor;
-      }
-
-        /**
-         * @return {@link #role} (Describes the type of participation (e.g.  a responsible party, author, or verifier).)
-         */
-        public CodeableConcept getRole() { 
-          if (this.role == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosticReportPerformerComponent.role");
-            else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept(); // cc
-          return this.role;
-        }
-
-        public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
-        }
-
-        /**
-         * @param value {@link #role} (Describes the type of participation (e.g.  a responsible party, author, or verifier).)
-         */
-        public DiagnosticReportPerformerComponent setRole(CodeableConcept value) { 
-          this.role = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #actor} (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
-         */
-        public Reference getActor() { 
-          if (this.actor == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosticReportPerformerComponent.actor");
-            else if (Configuration.doAutoCreate())
-              this.actor = new Reference(); // cc
-          return this.actor;
-        }
-
-        public boolean hasActor() { 
-          return this.actor != null && !this.actor.isEmpty();
-        }
-
-        /**
-         * @param value {@link #actor} (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
-         */
-        public DiagnosticReportPerformerComponent setActor(Reference value) { 
-          this.actor = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
-         */
-        public Resource getActorTarget() { 
-          return this.actorTarget;
-        }
-
-        /**
-         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
-         */
-        public DiagnosticReportPerformerComponent setActorTarget(Resource value) { 
-          this.actorTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("role", "CodeableConcept", "Describes the type of participation (e.g.  a responsible party, author, or verifier).", 0, 1, role));
-          children.add(new Property("actor", "Reference(Practitioner|Organization)", "The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.", 0, 1, actor));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3506294: /*role*/  return new Property("role", "CodeableConcept", "Describes the type of participation (e.g.  a responsible party, author, or verifier).", 0, 1, role);
-          case 92645877: /*actor*/  return new Property("actor", "Reference(Practitioner|Organization)", "The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.", 0, 1, actor);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3506294: // role
-          this.role = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 92645877: // actor
-          this.actor = castToReference(value); // Reference
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("actor")) {
-          this.actor = castToReference(value); // Reference
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3506294:  return getRole(); 
-        case 92645877:  return getActor(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
-        case 92645877: /*actor*/ return new String[] {"Reference"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = new CodeableConcept();
-          return this.role;
-        }
-        else if (name.equals("actor")) {
-          this.actor = new Reference();
-          return this.actor;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public DiagnosticReportPerformerComponent copy() {
-        DiagnosticReportPerformerComponent dst = new DiagnosticReportPerformerComponent();
-        copyValues(dst);
-        dst.role = role == null ? null : role.copy();
-        dst.actor = actor == null ? null : actor.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof DiagnosticReportPerformerComponent))
-          return false;
-        DiagnosticReportPerformerComponent o = (DiagnosticReportPerformerComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof DiagnosticReportPerformerComponent))
-          return false;
-        DiagnosticReportPerformerComponent o = (DiagnosticReportPerformerComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor);
-      }
-
-  public String fhirType() {
-    return "DiagnosticReport.performer";
-
-  }
-
-  }
 
     @Block()
     public static class DiagnosticReportImageComponent extends BackboneElement implements IBaseBackboneElement {
@@ -823,23 +597,40 @@ public class DiagnosticReport extends DomainResource {
     protected Type effective;
 
     /**
-     * The date and time that this version of the report was released from the source diagnostic service.
+     * The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
      */
     @Child(name = "issued", type = {InstantType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="DateTime this version was released", formalDefinition="The date and time that this version of the report was released from the source diagnostic service." )
+    @Description(shortDefinition="DateTime this version was made", formalDefinition="The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified." )
     protected InstantType issued;
 
     /**
-     * Indicates who or what participated in producing the report.
+     * The diagnostic service that is responsible for issuing the report.
      */
-    @Child(name = "performer", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Participants in producing the report", formalDefinition="Indicates who or what participated in producing the report." )
-    protected List<DiagnosticReportPerformerComponent> performer;
+    @Child(name = "performer", type = {Practitioner.class, Organization.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Responsible Diagnostic Service", formalDefinition="The diagnostic service that is responsible for issuing the report." )
+    protected List<Reference> performer;
+    /**
+     * The actual objects that are the target of the reference (The diagnostic service that is responsible for issuing the report.)
+     */
+    protected List<Resource> performerTarget;
+
+
+    /**
+     * The practitioner or organization that is responsible for the report's conclusions and interpretations.
+     */
+    @Child(name = "resultsInterpreter", type = {Practitioner.class, Organization.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Primary result interpreter", formalDefinition="The practitioner or organization that is responsible for the report's conclusions and interpretations." )
+    protected List<Reference> resultsInterpreter;
+    /**
+     * The actual objects that are the target of the reference (The practitioner or organization that is responsible for the report's conclusions and interpretations.)
+     */
+    protected List<Resource> resultsInterpreterTarget;
+
 
     /**
      * Details about the specimens on which this diagnostic report is based.
      */
-    @Child(name = "specimen", type = {Specimen.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "specimen", type = {Specimen.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Specimens this report is based on", formalDefinition="Details about the specimens on which this diagnostic report is based." )
     protected List<Reference> specimen;
     /**
@@ -851,7 +642,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. "atomic" results), or they can be grouping observations that include references to other members of the group (e.g. "panels").
      */
-    @Child(name = "result", type = {Observation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "result", type = {Observation.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Observations - simple, or complex nested groups", formalDefinition="Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\")." )
     protected List<Reference> result;
     /**
@@ -863,7 +654,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
      */
-    @Child(name = "imagingStudy", type = {ImagingStudy.class, ImagingManifest.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "imagingStudy", type = {ImagingStudy.class, ImagingManifest.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reference to full details of imaging associated with the diagnostic report", formalDefinition="One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images." )
     protected List<Reference> imagingStudy;
     /**
@@ -875,21 +666,21 @@ public class DiagnosticReport extends DomainResource {
     /**
      * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
      */
-    @Child(name = "image", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "image", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Key images associated with this report", formalDefinition="A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)." )
     protected List<DiagnosticReportImageComponent> image;
 
     /**
      * Concise and clinically contextualized impression / summary of the diagnostic report.
      */
-    @Child(name = "conclusion", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "conclusion", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Clinical Interpretation of test results", formalDefinition="Concise and clinically contextualized impression / summary of the diagnostic report." )
     protected StringType conclusion;
 
     /**
      * Codes for the conclusion.
      */
-    @Child(name = "codedDiagnosis", type = {CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "codedDiagnosis", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Codes for the conclusion", formalDefinition="Codes for the conclusion." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
     protected List<CodeableConcept> codedDiagnosis;
@@ -897,11 +688,11 @@ public class DiagnosticReport extends DomainResource {
     /**
      * Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
      */
-    @Child(name = "presentedForm", type = {Attachment.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "presentedForm", type = {Attachment.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Entire report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
-    private static final long serialVersionUID = 989012294L;
+    private static final long serialVersionUID = -742902632L;
 
   /**
    * Constructor
@@ -1252,7 +1043,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #issued} (The date and time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @return {@link #issued} (The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public InstantType getIssuedElement() { 
       if (this.issued == null)
@@ -1272,7 +1063,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #issued} (The date and time that this version of the report was released from the source diagnostic service.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @param value {@link #issued} (The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public DiagnosticReport setIssuedElement(InstantType value) { 
       this.issued = value;
@@ -1280,14 +1071,14 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return The date and time that this version of the report was released from the source diagnostic service.
+     * @return The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
      */
     public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
-     * @param value The date and time that this version of the report was released from the source diagnostic service.
+     * @param value The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
      */
     public DiagnosticReport setIssued(Date value) { 
       if (value == null)
@@ -1301,18 +1092,18 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #performer} (Indicates who or what participated in producing the report.)
+     * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
      */
-    public List<DiagnosticReportPerformerComponent> getPerformer() { 
+    public List<Reference> getPerformer() { 
       if (this.performer == null)
-        this.performer = new ArrayList<DiagnosticReportPerformerComponent>();
+        this.performer = new ArrayList<Reference>();
       return this.performer;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DiagnosticReport setPerformer(List<DiagnosticReportPerformerComponent> thePerformer) { 
+    public DiagnosticReport setPerformer(List<Reference> thePerformer) { 
       this.performer = thePerformer;
       return this;
     }
@@ -1320,25 +1111,25 @@ public class DiagnosticReport extends DomainResource {
     public boolean hasPerformer() { 
       if (this.performer == null)
         return false;
-      for (DiagnosticReportPerformerComponent item : this.performer)
+      for (Reference item : this.performer)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public DiagnosticReportPerformerComponent addPerformer() { //3
-      DiagnosticReportPerformerComponent t = new DiagnosticReportPerformerComponent();
+    public Reference addPerformer() { //3
+      Reference t = new Reference();
       if (this.performer == null)
-        this.performer = new ArrayList<DiagnosticReportPerformerComponent>();
+        this.performer = new ArrayList<Reference>();
       this.performer.add(t);
       return t;
     }
 
-    public DiagnosticReport addPerformer(DiagnosticReportPerformerComponent t) { //3
+    public DiagnosticReport addPerformer(Reference t) { //3
       if (t == null)
         return this;
       if (this.performer == null)
-        this.performer = new ArrayList<DiagnosticReportPerformerComponent>();
+        this.performer = new ArrayList<Reference>();
       this.performer.add(t);
       return this;
     }
@@ -1346,11 +1137,84 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
      */
-    public DiagnosticReportPerformerComponent getPerformerFirstRep() { 
+    public Reference getPerformerFirstRep() { 
       if (getPerformer().isEmpty()) {
         addPerformer();
       }
       return getPerformer().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getPerformerTarget() { 
+      if (this.performerTarget == null)
+        this.performerTarget = new ArrayList<Resource>();
+      return this.performerTarget;
+    }
+
+    /**
+     * @return {@link #resultsInterpreter} (The practitioner or organization that is responsible for the report's conclusions and interpretations.)
+     */
+    public List<Reference> getResultsInterpreter() { 
+      if (this.resultsInterpreter == null)
+        this.resultsInterpreter = new ArrayList<Reference>();
+      return this.resultsInterpreter;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DiagnosticReport setResultsInterpreter(List<Reference> theResultsInterpreter) { 
+      this.resultsInterpreter = theResultsInterpreter;
+      return this;
+    }
+
+    public boolean hasResultsInterpreter() { 
+      if (this.resultsInterpreter == null)
+        return false;
+      for (Reference item : this.resultsInterpreter)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addResultsInterpreter() { //3
+      Reference t = new Reference();
+      if (this.resultsInterpreter == null)
+        this.resultsInterpreter = new ArrayList<Reference>();
+      this.resultsInterpreter.add(t);
+      return t;
+    }
+
+    public DiagnosticReport addResultsInterpreter(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.resultsInterpreter == null)
+        this.resultsInterpreter = new ArrayList<Reference>();
+      this.resultsInterpreter.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #resultsInterpreter}, creating it if it does not already exist
+     */
+    public Reference getResultsInterpreterFirstRep() { 
+      if (getResultsInterpreter().isEmpty()) {
+        addResultsInterpreter();
+      }
+      return getResultsInterpreter().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getResultsInterpreterTarget() { 
+      if (this.resultsInterpreterTarget == null)
+        this.resultsInterpreterTarget = new ArrayList<Resource>();
+      return this.resultsInterpreterTarget;
     }
 
     /**
@@ -1784,8 +1648,9 @@ public class DiagnosticReport extends DomainResource {
         children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport per is about.", 0, 1, context));
         children.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective));
-        children.add(new Property("issued", "instant", "The date and time that this version of the report was released from the source diagnostic service.", 0, 1, issued));
-        children.add(new Property("performer", "", "Indicates who or what participated in producing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
+        children.add(new Property("issued", "instant", "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.", 0, 1, issued));
+        children.add(new Property("performer", "Reference(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
+        children.add(new Property("resultsInterpreter", "Reference(Practitioner|Organization)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter));
         children.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
         children.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result));
         children.add(new Property("imagingStudy", "Reference(ImagingStudy|ImagingManifest)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
@@ -1809,8 +1674,9 @@ public class DiagnosticReport extends DomainResource {
         case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
-        case -1179159893: /*issued*/  return new Property("issued", "instant", "The date and time that this version of the report was released from the source diagnostic service.", 0, 1, issued);
-        case 481140686: /*performer*/  return new Property("performer", "", "Indicates who or what participated in producing the report.", 0, java.lang.Integer.MAX_VALUE, performer);
+        case -1179159893: /*issued*/  return new Property("issued", "instant", "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.", 0, 1, issued);
+        case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer);
+        case 2134944932: /*resultsInterpreter*/  return new Property("resultsInterpreter", "Reference(Practitioner|Organization)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen);
         case -934426595: /*result*/  return new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result);
         case -814900911: /*imagingStudy*/  return new Property("imagingStudy", "Reference(ImagingStudy|ImagingManifest)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy);
@@ -1835,7 +1701,8 @@ public class DiagnosticReport extends DomainResource {
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
-        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // DiagnosticReportPerformerComponent
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
+        case 2134944932: /*resultsInterpreter*/ return this.resultsInterpreter == null ? new Base[0] : this.resultsInterpreter.toArray(new Base[this.resultsInterpreter.size()]); // Reference
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case -934426595: /*result*/ return this.result == null ? new Base[0] : this.result.toArray(new Base[this.result.size()]); // Reference
         case -814900911: /*imagingStudy*/ return this.imagingStudy == null ? new Base[0] : this.imagingStudy.toArray(new Base[this.imagingStudy.size()]); // Reference
@@ -1880,7 +1747,10 @@ public class DiagnosticReport extends DomainResource {
           this.issued = castToInstant(value); // InstantType
           return value;
         case 481140686: // performer
-          this.getPerformer().add((DiagnosticReportPerformerComponent) value); // DiagnosticReportPerformerComponent
+          this.getPerformer().add(castToReference(value)); // Reference
+          return value;
+        case 2134944932: // resultsInterpreter
+          this.getResultsInterpreter().add(castToReference(value)); // Reference
           return value;
         case -2132868344: // specimen
           this.getSpecimen().add(castToReference(value)); // Reference
@@ -1930,7 +1800,9 @@ public class DiagnosticReport extends DomainResource {
         } else if (name.equals("issued")) {
           this.issued = castToInstant(value); // InstantType
         } else if (name.equals("performer")) {
-          this.getPerformer().add((DiagnosticReportPerformerComponent) value);
+          this.getPerformer().add(castToReference(value));
+        } else if (name.equals("resultsInterpreter")) {
+          this.getResultsInterpreter().add(castToReference(value));
         } else if (name.equals("specimen")) {
           this.getSpecimen().add(castToReference(value));
         } else if (name.equals("result")) {
@@ -1964,6 +1836,7 @@ public class DiagnosticReport extends DomainResource {
         case -1468651097:  return getEffective(); 
         case -1179159893:  return getIssuedElement();
         case 481140686:  return addPerformer(); 
+        case 2134944932:  return addResultsInterpreter(); 
         case -2132868344:  return addSpecimen(); 
         case -934426595:  return addResult(); 
         case -814900911:  return addImagingStudy(); 
@@ -1988,7 +1861,8 @@ public class DiagnosticReport extends DomainResource {
         case 951530927: /*context*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case -1179159893: /*issued*/ return new String[] {"instant"};
-        case 481140686: /*performer*/ return new String[] {};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 2134944932: /*resultsInterpreter*/ return new String[] {"Reference"};
         case -2132868344: /*specimen*/ return new String[] {"Reference"};
         case -934426595: /*result*/ return new String[] {"Reference"};
         case -814900911: /*imagingStudy*/ return new String[] {"Reference"};
@@ -2042,6 +1916,9 @@ public class DiagnosticReport extends DomainResource {
         else if (name.equals("performer")) {
           return addPerformer();
         }
+        else if (name.equals("resultsInterpreter")) {
+          return addResultsInterpreter();
+        }
         else if (name.equals("specimen")) {
           return addSpecimen();
         }
@@ -2093,9 +1970,14 @@ public class DiagnosticReport extends DomainResource {
         dst.effective = effective == null ? null : effective.copy();
         dst.issued = issued == null ? null : issued.copy();
         if (performer != null) {
-          dst.performer = new ArrayList<DiagnosticReportPerformerComponent>();
-          for (DiagnosticReportPerformerComponent i : performer)
+          dst.performer = new ArrayList<Reference>();
+          for (Reference i : performer)
             dst.performer.add(i.copy());
+        };
+        if (resultsInterpreter != null) {
+          dst.resultsInterpreter = new ArrayList<Reference>();
+          for (Reference i : resultsInterpreter)
+            dst.resultsInterpreter.add(i.copy());
         };
         if (specimen != null) {
           dst.specimen = new ArrayList<Reference>();
@@ -2145,10 +2027,10 @@ public class DiagnosticReport extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(status, o.status, true)
            && compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true)
            && compareDeep(context, o.context, true) && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true)
-           && compareDeep(performer, o.performer, true) && compareDeep(specimen, o.specimen, true) && compareDeep(result, o.result, true)
-           && compareDeep(imagingStudy, o.imagingStudy, true) && compareDeep(image, o.image, true) && compareDeep(conclusion, o.conclusion, true)
-           && compareDeep(codedDiagnosis, o.codedDiagnosis, true) && compareDeep(presentedForm, o.presentedForm, true)
-          ;
+           && compareDeep(performer, o.performer, true) && compareDeep(resultsInterpreter, o.resultsInterpreter, true)
+           && compareDeep(specimen, o.specimen, true) && compareDeep(result, o.result, true) && compareDeep(imagingStudy, o.imagingStudy, true)
+           && compareDeep(image, o.image, true) && compareDeep(conclusion, o.conclusion, true) && compareDeep(codedDiagnosis, o.codedDiagnosis, true)
+           && compareDeep(presentedForm, o.presentedForm, true);
       }
 
       @Override
@@ -2164,8 +2046,9 @@ public class DiagnosticReport extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, status
-          , category, code, subject, context, effective, issued, performer, specimen, result
-          , imagingStudy, image, conclusion, codedDiagnosis, presentedForm);
+          , category, code, subject, context, effective, issued, performer, resultsInterpreter
+          , specimen, result, imagingStudy, image, conclusion, codedDiagnosis, presentedForm
+          );
       }
 
   @Override
@@ -2242,19 +2125,19 @@ public class DiagnosticReport extends DomainResource {
  /**
    * Search parameter: <b>performer</b>
    * <p>
-   * Description: <b>Who was the source of the report (organization)</b><br>
+   * Description: <b>Who is responsible for the report</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticReport.performer.actor</b><br>
+   * Path: <b>DiagnosticReport.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="DiagnosticReport.performer.actor", description="Who was the source of the report (organization)", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="performer", path="DiagnosticReport.performer", description="Who is responsible for the report", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
    * <p>
-   * Description: <b>Who was the source of the report (organization)</b><br>
+   * Description: <b>Who is responsible for the report</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticReport.performer.actor</b><br>
+   * Path: <b>DiagnosticReport.performer</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
@@ -2526,6 +2409,32 @@ public class DiagnosticReport extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+
+ /**
+   * Search parameter: <b>results-interpreter</b>
+   * <p>
+   * Description: <b>Who was the source of the report</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DiagnosticReport.resultsInterpreter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="results-interpreter", path="DiagnosticReport.resultsInterpreter", description="Who was the source of the report", type="reference", target={Organization.class, Practitioner.class } )
+  public static final String SP_RESULTS_INTERPRETER = "results-interpreter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>results-interpreter</b>
+   * <p>
+   * Description: <b>Who was the source of the report</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DiagnosticReport.resultsInterpreter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESULTS_INTERPRETER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESULTS_INTERPRETER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DiagnosticReport:results-interpreter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESULTS_INTERPRETER = new ca.uhn.fhir.model.api.Include("DiagnosticReport:results-interpreter").toLocked();
 
  /**
    * Search parameter: <b>status</b>

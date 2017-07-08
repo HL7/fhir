@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 public enum ResourceType {
     Account,
@@ -49,6 +49,7 @@ public enum ResourceType {
     EnrollmentRequest,
     EnrollmentResponse,
     EpisodeOfCare,
+    EventDefinition,
     ExpansionProfile,
     ExplanationOfBenefit,
     FamilyMemberHistory,
@@ -212,6 +213,8 @@ public enum ResourceType {
       return "enrollmentresponse";
     case EpisodeOfCare:
       return "episodeofcare";
+    case EventDefinition:
+      return "eventdefinition";
     case ExpansionProfile:
       return "expansionprofile";
     case ExplanationOfBenefit:
@@ -448,6 +451,8 @@ public enum ResourceType {
       return EnrollmentResponse;
     if ("EpisodeOfCare".equals(code))
       return EpisodeOfCare;
+    if ("EventDefinition".equals(code))
+      return EventDefinition;
     if ("ExpansionProfile".equals(code))
       return ExpansionProfile;
     if ("ExplanationOfBenefit".equals(code))

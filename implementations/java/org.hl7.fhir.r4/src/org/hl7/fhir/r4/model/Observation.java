@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1715,10 +1715,10 @@ public class Observation extends DomainResource {
     protected Type effective;
 
     /**
-     * The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
+     * The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.
      */
     @Child(name = "issued", type = {InstantType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date/Time this was made available", formalDefinition="The date and time this observation was made available to providers, typically after the results have been reviewed and verified." )
+    @Description(shortDefinition="Date/Time this version was made available", formalDefinition="The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified." )
     protected InstantType issued;
 
     /**
@@ -1794,7 +1794,7 @@ public class Observation extends DomainResource {
     /**
      * The device used to generate the observation data.
      */
-    @Child(name = "device", type = {Device.class, DeviceMetric.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "device", type = {Device.class, DeviceComponent.class, DeviceMetric.class}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="(Measurement) Device", formalDefinition="The device used to generate the observation data." )
     protected Reference device;
 
@@ -2204,7 +2204,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #issued} (The date and time this observation was made available to providers, typically after the results have been reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @return {@link #issued} (The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public InstantType getIssuedElement() { 
       if (this.issued == null)
@@ -2224,7 +2224,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @param value {@link #issued} (The date and time this observation was made available to providers, typically after the results have been reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
+     * @param value {@link #issued} (The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
     public Observation setIssuedElement(InstantType value) { 
       this.issued = value;
@@ -2232,14 +2232,14 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
+     * @return The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.
      */
     public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
-     * @param value The date and time this observation was made available to providers, typically after the results have been reviewed and verified.
+     * @param value The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.
      */
     public Observation setIssued(Date value) { 
       if (value == null)
@@ -2874,7 +2874,7 @@ public class Observation extends DomainResource {
         children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.", 0, 1, context));
         children.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective));
-        children.add(new Property("issued", "instant", "The date and time this observation was made available to providers, typically after the results have been reviewed and verified.", 0, 1, issued));
+        children.add(new Property("issued", "instant", "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.", 0, 1, issued));
         children.add(new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "Who was responsible for asserting the observed value as \"true\".", 0, java.lang.Integer.MAX_VALUE, performer));
         children.add(new Property("value[x]", "Quantity|CodeableConcept|string|boolean|Range|Ratio|SampledData|Attachment|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value));
         children.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason));
@@ -2883,7 +2883,7 @@ public class Observation extends DomainResource {
         children.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite));
         children.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method));
         children.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, 1, specimen));
-        children.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to generate the observation data.", 0, 1, device));
+        children.add(new Property("device", "Reference(Device|DeviceComponent|DeviceMetric)", "The device used to generate the observation data.", 0, 1, device));
         children.add(new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
         children.add(new Property("related", "", "A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.", 0, java.lang.Integer.MAX_VALUE, related));
         children.add(new Property("component", "", "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.", 0, java.lang.Integer.MAX_VALUE, component));
@@ -2903,7 +2903,7 @@ public class Observation extends DomainResource {
         case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
-        case -1179159893: /*issued*/  return new Property("issued", "instant", "The date and time this observation was made available to providers, typically after the results have been reviewed and verified.", 0, 1, issued);
+        case -1179159893: /*issued*/  return new Property("issued", "instant", "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.", 0, 1, issued);
         case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "Who was responsible for asserting the observed value as \"true\".", 0, java.lang.Integer.MAX_VALUE, performer);
         case -1410166417: /*value[x]*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|Range|Ratio|SampledData|Attachment|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
         case 111972721: /*value*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|Range|Ratio|SampledData|Attachment|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
@@ -2924,7 +2924,7 @@ public class Observation extends DomainResource {
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite);
         case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, 1, specimen);
-        case -1335157162: /*device*/  return new Property("device", "Reference(Device|DeviceMetric)", "The device used to generate the observation data.", 0, 1, device);
+        case -1335157162: /*device*/  return new Property("device", "Reference(Device|DeviceComponent|DeviceMetric)", "The device used to generate the observation data.", 0, 1, device);
         case -1912545102: /*referenceRange*/  return new Property("referenceRange", "", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange);
         case 1090493483: /*related*/  return new Property("related", "", "A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.", 0, java.lang.Integer.MAX_VALUE, related);
         case -1399907075: /*component*/  return new Property("component", "", "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.", 0, java.lang.Integer.MAX_VALUE, component);
@@ -4128,7 +4128,7 @@ public class Observation extends DomainResource {
    * Path: <b>Observation.device</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="device", path="Observation.device", description="The Device that generated the observation data.", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class, DeviceMetric.class } )
+  @SearchParamDefinition(name="device", path="Observation.device", description="The Device that generated the observation data.", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device") }, target={Device.class, DeviceComponent.class, DeviceMetric.class } )
   public static final String SP_DEVICE = "device";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>device</b>

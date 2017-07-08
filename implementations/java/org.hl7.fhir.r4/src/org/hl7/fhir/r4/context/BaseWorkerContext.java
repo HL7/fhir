@@ -26,6 +26,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
@@ -149,7 +150,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     
     if (r instanceof MetadataResource) {
       String url = ((MetadataResource) r).getUrl();
-      if (hasResource(r.getClass(), url) && !allowLoadingDuplicates)
+      if (!allowLoadingDuplicates && hasResource(r.getClass(), url))
         throw new DefinitionException("Duplicate Resource " + url);
       if (r instanceof StructureDefinition)
         seeStructureDefinition(url, (StructureDefinition) r);
@@ -1008,5 +1009,21 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return false;
     }
   }
+
+  @Override
+  public ValueSetExpansionOutcome expandVS(ElementDefinitionBindingComponent binding, boolean cacheOk, boolean heirarchical) throws FHIRException {
+    ValueSet vs = null;
+    if (binding.hasValueSetReference()) {
+      vs = fetchResource(ValueSet.class, binding.getValueSetReference().getReference());
+      if (vs == null)
+        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetReference().getReference());
+    } else {
+      vs = fetchResource(ValueSet.class, binding.getValueSetUriType().asStringValue());
+      if (vs == null)
+        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetUriType().asStringValue());
+    }
+    return expandVS(vs, cacheOk, heirarchical);
+  }
+  
 
 }

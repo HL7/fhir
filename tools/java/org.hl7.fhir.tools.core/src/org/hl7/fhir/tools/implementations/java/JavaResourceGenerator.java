@@ -211,6 +211,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       } else {
         hierarchy = supertype;
       }
+      if (adornments.containsKey(classname+".implements")) 
+        hierarchy = hierarchy +", "+adornments.get(classname+".implements").trim();
       write("public "+(isAbstract? "abstract " : "")+"class "+upFirst(name)+" extends "+hierarchy+" ");
     } else if (clss == JavaGenClass.Structure && upFirst(name).equals("Element")) {
       write("public abstract class "+upFirst(name)+" extends Base implements IBaseHasExtensions, IBaseElement ");
@@ -240,10 +242,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			write("public class "+upFirst(cd.getName())+" extends " + upFirst(root.getName()) + " ");
     } else if (root.getName().equals("Quantity")) {
 		  write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-			write("public class "+upFirst(name)+" extends Type implements ICompositeType ");
+			write("public class "+upFirst(name)+" extends Type implements ICompositeType, ICoding ");
     } else if (root.getName().equals("Coding")) {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-      write("public class "+upFirst(name)+" extends Type implements IBaseCoding, ICompositeType ");
+      write("public class "+upFirst(name)+" extends Type implements IBaseCoding, ICompositeType, ICoding ");
     } else if (root.getName().equals("Meta")) {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
       write("public class "+upFirst(name)+" extends Type implements IBaseMetaType ");

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -88,7 +88,7 @@ public class ActivityDefinition extends MetadataResource {
          */
         BINARY, 
         /**
-         * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
+         * Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
         BODYSTRUCTURE, 
         /**
@@ -231,6 +231,10 @@ public class ActivityDefinition extends MetadataResource {
          * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
          */
         EPISODEOFCARE, 
+        /**
+         * The EventDefinition resource provides a reusable description of when a particular event can occur.
+         */
+        EVENTDEFINITION, 
         /**
          * Resource to define constraints on the Expansion of a FHIR ValueSet.
          */
@@ -616,6 +620,8 @@ public class ActivityDefinition extends MetadataResource {
           return ENROLLMENTRESPONSE;
         if ("EpisodeOfCare".equals(codeString))
           return EPISODEOFCARE;
+        if ("EventDefinition".equals(codeString))
+          return EVENTDEFINITION;
         if ("ExpansionProfile".equals(codeString))
           return EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
@@ -812,6 +818,7 @@ public class ActivityDefinition extends MetadataResource {
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
+            case EVENTDEFINITION: return "EventDefinition";
             case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
@@ -934,6 +941,7 @@ public class ActivityDefinition extends MetadataResource {
             case ENROLLMENTREQUEST: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
+            case EVENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case EXPANSIONPROFILE: return "http://hl7.org/fhir/resource-types";
             case EXPLANATIONOFBENEFIT: return "http://hl7.org/fhir/resource-types";
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
@@ -1020,7 +1028,7 @@ public class ActivityDefinition extends MetadataResource {
             case AUDITEVENT: return "A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.";
             case BASIC: return "Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.";
             case BINARY: return "A binary resource can contain any content, whether text, image, pdf, zip archive, etc.";
-            case BODYSTRUCTURE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
+            case BODYSTRUCTURE: return "Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
@@ -1056,6 +1064,7 @@ public class ActivityDefinition extends MetadataResource {
             case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
             case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
+            case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
             case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
@@ -1178,6 +1187,7 @@ public class ActivityDefinition extends MetadataResource {
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
             case EPISODEOFCARE: return "EpisodeOfCare";
+            case EVENTDEFINITION: return "EventDefinition";
             case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
@@ -1350,6 +1360,8 @@ public class ActivityDefinition extends MetadataResource {
           return ActivityDefinitionKind.ENROLLMENTRESPONSE;
         if ("EpisodeOfCare".equals(codeString))
           return ActivityDefinitionKind.EPISODEOFCARE;
+        if ("EventDefinition".equals(codeString))
+          return ActivityDefinitionKind.EVENTDEFINITION;
         if ("ExpansionProfile".equals(codeString))
           return ActivityDefinitionKind.EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
@@ -1594,6 +1606,8 @@ public class ActivityDefinition extends MetadataResource {
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.ENROLLMENTRESPONSE);
         if ("EpisodeOfCare".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EPISODEOFCARE);
+        if ("EventDefinition".equals(codeString))
+          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EVENTDEFINITION);
         if ("ExpansionProfile".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EXPANSIONPROFILE);
         if ("ExplanationOfBenefit".equals(codeString))
@@ -1831,6 +1845,8 @@ public class ActivityDefinition extends MetadataResource {
         return "EnrollmentResponse";
       if (code == ActivityDefinitionKind.EPISODEOFCARE)
         return "EpisodeOfCare";
+      if (code == ActivityDefinitionKind.EVENTDEFINITION)
+        return "EventDefinition";
       if (code == ActivityDefinitionKind.EXPANSIONPROFILE)
         return "ExpansionProfile";
       if (code == ActivityDefinitionKind.EXPLANATIONOFBENEFIT)

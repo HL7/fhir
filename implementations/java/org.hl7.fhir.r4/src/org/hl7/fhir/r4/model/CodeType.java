@@ -30,13 +30,15 @@ package org.hl7.fhir.r4.model;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
+import org.hl7.fhir.utilities.Utilities;
+
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 
 /**
  * Primitive type "code" in FHIR, when not bound to an enumerated list of codes
  */
 @DatatypeDef(name="code", profileOf=StringType.class)
-public class CodeType extends StringType implements Comparable<CodeType>  {
+public class CodeType extends StringType implements Comparable<CodeType>, ICoding  {
 
 	private static final long serialVersionUID = 3L;
 
@@ -73,4 +75,61 @@ public class CodeType extends StringType implements Comparable<CodeType>  {
 	public String fhirType() {
 		return "code";		
 	}
+
+  private String system;
+  
+  @Override
+  public String getSystem() {
+    return system;
+  }
+
+  @Override
+  public boolean hasSystem() {
+    return system != null;
+  }
+  
+  public CodeType setSystem(String system) {
+    this.system = system;
+    return this;
+  }
+
+  @Override
+  public String getVersion() {
+    return null;
+  }
+
+  @Override
+  public boolean hasVersion() {
+    return false;
+  }
+  
+  @Override
+  public String getDisplay() {
+    return null;
+  }
+
+  @Override
+  public boolean hasDisplay() {
+    return false;
+  }
+
+  @Override
+  public String getCode() {
+    return asStringValue();
+  }
+
+  @Override
+  public boolean hasCode() {
+    return !Utilities.noString(asStringValue());
+  }
+
+  @Override
+  public boolean supportsVersion() {
+    return false;
+  }
+
+  @Override
+  public boolean supportsDisplay() {
+    return false;
+  }
 }

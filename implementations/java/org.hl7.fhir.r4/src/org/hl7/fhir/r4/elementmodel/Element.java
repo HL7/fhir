@@ -13,12 +13,18 @@ import java.util.Set;
 
 import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.r4.elementmodel.Element.ElementSortComparator;
+import org.hl7.fhir.r4.elementmodel.Element.ICodingImpl;
 import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.ICoding;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -638,4 +644,100 @@ public class Element extends Base {
 
   }
 
+  public class ICodingImpl implements ICoding {
+    private String system;
+    private String version;
+    private String code;
+    private String display;
+    private boolean doesSystem;
+    private boolean doesVersion;
+    private boolean doesCode;
+    private boolean doesDisplay;
+    public ICodingImpl(boolean doesCode, boolean doesSystem, boolean doesVersion, boolean doesDisplay) {
+      super();
+      this.doesCode = doesCode;
+      this.doesSystem = doesSystem;
+      this.doesVersion = doesVersion;
+      this.doesDisplay = doesDisplay;
+    }
+    public String getSystem() {
+      return system;
+    }
+    public String getVersion() {
+      return version;
+    }
+    public String getCode() {
+      return code;
+    }
+    public String getDisplay() {
+      return display;
+    }
+    public boolean hasSystem() {
+      return !Utilities.noString(system); 
+    }
+    public boolean hasVersion() {
+      return !Utilities.noString(version);
+    }
+    public boolean hasCode() {
+      return !Utilities.noString(code);
+    }
+    public boolean hasDisplay() {
+      return !Utilities.noString(display);
+    }
+    public boolean supportsSystem() {
+      return doesSystem;
+    }
+    public boolean supportsVersion() {
+      return doesVersion;
+    }
+    public boolean supportsCode() {
+      return doesCode;
+    }
+    public boolean supportsDisplay() {
+      return doesDisplay;
+    }    
+  }
+
+  public ICoding getAsICoding() throws FHIRException {
+    if ("code".equals(fhirType())) {
+      if (property.getDefinition().getBinding().getStrength() != BindingStrength.REQUIRED)
+        return null;
+      ICodingImpl c = new ICodingImpl(true, true, false, false);
+      c.code = primitiveValue();
+      ValueSetExpansionOutcome vse = property.getContext().expandVS(property.getDefinition().getBinding(), true, false);
+      if (vse.getValueset() == null)
+        return null;
+      for (ValueSetExpansionContainsComponent cc : vse.getValueset().getExpansion().getContains()) {
+        if (cc.getCode().equals(c.code)) {
+          c.system = cc.getSystem();
+          if (cc.hasVersion()) {
+            c.doesVersion = true;
+            c.version = cc.getVersion();
+          }
+          if (cc.hasDisplay()) {
+            c.doesDisplay = true;
+            c.display = cc.getDisplay();
+          }
+        }
+      }
+      if (c.system == null)
+        return null;
+      return c;   
+    } else if ("Coding".equals(fhirType())) {
+      ICodingImpl c = new ICodingImpl(true, true, true, true);
+      c.system = getNamedChildValue("system");
+      c.code = getNamedChildValue("code");
+      c.display = getNamedChildValue("display");
+      c.version = getNamedChildValue("version");
+      return c;
+    } else if ("Quantity".equals(fhirType())) {
+      ICodingImpl c = new ICodingImpl(true, true, false, false);
+      c.system = getNamedChildValue("system");
+      c.code = getNamedChildValue("code");
+      return c;
+    } else 
+      return null;
+  }
+
+  
 }

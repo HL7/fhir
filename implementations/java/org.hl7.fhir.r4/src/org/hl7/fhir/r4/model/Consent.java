@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -205,7 +205,7 @@ public class Consent extends DomainResource {
       }
     }
 
-    public enum ConsentRuleType {
+    public enum ConsentProvisionType {
         /**
          * Consent is denied for actions meeting these rules
          */
@@ -218,7 +218,7 @@ public class Consent extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static ConsentRuleType fromCode(String codeString) throws FHIRException {
+        public static ConsentProvisionType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("deny".equals(codeString))
@@ -228,7 +228,7 @@ public class Consent extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown ConsentRuleType code '"+codeString+"'");
+          throw new FHIRException("Unknown ConsentProvisionType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -239,8 +239,8 @@ public class Consent extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case DENY: return "http://hl7.org/fhir/consent-rule-type";
-            case PERMIT: return "http://hl7.org/fhir/consent-rule-type";
+            case DENY: return "http://hl7.org/fhir/consent-provision-type";
+            case PERMIT: return "http://hl7.org/fhir/consent-provision-type";
             default: return "?";
           }
         }
@@ -260,39 +260,39 @@ public class Consent extends DomainResource {
         }
     }
 
-  public static class ConsentRuleTypeEnumFactory implements EnumFactory<ConsentRuleType> {
-    public ConsentRuleType fromCode(String codeString) throws IllegalArgumentException {
+  public static class ConsentProvisionTypeEnumFactory implements EnumFactory<ConsentProvisionType> {
+    public ConsentProvisionType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("deny".equals(codeString))
-          return ConsentRuleType.DENY;
+          return ConsentProvisionType.DENY;
         if ("permit".equals(codeString))
-          return ConsentRuleType.PERMIT;
-        throw new IllegalArgumentException("Unknown ConsentRuleType code '"+codeString+"'");
+          return ConsentProvisionType.PERMIT;
+        throw new IllegalArgumentException("Unknown ConsentProvisionType code '"+codeString+"'");
         }
-        public Enumeration<ConsentRuleType> fromType(Base code) throws FHIRException {
+        public Enumeration<ConsentProvisionType> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<ConsentRuleType>(this);
+            return new Enumeration<ConsentProvisionType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("deny".equals(codeString))
-          return new Enumeration<ConsentRuleType>(this, ConsentRuleType.DENY);
+          return new Enumeration<ConsentProvisionType>(this, ConsentProvisionType.DENY);
         if ("permit".equals(codeString))
-          return new Enumeration<ConsentRuleType>(this, ConsentRuleType.PERMIT);
-        throw new FHIRException("Unknown ConsentRuleType code '"+codeString+"'");
+          return new Enumeration<ConsentProvisionType>(this, ConsentProvisionType.PERMIT);
+        throw new FHIRException("Unknown ConsentProvisionType code '"+codeString+"'");
         }
-    public String toCode(ConsentRuleType code) {
-      if (code == ConsentRuleType.DENY)
+    public String toCode(ConsentProvisionType code) {
+      if (code == ConsentProvisionType.DENY)
         return "deny";
-      if (code == ConsentRuleType.PERMIT)
+      if (code == ConsentProvisionType.PERMIT)
         return "permit";
       return "?";
       }
-    public String toSystem(ConsentRuleType code) {
+    public String toSystem(ConsentProvisionType code) {
       return code.getSystem();
       }
     }
@@ -985,14 +985,14 @@ public class Consent extends DomainResource {
   }
 
     @Block()
-    public static class ruleComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class provisionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="deny | permit", formalDefinition="Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-rule-type")
-        protected Enumeration<ConsentRuleType> type;
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-provision-type")
+        protected Enumeration<ConsentProvisionType> type;
 
         /**
          * The timeframe in this rule is valid.
@@ -1006,7 +1006,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "actor", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Who|what controlled by this rule (or group, by role)", formalDefinition="Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')." )
-        protected List<ruleActorComponent> actor;
+        protected List<provisionActorComponent> actor;
 
         /**
          * Actions controlled by this Rule.
@@ -1060,33 +1060,33 @@ public class Consent extends DomainResource {
          */
         @Child(name = "data", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Data controlled by this rule", formalDefinition="The resources controlled by this rule if specific resources are referenced." )
-        protected List<ruleDataComponent> data;
+        protected List<provisionDataComponent> data;
 
         /**
          * Rules which provide exceptions to the base rule or subrules.
          */
-        @Child(name = "rule", type = {ruleComponent.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "provision", type = {provisionComponent.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Nested Exception Rules", formalDefinition="Rules which provide exceptions to the base rule or subrules." )
-        protected List<ruleComponent> rule;
+        protected List<provisionComponent> provision;
 
-        private static final long serialVersionUID = 684361817L;
+        private static final long serialVersionUID = -513465910L;
 
     /**
      * Constructor
      */
-      public ruleComponent() {
+      public provisionComponent() {
         super();
       }
 
         /**
          * @return {@link #type} (Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ConsentRuleType> getTypeElement() { 
+        public Enumeration<ConsentProvisionType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleComponent.type");
+              throw new Error("Attempt to auto-create provisionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<ConsentRuleType>(new ConsentRuleTypeEnumFactory()); // bb
+              this.type = new Enumeration<ConsentProvisionType>(new ConsentProvisionTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -1101,7 +1101,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #type} (Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ruleComponent setTypeElement(Enumeration<ConsentRuleType> value) { 
+        public provisionComponent setTypeElement(Enumeration<ConsentProvisionType> value) { 
           this.type = value;
           return this;
         }
@@ -1109,19 +1109,19 @@ public class Consent extends DomainResource {
         /**
          * @return Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
          */
-        public ConsentRuleType getType() { 
+        public ConsentProvisionType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
          */
-        public ruleComponent setType(ConsentRuleType value) { 
+        public provisionComponent setType(ConsentProvisionType value) { 
           if (value == null)
             this.type = null;
           else {
             if (this.type == null)
-              this.type = new Enumeration<ConsentRuleType>(new ConsentRuleTypeEnumFactory());
+              this.type = new Enumeration<ConsentProvisionType>(new ConsentProvisionTypeEnumFactory());
             this.type.setValue(value);
           }
           return this;
@@ -1133,7 +1133,7 @@ public class Consent extends DomainResource {
         public Period getPeriod() { 
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleComponent.period");
+              throw new Error("Attempt to auto-create provisionComponent.period");
             else if (Configuration.doAutoCreate())
               this.period = new Period(); // cc
           return this.period;
@@ -1146,7 +1146,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #period} (The timeframe in this rule is valid.)
          */
-        public ruleComponent setPeriod(Period value) { 
+        public provisionComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
@@ -1154,16 +1154,16 @@ public class Consent extends DomainResource {
         /**
          * @return {@link #actor} (Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
          */
-        public List<ruleActorComponent> getActor() { 
+        public List<provisionActorComponent> getActor() { 
           if (this.actor == null)
-            this.actor = new ArrayList<ruleActorComponent>();
+            this.actor = new ArrayList<provisionActorComponent>();
           return this.actor;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setActor(List<ruleActorComponent> theActor) { 
+        public provisionComponent setActor(List<provisionActorComponent> theActor) { 
           this.actor = theActor;
           return this;
         }
@@ -1171,25 +1171,25 @@ public class Consent extends DomainResource {
         public boolean hasActor() { 
           if (this.actor == null)
             return false;
-          for (ruleActorComponent item : this.actor)
+          for (provisionActorComponent item : this.actor)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ruleActorComponent addActor() { //3
-          ruleActorComponent t = new ruleActorComponent();
+        public provisionActorComponent addActor() { //3
+          provisionActorComponent t = new provisionActorComponent();
           if (this.actor == null)
-            this.actor = new ArrayList<ruleActorComponent>();
+            this.actor = new ArrayList<provisionActorComponent>();
           this.actor.add(t);
           return t;
         }
 
-        public ruleComponent addActor(ruleActorComponent t) { //3
+        public provisionComponent addActor(provisionActorComponent t) { //3
           if (t == null)
             return this;
           if (this.actor == null)
-            this.actor = new ArrayList<ruleActorComponent>();
+            this.actor = new ArrayList<provisionActorComponent>();
           this.actor.add(t);
           return this;
         }
@@ -1197,7 +1197,7 @@ public class Consent extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #actor}, creating it if it does not already exist
          */
-        public ruleActorComponent getActorFirstRep() { 
+        public provisionActorComponent getActorFirstRep() { 
           if (getActor().isEmpty()) {
             addActor();
           }
@@ -1216,7 +1216,7 @@ public class Consent extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setAction(List<CodeableConcept> theAction) { 
+        public provisionComponent setAction(List<CodeableConcept> theAction) { 
           this.action = theAction;
           return this;
         }
@@ -1238,7 +1238,7 @@ public class Consent extends DomainResource {
           return t;
         }
 
-        public ruleComponent addAction(CodeableConcept t) { //3
+        public provisionComponent addAction(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.action == null)
@@ -1269,7 +1269,7 @@ public class Consent extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setSecurityLabel(List<Coding> theSecurityLabel) { 
+        public provisionComponent setSecurityLabel(List<Coding> theSecurityLabel) { 
           this.securityLabel = theSecurityLabel;
           return this;
         }
@@ -1291,7 +1291,7 @@ public class Consent extends DomainResource {
           return t;
         }
 
-        public ruleComponent addSecurityLabel(Coding t) { //3
+        public provisionComponent addSecurityLabel(Coding t) { //3
           if (t == null)
             return this;
           if (this.securityLabel == null)
@@ -1322,7 +1322,7 @@ public class Consent extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setPurpose(List<Coding> thePurpose) { 
+        public provisionComponent setPurpose(List<Coding> thePurpose) { 
           this.purpose = thePurpose;
           return this;
         }
@@ -1344,7 +1344,7 @@ public class Consent extends DomainResource {
           return t;
         }
 
-        public ruleComponent addPurpose(Coding t) { //3
+        public provisionComponent addPurpose(Coding t) { //3
           if (t == null)
             return this;
           if (this.purpose == null)
@@ -1375,7 +1375,7 @@ public class Consent extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setClass_(List<Coding> theClass_) { 
+        public provisionComponent setClass_(List<Coding> theClass_) { 
           this.class_ = theClass_;
           return this;
         }
@@ -1397,7 +1397,7 @@ public class Consent extends DomainResource {
           return t;
         }
 
-        public ruleComponent addClass_(Coding t) { //3
+        public provisionComponent addClass_(Coding t) { //3
           if (t == null)
             return this;
           if (this.class_ == null)
@@ -1428,7 +1428,7 @@ public class Consent extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setCode(List<Coding> theCode) { 
+        public provisionComponent setCode(List<Coding> theCode) { 
           this.code = theCode;
           return this;
         }
@@ -1450,7 +1450,7 @@ public class Consent extends DomainResource {
           return t;
         }
 
-        public ruleComponent addCode(Coding t) { //3
+        public provisionComponent addCode(Coding t) { //3
           if (t == null)
             return this;
           if (this.code == null)
@@ -1475,7 +1475,7 @@ public class Consent extends DomainResource {
         public Period getDataPeriod() { 
           if (this.dataPeriod == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleComponent.dataPeriod");
+              throw new Error("Attempt to auto-create provisionComponent.dataPeriod");
             else if (Configuration.doAutoCreate())
               this.dataPeriod = new Period(); // cc
           return this.dataPeriod;
@@ -1488,7 +1488,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #dataPeriod} (Clinical or Operational Relevant period of time that bounds the data controlled by this rule.)
          */
-        public ruleComponent setDataPeriod(Period value) { 
+        public provisionComponent setDataPeriod(Period value) { 
           this.dataPeriod = value;
           return this;
         }
@@ -1496,16 +1496,16 @@ public class Consent extends DomainResource {
         /**
          * @return {@link #data} (The resources controlled by this rule if specific resources are referenced.)
          */
-        public List<ruleDataComponent> getData() { 
+        public List<provisionDataComponent> getData() { 
           if (this.data == null)
-            this.data = new ArrayList<ruleDataComponent>();
+            this.data = new ArrayList<provisionDataComponent>();
           return this.data;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setData(List<ruleDataComponent> theData) { 
+        public provisionComponent setData(List<provisionDataComponent> theData) { 
           this.data = theData;
           return this;
         }
@@ -1513,25 +1513,25 @@ public class Consent extends DomainResource {
         public boolean hasData() { 
           if (this.data == null)
             return false;
-          for (ruleDataComponent item : this.data)
+          for (provisionDataComponent item : this.data)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ruleDataComponent addData() { //3
-          ruleDataComponent t = new ruleDataComponent();
+        public provisionDataComponent addData() { //3
+          provisionDataComponent t = new provisionDataComponent();
           if (this.data == null)
-            this.data = new ArrayList<ruleDataComponent>();
+            this.data = new ArrayList<provisionDataComponent>();
           this.data.add(t);
           return t;
         }
 
-        public ruleComponent addData(ruleDataComponent t) { //3
+        public provisionComponent addData(provisionDataComponent t) { //3
           if (t == null)
             return this;
           if (this.data == null)
-            this.data = new ArrayList<ruleDataComponent>();
+            this.data = new ArrayList<provisionDataComponent>();
           this.data.add(t);
           return this;
         }
@@ -1539,7 +1539,7 @@ public class Consent extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #data}, creating it if it does not already exist
          */
-        public ruleDataComponent getDataFirstRep() { 
+        public provisionDataComponent getDataFirstRep() { 
           if (getData().isEmpty()) {
             addData();
           }
@@ -1547,56 +1547,56 @@ public class Consent extends DomainResource {
         }
 
         /**
-         * @return {@link #rule} (Rules which provide exceptions to the base rule or subrules.)
+         * @return {@link #provision} (Rules which provide exceptions to the base rule or subrules.)
          */
-        public List<ruleComponent> getRule() { 
-          if (this.rule == null)
-            this.rule = new ArrayList<ruleComponent>();
-          return this.rule;
+        public List<provisionComponent> getProvision() { 
+          if (this.provision == null)
+            this.provision = new ArrayList<provisionComponent>();
+          return this.provision;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ruleComponent setRule(List<ruleComponent> theRule) { 
-          this.rule = theRule;
+        public provisionComponent setProvision(List<provisionComponent> theProvision) { 
+          this.provision = theProvision;
           return this;
         }
 
-        public boolean hasRule() { 
-          if (this.rule == null)
+        public boolean hasProvision() { 
+          if (this.provision == null)
             return false;
-          for (ruleComponent item : this.rule)
+          for (provisionComponent item : this.provision)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ruleComponent addRule() { //3
-          ruleComponent t = new ruleComponent();
-          if (this.rule == null)
-            this.rule = new ArrayList<ruleComponent>();
-          this.rule.add(t);
+        public provisionComponent addProvision() { //3
+          provisionComponent t = new provisionComponent();
+          if (this.provision == null)
+            this.provision = new ArrayList<provisionComponent>();
+          this.provision.add(t);
           return t;
         }
 
-        public ruleComponent addRule(ruleComponent t) { //3
+        public provisionComponent addProvision(provisionComponent t) { //3
           if (t == null)
             return this;
-          if (this.rule == null)
-            this.rule = new ArrayList<ruleComponent>();
-          this.rule.add(t);
+          if (this.provision == null)
+            this.provision = new ArrayList<provisionComponent>();
+          this.provision.add(t);
           return this;
         }
 
         /**
-         * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+         * @return The first repetition of repeating field {@link #provision}, creating it if it does not already exist
          */
-        public ruleComponent getRuleFirstRep() { 
-          if (getRule().isEmpty()) {
-            addRule();
+        public provisionComponent getProvisionFirstRep() { 
+          if (getProvision().isEmpty()) {
+            addProvision();
           }
-          return getRule().get(0);
+          return getProvision().get(0);
         }
 
         protected void listChildren(List<Property> children) {
@@ -1611,7 +1611,7 @@ public class Consent extends DomainResource {
           children.add(new Property("code", "Coding", "If this code is found in an instance, then the rule applies.", 0, java.lang.Integer.MAX_VALUE, code));
           children.add(new Property("dataPeriod", "Period", "Clinical or Operational Relevant period of time that bounds the data controlled by this rule.", 0, 1, dataPeriod));
           children.add(new Property("data", "", "The resources controlled by this rule if specific resources are referenced.", 0, java.lang.Integer.MAX_VALUE, data));
-          children.add(new Property("rule", "@Consent.rule", "Rules which provide exceptions to the base rule or subrules.", 0, java.lang.Integer.MAX_VALUE, rule));
+          children.add(new Property("provision", "@Consent.provision", "Rules which provide exceptions to the base rule or subrules.", 0, java.lang.Integer.MAX_VALUE, provision));
         }
 
         @Override
@@ -1627,7 +1627,7 @@ public class Consent extends DomainResource {
           case 3059181: /*code*/  return new Property("code", "Coding", "If this code is found in an instance, then the rule applies.", 0, java.lang.Integer.MAX_VALUE, code);
           case 1177250315: /*dataPeriod*/  return new Property("dataPeriod", "Period", "Clinical or Operational Relevant period of time that bounds the data controlled by this rule.", 0, 1, dataPeriod);
           case 3076010: /*data*/  return new Property("data", "", "The resources controlled by this rule if specific resources are referenced.", 0, java.lang.Integer.MAX_VALUE, data);
-          case 3512060: /*rule*/  return new Property("rule", "@Consent.rule", "Rules which provide exceptions to the base rule or subrules.", 0, java.lang.Integer.MAX_VALUE, rule);
+          case -547120939: /*provision*/  return new Property("provision", "@Consent.provision", "Rules which provide exceptions to the base rule or subrules.", 0, java.lang.Integer.MAX_VALUE, provision);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1636,17 +1636,17 @@ public class Consent extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ConsentRuleType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ConsentProvisionType>
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ruleActorComponent
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // provisionActorComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // CodeableConcept
         case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // Coding
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : this.purpose.toArray(new Base[this.purpose.size()]); // Coding
         case 94742904: /*class*/ return this.class_ == null ? new Base[0] : this.class_.toArray(new Base[this.class_.size()]); // Coding
         case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // Coding
         case 1177250315: /*dataPeriod*/ return this.dataPeriod == null ? new Base[0] : new Base[] {this.dataPeriod}; // Period
-        case 3076010: /*data*/ return this.data == null ? new Base[0] : this.data.toArray(new Base[this.data.size()]); // ruleDataComponent
-        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // ruleComponent
+        case 3076010: /*data*/ return this.data == null ? new Base[0] : this.data.toArray(new Base[this.data.size()]); // provisionDataComponent
+        case -547120939: /*provision*/ return this.provision == null ? new Base[0] : this.provision.toArray(new Base[this.provision.size()]); // provisionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1656,14 +1656,14 @@ public class Consent extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          value = new ConsentRuleTypeEnumFactory().fromType(castToCode(value));
-          this.type = (Enumeration) value; // Enumeration<ConsentRuleType>
+          value = new ConsentProvisionTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ConsentProvisionType>
           return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
           return value;
         case 92645877: // actor
-          this.getActor().add((ruleActorComponent) value); // ruleActorComponent
+          this.getActor().add((provisionActorComponent) value); // provisionActorComponent
           return value;
         case -1422950858: // action
           this.getAction().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1684,10 +1684,10 @@ public class Consent extends DomainResource {
           this.dataPeriod = castToPeriod(value); // Period
           return value;
         case 3076010: // data
-          this.getData().add((ruleDataComponent) value); // ruleDataComponent
+          this.getData().add((provisionDataComponent) value); // provisionDataComponent
           return value;
-        case 3512060: // rule
-          this.getRule().add((ruleComponent) value); // ruleComponent
+        case -547120939: // provision
+          this.getProvision().add((provisionComponent) value); // provisionComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1697,12 +1697,12 @@ public class Consent extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type")) {
-          value = new ConsentRuleTypeEnumFactory().fromType(castToCode(value));
-          this.type = (Enumeration) value; // Enumeration<ConsentRuleType>
+          value = new ConsentProvisionTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ConsentProvisionType>
         } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
         } else if (name.equals("actor")) {
-          this.getActor().add((ruleActorComponent) value);
+          this.getActor().add((provisionActorComponent) value);
         } else if (name.equals("action")) {
           this.getAction().add(castToCodeableConcept(value));
         } else if (name.equals("securityLabel")) {
@@ -1716,9 +1716,9 @@ public class Consent extends DomainResource {
         } else if (name.equals("dataPeriod")) {
           this.dataPeriod = castToPeriod(value); // Period
         } else if (name.equals("data")) {
-          this.getData().add((ruleDataComponent) value);
-        } else if (name.equals("rule")) {
-          this.getRule().add((ruleComponent) value);
+          this.getData().add((provisionDataComponent) value);
+        } else if (name.equals("provision")) {
+          this.getProvision().add((provisionComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -1737,7 +1737,7 @@ public class Consent extends DomainResource {
         case 3059181:  return addCode(); 
         case 1177250315:  return getDataPeriod(); 
         case 3076010:  return addData(); 
-        case 3512060:  return addRule(); 
+        case -547120939:  return addProvision(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1756,7 +1756,7 @@ public class Consent extends DomainResource {
         case 3059181: /*code*/ return new String[] {"Coding"};
         case 1177250315: /*dataPeriod*/ return new String[] {"Period"};
         case 3076010: /*data*/ return new String[] {};
-        case 3512060: /*rule*/ return new String[] {"@Consent.rule"};
+        case -547120939: /*provision*/ return new String[] {"@Consent.provision"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1796,21 +1796,21 @@ public class Consent extends DomainResource {
         else if (name.equals("data")) {
           return addData();
         }
-        else if (name.equals("rule")) {
-          return addRule();
+        else if (name.equals("provision")) {
+          return addProvision();
         }
         else
           return super.addChild(name);
       }
 
-      public ruleComponent copy() {
-        ruleComponent dst = new ruleComponent();
+      public provisionComponent copy() {
+        provisionComponent dst = new provisionComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.period = period == null ? null : period.copy();
         if (actor != null) {
-          dst.actor = new ArrayList<ruleActorComponent>();
-          for (ruleActorComponent i : actor)
+          dst.actor = new ArrayList<provisionActorComponent>();
+          for (provisionActorComponent i : actor)
             dst.actor.add(i.copy());
         };
         if (action != null) {
@@ -1840,14 +1840,14 @@ public class Consent extends DomainResource {
         };
         dst.dataPeriod = dataPeriod == null ? null : dataPeriod.copy();
         if (data != null) {
-          dst.data = new ArrayList<ruleDataComponent>();
-          for (ruleDataComponent i : data)
+          dst.data = new ArrayList<provisionDataComponent>();
+          for (provisionDataComponent i : data)
             dst.data.add(i.copy());
         };
-        if (rule != null) {
-          dst.rule = new ArrayList<ruleComponent>();
-          for (ruleComponent i : rule)
-            dst.rule.add(i.copy());
+        if (provision != null) {
+          dst.provision = new ArrayList<provisionComponent>();
+          for (provisionComponent i : provision)
+            dst.provision.add(i.copy());
         };
         return dst;
       }
@@ -1856,39 +1856,39 @@ public class Consent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ruleComponent))
+        if (!(other instanceof provisionComponent))
           return false;
-        ruleComponent o = (ruleComponent) other;
+        provisionComponent o = (provisionComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(period, o.period, true) && compareDeep(actor, o.actor, true)
            && compareDeep(action, o.action, true) && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(purpose, o.purpose, true)
            && compareDeep(class_, o.class_, true) && compareDeep(code, o.code, true) && compareDeep(dataPeriod, o.dataPeriod, true)
-           && compareDeep(data, o.data, true) && compareDeep(rule, o.rule, true);
+           && compareDeep(data, o.data, true) && compareDeep(provision, o.provision, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ruleComponent))
+        if (!(other instanceof provisionComponent))
           return false;
-        ruleComponent o = (ruleComponent) other;
+        provisionComponent o = (provisionComponent) other;
         return compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, period, actor, action
-          , securityLabel, purpose, class_, code, dataPeriod, data, rule);
+          , securityLabel, purpose, class_, code, dataPeriod, data, provision);
       }
 
   public String fhirType() {
-    return "Consent.rule";
+    return "Consent.provision";
 
   }
 
   }
 
     @Block()
-    public static class ruleActorComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class provisionActorComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * How the individual is involved in the resources content that is described in the exception.
          */
@@ -1914,14 +1914,14 @@ public class Consent extends DomainResource {
     /**
      * Constructor
      */
-      public ruleActorComponent() {
+      public provisionActorComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ruleActorComponent(CodeableConcept role, Reference reference) {
+      public provisionActorComponent(CodeableConcept role, Reference reference) {
         super();
         this.role = role;
         this.reference = reference;
@@ -1933,7 +1933,7 @@ public class Consent extends DomainResource {
         public CodeableConcept getRole() { 
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleActorComponent.role");
+              throw new Error("Attempt to auto-create provisionActorComponent.role");
             else if (Configuration.doAutoCreate())
               this.role = new CodeableConcept(); // cc
           return this.role;
@@ -1946,7 +1946,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #role} (How the individual is involved in the resources content that is described in the exception.)
          */
-        public ruleActorComponent setRole(CodeableConcept value) { 
+        public provisionActorComponent setRole(CodeableConcept value) { 
           this.role = value;
           return this;
         }
@@ -1957,7 +1957,7 @@ public class Consent extends DomainResource {
         public Reference getReference() { 
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleActorComponent.reference");
+              throw new Error("Attempt to auto-create provisionActorComponent.reference");
             else if (Configuration.doAutoCreate())
               this.reference = new Reference(); // cc
           return this.reference;
@@ -1970,7 +1970,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #reference} (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
          */
-        public ruleActorComponent setReference(Reference value) { 
+        public provisionActorComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -1985,7 +1985,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers').)
          */
-        public ruleActorComponent setReferenceTarget(Resource value) { 
+        public provisionActorComponent setReferenceTarget(Resource value) { 
           this.referenceTarget = value;
           return this;
         }
@@ -2075,8 +2075,8 @@ public class Consent extends DomainResource {
           return super.addChild(name);
       }
 
-      public ruleActorComponent copy() {
-        ruleActorComponent dst = new ruleActorComponent();
+      public provisionActorComponent copy() {
+        provisionActorComponent dst = new provisionActorComponent();
         copyValues(dst);
         dst.role = role == null ? null : role.copy();
         dst.reference = reference == null ? null : reference.copy();
@@ -2087,9 +2087,9 @@ public class Consent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ruleActorComponent))
+        if (!(other instanceof provisionActorComponent))
           return false;
-        ruleActorComponent o = (ruleActorComponent) other;
+        provisionActorComponent o = (provisionActorComponent) other;
         return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true);
       }
 
@@ -2097,9 +2097,9 @@ public class Consent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ruleActorComponent))
+        if (!(other instanceof provisionActorComponent))
           return false;
-        ruleActorComponent o = (ruleActorComponent) other;
+        provisionActorComponent o = (provisionActorComponent) other;
         return true;
       }
 
@@ -2108,14 +2108,14 @@ public class Consent extends DomainResource {
       }
 
   public String fhirType() {
-    return "Consent.rule.actor";
+    return "Consent.provision.actor";
 
   }
 
   }
 
     @Block()
-    public static class ruleDataComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class provisionDataComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * How the resource reference is interpreted when testing consent restrictions.
          */
@@ -2141,14 +2141,14 @@ public class Consent extends DomainResource {
     /**
      * Constructor
      */
-      public ruleDataComponent() {
+      public provisionDataComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ruleDataComponent(Enumeration<ConsentDataMeaning> meaning, Reference reference) {
+      public provisionDataComponent(Enumeration<ConsentDataMeaning> meaning, Reference reference) {
         super();
         this.meaning = meaning;
         this.reference = reference;
@@ -2160,7 +2160,7 @@ public class Consent extends DomainResource {
         public Enumeration<ConsentDataMeaning> getMeaningElement() { 
           if (this.meaning == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleDataComponent.meaning");
+              throw new Error("Attempt to auto-create provisionDataComponent.meaning");
             else if (Configuration.doAutoCreate())
               this.meaning = new Enumeration<ConsentDataMeaning>(new ConsentDataMeaningEnumFactory()); // bb
           return this.meaning;
@@ -2177,7 +2177,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #meaning} (How the resource reference is interpreted when testing consent restrictions.). This is the underlying object with id, value and extensions. The accessor "getMeaning" gives direct access to the value
          */
-        public ruleDataComponent setMeaningElement(Enumeration<ConsentDataMeaning> value) { 
+        public provisionDataComponent setMeaningElement(Enumeration<ConsentDataMeaning> value) { 
           this.meaning = value;
           return this;
         }
@@ -2192,7 +2192,7 @@ public class Consent extends DomainResource {
         /**
          * @param value How the resource reference is interpreted when testing consent restrictions.
          */
-        public ruleDataComponent setMeaning(ConsentDataMeaning value) { 
+        public provisionDataComponent setMeaning(ConsentDataMeaning value) { 
             if (this.meaning == null)
               this.meaning = new Enumeration<ConsentDataMeaning>(new ConsentDataMeaningEnumFactory());
             this.meaning.setValue(value);
@@ -2205,7 +2205,7 @@ public class Consent extends DomainResource {
         public Reference getReference() { 
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ruleDataComponent.reference");
+              throw new Error("Attempt to auto-create provisionDataComponent.reference");
             else if (Configuration.doAutoCreate())
               this.reference = new Reference(); // cc
           return this.reference;
@@ -2218,7 +2218,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #reference} (A reference to a specific resource that defines which resources are covered by this consent.)
          */
-        public ruleDataComponent setReference(Reference value) { 
+        public provisionDataComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -2233,7 +2233,7 @@ public class Consent extends DomainResource {
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a specific resource that defines which resources are covered by this consent.)
          */
-        public ruleDataComponent setReferenceTarget(Resource value) { 
+        public provisionDataComponent setReferenceTarget(Resource value) { 
           this.referenceTarget = value;
           return this;
         }
@@ -2324,8 +2324,8 @@ public class Consent extends DomainResource {
           return super.addChild(name);
       }
 
-      public ruleDataComponent copy() {
-        ruleDataComponent dst = new ruleDataComponent();
+      public provisionDataComponent copy() {
+        provisionDataComponent dst = new provisionDataComponent();
         copyValues(dst);
         dst.meaning = meaning == null ? null : meaning.copy();
         dst.reference = reference == null ? null : reference.copy();
@@ -2336,9 +2336,9 @@ public class Consent extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ruleDataComponent))
+        if (!(other instanceof provisionDataComponent))
           return false;
-        ruleDataComponent o = (ruleDataComponent) other;
+        provisionDataComponent o = (provisionDataComponent) other;
         return compareDeep(meaning, o.meaning, true) && compareDeep(reference, o.reference, true);
       }
 
@@ -2346,9 +2346,9 @@ public class Consent extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ruleDataComponent))
+        if (!(other instanceof provisionDataComponent))
           return false;
-        ruleDataComponent o = (ruleDataComponent) other;
+        provisionDataComponent o = (provisionDataComponent) other;
         return compareValues(meaning, o.meaning, true);
       }
 
@@ -2357,7 +2357,7 @@ public class Consent extends DomainResource {
       }
 
   public String fhirType() {
-    return "Consent.rule.data";
+    return "Consent.provision.data";
 
   }
 
@@ -2460,11 +2460,11 @@ public class Consent extends DomainResource {
     /**
      * An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
      */
-    @Child(name = "rule", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Additional rule - addition or removal of permissions", formalDefinition="An exception to the base policy of this consent. An exception can be an addition or removal of access permissions." )
-    protected List<ruleComponent> rule;
+    @Child(name = "provision", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Consent provision - addition or removal of permissions", formalDefinition="An exception to the base policy of this consent. An exception can be an addition or removal of access permissions." )
+    protected List<provisionComponent> provision;
 
-    private static final long serialVersionUID = -1965673903L;
+    private static final long serialVersionUID = -79499195L;
 
   /**
    * Constructor
@@ -3049,56 +3049,56 @@ public class Consent extends DomainResource {
     }
 
     /**
-     * @return {@link #rule} (An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.)
+     * @return {@link #provision} (An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.)
      */
-    public List<ruleComponent> getRule() { 
-      if (this.rule == null)
-        this.rule = new ArrayList<ruleComponent>();
-      return this.rule;
+    public List<provisionComponent> getProvision() { 
+      if (this.provision == null)
+        this.provision = new ArrayList<provisionComponent>();
+      return this.provision;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Consent setRule(List<ruleComponent> theRule) { 
-      this.rule = theRule;
+    public Consent setProvision(List<provisionComponent> theProvision) { 
+      this.provision = theProvision;
       return this;
     }
 
-    public boolean hasRule() { 
-      if (this.rule == null)
+    public boolean hasProvision() { 
+      if (this.provision == null)
         return false;
-      for (ruleComponent item : this.rule)
+      for (provisionComponent item : this.provision)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public ruleComponent addRule() { //3
-      ruleComponent t = new ruleComponent();
-      if (this.rule == null)
-        this.rule = new ArrayList<ruleComponent>();
-      this.rule.add(t);
+    public provisionComponent addProvision() { //3
+      provisionComponent t = new provisionComponent();
+      if (this.provision == null)
+        this.provision = new ArrayList<provisionComponent>();
+      this.provision.add(t);
       return t;
     }
 
-    public Consent addRule(ruleComponent t) { //3
+    public Consent addProvision(provisionComponent t) { //3
       if (t == null)
         return this;
-      if (this.rule == null)
-        this.rule = new ArrayList<ruleComponent>();
-      this.rule.add(t);
+      if (this.provision == null)
+        this.provision = new ArrayList<provisionComponent>();
+      this.provision.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #rule}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #provision}, creating it if it does not already exist
      */
-    public ruleComponent getRuleFirstRep() { 
-      if (getRule().isEmpty()) {
-        addRule();
+    public provisionComponent getProvisionFirstRep() { 
+      if (getProvision().isEmpty()) {
+        addProvision();
       }
-      return getRule().get(0);
+      return getProvision().get(0);
     }
 
       protected void listChildren(List<Property> children) {
@@ -3114,7 +3114,7 @@ public class Consent extends DomainResource {
         children.add(new Property("policy", "", "The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy));
         children.add(new Property("policyRule", "uri", "A referece to the specific computable policy.", 0, 1, policyRule));
         children.add(new Property("verification", "", "Whether a treatment instruction (e.g. artifical respiration yes or no) was verified with the patient, his/her family or another authorized person.", 0, java.lang.Integer.MAX_VALUE, verification));
-        children.add(new Property("rule", "", "An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.", 0, java.lang.Integer.MAX_VALUE, rule));
+        children.add(new Property("provision", "", "An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.", 0, java.lang.Integer.MAX_VALUE, provision));
       }
 
       @Override
@@ -3135,7 +3135,7 @@ public class Consent extends DomainResource {
         case -982670030: /*policy*/  return new Property("policy", "", "The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law.", 0, java.lang.Integer.MAX_VALUE, policy);
         case 1593493326: /*policyRule*/  return new Property("policyRule", "uri", "A referece to the specific computable policy.", 0, 1, policyRule);
         case -1484401125: /*verification*/  return new Property("verification", "", "Whether a treatment instruction (e.g. artifical respiration yes or no) was verified with the patient, his/her family or another authorized person.", 0, java.lang.Integer.MAX_VALUE, verification);
-        case 3512060: /*rule*/  return new Property("rule", "", "An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.", 0, java.lang.Integer.MAX_VALUE, rule);
+        case -547120939: /*provision*/  return new Property("provision", "", "An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.", 0, java.lang.Integer.MAX_VALUE, provision);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -3155,7 +3155,7 @@ public class Consent extends DomainResource {
         case -982670030: /*policy*/ return this.policy == null ? new Base[0] : this.policy.toArray(new Base[this.policy.size()]); // ConsentPolicyComponent
         case 1593493326: /*policyRule*/ return this.policyRule == null ? new Base[0] : new Base[] {this.policyRule}; // UriType
         case -1484401125: /*verification*/ return this.verification == null ? new Base[0] : this.verification.toArray(new Base[this.verification.size()]); // ConsentVerificationComponent
-        case 3512060: /*rule*/ return this.rule == null ? new Base[0] : this.rule.toArray(new Base[this.rule.size()]); // ruleComponent
+        case -547120939: /*provision*/ return this.provision == null ? new Base[0] : this.provision.toArray(new Base[this.provision.size()]); // provisionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3198,8 +3198,8 @@ public class Consent extends DomainResource {
         case -1484401125: // verification
           this.getVerification().add((ConsentVerificationComponent) value); // ConsentVerificationComponent
           return value;
-        case 3512060: // rule
-          this.getRule().add((ruleComponent) value); // ruleComponent
+        case -547120939: // provision
+          this.getProvision().add((provisionComponent) value); // provisionComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3231,8 +3231,8 @@ public class Consent extends DomainResource {
           this.policyRule = castToUri(value); // UriType
         } else if (name.equals("verification")) {
           this.getVerification().add((ConsentVerificationComponent) value);
-        } else if (name.equals("rule")) {
-          this.getRule().add((ruleComponent) value);
+        } else if (name.equals("provision")) {
+          this.getProvision().add((provisionComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -3253,7 +3253,7 @@ public class Consent extends DomainResource {
         case -982670030:  return addPolicy(); 
         case 1593493326:  return getPolicyRuleElement();
         case -1484401125:  return addVerification(); 
-        case 3512060:  return addRule(); 
+        case -547120939:  return addProvision(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3273,7 +3273,7 @@ public class Consent extends DomainResource {
         case -982670030: /*policy*/ return new String[] {};
         case 1593493326: /*policyRule*/ return new String[] {"uri"};
         case -1484401125: /*verification*/ return new String[] {};
-        case 3512060: /*rule*/ return new String[] {};
+        case -547120939: /*provision*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3325,8 +3325,8 @@ public class Consent extends DomainResource {
         else if (name.equals("verification")) {
           return addVerification();
         }
-        else if (name.equals("rule")) {
-          return addRule();
+        else if (name.equals("provision")) {
+          return addProvision();
         }
         else
           return super.addChild(name);
@@ -3371,10 +3371,10 @@ public class Consent extends DomainResource {
           for (ConsentVerificationComponent i : verification)
             dst.verification.add(i.copy());
         };
-        if (rule != null) {
-          dst.rule = new ArrayList<ruleComponent>();
-          for (ruleComponent i : rule)
-            dst.rule.add(i.copy());
+        if (provision != null) {
+          dst.provision = new ArrayList<provisionComponent>();
+          for (provisionComponent i : provision)
+            dst.provision.add(i.copy());
         };
         return dst;
       }
@@ -3394,7 +3394,7 @@ public class Consent extends DomainResource {
            && compareDeep(patient, o.patient, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(consentingParty, o.consentingParty, true)
            && compareDeep(organization, o.organization, true) && compareDeep(source, o.source, true) && compareDeep(policy, o.policy, true)
            && compareDeep(policyRule, o.policyRule, true) && compareDeep(verification, o.verification, true)
-           && compareDeep(rule, o.rule, true);
+           && compareDeep(provision, o.provision, true);
       }
 
       @Override
@@ -3411,7 +3411,7 @@ public class Consent extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
           , patient, dateTime, consentingParty, organization, source, policy, policyRule
-          , verification, rule);
+          , verification, provision);
       }
 
   @Override
@@ -3464,17 +3464,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Security Labels that define affected resources</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.rule.securityLabel</b><br>
+   * Path: <b>Consent.provision.securityLabel</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="securitylabel", path="Consent.rule.securityLabel", description="Security Labels that define affected resources", type="token" )
+  @SearchParamDefinition(name="securitylabel", path="Consent.provision.securityLabel", description="Security Labels that define affected resources", type="token" )
   public static final String SP_SECURITYLABEL = "securitylabel";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>securitylabel</b>
    * <p>
    * Description: <b>Security Labels that define affected resources</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.rule.securityLabel</b><br>
+   * Path: <b>Consent.provision.securityLabel</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SECURITYLABEL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SECURITYLABEL);
@@ -3484,17 +3484,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Timeframe for this rule</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Consent.rule.period</b><br>
+   * Path: <b>Consent.provision.period</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="period", path="Consent.rule.period", description="Timeframe for this rule", type="date" )
+  @SearchParamDefinition(name="period", path="Consent.provision.period", description="Timeframe for this rule", type="date" )
   public static final String SP_PERIOD = "period";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>period</b>
    * <p>
    * Description: <b>Timeframe for this rule</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Consent.rule.period</b><br>
+   * Path: <b>Consent.provision.period</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_PERIOD);
@@ -3504,17 +3504,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>The actual data reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.rule.data.reference</b><br>
+   * Path: <b>Consent.provision.data.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="data", path="Consent.rule.data.reference", description="The actual data reference", type="reference" )
+  @SearchParamDefinition(name="data", path="Consent.provision.data.reference", description="The actual data reference", type="reference" )
   public static final String SP_DATA = "data";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>data</b>
    * <p>
    * Description: <b>The actual data reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.rule.data.reference</b><br>
+   * Path: <b>Consent.provision.data.reference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DATA = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DATA);
@@ -3530,17 +3530,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Context of activities covered by this rule</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.rule.purpose</b><br>
+   * Path: <b>Consent.provision.purpose</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="purpose", path="Consent.rule.purpose", description="Context of activities covered by this rule", type="token" )
+  @SearchParamDefinition(name="purpose", path="Consent.provision.purpose", description="Context of activities covered by this rule", type="token" )
   public static final String SP_PURPOSE = "purpose";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>purpose</b>
    * <p>
    * Description: <b>Context of activities covered by this rule</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.rule.purpose</b><br>
+   * Path: <b>Consent.provision.purpose</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PURPOSE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PURPOSE);
@@ -3576,17 +3576,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Resource for the actor (or group, by role)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.rule.actor.reference</b><br>
+   * Path: <b>Consent.provision.actor.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="actor", path="Consent.rule.actor.reference", description="Resource for the actor (or group, by role)", type="reference", target={CareTeam.class, Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="actor", path="Consent.provision.actor.reference", description="Resource for the actor (or group, by role)", type="reference", target={CareTeam.class, Device.class, Group.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_ACTOR = "actor";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>actor</b>
    * <p>
    * Description: <b>Resource for the actor (or group, by role)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Consent.rule.actor.reference</b><br>
+   * Path: <b>Consent.provision.actor.reference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTOR);
@@ -3654,17 +3654,17 @@ public class Consent extends DomainResource {
    * <p>
    * Description: <b>Actions controlled by this rule</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.rule.action</b><br>
+   * Path: <b>Consent.provision.action</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="action", path="Consent.rule.action", description="Actions controlled by this rule", type="token" )
+  @SearchParamDefinition(name="action", path="Consent.provision.action", description="Actions controlled by this rule", type="token" )
   public static final String SP_ACTION = "action";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>action</b>
    * <p>
    * Description: <b>Actions controlled by this rule</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Consent.rule.action</b><br>
+   * Path: <b>Consent.provision.action</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);

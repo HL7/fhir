@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -429,12 +429,12 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
         
   }
 
- public void addExtension(String url, Type value) {
-   Extension ex = new Extension();
-   ex.setUrl(url);
-   ex.setValue(value);
-   getExtension().add(ex);    
- }
+  public void addExtension(String url, Type value) {
+    Extension ex = new Extension();
+    ex.setUrl(url);
+    ex.setValue(value);
+    getExtension().add(ex);    
+  }
 
 // end addition
 

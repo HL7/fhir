@@ -29,12 +29,11 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.r4.model.CodeSystem.PropertyComponent;
 import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
@@ -4720,6 +4719,7 @@ public class CodeSystem extends MetadataResource {
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
+// added from java-adornments.txt:
   public PropertyComponent getProperty(String code) {
     for (PropertyComponent pd : getProperty()) {
       if (pd.getCode().equalsIgnoreCase(code))
@@ -4728,6 +4728,7 @@ public class CodeSystem extends MetadataResource {
     return null;
   }
 
+// end addition
 
 }
 

@@ -10,6 +10,7 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Resource;
@@ -232,6 +233,14 @@ public interface IWorkerContext {
   public ValueSetExpansionOutcome expandVS(ValueSet source, boolean cacheOk, boolean heiarchical);
   
   /**
+   * ValueSet Expansion - see $expand, but resolves the binding first
+   *  
+   * @param source
+   * @return
+   * @throws FHIRException 
+   */
+  public ValueSetExpansionOutcome expandVS(ElementDefinitionBindingComponent binding, boolean cacheOk, boolean heiarchical) throws FHIRException;
+  /**
    * Value set expanion inside the internal expansion engine - used 
    * for references to supported system (see "supportsSystem") for
    * which there is no value set. 
@@ -240,7 +249,7 @@ public interface IWorkerContext {
    * @return
    * @throws FHIRException 
    */
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heiarchical) throws TerminologyServiceException;
+  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heirarchical) throws TerminologyServiceException;
   
   public class ValidationResult {
     private ConceptDefinitionComponent definition;

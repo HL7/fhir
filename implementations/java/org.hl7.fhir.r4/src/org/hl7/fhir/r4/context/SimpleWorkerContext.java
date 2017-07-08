@@ -48,6 +48,7 @@ import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.r4.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.r4.utils.INarrativeGenerator;
 import org.hl7.fhir.r4.utils.IResourceValidator;
@@ -570,5 +571,5 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
     super.seeStructureDefinition(url, p);
   }
-  
+
 }

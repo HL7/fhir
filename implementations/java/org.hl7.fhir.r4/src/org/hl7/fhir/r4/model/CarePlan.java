@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -364,15 +364,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          */
         ONHOLD, 
         /**
-         * The activities have been completed (more or less) as planned.
+         * The activity has been completed (more or less) as planned.
          */
         COMPLETED, 
         /**
-         * The activities have been ended prior to completion (perhaps even before they were started).
+         * The planned activity has been withdrawn.
          */
         CANCELLED, 
         /**
-         * The authoring system doesn't know the current state of the activity.
+         * The planned activity has been ended prior to completion after the activity was started.
+         */
+        STOPPED, 
+        /**
+         * The current state of the activity is not known.  Note: This concept is not to be used for "other".
          */
         UNKNOWN, 
         /**
@@ -394,6 +398,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return COMPLETED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
+        if ("stopped".equals(codeString))
+          return STOPPED;
         if ("unknown".equals(codeString))
           return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
@@ -409,6 +415,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
             case CANCELLED: return "cancelled";
+            case STOPPED: return "stopped";
             case UNKNOWN: return "unknown";
             default: return "?";
           }
@@ -421,6 +428,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case ONHOLD: return "http://hl7.org/fhir/care-plan-activity-status";
             case COMPLETED: return "http://hl7.org/fhir/care-plan-activity-status";
             case CANCELLED: return "http://hl7.org/fhir/care-plan-activity-status";
+            case STOPPED: return "http://hl7.org/fhir/care-plan-activity-status";
             case UNKNOWN: return "http://hl7.org/fhir/care-plan-activity-status";
             default: return "?";
           }
@@ -431,9 +439,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case SCHEDULED: return "Appointment or other booking has occurred but activity has not yet begun.";
             case INPROGRESS: return "Activity has been started but is not yet complete.";
             case ONHOLD: return "Activity was started but has temporarily ceased with an expectation of resumption at a future time.";
-            case COMPLETED: return "The activities have been completed (more or less) as planned.";
-            case CANCELLED: return "The activities have been ended prior to completion (perhaps even before they were started).";
-            case UNKNOWN: return "The authoring system doesn't know the current state of the activity.";
+            case COMPLETED: return "The activity has been completed (more or less) as planned.";
+            case CANCELLED: return "The planned activity has been withdrawn.";
+            case STOPPED: return "The planned activity has been ended prior to completion after the activity was started.";
+            case UNKNOWN: return "The current state of the activity is not known.  Note: This concept is not to be used for \"other\".";
             default: return "?";
           }
         }
@@ -445,6 +454,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case ONHOLD: return "On Hold";
             case COMPLETED: return "Completed";
             case CANCELLED: return "Cancelled";
+            case STOPPED: return "Stopped";
             case UNKNOWN: return "Unknown";
             default: return "?";
           }
@@ -468,6 +478,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return CarePlanActivityStatus.COMPLETED;
         if ("cancelled".equals(codeString))
           return CarePlanActivityStatus.CANCELLED;
+        if ("stopped".equals(codeString))
+          return CarePlanActivityStatus.STOPPED;
         if ("unknown".equals(codeString))
           return CarePlanActivityStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown CarePlanActivityStatus code '"+codeString+"'");
@@ -492,6 +504,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.COMPLETED);
         if ("cancelled".equals(codeString))
           return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.CANCELLED);
+        if ("stopped".equals(codeString))
+          return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.STOPPED);
         if ("unknown".equals(codeString))
           return new Enumeration<CarePlanActivityStatus>(this, CarePlanActivityStatus.UNKNOWN);
         throw new FHIRException("Unknown CarePlanActivityStatus code '"+codeString+"'");
@@ -509,6 +523,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         return "completed";
       if (code == CarePlanActivityStatus.CANCELLED)
         return "cancelled";
+      if (code == CarePlanActivityStatus.STOPPED)
+        return "stopped";
       if (code == CarePlanActivityStatus.UNKNOWN)
         return "unknown";
       return "?";
@@ -1054,7 +1070,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * Identifies what progress is being made for the specific activity.
          */
         @Child(name = "status", type = {CodeType.class}, order=7, min=1, max=1, modifier=true, summary=false)
-        @Description(shortDefinition="not-started | scheduled | in-progress | on-hold | completed | cancelled | unknown", formalDefinition="Identifies what progress is being made for the specific activity." )
+        @Description(shortDefinition="not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown", formalDefinition="Identifies what progress is being made for the specific activity." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-plan-activity-status")
         protected Enumeration<CarePlanActivityStatus> status;
 

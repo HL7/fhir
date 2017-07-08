@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -43,59 +43,67 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
+ * Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
  */
 @ResourceDef(name="BodyStructure", profile="http://hl7.org/fhir/Profile/BodyStructure")
 public class BodyStructure extends DomainResource {
 
     /**
-     * Identifier for this instance of the anatomical location.
+     * Identifier for this instance of the anatomical structure.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Bodystructure identifier", formalDefinition="Identifier for this instance of the anatomical location." )
+    @Description(shortDefinition="Bodystructure identifier", formalDefinition="Identifier for this instance of the anatomical structure." )
     protected List<Identifier> identifier;
 
     /**
      * Whether this body site is in active use.
      */
     @Child(name = "active", type = {BooleanType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="Whether this body site record is in active use", formalDefinition="Whether this body site is in active use." )
+    @Description(shortDefinition="Whether this record is in active use", formalDefinition="Whether this body site is in active use." )
     protected BooleanType active;
 
     /**
-     * Named anatomical location - ideally coded where possible.
+     * The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Named anatomical location", formalDefinition="Named anatomical location - ideally coded where possible." )
+    @Child(name = "morphology", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Kind of Structure", formalDefinition="The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/bodystructure-code")
+    protected CodeableConcept morphology;
+
+    /**
+     * The anatomical location or region of the specimen, lesion, or body structure.
+     */
+    @Child(name = "location", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Body site", formalDefinition="The anatomical location or region of the specimen, lesion, or body structure." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
-    protected CodeableConcept code;
+    protected CodeableConcept location;
 
     /**
      * Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
      */
-    @Child(name = "qualifier", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Modification to location code", formalDefinition="Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane." )
+    @Child(name = "locationQualifier", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Body site modifier", formalDefinition="Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/bodystructure-relative-location")
-    protected List<CodeableConcept> qualifier;
+    protected List<CodeableConcept> locationQualifier;
 
     /**
-     * A summary, charactarization or explanation of the anatomic location.
+     * A summary, charactarization or explanation of the body structure.
      */
-    @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Anatomical location description", formalDefinition="A summary, charactarization or explanation of the anatomic location." )
+    @Child(name = "description", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Text description", formalDefinition="A summary, charactarization or explanation of the body structure." )
     protected StringType description;
 
     /**
      * Image or images used to identify a location.
      */
-    @Child(name = "image", type = {Attachment.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "image", type = {Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Attached images", formalDefinition="Image or images used to identify a location." )
     protected List<Attachment> image;
 
     /**
      * The person to which the body site belongs.
      */
-    @Child(name = "patient", type = {Patient.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who this is about", formalDefinition="The person to which the body site belongs." )
     protected Reference patient;
 
@@ -104,7 +112,7 @@ public class BodyStructure extends DomainResource {
      */
     protected Patient patientTarget;
 
-    private static final long serialVersionUID = -871837171L;
+    private static final long serialVersionUID = 1437500387L;
 
   /**
    * Constructor
@@ -122,7 +130,7 @@ public class BodyStructure extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Identifier for this instance of the anatomical location.)
+     * @return {@link #identifier} (Identifier for this instance of the anatomical structure.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -220,84 +228,108 @@ public class BodyStructure extends DomainResource {
     }
 
     /**
-     * @return {@link #code} (Named anatomical location - ideally coded where possible.)
+     * @return {@link #morphology} (The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.)
      */
-    public CodeableConcept getCode() { 
-      if (this.code == null)
+    public CodeableConcept getMorphology() { 
+      if (this.morphology == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodyStructure.code");
+          throw new Error("Attempt to auto-create BodyStructure.morphology");
         else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept(); // cc
-      return this.code;
+          this.morphology = new CodeableConcept(); // cc
+      return this.morphology;
     }
 
-    public boolean hasCode() { 
-      return this.code != null && !this.code.isEmpty();
+    public boolean hasMorphology() { 
+      return this.morphology != null && !this.morphology.isEmpty();
     }
 
     /**
-     * @param value {@link #code} (Named anatomical location - ideally coded where possible.)
+     * @param value {@link #morphology} (The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.)
      */
-    public BodyStructure setCode(CodeableConcept value) { 
-      this.code = value;
+    public BodyStructure setMorphology(CodeableConcept value) { 
+      this.morphology = value;
       return this;
     }
 
     /**
-     * @return {@link #qualifier} (Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.)
+     * @return {@link #location} (The anatomical location or region of the specimen, lesion, or body structure.)
      */
-    public List<CodeableConcept> getQualifier() { 
-      if (this.qualifier == null)
-        this.qualifier = new ArrayList<CodeableConcept>();
-      return this.qualifier;
+    public CodeableConcept getLocation() { 
+      if (this.location == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create BodyStructure.location");
+        else if (Configuration.doAutoCreate())
+          this.location = new CodeableConcept(); // cc
+      return this.location;
+    }
+
+    public boolean hasLocation() { 
+      return this.location != null && !this.location.isEmpty();
+    }
+
+    /**
+     * @param value {@link #location} (The anatomical location or region of the specimen, lesion, or body structure.)
+     */
+    public BodyStructure setLocation(CodeableConcept value) { 
+      this.location = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #locationQualifier} (Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.)
+     */
+    public List<CodeableConcept> getLocationQualifier() { 
+      if (this.locationQualifier == null)
+        this.locationQualifier = new ArrayList<CodeableConcept>();
+      return this.locationQualifier;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public BodyStructure setQualifier(List<CodeableConcept> theQualifier) { 
-      this.qualifier = theQualifier;
+    public BodyStructure setLocationQualifier(List<CodeableConcept> theLocationQualifier) { 
+      this.locationQualifier = theLocationQualifier;
       return this;
     }
 
-    public boolean hasQualifier() { 
-      if (this.qualifier == null)
+    public boolean hasLocationQualifier() { 
+      if (this.locationQualifier == null)
         return false;
-      for (CodeableConcept item : this.qualifier)
+      for (CodeableConcept item : this.locationQualifier)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addQualifier() { //3
+    public CodeableConcept addLocationQualifier() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.qualifier == null)
-        this.qualifier = new ArrayList<CodeableConcept>();
-      this.qualifier.add(t);
+      if (this.locationQualifier == null)
+        this.locationQualifier = new ArrayList<CodeableConcept>();
+      this.locationQualifier.add(t);
       return t;
     }
 
-    public BodyStructure addQualifier(CodeableConcept t) { //3
+    public BodyStructure addLocationQualifier(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.qualifier == null)
-        this.qualifier = new ArrayList<CodeableConcept>();
-      this.qualifier.add(t);
+      if (this.locationQualifier == null)
+        this.locationQualifier = new ArrayList<CodeableConcept>();
+      this.locationQualifier.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #qualifier}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #locationQualifier}, creating it if it does not already exist
      */
-    public CodeableConcept getQualifierFirstRep() { 
-      if (getQualifier().isEmpty()) {
-        addQualifier();
+    public CodeableConcept getLocationQualifierFirstRep() { 
+      if (getLocationQualifier().isEmpty()) {
+        addLocationQualifier();
       }
-      return getQualifier().get(0);
+      return getLocationQualifier().get(0);
     }
 
     /**
-     * @return {@link #description} (A summary, charactarization or explanation of the anatomic location.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A summary, charactarization or explanation of the body structure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
       if (this.description == null)
@@ -317,7 +349,7 @@ public class BodyStructure extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (A summary, charactarization or explanation of the anatomic location.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A summary, charactarization or explanation of the body structure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public BodyStructure setDescriptionElement(StringType value) { 
       this.description = value;
@@ -325,14 +357,14 @@ public class BodyStructure extends DomainResource {
     }
 
     /**
-     * @return A summary, charactarization or explanation of the anatomic location.
+     * @return A summary, charactarization or explanation of the body structure.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A summary, charactarization or explanation of the anatomic location.
+     * @param value A summary, charactarization or explanation of the body structure.
      */
     public BodyStructure setDescription(String value) { 
       if (Utilities.noString(value))
@@ -444,11 +476,12 @@ public class BodyStructure extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "Identifier for this instance of the anatomical location.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Identifier for this instance of the anatomical structure.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("active", "boolean", "Whether this body site is in active use.", 0, 1, active));
-        children.add(new Property("code", "CodeableConcept", "Named anatomical location - ideally coded where possible.", 0, 1, code));
-        children.add(new Property("qualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, qualifier));
-        children.add(new Property("description", "string", "A summary, charactarization or explanation of the anatomic location.", 0, 1, description));
+        children.add(new Property("morphology", "CodeableConcept", "The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.", 0, 1, morphology));
+        children.add(new Property("location", "CodeableConcept", "The anatomical location or region of the specimen, lesion, or body structure.", 0, 1, location));
+        children.add(new Property("locationQualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, locationQualifier));
+        children.add(new Property("description", "string", "A summary, charactarization or explanation of the body structure.", 0, 1, description));
         children.add(new Property("image", "Attachment", "Image or images used to identify a location.", 0, java.lang.Integer.MAX_VALUE, image));
         children.add(new Property("patient", "Reference(Patient)", "The person to which the body site belongs.", 0, 1, patient));
       }
@@ -456,11 +489,12 @@ public class BodyStructure extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifier for this instance of the anatomical location.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifier for this instance of the anatomical structure.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -1422950650: /*active*/  return new Property("active", "boolean", "Whether this body site is in active use.", 0, 1, active);
-        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Named anatomical location - ideally coded where possible.", 0, 1, code);
-        case -1247940438: /*qualifier*/  return new Property("qualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, qualifier);
-        case -1724546052: /*description*/  return new Property("description", "string", "A summary, charactarization or explanation of the anatomic location.", 0, 1, description);
+        case 1807231644: /*morphology*/  return new Property("morphology", "CodeableConcept", "The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.", 0, 1, morphology);
+        case 1901043637: /*location*/  return new Property("location", "CodeableConcept", "The anatomical location or region of the specimen, lesion, or body structure.", 0, 1, location);
+        case 433081461: /*locationQualifier*/  return new Property("locationQualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, locationQualifier);
+        case -1724546052: /*description*/  return new Property("description", "string", "A summary, charactarization or explanation of the body structure.", 0, 1, description);
         case 100313435: /*image*/  return new Property("image", "Attachment", "Image or images used to identify a location.", 0, java.lang.Integer.MAX_VALUE, image);
         case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The person to which the body site belongs.", 0, 1, patient);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -473,8 +507,9 @@ public class BodyStructure extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1247940438: /*qualifier*/ return this.qualifier == null ? new Base[0] : this.qualifier.toArray(new Base[this.qualifier.size()]); // CodeableConcept
+        case 1807231644: /*morphology*/ return this.morphology == null ? new Base[0] : new Base[] {this.morphology}; // CodeableConcept
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // CodeableConcept
+        case 433081461: /*locationQualifier*/ return this.locationQualifier == null ? new Base[0] : this.locationQualifier.toArray(new Base[this.locationQualifier.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // Attachment
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
@@ -492,11 +527,14 @@ public class BodyStructure extends DomainResource {
         case -1422950650: // active
           this.active = castToBoolean(value); // BooleanType
           return value;
-        case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
+        case 1807231644: // morphology
+          this.morphology = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -1247940438: // qualifier
-          this.getQualifier().add(castToCodeableConcept(value)); // CodeableConcept
+        case 1901043637: // location
+          this.location = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 433081461: // locationQualifier
+          this.getLocationQualifier().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -518,10 +556,12 @@ public class BodyStructure extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        } else if (name.equals("code")) {
-          this.code = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("qualifier")) {
-          this.getQualifier().add(castToCodeableConcept(value));
+        } else if (name.equals("morphology")) {
+          this.morphology = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("location")) {
+          this.location = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("locationQualifier")) {
+          this.getLocationQualifier().add(castToCodeableConcept(value));
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("image")) {
@@ -538,8 +578,9 @@ public class BodyStructure extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -1422950650:  return getActiveElement();
-        case 3059181:  return getCode(); 
-        case -1247940438:  return addQualifier(); 
+        case 1807231644:  return getMorphology(); 
+        case 1901043637:  return getLocation(); 
+        case 433081461:  return addLocationQualifier(); 
         case -1724546052:  return getDescriptionElement();
         case 100313435:  return addImage(); 
         case -791418107:  return getPatient(); 
@@ -553,8 +594,9 @@ public class BodyStructure extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1422950650: /*active*/ return new String[] {"boolean"};
-        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -1247940438: /*qualifier*/ return new String[] {"CodeableConcept"};
+        case 1807231644: /*morphology*/ return new String[] {"CodeableConcept"};
+        case 1901043637: /*location*/ return new String[] {"CodeableConcept"};
+        case 433081461: /*locationQualifier*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 100313435: /*image*/ return new String[] {"Attachment"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
@@ -571,12 +613,16 @@ public class BodyStructure extends DomainResource {
         else if (name.equals("active")) {
           throw new FHIRException("Cannot call addChild on a primitive type BodyStructure.active");
         }
-        else if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
+        else if (name.equals("morphology")) {
+          this.morphology = new CodeableConcept();
+          return this.morphology;
         }
-        else if (name.equals("qualifier")) {
-          return addQualifier();
+        else if (name.equals("location")) {
+          this.location = new CodeableConcept();
+          return this.location;
+        }
+        else if (name.equals("locationQualifier")) {
+          return addLocationQualifier();
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type BodyStructure.description");
@@ -606,11 +652,12 @@ public class BodyStructure extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.active = active == null ? null : active.copy();
-        dst.code = code == null ? null : code.copy();
-        if (qualifier != null) {
-          dst.qualifier = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : qualifier)
-            dst.qualifier.add(i.copy());
+        dst.morphology = morphology == null ? null : morphology.copy();
+        dst.location = location == null ? null : location.copy();
+        if (locationQualifier != null) {
+          dst.locationQualifier = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : locationQualifier)
+            dst.locationQualifier.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
         if (image != null) {
@@ -633,9 +680,10 @@ public class BodyStructure extends DomainResource {
         if (!(other instanceof BodyStructure))
           return false;
         BodyStructure o = (BodyStructure) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(code, o.code, true)
-           && compareDeep(qualifier, o.qualifier, true) && compareDeep(description, o.description, true) && compareDeep(image, o.image, true)
-           && compareDeep(patient, o.patient, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(morphology, o.morphology, true)
+           && compareDeep(location, o.location, true) && compareDeep(locationQualifier, o.locationQualifier, true)
+           && compareDeep(description, o.description, true) && compareDeep(image, o.image, true) && compareDeep(patient, o.patient, true)
+          ;
       }
 
       @Override
@@ -649,8 +697,8 @@ public class BodyStructure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, code
-          , qualifier, description, image, patient);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, morphology
+          , location, locationQualifier, description, image, patient);
       }
 
   @Override
@@ -661,17 +709,17 @@ public class BodyStructure extends DomainResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Identifier for this instance of the anatomical location</b><br>
+   * Description: <b>Bodystructure identifier</b><br>
    * Type: <b>token</b><br>
    * Path: <b>BodyStructure.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="BodyStructure.identifier", description="Identifier for this instance of the anatomical location", type="token" )
+  @SearchParamDefinition(name="identifier", path="BodyStructure.identifier", description="Bodystructure identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Identifier for this instance of the anatomical location</b><br>
+   * Description: <b>Bodystructure identifier</b><br>
    * Type: <b>token</b><br>
    * Path: <b>BodyStructure.identifier</b><br>
    * </p>
@@ -679,39 +727,39 @@ public class BodyStructure extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>morphology</b>
    * <p>
-   * Description: <b>Named anatomical location</b><br>
+   * Description: <b>Kind of Structure</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>BodyStructure.code</b><br>
+   * Path: <b>BodyStructure.morphology</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="BodyStructure.code", description="Named anatomical location", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="morphology", path="BodyStructure.morphology", description="Kind of Structure", type="token" )
+  public static final String SP_MORPHOLOGY = "morphology";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>morphology</b>
    * <p>
-   * Description: <b>Named anatomical location</b><br>
+   * Description: <b>Kind of Structure</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>BodyStructure.code</b><br>
+   * Path: <b>BodyStructure.morphology</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam MORPHOLOGY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MORPHOLOGY);
 
  /**
    * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Patient to whom bodystructure belongs</b><br>
+   * Description: <b>Who this is about</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>BodyStructure.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="BodyStructure.patient", description="Patient to whom bodystructure belongs", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="BodyStructure.patient", description="Who this is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Patient to whom bodystructure belongs</b><br>
+   * Description: <b>Who this is about</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>BodyStructure.patient</b><br>
    * </p>
@@ -723,6 +771,26 @@ public class BodyStructure extends DomainResource {
    * the path value of "<b>BodyStructure:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("BodyStructure:patient").toLocked();
+
+ /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>Body site</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodyStructure.location</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location", path="BodyStructure.location", description="Body site", type="token" )
+  public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>Body site</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodyStructure.location</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LOCATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LOCATION);
 
 
 }

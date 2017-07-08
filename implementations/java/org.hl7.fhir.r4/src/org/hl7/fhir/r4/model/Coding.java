@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Jun 18, 2017 20:37+1000 for FHIR v3.1.0
+// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A reference to a code defined by a terminology system.
  */
 @DatatypeDef(name="Coding")
-public class Coding extends Type implements IBaseCoding, ICompositeType {
+public class Coding extends Type implements IBaseCoding, ICompositeType, ICoding {
 
     /**
      * The identification of the code system that defines the meaning of the symbol in the code.
@@ -511,6 +511,16 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, code, display
           , userSelected);
+      }
+
+      @Override
+      public boolean supportsVersion() {
+        return true;
+      }
+
+      @Override
+      public boolean supportsDisplay() {
+        return true;
       }
 
 

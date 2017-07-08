@@ -4361,10 +4361,10 @@ public class VersionConvertor_30_40 {
       tgt.addIdentifier(convertIdentifier(t));
     if (src.hasActive())
       tgt.setActive(src.getActive());
-    if (src.hasCode())
-      tgt.setCode(convertCodeableConcept(src.getCode()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getQualifier())
-      tgt.addQualifier(convertCodeableConcept(t));
+//    if (src.hasCode())
+//      tgt.setCode(convertCodeableConcept(src.getCode()));
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getQualifier())
+//      tgt.addQualifier(convertCodeableConcept(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.Attachment t : src.getImage())
@@ -4383,10 +4383,10 @@ public class VersionConvertor_30_40 {
       tgt.addIdentifier(convertIdentifier(t));
     if (src.hasActive())
       tgt.setActive(src.getActive());
-    if (src.hasCode())
-      tgt.setCode(convertCodeableConcept(src.getCode()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getQualifier())
-      tgt.addQualifier(convertCodeableConcept(t));
+//    if (src.hasCode())
+//      tgt.setCode(convertCodeableConcept(src.getCode()));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getQualifier())
+//      tgt.addQualifier(convertCodeableConcept(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.r4.model.Attachment t : src.getImage())
@@ -11137,8 +11137,8 @@ public class VersionConvertor_30_40 {
       tgt.setEffective(convertType(src.getEffective()));
     if (src.hasIssued())
       tgt.setIssued(src.getIssued());
-    for (org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent t : src.getPerformer())
-      tgt.addPerformer(convertDiagnosticReportPerformerComponent(t));
+//    for (org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent t : src.getPerformer())
+//      tgt.addPerformer(convertDiagnosticReportPerformerComponent(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getSpecimen())
       tgt.addSpecimen(convertReference(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getResult())
@@ -11179,8 +11179,8 @@ public class VersionConvertor_30_40 {
       tgt.setEffective(convertType(src.getEffective()));
     if (src.hasIssued())
       tgt.setIssued(src.getIssued());
-    for (org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent t : src.getPerformer())
-      tgt.addPerformer(convertDiagnosticReportPerformerComponent(t));
+//    for (org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent t : src.getPerformer())
+//      tgt.addPerformer(convertDiagnosticReportPerformerComponent(t));
     for (org.hl7.fhir.r4.model.Reference t : src.getSpecimen())
       tgt.addSpecimen(convertReference(t));
     for (org.hl7.fhir.r4.model.Reference t : src.getResult())
@@ -11234,30 +11234,30 @@ public class VersionConvertor_30_40 {
   }
 }
 
-  public static org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent convertDiagnosticReportPerformerComponent(org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent tgt = new org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent();
-    copyElement(src, tgt);
-    if (src.hasRole())
-      tgt.setRole(convertCodeableConcept(src.getRole()));
-    if (src.hasActor())
-      tgt.setActor(convertReference(src.getActor()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent convertDiagnosticReportPerformerComponent(org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent tgt = new org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent();
-    copyElement(src, tgt);
-    if (src.hasRole())
-      tgt.setRole(convertCodeableConcept(src.getRole()));
-    if (src.hasActor())
-      tgt.setActor(convertReference(src.getActor()));
-    return tgt;
-  }
-
+//  public static org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent convertDiagnosticReportPerformerComponent(org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent tgt = new org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent();
+//    copyElement(src, tgt);
+//    if (src.hasRole())
+//      tgt.setRole(convertCodeableConcept(src.getRole()));
+//    if (src.hasActor())
+//      tgt.setActor(convertReference(src.getActor()));
+//    return tgt;
+//  }
+//
+//  public static org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent convertDiagnosticReportPerformerComponent(org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportPerformerComponent src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent tgt = new org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportPerformerComponent();
+//    copyElement(src, tgt);
+//    if (src.hasRole())
+//      tgt.setRole(convertCodeableConcept(src.getRole()));
+//    if (src.hasActor())
+//      tgt.setActor(convertReference(src.getActor()));
+//    return tgt;
+//  }
+//
   public static org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportImageComponent convertDiagnosticReportImageComponent(org.hl7.fhir.dstu3.model.DiagnosticReport.DiagnosticReportImageComponent src) throws FHIRException {
     if (src == null)
       return null;

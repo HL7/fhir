@@ -434,10 +434,16 @@ private Map<String, Object> userData;
 	}
 	
 	public Coding castToCoding(Base b) throws FHIRException {
-		if (b instanceof Coding)
-			return (Coding) b;
-		else if (b instanceof Element) {
-		  return ObjectConverter.readAsCoding((Element) b);
+    if (b instanceof Coding)
+      return (Coding) b;
+    else if (b instanceof Element) {
+      ICoding c = ((Element) b).getAsICoding();
+      if (c == null)
+        throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Coding");
+      return new Coding().setCode(c.getCode()).setSystem(c.getSystem()).setVersion(c.getVersion()).setDisplay(c.getDisplay());
+    } else if (b instanceof ICoding) {
+      ICoding c = (ICoding) b;
+      return new Coding().setCode(c.getCode()).setSystem(c.getSystem()).setVersion(c.getVersion()).setDisplay(c.getDisplay());
 		} else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Coding");
 	}

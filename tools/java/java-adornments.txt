@@ -148,4 +148,123 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities;
         }
         
   }
+
+  public void addExtension(String url, Type value) {
+    Extension ex = new Extension();
+    ex.setUrl(url);
+    ex.setValue(value);
+    getExtension().add(ex);    
+  }
 ----
+
+-- CodeType.implements --
+ICoding    
+----
+
+-- Coding.implements --
+ICoding
+----
+
+-- Quantity.implements --
+ICoding    
+----
+
+-- CodeType --
+
+	private String system;
+	
+  @Override
+  public String getSystem() {
+    return system;
+  }
+
+  @Override
+  public boolean hasSystem() {
+    return system != null;
+  }
+  
+  public CodeType setSystem(String system) {
+    this.system = system;
+    return this;
+  }
+
+  @Override
+  public String getVersion() {
+    return null;
+  }
+
+  @Override
+  public boolean hasVersion() {
+    return false;
+  }
+  
+  @Override
+  public String getDisplay() {
+    return null;
+  }
+
+  @Override
+  public boolean hasDisplay() {
+    return false;
+  }
+  
+----
+
+-- CodeSystem --
+  public PropertyComponent getProperty(String code) {
+    for (PropertyComponent pd : getProperty()) {
+      if (pd.getCode().equalsIgnoreCase(code))
+        return pd;
+    }
+    return null;
+  }
+----
+
+-- Quantity --
+
+      @Override
+      public String getVersion() {
+        return null;
+      }
+
+      @Override
+      public boolean hasVersion() {
+        return false;
+      }
+
+      @Override
+      public boolean supportsVersion() {
+        return false;
+      }
+
+      @Override
+      public String getDisplay() {
+        return null;
+      }
+
+      @Override
+      public boolean hasDisplay() {
+        return false;
+      }
+
+      @Override
+      public boolean supportsDisplay() {
+        return false;
+      }
+
+
+----
+
+-- Coding --
+      @Override
+      public boolean supportsVersion() {
+        return true;
+      }
+
+      @Override
+      public boolean supportsDisplay() {
+        return true;
+      }
+
+----
+
