@@ -716,6 +716,12 @@
   Description = Returns medication request to be administered on a specific date
   Path = MedicationRequest.dosageInstruction.timing.event
 
+ -- Row 15 -----------------------------------
+  Name = intended-performer
+  Type = reference
+  Description = Returns the intended performer of the administration of the medication request
+  Path = MedicationRequest.performer
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

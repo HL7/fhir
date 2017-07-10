@@ -27,7 +27,7 @@
                 <td>X</td>
                 <td></td>
                 <td>X</td>
-                <td></td>
+                <td>X</td>
                 <td> Patient or related person states the medication is not currently being taken.  Taken must = N.  <br/>
                     When status = Active, it means that although a statement was made that the patient isn’t taking the medication, the practitioner still expects and instructs the patient to take the medication. <br/> 
                     When status = On Hold, it means that although a statement was made that the patient isn’t taking the medication, the practitioner has suspended the medication, but intends for the patient to take the medication in the future.  <br/>
@@ -42,7 +42,7 @@
                 <td>X</td>
                 <td></td>
                 <td>X</td>
-                <td></td>
+                <td>X</td>
                 <td>Patient or related person states the medication is or will be taken.  Taken must = Y.  The status values can be any of the following:  active, on hold, or intended.</td>
             </tr>
             <tr>
