@@ -932,7 +932,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (class_ == StructureDefinition.class && !uri.contains("/"))
       uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
     
-    if (uri.startsWith("http:")) {
+    if (uri.startsWith("http:") || uri.startsWith("https:")) {
       if (uri.contains("#"))
         uri = uri.substring(0, uri.indexOf("#"));
       if (class_ == Resource.class) {
