@@ -1757,10 +1757,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
       }
       try {
+        boolean altered = false;
 
         String id = e.getChildValue("id");
-        if (Utilities.noString(id))
-          throw new Exception("Resource has no id in "+file.getPath());
+        if (Utilities.noString(id)) {
+          if (e.hasChild("url")) {
+            String url = e.getChildValue("url");
+            String prefix = Utilities.pathURL(igpkp.getCanonical(), e.fhirType())+"/";
+            if (url.startsWith(prefix)) {
+              id = e.getChildValue("url").substring(prefix.length());
+              e.setChildValue("id", id);
+              altered = true;
+            } 
+            if (Utilities.noString(id)) {
+              throw new Exception("Resource has no id in "+file.getPath());
+            }
+          }
+        }
         r.setElement(e).setId(id);
         igpkp.findConfiguration(file, r);
         
@@ -1802,10 +1815,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res);
         }
-        if (ver.equals(Constants.VERSION)) { // in current version
-          if (r.getResource() == null)
-            r.setResource(new ObjectConverter(context).convert(r.getElement()));
-        }
+        if (altered || (ver.equals(Constants.VERSION) && r.getResource() == null))
+          r.setResource(new ObjectConverter(context).convert(r.getElement()));
+        
       } catch ( Exception ex ) {
         throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
       }
@@ -2957,18 +2969,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
 
-    if (items.size() > 0) {
-      StringBuilder list = new StringBuilder();
-      StringBuilder lists = new StringBuilder();
-      StringBuilder table = new StringBuilder();
-      for (Item i : items) {
-        StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        genEntryItem(list, lists, table, i.f, i.r, i.sort);
-      }
-      fragment("list-extensions", list.toString(), otherFilesRun);
-      fragment("list-simple-extensions", lists.toString(), otherFilesRun);
-      fragment("table-extensions", table.toString(), otherFilesRun);
+    StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
+    StringBuilder table = new StringBuilder();
+    for (Item i : items) {
+      StructureDefinition sd = (StructureDefinition) i.r.getResource();
+      genEntryItem(list, lists, table, i.f, i.r, i.sort);
     }
+    fragment("list-extensions", list.toString(), otherFilesRun);
+    fragment("list-simple-extensions", lists.toString(), otherFilesRun);
+    fragment("table-extensions", table.toString(), otherFilesRun);
   }
 
   private void generateLogicals() throws Exception {
