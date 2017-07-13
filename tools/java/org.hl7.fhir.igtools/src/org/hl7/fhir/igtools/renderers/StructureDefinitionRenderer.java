@@ -445,22 +445,42 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   }
 
-  public String dict() throws Exception {
+  public String dict(boolean incProfiledOut) throws Exception {
     int i = 1;
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"dict\">\r\n");
 
     List<StringPair> replacements = new ArrayList<StringPair>();
     for (ElementDefinition ec : sd.getSnapshot().getElement()) {
-      if (isProfiledExtension(ec)) {
-        StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile());
-        if (extDefn == null) {
-          String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
-          b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-          generateElementInner(b, sd,  ec, 1, null);
+      if (incProfiledOut || !"0".equals(ec.getMax())) {
+        if (isProfiledExtension(ec)) {
+          StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile());
+          if (extDefn == null) {
+            String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+            b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a><b>"+title+"</b></td></tr>\r\n");
+            generateElementInner(b, sd,  ec, 1, null);
+          } else {
+            String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
+                "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+            b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
+            if (ec.getId().endsWith("[x]")) {
+              Set<String> tl = new HashSet<String>();
+              for (TypeRefComponent tr : ec.getType()) {
+                String tc = tr.getCode();
+                if (!tl.contains(tc)) {
+                  tl.add(tc);
+                  String s = ec.getId().replace("[x]", Utilities.capitalize(tc));
+                  b.append("<a name=\""+s+"\"> </a>");
+                  replacements.add(new StringPair(ec.getId(), s));
+                }
+              }
+            }
+            b.append("<b>"+title+"</b></td></tr>\r\n");
+            ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
+            generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
+          }
         } else {
-          String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
-              "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+          String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");
           b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
           if (ec.getId().endsWith("[x]")) {
             Set<String> tl = new HashSet<String>();
@@ -473,39 +493,21 @@ public class StructureDefinitionRenderer extends BaseRenderer {
                 replacements.add(new StringPair(ec.getId(), s));
               }
             }
+          } else if (ec.hasBase() && ec.getBase().getPath().endsWith("[x]")) {
+            String s = nottail(ec.getId())+"."+tail(ec.getBase().getPath());
+            replacements.add(new StringPair(ec.getId(), s));
+            b.append("<a name=\""+s+"\"> </a>");
+          } else if (!ec.getId().equals(ec.getPath())) {
+            b.append("<a name=\""+ec.getPath()+"\"> </a>");
           }
+          for (StringPair s : replacements)
+            if (ec.getId().startsWith(s.match))
+              b.append("<a name=\""+s.replace+ec.getId().substring(s.match.length())+"\"> </a>");
           b.append("<b>"+title+"</b></td></tr>\r\n");
-          ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
-          generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
+          generateElementInner(b, sd, ec, 1, null);
+          if (ec.hasSlicing())
+            generateSlicing(sd, ec.getSlicing());
         }
-      } else {
-        String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");
-        b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
-        if (ec.getId().endsWith("[x]")) {
-          Set<String> tl = new HashSet<String>();
-          for (TypeRefComponent tr : ec.getType()) {
-            String tc = tr.getCode();
-            if (!tl.contains(tc)) {
-              tl.add(tc);
-              String s = ec.getId().replace("[x]", Utilities.capitalize(tc));
-              b.append("<a name=\""+s+"\"> </a>");
-              replacements.add(new StringPair(ec.getId(), s));
-            }
-          }
-        } else if (ec.hasBase() && ec.getBase().getPath().endsWith("[x]")) {
-          String s = nottail(ec.getId())+"."+tail(ec.getBase().getPath());
-          replacements.add(new StringPair(ec.getId(), s));
-          b.append("<a name=\""+s+"\"> </a>");
-        } else if (!ec.getId().equals(ec.getPath())) {
-          b.append("<a name=\""+ec.getPath()+"\"> </a>");
-        }
-        for (StringPair s : replacements)
-          if (ec.getId().startsWith(s.match))
-            b.append("<a name=\""+s.replace+ec.getId().substring(s.match.length())+"\"> </a>");
-        b.append("<b>"+title+"</b></td></tr>\r\n");
-        generateElementInner(b, sd, ec, 1, null);
-        if (ec.hasSlicing())
-          generateSlicing(sd, ec.getSlicing());
       }
     }
     b.append("</table>\r\n");
