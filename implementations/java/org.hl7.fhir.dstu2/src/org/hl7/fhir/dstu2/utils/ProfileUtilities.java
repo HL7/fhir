@@ -2025,9 +2025,9 @@ public class ProfileUtilities {
 
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws IOException, DefinitionException {
     if (!structure.hasConstrainedType())
-      throw new DefinitionException("not the right kind of structure to generate schematrons for");
+      throw new DefinitionException("not the right kind of structure to generate schematrons for ("+structure.getUrl()+")");
     if (!structure.hasSnapshot())
-      throw new DefinitionException("needs a snapshot");
+      throw new DefinitionException("needs a snapshot for ("+structure.getUrl()+")");
 
   	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
 
