@@ -3461,7 +3461,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "pseudo-xml"))
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
     if (igpkp.wantGen(r, "pseudo-json"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-json", "yet to be done: Json template", f.getOutputNames());
+      fragment("StructureDefinition-"+sd.getId()+"-pseudo-json", sdr.pseudoJson(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "pseudo-ttl"))
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-ttl", "yet to be done: Turtle template", f.getOutputNames());
     if (igpkp.wantGen(r, "uml"))

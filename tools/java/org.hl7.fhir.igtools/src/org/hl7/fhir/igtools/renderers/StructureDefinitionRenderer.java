@@ -38,6 +38,7 @@ import org.hl7.fhir.r4.model.Quantity;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.Type;
@@ -1020,6 +1021,350 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   public String span(boolean onlyConstraints, String canonical) throws IOException, FHIRException {
     return new XhtmlComposer().compose(utils.generateSpanningTable(sd, destDir, onlyConstraints, canonical));
+  }
+
+  public String pseudoJson() throws Exception {
+    StringBuilder b = new StringBuilder();
+    ElementDefinition root = sd.getSnapshot().getElement().get(0);
+    String rn = sd.getSnapshot().getElement().get(0).getPath();
+    b.append("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(sd.getName()) + "</span>\r\n");
+    
+    List<ElementDefinition> children = getChildren(sd.getSnapshot().getElement(), sd.getSnapshot().getElement().get(0));
+    boolean complex = isComplex(children);
+    if (!complex)
+      b.append("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
+    
+    int c = 0;
+    int l = lastChild(children);
+    for (ElementDefinition child : children)
+      if (child.hasSlicing())
+        generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, 2, rn, false, child.getType().get(0), ++c == l, complex);
+      else if (wasSliced(child, children))
+        ; // nothing
+      else if (child.getType().size() == 1)
+        generateCoreElem(b, sd.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == l, complex);
+      else {
+        b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+        for (TypeRefComponent t : child.getType())
+          generateCoreElem(b, sd.getSnapshot().getElement(), child, 2, rn, false, t, ++c == l, false);
+      }
+    b.append("  }\r\n");
+    return b.toString();
+  }
+
+  private List<ElementDefinition> getChildren(List<ElementDefinition> elements, ElementDefinition elem) {
+    int i = elements.indexOf(elem)+1;
+    List<ElementDefinition> res = new ArrayList<ElementDefinition>();
+    while (i < elements.size()) {
+      if (elements.get(i).getPath().startsWith(elem.getPath()+".")) {
+        String tgt = elements.get(i).getPath();
+        String src = elem.getPath();
+        if (tgt.startsWith(src+".")) {
+          if (!tgt.substring(src.length()+1).contains(".")) 
+            res.add(elements.get(i));
+        }
+      } else
+        return res;
+      i++;
+    }
+    return res;
+  }
+
+  private boolean isComplex(List<ElementDefinition> children) {
+    int c = 0;
+    for (ElementDefinition child : children) {
+      if (child.getPath().equals("Extension.extension"))
+        c++;
+    }
+    return c > 1;
+  }
+
+  private int lastChild(List<ElementDefinition> extchildren) {
+    int l = extchildren.size();
+    while (l > 0 && "0".equals(extchildren.get(l-1).getMax()))
+      l--;
+    return l;
+  }
+
+  @SuppressWarnings("rawtypes")
+  private void generateCoreElem(StringBuilder b, List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
+    if (elem.getPath().endsWith(".id"))
+      return;
+    if (!complex && elem.getPath().endsWith(".extension"))
+      return;
+    
+    if (elem.getMax().equals("0"))
+      return;
+    
+    String indentS = "";
+    for (int i = 0; i < indent; i++) {
+      indentS += "  ";
+    }
+    b.append(indentS);
+
+    
+    
+    List<ElementDefinition> children = getChildren(elements, elem);
+    String name =  tail(elem.getPath());
+    String en = asValue ? "value[x]" : name;
+    if (en.contains("[x]"))
+      en = en.replace("[x]", upFirst(type.getCode()));
+    boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
+    String defPage = igp.getLinkForProfile(sd, sd.getUrl());
+    // 1. name
+    b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
+        + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
+    
+    // 2. value
+    boolean delayedCloseArray = false;
+    if (unbounded) 
+      b.append("[");
+
+    if (type == null) {
+      // inline definition
+      assert(children.size() > 0);
+      b.append("{");
+      delayedCloseArray = true;
+    } else if (isPrimitive(type.getCode())) {
+      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+        b.append("\"");
+      if (elem.hasFixed()) 
+        b.append(Utilities.escapeJson(((PrimitiveType) elem.getFixed()).asStringValue()));
+      else
+        b.append("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
+      if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
+        b.append("\"");
+    } else {
+      b.append("{ ");
+      b.append("<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
+      if (type.hasProfile()) {
+        if (type.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getProfile().substring(40);
+          if (hasType(t))
+            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
+          else if (hasResource(t))
+            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+ t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
+          else
+            b.append("("+t+")");
+        } else
+          b.append("("+type.getProfile()+")");
+      }
+      if (type.hasTargetProfile()) {
+        if (type.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getTargetProfile().substring(40);
+          if (hasType(t))
+            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
+          else if (hasResource(t))
+            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+ t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
+          else
+            b.append("("+t+")");
+        } else
+          b.append("("+type.getTargetProfile()+")");
+      }
+      b.append(" }");
+    } 
+
+    if (!delayedCloseArray) {
+      if (unbounded) 
+        b.append("]");
+      if (!last)
+        b.append(",");
+    }
+    
+    b.append(" <span style=\"color: Gray\">//</span>");
+
+    // 3. optionality
+    writeCardinality(b, elem);
+
+    // 4. doco
+    if (!elem.hasFixed()) {
+      if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
+        ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
+        if (vs != null)
+          b.append("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+        else if (elem.getBinding().getValueSet() instanceof UriType)
+          b.append("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+        else
+          b.append("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((Reference)elem.getBinding().getValueSet()).getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+      } else
+        b.append("<span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</span>");
+    }
+
+    b.append("\r\n");
+
+    if (delayedCloseArray) {
+      int c = 0;
+      for (ElementDefinition child : children) {
+        if (child.getType().size() == 1)
+          generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == children.size(), false);
+        else {
+          b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+          for (TypeRefComponent t : child.getType())
+            generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, t, ++c == children.size(), false);
+        }
+      }
+      b.append("}]");
+      if (!last)
+        b.append(",");
+    }
+  }
+
+  private void generateCoreElemSliced(StringBuilder b, List<ElementDefinition> elements, ElementDefinition elem, List<ElementDefinition> children, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
+    String name =  tail(elem.getPath());
+    String en = asValue ? "value[x]" : name;
+    if (en.contains("[x]"))
+      en = en.replace("[x]", upFirst(type.getCode()));
+    boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
+
+    String indentS = "";
+    for (int i = 0; i < indent; i++) {
+      indentS += "  ";
+    }
+    String defPage = igp.getLinkForProfile(sd, sd.getUrl());
+    b.append(indentS);
+    b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
+    + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
+    b.append("[ // <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span>");
+//    b.append(" <span style=\"color: Gray\">//</span>");
+//    writeCardinality(elem);
+    b.append("\r\n");
+    
+    List<ElementDefinition> slices = getSlices(elem, children);
+    int c = 0;
+    for (ElementDefinition slice : slices) {
+      b.append(indentS+"  ");
+      b.append("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(slice.getShort()) + "</span>");
+      b.append(" <span style=\"color: Gray\">//</span>");
+      writeCardinality(b, slice);
+      b.append("\r\n");
+      
+      List<ElementDefinition> extchildren = getChildren(elements, slice);
+      boolean extcomplex = isComplex(extchildren) && complex;
+      if (!extcomplex) {
+        b.append(indentS+"  ");
+        b.append("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
+      }
+      
+      int cc = 0;
+      int l = lastChild(extchildren);
+      for (ElementDefinition child : extchildren)
+        if (child.hasSlicing())
+          generateCoreElemSliced(b, elements, child, children, indent+2, pathName+"."+en, false, child.getType().get(0), ++cc == l, extcomplex);
+        else if (wasSliced(child, children))
+          ; // nothing
+        else if (child.getType().size() == 1)
+          generateCoreElem(b, elements, child, indent+2, pathName+"."+en, false, child.getType().get(0), ++cc == l, extcomplex);
+        else {
+          b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+          for (TypeRefComponent t : child.getType())
+            generateCoreElem(b, elements, child, indent+2, pathName+"."+en, false, t, ++cc == l, false);
+        }
+      c++;
+      b.append(indentS);
+      if (c == slices.size())
+        b.append("  }\r\n");
+      else
+        b.append("  },\r\n");
+
+    }
+    b.append(indentS);
+    if (last)
+      b.append("]\r\n");
+    else
+      b.append("],\r\n");
+  }
+
+  
+  private boolean hasResource(String code) {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && sd.getKind() == StructureDefinitionKind.RESOURCE;
+  }
+
+  private boolean hasType(String code) {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE || sd.getKind() == StructureDefinitionKind.COMPLEXTYPE);
+  }
+
+  private String getSrcFile(String code) {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null ? "??" : igp.getLinkForProfile(this.sd, sd.getUrl());
+  }
+
+  private boolean isPrimitive(String code) {
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+  }
+
+  private ValueSet resolveValueSet(Type valueSet) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  private String upFirst(String s) {
+    return s.substring(0, 1).toUpperCase() + s.substring(1);
+  }
+
+  private void writeCardinality(StringBuilder b, ElementDefinition elem) throws IOException {
+    if (elem.getConstraint().size() > 0)
+      b.append(" <span style=\"color: brown\" title=\""
+          + Utilities.escapeXml(getInvariants(elem)) + "\"><b>C?</b></span>");
+    if (elem.getMin() > 0)
+      b.append(" <span style=\"color: brown\" title=\"This element is required\"><b>R!</b></span> ");
+  }
+
+  private String getInvariants(ElementDefinition elem) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (ElementDefinitionConstraintComponent i : elem.getConstraint()) {
+      if (!first)
+        b.append("; ");
+      first = false;
+      b.append(i.getKey()+": "+i.getHuman());
+    }
+
+    return b.toString();
+  }
+
+
+  private String getEnhancedDefinition(ElementDefinition elem) {
+    if (elem.getIsModifier() && elem.getMustSupport())
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element modifies the meaning of other elements, and must be supported)";
+    else if (elem.getIsModifier())
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element modifies the meaning of other elements)";
+    else if (elem.getMustSupport())
+      return Utilities.removePeriod(elem.getDefinition()) + " (this element must be supported)";
+    else
+      return Utilities.removePeriod(elem.getDefinition());
+  }
+
+  private boolean wasSliced(ElementDefinition child, List<ElementDefinition> children) {
+    String path = child.getPath();
+    for (ElementDefinition c : children) {
+      if (c == child)
+        break;
+      if (c.getPath().equals(path) && c.hasSlicing())
+        return true;
+    }
+    return false;
+  }
+
+
+  private List<ElementDefinition> getSlices(ElementDefinition elem, List<ElementDefinition> children) {
+    List<ElementDefinition> slices = new ArrayList<ElementDefinition>();
+    for (ElementDefinition child : children) {
+      if (child != elem && child.getPath().equals(elem.getPath()))
+        slices.add(child);
+    }
+    return slices;
+  }
+
+  private String describeSlicing(ElementDefinitionSlicingComponent slicing) {
+    CommaSeparatedStringBuilder csv = new CommaSeparatedStringBuilder();
+    for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) {
+      csv.append(d.getType().toCode()+":"+d.getPath());
+    }
+    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + (slicing.hasRules() ? slicing.getRules().getDisplay() : "");
+    return " sliced by "+csv.toString()+" "+s;
   }
 
 }
