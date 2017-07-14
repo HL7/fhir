@@ -12,12 +12,12 @@
   <concept>
     <code value="diet"/>
     <display value="Diet"/>
-    <definition value="Flags related to the subject&#39;s dietary needs."/>
+    <definition value="Flags related to the subject's dietary needs."/>
   </concept>
   <concept>
     <code value="drug"/>
     <display value="Drug"/>
-    <definition value="Flags related to the patient&#39;s medications."/>
+    <definition value="Flags related to the subject's medications."/>
   </concept>
   <concept>
     <code value="lab"/>
@@ -33,5 +33,30 @@
     <code value="contact"/>
     <display value="Subject contact"/>
     <definition value="Flags related to coming into contact with the patient."/>
+  </concept>
+  <concept>
+    <code value="clinical"/>
+    <display value="Clinical"/>
+    <definition value="Flags related to the subject's clinical data."/>
+  </concept>
+  <concept>
+    <code value="behavioral"/>
+    <display value="Behavioral"/>
+    <definition value="Flags related to behavior."/>
+  </concept>
+  <concept>
+    <code value="research"/>
+    <display value="Research"/>
+    <definition value="Flags related to research."/>
+  </concept>
+  <concept>
+    <code value="advance-directive"/>
+    <display value="Advance Directive"/>
+    <definition value="Flags related to subject's advance directives."/>
+  </concept>
+  <concept>
+    <code value="safety"/>
+    <display value="Safety"/>
+    <definition value="Flags related to safety precautions."/>
   </concept>
 </CodeSystem>

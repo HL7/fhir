@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 A flag is a warning or notification of some sort presented to the user - who may be a clinician or some other person involve in patient care. It usually represents
-something of sufficient significance to be warrant a special display of some sort - rather than just a note in the resource.
+something of sufficient significance to warrant a special display of some sort - rather than just a note in the resource.
 
 A flag has a subject representing the resource that will trigger its display. This subject can be of different types, as described in the examples below:
 </p>

@@ -80,12 +80,13 @@
 
  -- Row 4 -----------------------------------
   Element = Flag.category
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = FlagCategory
   Short Name = Clinical, administrative, etc.
   Definition = Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
+  Comments = The value set will often need to be adjusted based on local business rules and usage context.
   RIM Mapping = .code
   w5 = class
 

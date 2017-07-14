@@ -361,7 +361,7 @@
   Element = AdverseEvent.subject
   Card. = 0..1
   Aliases = patient
-  Type = Reference(Patient|ResearchSubject|Practitioner|Person)
+  Type = Reference(Patient|ResearchSubject|Practitioner|RelatedPerson)
   Short Name = Subject impacted by event
   Definition = This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
   w5 = who

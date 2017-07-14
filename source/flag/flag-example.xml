@@ -11,11 +11,11 @@
   <status value="inactive"/>
   <category>
     <coding>
-      <system value="http://example.org/local"/>
-      <code value="admin"/>
-      <display value="Admin"/>
+      <system value="http://hl7.org/fhir/flag-category"/>
+      <code value="safety"/>
+      <display value="Safety"/>
     </coding>
-    <text value="admin"/>  
+    <text value="Safety"/>  
   </category>
   <code>
     <coding>
