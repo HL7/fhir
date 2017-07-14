@@ -445,4 +445,16 @@
   Description = Mother died from a stroke aged 56. Brother with diabetes.
   Filename = familymemberhistory-example-mother.xml
 
+ -- Row 3 -----------------------------------
+  Name = Paternal Great Grandma			
+  Identity = PGGrandma			
+  Description = Patient whose paternal great grandma was diagnosed with other or unspecified breast cancer			
+  Filename = familymemberhistory-example-PGGrandma.xml			
+
+ -- Row 4 -----------------------------------			
+  Name = Mother and Maternal Grandma			
+  Identity = MGandMTH			
+  Description =Patient with BRCA2-related hereditary breast and/or ovarian cancer whose mother and maternal grandma was diagnosed with other or unspecified breast cancer			
+  Filename = familymemberhistory-example-MGandMTH.xml			
+
 === Sheet Examples =====================================

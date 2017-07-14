@@ -10,7 +10,7 @@
 			</coding>
 		</valueCodeableConcept>
 	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+	<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 		<valueReference>
 			<reference value="Sequence/example-sequence1"/>
 		</valueReference>
@@ -19,7 +19,7 @@
 		<valueReference>
 			<reference value="Sequence/example-sequence2"/>
 		</valueReference>
-	</extension>
+	</extension-->
 	<status value="unknown"/>
   <code>
     <coding>

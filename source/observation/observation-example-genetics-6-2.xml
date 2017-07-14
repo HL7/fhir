@@ -48,7 +48,7 @@
           <referenceAllele value="T"/>
       </Sequence>
   </contained>
-  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+  <!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
       <valueReference>
           <reference value="#g-2"/>
       </valueReference>
@@ -58,7 +58,7 @@
           <valueCodeableConcept>
               <text value="GRCh 38"/>
           </valueCodeableConcept>
-      </extension>
+      </extension-->
       <extension url="name">
           <valueCodeableConcept>
               <text value="c.181T&gt;A"/>

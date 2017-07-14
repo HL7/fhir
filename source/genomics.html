@@ -969,6 +969,254 @@ Get /DiagnosticReport&amp;
 
 <img alt="" src="genomics-image13.png" style="width: 485.50px; height: 248.20px;"/>
 
+<h3>Basic Queries</h3>
+
+<p>
+  Find patients by condition and affected status
+</p>
+
+<pre class="http">
+GET /Condition?
+    component-code-value-[x]=http://snomed.info/sct|439401001
+</pre>
+
+<br />
+
+<p>
+  Find patients by phenotypical attribute
+</p>
+
+<pre class="http">
+Get /Observation?
+    =http://hl7.org/fhir/StructureDefinition/observation-geneticsGene&amp;
+    CodeableConcept=http://loinc.org|79716-7
+</pre>
+
+<p>
+  79716-7: LOINC code for “CYP2C9 gene product metabolic activity interpretation”
+</p>
+
+<br />
+
+<p>
+  Find patients by molecular data type available
+</p>
+
+<pre class="http">
+Get /Observation?
+    =http://hl7.org/fhir/StructureDefinition/observation-genetics&amp;
+    Interpretation.component-code=http://loinc.org|34193-3
+</pre>
+
+<p>
+  34193-3: LOINC code for “SMPD1 gene mutations tested for in Blood or Tissue by Molecular genetics method Nominal"
+</p>
+
+<br />
+
+<p>
+  Find patients by specific molecular marker (genomic region, position, gene, SNP)
+</p>
+
+<pre class="http">
+Get /Observation?
+    =http://hl7.org/fhir/StructureDefinition/observation-genetics&amp;
+    DNARegionName=NC_000017.10:g.497469T>A
+</pre>
+
+<p>
+  53035-2: LOINC code for “DNA marker assessed"
+</p>
+
+<br />
+
+<p>
+  Find mutation by mutation type and position
+</p>
+
+<pre class="http">
+Get /Observation?
+    =http://hl7.org/fhir/StructureDefinition/observation-geneticsVariant&amp;
+    Name=NM_000059.3:c.706C;A&amp;
+	Type=http://loinc.org|81289-1 
+</pre>
+
+<br />
+
+<p>
+  Find patients based on mode of inheritance (genomic region, position, gene, SNP)
+</p>
+
+<pre class="http">
+Get /FamilyMemberHistory?
+    _profile=http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic&amp;
+    reasonCode=http://snomed.info/sct|272398008
+</pre>
+
+<p>
+  7272398008: SNOMED code for “ Inheritance types "
+</p>
+
+<br />
+
+<p>
+  Search for patient by ID
+</p>
+
+<pre class="http">
+Get /Patient?
+    subject=123
+</pre>
+
+<br />
+
+<p>
+  Search for diagnostic reports with a given variant
+</p>
+
+<pre class="http">
+GET /DiagnosticReport?
+    _profile=http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics&amp;
+    geneticsAnalysis=http://www.ncbi.nlm.nih.gov/projects/SNP|rs58238560
+</pre>
+
+<p>
+  Given diagnostic report, return associated family history information
+</p>
+
+<pre class="http">
+GET /DiagnosticReport?
+    _profile=http://hl7.org/fhir/StructureDefinition/diagnosticreport-geneticsFamilyMemberHistory&amp;
+    id=123
+</pre>
+
+<p>
+  Search for variants given gene and variant classification
+</p>
+
+<pre class="http">
+GET /Observation?
+    =http://hl7.org/fhir/StructureDefinition/observation-genetics&amp;
+    Gene=http://www.genenames.org|3236&amp;
+	GenomicSourceClass=http://loinc.org|LA6684-0
+</pre>
+
+<p>
+  Search for patients based on genetic ancestry
+</p>
+
+<pre class="http">
+GET /Observation?
+    =http://hl7.org/fhir/StructureDefinition/observation-genetics&amp;
+    Ancestry=http://www.genenames.org|186044009
+	GenomicSourceClass=http://snomed.info/sct|LA6684-0
+</pre>
+
+<h3>Boolean Queries</h3>
+
+<p>
+  Find all patients with a set of variants
+</p>
+
+<pre class="http">
+GET /Observation?
+    _profile=http://hl7.org/fhir/StructureDefinition/observaiton-genetics&amp;
+    DNAVariantID=http://www.ncbi.nlm.nih.gov/projects/SNP|rs58238560$rs58238559$rs58238565
+</pre>
+
+<p>
+  rs58238560: variant: NC_000017.10:g.497469T>A
+</p>
+<p>
+  rs58238559: variant: NC_000007.13:g.87082273T>C
+</p>
+<p>
+  rs58238565: variant: NC_000005.10:g.131929452C>A
+</p>
+
+<br />
+
+<h3>Specimen-based Queries</h3>
+
+<p>
+  Find specimens collected from specific specimen body sites
+</p>
+
+<pre class="http">
+GET /Specimen?
+   bodySite=http://snomed.info/sct|85151006
+</pre>
+
+<p>
+  Find specimens from this patient's pedigree
+</p>
+
+<pre class="http">
+Get /FamilyMemberHistory?
+    =http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic&amp;
+    patient=123
+</pre>
+
+<p>
+  Find specimens based on patient disease status
+</p>
+
+<pre class="http">
+Get /DiagnosticReport?
+    =http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetic&amp;
+    AssessedCondition.code=http://snomed.info/sct|254837009&amp;
+    patient=123
+</pre>
+
+<p>
+  Find specimens based on specimen disease status
+</p>
+
+<pre class="http">
+Get /Specimen?
+    status=available&amp;
+</pre>
+
+<p>
+  Find specimens based on technology platform
+</p>
+
+<pre class="http">
+Get /Specimen?
+    =http://hl7.org/fhir/StructureDefinition/shareablecodesystem&amp;
+    code=Information Technology
+</pre>
+
+<p>
+  Find specimens based on instrument identifier
+</p>
+
+<pre class="http">
+Get /Specimen?   
+    container.identifier=48736-15394-75465
+</pre>
+
+<h3>Time-based Queries</h3>
+
+<p>
+  Find specimens collected within an absolute date range
+</p>
+
+<pre class="http">
+Get /Specimen?   
+    receivedTime=2011-03-04T07:03:00Z
+</pre>
+
+<p>
+  Find specimens collected within a relative date range
+</p>
+
+<pre class="http">
+Get /Specimen?
+    =http://hl7.org/fhir/StructureDefinition/specimen-treatmentTime&amp;   
+    duration=quot
+</pre>
+
 <h3>Sequence Test Metrics</h3>
 
 <a name="apps"> </a>
