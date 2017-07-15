@@ -829,12 +829,6 @@
   Description = Mother of Newborn Patient Example
   Filename = patient-example-mom.xml
 
- -- Row 22 -----------------------------------
-  Name = BRCAPatient
-  Identity = brcapat
-  Description = BRCA Gene Mutation test Patient Example
-  Filename = patient-example-brcapat.xml
-
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

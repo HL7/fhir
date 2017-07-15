@@ -48,7 +48,7 @@
           <referenceAllele value="T"/>
       </Sequence>
   </contained>
-  <!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
       <valueReference>
           <reference value="#g-3"/>
       </valueReference>
@@ -64,7 +64,7 @@
               <text value="n.342T&gt;G"/>
           </valueCodeableConcept>
       </extension>
-  </extension-->
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
       <valueCodeableConcept>
           <coding>

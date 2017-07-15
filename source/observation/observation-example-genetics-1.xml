@@ -2,11 +2,11 @@
 
 <Observation xmlns="http://hl7.org/fhir">
   <id value="example-genetics-1"/>
-  <!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName" >
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariantName" >
     <valueCodeableConcept> 
       <text value="NG_007726.3:g.146252T&gt;G" />
     </valueCodeableConcept>
-  </extension-->
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene" >
     <valueCodeableConcept>
       <coding>
