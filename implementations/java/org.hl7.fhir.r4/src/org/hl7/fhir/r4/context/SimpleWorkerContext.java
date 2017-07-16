@@ -544,32 +544,33 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
 
   @Override
-  protected void seeStructureDefinition(String url, StructureDefinition p) throws FHIRException {
-    if (Utilities.noString(url))
-      url = p.getUrl();
-    
-    if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
-      if (!p.hasBaseDefinition())
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
-      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
-      if (sd == null)
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
-      List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
-      List<String> errors = new ArrayList<String>();
-      ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
-      pu.sortDifferential(sd, p, url, errors);
-      for (String err : errors)
-        msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
-      pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
-      for (ValidationMessage msg : msgs) {
-        if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
-          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
+  protected void seeMetadataResource(MetadataResource r, Map map, boolean addId) throws FHIRException {
+    if (r instanceof StructureDefinition) {
+      StructureDefinition p = (StructureDefinition)r;
+      
+      if (!p.hasSnapshot() && p.getKind() != StructureDefinitionKind.LOGICAL) {
+        if (!p.hasBaseDefinition())
+          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
+        StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
+        if (sd == null)
+          throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
+        List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
+        List<String> errors = new ArrayList<String>();
+        ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
+        pu.sortDifferential(sd, p, p.getUrl(), errors);
+        for (String err : errors)
+          msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
+        pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
+        for (ValidationMessage msg : msgs) {
+          if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
+            throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
+        }
+        if (!p.hasSnapshot())
+          throw new FHIRException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
+        pu = null;
       }
-      if (!p.hasSnapshot())
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot");
-      pu = null;
     }
-    super.seeStructureDefinition(url, p);
+    super.seeMetadataResource(r, map, addId);
   }
 
 }

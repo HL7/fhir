@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.codec.Charsets;
+import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService.LogCategory;
@@ -149,52 +150,97 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     map.put(r.getId(), r);
     
     if (r instanceof MetadataResource) {
-      String url = ((MetadataResource) r).getUrl();
+      MetadataResource m = (MetadataResource) r;
+      String url = m.getUrl();
       if (!allowLoadingDuplicates && hasResource(r.getClass(), url))
         throw new DefinitionException("Duplicate Resource " + url);
       if (r instanceof StructureDefinition)
-        seeStructureDefinition(url, (StructureDefinition) r);
+        seeMetadataResource(m, structures, false);
       else if (r instanceof ValueSet)
-        seeValueSet(url, (ValueSet) r);
+        seeMetadataResource(m, valueSets, false);
       else if (r instanceof CodeSystem)
-        seeCodeSystem(url, (CodeSystem) r);
+        seeMetadataResource(m, codeSystems, false);
       else if (r instanceof OperationDefinition)
-        seeOperationDefinition(url, (OperationDefinition) r);
+        seeMetadataResource(m, operations, false);
       else if (r instanceof Questionnaire)
-        seeQuestionnaire(url, (Questionnaire) r);
+        seeMetadataResource(m, questionnaires, true);
       else if (r instanceof ConceptMap)
-        maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
+        seeMetadataResource(m, maps, false);
       else if (r instanceof StructureMap)
-        transforms.put(((StructureMap) r).getUrl(), (StructureMap) r);
+        seeMetadataResource(m, transforms, false);
       else if (r instanceof NamingSystem)
         systems.add((NamingSystem) r);
     }
   }
+
+  /*
+   *  Compare business versions, returning "true" if the candidate newer version is in fact newer than the oldVersion
+   *  Comparison will work for strictly numeric versions as well as multi-level versions separated by ., -, _, : or space
+   *  Failing that, it will do unicode-based character ordering.
+   *  E.g. 1.5.3 < 1.14.3
+   *       2017-3-10 < 2017-12-7
+   *       A3 < T2
+   */
+  private boolean laterVersion(String newVersion, String oldVersion) {
+    // Compare business versions, retur
+    newVersion = newVersion.trim();
+    oldVersion = oldVersion.trim();
+    if (StringUtils.isNumeric(newVersion) && StringUtils.isNumeric(oldVersion))
+      return Double.parseDouble(newVersion) > Double.parseDouble(oldVersion);
+    else if (hasDelimiter(newVersion, oldVersion, "."))
+      return laterDelimitedVersion(newVersion, oldVersion, ".");
+    else if (hasDelimiter(newVersion, oldVersion, "-"))
+      return laterDelimitedVersion(newVersion, oldVersion, "-");
+    else if (hasDelimiter(newVersion, oldVersion, "_"))
+      return laterDelimitedVersion(newVersion, oldVersion, "_");
+    else if (hasDelimiter(newVersion, oldVersion, ":"))
+      return laterDelimitedVersion(newVersion, oldVersion, ":");
+    else if (hasDelimiter(newVersion, oldVersion, " "))
+      return laterDelimitedVersion(newVersion, oldVersion, " ");
+    else {
+      return newVersion.compareTo(oldVersion) > 0;
+    }
+  }
   
-  private void seeOperationDefinition(String url, OperationDefinition r) {
-    operations.put(r.getUrl(), r);
+  /*
+   * Returns true if both strings include the delimiter and have the same number of occurrences of it
+   */
+  private boolean hasDelimiter(String s1, String s2, String delimiter) {
+    return s1.contains(delimiter) && s2.contains(delimiter) && s1.split(delimiter).length == s2.split(delimiter).length;
   }
 
-  private void seeValueSet(String url, ValueSet vs) throws FHIRException {
-    valueSets.put(vs.getId(), vs); // todo: why?
-    valueSets.put(vs.getUrl(), vs);
-  }
-
-  private void seeCodeSystem(String url, CodeSystem cs) throws DefinitionException {
-    codeSystems.put(cs.getUrl(), cs);
-  }
-
-  protected void seeStructureDefinition(String url, StructureDefinition p) throws FHIRException {
-    structures.put(p.getId(), p);
-    structures.put(url, p);
-    structures.put(p.getUrl(), p);
-  }
-
-  private void seeQuestionnaire(String url, Questionnaire theQuestionnaire) {
-    questionnaires.put(theQuestionnaire.getId(), theQuestionnaire);
-    questionnaires.put(url, theQuestionnaire);
+  private boolean laterDelimitedVersion(String newVersion, String oldVersion, String delimiter) {
+    String[] newParts = newVersion.split(delimiter);
+    String[] oldParts = oldVersion.split(delimiter);
+    for (int i = 0; i < newParts.length; i++) {
+      if (!newParts[i].equals(oldParts[i]))
+        return laterVersion(newParts[i], oldParts[i]);
+    }
+    // This should never happen
+    throw new Error("delimited versions have exact match");
   }
   
+  protected void seeMetadataResource(MetadataResource r, Map map, boolean addId) throws FHIRException {
+    if (addId)
+      map.put(r.getId(), r); // todo: why?
+    if (!map.containsKey(r.getUrl()))
+      map.put(r.getUrl(), r);
+    else {
+      // If this resource already exists, see if it's the newest business version.  The default resource to return if not qualified is the most recent business version
+      MetadataResource existingResource = (MetadataResource)map.get(r.getUrl());
+      if (r.hasVersion() && existingResource.hasVersion() && !r.getVersion().equals(existingResource.getVersion())) {
+        if (laterVersion(r.getVersion(), existingResource.getVersion())) {
+          map.remove(r.getUrl());
+          map.put(r.getUrl(), r);
+        }
+      } else
+        map.remove(r.getUrl());
+        map.put(r.getUrl(), r);
+//        throw new FHIRException("Multiple declarations of resource with same canonical URL (" + r.getUrl() + ") and version (" + (r.hasVersion() ? r.getVersion() : "" ) + ")");
+    }
+    if (r.hasVersion())
+      map.put(r.getUrl()+"|"+r.getVersion(), r);
+  }  
 
   @Override
   public CodeSystem fetchCodeSystem(String system) {
@@ -933,6 +979,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
     
     if (uri.startsWith("http:") || uri.startsWith("https:")) {
+      String version = null;
       if (uri.contains("#"))
         uri = uri.substring(0, uri.indexOf("#"));
       if (class_ == Resource.class) {

@@ -1006,8 +1006,11 @@ public class ProfileUtilities extends TranslatingUtilities {
 
   private StructureDefinition getProfileForDataType(TypeRefComponent type)  {
     StructureDefinition sd = null;
-    if (type.hasProfile() && !type.getCode().equals("Reference"))  
-      sd = context.fetchResource(StructureDefinition.class, type.getProfile()); 
+    if (type.hasProfile()) {
+      sd = context.fetchResource(StructureDefinition.class, type.getProfile());
+      if (sd == null)
+        System.out.println("Failed to find referenced profile: " + type.getProfile());
+    }
     if (sd == null)
       sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type.getCode());
     if (sd == null)

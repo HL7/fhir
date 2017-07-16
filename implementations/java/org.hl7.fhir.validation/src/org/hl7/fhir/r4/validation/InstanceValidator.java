@@ -643,11 +643,29 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (isRoot) {
       validateRemainder(appContext, errors);
       resourceProfilesMap = null;
+      checkElementUsage(errors, element, new NodeStack(element));
     }
     overall = System.nanoTime() - t;
   }
 
-
+  private void checkElementUsage(List<ValidationMessage> errors, Element element, NodeStack stack) {
+    String elementUsage = element.getUserString("elementSupported");
+    hint(errors, IssueType.INFORMATIONAL, element.line(),element.col(), stack.getLiteralPath(), elementUsage==null || elementUsage.equals("Y"), "Instance includes element that is not marked as 'mustSupport' and was validated against profiles declaring mustSupport=true");
+    if (element.hasChildren()) {
+      String prevName = "";
+      int elementCount = 0;
+      for (Element ce : element.getChildren()) {
+        if (ce.getName().equals(prevName))
+          elementCount++;
+        else {
+          elementCount=1;
+          prevName = ce.getName();
+        }
+        checkElementUsage(errors, ce, stack.push(ce, elementCount, null, null));
+      }
+    }
+  }
+  
   private boolean check(String v1, String v2) {
     return v1 == null ? Utilities.noString(v1) : v1.equals(v2);
   }
@@ -3148,6 +3166,27 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (ei.definition != null) {
         String type = null;
         ElementDefinition typeDefn = null;
+        
+        String usesMustSupport = profile.getUserString("usesMustSupport"); 
+        if (usesMustSupport == null) {
+          usesMustSupport = "N";
+          for (ElementDefinition pe: profile.getSnapshot().getElement()) {
+            if (pe.getMustSupport()) {
+              usesMustSupport = "Y";
+              break;
+            }
+          }
+          profile.setUserData("usesMustSupport", usesMustSupport);
+        }
+        if (usesMustSupport.equals("Y")) {
+          String elementSupported = ei.element.getUserString("elementSupported");
+          if (elementSupported==null || ei.definition.getMustSupport())
+            if (ei.definition.getMustSupport())
+              ei.element.setUserData("elementSupported", "Y");
+            else
+              ei.element.setUserData("elementSupported", "N");
+        }
+        
         if (ei.definition.getType().size() == 1 && !ei.definition.getType().get(0).getCode().equals("*") && !ei.definition.getType().get(0).getCode().equals("Element")
             && !ei.definition.getType().get(0).getCode().equals("BackboneElement")) {
           type = ei.definition.getType().get(0).getCode();
