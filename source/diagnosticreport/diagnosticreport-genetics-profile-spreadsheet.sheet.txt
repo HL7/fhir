@@ -9,6 +9,15 @@
   Conformance = example
   Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
 
+ -- Row 2 -----------------------------------
+  Binding Name = Diagnostic-Snomed
+  Binding = value set
+  Reference = valueset-diagnostic-based-on-snomed
+  Definition = Codes for diagnostic genetic reference types.
+  Description = Codes based on Snomed for diagnostic genetic reference types
+  Conformance = example
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+
 === Sheet DiagnosticReport-Genetics =====================================
 
  -- Row 1 -----------------------------------
@@ -43,6 +52,14 @@
   Type = Extension{#Analysis}
   Short Name = Analysis
   Definition = Knowledge-based comments on the effect of the sequence on patient\'s condition/medication reaction
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = References
+  Card. = 0..*
+  Type = Extension{#References}
+  Short Name = References
+  Definition = Additional bibliographic reference information about genetics, medications, clinical trials, etc associated with knowledge-based information on genetics/genetic condition.
 
 === Sheet Search =====================================
 

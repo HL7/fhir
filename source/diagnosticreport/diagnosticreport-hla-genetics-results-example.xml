@@ -658,7 +658,7 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/"/>
@@ -666,7 +666,7 @@ ProcedureRequest/123  (report is based on this request)
 							<display value="HLA-A*01:01:01G"/>
 						</coding>
 					</valueCodeableConcept>
-				</extension>
+				</extension-->
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
 					<valueCodeableConcept>
 						<coding>
@@ -676,9 +676,9 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
 					<valueUri value="urn:uuid:e13f147e-41e5-4f7a-b20a-1b52b236c5ba"/>
-				</extension>
+				</extension-->
 				<status value="final"/>
 				<code>
 					<coding>
@@ -737,7 +737,7 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/"/>
@@ -745,7 +745,7 @@ ProcedureRequest/123  (report is based on this request)
 							<display value="HLA-A*01:02"/>
 						</coding>
 					</valueCodeableConcept>
-				</extension>
+				</extension-->
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
 					<valueCodeableConcept>
 						<coding>
@@ -755,9 +755,9 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
 					<valueUri value="urn:uuid:af8e79ec-343e-4380-ba65-cec5266dc2d5"/>
-				</extension>
+				</extension-->
 				<status value="final"/>
 				<code>
 					<coding>
@@ -883,7 +883,7 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/"/>
@@ -891,7 +891,7 @@ ProcedureRequest/123  (report is based on this request)
 							<display value="HLA-B*15:01:01G"/>
 						</coding>
 					</valueCodeableConcept>
-				</extension>
+				</extension-->
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
 					<valueCodeableConcept>
 						<coding>
@@ -901,9 +901,9 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
 					<valueUri value="urn:uuid:29c67a1b-aeaa-4599-ae20-04b947ef73d8"/>
-				</extension>
+				</extension-->
 				<status value="final"/>
 				<code>
 					<coding>
@@ -962,7 +962,7 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/"/>
@@ -970,7 +970,7 @@ ProcedureRequest/123  (report is based on this request)
 							<display value="HLA-B*57:01:01G"/>
 						</coding>
 					</valueCodeableConcept>
-				</extension>
+				</extension-->
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
 					<valueCodeableConcept>
 						<coding>
@@ -980,9 +980,9 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
 					<valueUri value="urn:uuid:a19a3557-b36c-4b35-ab8b-4783022066b9"/>
-				</extension>
+				</extension-->
 				<status value="final"/>
 				<code>
 					<coding>
@@ -1108,7 +1108,7 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/"/>
@@ -1116,7 +1116,7 @@ ProcedureRequest/123  (report is based on this request)
 							<display value="HLA-C*01:02:01"/>
 						</coding>
 					</valueCodeableConcept>
-				</extension>
+				</extension-->
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
 					<valueCodeableConcept>
 						<coding>
@@ -1126,9 +1126,9 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
 					<valueUri value="urn:uuid:79383455-4f55-4126-bcc2-03385cad7944"/>
-				</extension>
+				</extension-->
 				<status value="final"/>
 				<code>
 					<coding>
@@ -1187,7 +1187,7 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsAlleleName">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/"/>
@@ -1195,7 +1195,7 @@ ProcedureRequest/123  (report is based on this request)
 							<display value="HLA-C*03:04:01:01"/>
 						</coding>
 					</valueCodeableConcept>
-				</extension>
+				</extension-->
 				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
 					<valueCodeableConcept>
 						<coding>
@@ -1205,9 +1205,9 @@ ProcedureRequest/123  (report is based on this request)
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
+				<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsPhaseSet">
 					<valueUri value="urn:uuid:a220b7a5-2d7a-4cec-a5b1-bfcf5890e391"/>
-				</extension>
+				</extension-->
 				<status value="final"/>
 				<code>
 					<coding>

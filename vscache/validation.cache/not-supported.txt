@@ -91,7 +91,6 @@ http://www.ncbi.nlm.nih.gov/gtr/
 http:hl7.org/fhir
 http://ihe.net/connectathon/classCodes
 http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
-http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/
 http:/acme.ec/gcsverbal
 https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf
 https://acme.org/identifiers
