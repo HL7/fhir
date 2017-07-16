@@ -353,4 +353,17 @@
   Description = Public health population risk assessment
   Filename = riskassessment-example-population.xml
 
+ -- Row 5 -----------------------------------				
+  Name = breastcancer-risk				
+  Identity = breastcancer-risk	
+  Description = Breast cancer risk assessment			
+  Filename = riskassessment-example-breastcancer.xml				
+				
+ -- Row 7 -----------------------------------	
+  Name = risk example				
+  Identity = riskexample				
+  Description = Example risk assessment				
+  Filename = riskassessment-riskexample.xml				
+
+
 === Sheet Examples =====================================

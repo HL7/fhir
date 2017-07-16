@@ -190,14 +190,6 @@
   Short Name = Phase set
   Definition = Phase set information
 
- -- Row 12 -----------------------------------
-  Element = Observation.extension
-  Profile Name = Sequence
-  Card. = 0..*
-  Type = Extension{#Sequence}
-  Short Name = Sequence
-  Definition = Refers to the Sequence resource, representing raw genetics data.
-
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------

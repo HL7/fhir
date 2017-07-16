@@ -1516,6 +1516,13 @@
   Description = Spirometry Example referencing DeviceComponent
   Filename = observation-example-spirometry.xml
 
+ -- Row 52 -----------------------------------
+  Name = Breast Cancer genetic test
+  Identity = example-genetics-brcapat
+  Description = Example of breast cancer genetic observation
+  Filename = observation-example-genetics-brcapat.xml
+  Profile = Observation-Genetics
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

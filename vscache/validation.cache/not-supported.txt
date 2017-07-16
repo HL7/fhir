@@ -80,6 +80,7 @@ http://acmelabs.org
 http://hl7.org/fhir/ValueSet/account-type
 http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor
+https://www.ncbi.nlm.nih.gov/nuccore
 http://hl7.org/fhir/patient-contact-relationship
 https://acme.org/codes
 http://unstats.un.org/unsd/methods/m49/m49.htm
@@ -89,6 +90,7 @@ http://build.fhir.org/codesystem-usage-context-type
 http://loinc.org/la
 http://www.ncbi.nlm.nih.gov/gtr/
 http:hl7.org/fhir
+http://browser.ihtsdotools.org/
 http://ihe.net/connectathon/classCodes
 http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
 http:/acme.ec/gcsverbal
@@ -103,3 +105,4 @@ http://snomed.info
 http://hl7.org.fhir/substance-category
 http://acme.org/devices/clinical-codes
 http://org.mdhhs.fhir.consentdirective-type
+http://www.ncbi.nlm.nih.gov/nuccore/

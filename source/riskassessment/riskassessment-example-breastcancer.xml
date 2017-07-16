@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RiskAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/riskassessment.xsd">
+ <id value="breastcancer-risk"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tr>
+          <td colspan="2">
+            <h1>Information about your risk score:</h1>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Birthdate:</strong>
+          </td>
+          <td>1981-01-01</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Gender:</strong>
+          </td>
+          <td>female</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Ethnicity:</strong>
+          </td>
+          <td>Unknown / Not Reported</td>
+        </tr>
+      </table>
+    </div>
+  </text>
+  
+  <identifier>
+      <use value="official"/>
+      <system value="http://example.org"/>
+      <value value="risk-assessment-breastcancer1"/>
+  </identifier>
+  
+  <status value="final"/>
+  
+   <code>
+    <coding>
+      <system value="http://browser.ihtsdotools.org/"/>
+      <code value="709510001"/>
+      <display value="Assessment of risk for disease (procedure)"/>
+    </coding>
+  </code>
+  
+  <subject>
+      <reference value="Patient/example"/>
+  </subject>
+  
+  <performer>
+    <reference value="Practitioner/example"/>
+  </performer>
+  
+  <basis>
+      <reference value="Observation/example-genetics-brcapat"/>
+  </basis> 
+  
+   <prediction>
+		<outcome>
+			<text value="Unknown risk of developing breast cancer"/>
+		</outcome>
+	</prediction>
+  
+  <comment value="This risk assessment is based on BRCA1 and BRCA2 genetic mutation test"/>
+  
+</RiskAssessment>

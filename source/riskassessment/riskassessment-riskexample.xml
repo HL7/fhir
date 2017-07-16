@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RiskAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/riskassessment.xsd">
+ <id value="riskexample"/>
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Risk assessment for reference only</div>
+  </text> 
+
+   <identifier>
+      <use value="official"/>
+      <system value="http://example.org"/>
+      <value value="risk-assessment-breastcancer1"/>
+  </identifier>
+  <basedOn>
+	<reference value="ImmunizationRecommendation/example"/>
+  </basedOn>
+  <parent>
+	<reference value="DiagnosticReport/example"/>
+  </parent>
+  <status value="final"/>
+   <code>
+    <coding>
+      <system value="http://browser.ihtsdotools.org/"/>
+      <code value="709510001"/>
+      <display value="Assessment of risk for disease (procedure)"/>
+    </coding>
+  </code>
+  <subject>
+      <reference value="Patient/example"/>
+  </subject>
+  <context>
+	 <reference value="Encounter/example"/>
+	 <display value="Encounter with patient @example"/>
+  </context>
+  <occurrenceDateTime value="2017-10-10"/>
+  <condition>
+	<reference value="Condition/example"/>
+  </condition>
+  <performer>
+	<reference value="Practitioner/example"/>
+  </performer>
+  <basis>
+    <reference value="DiagnosticReport/example"/>
+  </basis>
+  <basis>
+    <reference value="Observation/example"/>
+  </basis>
+  <prediction>
+    <outcome>
+      <text value="Breast Cancer"/>
+    </outcome>
+    <probabilityDecimal value="0.000368"/>
+    <whenRange>
+      <low>
+        <value value="54"/>
+        <unit value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </low>
+      <high>
+        <value value="57"/>
+        <unit value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </high>
+    </whenRange>
+  </prediction>
+  <comment value="This risk assessment is for reference only"/>
+  
+</RiskAssessment>
