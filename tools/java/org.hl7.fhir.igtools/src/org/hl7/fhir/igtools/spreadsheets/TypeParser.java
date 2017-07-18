@@ -106,7 +106,7 @@ public class TypeParser {
           // what to do here depends on what it refers to 
           if (typeString.equals("Extension"))
             pt = profileExtensionBase + pt.substring(1);
-          else if (typeString.startsWith("Reference"))
+          else if (typeString.startsWith("Reference") || typeString.startsWith("Resource"))
             pt = pt.substring(1).toLowerCase();
           else
             throw new Exception(exceptionPrefix + "Unhandled case");				    
