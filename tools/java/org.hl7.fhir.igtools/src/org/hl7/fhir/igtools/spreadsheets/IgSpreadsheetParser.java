@@ -1182,8 +1182,11 @@ public class IgSpreadsheetParser {
             return;
       }
       throw new Error("The context '"+value+"' is not valid @ "+context);
-    } else
-      throw new Error("not checked yet @ "+context);
+    } else {
+      if (!value.startsWith("http://"))
+        throw new Error("The context '" + value + "' needs to be a full URL");
+//      throw new Error("not checked yet @ "+context);
+    }
   }
 
   private void parseExtensionElement(Sheet sheet, int row, StructureDefinition sd, ElementDefinition exe, boolean nested) throws Exception {
