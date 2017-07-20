@@ -2,44 +2,29 @@
   "url": "http://hl7.org/fhir/ValueSet/jurisdiction",
   "outcomes": [
     {
-      "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|001|World",
-      "severity": "error",
-      "message": "Unable to provide support for code system "
-    },
-    {
-      "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|009|Oceania",
-      "severity": "error",
-      "message": "Unable to provide support for code system "
-    },
-    {
       "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|840|United States of America",
       "severity": "error",
-      "message": "Unable to provide support for code system "
+      "message": "not done yet"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|AU|null",
       "severity": "error",
-      "message": "Unable to provide support for code system "
+      "message": "not done yet"
     },
     {
-      "hash": "#|urn:iso:std:iso:3166|null|CA|null",
+      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
       "severity": "error",
-      "message": "Unable to provide support for code system "
-    },
-    {
-      "hash": "#|urn:iso:std:iso:3166|null|GB|United Kingdom of Great Britain and Northern Ireland (the)",
-      "severity": "error",
-      "message": "Unable to provide support for code system "
+      "message": "not done yet"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": "error",
-      "message": "Unable to provide support for code system "
+      "message": "not done yet"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|US|null",
       "severity": "error",
-      "message": "Unable to provide support for code system "
+      "message": "not done yet"
     }
   ]
 }
