@@ -116,7 +116,7 @@
  -- Row 11 -----------------------------------
   Element = PaymentReconciliation.outcome
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = RemittanceOutcome
   Short Name = complete | error | partial
   Definition = Transaction status: error, complete
