@@ -301,7 +301,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/remittance-outcome
   Definition = The result of the claim processing
-  Conformance = example
+  Conformance = required
 
  -- Row 44 -----------------------------------
   Binding Name = PaymentType
@@ -570,7 +570,7 @@
  -- Row 22 -----------------------------------
   Element = ExplanationOfBenefit.outcome
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = RemittanceOutcome
   Short Name = complete | error | partial
   Definition = Processing outcome errror, partial or complete processing

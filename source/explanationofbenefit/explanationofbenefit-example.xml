@@ -50,13 +50,8 @@
 		<reference value="ClaimResponse/R3500"/>
 	</claimResponse> 
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/remittance-outcome" />
-			<code value="complete" />
-		</coding>
-	</outcome>
-
+	<outcome value="complete" />
+	
 	<disposition value="Claim settled as per contract."/>
 
 	<payee>

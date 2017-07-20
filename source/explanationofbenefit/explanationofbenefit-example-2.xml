@@ -66,13 +66,8 @@
 		<reference value="ClaimResponse/R3500"/>
 	</claimResponse> 
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/remittance-outcome" />
-			<code value="error" />
-		</coding>
-	</outcome>
-
+	<outcome value="error" />
+	
 	<disposition value="Could not process."/>
 
   <related>
