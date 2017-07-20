@@ -41,7 +41,7 @@
   Binding = value set
   Reference = valueset-remittance-outcome
   Definition = The result of the claim processing
-  Conformance = example
+  Conformance = required
 
  -- Row 7 -----------------------------------
   Binding Name = PaymentType
@@ -200,7 +200,7 @@
   w5 = why
 
  -- Row 13 -----------------------------------
-  Element = ClaimResponse.outcome
+  Element = !ClaimResponse.outcome
   Card. = 0..1
   Type = CodeableConcept
   Binding = RemittanceOutcome
@@ -208,7 +208,7 @@
   Definition = Processing outcome errror, partial or complete processing
 
  -- Row 14 -----------------------------------
-  Element = !ClaimResponse.outcome
+  Element = ClaimResponse.outcome
   Card. = 0..1
   Type = code
   Binding = RemittanceOutcome

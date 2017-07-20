@@ -35,13 +35,8 @@
 		</identifier>
 	</request>
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/remittance-outcome" />
-			<code value="complete" />
-		</coding>
-	</outcome>
-
+	<outcome value="complete" />
+	
 	<disposition value="Claim settled as per contract."/>
 
 	<payeeType>

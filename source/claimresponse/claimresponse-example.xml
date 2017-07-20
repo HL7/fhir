@@ -39,13 +39,8 @@
 		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
 	</request>
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/remittance-outcome" />
-			<code value="complete" />
-		</coding>
-	</outcome>
-
+	<outcome value="complete" />
+	
 	<disposition value="Claim settled as per contract."/>
 
 	<payeeType>
