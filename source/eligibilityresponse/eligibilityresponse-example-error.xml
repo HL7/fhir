@@ -33,13 +33,8 @@
 		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332406"/>
 	</request>
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/remittance-outcome" />
-			<code value="error" />
-		</coding>
-	</outcome>
-
+	<outcome value="error" />
+	
 	<disposition value="Eligibiliy request could not be processed, please address errors before submitting."/>
 
 	<insurer>
