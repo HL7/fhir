@@ -12,11 +12,11 @@
   <concept>
     <code value="disclosure-ca"/>
 	<display value="Disclosure-CA"/>
-	<definition value="Canadian health information displosure policy."/>
+	<definition value="Canadian health information disclosure policy."/>
   </concept>
   <concept>
     <code value="disclosure-us"/>
 	<display value="Disclosure-US"/>
-	<definition value="United States health information displosure policy."/>
+	<definition value="United States health information disclosure policy."/>
   </concept>
 </CodeSystem>

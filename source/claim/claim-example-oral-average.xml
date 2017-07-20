@@ -119,11 +119,11 @@
    <sequence value="1"/>
    <careTeamLinkId value="1"/>
    <service>
-    <coding>
-     <system value="http://example.org/fhir/oralservicecodes"/>
-     <code value="1200"/>
-    </coding>
-   </service>
+	<coding>
+		<system value="http://example.org/fhir/oralservicecodes"/>
+		<code value="1200"/>
+	</coding>
+</service>
    <servicedDate value="2014-08-16"/>
    <unitPrice>
      <value value="135.57"/>

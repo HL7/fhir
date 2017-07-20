@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-06-05T20:53:51Z</LastSaved>
+  <LastSaved>2017-06-06T01:12:03Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -4686,7 +4686,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>53</TopRowBottomPane>
+   <TopRowBottomPane>41</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4703,8 +4703,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>55</ActiveRow>
+     <ActiveRow>42</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R43:R44</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6871,7 +6872,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89" ss:Formula="=750*8"><Data ss:Type="Number">6000</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s140"/>
@@ -7202,7 +7203,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>7</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

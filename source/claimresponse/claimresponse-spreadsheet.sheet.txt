@@ -892,4 +892,9 @@
   Description = A ClaimResponse demonstrating Payor service code substitutions
   Filename = claimresponse-example-additem.xml
 
+ -- Row 5 -----------------------------------
+
+ -- Row 6 -----------------------------------
+  Description = 6000
+
 === Sheet Examples =====================================
