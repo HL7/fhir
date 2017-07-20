@@ -15292,7 +15292,7 @@
     <Cell ss:StyleID="s217"><Data ss:Type="String">AccidentType</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Type of accident: work place, auto, etc.</Data></Cell>
     <Cell ss:StyleID="s142"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActIncidentCode</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
@@ -15890,7 +15890,7 @@
     <Cell ss:StyleID="s225"><Data ss:Type="String">ClaimType</Data></Cell>
     <Cell ss:StyleID="s226"><Data ss:Type="String">The type or discipline-style of the claim</Data></Cell>
     <Cell ss:StyleID="s227"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s227"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s227"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s228"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/claim-type</Data></Cell>
     <Cell ss:StyleID="s229"/>
     <Cell ss:StyleID="s227"/>
@@ -15963,7 +15963,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>28</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -15976,11 +15976,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>50</ActiveRow>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

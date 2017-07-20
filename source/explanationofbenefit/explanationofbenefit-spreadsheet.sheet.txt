@@ -27,7 +27,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ActIncidentCode
   Definition = Type of accident: work place, auto, etc.
-  Conformance = required
+  Conformance = extensible
 
  -- Row 5 -----------------------------------
   Binding Name = ItemType
@@ -315,7 +315,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/claim-type
   Definition = The type or discipline-style of the claim
-  Conformance = required
+  Conformance = extensible
 
  -- Row 46 -----------------------------------
   Binding Name = ExplanationOfBenefitStatus
