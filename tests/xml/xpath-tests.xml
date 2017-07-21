@@ -385,6 +385,12 @@
       <node type="attribute" value="Chalmers"/>
     </outcomes>
   </case>
+  <case name="plus-1" id="p1">
+    <xpath value="f:name/f:period/f:end/@value + f:address/f:postalCode/@value"/>
+    <outcomes>
+      <node type="string" value="5001"/>
+    </outcomes>
+  </case>
   
   <!-- todo 
   
