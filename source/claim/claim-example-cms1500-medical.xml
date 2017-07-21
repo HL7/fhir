@@ -65,7 +65,7 @@
 				<start value="2015-01-01T00:00:00-07:00"/>
 				<end value="2016-01-01T00:00:00-07:00"/>
 			</period>
-			
+
 			<payor>
 				<identifier>
 					<system value="http://www.bindb.com/bin"/>
@@ -212,7 +212,10 @@
 	<insurance>
 		<sequence value="1"/>
 		<focal value="true"/>
-		<coverage>
+		<identifier>
+			<system value="http://CedarArmsMedicalCenter.com/claim"/>
+			<value value="MED-00050"/>
+		</identifier>		<coverage>
 			<reference value="#coverage-1"/>
 		</coverage>
 	</insurance>
