@@ -247,7 +247,7 @@
  -- Row 30 -----------------------------------
   Element = PaymentReconciliation.processNote.type
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = NoteType
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.

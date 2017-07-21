@@ -120,12 +120,7 @@
 	</total>  
 
 	<processNote>
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/note-type"/>
-				<code value="display"/>
-			</coding>
-		</type>
+		<type value="display"/>
 		<text value="Due to the year end holiday the cutoff for submissions for December will be the 28th."/>
 	</processNote>
 
