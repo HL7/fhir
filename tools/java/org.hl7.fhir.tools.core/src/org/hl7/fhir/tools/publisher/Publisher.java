@@ -425,6 +425,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private ProfileGenerator pgen;
 
+  private boolean noSound;
+
   public static void main(String[] args) throws Exception {
     //
 
@@ -435,6 +437,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.page.setForPublication(pub.web);
     pub.diffProgram = getNamedParam(args, "-diff");
+    pub.noSound =  (args.length > 1 && hasParam(args, "-nosound"));
     pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
     if (hasParam(args, "-resource"))
       pub.singleResource = getNamedParam(args, "-resource");
@@ -557,12 +560,14 @@ public class Publisher implements URIResolver, SectionNumberer {
         buildFlags.put(singleResource.toLowerCase(), true);
       }
       if (!buildFlags.get("all")) {
-        Utilities.tone(1000, 10);
-        Utilities.tone(1400, 10);
-        Utilities.tone(1800, 10);
-        Utilities.tone(1000, 10);
-        Utilities.tone(1400, 10);
-        Utilities.tone(1800, 10);
+        if (!noSound) {
+          Utilities.tone(1000, 10);
+          Utilities.tone(1400, 10);
+          Utilities.tone(1800, 10);
+          Utilities.tone(1000, 10);
+          Utilities.tone(1400, 10);
+          Utilities.tone(1800, 10);
+        }
         page.log("Partial Build (if you want a full build, just run the build again)", LogMessageType.Process);
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
         for (String n : buildFlags.keySet())
@@ -570,7 +575,8 @@ public class Publisher implements URIResolver, SectionNumberer {
             b.append(n);
         page.log("  Build: "+b.toString(), LogMessageType.Process);
       } else {
-        Utilities.tone(1200, 30);
+        if (!noSound) 
+          Utilities.tone(1200, 30);
         page.log("Full Build", LogMessageType.Process);
       }
       Utilities.createDirectory(page.getFolders().dstDir);
@@ -630,11 +636,13 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log("  Build: "+b.toString(), LogMessageType.Process);
       } else
         page.log("This was a Full Build", LogMessageType.Process);
-      Utilities.tone(800, 10);
-      Utilities.tone(1000, 10);
-      Utilities.tone(1200, 10);
-      Utilities.tone(1000, 10);
-      Utilities.tone(800, 10);
+      if (!noSound) {
+        Utilities.tone(800, 10);
+        Utilities.tone(1000, 10);
+        Utilities.tone(1200, 10);
+        Utilities.tone(1000, 10);
+        Utilities.tone(800, 10);
+      }
       page.log("Finished publishing FHIR @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
     } catch (Exception e) {
 
@@ -655,23 +663,29 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log("  Build: "+b.toString(), LogMessageType.Process);
       } else
         page.log("This was a Full Build", LogMessageType.Process);
-      Utilities.tone(800, 20);
-      Utilities.tone(1000, 20);
-      Utilities.tone(1200, 20);
+      if (!noSound) {
+        Utilities.tone(800, 20);
+        Utilities.tone(1000, 20);
+        Utilities.tone(1200, 20);
+      }
       try {
         Thread.sleep(50);
       } catch (InterruptedException e1) {
       }
-      Utilities.tone(800, 20);
-      Utilities.tone(1000, 20);
-      Utilities.tone(1200, 20);
+      if (!noSound) {
+        Utilities.tone(800, 20);
+        Utilities.tone(1000, 20);
+        Utilities.tone(1200, 20);
+      }
       try {
         Thread.sleep(50);
       } catch (InterruptedException e1) {
       }
-      Utilities.tone(800, 20);
-      Utilities.tone(1000, 20);
-      Utilities.tone(1200, 20);
+      if (!noSound) {
+        Utilities.tone(800, 20);
+        Utilities.tone(1000, 20);
+        Utilities.tone(1200, 20);
+      }
       page.log("FHIR build failure @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       System.out.println("Error: " + e.getMessage());
       e.printStackTrace();
