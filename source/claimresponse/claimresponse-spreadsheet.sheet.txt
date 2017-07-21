@@ -688,7 +688,7 @@
  -- Row 80 -----------------------------------
   Element = ClaimResponse.processNote.type
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = NoteType
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.
