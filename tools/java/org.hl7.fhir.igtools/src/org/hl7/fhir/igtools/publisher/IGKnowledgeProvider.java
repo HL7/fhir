@@ -367,6 +367,14 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
             br.url = ref+".html"; // broken link, 
             br.display = ref;
             brokenLinkWarning(path, ref);
+          } else if (ref.contains("|")) {
+            br.url = vs.getUserString("versionpath");
+            if (br.url==null) {
+              System.out.println("Unable to find version-specific path for reference - defaulting to version-independent reference: " + ref);
+              br.url = vs.getUserString("path");
+            }
+            br.display = vs.getName(); 
+            
           } else {
             br.url = vs.getUserString("path");
             br.display = vs.getName(); 

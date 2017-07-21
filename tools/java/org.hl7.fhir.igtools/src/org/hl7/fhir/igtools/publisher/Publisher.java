@@ -1110,6 +1110,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             if (p == null)
               throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
             r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
+            String v = ((MetadataResource) r).getVersion();
+            if (v!=null) {
+              u = u + "|" + v;
+              p = igm.getPath(u);
+              if (p == null)
+                System.out.println("In IG "+name+" map: No identity found for "+u);
+              r.setUserData("versionpath", location+"/"+ igpkp.doReplacements(p, r, null, null));
+            }
           }
           context.cacheResource(r);
         }
@@ -2339,6 +2347,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             throw new Exception("URL Mismatch "+u+" vs "+uc);
           if (uc != null && !u.equals(uc))
             map.path(uc, igpkp.getLinkFor(r));
+          String v = ((MetadataResource) r.getResource()).getVersion();
+          if (v != null) {
+            map.path(uc + "|" + v, v + "/" + igpkp.getLinkFor(r));
+          }
         }
         map.path(u, igpkp.getLinkFor(r));
       }
