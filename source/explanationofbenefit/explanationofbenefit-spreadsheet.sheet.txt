@@ -1293,7 +1293,7 @@
   CDAnet v4 Mapping = F07
 
  -- Row 117 -----------------------------------
-  Element = ExplanationOfBenefit.item.detail.type
+  Element = !ExplanationOfBenefit.item.detail.type
   Card. = 1..1
   Type = CodeableConcept
   Binding = ItemType
@@ -1430,7 +1430,7 @@
   CDAnet v4 Mapping = F07
 
  -- Row 134 -----------------------------------
-  Element = ExplanationOfBenefit.item.detail.subDetail.type
+  Element = !ExplanationOfBenefit.item.detail.subDetail.type
   Card. = 1..1
   Type = CodeableConcept
   Binding = ItemType

@@ -5432,7 +5432,7 @@
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ExplanationOfBenefit.item.detail.type</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!ExplanationOfBenefit.item.detail.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
@@ -6024,7 +6024,7 @@
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s94">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ExplanationOfBenefit.item.detail.subDetail.type</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!ExplanationOfBenefit.item.detail.subDetail.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
@@ -10756,7 +10756,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>190</TopRowBottomPane>
+   <TopRowBottomPane>115</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -10773,8 +10773,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>196</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>118</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
