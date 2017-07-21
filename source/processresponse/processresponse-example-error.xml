@@ -23,12 +23,7 @@
 		<reference value="http://happyvalley.com/fhir/claim/12204"/>
 	</request>
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/processoutcomecodes"/>
-			<code value="error"/>
-		</coding>
-	</outcome>
+	<outcome value="error"/>
 
 	<disposition value="Referred to claim not found on system."/>
 
@@ -51,12 +46,7 @@
 	</form>
 
 	<processNote>
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/note-type"/>
-				<code value="print"/>
-			</coding>
-		</type>
+		<type value="print"/>
 		<text value="Please check the submitted payor identification and local claim number."/>
 	</processNote>
 

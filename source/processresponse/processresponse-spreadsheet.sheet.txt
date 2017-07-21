@@ -6,7 +6,7 @@
   Binding = value set
   Reference = valueset-process-outcome
   Definition = Local status of outcome codes
-  Conformance = example
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = !ProcessResponseStatus
@@ -107,7 +107,7 @@
  -- Row 10 -----------------------------------
   Element = ProcessResponse.outcome
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = ProcessingOutcome
   Short Name = Processing outcome
   Definition = Transaction status: error, complete, held.
@@ -157,7 +157,7 @@
  -- Row 17 -----------------------------------
   Element = ProcessResponse.processNote.type
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = NoteType
   Short Name = display | print | printoper
   Definition = The note purpose: Print/Display.

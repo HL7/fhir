@@ -23,12 +23,7 @@
 	<reference value="http://happyvalley.com/fhir/claim/12345"/>
   </request>
   
-  <outcome>
-   <coding>
-    <system value="http://hl7.org/fhir/processoutcomecodes"/>
-    <code value="complete"/>
-   </coding>
-  </outcome>
+  <outcome value="complete"/>
   
   <disposition value="Adjudication processing completed, ClaimResponse and EOB ready for retrieval."/>
  

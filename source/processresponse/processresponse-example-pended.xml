@@ -42,8 +42,6 @@
 				</identifier>
 			</sender>
 
-			
-
 		</CommunicationRequest>
 
 	</contained> 
@@ -65,12 +63,7 @@
 		<reference value="http://happyvalley.com/fhir/claim/12345"/>
 	</request>
 
-	<outcome>
-		<coding>
-			<system value="http://hl7.org/fhir/processoutcomecodes"/>
-			<code value="pended"/>
-		</coding>
-	</outcome>
+	<outcome value="pended"/>
 
 	<disposition value="Additional information required."/>
 
