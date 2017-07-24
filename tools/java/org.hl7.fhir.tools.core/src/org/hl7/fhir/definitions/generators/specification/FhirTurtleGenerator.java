@@ -7,6 +7,7 @@ import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.vocabulary.*;
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.rdf.FHIRResource;
@@ -32,9 +33,8 @@ public class FhirTurtleGenerator {
     private FHIRResourceFactory fact;
     private Resource value;
 
-    // The FACT++ classifier is rather stunted when it comes to data types.  This flag
-    //  restricts the data type constraints
-    private boolean usingFact = true;
+    // OWL doesn't recognize xsd:gYear, xsd:gYearMonth or xsd:date.  If true, map all three to xsd:datetime
+    private boolean owlTarget = false;
 
 
     public FhirTurtleGenerator(OutputStream destination, Definitions definitions, BuildWorkerContext context,
@@ -51,15 +51,27 @@ public class FhirTurtleGenerator {
 
     /**
      * Only produce the v3 vocabulary for appending to rim.ttl
-     * Placeholder - has no effect in this generation
+     * Placeholder for now - has no effect in this generation
      */
     public void executeV3(Map<String, ValueSet> valuesets, Map<String, CodeSystem> codeSystems) throws Exception {
-
+//        for (String csName : codeSystems.keySet()) {
+//            CodeSystem cs = codeSystems.get(csName);
+//            if (cs == null) {
+//                System.out.println("-----> " + csName);
+//            } else {
+//                new OWLCodeSystem(cs).commit(cs, destDir);
+//            }
+//        }
     }
 
     public void executeMain() throws Exception {
         genOntologyDefinition();
         genBaseMetadata();
+
+        for (String pn : sorted(definitions.getPrimitives().keySet())) {
+            if(isPrimitive(pn))
+                genPrimitiveType(definitions.getPrimitives().get(pn));
+        }
 
         for (String infn : sorted(definitions.getInfrastructure().keySet()))
             genElementDefn(definitions.getInfrastructure().get(infn));
@@ -68,7 +80,7 @@ public class FhirTurtleGenerator {
             genElementDefn(definitions.getTypes().get(n));
 
         for (String n : sorted(definitions.getStructures().keySet()))
-          genElementDefn(definitions.getStructures().get(n));
+            genElementDefn(definitions.getStructures().get(n));
 
         for (String n : sorted(definitions.getConstraints().keySet())) {
             genProfiledType(definitions.getConstraints().get(n));
@@ -78,11 +90,11 @@ public class FhirTurtleGenerator {
             genResourceDefn(definitions.getBaseResources().get(n));
 
         for (String n : sorted(definitions.getResources().keySet()))
-          genResourceDefn(definitions.getResources().get(n));
+            genResourceDefn(definitions.getResources().get(n));
 
-//        for (String n : sorted(context.getExtensionDefinitions().keySet())) {
-//            System.out.println("gen(ProfiledType " + context.getExtensionDefinitions().get(n).getName());
-//            genStructure(context.getExtensionDefinitions().get(n));
+//        for (StructureDefinition sd : context.getExtensionDefinitions()) {
+//             System.out.println("=====> " + sd.getName());
+//             genStructure(context.getExtensionDefinitions().get(n));
 //        }
 
         commit(true);
@@ -108,7 +120,7 @@ public class FhirTurtleGenerator {
         FHIRResource Reference = fact.fhir_class("Reference");
 
         // Primitive isn't in the actual model - added here
-        fact.fhir_class("Primitive", Element.resource)
+        fact.fhir_class("Primitive")
                 .addTitle("Types with only a value")
                 .addDefinition("Types with only a value and no additional elements as children")
                 .restriction(fact.fhir_restriction(value, RDFS.Literal));
@@ -134,8 +146,11 @@ public class FhirTurtleGenerator {
         FHIRResource link = fact.fhir_objectProperty("link").addTitle("URI of a reference");
         Reference.restriction(fact.fhir_cardinality_restriction(link.resource, Resource.resource, 0, 1));
 
-        // XHTML is an XML Literal
-        fact.fhir_class("xhtml", RDFNamespace.RDFXMLLiteral);
+        // XHTML is an XML Literal -- but it isn't recognized by OWL so we use string
+        FHIRResource NarrativeDiv = fact.fhir_dataProperty("Narrative.div");
+        fact.fhir_class("xhtml")
+                .domain(NarrativeDiv)
+                .range(XSD.xstring);
     }
 
   /* ==============================================
@@ -147,25 +162,16 @@ public class FhirTurtleGenerator {
      *
      * @param pt FHIR Primitive Type (e.g. int, string, dateTime)
      */
-    private void genPrimitiveType(PrimitiveType pt) {
+    // Note: For unknown reasons, getPrimitives returns DefinedCodes, not PrimitiveTypes...
+    private void genPrimitiveType(DefinedCode pt) {
         String ptName = pt.getCode();
-        String ptTypeName = pt.getSchemaType();
-        Resource ptType;
-
-        if (ptTypeName.contains(",")) {
-            // TODO: Find Java equivalent to functional map
-            List<Resource> resItems = new ArrayList<Resource>();
-            for (String e : Arrays.asList(ptTypeName.split("\\s*,\\s*"))) {
-                resItems.add(RDFTypeMap.xsd_type_for(e));
-            }
-            ptType = fact.fhir_union(resItems);
-        } else {
-            ptType = RDFTypeMap.xsd_type_for(ptTypeName);
-        }
         FHIRResource ptRes = fact.fhir_class(ptName, "Primitive")
                 .addDefinition(pt.getDefinition());
-        if(!usingFact)
-            ptRes.restriction(fact.fhir_cardinality_restriction(value, ptType, 0, 1));
+        if(!owlTarget) {
+            Resource rdfType = RDFTypeMap.xsd_type_for(ptName);
+            if (rdfType != null)
+                ptRes.restriction(fact.fhir_cardinality_restriction(value, rdfType, 0, 1));
+        }
     }
 
 
@@ -183,19 +189,21 @@ public class FhirTurtleGenerator {
         FHIRResource dspRes = fact.fhir_class(dsp.getCode(), dsp.getBase())
                 .addDefinition(dsp.getDefinition());
 
-        if(dspType.endsWith("+")) {
-            // For some reason, Protege won't process constraints directly against string.  While not strictly
-            // correct, we shift them to normalizedString when this situation occurs
-            // The FACT++ reasoner chokes on pattern restrictions so we don't do this for now
-            if(!usingFact) {
-                List<Resource> facets = new ArrayList<Resource>(1);
-                facets.add(fact.fhir_pattern(dsp.getRegex()));
-                dspRes.restriction(fact.fhir_restriction(value,
-                        fact.fhir_datatype_restriction(dspTypeRes == XSD.xstring ? XSD.normalizedString : dspTypeRes, facets)));
+        if(dspRes != null) {
+            if (dspType.endsWith("+")) {
+                // For some reason, Protege won't process constraints directly against string.  While not strictly
+                // correct, we shift them to normalizedString when this situation occurs
+                // The FACT++ reasoner chokes on pattern restrictions so we don't do this for now
+                if (!owlTarget) {
+                    List<Resource> facets = new ArrayList<Resource>(1);
+                    facets.add(fact.fhir_pattern(dsp.getRegex()));
+                    dspRes.restriction(fact.fhir_restriction(value,
+                            fact.fhir_datatype_restriction(dspTypeRes == XSD.xstring ? XSD.normalizedString : dspTypeRes, facets)));
+                } else
+                    dspRes.restriction(fact.fhir_restriction(value, dspTypeRes));
             } else
                 dspRes.restriction(fact.fhir_restriction(value, dspTypeRes));
-        } else
-            dspRes.restriction(fact.fhir_restriction(value, dspTypeRes));
+        }
     }
 
 
@@ -203,16 +211,22 @@ public class FhirTurtleGenerator {
     /**
      * TypeDefinition generator (e.g. code, id, markdown, uuid)
      *
-     * @param ed definition to generate
+     * @param td definition to generate
      * @throws Exception
      */
-    private void genElementDefn(ElementDefn ed) throws Exception {
-        String typeName = ed.getName();
+    private void genElementDefn(TypeDefn td) throws Exception {
+        String typeName = td.getName();
+        StructureDefinition typeSd = td.getProfile();
+        String parentURL = typeSd.getBaseDefinitionElement().getValue();
+        String parentName = null;
+        // TODO: Figure out how to do this properly
+        if (parentURL != null)
+            parentName = parentURL.substring(parentURL.lastIndexOf("/")+1);
         FHIRResource typeRes =
-                (ed.getTypes().isEmpty() ? fact.fhir_class(typeName) : fact.fhir_class(typeName, "Element"))
-                        .addTitle(ed.getShortDefn())
-                        .addDefinition(ed.getDefinition());
-        processTypes(typeName, typeRes, ed, typeName, false);
+                (td.getTypes().isEmpty() ? fact.fhir_class(typeName) : fact.fhir_class(typeName, parentName))
+                        .addTitle(td.getShortDefn())
+                        .addDefinition(td.getDefinition());
+        processTypes(typeName, typeRes, td, typeName, false);
     }
 
     /**
@@ -253,6 +267,7 @@ public class FhirTurtleGenerator {
      * @param predicateBase Root name for predicate
      * @param innerIsBackbone True if we're processing a backbone element
      */
+    HashSet<String> processing = new HashSet<String>();
     private void processTypes(String baseResourceName, FHIRResource baseResource, ElementDefn td, String predicateBase, boolean innerIsBackbone) throws Exception {
 
         for (ElementDefn ed : td.getElements()) {
@@ -273,6 +288,7 @@ public class FhirTurtleGenerator {
                                     targetResource,
                                     ed.getMinCardinality(),
                                     ed.getMaxCardinality()));
+                    predicateResource.domain(baseResource);
                     predicateResource.range(targetResource);
                 } else {
                     // Create a restriction on the union of possible types
@@ -295,7 +311,7 @@ public class FhirTurtleGenerator {
                 FHIRResource baseDef;
                 if(ed.getTypes().isEmpty()) {
                     predicateResource = fact.fhir_objectProperty(predicateName);
-                    String targetClassName = ed.getDeclaredTypeName();
+                    String targetClassName = mapComponentName(baseResourceName, ed.getDeclaredTypeName());
                     baseDef = fact.fhir_class(targetClassName, innerIsBackbone? "BackboneElement": "Element")
                             .addDefinition(ed.getDefinition());
                     processTypes(targetClassName, baseDef, ed, predicateName, innerIsBackbone);
@@ -304,8 +320,19 @@ public class FhirTurtleGenerator {
                     String targetName = targetType.getName();
                     if(targetName.startsWith("@")) {        // Link to earlier definition
                         ElementDefn targetRef = getElementForPath(targetName.substring(1));
-                        baseDef = fact.fhir_class(targetRef.getDeclaredTypeName());
+                        String targetRefName = targetRef.getName();
+                        String targetClassName = baseResourceName +
+                                Character.toUpperCase(targetRefName.charAt(0)) + targetRefName.substring(1);
+                        baseDef = fact.fhir_class(targetClassName, innerIsBackbone? "BackboneElement": "Element")
+                                .addDefinition(ed.getDefinition())
+                                .addTitle(ed.getShortDefn());
+                        if(!processing.contains(targetRefName)) {
+                            processing.add(targetRefName);
+                            processTypes(targetClassName, baseDef, targetRef, predicateName, innerIsBackbone);
+                            processing.remove(targetRefName);
+                        }
                     } else {
+                        // A placeholder entry.  The rest of the information will be supplied elsewhere
                         baseDef = fact.fhir_class(targetName);
                     }
                     // XHTML the exception, in that the html doesn't derive from Primitive
@@ -324,6 +351,10 @@ public class FhirTurtleGenerator {
                     predicateResource.addObjectProperty(RDFS.subPropertyOf, RDFNamespace.W5.resourceRef(ed.getW5()));
             }
         }
+    }
+
+    private String mapComponentName(String baseResourceName, String componentName) {
+        return componentName.startsWith(baseResourceName)? componentName : baseResourceName + "." + componentName;
     }
 
     private ElementDefn getElementForPath(String pathname) throws Exception {
@@ -356,5 +387,11 @@ public class FhirTurtleGenerator {
         names.addAll(keys);
         Collections.sort(names);
         return names;
+    }
+
+    protected boolean isPrimitive(String name) {
+        return definitions.hasPrimitiveType(name)
+                || (name.endsWith("Type")
+                && definitions.getPrimitives().containsKey(name.substring(0, name.length()-4)));
     }
 }
