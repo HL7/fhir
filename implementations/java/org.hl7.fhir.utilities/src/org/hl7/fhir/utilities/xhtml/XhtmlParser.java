@@ -853,8 +853,8 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     else if (c.charAt(0) == '#') {
     	if (isInteger(c.substring(1), 10))
     		s.append((char) Integer.parseInt(c.substring(1)));
-    	else if (isInteger(c.substring(1), 16))
-    		s.append((char) Integer.parseInt(c.substring(1), 16));
+    	else if (c.charAt(1) == 'x' && isInteger(c.substring(2), 16))
+    		s.append((char) Integer.parseInt(c.substring(2), 16));
     }
     else if (c.equals("fnof"))
       s.append((char)402); // latin small f with hook = function = florin, U+0192 ISOtech -->
