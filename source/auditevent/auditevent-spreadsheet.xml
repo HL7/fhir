@@ -16,12 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7668</WindowHeight>
+  <WindowHeight>7296</WindowHeight>
   <WindowWidth>17268</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>7</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -770,33 +769,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s150">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s152">
-   <Interior/>
-  </Style>
-  <Style ss:ID="s153">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders/>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s154">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
-   </Borders>
-   <Interior/>
-  </Style>
   <Style ss:ID="s156" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
@@ -824,6 +796,123 @@
    <Interior/>
    <NumberFormat/>
    <Protection/>
+  </Style>
+  <Style ss:ID="s162">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s163">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s164">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s165">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s166">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s167">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s168">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s169">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s171">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s172">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s173">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s174">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s175">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s176">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s177">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
   </Style>
  </Styles>
  <Names>
@@ -1503,7 +1592,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference(Practitioner|Organization|Device|Patient|RelatedPerson)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Reference(PractitionerRole|Practitioner|Organization|Device|Patient|RelatedPerson)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Y</Data><NamedCell
@@ -2596,7 +2685,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="57.6">
+   <Row ss:AutoFitHeight="0" ss:Height="57.45">
     <Cell ss:StyleID="s88"><Data ss:Type="String">AuditEvent.entity.detail</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2634,7 +2723,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="28.8">
+   <Row ss:AutoFitHeight="0" ss:Height="28.8">
     <Cell ss:StyleID="s88"><Data ss:Type="String">AuditEvent.entity.detail.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2671,7 +2760,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="43.199999999999996">
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
     <Cell ss:StyleID="s88"><Data ss:Type="String">AuditEvent.entity.detail.value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4492,12 +4581,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>41</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>13</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4505,7 +4595,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4513,8 +4602,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>43</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6993,19 +7081,19 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s115" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="142.80000000000001"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="370.8"/>
-   <Column ss:StyleID="s115" ss:Width="51"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="60.6"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="238.8"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="220.8"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="97.800000000000011"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="88.800000000000011"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="968.4"/>
-   <Column ss:StyleID="s115" ss:AutoFitWidth="0" ss:Width="165.6" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s115" ss:AutoFitWidth="0"
+   x:FullRows="1" ss:StyleID="s162" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="142.80000000000001"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="370.8"/>
+   <Column ss:StyleID="s162" ss:Width="51"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="60.6"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="238.8"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="220.8"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="97.800000000000011"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="88.800000000000011"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="114"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="968.4"/>
+   <Column ss:StyleID="s162" ss:AutoFitWidth="0" ss:Width="165.6" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s162" ss:AutoFitWidth="0"
     ss:Width="106.80000000000001"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s105"><Data ss:Type="String">Binding Name</Data><Comment
@@ -7060,430 +7148,430 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">!AuditEventSeverity</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The severity of the audit entry</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">#audit-event-severity</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">This is in the SysLog header. Not missed?</Data></Cell>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s163"><Data ss:Type="String">!AuditEventSeverity</Data></Cell>
+    <Cell ss:StyleID="s164"><Data ss:Type="String">The severity of the audit entry</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">#audit-event-severity</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="String">This is in the SysLog header. Not missed?</Data></Cell>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s167"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventAction</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicator for type of action performed during the event that generated the event</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">#audit-event-action</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Action</Data></Cell>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventAction</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Indicator for type of action performed during the event that generated the event</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">#audit-event-action</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">DICOM Audit Event Action</Data></Cell>
+    <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s62" ss:HRef="http://build.fhir.org/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventOutcome</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates whether the event succeeded or failed</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">#audit-event-outcome</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Outcome</Data></Cell>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventOutcome</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Indicates whether the event succeeded or failed</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">#audit-event-outcome</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">DICOM Audit Event Outcome</Data></Cell>
+    <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s62" ss:HRef="http://build.fhir.org/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventAgentNetworkType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The type of network access point of this agent in the audit event</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">#network-type</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Network Type</Data></Cell>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventAgentNetworkType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">The type of network access point of this agent in the audit event</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">#network-type</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">DICOM Audit Event Network Type</Data></Cell>
+    <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s62" ss:HRef="http://build.fhir.org/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventEntityType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Code for the entity type involved in the audit event</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-audit-entity-type</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Entity Type</Data></Cell>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventEntityType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Code for the entity type involved in the audit event</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-audit-entity-type</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">DICOM Audit Event Entity Type</Data></Cell>
+    <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s62" ss:HRef="http://build.fhir.org/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventEntityRole</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Code representing the role the entity played in the audit event</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">#object-role</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">DICOM Audit Event Entity Role</Data></Cell>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventEntityRole</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Code representing the role the entity played in the audit event</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">#object-role</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">DICOM Audit Event Entity Role</Data></Cell>
+    <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s62" ss:HRef="http://build.fhir.org/codesystem-dicom-dcim.html"><Data
       ss:Type="String">http://dicom.nema.org/resources/ontology/DCM</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.55">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventEntityLifecycle</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifier for the data life-cycle stage for the entity</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s152" ss:HRef="http://hl7.org/fhir/ValueSet/object-lifecycle-events"><Data
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventEntityLifecycle</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Identifier for the data life-cycle stage for the entity</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s172" ss:HRef="http://hl7.org/fhir/ValueSet/object-lifecycle-events"><Data
       ss:Type="String">http://hl7.org/fhir/ValueSet/object-lifecycle-events</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s62"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Type of event.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-audit-event-type</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Type of event.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-audit-event-type</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventSubType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Sub-type of event.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-audit-event-sub-type</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventSubType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Sub-type of event.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-audit-event-sub-type</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">!DICOMRoleId</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">How the agent participated in the event. </Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-dicm-402-roleid</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">!DICOMRoleId</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">How the agent participated in the event. </Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-dicm-402-roleid</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">DICOMMediaType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Used when the event is about exporting/importing onto media.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-dicm-405-mediatype</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">DICOMMediaType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Used when the event is about exporting/importing onto media.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-dicm-405-mediatype</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditEventSourceType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Code specifying the type of system that detected and recorded the event.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-audit-source-type</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditEventSourceType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Code specifying the type of system that detected and recorded the event.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-audit-source-type</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">!DICOMAlertType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The type of source where event originated.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-dicm-403-alerttype</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">!DICOMAlertType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">The type of source where event originated.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-dicm-403-alerttype</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">!DICOMObjectIdType</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Describes the identifier.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">valueset-dicm-404-objectidtype</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">!DICOMObjectIdType</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Describes the identifier.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">valueset-dicm-404-objectidtype</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">AuditPurposeOfUse</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The reason the activity took place.</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PurposeOfUse</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">AuditPurposeOfUse</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">The reason the activity took place.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PurposeOfUse</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"><Data ss:Type="String">AuditAgentRole</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">AuditAgentRole</Data></Cell>
     <Cell><Data ss:Type="String">What security role enabled the agent to participate in the event</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/security-role-type</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/security-role-type</Data></Cell>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
+    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s169"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s171"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s174"/>
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s176"/>
+    <Cell ss:StyleID="s177"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75"/>
   </Table>
@@ -7499,7 +7587,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10888,7 +10975,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Still defined for existing use related to DICOM definitions</Data></Cell>
    </Row>
-   <Row ss:Height="72">
+   <Row ss:AutoFitHeight="0" ss:Height="72">
     <Cell ss:StyleID="s145"><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:StyleID="s121"/>
