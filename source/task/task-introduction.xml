@@ -50,7 +50,7 @@
       preparation for delegation or reassignment (e.g., because it cannot be completed by the
       current owner), to restart a task due to a temporary failure (e.g., to reattempt completion of
       the activity), or in preparation to allow others to claim the task.</p>
-    <h3>Using Tasks with operations</h3>
+<!--    <h3>Using Tasks with operations</h3>
     <p>The Task resource defines several operations to enable rich control over the task execution
       environment. A server managing task resources may allow unfettered read access to all tasks
       that it maintains, but restrict write access to the task resources to itself in order to exert
@@ -60,7 +60,7 @@
       "Completed" or "Failed". Use or support of these operations is not essential in simple
       workflow environments where task activity needs little management. </p>
     <p>There is no distinct operation for creating a new task because the FHIR RESTful API already
-      distinguishes between the create and update operations.</p>
+      distinguishes between the create and update operations.</p>-->
     <p>The task history allows applications monitoring the state of a workflow to identify tasks
       that are long running, perhaps stuck in some queue, to enable management activities that could
       ensure completion. It also enables tracking of task statistics such as wait time, or time in
