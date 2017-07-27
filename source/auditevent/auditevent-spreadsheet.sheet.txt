@@ -550,7 +550,7 @@
   Element = AuditEvent.agent.reference
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
+  Type = Reference(PractitionerRole|Practitioner|Organization|Device|Patient|RelatedPerson)
   Short Name = Direct reference to resource
   Definition = Direct reference to a resource that identifies the agent
   Requirements = This field ties an audit event to a specific resource
