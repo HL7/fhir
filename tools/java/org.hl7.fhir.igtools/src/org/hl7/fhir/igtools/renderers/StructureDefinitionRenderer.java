@@ -1134,6 +1134,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       assert(children.size() > 0);
       b.append("{");
       delayedClose = true;
+    } else if (type.getCode() == null) {
+      // For the 'value' element of simple types
+      b.append("&lt;<span style=\"color: darkgreen\">n/a</span>&gt;");
     } else if (isPrimitive(type.getCode())) {
       if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
         b.append("\"");
