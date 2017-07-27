@@ -421,7 +421,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ProcedureRequestReason
-  Short Name = Explanation/Justification for test
+  Short Name = Explanation/Justification for procedure or service
   Definition = An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
   Workflow Mapping = Request.reasonCod
@@ -436,7 +436,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition | Observation)
-  Short Name = Explanation/Justification for test
+  Short Name = Explanation/Justification for procedure or service
   Definition = Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
   Workflow Mapping = Request.reasonReference
