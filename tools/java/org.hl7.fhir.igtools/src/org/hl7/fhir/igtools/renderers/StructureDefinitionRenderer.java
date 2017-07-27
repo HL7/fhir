@@ -1048,7 +1048,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, 2, rn, false, child.getType().get(0), ++c == l, complex);
       else if (wasSliced(child, children))
         ; // nothing
-      else if (child.getType().size() == 1)
+      else if (child.getType().size() == 1 || allTypesAreReference(child))
         generateCoreElem(b, sd.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == l, complex);
       else {
         if (!"0".equals(child.getMax())) {
@@ -1059,6 +1059,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
     b.append("  }\r\n");
     return b.toString();
+  }
+
+  private boolean allTypesAreReference(ElementDefinition child) {
+    for (TypeRefComponent tr : child.getType()) {
+      if (!"Reference".equals(tr.getCode()))
+          return false;
+    }
+    return !child.getType().isEmpty();
   }
 
   private boolean isExtension(ElementDefinition child) {
@@ -1224,12 +1232,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, complex);
         else if (wasSliced(child, children))
           ; // nothing
-        else if (child.getType().size() == 1)
+        else if (child.getType().size() == 1 || allTypesAreReference(child))
           generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, false);
         else {
-          b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
-          for (TypeRefComponent t : child.getType())
-            generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, t, ++c == l, false);
+          if (!"0".equals(child.getMax())) {
+            b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+            for (TypeRefComponent t : child.getType())
+              generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, t, ++c == l, false);
+          }
         }
       }
       b.append(indentS);
