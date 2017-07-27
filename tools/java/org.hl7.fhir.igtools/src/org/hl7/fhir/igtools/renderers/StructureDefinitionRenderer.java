@@ -1029,11 +1029,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     StringBuilder b = new StringBuilder();
     ElementDefinition root = sd.getSnapshot().getElement().get(0);
     String rn = sd.getSnapshot().getElement().get(0).getPath();
-    b.append("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(sd.getName()) + "</span>\r\n");
+    b.append(" // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(sd.getTitle()) + "</span>\r\n {\r\n");
     
     List<ElementDefinition> children = getChildren(sd.getSnapshot().getElement(), sd.getSnapshot().getElement().get(0));
     boolean complex = isComplex(children);
-    if (!complex)
+    if (!complex && !hasExtensionChild(children))
       b.append("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
     
     int c = 0;
@@ -1052,6 +1052,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
     b.append("  }\r\n");
     return b.toString();
+  }
+
+  private boolean hasExtensionChild(List<ElementDefinition> children) {
+    for (ElementDefinition ed : children)
+      if (ed.getPath().endsWith(".extension"))
+        return true;
+    return false;
   }
 
   private List<ElementDefinition> getChildren(List<ElementDefinition> elements, ElementDefinition elem) {
@@ -1111,22 +1118,22 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     String en = asValue ? "value[x]" : name;
     if (en.contains("[x]"))
       en = en.replace("[x]", upFirst(type.getCode()));
-    boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
+    boolean unbounded = elem.hasBase() && elem.getBase().hasMax() ? elem.getBase().getMax().equals("*") : "*".equals(elem.getMax());
     String defPage = igp.getLinkForProfile(sd, sd.getUrl());
     // 1. name
     b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
         + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
     
     // 2. value
-    boolean delayedCloseArray = false;
+    boolean delayedClose = false;
     if (unbounded) 
       b.append("[");
 
-    if (type == null) {
+    if (type == null || children.size() > 0) {
       // inline definition
       assert(children.size() > 0);
       b.append("{");
-      delayedCloseArray = true;
+      delayedClose = true;
     } else if (isPrimitive(type.getCode())) {
       if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
         b.append("\"");
@@ -1166,9 +1173,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append(" }");
     } 
 
-    if (!delayedCloseArray) {
-      if (unbounded) 
+    if (!delayedClose) {
+      if (unbounded) {
         b.append("]");
+      }
       if (!last)
         b.append(",");
     }
@@ -1176,7 +1184,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     b.append(" <span style=\"color: Gray\">//</span>");
 
     // 3. optionality
-    writeCardinality(b, elem);
+    writeCardinality(unbounded, b, elem);
 
     // 4. doco
     if (!elem.hasFixed()) {
@@ -1194,7 +1202,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
     b.append("\r\n");
 
-    if (delayedCloseArray) {
+    if (delayedClose) {
       int c = 0;
       for (ElementDefinition child : children) {
         if (child.getType().size() == 1)
@@ -1205,13 +1213,20 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, t, ++c == children.size(), false);
         }
       }
-      b.append("}]");
+      b.append(indentS);
+      b.append("}");
+      if (unbounded)
+        b.append("]");
       if (!last)
         b.append(",");
+      b.append("\r\n");
     }
   }
 
   private void generateCoreElemSliced(StringBuilder b, List<ElementDefinition> elements, ElementDefinition elem, List<ElementDefinition> children, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
+    if (elem.getMax().equals("0"))
+      return;
+
     String name =  tail(elem.getPath());
     String en = asValue ? "value[x]" : name;
     if (en.contains("[x]"))
@@ -1237,12 +1252,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append(indentS+"  ");
       b.append("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(slice.getShort()) + "</span>");
       b.append(" <span style=\"color: Gray\">//</span>");
-      writeCardinality(b, slice);
+      writeCardinality(unbounded, b, slice);
       b.append("\r\n");
       
       List<ElementDefinition> extchildren = getChildren(elements, slice);
       boolean extcomplex = isComplex(extchildren) && complex;
-      if (!extcomplex) {
+      if (!extcomplex && !hasExtensionChild(extchildren)) {
         b.append(indentS+"  ");
         b.append("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
       }
@@ -1306,12 +1321,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return s.substring(0, 1).toUpperCase() + s.substring(1);
   }
 
-  private void writeCardinality(StringBuilder b, ElementDefinition elem) throws IOException {
+  private void writeCardinality(boolean unbounded, StringBuilder b, ElementDefinition elem) throws IOException {
     if (elem.getConstraint().size() > 0)
       b.append(" <span style=\"color: brown\" title=\""
           + Utilities.escapeXml(getInvariants(elem)) + "\"><b>C?</b></span>");
     if (elem.getMin() > 0)
       b.append(" <span style=\"color: brown\" title=\"This element is required\"><b>R!</b></span> ");
+    if (unbounded && "1".equals(elem.getMax()))
+      b.append(" <span style=\"color: brown\" title=\"This element is an array in the base standard, but the profile only allows on element\"><b>Only One!</b></span> ");
   }
 
   private String getInvariants(ElementDefinition elem) {

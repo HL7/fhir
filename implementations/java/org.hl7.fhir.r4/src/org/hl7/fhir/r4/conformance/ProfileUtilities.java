@@ -706,7 +706,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
           updateFromBase(outcome, currentBase);
-          if (diffMatches.get(0).hasSlicing() /*&& !isExtension*/) {
+          if (diffMatches.get(0).hasSlicing() || !diffMatches.get(0).hasSliceName()) {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
             updateFromDefinition(outcome, diffMatches.get(0), profileName, closed, url); // if there's no slice, we don't want to update the unsliced description
           } else if (!diffMatches.get(0).hasSliceName())
