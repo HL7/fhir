@@ -1038,20 +1038,31 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     
     int c = 0;
     int l = lastChild(children);
+    boolean extDone = false; // todo: investigate why getChildren is returning slices...
     for (ElementDefinition child : children)
-      if (child.hasSlicing())
+      if (isExtension(child)) {
+        if (!extDone)
+          generateCoreElemExtension(b, sd.getSnapshot().getElement(), child, children, 2, rn, false, child.getType().get(0), ++c == l, complex);
+        extDone = true;
+      } else if (child.hasSlicing())
         generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, 2, rn, false, child.getType().get(0), ++c == l, complex);
       else if (wasSliced(child, children))
         ; // nothing
       else if (child.getType().size() == 1)
         generateCoreElem(b, sd.getSnapshot().getElement(), child, 2, rn, false, child.getType().get(0), ++c == l, complex);
       else {
-        b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
-        for (TypeRefComponent t : child.getType())
-          generateCoreElem(b, sd.getSnapshot().getElement(), child, 2, rn, false, t, ++c == l, false);
+        if (!"0".equals(child.getMax())) {
+          b.append("<span style=\"color: Gray\">// "+tail(child.getPath())+": <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
+          for (TypeRefComponent t : child.getType())
+            generateCoreElem(b, sd.getSnapshot().getElement(), child, 2, rn, false, t, ++c == l, false);
+        }
       }
     b.append("  }\r\n");
     return b.toString();
+  }
+
+  private boolean isExtension(ElementDefinition child) {
+    return child.getPath().endsWith(".extension") || child.getPath().endsWith(".modifierExtension");
   }
 
   private boolean hasExtensionChild(List<ElementDefinition> children) {
@@ -1097,7 +1108,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   @SuppressWarnings("rawtypes")
   private void generateCoreElem(StringBuilder b, List<ElementDefinition> elements, ElementDefinition elem, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
-    if (elem.getPath().endsWith(".id"))
+    if (elem.getPath().endsWith(".id") && elem.getPath().lastIndexOf('.') > elem.getPath().indexOf('.'))
       return;
     if (!complex && elem.getPath().endsWith(".extension"))
       return;
@@ -1202,13 +1213,23 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
     if (delayedClose) {
       int c = 0;
+      int l = lastChild(children);
+      boolean extDone = false;
       for (ElementDefinition child : children) {
-        if (child.getType().size() == 1)
-          generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == children.size(), false);
+        if (isExtension(child)) {
+          if (!extDone)
+            generateCoreElemExtension(b, sd.getSnapshot().getElement(), child, children, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, complex);
+          extDone = true;
+        } else if (child.hasSlicing())
+          generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, complex);
+        else if (wasSliced(child, children))
+          ; // nothing
+        else if (child.getType().size() == 1)
+          generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, false);
         else {
           b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(child.getShort()) + "</span>. One of these "+Integer.toString(child.getType().size())+":</span>\r\n");
           for (TypeRefComponent t : child.getType())
-            generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, t, ++c == children.size(), false);
+            generateCoreElem(b, elements, child, indent + 1, pathName + "." + name, false, t, ++c == l, false);
         }
       }
       b.append(indentS);
@@ -1288,7 +1309,89 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append("],\r\n");
   }
 
+  private void generateCoreElemExtension(StringBuilder b, List<ElementDefinition> elements, ElementDefinition elem, List<ElementDefinition> children, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
+    if (elem.getMax().equals("0"))
+      return;
+
+    String name =  tail(elem.getPath());
+    String en = asValue ? "value[x]" : name;
+    if (en.contains("[x]"))
+      en = en.replace("[x]", upFirst(type.getCode()));
+    boolean unbounded = elem.hasMax() && elem.getMax().equals("*");
+
+    String indentS = "";
+    for (int i = 0; i < indent; i++) {
+      indentS += "  ";
+    }
+//    String defPage = igp.getLinkForProfile(sd, sd.getUrl());
+//    b.append(indentS);
+//    b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
+//    + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
+//    b.append("[ <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span>");
+////    b.append(" <span style=\"color: Gray\">//</span>");
+////    writeCardinality(elem);
+//    b.append("\r\n");
+//    
+    b.append(indentS+"\"extension\": [\r\n");
+    List<ElementDefinition> slices = getSlices(elem, children);
+    int c = 0;
+    for (ElementDefinition slice : slices) {
+      String url = slice.getTypeFirstRep().getProfile();
+      StructureDefinition sdExt = context.fetchResource(StructureDefinition.class, url);
+      b.append(indentS+"  ");
+      b.append("{ // <span style=\"color: navy; opacity: 0.8\">");
+      writeCardinality(unbounded, b, slice);
+      b.append(Utilities.escapeXml(slice.getShort()) + "</span>");
+      b.append("\r\n");
+      b.append(indentS+"    ");
+      if (sdExt == null)
+        b.append("\"url\": \""+url+"\",\r\n");
+      else
+        b.append("\"url\": \"<a href=\""+sdExt.getUserString("path")+"\">"+url+"</a>\",\r\n");
+      
+      List<ElementDefinition> extchildren = getChildren(elements, slice);
+      if (extchildren.isEmpty()) {
+        if (sdExt == null)
+          throw new Exception("Not handled yet: unknown extension "+url);
+        extchildren = getChildren(sdExt.getSnapshot().getElement(), sdExt.getSnapshot().getElementFirstRep());
+      }
+
+      ElementDefinition value = getValue(extchildren);
+      if (value != null) {
+        if (value.getType().size() == 1)
+          generateCoreElem(b, elements, value, indent+2, pathName+"."+en, false, value.getType().get(0), true, false);
+        else {
+          b.append("<span style=\"color: Gray\">// value[x]: <span style=\"color: navy; opacity: 0.8\">" +Utilities.escapeXml(value.getShort()) + "</span>. One of these "+Integer.toString(value.getType().size())+":</span>\r\n");
+          for (TypeRefComponent t : value.getType())
+            generateCoreElem(b, elements, value, indent+2, pathName+"."+en, false, t, t==value.getType().get(value.getType().size()-1), false);
+        }      
+      } else
+        throw new Exception("Not handled yet: complex extension "+url);
+      
+      c++;
+      b.append(indentS);
+      if (c == slices.size())
+        b.append("  }\r\n");
+      else
+        b.append("  },\r\n");
+
+    }
+    b.append(indentS);
+    if (last)
+      b.append("]\r\n");
+    else
+      b.append("],\r\n");
+  }
+
   
+  
+  private ElementDefinition getValue(List<ElementDefinition> extchildren) {
+    for (ElementDefinition ed : extchildren) 
+      if (ed.getPath().contains(".value") && !"0".equals(ed.getMax()))
+        return ed;
+    return null;
+  }
+
   private boolean hasResource(String code) {
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
     return sd != null && sd.getKind() == StructureDefinitionKind.RESOURCE;
