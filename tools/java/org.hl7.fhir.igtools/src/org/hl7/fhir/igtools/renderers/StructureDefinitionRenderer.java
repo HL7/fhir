@@ -1144,19 +1144,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
         b.append("\"");
     } else {
-      b.append("{ ");
+      b.append("{");
       b.append("<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (type.hasProfile()) {
-        if (type.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String t = type.getProfile().substring(40);
-          if (hasType(t))
-            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
-          else if (hasResource(t))
-            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+ t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
-          else
-            b.append("("+t+")");
-        } else
-          b.append("("+type.getProfile()+")");
+        StructureDefinition tsd = context.fetchResource(StructureDefinition.class, type.getProfile());
+        if (tsd != null)
+          b.append(" (as <span style=\"color: darkgreen\"><a href=\"" + prefix+( tsd.getUserString("path"))+ ".html#"+tsd.getType() + "\">" + tsd.getName()+ "</a></span>)");
+        else 
+          b.append(" (as <span style=\"color: darkgreen\">"+type.getProfile()+ "</span>)");
       }
       if (type.hasTargetProfile()) {
         if (type.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
@@ -1170,7 +1165,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         } else
           b.append("("+type.getTargetProfile()+")");
       }
-      b.append(" }");
+      b.append("}");
     } 
 
     if (!delayedClose) {
@@ -1191,13 +1186,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
         ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
         if (vs != null)
-          b.append("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+          b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
         else if (elem.getBinding().getValueSet() instanceof UriType)
-          b.append("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+          b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         else
-          b.append("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((Reference)elem.getBinding().getValueSet()).getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+          b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+((Reference)elem.getBinding().getValueSet()).getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
       } else
-        b.append("<span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</span>");
+        b.append(" <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</span>");
     }
 
     b.append("\r\n");
@@ -1241,7 +1236,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     b.append(indentS);
     b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
     + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
-    b.append("[ // <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span>");
+    b.append("[ <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span>");
 //    b.append(" <span style=\"color: Gray\">//</span>");
 //    writeCardinality(elem);
     b.append("\r\n");
@@ -1251,7 +1246,6 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     for (ElementDefinition slice : slices) {
       b.append(indentS+"  ");
       b.append("{ // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(slice.getShort()) + "</span>");
-      b.append(" <span style=\"color: Gray\">//</span>");
       writeCardinality(unbounded, b, slice);
       b.append("\r\n");
       
@@ -1326,7 +1320,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append(" <span style=\"color: brown\" title=\""
           + Utilities.escapeXml(getInvariants(elem)) + "\"><b>C?</b></span>");
     if (elem.getMin() > 0)
-      b.append(" <span style=\"color: brown\" title=\"This element is required\"><b>R!</b></span> ");
+      b.append(" <span style=\"color: brown\" title=\"This element is required\"><b>R!</b></span>");
     if (unbounded && "1".equals(elem.getMax()))
       b.append(" <span style=\"color: brown\" title=\"This element is an array in the base standard, but the profile only allows on element\"><b>Only One!</b></span> ");
   }
@@ -1378,12 +1372,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private String describeSlicing(ElementDefinitionSlicingComponent slicing) {
+    if (slicing.getRules() == SlicingRules.CLOSED)
+      return "";
     CommaSeparatedStringBuilder csv = new CommaSeparatedStringBuilder();
     for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) {
       csv.append(d.getType().toCode()+":"+d.getPath());
     }
-    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + (slicing.hasRules() ? slicing.getRules().getDisplay() : "");
-    return " sliced by "+csv.toString()+" "+s;
+    String s = slicing.getOrdered() ? " in any order" : " in the specified order " + (slicing.hasRules() ? slicing.getRules().getDisplay() : "");
+    return "// sliced by "+csv.toString()+" "+s;
   }
 
 }

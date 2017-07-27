@@ -159,7 +159,7 @@ public class HTLMLInspector {
     for (String s : cache.keySet()) {
       LoadedFile lf = cache.get(s);
       if (lf.getXhtml() != null)
-        if (checkLinks(s, "", lf.getXhtml(), null, messages) != NodeChangeType.NONE) // returns true if changed
+        if (checkLinks(s, "", lf.getXhtml(), null, messages, false) != NodeChangeType.NONE) // returns true if changed
           saveFile(lf);
     }
  
@@ -270,7 +270,7 @@ public class HTLMLInspector {
       listTargets(c, targets);
   }
 
-  private NodeChangeType checkLinks(String s, String path, XhtmlNode x, String uuid, List<ValidationMessage> messages) throws IOException {
+  private NodeChangeType checkLinks(String s, String path, XhtmlNode x, String uuid, List<ValidationMessage> messages, boolean inPre) throws IOException {
     boolean changed = false;
     if (x.getName() != null)
       path = path + "/"+ x.getName();
@@ -288,7 +288,7 @@ public class HTLMLInspector {
     boolean nchanged = false;
     boolean nSelfChanged = false;
     for (XhtmlNode c : x.getChildNodes()) { 
-      NodeChangeType ct = checkLinks(s, path, c, nuid, messages);
+      NodeChangeType ct = checkLinks(s, path, c, nuid, messages, inPre || "pre".equals(x.getName()));
       if (ct == NodeChangeType.SELF) {
         nSelfChanged = true;
         nchanged = true;
@@ -298,7 +298,7 @@ public class HTLMLInspector {
     }
     if (nSelfChanged) {
       XhtmlNode a = new XhtmlNode(NodeType.Element);
-      a.setName("a").setAttribute("name", nuid).addText(" ");
+      a.setName("a").setAttribute("name", nuid).addText("\u200B");
       x.getChildNodes().add(0, a);
     } 
     if (changed)
