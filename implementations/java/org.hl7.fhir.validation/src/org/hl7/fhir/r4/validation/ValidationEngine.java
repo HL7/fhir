@@ -145,16 +145,22 @@ public class ValidationEngine {
 
   private class AsteriskFilter implements FilenameFilter {
     String dir;
-    String prefix;
-    String suffix;
-    int minLength;
+    String regex;
     
     public AsteriskFilter(String filter) throws IOException {
       if (!filter.matches("(.*(\\\\|\\/))*(.*)\\*(.*)"))
         throw new IOException("Filter names must have the following syntax: [directorypath][prefix]?*[suffix]?   I.e. The asterisk must be in the filename, not the directory path");
       dir = filter.replaceAll("(.*(\\\\|\\/))*(.*)\\*(.*)", "$1");
-      prefix = filter.replaceAll("(.*(\\\\|\\/))*(.*)\\*(.*)", "$3");
-      suffix = filter.replaceAll("(.*(\\\\|\\/))*(.*)\\*(.*)", "$4");
+      String expression = filter.replaceAll("(.*(\\\\|\\/))*(.*)", "$3");
+      regex = "";
+      for (int i = 0; i < expression.length(); i++) {
+        if (Character.isAlphabetic(expression.codePointAt(i)) || Character.isDigit(expression.codePointAt(i)))
+          regex = regex + expression.charAt(i);
+        else if (expression.charAt(i)=='*')
+          regex = regex + ".*";
+        else
+          regex = regex + "\\" + expression.charAt(i);
+      }
       File f = new File(dir);
       if (!f.exists()) {
         throw new IOException("Directory " + dir + " does not exist");
@@ -165,7 +171,7 @@ public class ValidationEngine {
     }
     
     public boolean accept(File dir, String s) {
-      boolean match = s.startsWith(prefix) && s.endsWith(suffix) && s.length() >= minLength;
+      boolean match = s.matches(regex);
       return match;
     }
     
@@ -413,9 +419,11 @@ public class ValidationEngine {
       } catch (Exception e) {
         throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
       }
-      context.cacheResource(res);
-      if (res instanceof ImplementationGuide)
-        canonical = ((ImplementationGuide) res).getUrl();
+      if (res!=null) {
+        context.cacheResource(res);
+        if (res instanceof ImplementationGuide)
+          canonical = ((ImplementationGuide) res).getUrl();
+      }
 		}
     if (canonical != null)
       grabNatives(source, canonical);
