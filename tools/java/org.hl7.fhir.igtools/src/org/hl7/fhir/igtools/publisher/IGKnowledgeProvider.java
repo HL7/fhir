@@ -42,6 +42,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   private List<ValidationMessage> errors;
   private JsonObject defaultConfig;
   private JsonObject resourceConfig;
+  private String pathPattern;
   private boolean autoPath = false;
   
   public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, List<ValidationMessage> errors) throws Exception {
@@ -59,6 +60,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     if (e == null)
       throw new Exception("You must define a canonicalBase in the json file");
     canonical = e.getAsString();
+    e = igs.get("path-pattern");
+    if (e != null)
+      pathPattern = e.getAsString(); 
     defaultConfig = igs.getAsJsonObject("defaults");
     resourceConfig = igs.getAsJsonObject("resources");
     if (resourceConfig == null)
@@ -229,6 +233,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     String base = getProperty(r,  "base");
     if (base != null) 
       bc.setUserData("path", doReplacements(base, r, null, null));
+    else if (pathPattern != null)
+      bc.setUserData("path", pathPattern.replace("[type]", r.getElement().fhirType()).replace("[id]", r.getId()));
     else
       bc.setUserData("path", r.getElement().fhirType()+"/"+r.getId()+".html");
   }

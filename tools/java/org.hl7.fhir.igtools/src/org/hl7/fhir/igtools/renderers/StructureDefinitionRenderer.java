@@ -1171,7 +1171,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (type.hasProfile()) {
         StructureDefinition tsd = context.fetchResource(StructureDefinition.class, type.getProfile());
         if (tsd != null)
-          b.append(" (as <span style=\"color: darkgreen\"><a href=\"" + prefix+( tsd.getUserString("path"))+ ".html#"+tsd.getType() + "\">" + tsd.getName()+ "</a></span>)");
+          b.append(" (as <span style=\"color: darkgreen\"><a href=\"" + tsd.getUserString("path")+ "#"+tsd.getType() + "\">" + tsd.getName()+ "</a></span>)");
         else 
           b.append(" (as <span style=\"color: darkgreen\">"+type.getProfile()+ "</span>)");
       }
@@ -1179,7 +1179,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         if (type.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String t = type.getTargetProfile().substring(40);
           if (hasType(t))
-            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
+            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ "#" + t) + "\">" + t+ "</a></span>)");
           else if (hasResource(t))
             b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+ t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
           else
