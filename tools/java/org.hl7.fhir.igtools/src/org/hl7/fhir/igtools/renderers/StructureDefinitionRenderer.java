@@ -1347,7 +1347,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     int c = 0;
     for (ElementDefinition slice : slices) {
       String url = slice.getTypeFirstRep().getProfile();
-      StructureDefinition sdExt = context.fetchResource(StructureDefinition.class, url);
+      StructureDefinition sdExt = url == null ? null : context.fetchResource(StructureDefinition.class, url);
       b.append(indentS+"  ");
       b.append("{ // <span style=\"color: navy; opacity: 0.8\">");
       writeCardinality(unbounded, b, slice);
@@ -1362,7 +1362,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       List<ElementDefinition> extchildren = getChildren(elements, slice);
       if (extchildren.isEmpty()) {
         if (sdExt == null)
-          throw new Exception("Not handled yet: unknown extension "+url);
+          b.append("Not handled yet: unknown extension "+url+"\r\n");
         extchildren = getChildren(sdExt.getSnapshot().getElement(), sdExt.getSnapshot().getElementFirstRep());
       }
 
@@ -1375,8 +1375,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           for (TypeRefComponent t : value.getType())
             generateCoreElem(b, elements, value, indent+2, pathName+"."+en, false, t, t==value.getType().get(value.getType().size()-1), false);
         }      
-      } else
-        throw new Exception("Not handled yet: complex extension "+url);
+      } else {
+        b.append("Not handled yet: complex extension "+url+"\r\n");
+      }
       
       c++;
       b.append(indentS);
