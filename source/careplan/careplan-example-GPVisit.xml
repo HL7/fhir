@@ -132,7 +132,7 @@
     </outcomeReference>
     <detail>
       <!-- This activity is for the initial nurse encounter where vitals are taken. It has been completed.-->
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
+      <kind value="Appointment"/>
       <code>
         <coding>
           <system value="http://example.org/local"/>
@@ -158,7 +158,7 @@
     <detail>
       <!-- This activity is for the encounter with the doctor. It is scheduled, but not yet started,
               so there is no timing[x]  or actionTaken element yet -->
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="encounter"/></coding></category>
+      <kind value="Appointment"/>
       <code>
         <coding>
           <system value="http://example.org/local"/>

@@ -9,11 +9,11 @@
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = CarePlanActivityCategory
+  Binding Name = CarePlanActivityKind
   Binding = value set
-  Reference = valueset-care-plan-activity-category
-  Definition = High-level categorization of the type of activity in a care plan.
-  Conformance = example
+  Reference = valueset-care-plan-activity-kind
+  Definition = Resource types defined as part of FHIR.
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = CarePlanActivityType
@@ -503,16 +503,14 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
 
  -- Row 26 -----------------------------------
-  Element = CarePlan.activity.detail.category
+  Element = CarePlan.activity.detail.kind
   Card. = 0..1
-  Type = CodeableConcept
-  Binding = CarePlanActivityCategory
-  Short Name = diet | drug | encounter | observation | procedure | supply | other
-  Definition = High-level categorization of the type of activity in a care plan.
+  Type = code
+  Binding = CarePlanActivityKind
+  Short Name = Kind of resource
+  Definition = A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.
   Requirements = May determine what types of extensions are permitted
-  Workflow Mapping = Request.supportingInformation
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
-  Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accommodation)
 
  -- Row 27 -----------------------------------
   Element = CarePlan.activity.detail.definition

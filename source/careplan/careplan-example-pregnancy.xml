@@ -127,12 +127,7 @@
       <valueUri value="http://orionhealth.com/fhir/careplan/1andetails"/>
     </extension>
     <detail>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="encounter"/>
-        </coding>
-      </category>
+     <kind value="Appointment"/>
       <code>
         <coding>
           <system value="http://example.org/mySystem"/>
@@ -168,12 +163,7 @@
   <activity>
     <detail>
       <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="encounter"/>
-        </coding>
-      </category>
+      <kind value="Appointment"/>
       <code>
         <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
         <coding>
@@ -210,12 +200,7 @@
   <activity>
     <detail>
       <!-- This will be the delivery. It is not yet scheduled. -->
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="encounter"/>
-        </coding>
-      </category>
+      <kind value="Appointment"/>
       <code>
         <coding>
           <system value="http://example.org/mySystem"/>

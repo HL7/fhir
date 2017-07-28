@@ -115,7 +115,7 @@
         <display value="Roel's Chemotherapy"/>
     </outcomeReference>
     <detail>
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="procedure"/></coding></category>
+      <kind value="ProcedureRequest"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>

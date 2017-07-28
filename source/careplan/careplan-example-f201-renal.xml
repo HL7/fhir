@@ -70,7 +70,7 @@
   <activity>
     <!--Potassium supplement-->
     <detail>
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="diet"/></coding></category>
+      <kind value="NutritionOrder"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -97,7 +97,7 @@
   <activity>
     <!--Echo of the kidney-->
     <detail>
-      <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="observation"/></coding></category>
+      <kind value="ProcedureRequest"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>

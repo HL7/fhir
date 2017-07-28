@@ -273,12 +273,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g1"/>
       </goal>
@@ -299,12 +293,7 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
+      <kind value="CommunicationRequest"/>
       <goal>
         <reference value="#g1"/>
       </goal>
@@ -321,12 +310,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g2"/>
       </goal>
@@ -351,12 +334,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -381,12 +358,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -403,12 +374,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-08-13"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -417,7 +382,7 @@
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
-      <description value="Eve will us a calendar to check off after medications are taken"/>
+      <description value="Eve will use a calendar to check off after medications are taken"/>
     </detail>
   </activity>
   <activity>
@@ -433,12 +398,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-08-27"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g5"/>
       </goal>
@@ -459,12 +418,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-09-10"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -489,12 +442,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-08-23"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g3"/>
       </goal>
@@ -511,12 +458,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-07-23"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -537,12 +478,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-07-16"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g4"/>
       </goal>
@@ -567,12 +502,6 @@
       <extension url="http://example.org/fhir/StructureDefinition/RevisionDate">
         <valueDate value="2012-08-13"/>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="other"/>
-        </coding>
-      </category>
       <goal>
         <reference value="#g3"/>
       </goal>

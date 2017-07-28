@@ -79,12 +79,6 @@
 			<display value="Weight Measured" />
 		</outcomeReference>
 		<detail>
-			<category>
-				<coding>
-					<system value="http://hl7.org/fhir/care-plan-activity-category"/>
-					<code value="observation"/>
-				</coding>
-			</category>
 		<code>
 			<!--     LOINC code     -->
 			<coding>

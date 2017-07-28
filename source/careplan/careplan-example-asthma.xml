@@ -238,12 +238,6 @@
   <!-- This activity specifies that the patient take a peak flow daily -->
   <activity>
     <detail>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="observation"/>
-        </coding>
-      </category>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -291,12 +285,7 @@
           </valueQuantity>
         </extension>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="drug"/>
-        </coding>
-      </category>
+	  <kind value="MedicationRequest"/>
       <status value="not-started"/>
       <prohibited value="false"/>
       <description value="Eve will start oral steroids if the peakflow drops below 350"/>
@@ -323,12 +312,6 @@
           </valueQuantity>
         </extension>
       </extension>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="encounter"/>
-        </coding>
-      </category>
       <status value="not-started"/>
       <prohibited value="false"/>
       <description value="Get Medical assistance immediately"/>
