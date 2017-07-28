@@ -1229,7 +1229,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             generateCoreElemExtension(b, sd.getSnapshot().getElement(), child, children, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, complex);
           extDone = true;
         } else if (child.hasSlicing())
-          generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, indent + 1, pathName + "." + name, false, child.getType().get(0), ++c == l, complex);
+          generateCoreElemSliced(b, sd.getSnapshot().getElement(), child, children, indent + 1, pathName + "." + name, false,  child.hasType() ? child.getType().get(0) : null, ++c == l, complex);
         else if (wasSliced(child, children))
           ; // nothing
         else if (child.getType().size() == 1 || allTypesAreReference(child))
@@ -1363,7 +1363,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (extchildren.isEmpty()) {
         if (sdExt == null)
           b.append("Not handled yet: unknown extension "+url+"\r\n");
-        extchildren = getChildren(sdExt.getSnapshot().getElement(), sdExt.getSnapshot().getElementFirstRep());
+        else
+          extchildren = getChildren(sdExt.getSnapshot().getElement(), sdExt.getSnapshot().getElementFirstRep());
       }
 
       ElementDefinition value = getValue(extchildren);
