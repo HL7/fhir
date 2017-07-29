@@ -493,7 +493,7 @@
   Card. = 0..1
   Summary = Y
   Inv. = 7
-  Type = Quantity|CodeableConcept|string|boolean|Range|Ratio|SampledData|Attachment|time|dateTime|Period
+  Type = Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|Attachment|time|dateTime|Period
   Short Name = Actual result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
@@ -775,7 +775,7 @@
   Element = Observation.component.value[x]
   Card. = 0..1
   Summary = Y
-  Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
+  Type = Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|Attachment|time|dateTime|Period
   Short Name = Actual component result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations

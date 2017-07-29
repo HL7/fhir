@@ -1,189 +1,113 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?>
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<a name="notes"> </a>
-	<h2>Notes:</h2>
-	<p>
-   At its simplest, a resource instances can consist of only a code and a value, and status flag.
-    The relevance of other properties will vary based on the type of observation.
-</p>
-	<p>
-		<a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types
-    of simple observations.  This resource focuses on the level of detail
-    captured by most systems.  However, any "simple" observation can easily
-	be broken into numerous components and sub-components to provide additional
-    information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
-	<h3>Observation Grouping</h3>
-	<p>Many observations have important relationships to other observations and need to be grouped together.  Three structures have been defined to do this: DiagnosticReport and <code>DiagnosticReport.result</code>, Observation and <code>Observation.component</code>, and Observation and <code>Observation.related</code>. The table below provides guidance around which structure to use.  Because the idea of what to group together is often highly contextual and based upon the end user's point of view, the choice of which structure to use will be driven by jurisdiction, organizational practice and context.  Profiling will normally be necessary for implementation.</p>
-	<table class="grid">
-	<thead>
-	<tr>
-	<th>DiagnosticReport and <code>DiagnosticReport.result</code></th>
-	<th>Observation and <code>Observation.component</code></th>
-	<th>Observation and <code>Observation.related</code></th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td>DiagnosticReport relates directly to an order (ProcedureRequest). The <code>DiagnosticReport.code</code> names the panel and serves as the grouping element, which is traditionally referred to as a &quot;panel&quot; or &quot;battery&quot; by laboratories. The <code>DiagnosticReport.result</code> element references the individual observations.  Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport as the grouping structure.</td>
-	<td><code>Observation.component</code> is used for any supporting result that cannot reasonably be interpreted and used outside the scope of the Observation it is a component of.   Components should only be used when there is only one method, one observation, one performer, one device, and one time.  For example, systolic and diastolic blood pressure are represented as a single Observation (e.g. <a href="observation-example-bloodpressure.html">Blood pressure panel</a>) because the two are almost always produced and interpreted together.  Note that the <code>component.code</code> may in some cases only be able to be understood in relation to the <code>Observation.code</code> (for example, see the <a href="observation-operations.html#10.1.20.1"><code>$stats</code> operation</a>).</td>
-	<td><code>Observation.related</code> is used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. The top level observation specifies the grouping code in <code>Observation.code</code>, but typically does not have its own <code>Observation.value</code>, and the set of member observations are listed in the <code>Observation.related</code> element.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>).</td>
-	</tr>
-	</tbody>
-	</table>
-	<a name="valuex"> </a>
-	<h3>Value[x] and Datatypes</h3>
-	<ul>
-		<li>
-    The element, Observation.value[x], has a variable name depending on the type as follows:
+  <a name="notes">
+  </a>
+  <h2>Notes:</h2>
+  <p>   At its simplest, a resource instances can consist of only a code and a value, and status flag.    The relevance of other properties will vary based on the type of observation.</p>
+  <p>
+    <a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types    of simple observations.  This resource focuses on the level of detail    captured by most systems.  However, any "simple" observation can easily	be broken into numerous components and sub-components to provide additional    information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
+    <h3>Observation Grouping</h3>
+    <p>Many observations have important relationships to other observations and need to be grouped together.  Three structures have been defined to do this: DiagnosticReport and <code>DiagnosticReport.result</code>, Observation and <code>Observation.component</code>, and Observation and <code>Observation.related</code>. The table below provides guidance around which structure to use.  Because the idea of what to group together is often highly contextual and based upon the end user's point of view, the choice of which structure to use will be driven by jurisdiction, organizational practice and context.  Profiling will normally be necessary for implementation.</p>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>DiagnosticReport and <code>DiagnosticReport.result</code>
+        </th>
+        <th>Observation and <code>Observation.component</code>
+      </th>
+      <th>Observation and <code>Observation.related</code>
+    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>DiagnosticReport relates directly to an order (ProcedureRequest). The <code>DiagnosticReport.code</code> names the panel and serves as the grouping element, which is traditionally referred to as a &quot;panel&quot; or &quot;battery&quot; by laboratories. The <code>DiagnosticReport.result</code> element references the individual observations.  Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport as the grouping structure.</td>
+    <td>
+      <code>Observation.component</code> is used for any supporting result that cannot reasonably be interpreted and used outside the scope of the Observation it is a component of.   Components should only be used when there is only one method, one observation, one performer, one device, and one time.  For example, systolic and diastolic blood pressure are represented as a single Observation (e.g. <a href="observation-example-bloodpressure.html">Blood pressure panel</a>) because the two are almost always produced and interpreted together.  Note that the <code>component.code</code> may in some cases only be able to be understood in relation to the <code>Observation.code</code> (for example, see the <a href="observation-operations.html#10.1.20.1">
+        <code>$stats</code> operation</a>).</td>
+        <td>
+          <code>Observation.related</code> is used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. The top level observation specifies the grouping code in <code>Observation.code</code>, but typically does not have its own <code>Observation.value</code>, and the set of member observations are listed in the <code>Observation.related</code> element.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>).</td>
+        </tr>
+      </tbody>
+    </table>
+    <a name="valuex">
+    </a>
+    <h3>Value[x] and Datatypes</h3>
     <ul>
-				<li>valueQuantity</li>
-				<li>valueCodeableConcept</li>
-				<li>valueString</li>
-				<li>valueBoolean</li>
-				<li>valueRange</li>
-				<li>valueRatio</li>
-				<li>valueSampledData</li>
-				<li>valueAttachment</li>
-				<li>valueTime</li>
-				<li>valueDateTime</li>
-				<li>valuePeriod</li>
-
-			</ul><br />
-
-		</li>
-		<li><p><strong>Using codes for result values</strong></p><p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values. Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example below.</p>
-
-		 <p>For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:</p>
-<pre class="json">
-	"valueCodeableConcept": {
-	"coding": [
-	  {
-		"system": "http://snomed.info/sct",
-		"code": "260385009",
-		"display": "Negative"
-	  },
-	  {
-		"https://acme.lab/resultcodes",
-		"code": "NEG",
-		"display": "Negative"
-	  }
-	],
-	"text": "Negative for Chlamydia Trachomatis rRNA"
-	  }
-			</pre>
-<p>Text values for coded results:</p><p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code> <em>even if</em> there is no appropriate code and only un-coded text is available. For example using text only, the <code>valueCodeableConcept</code> element would be:</p>
-		<pre class="json">
-	"valueCodeableConcept": {
-	"text": "uncoded free text result"
-	  }
-			</pre>
-
-
-<p>When a coded answer list includes a concept code for &quot;other&quot; and there is a free text description of the concept, the <code>valueCodeableConcept.text</code> element should be used to capture the full meaning of the source.  In the example below, the answer code &quot;Other&quot; is provided in the <code>valueCodeableConcept</code> element and the text value supplied value in the <code>CodeableConcept.text</code> element.</p>
-			<pre class="json">
-    {
-      "resourceType": "Observation",
-      "code": {
-        "coding": [{
-          "system": "http://loinc.org",
-          "code": "74076-1",
-          "display": "Medication or substance involved"
-        }]
-      },
-      "valueCodeableConcept": {
-        "coding": [{
-          "system": "http://loinc.org",
-          "code": " LA20343-2",
-          "display": "Other substance: PLEASE SPECIFY"
-        }],
-        "text": "Other: Blue pills I found under my couch"
-      }
-    }
-</pre>
-</li>
-		<li>
-		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.
-		  </li>
-		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').
-		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
-			<pre class="json">
-		"valueQuantity": {
-    "value": 2.0,
-     "comparator" : "&lt;",
-    "unit": "mmol/l",
-    "system": "http://unitsofmeasure.org",
-    "code": "mmol/L"
-     }
-			</pre>
-If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> element would be absent and <code>dataAbsentReason</code> element would be:
-<pre class="json">
-"dataAbsentReason": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/data-absent-reason",
-        "code": "NaN",
-        "display": "Not a Number"
-      }
-      </pre>
-			</li>
-		<li>
-   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio
- </li>
-	</ul>
-	<h3>Physiologically Relevant Time of the Observation</h3>
-	<p> The effectiveDateTime or effectivePeriod is the time that the observation is most
-    relevant as an observation of the subject. For a biological subject (e.g. a human patient),
-    this is the physiologically relevant time of the observation.
-	In the case of an observation using a specimen, this represents the start and
-    end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is
-    sufficiently short, this is reported as a point in time value (e.g. normal venipuncture).
-    In the case of an observation obtained directly from a subject (e.g. BP,
-    Chest X-ray), this is the start and end time of the observation process, which again, is
-    often reported as a single point in time.</p>
-	<h3>Reference Range</h3>
-	<p>
-		Most common observations will only have one generic reference range.  Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.
-		</p>
-	<h3>Canceled or Aborted Observations</h3>
-	<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.
-</p>
-
-<a name="observation-operations"> </a>
+      <li>    The element, Observation.value[x], has a variable name depending on the type as follows:    <ul>
+        <li>valueQuantity</li>
+        <li>valueCodeableConcept</li>
+        <li>valueString</li>
+        <li>valueBoolean</li>
+        <li>valueInteger</li>
+        <li>valueRange</li>
+        <li>valueRatio</li>
+        <li>valueSampledData</li>
+        <li>valueAttachment</li>
+        <li>valueTime</li>
+        <li>valueDateTime</li>
+        <li>valuePeriod</li>
+      </ul>
+      <br />
+    </li>
+    <li>
+      <p>
+        <strong>Using codes for result values</strong>
+      </p>
+      <p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values. Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example below.</p>
+      <p>For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:</p>
+      <pre class="json">	"valueCodeableConcept": {	"coding": [	  {		"system": "http://snomed.info/sct",		"code": "260385009",		"display": "Negative"	  },	  {		"https://acme.lab/resultcodes",		"code": "NEG",		"display": "Negative"	  }	],	"text": "Negative for Chlamydia Trachomatis rRNA"	  }			</pre>
+      <p>Text values for coded results:</p>
+      <p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code>
+      <em>even if</em> there is no appropriate code and only un-coded text is available. For example using text only, the <code>valueCodeableConcept</code> element would be:</p>
+      <pre class="json">	"valueCodeableConcept": {	"text": "uncoded free text result"	  }			</pre>
+      <p>When a coded answer list includes a concept code for &quot;other&quot; and there is a free text description of the concept, the <code>valueCodeableConcept.text</code> element should be used to capture the full meaning of the source.  In the example below, the answer code &quot;Other&quot; is provided in the <code>valueCodeableConcept</code> element and the text value supplied value in the <code>CodeableConcept.text</code> element.</p>
+      <pre class="json">    {      "resourceType": "Observation",      "code": {        "coding": [{          "system": "http://loinc.org",          "code": "74076-1",          "display": "Medication or substance involved"        }]      },      "valueCodeableConcept": {        "coding": [{          "system": "http://loinc.org",          "code": " LA20343-2",          "display": "Other substance: PLEASE SPECIFY"        }],        "text": "Other: Blue pills I found under my couch"      }    }</pre>
+    </li>
+    <li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.		  </li>
+    <li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:			<pre class="json">		"valueQuantity": {    "value": 2.0,     "comparator" : "&lt;",    "unit": "mmol/l",    "system": "http://unitsofmeasure.org",    "code": "mmol/L"     }			</pre>If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> element would be absent and <code>dataAbsentReason</code> element would be:<pre class="json">"dataAbsentReason": {    "coding": [      {        "system": "http://hl7.org/fhir/data-absent-reason",        "code": "NaN",        "display": "Not a Number"      }      </pre>
+  </li>
+  <li>   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio </li>
+</ul>
+<h3>Physiologically Relevant Time of the Observation</h3>
+<p> The effectiveDateTime or effectivePeriod is the time that the observation is most    relevant as an observation of the subject. For a biological subject (e.g. a human patient),    this is the physiologically relevant time of the observation.	In the case of an observation using a specimen, this represents the start and    end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is    sufficiently short, this is reported as a point in time value (e.g. normal venipuncture).    In the case of an observation obtained directly from a subject (e.g. BP,    Chest X-ray), this is the start and end time of the observation process, which again, is    often reported as a single point in time.</p>
+<h3>Reference Range</h3>
+<p>		Most common observations will only have one generic reference range.  Reference ranges may be useful for lab tests and other measures like systolic blood pressure, but will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this may not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.		</p>
+<h3>Canceled or Aborted Observations</h3>
+<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in comments as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.</p>
+<a name="observation-operations">
+</a>
 <h2>Operations defined for Observation</h2>
-<a name="lastn"> </a>
+<a name="lastn">
+</a>
 <h3>Searching for the Last N Observations</h3>
-
-
-<p>
-The <em>lastn</em> query operation meets the common need for searching for the most recent or "last known" Observations for a subject.  Examples where this query could be used:</p>
+<p>The <em>lastn</em> query operation meets the common need for searching for the most recent or "last known" Observations for a subject.  Examples where this query could be used:</p>
 <ul>
-<li>Fetch the last 5 temperatures for a patient to view trends</li>
-<li>Get the most recent lab results for patient</li>
-<li>Fetch the last 3 results for all vitals for a patient</li>
+  <li>Fetch the last 5 temperatures for a patient to view trends</li>
+  <li>Get the most recent lab results for patient</li>
+  <li>Fetch the last 3 results for all vitals for a patient</li>
 </ul>
-<p>
-See the <a href="observation-operations.html#10.1.20.2">Last N Observations Query</a> section in the Observation resource operations page for more information and examples
-</p>
+<p>See the <a href="observation-operations.html#10.1.20.2">Last N Observations Query</a> section in the Observation resource operations page for more information and examples</p>
 <div>
-<a name="lastn-stu-note"> </a>
-<blockquote class="stu-note">
-<p>
-<b>STU Note:</b> This is the first draft of this operation and we are seeking input from the implementer community on it and whether it should be extended to other resources such as DiagnosticReport. This operation could be the subject of future connectathon testing.
+  <a name="lastn-stu-note">
+  </a>
+  <blockquote class="stu-note">
+    <p>
+      <b>STU Note:</b> This is the first draft of this operation and we are seeking input from the implementer community on it and whether it should be extended to other resources such as DiagnosticReport. This operation could be the subject of future connectathon testing.</p>
+      <p>Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.</p>
+    </blockquote>
+  </div>
+  <p>
+  </p>
+  <a name="stats">
+  </a>
+  <h3>Retrieving Statistics for Laboratory Observations</h3>
+  <p>The <em>stats</em> operation  performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server. This operation is focused on Observation resources with valueQuantity elements that have UCUM unit codes.  Examples where this operation could be used:</p>
+  <ul>
+    <li>Get the average, min, max and count of a series of BP measurements for a patient</li>
+    <li>Determine 20th or 80th percentile on a set of measurements over a time period</li>
+  </ul>See the <a href="observation-operations.html#10.1.20.1">Observation Statistics</a> section in the Observation resource operations page for more information and examples<p>
 </p>
-<p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
 </div>
-
-<p></p>
-<a name="stats"> </a>
-<h3>Retrieving Statistics for Laboratory Observations</h3>
-<p>
-The <em>stats</em> operation  performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server. This operation is focused on Observation resources with valueQuantity elements that have UCUM unit codes.  Examples where this operation could be used:</p>
-<ul>
-<li>Get the average, min, max and count of a series of BP measurements for a patient</li>
-<li>Determine 20th or 80th percentile on a set of measurements over a time period</li>
-</ul>
-See the <a href="observation-operations.html#10.1.20.1">Observation Statistics</a> section in the Observation resource operations page for more information and examples
-<p></p>
 </div>
