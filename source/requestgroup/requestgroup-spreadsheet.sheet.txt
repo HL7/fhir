@@ -246,7 +246,7 @@
   Element = RequestGroup.reasonCode
   Card. = 0..*
   Type = CodeableConcept
-  Short Name = Reason for the request group
+  Short Name = Why the request group is needed
   Definition = Describes the reason for the request group in coded or textual form
   Workflow Mapping = Request.reasonCode
   w5 = why
@@ -255,7 +255,7 @@
   Element = RequestGroup.reasonReference
   Card. = 0..*
   Type = Reference(Any)
-  Short Name = Reason for the request group
+  Short Name = Why the request group is needed
   Definition = Indicates another resource whose existence justifies this request group
   Workflow Mapping = Request.reasonReference
   w5 = why
