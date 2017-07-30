@@ -30,40 +30,43 @@
   Definition = The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event
 
  -- Row 3 -----------------------------------
+  Id = 8
+  Code = data-changed
+  Display = Data Changed
+  Definition = The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed
+
+ -- Row 4 -----------------------------------
   Id = 3
   Code = data-added
   Display = Data Added
   Definition = The trigger occurs whenever data of a particular type is added
+  Parent = data-changed
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Id = 4
   Code = data-modified
   Display = Data Updated
   Definition = The trigger occurs whenever data of a particular type is modified
+  Parent = data-changed
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Id = 5
   Code = data-removed
   Display = Data Removed
   Definition = The trigger occurs whenever data of a particular type is removed
+  Parent = data-changed
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Id = 6
   Code = data-accessed
   Display = Data Accessed
   Definition = The trigger occurs whenever data of a particular type is accessed
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Id = 7
   Code = data-access-ended
   Display = Data Access Ended
   Definition = The trigger occurs whenever access to data of a particular type is completed
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = data-changed
-  Display = Data Changed
-  Definition = The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed
 
 === Sheet expression-language =====================================
 
@@ -81,6 +84,22 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = TriggerDefinition
+  English = Either timing, or a data requirement, but not both
+  XPath = not(exists(f:data)) or not(exists(*[starts-with(local-name(.), \'timing\')))
+  Expression = data.empty() or condition.empty()
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = TriggerDefinition
+  English = A condition only if there is a data requirement
+  XPath = not(exists(f:condition)) or exists(f:data)
+  Expression = condition.exists() implies data.exists()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -95,16 +114,16 @@
   Card. = 1..1
   Type = code
   Binding = TriggerType
-  Short Name = named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended | data-changed
+  Short Name = named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended
   Definition = The type of triggering event
 
  -- Row 3 -----------------------------------
   Element = TriggerDefinition.name
   Card. = 0..1
   Type = uri
-  Short Name = Triggering event name
-  Definition = The name of the event
-  Comments = An event name can be provided for all event types, but is required for named events. If a name is provided for a type other than named events, it shall be a shorthand for the semantics described by the formal description of the event
+  Short Name = Name or URI that identifies the event
+  Definition = A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context
+  Comments = An event name can be provided for all event types, but is required for named events. If a name is provided for a type other than named events, it is considered to be a shorthand for the semantics described by the formal description of the event
 
  -- Row 4 -----------------------------------
   Element = TriggerDefinition.timing[x]
@@ -139,7 +158,7 @@
  -- Row 8 -----------------------------------
   Element = TriggerDefinition.condition.language
   Card. = 0..1
-  Type = uri
+  Type = code
   Binding = ExpressionLanguage
   Short Name = text/cql | text/fhirpath | etc
   Definition = The media type of the language for the expression
@@ -150,4 +169,4 @@
   Type = string
   Short Name = Boolean-valued expression
   Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
-  Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by a library element or extension within the containing resource
+  Comments = The expression may be inlined, or may be a simple absolute URI, which is a reference to a named expression within a logic library referenced by a library element or extension within the containing resource. If the expression is a FHIR Path expression, it evaluates in the context of a resource of one of the type identified in the data requirement, and may also refer to the variable %previous for delta comparisons on events of type data-changed, data-modified, and data-deleted which will always have the same type

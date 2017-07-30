@@ -1030,6 +1030,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     ElementDefinition root = sd.getSnapshot().getElement().get(0);
     String rn = sd.getSnapshot().getElement().get(0).getPath();
     b.append(" // <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(sd.getTitle()) + "</span>\r\n {\r\n");
+    if (sd.getKind() == StructureDefinitionKind.RESOURCE)
+      b.append("   \"resourceType\" : \""+sd.getType()+"\",\r\n");
     
     List<ElementDefinition> children = getChildren(sd.getSnapshot().getElement(), sd.getSnapshot().getElement().get(0));
     boolean complex = isComplex(children);
