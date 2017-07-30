@@ -718,7 +718,7 @@
           <slicing>
             <discriminator>
               <type value="value"/>
-              <path value="label"/>
+              <path value="prefix"/>
             </discriminator>
             <rules value="open"/>
           </slicing>
@@ -731,8 +731,8 @@
           <min value="0"/>
           <max value="1"/>
         </element>
-        <element id="PlanDefinition:ordertemplate.action:subtask1.label">
-          <path value="PlanDefinition.action.label"/>
+        <element id="PlanDefinition:ordertemplate.action:subtask1.prefix">
+          <path value="PlanDefinition.action.prefix"/>
           <min value="1"/>
           <max value="1"/>
           <type>
@@ -746,8 +746,8 @@
           <min value="0"/>
           <max value="1"/>
         </element>
-        <element id="PlanDefinition:ordertemplate.action:subtask2.label">
-          <path value="PlanDefinition.action.label"/>
+        <element id="PlanDefinition:ordertemplate.action:subtask2.prefix">
+          <path value="PlanDefinition.action.prefix"/>
           <min value="1"/>
           <max value="1"/>
           <type>
@@ -779,7 +779,7 @@
           <slicing>
             <discriminator>
               <type value="value"/>
-              <path value="label"/>
+              <path value="prefix"/>
             </discriminator>
             <rules value="open"/>
           </slicing>
@@ -792,8 +792,8 @@
           <min value="0"/>
           <max value="1"/>
         </element>
-        <element id="PlanDefinition:ordertemplate.action.action:subtask1.label">
-          <path value="PlanDefinition.action.action.label"/>
+        <element id="PlanDefinition:ordertemplate.action.action:subtask1.prefix">
+          <path value="PlanDefinition.action.action.prefix"/>
           <min value="1"/>
           <max value="1"/>
           <type>
@@ -807,8 +807,8 @@
           <min value="0"/>
           <max value="1"/>
         </element>
-        <element id="PlanDefinition:ordertemplate.action.action:subtask2.label">
-          <path value="PlanDefinition.action.action.label"/>
+        <element id="PlanDefinition:ordertemplate.action.action:subtask2.prefix">
+          <path value="PlanDefinition.action.action.prefix"/>
           <min value="1"/>
           <max value="1"/>
           <type>

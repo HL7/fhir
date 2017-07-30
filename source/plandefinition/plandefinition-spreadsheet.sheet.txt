@@ -608,11 +608,11 @@
   Workflow Mapping = {Is a contained Definition}
 
  -- Row 38 -----------------------------------
-  Element = PlanDefinition.action.label
+  Element = PlanDefinition.action.prefix
   Card. = 0..1
   Type = string
-  Short Name = User-visible label for the action (e.g. 1. or A.)
-  Definition = A user-visible label for the action
+  Short Name = User-visible prefix for the action (e.g. 1. or A.)
+  Definition = A user-visible prefix for the action
 
  -- Row 39 -----------------------------------
   Element = PlanDefinition.action.title

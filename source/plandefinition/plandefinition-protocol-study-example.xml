@@ -121,7 +121,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="1"/>
     </extension>
-    <label value="SCRN"/>
+    <title value="SCRN"/>
     <description value="Screen"/>
     <condition>
       <kind value="applicability"/>
@@ -144,7 +144,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment">
       <valueString value="Randomized to Dose 1"/>
     </extension>
-    <label value="SBRI"/>
+    <title value="SBRI"/>
     <description value="Single Blind Run-In"/>
     <condition>
       <kind value="applicability"/>
@@ -169,7 +169,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="3"/>
     </extension>
-    <label value="DOSE 1"/>
+    <title value="DOSE 1"/>
     <description value="Administer 0.5mg [Drug A] QD"/>
     <condition>
       <kind value="applicability"/>
@@ -194,7 +194,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="4"/>
     </extension>
-    <label value="FLWUP"/>
+    <title value="FLWUP"/>
     <description value="Follow-Up"/>
     <condition>
       <kind value="applicability"/>
@@ -214,7 +214,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="1"/>
     </extension>
-    <label value="SCRN"/>
+    <title value="SCRN"/>
     <description value="Screen"/>
     <condition>
       <kind value="applicability"/>
@@ -237,7 +237,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment">
       <valueString value="Randomized to 1.0 mg"/>
     </extension>
-    <label value="SBRI"/>
+    <title value="SBRI"/>
     <description value="Single Blind Run-In"/>
     <condition>
       <kind value="applicability"/>
@@ -262,7 +262,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="3"/>
     </extension>
-    <label value="1.0 mg Dose"/>
+    <title value="1.0 mg Dose"/>
     <description value="Administer 1.0 mg [Drug A] QD"/>
     <condition>
       <kind value="applicability"/>
@@ -287,7 +287,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="4"/>
     </extension>
-    <label value="FLWUP"/>
+    <title value="FLWUP"/>
     <description value="Follow-Up"/>
     <condition>
       <kind value="applicability"/>
@@ -301,7 +301,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="1"/>
     </extension>
-    <label value="VISIT 1"/>
+    <title value="VISIT 1"/>
     <condition>
       <kind value="applicability"/>
       <description value="Screening"/>
@@ -314,7 +314,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="2"/>
     </extension>
-    <label value="VISIT 2"/>
+    <title value="VISIT 2"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="single-blind placebo start"/>
@@ -327,7 +327,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="3"/>
     </extension>
-    <label value="VISIT 3"/>
+    <title value="VISIT 3"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="Treatment start"/>
@@ -340,7 +340,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="4"/>
     </extension>
-    <label value="VISIT 4"/>
+    <title value="VISIT 4"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="5 weeks after treatment start"/>
@@ -353,7 +353,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="5"/>
     </extension>
-    <label value="VISIT 5"/>
+    <title value="VISIT 5"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="10 weeks after treatment start"/>
@@ -366,7 +366,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="6"/>
     </extension>
-    <label value="VISIT 6"/>
+    <title value="VISIT 6"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="15 weeks after treatment start"/>
@@ -379,7 +379,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="7"/>
     </extension>
-    <label value="VISIT 7"/>
+    <title value="VISIT 7"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="20 weeks after treatment start"/>
@@ -392,7 +392,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="8"/>
     </extension>
-    <label value="VISIT 8"/>
+    <title value="VISIT 8"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="25 weeks after treatment start"/>
@@ -405,7 +405,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="9"/>
     </extension>
-    <label value="VISIT 9"/>
+    <title value="VISIT 9"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="30 weeks after treatment start"/>
@@ -418,7 +418,7 @@
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
       <valueInteger value="10"/>
     </extension>
-    <label value="VISIT 10"/>
+    <title value="VISIT 10"/>
     <condition>
 	  <kind value="applicability"/>
       <description value="start of follow-up"/>

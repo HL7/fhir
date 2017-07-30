@@ -157,11 +157,11 @@
   </goal>
   <!--	The meat of the protocol - a series of steps-->
   <action>
-    <!--step label-->
-    <label value="Measure BMI"/>
-    <title value="Measure, Weight, Height, Waist, Circumference; Calculate BMI"/>
+    <!--step title-->
+    <title value="Measure BMI"/>
+    <description value="Measure, Weight, Height, Waist, Circumference; Calculate BMI"/>
     <!--description of activity-->
-    <description value="Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients"/>
+    <textEquivalent value="Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients"/>
     <!--How long does each step last
 <duration></duration>
 -->
