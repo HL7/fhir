@@ -49,14 +49,14 @@
   <author>
     <reference value="Practitioner/1"/>
   </author>
-  <reasonCodeableConcept>
+  <reasonCode>
     <text value="Treatment"/>
-  </reasonCodeableConcept>
+  </reasonCode>
   <note>
     <text value="Additional notes about the request group"/>
   </note>
   <action>
-    <label value="1"/>
+    <prefix value="1"/>
     <title value="Administer Medications"/>
     <description value="Administer medications at the appropriate time"/>
     <textEquivalent value="Administer medication 1, followed an hour later by medication 2"/>
