@@ -175,19 +175,19 @@
     <title value="Mother should be administered a breastfeeding readiness assessment."/>
     <triggerDefinition>
       <type value="named-event"/>
-      <eventName value="Admission"/>
+      <name value="Admission"/>
     </triggerDefinition>
     <triggerDefinition>
       <type value="named-event"/>
-      <eventName value="Birth"/>
+      <name value="Birth"/>
     </triggerDefinition>
     <triggerDefinition>
       <type value="named-event"/>
-      <eventName value="Infant Transfer to Recovery"/>
+      <name value="Infant Transfer to Recovery"/>
     </triggerDefinition>
     <triggerDefinition>
       <type value="named-event"/>
-      <eventName value="Transfer to Post-Partum"/>
+      <name value="Transfer to Post-Partum"/>
     </triggerDefinition>
     <condition>
       <kind value="applicability"/>

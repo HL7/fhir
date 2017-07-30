@@ -21,13 +21,13 @@
   Id = 1
   Code = named-event
   Display = Named Event
-  Definition = The trigger occurs in response to a specific named event
+  Definition = The trigger occurs in response to a specific named event, and no other information about the trigger is specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not provided
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = periodic
   Display = Periodic
-  Definition = The trigger occurs at a specific time or periodically as described by a timing or schedule
+  Definition = The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -38,7 +38,7 @@
  -- Row 4 -----------------------------------
   Id = 4
   Code = data-modified
-  Display = Data Modified
+  Display = Data Updated
   Definition = The trigger occurs whenever data of a particular type is modified
 
  -- Row 5 -----------------------------------
@@ -59,17 +59,23 @@
   Display = Data Access Ended
   Definition = The trigger occurs whenever access to data of a particular type is completed
 
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = data-changed
+  Display = Data Changed
+  Definition = The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed
+
 === Sheet expression-language =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = text\\cql
+  Code = text/cql
   Display = CQL
   Definition = Clinical Quality Language
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = text\\fhirpath
+  Code = text/fhirpath
   Display = FHIRPath
   Definition = FHIRPath
 
@@ -81,65 +87,67 @@
   Element = TriggerDefinition
   Type = Type
   Short Name = Defines an expected trigger for a module
-  Definition = A description of a triggering event
+  Definition = A description of a triggering event. Triggering events can be named events, data events, or periodic, as determined by the type element
+  Comments = If an event is a named-event, it means the event is completely pre-coordinated, and no other information can be specified for the event. If the event is one of the data- events, the data and condition elements specify the triggering criteria. The data element specifies the structured component, and the condition element provides additional optional refinement of that structured component. If the event is periodic, the timing element defines when the event is triggered. For both data- and periodic events, a name can be provided as a shorthand for the formal semantics provided by the other elements
 
  -- Row 2 -----------------------------------
   Element = TriggerDefinition.type
   Card. = 1..1
   Type = code
   Binding = TriggerType
-  Short Name = named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended
+  Short Name = named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended | data-changed
   Definition = The type of triggering event
 
  -- Row 3 -----------------------------------
-  Element = TriggerDefinition.eventName
+  Element = TriggerDefinition.name
   Card. = 0..1
-  Type = string
+  Type = uri
   Short Name = Triggering event name
   Definition = The name of the event
-  Comments = An event name can be provided for all event types, but is required for named events
+  Comments = An event name can be provided for all event types, but is required for named events. If a name is provided for a type other than named events, it shall be a shorthand for the semantics described by the formal description of the event
 
  -- Row 4 -----------------------------------
-  Element = TriggerDefinition.eventTiming[x]
+  Element = TriggerDefinition.timing[x]
   Card. = 0..1
   Type = Timing|Reference(Schedule)|date|dateTime
   Short Name = Timing of the event
   Definition = The timing of the event (if this is a periodic trigger)
 
  -- Row 5 -----------------------------------
-  Element = TriggerDefinition.eventData
+  Element = TriggerDefinition.data
   Card. = 0..1
   Type = DataRequirement
   Short Name = Triggering data of the event
   Definition = The triggering data of the event (if this is a data trigger)
+  Comments = This element shall be present for any data type trigger
 
  -- Row 6 -----------------------------------
-  Element = TriggerDefinition.eventCondition
+  Element = TriggerDefinition.condition
   Card. = 0..1
   Short Name = Whether the event triggers
-  Definition = A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.
+  Definition = A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires
   Requirements = Need to be able to formally describe the triggering criteria
-  Comments = This element can be only be specified for data type triggers and provides explicit formal semantics for the trigger. The context available within the condition is based on the type of data event. For data-added events, the new resource is the context. For data-modified events, the old and new resources will be available, for data-removed events, the old resource will be available, and for data-accessed and data-access-ended events, the resource accessed will be the context
+  Comments = This element can be only be specified for data type triggers and provides additional semantics for the trigger. The context available within the condition is based on the type of data event. For all events, the current resource will be available as context. In addition, for modification events, the previous resource will also be available
 
  -- Row 7 -----------------------------------
-  Element = TriggerDefinition.eventCondition.description
+  Element = TriggerDefinition.condition.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the condition
   Definition = A brief, natural language description of the condition that effectively communicates the intended semantics
 
  -- Row 8 -----------------------------------
-  Element = TriggerDefinition.eventCondition.language
+  Element = TriggerDefinition.condition.language
   Card. = 0..1
   Type = uri
   Binding = ExpressionLanguage
-  Short Name = text\\cql | text\\fhirpath | etc
+  Short Name = text/cql | text/fhirpath | etc
   Definition = The media type of the language for the expression
 
  -- Row 9 -----------------------------------
-  Element = TriggerDefinition.eventCondition.expression
+  Element = TriggerDefinition.condition.expression
   Card. = 0..1
   Type = string
   Short Name = Boolean-valued expression
   Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
-  Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element
+  Comments = The expression may be inlined, or may be a reference to a named expression within a logic library referenced by a library element or extension within the containing resource

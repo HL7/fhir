@@ -10,9 +10,9 @@
   <purpose value="Monitor all admissions to Emergency"/>
   <trigger>
     <type value="named-event"/>
-    <eventName value="monitor-emergency-admissions"/>
-    <eventCondition>
+    <name value="monitor-emergency-admissions"/>
+    <condition>
       <expression value="(current | previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()"/>
-    </eventCondition>
+    </condition>
   </trigger>
 </EventDefinition>

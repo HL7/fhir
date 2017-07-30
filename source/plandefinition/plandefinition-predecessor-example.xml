@@ -399,7 +399,7 @@
     <title value="Zika Virus Assessment"/>
     <triggerDefinition>
       <type value="named-event"/>
-      <eventName value="patient-view"/>
+      <name value="patient-view"/>
     </triggerDefinition>
     <condition>
       <kind value="applicability"/>
