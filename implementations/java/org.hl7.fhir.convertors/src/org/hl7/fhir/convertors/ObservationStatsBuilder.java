@@ -55,7 +55,7 @@ public class ObservationStatsBuilder {
     when.add(Calendar.MINUTE, minutes);
     
     baseVitals(b, when, minutes, "sat", "59408-5", "O2 Saturation").setValue(makeQty(sat, "%", "%"));
-    baseVitals(b, when, minutes, "temp", "8310-5", "Body temperature").setValue(makeQty(sat, "°C", "Cel"));
+    baseVitals(b, when, minutes, "temp", "8310-5", "Body temperature").setValue(makeQty(sat, "\u00b0C", "Cel"));
     Observation obs = baseVitals(b, when, minutes, "bp", "85354-9", "Blood pressure");
     component(obs, "8480-6", "Systolic").setValue(makeQty(systolic, "mmhg", "mm[Hg]"));
     component(obs, "8462-4", "Diastolic").setValue(makeQty(diastolic, "mmhg", "mm[Hg]"));
