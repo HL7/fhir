@@ -8,6 +8,13 @@
   Definition = The type of trigger
   Conformance = required
 
+ -- Row 2 -----------------------------------
+  Binding Name = ExpressionLanguage
+  Binding = code list
+  Reference = #expression-language
+  Definition = The media type of the expression language
+  Conformance = extensible
+
 === Sheet trigger-type =====================================
 
  -- Row 1 -----------------------------------
@@ -52,6 +59,20 @@
   Display = Data Access Ended
   Definition = The trigger occurs whenever access to data of a particular type is completed
 
+=== Sheet expression-language =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = text\\cql
+  Display = CQL
+  Definition = Clinical Quality Language
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = text\\fhirpath
+  Display = FHIRPath
+  Definition = FHIRPath
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -75,14 +96,15 @@
   Card. = 0..1
   Type = string
   Short Name = Triggering event name
-  Definition = The name of the event (if this is a named-event trigger)
+  Definition = The name of the event
+  Comments = An event name can be provided for all event types, but is required for named events
 
  -- Row 4 -----------------------------------
   Element = TriggerDefinition.eventTiming[x]
   Card. = 0..1
   Type = Timing|Reference(Schedule)|date|dateTime
   Short Name = Timing of the event
-  Definition = The timing of the event (if this is a period trigger)
+  Definition = The timing of the event (if this is a periodic trigger)
 
  -- Row 5 -----------------------------------
   Element = TriggerDefinition.eventData
@@ -97,7 +119,7 @@
   Short Name = Whether the event triggers
   Definition = A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.
   Requirements = Need to be able to formally describe the triggering criteria
-  Comments = This element can be specified for any type of trigger definition and provides explicit formal semantic for the trigger. For example, when specifying a named event, this element can be used to describe the formal equivalent of the event.
+  Comments = This element can be only be specified for data type triggers and provides explicit formal semantics for the trigger. The context available within the condition is based on the type of data event. For data-added events, the new resource is the context. For data-modified events, the old and new resources will be available, for data-removed events, the old resource will be available, and for data-accessed and data-access-ended events, the resource accessed will be the context
 
  -- Row 7 -----------------------------------
   Element = TriggerDefinition.eventCondition.description
@@ -109,8 +131,9 @@
  -- Row 8 -----------------------------------
   Element = TriggerDefinition.eventCondition.language
   Card. = 0..1
-  Type = string
-  Short Name = Language of the expression
+  Type = uri
+  Binding = ExpressionLanguage
+  Short Name = text\\cql | text\\fhirpath | etc
   Definition = The media type of the language for the expression
 
  -- Row 9 -----------------------------------

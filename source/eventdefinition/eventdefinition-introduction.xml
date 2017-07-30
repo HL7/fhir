@@ -10,7 +10,7 @@
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The EventDefinition resource is intended to be used to provide resuable description of events for use by other resources that require event definition, such as Subscription.</p>
+<p>The EventDefinition resource is intended to be used to provide a resuable description of events for use by other resources that require event definition, such as Subscription. EventDefinition is a definition of an event that could occur, whereas Subscription is asking for notification of events when they occur.</p>
 </div>
 
 <!-- (optional):

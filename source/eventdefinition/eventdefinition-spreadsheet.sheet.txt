@@ -131,7 +131,7 @@
 
  -- Row 24 -----------------------------------
   Element = EventDefinition.trigger
-  Card. = 0..*
+  Card. = 1..1
   Type = TriggerDefinition
   Short Name = \"when\" the event occurs
   Definition = The trigger element defines when the event occurs
