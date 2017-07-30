@@ -151,13 +151,6 @@
   XPath = exists(f:policy) or exists(f:policyRule)
   Expression = policy.exists() or policyRule.exists()
 
- -- Row 2 -----------------------------------
-  Id = 2
-  Context = Consent.provision
-  English = No Provision.Type at root
-  XPath = exists(f:type)!=exists(f:parent::f:Consent)
-  Expression = type.empty()
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------

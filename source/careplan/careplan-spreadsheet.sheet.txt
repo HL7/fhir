@@ -12,7 +12,7 @@
   Binding Name = CarePlanActivityKind
   Binding = value set
   Reference = valueset-care-plan-activity-kind
-  Definition = Resource types defined as part of FHIR.
+  Definition = Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.
   Conformance = required
 
  -- Row 3 -----------------------------------

@@ -11,8 +11,13 @@
   <trigger>
     <type value="named-event"/>
     <name value="monitor-emergency-admissions"/>
+    <data>
+      <type value="Encounter"/>
+    </data>
     <condition>
-      <expression value="(current | previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()"/>
+      <description value="Encounter Location = emergency (active/completed encounters, current or previous)"/>
+      <language value="text/fhirpath"/>
+      <expression value="(this | %previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()"/>
     </condition>
   </trigger>
 </EventDefinition>

@@ -89,7 +89,7 @@
   Context = TriggerDefinition
   English = Either timing, or a data requirement, but not both
   XPath = not(exists(f:data)) or not(exists(*[starts-with(local-name(.), \'timing\')))
-  Expression = data.empty() or condition.empty()
+  Expression = data.empty() or timing.empty()
   Severity = error
 
  -- Row 2 -----------------------------------
@@ -157,7 +157,7 @@
 
  -- Row 8 -----------------------------------
   Element = TriggerDefinition.condition.language
-  Card. = 0..1
+  Card. = 1..1
   Type = code
   Binding = ExpressionLanguage
   Short Name = text/cql | text/fhirpath | etc
@@ -165,7 +165,7 @@
 
  -- Row 9 -----------------------------------
   Element = TriggerDefinition.condition.expression
-  Card. = 0..1
+  Card. = 1..1
   Type = string
   Short Name = Boolean-valued expression
   Definition = An expression that returns true or false, indicating whether or not the condition is satisfied
