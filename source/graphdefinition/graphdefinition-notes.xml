@@ -70,12 +70,12 @@ becomes increasingly difficult as the package gets deeper. A graph definition
 can be used instead to inform the server what to return as part of the search:
 </p>
 <pre>
-  GET [base]/MedicationDispense?_id=example&amp;_graph=med-package
+  GET [base]/MedicationDispense/example/$graph?graph=med-package
 </pre>
 <p>
-This is a reference to the local graph package 'med-package', with the 
-intent that the server returns the graph as outlined by the definition.
-In this case, the graph definition would look approximately like this:
+This is a requset to return a graph of resource, using the graph definition 
+'med-package'. In this case, the graph definition would look approximately 
+like this:
 </p>
 <pre>
 MedicationDispense
@@ -85,6 +85,17 @@ MedicationDispense
   .authorizingPrescription
      .requester.agent 
   .substitution.responsibleParty
+</pre>
+
+<p>
+Systems may either provide a pre-defined list of graph definitions that clients may choose
+from, or allow clients to define their own GraphDefinition resources and then refer to them.
+</p>
+<p>
+Server may also allow clients also pass in their own graph definition using the text representation defined below:
+</p>
+<pre>
+  GET [base]/MedicationDispense/example/$graph?definition=Patient{managingOrganization:Organization{endpoint:Endpoint}}
 </pre>
 
 <a name="document"> </a>
@@ -101,12 +112,14 @@ may include resources that are not desired.
 An operation can use a graph definition as a parameter to the $document operation:
 </p>
 <pre>
-GET [base]/Composition/example/$document?_graph=example
+GET [base]/Composition/example/$document?graph=example
 </pre>
 <p>
 This tells the server to include the graph of resources defined 
 in the <a href="graphdefinition-example.html">example GraphDefinition</a> - in this case,
-any resources referred to from lists, when the section content is a list.
+any resources referred to from lists, when the section content is a list. Alternatively,
+servers may allow a client to pass in a definition directly (as shown above) using
+the parameter <code>definition</code>.
 </p>
 
 <a name="rules"> </a>
@@ -147,5 +160,108 @@ can specify one of the following consistencies:
 <p>
 Todo: how would this be validated? - where is the graph referred to?
 </p>
+
+<a name="text"> </a>
+<h4>Text Representation</h4>
+<p>
+For convenience, a graph definition may be represented using a text short hand form, loosely based
+on the <a href="graphql.html">graphQL language</a>. A graph definition is introduced by the 
+name of the Resource (<code>GraphDefinition.start</code>, followed by an optional profile
+in parantheses (<code>GraphDefinition.profile</code>, then a group of links, surrounded 
+by <code>{</code> and <code>}</code>:
+</p>
+<pre>
+Patient(http://hl7.org/fhir/us/core/Patient) { 
+}
+</pre>
+<p>
+Between the brackets are one or more links (<code>GraphDefinition.link</code>), separated by commas. 
+Links statements can either be path based look ups, or a search to preform a reverse lookup:
+</p>
+<pre>
+Patient { 
+  managingOrganization : Organization,
+  generalPractitioner : Practitioner,
+  search Observation?patient={ref}
+}
+</pre>
+<p>
+The format for a path based look up is:
+</p>
+<pre>
+  [path] cardinality [min]..[max] '[description]' : [ResoureType rules]
+</pre>
+<p>
+where:
+</p>
+<ul>
+ <li>path = <code>GraphDefinition.link.path</code></li>
+ <li>cardinality [min]..[max] is optional, and min = <code>GraphDefinition.link.min</code> and max = <code>GraphDefinition.link.max</code> </li>
+ <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
+</ul>
+<p>
+The resource type rules statement consists of one or more of the following, separated by <code>;</code> characters:
+</p>
+<pre>
+  [ResourceType] (profile)  
+</pre>
+<p>
+where:
+</p>
+<ul>
+ <li>ResourceType = <code>GraphDefinition.link.target.type</code></li>
+ <li>profile is optional, and = <code>GraphDefinition.link.target.profile</code></li>
+ <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
+</ul>
+<p>
+In addition, the resource type rule may be followed by a links section, surrounded
+by <code>{}</code>, with the content as described above.
+</p>
+<p>
+Search statements for reverse look ups have a slightly different format:
+</p>
+<pre>
+Patient{ 
+  search [ResourceType]?[params] cardinality [min]..[max] '[description]' 
+}
+</pre>
+<p>
+where:
+</p>
+<ul>
+ <li>ResourceType = <code>GraphDefinition.link.target.type</code></li>
+ <li>params = <code>GraphDefinition.link.target.params</code></li>
+ <li>cardinality [min]..[max] is optional, and min = <code>GraphDefinition.link.min</code> and max = <code>GraphDefinition.link.max</code> </li>
+ <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
+</ul>
+<p>
+In this format, the amount of whitespace, and it's form, is irrelevant. For the purposes
+of clarity, the content is laid ot on different lines, but this is not required.
+</p>
+
+<p>
+Here is a full example that uses all the features of the syntax:
+</p>
+<pre>
+
+Patient(http://hl7.org/fhir/us/core/Patient) { 
+  managingOrganization cardinality 0..1 'description of item' : 
+    Organization(http://hl7.org/fhir/us/core/Organization) { 
+      endpoint : Endpoint 
+    };
+    Basic;
+    Group { 
+      item : Patient 
+    },
+  generalPractitioner : Organization,
+  search Observation?patient={ref} cardinality 0..10 'Observations for the patient' {
+    performer : Practitioner,
+    related.where(type='has-member').target : Observation require matching Patient,
+    related.where(type='derived-from').target : Observation where identical Patient,
+    related.where(type='sequel-to').target : Observation where different Patient,
+    related.where(type='qualified-by').target : Observation where custom Patient = path
+  }
+}
+</pre>
 
 </div>
