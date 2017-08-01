@@ -117,10 +117,6 @@
 				"errors": ["Undefined element \'value\"",
 				"Element \'Group.characteristic.value[x]\': minimum required = 1, but only found 0"]
 			},
-			"group-choice-bad2.xml": {
-				"errorCount": 1,
-				"errors": ["The element valueInteger is illegal. Valid types at this point are CodeableConcept, boolean, Quantity, Range"]
-			},
 			"group-choice-bad3.xml": {
 				"errorCount": 1,
 				"errors": ["boolean values must be \'true\' or \'false\'"]
