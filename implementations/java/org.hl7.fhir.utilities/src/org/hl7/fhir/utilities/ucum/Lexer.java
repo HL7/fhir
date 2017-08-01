@@ -76,13 +76,13 @@ public class Lexer {
 	private boolean checkNumberOrSymbol(char ch) throws UcumException  {
 		boolean isSymbol = false;
 		boolean inBrackets = false;
-		if (isValidSymbolChar(ch, true)) {
+		if (isValidSymbolChar(ch, true, false)) {
 			token = String.valueOf(ch);
 			isSymbol = isSymbol || !((ch >= '0' && ch <= '9'));
 			inBrackets = checkBrackets(ch, inBrackets);
 			ch = peekChar();
 			inBrackets = checkBrackets(ch, inBrackets);
-			while (isValidSymbolChar(ch, !isSymbol || inBrackets)) {
+			while (isValidSymbolChar(ch, !isSymbol || inBrackets, inBrackets)) {
 				token = token + ch;
 				isSymbol = isSymbol || ((ch != NO_CHAR) && !((ch >= '0' && ch <= '9')));
 				index++;
@@ -113,10 +113,10 @@ public class Lexer {
 		return inBrackets;
 	}
 
-	private boolean isValidSymbolChar(char ch, boolean allowDigits) {
+	private boolean isValidSymbolChar(char ch, boolean allowDigits, boolean inBrackets) {
 		return (allowDigits && ch >= '0' && ch <= '9') || (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') ||
 		     ch == '[' || ch == ']' || ch == '%' || ch == '*' || ch == '^' || ch == '\'' || 
-		     ch == '"' || ch == '_';
+		     ch == '"' || ch == '_' || (inBrackets && ch == '.');
 	}
 
 	private boolean checkAnnotation(char ch) throws UcumException  {

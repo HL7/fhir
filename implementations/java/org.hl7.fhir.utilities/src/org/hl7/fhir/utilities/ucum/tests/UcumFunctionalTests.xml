@@ -75,6 +75,7 @@
 	<case id="1-118" unit="{|}1" valid="false" reason="Cannot start a symbol with an annodation"/>
 	<case id="1-119" unit="{e}" valid="true"/>
 	<case id="1-120" unit="%" valid="true"/>
+  <case id="1-120a" unit="dB[10.nV]" valid="true"/>
 	
 	<!-- 
 	  These codes are taken from the first draft of a proposed Canadian UCUM subset. 
