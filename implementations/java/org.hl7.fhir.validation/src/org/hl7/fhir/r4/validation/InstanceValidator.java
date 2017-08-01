@@ -333,15 +333,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     source = Source.InstanceValidator;
   }
 
-  public InstanceValidator(ValidationEngine engine) {
-    super();
-    this.context = engine.getContext();
-    fpe = engine.getFpe();
-    this.externalHostServices = fpe.getHostServices();
-    fpe.setHostServices(new ValidatorHostServices());
-    source = Source.InstanceValidator;
-  }
-
   @Override
   public boolean isNoInvariantChecks() {
     return noInvariantChecks;

@@ -137,7 +137,7 @@ import org.xml.sax.SAXException;
 public class ValidationEngine {
 
 	private SimpleWorkerContext context;
-  private FHIRPathEngine fpe;
+//  private FHIRPathEngine fpe;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean doNative;
   private boolean noInvariantChecks;
@@ -192,7 +192,6 @@ public class ValidationEngine {
     context = SimpleWorkerContext.fromDefinitions(source, loaderForVersion());
     context.setAllowLoadingDuplicates(true); // because of Forge
     context.setExpansionProfile(makeExpProfile());
-    fpe = new FHIRPathEngine(context);
     grabNatives(source, "http://hl7.org/fhir");
   }
 
@@ -321,10 +320,7 @@ public class ValidationEngine {
     return context;
   }
   
-  public FHIRPathEngine getFpe() {
-    return fpe;
-  }
-  
+ 
   public boolean isNoInvariantChecks() {
     return noInvariantChecks;
   }
@@ -550,7 +546,7 @@ public class ValidationEngine {
       if (cntType == FhirFormat.TURTLE)
         validateSHEX(location, messages);
     }
-    InstanceValidator validator = new InstanceValidator(this);
+    InstanceValidator validator = new InstanceValidator(context, null);
     validator.setNoInvariantChecks(isNoInvariantChecks());
     validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
     return messagesToOutcome(messages);
