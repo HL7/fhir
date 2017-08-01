@@ -1,0 +1,18 @@
+Patient(http://hl7.org/fhir/us/core/Patient) { 
+  managingOrganization cardinality 0..1 'description of item' : 
+    Organization(http://hl7.org/fhir/us/core/Organization) { 
+      endpoint : Endpoint 
+    };
+    Basic;
+    Group { 
+      item : Patient 
+    },
+  generalPractitioner : Organization,
+  search Observation?patient={ref} cardinality 0..10 'Observations for the patient' {
+    performer : Practitioner,
+    related.where(type='has-member').target : Observation require matching Patient,
+    related.where(type='derived-from').target : Observation where identical Patient,
+    related.where(type='sequel-to').target : Observation where different Patient,
+    related.where(type='qualified-by').target : Observation where custom Patient = path
+  }
+}

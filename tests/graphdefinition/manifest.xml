@@ -1,0 +1,9 @@
+<graphdef-tests>
+  <test name="simple" source="simple.gdl" context="Patient/example/$graph"> 
+    <rule name="" expression=""/>
+  </test>
+  <test name="full-syntax" source="full-syntax.gdl" context="Patient/example/$graph"> 
+    <rule name="" expression=""/>
+  </test>
+  
+</graphdef-tests>

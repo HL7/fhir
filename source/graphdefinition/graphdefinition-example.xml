@@ -45,6 +45,7 @@
     <target>
       <type value="List"/>
       <compartment>
+        <use value="requirement"/>
         <code value="Patient"/>
         <rule value="identical"/>
       </compartment>
@@ -56,6 +57,7 @@
         <target>
           <type value="Resource"/> <!-- todo: is this the right way to do 'Any'? -->
           <compartment>
+            <use value="requirement"/>
             <code value="Patient"/>
             <rule value="identical"/>
           </compartment>

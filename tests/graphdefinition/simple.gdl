@@ -1,0 +1,1 @@
+Patient { managingOrganization : Organization { endpoint : Endpoint } } 
