@@ -11,7 +11,7 @@
     </telecom>
   </contact>
   <description value="This value set includes all SNOMED CT Patient Referral."/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <copyright value="The use of SNOMED CT codes, display names and value sets in this specification is subject to an MOU signed between HL7 International and IHTSDO. This does not convey the right to use SNOMED CT to any users of this specification; implementers must acquire a license to use SNOMED CT in their own right. For further information, see [HL7 Policies and Guidance documents (Licensing)](https://www.hl7.org/special/committees/termauth/docs.cfm)"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
