@@ -79,7 +79,7 @@ public class IEEE11073Convertor {
     cp.setValue("http://loinc.org");
     cm.setDescription("A Cross Map between the LOINC and MDC Code systems");
     cm.setPurpose("To implementers map between medical device codes and LOINC codes");
-    cm.setCopyright("This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use");
+    cm.setCopyright("This content LOINC \u00ae is copyright \u00a9 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use");
     cm.setSource(new UriType("http://loinc.org/vs"));
     cm.setTarget(new UriType(MDC_ALL_VALUES));
     ConceptMapGroupComponent g = cm.addGroup();
