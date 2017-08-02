@@ -45,7 +45,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="1"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6723-6"/>
 				<display value="Good color in body with bluish hands or feet"/>
 			</coding>
@@ -71,7 +71,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="1"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6720-2"/>
 				<display value="Fewer than 100 beats per minute"/>
 			</coding>
@@ -97,7 +97,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="1"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6721-0"/>
 				<display value="Grimace during suctioning"/>
 			</coding>
@@ -123,7 +123,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="1"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6714-5"/>
 				<display value="Some flexion of arms and legs"/>
 			</coding>
@@ -149,7 +149,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="1"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6726-9"/>
 				<display value="Weak cry; may sound like whimpering, slow or irregular breathing"/>
 			</coding>

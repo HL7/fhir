@@ -24,7 +24,6 @@ http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://ihe.net/connectathon/practiceSettingCodes
 http://national.org/form
 http://acme.org/tests
-http://www.nlm.nih.gov/research/umls/rxnorm
 https://meshb.nlm.nih.gov
 https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html
 http://ncforms.org/formid
@@ -87,7 +86,6 @@ http://unstats.un.org/unsd/methods/m49/m49.htm
 http:/acme.ped/apgarrespiratoryeffort
 https://www.census.gov/geo/reference/
 http://build.fhir.org/codesystem-usage-context-type
-http://loinc.org/la
 http://www.ncbi.nlm.nih.gov/gtr/
 http:hl7.org/fhir
 http://browser.ihtsdotools.org/

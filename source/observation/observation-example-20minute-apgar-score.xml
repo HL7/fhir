@@ -70,7 +70,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="2"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6724-4"/>
 				<display value="Good color all over"/>
 			</coding>
@@ -96,7 +96,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="2"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6718-6"/>
 				<display value="At least 100 beats per minute"/>
 			</coding>
@@ -122,7 +122,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="2"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6721-0"/>
 				<display value="Grimace and pulling away, cough, or sneeze during suctioning"/>
 			</coding>
@@ -148,7 +148,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="2"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6715-2"/>
 				<display value="Active motion "/>
 			</coding>
@@ -174,7 +174,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="2"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6727-7"/>
 				<display value="Good, strong cry; normal rate and effort of breathing    "/>
 			</coding>

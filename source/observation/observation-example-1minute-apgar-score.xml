@@ -55,7 +55,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6722-8"/>
 				<display value="The baby&apos;s whole body is completely bluish-gray or pale"/>
 			</coding>
@@ -86,7 +86,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6716-0"/>
 				<display value="No heart rate"/>
 			</coding>
@@ -117,7 +117,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6719-4"/>
 				<display value="No response to airways being suctioned"/>
 			</coding>
@@ -148,7 +148,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6713-7"/>
 				<display value="Limp; no movement"/>
 			</coding>
@@ -179,7 +179,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
-				<system value="http://loinc.org/la"/>
+				<system value="http://loinc.org"/>
 				<code value="LA6725-1"/>
 				<display value="Not breathing"/>
 			</coding>

@@ -272,7 +272,7 @@
   Element = Composition.author
   Card. = 1..*
   Summary = y
-  Type = Reference(Practitioner|Device|Patient|RelatedPerson)
+  Type = Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson)
   Short Name = Who and/or what authored the composition
   Definition = Identifies who is responsible for the information in the composition, not necessarily who typed it in.
   Requirements = Identifies who is responsible for the content.
@@ -356,7 +356,7 @@
   Element = Composition.attester.party
   Card. = 0..1
   Summary = y
-  Type = Reference(Patient|Practitioner|Organization)
+  Type = Reference(Patient|Practitioner|PractitionerRole|Organization)
   Short Name = Who attested the composition
   Definition = Who attested the composition in the specified way
   Requirements = Identifies who has taken on the responsibility for accuracy of the composition content.
