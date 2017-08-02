@@ -87,7 +87,7 @@ import org.w3c.dom.Element;
 
 public class ArgonautConverter extends ConverterBase {
 	//  public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";
-	public final static String DEV_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+	public final static String DEV_TS_SERVER = "http://local.fhir.org:960/open";
 	public static final String UCUM_PATH = "c:\\work\\org.hl7.fhir\\build\\implementations\\java\\org.hl7.fhir.convertors\\samples\\ucum-essence.xml";
 	public static final String SRC_PATH = "c:\\work\\org.hl7.fhir\\build\\publish\\";
 	private static final String DEFAULT_ID_SPACE = "urn:uuid:e8e06b15-0f74-4b8e-b5e2-609dae7119dc";

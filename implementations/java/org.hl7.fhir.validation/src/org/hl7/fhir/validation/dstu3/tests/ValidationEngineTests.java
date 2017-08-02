@@ -15,7 +15,7 @@ public class ValidationEngineTests {
   private static final String DEF_TX = "http://tx.fhir.org/r3";
   private static final String US_CORE_PATH = "C:\\work\\org.hl7.fhir.us\\core\\output";
   
-//  private static final String DEF_TX = "http://local.healthintersections.com.au:960/open";
+//  private static final String DEF_TX = "http://local.fhir.org:960/open";
   public static boolean inbuild;
 
   @Test
