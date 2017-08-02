@@ -266,6 +266,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           if (canRunWithoutTerminology) {
             noTerminologyServer = true;
             log("==============!! Running without terminology server !!==============");
+            log("Error: "+e.getMessage());
             return false;
           } else
             throw new TerminologyServiceException(e);
