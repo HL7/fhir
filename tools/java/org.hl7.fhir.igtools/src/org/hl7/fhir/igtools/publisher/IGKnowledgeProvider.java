@@ -185,6 +185,20 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return null;
   }
 
+  public boolean hasProperty(FetchedResource r, String propertyName) {
+    if (r.getConfig() != null && hasString(r.getConfig(), propertyName))
+      return true;
+    if (defaultConfig != null) {
+      JsonObject cfg = defaultConfig.getAsJsonObject(r.getElement().fhirType());
+      if (cfg != null && hasString(cfg, propertyName))
+        return true;
+      cfg = defaultConfig.getAsJsonObject("Any");
+      if (cfg != null && hasString(cfg, propertyName))
+        return true;
+    }
+    return false;
+  }
+
   public String getDefinitionsName(FetchedResource r) {
 	return getProperty(r, "defns");
   }

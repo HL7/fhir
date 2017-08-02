@@ -110,7 +110,7 @@
 	</output>
   </case>
   
-  <case name="Delete Primitive" mode="both">
+  <case name="Delete Primitive #2" mode="both">
     <input> 
 	  <Patient xmlns="http://hl7.org/fhir">
 	    <birthDate value="1920-01-01"/>

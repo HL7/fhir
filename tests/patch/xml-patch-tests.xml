@@ -110,7 +110,7 @@
     </patch>
     <patched>
       <doc xmlns="http://hl7.org/fhir">
-        <foo t="2">test</foo>
+        <foo t="1">test</foo>
       </doc>
     </patched>
   </case>

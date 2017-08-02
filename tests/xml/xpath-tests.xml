@@ -385,26 +385,68 @@
       <node type="attribute" value="Chalmers"/>
     </outcomes>
   </case>
+  <case name="or-2" id="p1">
+    <xpath value="f:name[(f:use/@value = 'bad') or (f:use/@value = 'official')]/f:family/@value"/>
+    <outcomes>
+      <node type="attribute" value="Chalmers"/>
+    </outcomes>
+  </case>
+  <case name="and-1" id="p1">
+    <xpath value="f:name[f:family/@value = 'Chalmers' and f:use/@value = 'official']/f:given/@value"/>
+    <outcomes>
+      <node type="attribute" value="Peter"/>
+      <node type="attribute" value="James"/>
+    </outcomes>
+  </case>
+  <case name="and-2" id="p1">
+    <xpath value="f:name[f:use/@value = 'bad' and f:use/@value = 'official']/f:family/@value"/>
+    <outcomes>
+    </outcomes>
+  </case>
   <case name="plus-1" id="p1">
     <xpath value="f:name/f:period/f:end/@value + f:address/f:postalCode/@value"/>
     <outcomes>
-      <node type="string" value="5001"/>
+      <node type="string" value="6001"/>
+    </outcomes>
+  </case>
+  <case name="minus-1" id="p1">
+    <xpath value="f:address/f:postalCode/@value - f:name/f:period/f:end/@value"/>
+    <outcomes>
+      <node type="string" value="1997"/>
+    </outcomes>
+  </case>
+  <case name="lessThan-1" id="p1">
+    <xpath value="f:address/f:postalCode/@value &lt; f:name/f:period/f:end/@value"/>
+    <outcomes>
+      <node type="boolean" value="false"/>
+    </outcomes>
+  </case>
+  <case name="lessThan-2" id="p1">
+    <xpath value="f:name/f:period/f:end/@value &lt; f:address/f:postalCode/@value"/>
+    <outcomes>
+      <node type="boolean" value="true"/>
+    </outcomes>
+  </case>  
+  <case name="lessThan-3" id="p1">
+    <xpath value="1 &lt; 2"/>
+    <outcomes>
+      <node type="boolean" value="true"/>
+    </outcomes>
+  </case>
+  <case name="lessThan-4" id="p1">
+    <xpath value="'1.2' &lt; '2.2'"/>
+    <outcomes>
+      <node type="boolean" value="true"/>
     </outcomes>
   </case>
   
   <!-- todo 
   
   
-  xeoPlus, xeoAnd, xeoOr, xeoGreaterThan, xeoGreaterEquals, xeoNotEquals, xeoUnion, xeoLessThan, xeoLessEquals, xeoSequence);
+  xeoPlusxeoAnd, xeoOr, xeoGreaterThan, xeoGreaterEquals, xeoNotEquals, xeoUnion, xeoLessThan, xeoLessEquals, xeoSequence);
 
   TMXPathExpressionNodeType = (xentGroup, xeoIterator, xentVariable);
 
-  +
-  -
-  or
-  and
-  
-  parantheses
   if
   for
   -->

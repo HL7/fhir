@@ -124,6 +124,7 @@ import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
+import org.hl7.fhir.igtools.publisher.Publisher.LinkTargetType;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
@@ -194,6 +195,11 @@ import com.google.gson.JsonPrimitive;
  */
 
 public class Publisher implements IWorkerContext.ILoggingService, IReferenceResolver {
+
+  public enum LinkTargetType {
+
+  }
+
 
   public enum CacheOption {
     LEAVE, CLEAR_ERRORS, CLEAR_ALL;
@@ -2960,7 +2966,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       StringBuilder table = new StringBuilder();
       for (Item i : items) {
         StructureDefinition sd = (StructureDefinition) i.r.getResource();
-        genEntryItem(list, lists, table, i.f, i.r, i.sort);
+        genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
       }
       fragment("list-profiles", list.toString(), otherFilesRun);
       fragment("list-simple-profiles", lists.toString(), otherFilesRun);
@@ -2986,7 +2992,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     StringBuilder table = new StringBuilder();
     for (Item i : items) {
       StructureDefinition sd = (StructureDefinition) i.r.getResource();
-      genEntryItem(list, lists, table, i.f, i.r, i.sort);
+      genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
     }
     fragment("list-extensions", list.toString(), otherFilesRun);
     fragment("list-simple-extensions", lists.toString(), otherFilesRun);
@@ -3011,15 +3017,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     StringBuilder table = new StringBuilder();
     for (Item i : items) {
       StructureDefinition sd = (StructureDefinition) i.r.getResource();
-      genEntryItem(list, lists, table, i.f, i.r, i.sort);
+      genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
     }
     fragment("list-logicals", list.toString(), otherFilesRun);
     fragment("list-simple-logicals", lists.toString(), otherFilesRun);
     fragment("table-logicals", table.toString(), otherFilesRun);
   }
 
-  private void genEntryItem(StringBuilder list, StringBuilder lists, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
+  private void genEntryItem(StringBuilder list, StringBuilder lists, StringBuilder table, FetchedFile f, FetchedResource r, String name, String prefixType) throws Exception {
     String ref = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
+    if (prefixType != null)
+      ref = ref.substring(0, ref.lastIndexOf("."))+"."+prefixType+ref.substring(ref.lastIndexOf("."));
     PrimitiveType desc = new StringType(r.getTitle());
     if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
       name = ((MetadataResource) r.getResource()).getName();
@@ -3047,17 +3055,31 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     StringBuilder list = new StringBuilder();
     StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
+    StringBuilder listJ = new StringBuilder();
+    StringBuilder listsJ = new StringBuilder();
+    StringBuilder tableJ = new StringBuilder();
+    StringBuilder listX = new StringBuilder();
+    StringBuilder listsX = new StringBuilder();
+    StringBuilder tableX = new StringBuilder();
     if (items.size() > 0) {
       for (Item i : items) {
         String name = i.r.getTitle();
         if (Utilities.noString(name))
           name = rt.toString();
-        genEntryItem(list, lists, table, i.f, i.r, i.sort);
+        genEntryItem(list, lists, table, i.f, i.r, i.sort, null);
+        genEntryItem(listJ, listsJ, tableJ, i.f, i.r, i.sort, "json");
+        genEntryItem(listX, listsX, tableX, i.f, i.r, i.sort, "xml");
       }
     }
     fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
     fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), lists.toString(), otherFilesRun);
     fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), table.toString(), otherFilesRun);
+    fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase())+"-json", listJ.toString(), otherFilesRun);
+    fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase())+"-json", listsJ.toString(), otherFilesRun);
+    fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase())+"-json", tableJ.toString(), otherFilesRun);
+    fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase())+"-xml", listX.toString(), otherFilesRun);
+    fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase())+"-xml", listsX.toString(), otherFilesRun);
+    fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase())+"-xml", tableX.toString(), otherFilesRun);
   }
 
   @SuppressWarnings("rawtypes")
@@ -3210,6 +3232,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           map.put("parent-name", "?? Unknown reference");
           map.put("parent-link", "??");
         }
+        map.put("sd.Type", sd.getType());
+        map.put("sd.Type-plural", Utilities.pluralize(sd.getType(), 2));
+        map.put("sd.type", sd.getType().toLowerCase());
+        map.put("sd.type-plural", Utilities.pluralize(sd.getType(), 2).toLowerCase());
         return map;
       default: return null;
       }
@@ -3228,7 +3254,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
    */
   private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
     String baseName = igpkp.getProperty(r, "base");
-    genWrapper(f, r, igpkp.getProperty(r, "template-base"), baseName, f.getOutputNames(), vars, null, "");
+    if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
+      if (igpkp.hasProperty(r, "template-base-"+((StructureDefinition) r.getResource()).getKind().toCode().toLowerCase()))
+        genWrapper(f, r, igpkp.getProperty(r, "template-base-"+((StructureDefinition) r.getResource()).getKind().toCode().toLowerCase()), baseName, f.getOutputNames(), vars, null, "");
+      else
+        genWrapper(f, r, igpkp.getProperty(r, "template-base"), baseName, f.getOutputNames(), vars, null, "");
+    } else
+      genWrapper(f, r, igpkp.getProperty(r, "template-base"), baseName, f.getOutputNames(), vars, null, "");
     genWrapper(null, r, igpkp.getProperty(r, "template-defns"), igpkp.getProperty(r, "defns"), f.getOutputNames(), vars, null, "definitions");
     JsonArray templates = configuration.getAsJsonArray("extraTemplates");
     if (templates!=null)

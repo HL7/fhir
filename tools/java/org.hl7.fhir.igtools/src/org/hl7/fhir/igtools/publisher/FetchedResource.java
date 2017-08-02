@@ -44,7 +44,7 @@ public class FetchedResource {
     return this;
   }
   public String getTitle() {
-    return title == null ? "{title?}" : title;
+    return title == null ? element.fhirType()+" " +id : title;
   }
   public FetchedResource setTitle(String title) {
     this.title = title;
