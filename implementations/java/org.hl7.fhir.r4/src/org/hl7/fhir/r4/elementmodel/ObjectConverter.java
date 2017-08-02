@@ -1,30 +1,18 @@
 package org.hl7.fhir.r4.elementmodel;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.r4.elementmodel.Element;
+import org.hl7.fhir.r4.model.Identifier;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.exceptions.*;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.model.Base;
-import org.hl7.fhir.r4.model.CodeableConcept;
-import org.hl7.fhir.r4.model.Coding;
-import org.hl7.fhir.r4.model.ElementDefinition;
-import org.hl7.fhir.r4.model.Factory;
-import org.hl7.fhir.r4.model.PrimitiveType;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.r4.model.Type;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.utilities.TextFile;
-
-import com.sun.corba.se.impl.ior.NewObjectKeyTemplateBase;
 
 
 public class ObjectConverter  {
@@ -122,6 +110,24 @@ public class ObjectConverter  {
     c.setCode(item.getNamedChildValue("code"));
     c.setDisplay(item.getNamedChildValue("display"));
     return c;
+  }
+
+  public static Identifier readAsIdentifier(Element item) {
+    Identifier r = new Identifier();
+    r.setSystem(item.getNamedChildValue("system"));
+    r.setValue(item.getNamedChildValue("value"));
+    return r;
+  }
+
+  public static Reference readAsReference(Element item) {
+    Reference r = new Reference();
+    r.setDisplay(item.getNamedChildValue("display"));
+    r.setReference(item.getNamedChildValue("reference"));
+    List<Element> identifier = item.getChildrenByName("identifier");
+    if (identifier.isEmpty() == false) {
+      r.setIdentifier(readAsIdentifier(identifier.get(0)));
+    }
+    return r;
   }
 
 }
