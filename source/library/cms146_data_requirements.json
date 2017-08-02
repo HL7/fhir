@@ -21,7 +21,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "Other Female Reproductive Conditions"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006"
         }
       ]
     },
@@ -33,19 +33,19 @@
       "codeFilter": [
         {
           "path": "category",
-          "valueCode": [
-            "diagnosis"
+          "code": [
+            { "code": "diagnosis" }
           ]
         },
         {
           "path": "clinicalStatus",
-          "valueCode": [
-            "confirmed"
+          "code": [
+            { "code": "confirmed" }
           ]
         },
         {
           "path": "code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.102.12.1011"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"
         }
       ]
     },
@@ -54,19 +54,19 @@
       "codeFilter": [
         {
           "path": "category",
-          "valueCode": [
-            "diagnosis"
+          "code": [
+            { "code": "diagnosis" }
           ]
         },
         {
           "path": "clinicalStatus",
-          "valueCode": [
-            "confirmed"
+          "code": [
+            { "code": "confirmed" }
           ]
         },
         {
           "path": "code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.102.12.1012"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"
         }
       ]
     },
@@ -75,19 +75,19 @@
       "codeFilter": [
         {
           "path": "status",
-          "valueCode": [
-            "finished"
+          "code": [
+            { "code": "finished" }
           ]
         },
         {
           "path": "class",
-          "valueCode": [
-            "ambulatory"
+          "code": [
+            { "code": "ambulatory" }
           ]
         },
         {
           "path": "type",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.101.12.1061"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"
         }
       ]
     },
@@ -96,7 +96,7 @@
       "codeFilter": [
         {
           "path": "diagnosis",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.198.12.1012"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"
         }
       ]
     },
@@ -105,7 +105,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.196.12.1001"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
         }
       ]
     },
@@ -114,13 +114,13 @@
       "codeFilter": [
         {
           "path": "status",
-          "valueCode": [
-            "active"
+          "code": [
+            { "code": "active" }
           ]
         },
         {
           "path": "medication.code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.196.12.1001"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
         }
       ]
     },
@@ -129,13 +129,13 @@
       "codeFilter": [
         {
           "path": "status",
-          "valueCode": [
-            "completed"
+          "code": [
+            { "code": "completed" }
           ]
         },
         {
           "path": "medication.code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.196.12.1001"
+          "valueSetUri": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
         }
       ]
     }

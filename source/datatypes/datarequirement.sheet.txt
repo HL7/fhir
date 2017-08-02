@@ -50,38 +50,24 @@
  -- Row 7 -----------------------------------
   Element = DataRequirement.codeFilter.valueSet[x]
   Card. = 0..1
-  Type = string|Reference(ValueSet)
+  Type = uri|Reference(ValueSet)
   Short Name = Valueset for the filter
-  Definition = The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
+  Definition = The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
 
  -- Row 8 -----------------------------------
-  Element = DataRequirement.codeFilter.valueCode
-  Card. = 0..*
-  Type = code
-  Short Name = What code is expected
-  Definition = The codes for the code filter. Only one of valueSet, valueCode, valueCoding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes
-
- -- Row 9 -----------------------------------
-  Element = DataRequirement.codeFilter.valueCoding
+  Element = DataRequirement.codeFilter.code
   Card. = 0..*
   Type = Coding
-  Short Name = What Coding is expected
-  Definition = The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings
+  Short Name = What code is expected
+  Definition = The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes
 
- -- Row 10 -----------------------------------
-  Element = DataRequirement.codeFilter.valueCodeableConcept
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = What CodeableConcept is expected
-  Definition = The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts
-
- -- Row 11 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DataRequirement.dateFilter
   Card. = 0..*
   Short Name = What dates/date ranges are expected
   Definition = Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND\'ed, not OR\'ed
 
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DataRequirement.dateFilter.path
   Card. = 1..1
   Type = string
@@ -89,7 +75,7 @@
   Definition = The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing
   Comments = The path attribute is a limited subset of FHIRPath that allows path traversal, but not calculation
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DataRequirement.dateFilter.value[x]
   Card. = 0..1
   Type = dateTime|Period|Duration

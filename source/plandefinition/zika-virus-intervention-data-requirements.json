@@ -47,7 +47,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": "Pregnancy"
+          "valueSetUri": "http://example.org/valueset/pregnancy"
         }
       ]
     },
@@ -59,14 +59,16 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetString": [
-            "Zika Exposure Assessment"
+          "valueSetUri": [
+            "http://example.org/valueset/zika-exposure-assessment"
           ]
         },
         {
           "path": "status",
-          "valueCode": [
-            "final"
+          "code": [
+            {
+              "code": "final"
+            }
           ]
         }
       ]
@@ -76,19 +78,23 @@
       "codeFilter": [
         {
           "path": "category",
-          "valueCode": [
-            "diagnosis"
+          "code": [
+            {
+              "code": "diagnosis"
+            }
           ]
         },
         {
           "path": "clinicalStatus",
-          "valueCode": [
-            "confirmed"
+          "code": [
+            {
+              "code": "confirmed"
+            }
           ]
         },
         {
           "path": "code",
-          "valueSetString": "Zika Virus Signs and Symptoms"
+          "valueSetUri": "urn:oid:2.16.840.1.114222.4.11.7459"
         }
       ]
     }

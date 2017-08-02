@@ -577,7 +577,7 @@
     <type value="RiskAssessment"/>
     <codeFilter>
       <path value="code"/>
-      <valueSetString value="Suicide Risk Assessment"/>
+      <valueSetUri value="http://example.org/valueset/1.2.3.4.5"/> <!-- Suicide Risk Assessment -->
     </codeFilter>
   </dataRequirement>
 

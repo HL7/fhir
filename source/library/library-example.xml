@@ -220,7 +220,7 @@
     <type value="Condition"/>
     <codeFilter>
       <path value="code"/>
-      <valueSetString value="Other Female Reproductive Conditions"/>
+      <valueSetUri value="uin:oid:2.16.840.1.113883.3.464.1003.111.12.1006"/> <!-- Other Female Reproductive Conditions -->
     </codeFilter>
   </dataRequirement>
   <!-- ... other data requirements as defined in the library -->

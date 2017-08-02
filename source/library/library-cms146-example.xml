@@ -498,15 +498,19 @@
     <type value="Condition"/>
     <codeFilter>
       <path value="category"/>
-      <valueCode value="diagnosis"/>
+      <code>
+        <code value="diagnosis"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="clinicalStatus"/>
-      <valueCode value="confirmed"/>
+      <code>
+        <code value="confirmed"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="code"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.102.12.1011"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"/>
     </codeFilter>
   </dataRequirement>
 
@@ -514,15 +518,19 @@
     <type value="Condition"/>
     <codeFilter>
       <path value="category"/>
-      <valueCode value="diagnosis"/>
+      <code>
+        <code value="diagnosis"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="clinicalStatus"/>
-      <valueCode value="confirmed"/>
+      <code>
+        <code value="confirmed"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="code"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.102.12.1012"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"/>
     </codeFilter>
   </dataRequirement>
 
@@ -530,15 +538,19 @@
     <type value="Encounter"/>
     <codeFilter>
       <path value="status"/>
-      <valueCode value="finished"/>
+      <code>
+        <code value="finished"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="class"/>
-      <valueCode value="ambulatory"/>
+      <code>
+        <code value="ambulatory"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="type"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.101.12.1061"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"/>
     </codeFilter>
   </dataRequirement>
 
@@ -546,7 +558,7 @@
     <type value="DiagnosticReport"/>
     <codeFilter>
       <path value="diagnosis"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.198.12.1012"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"/>
     </codeFilter>
   </dataRequirement>
 
@@ -554,7 +566,7 @@
     <type value="Medication"/>
     <codeFilter>
       <path value="code"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.196.12.1001"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
     </codeFilter>
   </dataRequirement>
 
@@ -562,11 +574,13 @@
     <type value="MedicationRequest"/>
     <codeFilter>
       <path value="status"/>
-      <valueCode value="active"/>
+      <code>
+        <code value="active"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="medication.code"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.196.12.1001"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
     </codeFilter>
   </dataRequirement>
 
@@ -574,11 +588,13 @@
     <type value="MedicationStatement"/>
     <codeFilter>
       <path value="status"/>
-      <valueCode value="completed"/>
+      <code>
+        <code value="completed"/>
+      </code>
     </codeFilter>
     <codeFilter>
       <path value="medication.code"/>
-      <valueSetString value="2.16.840.1.113883.3.464.1003.196.12.1001"/>
+      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
     </codeFilter>
   </dataRequirement>
 

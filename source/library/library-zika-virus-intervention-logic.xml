@@ -5,8 +5,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Zika Virus Intervention Logic</div>
   </text>
   <identifier>
-  <use value="official"/>
-  <value value="zika-virus-intervention-logic"/>
+    <use value="official"/>
+    <value value="zika-virus-intervention-logic"/>
   </identifier>
   <version value="1.0.0"/>
   <title value="Zika Virus Intervention Logic"/>
@@ -30,47 +30,47 @@
   </relatedArtifact>
 
   <relatedArtifact>
-	<type value="depends-on"/>
-	<resource>
-		<reference value="ValueSet/zika-affected-area"/>
-		<display value="Zika Affected Area"/>
-	</resource>
+  	<type value="depends-on"/>
+  	<resource>
+  		<reference value="ValueSet/zika-affected-area"/>
+  		<display value="Zika Affected Area"/>
+  	</resource>
   </relatedArtifact>
 
   <parameter>
     <name value="Patient"/>
-	<use value="in"/>
-	<type value="Patient"/>
+  	<use value="in"/>
+  	<type value="Patient"/>
   </parameter>
 
   <parameter>
-	<name value="Current Encounter"/>
-	<use value="in"/>
-	<type value="Encounter"/>
+  	<name value="Current Encounter"/>
+  	<use value="in"/>
+  	<type value="Encounter"/>
   </parameter>
 
   <dataRequirement>
-	<type value="Condition"/>
-	<codeFilter>
-	  <path value="code"/>
-	  <valueSetString value="Pregnancy"/>
-	</codeFilter>
+  	<type value="Condition"/>
+  	<codeFilter>
+  	  <path value="code"/>
+  	  <valueSetUri value="urn:oid:X.Y.Z"/> <!-- Pregnancy -->
+  	</codeFilter>
   </dataRequirement>
 
   <dataRequirement>
-	<type value="Observation"/>
-	<codeFilter>
-	  <path value="code"/>
-	  <valueSetString value="Zika Exposure Assessment"/>
-	</codeFilter>
+  	<type value="Observation"/>
+  	<codeFilter>
+  	  <path value="code"/>
+  	  <valueSetUri value="urn:oid:X.Y.Z"/> <!-- Zika Exposure Assessment -->
+  	</codeFilter>
   </dataRequirement>
 
   <dataRequirement>
-	<type value="Condition"/>
-	<codeFilter>
-	  <path value="code"/>
-	  <valueSetString value="Zika Virus Signs and Symptoms"/>
-	</codeFilter>
+  	<type value="Condition"/>
+  	<codeFilter>
+  	  <path value="code"/>
+  	  <valueSetUri value="urn:oid:2.16.840.1.114222.4.11.7459"/> <!-- Zika Virus Signs and Symptoms -->
+  	</codeFilter>
   </dataRequirement>
 
   <content>
