@@ -127,6 +127,7 @@ public class JsonGenerator  {
       props.add("resourceType", rt);
       rt.addProperty("description", "This is a "+root.getName()+" resource");
       rt.addProperty("type", "string");
+      rt.addProperty("const", root.getName());
       JsonArray enums = new JsonArray();
       enums.add(new JsonPrimitive(root.getName()));
       rt.add("enum", enums);

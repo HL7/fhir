@@ -379,7 +379,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     for (ElementDefinition e : derived.getDifferential().getElement()) {
       if (!e.hasUserData(GENERATED_IN_SNAPSHOT)) {
         System.out.println("Error in snapshot generation: Differential for "+derived.getUrl()+" with id: " + e.getId()+" has an element that is not marked with a snapshot match");
-        throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain differential element with id: " + e.getId());
+        throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain an element that matches an existing differential element that has id: " + e.getId());
 //        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
       }
     }
