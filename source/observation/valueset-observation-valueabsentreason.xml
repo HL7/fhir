@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<name value="Observation Value Absent Reason"/>
 	<status value="draft"/>
 	<!--  Eric Haas Health eData Inc - editor  -->
@@ -11,9 +11,18 @@
 		</telecom>
 	</contact>
 	<description value="This value set defines the set of codes for identifying the reason why the expected result in Observation.value[x] is missing."/>
-  <compose>
-	  <include>
-		  <system value="http://hl7.org/fhir/data-absent-reason"/>
-	  </include>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/data-absent-reason"/>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/NullFlavor"/>
+			<concept>
+				<code value="NINF"/>
+			</concept>
+			<concept>
+				<code value="PINF"/>
+			</concept>
+		</include>
 	</compose>
 </ValueSet>
