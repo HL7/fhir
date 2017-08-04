@@ -12,7 +12,7 @@
   </contact>
   <description value="This value set contains concept codes for specific substances. It includes codes from [SNOMED](http://snomed.info/sct) where concept is-a 105590001 (Substance (substance))
 adn where concept is-a 373873005 (Pharmaceutical / biologic product (product))"/>
-  <copyright value="The use of SNOMED CT codes, display names and value sets in this specification is subject to an MOU signed between HL7 International and IHTSDO. This does not convey the right to use SNOMED CT to any users of this specification; implementers must acquire a license to use SNOMED CT in their own right. For further information, see [HL7 Policies and Guidance documents (Licensing)](https://www.hl7.org/special/committees/termauth/docs.cfm)"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

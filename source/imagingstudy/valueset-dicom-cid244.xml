@@ -12,7 +12,7 @@
     </telecom>
   </contact>
   <description value="This Value Set includes codes that may be used to identify the laterality of a imaging procedure"/>
-  <copyright value="The use of SNOMED CT codes, display names and value sets in this specification is subject to an MOU signed between HL7 International and IHTSDO. This does not convey the right to use SNOMED CT to any users of this specification; implementers must acquire a license to use SNOMED CT in their own right. For further information, see [HL7 Policies and Guidance documents (Licensing)](https://www.hl7.org/special/committees/termauth/docs.cfm) These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
   <extensible value="true"/>
   <compose>
     <include>
