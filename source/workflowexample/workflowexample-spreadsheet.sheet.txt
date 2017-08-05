@@ -1,0 +1,353 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = WorkflowExampleActorType
+  Binding = code list
+  Reference = #workflowexample-actor-type
+  Definition = the type of actor - system or human
+
+=== Sheet workflowexample-actor-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = person
+  Display = Person
+  Definition = A person
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = entity
+  Display = System
+  Definition = A system
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = WorkflowExample
+  Type = DomainResource
+  Short Name = Example of workflow instance
+  Definition = Example of workflow instance
+
+ -- Row 2 -----------------------------------
+  Element = WorkflowExample.title
+  Card. = 1..1
+  Type = markdown
+  Short Name = Name of example
+  Definition = The name of the example as showin in the title page
+
+ -- Row 3 -----------------------------------
+  Element = WorkflowExample.filename
+  Card. = 0..1
+  Type = string
+  Short Name = The filename associated with this example
+  Definition = The filename associated with this example
+  Comments = this needed?
+
+ -- Row 4 -----------------------------------
+  Element = WorkflowExample.description
+  Card. = 0..1
+  Type = string
+  Short Name = Description of behaviour of the workflow example
+  Definition = Description of behaviour of the workflow example
+
+ -- Row 5 -----------------------------------
+  Element = WorkflowExample.purpose
+  Card. = 0..1
+  Type = string
+  Short Name = What is the example supposed to resolve
+  Definition = What is the example supposed to resolve
+
+ -- Row 6 -----------------------------------
+  Element = WorkflowExample.resourceInstance
+  Card. = 0..*
+  Short Name = Each resource and each version that is present in the workflow
+  Definition = Each resource and each version that is present in the workflow
+
+ -- Row 7 -----------------------------------
+  Element = WorkflowExample.resourceInstance.resourceType
+  Card. = 1..1
+  Type = string
+  Short Name = The type of the resource
+  Definition = The type of the resource
+
+ -- Row 8 -----------------------------------
+  Element = WorkflowExample.resourceInstance.name
+  Card. = 0..1
+  Type = string
+  Short Name = A short name for the resource instance
+  Definition = A short name for the resource instance
+
+ -- Row 9 -----------------------------------
+  Element = WorkflowExample.resourceInstance.description
+  Card. = 0..1
+  Type = string
+  Short Name = Human-friendly description of the resource instance
+  Definition = Human-friendly description of the resource instance
+
+ -- Row 10 -----------------------------------
+  Element = WorkflowExample.resourceInstance.resourceId
+  Card. = 0..1
+  Type = string
+  Short Name = The id of the resource for referencing
+  Definition = The id of the resource for referencing
+
+ -- Row 11 -----------------------------------
+  Element = WorkflowExample.resourceInstance.resourceVersionId
+  Card. = 0..1
+  Type = string
+  Short Name = A specific version of the resource
+  Definition = A specific version of the resource
+  Comments = Do we need a different grouping? i.e. put Version as a group here? Do we need \"description of a resource version\"? Either we change cardinality, or create a subgroup, or…
+
+ -- Row 12 -----------------------------------
+  Element = WorkflowExample.resourceInstance.resourceGroup
+  Card. = 0..1
+  Type = string
+  Short Name = A grouping for the resources
+  Definition = A grouping for the resources
+  Comments = Is this relavant? If so, is this the right approach? Or we leave to the publisher?
+
+ -- Row 13 -----------------------------------
+  Element = WorkflowExample.actor
+  Card. = 0..*
+  Short Name = Actor participating in the resource
+  Definition = Actor participating in the resource
+
+ -- Row 14 -----------------------------------
+  Element = WorkflowExample.actor.actorid
+  Card. = 0..*
+  Type = string
+  Short Name = ID or acronym of actor - for the diagram
+  Definition = ID or acronym of actor - for the diagram
+  Comments = should this be called ID or acronym?
+
+ -- Row 15 -----------------------------------
+  Element = WorkflowExample.actor.type
+  Card. = 1..1
+  Type = code
+  Binding = WorkflowExampleActorType
+  Short Name = person | entity
+  Definition = The type of actor - person or system
+
+ -- Row 16 -----------------------------------
+  Element = WorkflowExample.actor.name
+  Card. = 0..1
+  Type = string
+  Short Name = The name of the actor as shown in the page
+  Definition = The name of the actor as shown in the page
+  Comments = Do we need this? OR we rely on parsing the markdown?
+
+ -- Row 17 -----------------------------------
+  Element = WorkflowExample.actor.title
+  Card. = 0..1
+  Type = markdown
+  Short Name = The name of the actor as shown in the diagram
+  Definition = The name of the actor as shown in the diagram
+
+ -- Row 18 -----------------------------------
+  Element = WorkflowExample.actor.description
+  Card. = 0..1
+  Type = string
+  Short Name = The description of the actor
+  Definition = The description of the actor
+
+ -- Row 19 -----------------------------------
+  Element = WorkflowExample.process
+  Card. = 0..*
+  Short Name = Each major process - a group of operations
+  Definition = Each major process - a group of operations
+  Comments = 0..*? When would this be many?
+
+ -- Row 20 -----------------------------------
+  Element = WorkflowExample.process.title
+  Card. = 1..1
+  Type = markdown
+  Short Name = The diagram title of the group of operations
+  Definition = The diagram title of the group of operations
+
+ -- Row 21 -----------------------------------
+  Element = WorkflowExample.process.description
+  Card. = 0..1
+  Type = string
+  Short Name = A longer description of the group of operations
+  Definition = A longer description of the group of operations
+
+ -- Row 22 -----------------------------------
+  Element = WorkflowExample.process.initialStatus
+  Card. = 1..1
+  Type = markdown
+  Short Name = Description of initial status before the process starts
+  Definition = Description of initial status before the process starts
+
+ -- Row 23 -----------------------------------
+  Element = WorkflowExample.process.operation
+  Card. = 1..*
+  Short Name = Each interaction in the workflow
+  Definition = Each interaction in the workflow
+
+ -- Row 24 -----------------------------------
+  Element = WorkflowExample.process.operation.number
+  Card. = 0..1
+  Type = string
+  Short Name = The sequential number of the operation
+  Definition = The sequential number of the operation
+
+ -- Row 25 -----------------------------------
+  Element = WorkflowExample.process.operation.name
+  Card. = 1..1
+  Type = string
+  Short Name = The name of the operation
+  Definition = The name of the operation
+
+ -- Row 26 -----------------------------------
+  Element = WorkflowExample.process.operation.title
+  Card. = 0..1
+  Type = markdown
+  Short Name = The title of the operation in the diagram
+  Definition = The title of the operation in the diagram
+
+ -- Row 27 -----------------------------------
+  Element = WorkflowExample.process.operation.description
+  Card. = 0..1
+  Type = string
+  Short Name = A description of the operation
+  Definition = A description of the operation
+
+ -- Row 28 -----------------------------------
+  Element = WorkflowExample.process.operation.transactionReference
+  Card. = 0..1
+  Type = string
+  Short Name = Pointer to a profile or IG
+  Definition = Pointer to a profile or IG
+  Comments = how do we say \"this operation is covered by transaction XXX from IHE/…\". Could be a pointer to specs
+
+ -- Row 29 -----------------------------------
+  Element = WorkflowExample.process.operation.group
+  Card. = 1..1
+  Type = boolean
+  Short Name = This determines if there is a group in these interactions (like in the diagram)
+  Definition = This determines if there is a group in these interactions (like in the diagram)
+  Comments = this is for diagram purposes only, I think. Is this needed?
+
+ -- Row 30 -----------------------------------
+  Element = WorkflowExample.process.operation.delay
+  Card. = 0..*
+  Type = boolean
+  Short Name = Whether there is a delay (...) in the diagram
+  Definition = Whether there is a delay (...) in the diagram
+  Comments = TBD. Need to find a better way
+
+ -- Row 31 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction
+  Card. = 0..*
+  Short Name = Each interaction or action
+  Definition = Each interaction or action
+  Comments = TBD. Need to find a better way
+
+ -- Row 32 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.number
+  Card. = 1..1
+  Type = string
+  Short Name = The sequential number of the interaction
+  Definition = The sequential number of the interaction
+
+ -- Row 33 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.name
+  Card. = 0..1
+  Type = string
+  Short Name = The human-friendly name of the interaction
+  Definition = The human-friendly name of the interaction
+
+ -- Row 34 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.title
+  Card. = 0..1
+  Type = markdown
+  Short Name = The diagram text for the interaction
+  Definition = The diagram text for the interaction
+  Comments = must support also \"Left\" and \"Right\"?
+
+ -- Row 35 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.initiator
+  Card. = 0..1
+  Type = string
+  Short Name = Who starts the transaction
+  Definition = Who starts the transaction
+  Comments = must support also \"Left\" and \"Right\"?
+
+ -- Row 36 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.receiver
+  Card. = 0..1
+  Type = string
+  Short Name = Who receives the transaction
+  Definition = Who receives the transaction
+
+ -- Row 37 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.dotted
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the operation is dotted or not
+  Definition = Whether the operation is dotted or not
+  Comments = optional, for diagrams only
+
+ -- Row 38 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.content
+  Card. = 0..1
+  Type = string
+  Short Name = A text or link to the content of the interaction
+  Definition = A text or link to the content of the interaction
+  Comments = TBD
+
+ -- Row 39 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.comment
+  Card. = 0..1
+  Type = markdown
+  Short Name = A comment to be inserted in the diagram
+  Definition = A comment to be inserted in the diagram
+  Comments = restarts every group?
+
+ -- Row 40 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.deactivateInitiator
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the initiator is deactivated right after the transaction
+  Definition = Whether the initiator is deactivated right after the transaction
+  Comments = to do later. Perhaps expand status codes determining what happens to initiator and receiver
+
+ -- Row 41 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.resource
+  Card. = 0..*
+  Short Name = Each resource instance used in this transaction
+  Definition = Each resource instance used in this transaction
+
+ -- Row 42 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.resource.resourceInstanceId
+  Card. = 0..1
+  Type = string
+  Short Name = The resource names used here
+  Definition = The resource names used here
+  Comments = Open questions: 1. is this best a reference? I leave it as string for an internal ID but perhaps best to use a reference. 2.How do we handle pointers to resource groups? In a transaction you may have several resources. We leave it to the logic of the publication?
+
+ -- Row 43 -----------------------------------
+  Element = WorkflowExample.process.operation.interaction.resource.resourceversionId
+  Card. = 0..1
+  Type = string
+  Short Name = The resource versions used here
+  Definition = The resource versions used here
+
+ -- Row 44 -----------------------------------
+  Element = WorkflowExample.process.finalStatus
+  Card. = 1..1
+  Type = markdown
+  Short Name = Description of final status after the process ends
+  Definition = Description of final status after the process ends
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
