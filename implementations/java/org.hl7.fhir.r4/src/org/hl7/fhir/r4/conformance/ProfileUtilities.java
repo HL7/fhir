@@ -1125,7 +1125,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
 
   private boolean ruleMatches(SlicingRules diff, SlicingRules base) {
-    return (diff == null) || (base == null) || (diff == base) || (diff == SlicingRules.OPEN) ||
+    return (diff == null) || (base == null) || (diff == base) || (base == SlicingRules.OPEN) ||
         ((diff == SlicingRules.OPENATEND && base == SlicingRules.CLOSED));
   }
 
