@@ -61,14 +61,13 @@
   Definition = Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
 
  -- Row 9 -----------------------------------
-  Element = CatalogEntry.validFrom
+  Element = CatalogEntry.validityPeriod
   Card. = 0..1
-  Type = dateTime
-  Short Name = The date from which this catalog entry is expected to be active
-  Comments = Perhaps this should be merged with the next one and be called \"validityPeriod\" or something
+  Type = Period
+  Short Name = The time period in which this catalog entry is expected to be active
 
  -- Row 10 -----------------------------------
-  Element = CatalogEntry.validTo
+  Element = !CatalogEntry.validTo
   Card. = 0..1
   Type = dateTime
   Short Name = The date until which this catalog entry is expected to be active
@@ -77,7 +76,9 @@
   Element = CatalogEntry.lastUpdated
   Card. = 0..1
   Type = dateTime
-  Short Name = Perhaps not needed
+  Short Name = When was this catalog last updated
+  Definition = Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated
+  Comments = Perhaps not needed - if we use fhir resource metadata
 
  -- Row 12 -----------------------------------
   Element = CatalogEntry.additionalCharacteristic
@@ -116,7 +117,7 @@
  -- Row 17 -----------------------------------
   Element = CatalogEntry.relatedItem.item
   Card. = 1..1
-  Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)
+  Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition | CatalogEntry)
   Short Name = The reference to the related item
   Definition = The reference to the related item
 

@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8166</WindowHeight>
-  <WindowWidth>19200</WindowWidth>
+  <WindowHeight>13224</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -138,7 +138,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="119" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="120" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="158.4"/>
@@ -721,6 +721,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SpecimenDefinition</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">WorkflowExample</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -747,7 +750,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>119</ActiveRow>
+     <ActiveRow>120</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

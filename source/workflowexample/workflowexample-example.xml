@@ -1,303 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<WorkflowExample xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+<WorkflowExample xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/workflowexample.xsd">
 	<id value="example"/>
 
 	<title value="Mobile Medication Administration"/> 
-	<filename value="ihe-pharm-mma"/> 
-
-	<!-- insert contents here -->
+	<status value="draft"/>
 
 	<description value="This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR." />
 	<purpose value="Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
 
-
-	<!-- Then define the resource instances --> 
-	<!-- QUESTION: How to define search actions?-->	
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Initial Prescription"/>
-		<description value="The initial prescription which describes &quot;medication X, 3 times per day&quot; - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule)."/>
-		<resourceId value="iherx001"/>
-		<!-- Why version id at definition? is this the place where we list those? or we point to the resource on the server and thus implicitly to all the versions? --> 
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Request for day 1, morning" />
-		<description value="The administration request for day 1, morning" />
-		<resourceId value="iherx001.001"/>
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Request for day 1, lunch" />
-		<description value="The administration request for day 1, lunch" />
-		<resourceId value="iherx001.002" />
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Request for day 1, evening" />
-		<description value="The administration request for day 1, evening" />
-		<resourceId value="iherx001.003" />
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Request for day 2, morning" />
-		<description value="The administration request for day 2, morning" />
-		<resourceId value="iherx001.004" />
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Request for day 2, lunch" />
-		<description value="The administration request for day 2, lunch" />
-		<resourceId value="iherx001.005" />
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationRequest"/>
-		<name value="Request for day 2, evening" />
-		<description value="The administration request for day 2, evening" />
-		<resourceId value="iherx001.006" />
-	</resourceInstance>
-
-	<resourceInstance>
-		<resourceType value="SearchParam"/>
-		<name value="Search query1" />
-		<description value="The search administration request for day 1, morning" />
-		<resourceId value="ihesearchparam_rx.performer"/>
-	</resourceInstance>
-
-
-	<resourceInstance>
-		<resourceType value="MedicationAdministration"/>
-		<name value="Administration report, day 1, morning" />
-		<description value="The administration report for day 1, morning" />
-		<resourceId value="iheadm001.001" />
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationAdministration"/>
-		<name value="Administration report, day 1, lunch" />
-		<description value="The administration report for day 1, lunch" />
-		<resourceId value="iheadm001.002" />
-		<resourceVersionId value="1" />
-	</resourceInstance>
-	<resourceInstance>
-		<resourceType value="MedicationAdministration"/>
-		<name value="Administration report, day 1, lunch" />
-		<description value="The administration report for day 1, lunch" />
-		<resourceId value="iheadm001.002" />
-		<resourceVersionId value="2" />
-	</resourceInstance>
-	<!-- QUESTION: how to handle bundles? a response to a request may be one resource or a bundle-->	
-	<!-- One option is to define a resourceGroup here, which is just used for documentation-->	
-
-	<!-- HERE any diagram options --> 
-
 	<!-- First define actors--> 
 	<actor>
-		<actorid value="Nurse"/>
+		<actorId value="Nurse"/>
 		<type value="person"/>
 		<name value="Nurse"/>
-		<title value="Nurse"/>
 		<description value="The Nurse" />
 	</actor>
 	<actor>
-		<actorid value="OP"/>
+		<actorId value="OP"/>
 		<type value="entity"/>
 		<name value="Medication Administration Order Placer" />
-		<title value="Medication Administration Order Placer" />
 		<description value="The Medication Administration Order Placer" />
 	</actor>
 	<actor>
-		<actorid value="MAP"/>
+		<actorId value="MAP"/>
 		<type value="entity"/>
 		<name value="Medication Administration Performer" />
-		<title value="Medication Administration Performer" />
 		<description value="The entity that receives the Administration Requests to show the nurse to perform them" />
 	</actor>	
 	<actor>
-		<actorid value="MAI"/>
+		<actorId value="MAI"/>
 		<type value="entity"/>
 		<name value="Medication Administration Informer" />
-		<title value="Medication Administration Informer" />
 		<description value="The entity that registers information about the administration execution" />
 	</actor>
 	<actor>
-		<actorid value="MAC"/>
+		<actorId value="MAC"/>
 		<type value="entity"/>
 		<name value="Medication Administration Consumer" />
-		<title value="Medication Administration Consumer" />
 		<description value="The entity that receives the Medication Administration reports" />
-	</actor>	
+	</actor>
 
+
+	<!-- Then define the resource instances --> 
+
+	<instance>
+		<resourceId value="iherx001"/>
+		<resourceType value="MedicationRequest"/>
+		<name value="Initial Prescription"/>
+		<description value="The initial prescription which describes &quot;medication X, 3 times per day&quot; - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule)."/>
+	</instance>
+	<instance>
+		<resourceId value="iherx001.001"/>
+		<resourceType value="MedicationRequest"/>
+		<name value="Request for day 1, morning" />
+		<description value="The administration request for day 1, morning" />
+	</instance>
+	<instance>
+		<resourceId value="iherx001.002" />
+		<resourceType value="MedicationRequest"/>
+		<name value="Request for day 1, lunch" />
+		<description value="The administration request for day 1, lunch" />
+	</instance>
+	<instance>
+		<resourceId value="iherx001.003" />
+		<resourceType value="MedicationRequest"/>
+		<name value="Request for day 1, evening" />
+		<description value="The administration request for day 1, evening" />
+	</instance>
+	<instance>
+		<resourceId value="iherx001.004" />
+		<resourceType value="MedicationRequest"/>
+		<name value="Request for day 2, morning" />
+		<description value="The administration request for day 2, morning" />
+	</instance>
+	<instance>
+		<resourceId value="iherx001.005" />
+		<resourceType value="MedicationRequest"/>
+		<name value="Request for day 2, lunch" />
+		<description value="The administration request for day 2, lunch" />
+	</instance>
+	<instance>
+		<resourceId value="iherx001.006" />
+		<resourceType value="MedicationRequest"/>
+		<name value="Request for day 2, evening" />
+		<description value="The administration request for day 2, evening" />
+	</instance>
+
+	<!-- QUESTION: How to define search actions?-->		
+	<instance>
+		<resourceId value="ihesearchparam_rx.performer"/>
+		<resourceType value="SearchParameter"/>
+		<name value="Search query1" />
+		<description value="The search administration request for day 1, morning" />
+	</instance>	
 
 	<process>
 		<title value="Mobile Medication Administration"/>
 		<description value="Mobile Medication Administration" />
-
-		<initialStatus value="Medication administration requests are in the EHR / MAR, scheduled for each individual intake."/>
-
-		<operation>
-			<number value="1"/> 
-			<name value="Nurse initiates by clicking refresh"/>
-			<title value="Nurse initiates by clicking refresh"/> 
-			<group value="false"/>
-			<!-- QUESTION: operation is a set of interactions, and a part of a process.  For example operation1=queryA+receiveB.  Is this an attribute of the process, or a wrapper? Should the interactions be under the operation? -->	
-			<interaction> 
-				<number value="1"/> 
-				<name value="Get today's schedule"/> 
-				<title value="Ask today's schedule" />
-				<initiator value="Nurse"/> 
-				<receiver value="MAP"/> 
-				<dotted value="true"/>
-			</interaction>		
-		</operation>
-
+		<preConditions value="Medication administration requests are in the EHR / MAR, scheduled for each individual intake."/>
+		<postConditions value="Medication administration Reports are submitted, EHR is updated."/>
 
 		<operation> 
-			<number value="2"/> 
-			<name value="Query Administration Requests"/> 
+			<number value="1"/> 
+			<name value="Get today's schedule"/> 
+			<initiator value="Nurse"/> 
+			<receiver value="MAP"/> 
+		</operation>		
+
+<!--
+		<process> 
 			<title value="Query Administration Requests"/> 
 			<description value="Query for medication administration orders,\n- For today's shifts\n- For today's patients" />
-			<transactionReference value="PHARM-1"/> 
-			<group value="true"/>
 
-			<interaction> 
+			<operation> 
 				<number value="2"/> 
-				<name value="Query"/> 
-				<title value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
+				<name value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
 				<initiator value="MAP"/> 
 				<receiver value="OP"/> 
-				<dotted value="false"/>
-				<resource>
-					<!-- here a link to the search -->
-					<resourceInstanceId value="ihesearchparam_rx.performer"/>
-				</resource>
-			</interaction>
+				<instance>
+					<instanceId value="ihesearchparam_rx.performer"/>
+				</instance>
+			</operation>
 
-			<interaction>
+
+
+			<operation>
 				<number value="3"/> 
-				<name value="Results"/> 
-				<title value="Return medication administration orders" />
+				<name value="Return medication administration orders" />
 				<initiator value="OP"/> 
 				<receiver value="MAP"/> 
-				<dotted value="false"/>
-				<content value="Return medication administration orders" />
-				<!-- Perhaps a composite element - for enabling using any kind of content in an interaction: a link, text, or pointer to resources -->
-				<comment value="Return medication administration orders" />
-				<resource>
-					<resourceInstanceId value="iherx001.001"/>
-				</resource>
-				<resource>
-					<resourceInstanceId value="iherx001.002"/>
-				</resource>
-				<resource>
-					<resourceInstanceId value="iherx001.003"/>
-				</resource>
-				<resource>
-					<resourceInstanceId value="iherx001.004"/>
-				</resource>
-				<resource>
-					<resourceInstanceId value="iherx001.005"/>
-				</resource>
-				<resource>
-					<resourceInstanceId value="iherx001.006"/>
-				</resource>
-			</interaction>
+				<description value="Return medication administration orders" />
+				<instance>
+					<instanceId value="iherx001.001"/>
+				</instance>
+				<instance>
+					<instanceId value="iherx001.002"/>
+				</instance>
+				<instance>
+					<instanceId value="iherx001.003"/>
+				</instance>
+				<instance>
+					<instanceId value="iherx001.004"/>
+				</instance>
+				<instance>
+					<instanceId value="iherx001.005"/>
+				</instance>
+				<instance>
+					<instanceId value="iherx001.006"/>
+				</instance>
+			</operation>
 
-			<!-- QUESTION: How to determine the activation and deactivation of initiators and receivers? expand posible status? TBD later -->
+
+		</process>	
+
+		<pause value="true"/>		
+
+
+		<operation>		
+			<number value="4"/> 
+			<name value="Notify (alert)"/> 
+			<initiator value="MAP"/> 
+			<receiver value="Nurse"/> 
+			<dotted value="true"/>
 		</operation>
-
-
-		<operation>
-			<number value="3"/> 
-			<name value="Nurse administers the medication for a patient"/> 
-			<title value="Nurse administers the medication for a patient"/> 
-			<description value="here some bla bla bla for the documentation"/>
-			<group value="false"/>
-			<delay value="true"/>
-			<interaction>		
-				<number value="4"/> 
-				<name value="Notify (alert)"/> 
-				<initiator value="MAP"/> 
-				<receiver value="Nurse"/> 
-				<dotted value="true"/>
-			</interaction>
-			<interaction>		
-				<number value="5"/> 
-				<name value="Read orders"/> 
-				<initiator value="Nurse"/> 
-				<receiver value="MAP"/> 
-				<dotted value="true"/>
-			</interaction>
-			<interaction>		
-				<number value="6"/> 
-				<name value="Administer drug"/> 
-				<initiator value="Nurse"/> 
-				<receiver value="Nurse"/> 
-				<dotted value="true"/>
-			</interaction>
-			<interaction>		
-				<number value="7"/> 
-				<name value="Register administration"/> 
-				<initiator value="Nurse"/> 
-				<receiver value="MAI"/> 
-				<dotted value="true"/>
-				<deactivateInitiator value="true"/>
-			</interaction>
-		</operation>
-
-		
-		
-		<operation>
+		<operation>		
 			<number value="5"/> 
-			<name value="Patient throws up"/>
-			<title value="Patient throws up, nurse updates report"/>
-			<description value="The patient throws up and the nurse updates the administration record as &quot;not done&quot;."/>
-			<group value="false"/>
-			<delay value="true"/>
-			<interaction>		
+			<name value="Read orders"/> 
+			<initiator value="Nurse"/> 
+			<receiver value="MAP"/> 
+			<dotted value="true"/>
+		</operation>
+		<operation>		
+			<number value="6"/> 
+			<name value="Administer drug"/> 
+			<initiator value="Nurse"/> 
+			<receiver value="Nurse"/> 
+			<dotted value="true"/>
+		</operation>
+		<operation>		
+			<number value="7"/> 
+			<name value="Register administration"/> 
+			<initiator value="Nurse"/> 
+			<receiver value="MAI"/> 
+			<dotted value="true"/>
+			<initiatorActive value="true"/>
+		</operation>
+
+		<pause value="true"/>		
+
+		<process>
+			<operation>		
 				<number value="7"/> 
 				<name value="Nurse updates administration report"/> 
 				<initiator value="Nurse"/> 
 				<receiver value="MAI"/> 
-				<dotted value="true"/>
-				<deactivateInitiator value="true"/>
-				<resource>
-					<!-- here a link to the bundle or resource groups-->
-					<resourceInstanceId value="iheadm001.002" />
-					<resourceversionId value="1" />
-				</resource>
-				</interaction>
-		</operation>
+				<initiatorActive value="true"/>
+				<instance>
+					<instanceId value="iheadm001.002" />
+				</instance>
+			</operation>
+		</process>
 
-		
-		<operation>
+		<pause value="true"/>		
+
+		<process>
 			<number value="6"/> 
-			<name value="Upload administration reports to server"/>
-			<title value="Upload administration reports"/>
+			<name value="Upload administration reports"/>
 			<description value="The nurse's system uploads the administration results to the server"/>
 			<group value="true"/>
-			<delay value="true"/>
-			<!-- QUESTION: operation is a set of interactions, and a part of a process.  For example operation1=queryA+receiveB.  Is this an attribute of the process, or a wrapper? Should the interactions be under the operation? -->	
-			<interaction>		
+			<operation>		
 				<number value="8"/> 
 				<name value="Refresh"/> 
 				<initiator value="MAP"/> 
 				<receiver value="MAC"/> 
 				<dotted value="true"/>	
-				<resource>
-					<!-- here a link to the bundle or resource groups-->
-					<resourceInstanceId value="iheadm001.001" />
-				</resource>	
-				<resource>
-					<!-- here a link to the bundle or resource groups-->
-					<resourceInstanceId value="iheadm001.002" />
-					<resourceversionId value="2" />
-				</resource>
+				<instance>
+					<instanceId value="iheadm001.001" />
+				</instance>	
+				<instance>
+					<instanceId value="iheadm001.002" />
+				</instance>
 
-			</interaction>		
-		</operation>
+			</operation>		
+		</process>
 
-		<finalStatus value="Medication administration Reports are submitted, EHR is updated."/>
-	</process>  
+-->
+
+	</process>
+
 
 </WorkflowExample>
 

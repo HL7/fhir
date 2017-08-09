@@ -330,9 +330,8 @@ signatures.html
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
-<!--
       <page type="resource" resource="WorkflowExample"/>  
--->
+
     </page>
 
     <page title="Financial" filename="financial-module.html" icon="financial.png">
