@@ -100,18 +100,21 @@
 		<preConditions value="Medication administration requests are in the EHR / MAR, scheduled for each individual intake."/>
 		<postConditions value="Medication administration Reports are submitted, EHR is updated."/>
 
+<step>
 		<operation> 
 			<number value="1"/> 
 			<name value="Get today's schedule"/> 
 			<initiator value="Nurse"/> 
 			<receiver value="MAP"/> 
 		</operation>		
+</step>
 
-<!--
+<step>
 		<process> 
 			<title value="Query Administration Requests"/> 
 			<description value="Query for medication administration orders,\n- For today's shifts\n- For today's patients" />
 
+<step>
 			<operation> 
 				<number value="2"/> 
 				<name value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
@@ -121,9 +124,11 @@
 					<instanceId value="ihesearchparam_rx.performer"/>
 				</instance>
 			</operation>
+</step>
 
 
 
+<step>
 			<operation>
 				<number value="3"/> 
 				<name value="Return medication administration orders" />
@@ -149,13 +154,19 @@
 					<instanceId value="iherx001.006"/>
 				</instance>
 			</operation>
+</step>
 
 
 		</process>	
+</step>
 
+<step>
 		<pause value="true"/>		
+</step>
 
+<!--
 
+<step>
 		<operation>		
 			<number value="4"/> 
 			<name value="Notify (alert)"/> 
@@ -163,6 +174,8 @@
 			<receiver value="Nurse"/> 
 			<dotted value="true"/>
 		</operation>
+</step>
+<step>
 		<operation>		
 			<number value="5"/> 
 			<name value="Read orders"/> 
@@ -170,6 +183,8 @@
 			<receiver value="MAP"/> 
 			<dotted value="true"/>
 		</operation>
+<step>
+</step>
 		<operation>		
 			<number value="6"/> 
 			<name value="Administer drug"/> 
@@ -177,6 +192,8 @@
 			<receiver value="Nurse"/> 
 			<dotted value="true"/>
 		</operation>
+</step>
+<step>
 		<operation>		
 			<number value="7"/> 
 			<name value="Register administration"/> 
@@ -185,10 +202,15 @@
 			<dotted value="true"/>
 			<initiatorActive value="true"/>
 		</operation>
+</step>
 
+<step>
 		<pause value="true"/>		
+</step>
 
+<step>
 		<process>
+<step>
 			<operation>		
 				<number value="7"/> 
 				<name value="Nurse updates administration report"/> 
@@ -199,15 +221,21 @@
 					<instanceId value="iheadm001.002" />
 				</instance>
 			</operation>
+</step>
 		</process>
+</step>
 
+<step>
 		<pause value="true"/>		
+</step>
 
+<step>
 		<process>
 			<number value="6"/> 
 			<name value="Upload administration reports"/>
 			<description value="The nurse's system uploads the administration results to the server"/>
 			<group value="true"/>
+<step>
 			<operation>		
 				<number value="8"/> 
 				<name value="Refresh"/> 
@@ -222,7 +250,9 @@
 				</instance>
 
 			</operation>		
+</step>
 		</process>
+</step>
 
 -->
 
