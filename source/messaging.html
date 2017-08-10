@@ -78,19 +78,31 @@ responsible for honoring the contract that applies (including applicable profile
 in both directions.
 </p>
 
-<p>
+<p> 
 A key aspect of a message is the impact of its content:
 </p>
 [%codelist http://hl7.org/fhir/message-significance-category%]
 <p>
 Some Events defined by FHIR are assigned to one of these categories,
 but others are not able to be categorized in advance, and the category
-must be determined by the content, or the context.
+must be determined by the content, context, or use case.
 </p>
+<h4>Example: Elevation from Notification to Consequence</h4>
+<p> When it is necessary to receive an acknowledgement from multiple parties for a message 
+	of notification it becomes a message of consequence:
+	The sender will have to send multiple messages, even if they have the same endpoint. </p>
+<ul><li>Local protocol requires notification of all lab values</li>
+	<li>Local protocol requires that critical values must be acknowledged by both the ordering and primary provider.</li>
+	<li>Therefore a message of notification becomes a message of consequence.</li>
+	<li>Two messages SHALL be sent, each with a unique identifier. </li>	
+	<ul><li>One to the ordering provider</li>
+		<li>One to the primary provider</li></ul>
+			<li>Eachmessage SHALL have a unique acknowledgement</li>
+	</ul>
 <h3>Implication to Receiver</h3>
 <p>Another key aspect of a message is the impact of its destination.receiver. In some circumstances it may be sufficient to direct a message to an endpoint, while in others it may be necessary to direct the message to a specific organization or person.</p>
 <table class="grid">
- <tr><td>Consequence</td><td>A message of consequence SHOULD have at least one receiver specified.</td></tr>
+ <tr><td>Consequence</td><td>A message of consequence SHOULD have one and only one receiver specified.</td></tr>
  <tr><td>Currency</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
  <tr><td>Notification</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
 </table>
