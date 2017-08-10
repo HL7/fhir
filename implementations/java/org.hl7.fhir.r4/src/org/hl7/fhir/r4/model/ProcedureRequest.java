@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
+// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -957,7 +957,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
      */
     @Child(name = "reasonCode", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
+    @Description(shortDefinition="Explanation/Justification for procedure or service", formalDefinition="An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected List<CodeableConcept> reasonCode;
 
@@ -965,7 +965,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
      */
     @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Explanation/Justification for test", formalDefinition="Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation." )
+    @Description(shortDefinition="Explanation/Justification for procedure or service", formalDefinition="Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation." )
     protected List<Reference> reasonReference;
     /**
      * The actual objects that are the target of the reference (Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.)

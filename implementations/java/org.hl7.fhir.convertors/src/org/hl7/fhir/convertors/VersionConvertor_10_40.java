@@ -3043,7 +3043,7 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.r4.model.CarePlan.CarePlanActivityDetailComponent tgt = new org.hl7.fhir.r4.model.CarePlan.CarePlanActivityDetailComponent();
     copyElement(src, tgt);
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+//    tgt.setKind().add(convertCodeableConcept(src.getCategory()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonCode())
       tgt.addReasonCode(convertCodeableConcept(t));
@@ -3070,7 +3070,7 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.dstu2.model.CarePlan.CarePlanActivityDetailComponent tgt = new org.hl7.fhir.dstu2.model.CarePlan.CarePlanActivityDetailComponent();
     copyElement(src, tgt);
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+   // tgt.setCategory(convertCodeableConcept(src.getKind()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonCode())
       tgt.addReasonCode(convertCodeableConcept(t));
@@ -6686,7 +6686,7 @@ public class VersionConvertor_10_40 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.addCategory(convertCodeableConcept(src.getCategory()));
     tgt.setStatus(convertFlagStatus(src.getStatus()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setSubject(convertReference(src.getSubject()));
@@ -6703,7 +6703,7 @@ public class VersionConvertor_10_40 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.setCategory(convertCodeableConcept(src.getCategoryFirstRep()));
     tgt.setStatus(convertFlagStatus(src.getStatus()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setSubject(convertReference(src.getSubject()));

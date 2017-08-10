@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
+// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
 
 public enum ResourceType {
     Account,
@@ -19,6 +19,7 @@ public enum ResourceType {
     CapabilityStatement,
     CarePlan,
     CareTeam,
+    CatalogEntry,
     ChargeItem,
     Claim,
     ClaimResponse,
@@ -110,6 +111,7 @@ public enum ResourceType {
     ServiceDefinition,
     Slot,
     Specimen,
+    SpecimenDefinition,
     StructureDefinition,
     StructureMap,
     Subscription,
@@ -120,7 +122,8 @@ public enum ResourceType {
     TestReport,
     TestScript,
     ValueSet,
-    VisionPrescription;
+    VisionPrescription,
+    WorkflowExample;
 
 
     public String getPath() {;
@@ -153,6 +156,8 @@ public enum ResourceType {
       return "careplan";
     case CareTeam:
       return "careteam";
+    case CatalogEntry:
+      return "catalogentry";
     case ChargeItem:
       return "chargeitem";
     case Claim:
@@ -335,6 +340,8 @@ public enum ResourceType {
       return "slot";
     case Specimen:
       return "specimen";
+    case SpecimenDefinition:
+      return "specimendefinition";
     case StructureDefinition:
       return "structuredefinition";
     case StructureMap:
@@ -357,6 +364,8 @@ public enum ResourceType {
       return "valueset";
     case VisionPrescription:
       return "visionprescription";
+    case WorkflowExample:
+      return "workflowexample";
     }
       return null;
   }
@@ -391,6 +400,8 @@ public enum ResourceType {
       return CarePlan;
     if ("CareTeam".equals(code))
       return CareTeam;
+    if ("CatalogEntry".equals(code))
+      return CatalogEntry;
     if ("ChargeItem".equals(code))
       return ChargeItem;
     if ("Claim".equals(code))
@@ -573,6 +584,8 @@ public enum ResourceType {
       return Slot;
     if ("Specimen".equals(code))
       return Specimen;
+    if ("SpecimenDefinition".equals(code))
+      return SpecimenDefinition;
     if ("StructureDefinition".equals(code))
       return StructureDefinition;
     if ("StructureMap".equals(code))
@@ -595,6 +608,8 @@ public enum ResourceType {
       return ValueSet;
     if ("VisionPrescription".equals(code))
       return VisionPrescription;
+    if ("WorkflowExample".equals(code))
+      return WorkflowExample;
 
     throw new FHIRException("Unknown resource type"+code);
   }

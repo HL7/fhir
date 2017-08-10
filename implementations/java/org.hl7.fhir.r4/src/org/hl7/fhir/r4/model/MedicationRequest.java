@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Jul 8, 2017 23:19+1000 for FHIR v3.1.0
+// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -3554,6 +3554,32 @@ public class MedicationRequest extends DomainResource {
    * the path value of "<b>MedicationRequest:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationRequest:patient").toLocked();
+
+ /**
+   * Search parameter: <b>intended-performer</b>
+   * <p>
+   * Description: <b>Returns the intended performer of the administration of the medication request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationRequest.performer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="intended-performer", path="MedicationRequest.performer", description="Returns the intended performer of the administration of the medication request", type="reference", target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  public static final String SP_INTENDED_PERFORMER = "intended-performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>intended-performer</b>
+   * <p>
+   * Description: <b>Returns the intended performer of the administration of the medication request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationRequest.performer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INTENDED_PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INTENDED_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationRequest:intended-performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INTENDED_PERFORMER = new ca.uhn.fhir.model.api.Include("MedicationRequest:intended-performer").toLocked();
 
  /**
    * Search parameter: <b>context</b>
