@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<WorkflowExample xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/workflowexample.xsd">
+<WorkflowExample xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/workflowexample.xsd">
 	<id value="example"/>
 
 	<title value="Mobile Medication Administration"/> 
@@ -16,27 +16,21 @@
 		<description value="The Nurse" />
 	</actor>
 	<actor>
-		<actorId value="OP"/>
-		<type value="entity"/>
-		<name value="Medication Administration Order Placer" />
-		<description value="The Medication Administration Order Placer" />
-	</actor>
-	<actor>
 		<actorId value="MAP"/>
 		<type value="entity"/>
-		<name value="Medication Administration Performer" />
+		<name value="Nurse's Tablet" />
 		<description value="The entity that receives the Administration Requests to show the nurse to perform them" />
 	</actor>	
 	<actor>
-		<actorId value="MAI"/>
+		<actorId value="OP"/>
 		<type value="entity"/>
-		<name value="Medication Administration Informer" />
-		<description value="The entity that registers information about the administration execution" />
+		<name value="MAR / Scheduler" />
+		<description value="The Medication Administration Order Placer" />
 	</actor>
 	<actor>
 		<actorId value="MAC"/>
 		<type value="entity"/>
-		<name value="Medication Administration Consumer" />
+		<name value="MAR / EHR" />
 		<description value="The entity that receives the Medication Administration reports" />
 	</actor>
 
@@ -86,6 +80,48 @@
 		<description value="The administration request for day 2, evening" />
 	</instance>
 
+
+	<instance>
+		<resourceId value="iherx001.999" />
+		<resourceType value="Bundle"/>
+		<name value="Response: Bundle[MedicationRequest]" />
+		<description value="The server response in a bundle of resources" />
+	</instance>	
+
+
+	<instance>
+		<resourceId value="iheadm001a" />
+		<resourceType value="MedicationAdministration"/>
+		<name value="Morning meds - taken" />
+		<description value="Administration report for day 1, morning: Taken" />
+	</instance>
+
+	<instance>
+		<resourceId value="iheadm001b" />
+		<resourceType value="MedicationAdministration"/>
+		<name value="Morning meds - not taken" />
+		<description value="Administration report for day 1, morning: NOT Taken" />
+	</instance>
+
+
+
+	<instance>
+		<resourceId value="iheadm002" />
+		<resourceType value="MedicationAdministration"/>
+		<name value="Lunch meds - taken" />
+		<description value="Administration report for day 1, lunch: Taken" />
+		<version>
+			<versionId value="iheadm002v1" />
+			<description value="Medication just taken" />
+		</version>
+		<version>
+			<versionId value="iheadm002v2" />
+			<description value="Medication rejected" />
+		</version>
+	</instance>
+
+
+
 	<!-- QUESTION: How to define search actions?-->		
 	<instance>
 		<resourceId value="ihesearchparam_rx.performer"/>
@@ -103,21 +139,24 @@
 		<step>
 			<operation> 
 				<number value="1"/> 
-				<name value="Get today's schedule"/> 
+				<name value="1. Get today's schedule"/> 
 				<initiator value="Nurse"/> 
 				<receiver value="MAP"/> 
+				<instance>
+					<instanceId value="iherx001.001"/>
+				</instance>
 			</operation>		
 		</step>
 
 		<step>
 			<process> 
-				<title value="Query Administration Requests"/> 
+				<title value="P1. Query Administration Requests"/> 
 				<description value="Query for medication administration orders,\n- For today's shifts\n- For today's patients" />
 
 				<step>
 					<operation> 
 						<number value="2"/> 
-						<name value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
+						<name value="2.Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
 						<initiator value="MAP"/> 
 						<receiver value="OP"/> 
 						<instance>
@@ -182,6 +221,80 @@
 				<receiver value="MAP"/> 
 			</operation>
 		</step>
+
+
+		<step>
+			<pause value="true"/>		
+		</step>
+
+		<step>
+			<operation>		
+				<number value="5"/> 
+				<name value="Ask if patient took meds"/> 
+				<initiator value="Nurse"/> 
+				<receiver value="Nurse"/> 
+			</operation>
+		</step>
+
+
+
+		<step>
+			<alternative>
+				<name value="Check if patient took drugs"/>		
+				<option>
+					<description value="Yes, patient took drugs"/>
+					<step>
+						<process>
+							<title value="Register Meds taken"/>
+							<step>
+								<operation>		
+									<number value="1a"/> 
+									<name value="Register Meds taken"/> 
+									<initiator value="Nurse"/> 
+									<receiver value="MAP"/> 
+									<initiatorActive value="true"/>
+								</operation>
+							</step>
+						</process>
+					</step>
+				</option>
+				<option>
+					<description value="No, patient did not take drugs"/>
+					<step>
+						<process>
+							<title value="Register Meds NOT taken"/>
+							<step>
+								<operation>		
+									<number value="1b"/> 
+									<name value="Register Meds NOT taken"/> 
+									<initiator value="Nurse"/> 
+									<receiver value="MAP"/> 
+									<initiatorActive value="true"/>
+								</operation>
+							</step>
+						</process>
+					</step>
+				</option>
+
+
+				<option>
+					<description value="Not clear"/>
+					<step>
+						<pause value="true"/>		
+					</step>
+				</option>
+
+
+
+			</alternative>
+		</step>
+
+		<step>
+			<pause value="true"/>		
+		</step>
+
+
+
 		<step>
 			<operation>		
 				<number value="6"/> 
@@ -195,7 +308,7 @@
 				<number value="7"/> 
 				<name value="Register administration"/> 
 				<initiator value="Nurse"/> 
-				<receiver value="MAI"/> 
+				<receiver value="MAP"/> 
 				<initiatorActive value="true"/>
 			</operation>
 		</step>
@@ -206,13 +319,13 @@
 
 		<step>
 			<process>
-				<title value="Update administration reports"/>
+				<title value="P2. Update administration reports"/>
 				<step>
 					<operation>		
-						<number value="7"/> 
+						<number value="8"/> 
 						<name value="Nurse updates administration report"/> 
 						<initiator value="Nurse"/> 
-						<receiver value="MAI"/> 
+						<receiver value="MAP"/> 
 						<initiatorActive value="true"/>
 						<instance>
 							<instanceId value="iheadm001.002" />
@@ -228,11 +341,11 @@
 
 		<step>
 			<process>
-				<title value="Upload administration reports"/>
+				<title value="P3. Upload administration reports"/>
 				<description value="The nurse's system uploads the administration results to the server"/>
 				<step>
 					<operation>		
-						<number value="8"/> 
+						<number value="9"/> 
 						<name value="Refresh"/> 
 						<initiator value="MAP"/> 
 						<receiver value="MAC"/> 
@@ -254,5 +367,3 @@
 
 
 </WorkflowExample>
-
-

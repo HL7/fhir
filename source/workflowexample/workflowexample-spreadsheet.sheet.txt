@@ -412,34 +412,41 @@
   Definition = A human-readable description of each option
 
  -- Row 63 -----------------------------------
+  Element = WorkflowExample.process.step.alternative.option.step
+  Card. = 0..*
+  Type = @WorkflowExample.process.step
+  Short Name = What happens in each alternative option
+  Definition = What happens in each alternative option
+
+ -- Row 64 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.process
   Card. = 0..*
   Type = @WorkflowExample.process
   Short Name = Nested processes in an option branch
   Definition = Nested processes in an option branch
 
- -- Row 64 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.alternative
   Card. = 0..*
   Type = @WorkflowExample.process.step.alternative
   Short Name = Nested alternatives in an option branch
   Definition = Nested alternatives in an option branch
 
- -- Row 65 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.operation
   Card. = 0..*
   Type = @WorkflowExample.process.step.operation
   Short Name = Nested operations in an option branch
   Definition = Nested operations in an option branch
 
- -- Row 66 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.pause
   Card. = 0..*
   Type = boolean
   Short Name = If there is a pause in the flow
   Definition = If there is a pause in the flow
 
- -- Row 67 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = WorkflowExample.workflow
   Card. = 0..*
   Type = Reference (WorkflowExample)
