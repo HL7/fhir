@@ -100,161 +100,155 @@
 		<preConditions value="Medication administration requests are in the EHR / MAR, scheduled for each individual intake."/>
 		<postConditions value="Medication administration Reports are submitted, EHR is updated."/>
 
-<step>
-		<operation> 
-			<number value="1"/> 
-			<name value="Get today's schedule"/> 
-			<initiator value="Nurse"/> 
-			<receiver value="MAP"/> 
-		</operation>		
-</step>
-
-<step>
-		<process> 
-			<title value="Query Administration Requests"/> 
-			<description value="Query for medication administration orders,\n- For today's shifts\n- For today's patients" />
-
-<step>
+		<step>
 			<operation> 
-				<number value="2"/> 
-				<name value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
-				<initiator value="MAP"/> 
-				<receiver value="OP"/> 
-				<instance>
-					<instanceId value="ihesearchparam_rx.performer"/>
-				</instance>
-			</operation>
-</step>
-
-
-
-<step>
-			<operation>
-				<number value="3"/> 
-				<name value="Return medication administration orders" />
-				<initiator value="OP"/> 
+				<number value="1"/> 
+				<name value="Get today's schedule"/> 
+				<initiator value="Nurse"/> 
 				<receiver value="MAP"/> 
-				<description value="Return medication administration orders" />
-				<instance>
-					<instanceId value="iherx001.001"/>
-				</instance>
-				<instance>
-					<instanceId value="iherx001.002"/>
-				</instance>
-				<instance>
-					<instanceId value="iherx001.003"/>
-				</instance>
-				<instance>
-					<instanceId value="iherx001.004"/>
-				</instance>
-				<instance>
-					<instanceId value="iherx001.005"/>
-				</instance>
-				<instance>
-					<instanceId value="iherx001.006"/>
-				</instance>
+			</operation>		
+		</step>
+
+		<step>
+			<process> 
+				<title value="Query Administration Requests"/> 
+				<description value="Query for medication administration orders,\n- For today's shifts\n- For today's patients" />
+
+				<step>
+					<operation> 
+						<number value="2"/> 
+						<name value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
+						<initiator value="MAP"/> 
+						<receiver value="OP"/> 
+						<instance>
+							<instanceId value="ihesearchparam_rx.performer"/>
+						</instance>
+					</operation>
+				</step>
+
+
+
+				<step>
+					<operation>
+						<number value="3"/> 
+						<name value="Return medication administration orders" />
+						<initiator value="OP"/> 
+						<receiver value="MAP"/> 
+						<description value="Return medication administration orders" />
+						<instance>
+							<instanceId value="iherx001.001"/>
+						</instance>
+						<instance>
+							<instanceId value="iherx001.002"/>
+						</instance>
+						<instance>
+							<instanceId value="iherx001.003"/>
+						</instance>
+						<instance>
+							<instanceId value="iherx001.004"/>
+						</instance>
+						<instance>
+							<instanceId value="iherx001.005"/>
+						</instance>
+						<instance>
+							<instanceId value="iherx001.006"/>
+						</instance>
+					</operation>
+				</step>
+
+
+			</process>	
+		</step>
+
+		<step>
+			<pause value="true"/>		
+		</step>
+
+
+
+		<step>
+			<operation>		
+				<number value="4"/> 
+				<name value="Notify (alert)"/> 
+				<initiator value="MAP"/> 
+				<receiver value="Nurse"/> 
 			</operation>
-</step>
-
-
-		</process>	
-</step>
-
-<step>
-		<pause value="true"/>		
-</step>
-
-<!--
-
-<step>
-		<operation>		
-			<number value="4"/> 
-			<name value="Notify (alert)"/> 
-			<initiator value="MAP"/> 
-			<receiver value="Nurse"/> 
-			<dotted value="true"/>
-		</operation>
-</step>
-<step>
-		<operation>		
-			<number value="5"/> 
-			<name value="Read orders"/> 
-			<initiator value="Nurse"/> 
-			<receiver value="MAP"/> 
-			<dotted value="true"/>
-		</operation>
-<step>
-</step>
-		<operation>		
-			<number value="6"/> 
-			<name value="Administer drug"/> 
-			<initiator value="Nurse"/> 
-			<receiver value="Nurse"/> 
-			<dotted value="true"/>
-		</operation>
-</step>
-<step>
-		<operation>		
-			<number value="7"/> 
-			<name value="Register administration"/> 
-			<initiator value="Nurse"/> 
-			<receiver value="MAI"/> 
-			<dotted value="true"/>
-			<initiatorActive value="true"/>
-		</operation>
-</step>
-
-<step>
-		<pause value="true"/>		
-</step>
-
-<step>
-		<process>
-<step>
+		</step>
+		<step>
+			<operation>		
+				<number value="5"/> 
+				<name value="Read orders"/> 
+				<initiator value="Nurse"/> 
+				<receiver value="MAP"/> 
+			</operation>
+		</step>
+		<step>
+			<operation>		
+				<number value="6"/> 
+				<name value="Administer drug"/> 
+				<initiator value="Nurse"/> 
+				<receiver value="Nurse"/> 
+			</operation>
+		</step>
+		<step>
 			<operation>		
 				<number value="7"/> 
-				<name value="Nurse updates administration report"/> 
+				<name value="Register administration"/> 
 				<initiator value="Nurse"/> 
 				<receiver value="MAI"/> 
 				<initiatorActive value="true"/>
-				<instance>
-					<instanceId value="iheadm001.002" />
-				</instance>
 			</operation>
-</step>
-		</process>
-</step>
+		</step>
 
-<step>
-		<pause value="true"/>		
-</step>
+		<step>
+			<pause value="true"/>		
+		</step>
 
-<step>
-		<process>
-			<number value="6"/> 
-			<name value="Upload administration reports"/>
-			<description value="The nurse's system uploads the administration results to the server"/>
-			<group value="true"/>
-<step>
-			<operation>		
-				<number value="8"/> 
-				<name value="Refresh"/> 
-				<initiator value="MAP"/> 
-				<receiver value="MAC"/> 
-				<dotted value="true"/>	
-				<instance>
-					<instanceId value="iheadm001.001" />
-				</instance>	
-				<instance>
-					<instanceId value="iheadm001.002" />
-				</instance>
+		<step>
+			<process>
+				<title value="Update administration reports"/>
+				<step>
+					<operation>		
+						<number value="7"/> 
+						<name value="Nurse updates administration report"/> 
+						<initiator value="Nurse"/> 
+						<receiver value="MAI"/> 
+						<initiatorActive value="true"/>
+						<instance>
+							<instanceId value="iheadm001.002" />
+						</instance>
+					</operation>
+				</step>
+			</process>
+		</step>
 
-			</operation>		
-</step>
-		</process>
-</step>
+		<step>
+			<pause value="true"/>		
+		</step>
 
--->
+		<step>
+			<process>
+				<title value="Upload administration reports"/>
+				<description value="The nurse's system uploads the administration results to the server"/>
+				<step>
+					<operation>		
+						<number value="8"/> 
+						<name value="Refresh"/> 
+						<initiator value="MAP"/> 
+						<receiver value="MAC"/> 
+						<instance>
+							<instanceId value="iheadm001.001" />
+						</instance>	
+						<instance>
+							<instanceId value="iheadm001.002" />
+						</instance>
+
+					</operation>		
+				</step>
+			</process>
+		</step>
+
+
 
 	</process>
 
