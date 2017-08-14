@@ -160,6 +160,36 @@ approaches to authorization.
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
+<a name="User Identity and Access Context"> </a>
+<h4>
+User Identity and Access Context
+</h4>
+
+<p>
+
+<em>Use case:</em> "Access to protected Resources are enabled though user Role-Based, 
+Context-Based, and/or Attribute-Based Access Control."
+
+</p>
+
+<p>
+
+<em>Approach:</em> Users should be identified and should have their Functional and/or Structural role 
+declared when these roles are related to the functionality the user is interacting with. Roles should 
+be conveyed using standard codes from <a href="valueset-security-role-type.html">Security Role Vocabulary</a>.
+</p><p>
+A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
+should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
+</p><p>
+When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
+the role of the user are managed by the OAuth authorization service (AS), and may be communicated 
+in the security token where jwt tokens are used.
+
+For details, see
+<a href="security-labels.html#hcs">Security: HCS vocabulary</a>.
+
+</p>
+
 <a name="audit"> </a>
 <h4>
 Audit Logging
@@ -216,15 +246,10 @@ For Privacy Consent guidance and examples, see
 <h4>
 Provenance
 </h4>
-
 <p>
-
 <em>Use case:</em> "All FHIR Resources should be capable of having the Provenance fully described."
-
 </p>
-
 <p>
-
 <em>Approach:</em> FHIR provides the Provenance resource suitable for
 use by FHIR clients and servers to record the full provenance details: who, what, where, when, and why. 
 A Provenance resource can record details for Create, Update, and Delete; or any other activity. 
@@ -235,6 +260,19 @@ This is <a href="w5.html">overlap is expected and cross-referenced on the W5 rep
 For details, see
 <a href="provenance.html">Provenance Resource</a>.
 </p>
+<p>
+<em>Use case:</em> "For any given query, need Provenance records also."
+</p>
+<p>
+<em>Approach:</em> Given that a system is using Provenance records. 
+When one needs the Provenance records in addition to the results of a query on other records (e.g. Query on MedicatioRequest), 
+then one uses reverse include to request that all Provenance records also be returned. 
+That is add <code>?_revinclude=Provenance:target</code>. 
+
+For details, see <a href="search.html#revinclude">_revinclude</a>.
+</p>
+
+
 <a name="signature"> </a>
 <h4>Signature</h4>
 <p>
@@ -247,7 +285,17 @@ Where the signature can be any local policy agreed to signature including Digita
 
 For details, see
 <a href="security.html#signatures">Security: Digital Signatures</a>.
-
+</p><p>
+Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
+When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
+the server is expected to update relevant elements that it manages (id, lastupdated, etc). 
+These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
+One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
+created/updated Resource is as expected, then the Digital Signature is formed.
+</p><p>
+A variation of this happens in Messaging, Documents, and other interaction models. 
+For details, see 
+<a href="updates.html">Ramifications of storage/retrieval variations</a>
 </p>
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>

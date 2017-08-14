@@ -6,21 +6,21 @@
   <target>
     <reference value="Sequence/example"/>
   </target>
-  <period>
+  <occuredPeriod>
     <start value="2017-06-06"/>
-  </period>
+  </occuredPeriod>
   <recorded value="2016-06-09T08:12:14+10:00"/>
   <reason>
-      <display value="antiviral resistance detection"/>
+      <text value="antiviral resistance detection"/>
   </reason>
 
   <agent>
-    <role>
+    <type>
       <coding>
         <system value="http://hl7.org/fhir/v3/ParticipationType"/>
         <code value="AUT"/>
       </coding>
-    </role>
+    </type>
     <whoReference>
     <reference value="Practitioner/example"/>
   </whoReference>

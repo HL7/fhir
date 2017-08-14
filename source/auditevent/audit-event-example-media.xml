@@ -22,13 +22,13 @@
   concatenated together, separated by the | character. 
   AlternativeUserId - Process ID
   -->
-    <role>
+    <type>
       <coding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110153"/>
         <display value="Source Role ID"/>
       </coding>
-    </role>
+    </type>
 	<userId>
 		<value value="ExportToMedia.app"/>
 	</userId>
@@ -36,6 +36,7 @@
   </agent>
   <agent>
   <!--  The Human using the software, if known  -->
+    <type> <coding> <system value="http://hl7.org/fhir/extra-security-role-type"/> <code value="humanuser"/> <display value="human user"/> </coding> </type> 
 	<userId>
 		<value value="95"/>
 	</userId>
@@ -45,14 +46,13 @@
   </agent>
   <agent>
   <!--  The media exported onto  -->
+    <type> <coding> <system value="http://dicom.nema.org/resources/ontology/DCM"/> <code value="110154"/> <display value="Destination Media"/> </coding> </type> 
     <name value="Media title: Hello World"/>
     <requestor value="false"/>
     <media>
-   
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110033"/>
         <display value="DVD"/>
-   
     </media>
   </agent>
   <source>

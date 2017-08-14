@@ -20,6 +20,8 @@
     <recorded value="2012-10-25T22:04:27+11:00"/>
     <outcome value="0"/>
   <agent>
+      <type> <coding> <system value="http://hl7.org/fhir/extra-security-role-type"/> <code value="humanuser"/> <display value="human user"/> </coding> </type> 
+
     <role>
       <text value="Service User (Logon)"/>
     </role>
@@ -33,7 +35,7 @@
     </network>
   </agent>
   <agent> <!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
-    <role> <coding> <system value="http://dicom.nema.org/resources/ontology/DCM"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </role> 
+    <type> <coding> <system value="http://dicom.nema.org/resources/ontology/DCM"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </type> 
     <userId> <value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/> </userId> 
     <altId value="6580"/> 
     <requestor value="false"/> 

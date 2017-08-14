@@ -6,7 +6,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/security-role-type
   Definition = The role that a provenance agent played with respect to the activity.
-  Conformance = extensible
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = ProvenanceEntityRole
@@ -29,11 +29,18 @@
   Conformance = extensible
 
  -- Row 5 -----------------------------------
-  Binding Name = RelatedAgentType
+  Binding Name = !RelatedAgentType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-RoleLinkType
   Definition = Type of relationship between two provenance agents.
   Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = ProvenanceAgentType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/participation-role-type
+  Definition = The type of participation that a provenance agent played with respect to the activity.
+  Conformance = extensible
 
 === Sheet provenance-entity-role =====================================
 
@@ -102,9 +109,9 @@
   w5 = what
 
  -- Row 3 -----------------------------------
-  Element = Provenance.period
+  Element = Provenance.occured[x]
   Card. = 0..1
-  Type = Period
+  Type = Period|dateTime
   Short Name = When the activity occurred
   Definition = The period during which the activity occurred
   Comments = The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time
@@ -149,7 +156,7 @@
  -- Row 7 -----------------------------------
   Element = Provenance.reason
   Card. = 0..*
-  Type = Coding
+  Type = CodeableConcept
   Binding = ProvenanceReason
   Short Name = Reason the activity is occurring
   Definition = The reason that the activity was taking place
@@ -161,7 +168,7 @@
  -- Row 8 -----------------------------------
   Element = Provenance.activity
   Card. = 0..1
-  Type = Coding
+  Type = CodeableConcept
   Binding = ProvenanceActivity
   Short Name = Activity that occurred
   Definition = An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities
@@ -184,38 +191,49 @@
   w5 = who
 
  -- Row 10 -----------------------------------
+  Element = Provenance.agent.type
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProvenanceAgentType
+  Short Name = How the agent participated
+  Definition = The participation the agent had with respect to the activity.
+  Comments = For example: author, performer, enterer, attester, etc
+  RIM Mapping = .role
+  Auditevent Mapping = AuditEvent.agent.type
+  Prov Mapping = Agent.Attribution
+
+ -- Row 11 -----------------------------------
   Element = Provenance.agent.role
   Card. = 0..*
-  Summary = y
   Type = CodeableConcept
   Binding = ProvenanceAgentRole
   Short Name = What the agents role was
   Definition = The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.
-  Comments = For example: author, performer, enterer, attester, doctor, nurse, clerk, etc
-  RIM Mapping = .role and/or .typecode
+  Comments = For example: doctor, nurse, clerk, etc
+  RIM Mapping = .typecode
   Auditevent Mapping = AuditEvent.agent.role
-  Prov Mapping = Agent.Attribution
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Provenance.agent.who[x]
   Card. = 1..1
   Summary = y
-  Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
+  Type = uri|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
   Short Name = Who participated
   Definition = The individual, device or organization that participated in the event
   RIM Mapping = .id
   w5 = who.actor
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Provenance.agent.onBehalfOf[x]
   Card. = 0..1
-  Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
+  Type = uri|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
   Short Name = Who the agent is representing
   Definition = The individual, device, or organization for whom the change was made
   RIM Mapping = Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]
 
- -- Row 13 -----------------------------------
-  Element = Provenance.agent.relatedAgentType
+ -- Row 14 -----------------------------------
+  Element = !Provenance.agent.relatedAgentType
   Card. = 0..1
   Type = CodeableConcept
   Binding = RelatedAgentType
@@ -224,7 +242,7 @@
   RIM Mapping = .typeCode
   Prov Mapping = type
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Provenance.entity
   Card. = 0..*
   UML = 440;30
@@ -235,7 +253,7 @@
   Auditevent Mapping = AuditEvent.entity
   Prov Mapping = Entity
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Provenance.entity.role
   Card. = 1..1
   Summary = y
@@ -248,7 +266,7 @@
   Prov Mapping = Entity.role
   Committee Notes = No uses cases have been identified for extensibility for this role
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Provenance.entity.what[x]
   Card. = 1..1
   Summary = y
@@ -260,7 +278,7 @@
   Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Provenance.entity.agent
   Card. = 0..*
   Type = @Provenance.agent
@@ -269,131 +287,10 @@
   Comments = A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity\'s use in the context of this Provenance activity.
   RIM Mapping = ./author/role
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Provenance.signature
   Card. = 0..*
   Type = Signature
   Short Name = Signature on target
   Definition = A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.
   RIM Mapping = ./signatureText
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = target
-  Type = reference
-  Path = Provenance.target
-
- -- Row 2 -----------------------------------
-  Name = start
-  Type = date
-  Path = Provenance.period.start
-
- -- Row 3 -----------------------------------
-  Name = end
-  Type = date
-  Path = Provenance.period.end
-
- -- Row 4 -----------------------------------
-  Name = location
-  Type = reference
-  Path = Provenance.location
-
- -- Row 5 -----------------------------------
-  Name = agent
-  Type = reference
-  Path = Provenance.agent.who[x]
-
- -- Row 6 -----------------------------------
-  Name = !userid
-  Type = token
-  Path = Provenance.agent.userId
-
- -- Row 7 -----------------------------------
-  Name = patient
-  Type = reference
-  Path = Provenance.target
-  Target Types = Patient
-
- -- Row 8 -----------------------------------
-  Name = signature-type
-  Type = token
-  Path = Provenance.signature.type
-
- -- Row 9 -----------------------------------
-  Name = !entity-type
-  Type = token
-  Path = Provenance.entity.type
-
- -- Row 10 -----------------------------------
-  Name = entity-ref
-  Type = reference
-  Path = Provenance.entity.whatReference
-
- -- Row 11 -----------------------------------
-  Name = recorded
-  Type = date
-  Path = Provenance.recorded
-
- -- Row 12 -----------------------------------
-  Name = entity-id
-  Type = token
-  Path = Provenance.entity.whatIdentifier
-
- -- Row 13 -----------------------------------
-  Name = !agent-type
-  Type = token
-  Path = Provenance.agent.type
-
- -- Row 14 -----------------------------------
-  Name = agent-role
-  Type = token
-  Path = Provenance.agent.role
-
-=== Sheet Profiles =====================================
-
- -- Row 1 -----------------------------------
-  Name = !Provenance HL7 Extensions
-  IG Name = core
-  Filename = !provenance-extensions-spreadsheet.xml
-  Type = spreadsheet
-
- -- Row 2 -----------------------------------
-  Name = !Provenance Relevant History
-  IG Name = core
-  Filename = relevant-history.xml
-  Type = spreadsheet
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = General
-  Identity = example
-  Description = General Provenance Example
-  Filename = provenance-example.xml
-
- -- Row 2 -----------------------------------
-  Name = Signature
-  Identity = signature
-  Description = Provenance holding a signature
-  Filename = provenance-example-sig.xml
-
- -- Row 3 -----------------------------------
-  Name = Consent Signature
-  Identity = consent-signature
-  Description = Provenance with signature for a Consent example
-  Filename = provenance-consent-signature.xml
-
- -- Row 4 -----------------------------------
-  Name = Biocompute Object
-  Identity = example-biocompute-object
-  Description = Provenance  example for Biocompute objects
-  Filename = provenance-example-biocompute-object.xml
-
- -- Row 5 -----------------------------------
-  Name = CWL Workflow
-  Identity = example-cwl
-  Description = Provenance  example for cwl workflow project
-  Filename = provenance-example-cwl.xml
-
-=== Sheet Examples =====================================

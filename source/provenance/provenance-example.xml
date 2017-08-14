@@ -13,10 +13,10 @@
 	<target>
 		<reference value="Procedure/example/_history/1"/>
 	</target>
-	<period>
+	<occuredPeriod>
 		<start value="2015-06-27"/>
 		<end value="2015-06-28"/>
-	</period>
+	</occuredPeriod>
 	<recorded value="2015-06-27T08:39:24+10:00"/>
 	<!-- reference to a patient consent to share inforamtion -->
 	<policy value="http://acme.com/fhir/Consent/25"/>
@@ -24,36 +24,36 @@
 		<reference value="Location/1"/>
 	</location>
 	<reason>
+	   <coding>
 		<system value="http://snomed.info/sct"/>
 		<code value="3457005"/>
 		<display value="Referral"/>
+	   </coding>
 	</reason>
 
 	<!-- author = Harold Hippocrates -->
 	<agent>
-		<role>
+		<type>
 			<coding>
 				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
 				<code value="AUT"/>
 			</coding>
-		</role>
+		</type>
 		<whoReference>
 			<reference value="Practitioner/xcda-author"/>
 		</whoReference>
 		<!-- reference to other agent defined within -->
 		<onBehalfOfUri value="#a1"/>
-		<relatedAgentType>
-			<text value="used"/>
-		</relatedAgentType>
+
 	</agent>
 	<!-- device = software Harold used -->
 	<agent id="a1">
-		<role>
+		<type>
 			<coding>
 				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
 				<code value="DEV"/>
 			</coding>
-		</role>
+		</type>
 		<whoReference>
 			<reference value="Device/software"/>
 		</whoReference>

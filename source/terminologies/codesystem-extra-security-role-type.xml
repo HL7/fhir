@@ -44,4 +44,9 @@
     <display value="data subject"/>
     <definition value="A person whose personal information is collected or processed, and who may have certain rights under policy or law to control that information's management and distribution by data collectors or processors, including the right to access, retrieve, distribute, or delete that information."/>
   </concept>
+  <concept>
+    <code value="humanuser"/>
+    <display value="human user"/>
+    <definition value="The human user that has participated."/>
+  </concept>
 </CodeSystem>

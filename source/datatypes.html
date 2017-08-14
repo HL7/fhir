@@ -1232,7 +1232,7 @@ See also <a href="datatypes-examples.html#Signature">Examples</a>, <a href="data
 </p>
 <p>
 A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form.
-The signature may either be a cryptographic type (XML DigSig or a JWT), which is able to provide non-repudiation proof, or
+The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or
 it may be a graphical image that represents a signature or a signature process.
 </p>
 [%dt Signature 14%]
@@ -1275,7 +1275,29 @@ There are three levels of signature verification:
 Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the XML-Signature block.
 For example, some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary.
 </p>
-
+<h3>JSON Signature rules</h3>
+<p>
+When the signature is an JSON Digital Signature (contentType = application/jose), the following rules apply:
+</p>
+<ul>
+ <li>The Signature.blob is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
+ <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
+ <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
+ <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
+</ul>
+<p>
+There are three levels of signature verification:
+<ol>
+   <li>Verifying that the Digital Signature block itself has integrity through verifying the signature across the JWS-Signature.</li>
+   <li>Confirming that the signer was authentic, not revoked, and appropriate to the signature purpose.</li>
+   <li>Confirming that the signed content of interest is unmodified using the hash algorithm.</li>
+</ol>
+</p>
+<p>
+Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the JWS-Signature block.
+For example, some environments may choose a different hashing algorithm, policy identifier, or signature purpose vocabulary.
+</p>
 <p>
 Signature is used in the following places: [%dtusage Signature%]
 </p>

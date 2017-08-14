@@ -296,6 +296,7 @@
   Type = composite
   Description = A composite of both characteristic and value
   Path = characteristic & value
+  Expression = Group.characteristic; code; value
 
 === Sheet Profiles =====================================
 

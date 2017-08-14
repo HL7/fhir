@@ -28,13 +28,13 @@
 
   <agent>
     <!-- who disclosed the data -->
-    <role>
+    <type>
       <coding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110153"/>
         <display value="Source Role ID"/>
       </coding>
-    </role>
+    </type>
     <userId>
       <value value="SomeIdiot@nowhere.com"/>
     </userId>
@@ -52,13 +52,13 @@
   </agent>
   <agent>
     <!-- who received the data -->
-    <role>
+    <type>
       <coding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
         <code value="110152"/>
         <display value="Destination Role ID"/>
       </coding>
-    </role>
+    </type>
     <reference>
       <reference value="Practitioner/example"/>
     </reference>

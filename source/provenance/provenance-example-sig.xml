@@ -15,24 +15,28 @@
   </target>
   <recorded value="2015-08-27T08:39:24+10:00"/>
   <reason>
+      <coding>
 		<system value="http://hl7.org/fhir/v3/ActReason"/>
 		<code value="TREAT"/>
 		<display value="treatment"/>
+      </coding>
   </reason>
   <activity>
+    <coding>
       <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
       <code value="AU"/>
       <display value="authenticated"/>
+	</coding>
   </activity>
  
   <!-- signer = Harold Hippocrates -->
   <agent>
-    <role>
+    <type>
       <coding>
         <system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
         <code value="VERF"/>
       </coding>
-    </role>
+    </type>
 
     <!-- very often, the user won't have a known system - these aren't available 
       for security system log ons. But where you can define it, you should.
