@@ -85,8 +85,10 @@ public class UTGGenerator extends BaseGenerator {
     String dest = args[0]; // the vocabulary repository to populate
     String v2source = args[1]; // access database name
     String v3source = args[2]; // MIF file name
-    String cdasource = args[3]; // MIF file name
-    new UTGGenerator(dest, v2source, v3source, cdasource).execute();
+    String cdasource = args[3]; // CDA source
+    String nlmUsername = args[4]; // 
+    String nlmPassword = args[5]; // 
+    new UTGGenerator(dest, v2source, v3source, cdasource, nlmUsername, nlmPassword).execute();
   }
 
 
@@ -95,11 +97,11 @@ public class UTGGenerator extends BaseGenerator {
   private V2SourceGenerator v2;
   private CDASourceGenerator cda;
 
-  public UTGGenerator(String dest, String v2source, String v3source, String cdaSource) throws IOException, ClassNotFoundException, SQLException, FHIRException, SAXException, ParserConfigurationException {
+  public UTGGenerator(String dest, String v2source, String v3source, String cdaSource, String nlmUsername, String nlmPassword) throws IOException, ClassNotFoundException, SQLException, FHIRException, SAXException, ParserConfigurationException {
     super(dest, new HashMap<String, CodeSystem>());
     v2 = new V2SourceGenerator(dest, csmap);
     v3 = new V3SourceGenerator(dest, csmap);
-    cda = new CDASourceGenerator(dest, csmap);
+    cda = new CDASourceGenerator(dest, csmap, nlmUsername, nlmPassword);
 
     v2.load(v2source);
     v3.load(v3source);
@@ -109,6 +111,7 @@ public class UTGGenerator extends BaseGenerator {
 
 
   private void execute() throws Exception {
+    cda.loadValueSets();
     v2.loadTables();
     v3.loadMif();
     v2.process();
@@ -116,7 +119,6 @@ public class UTGGenerator extends BaseGenerator {
     v2.generateCodeSystems();
     v3.generateCodeSystems();
     v3.generateValueSets();
-    cda.loadValueSets();
     System.out.println("finished");
   }
 

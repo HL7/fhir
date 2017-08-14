@@ -220,7 +220,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String sourceDir;
   private String destDir;
   private static String txServer = "http://tx.fhir.org/r3";
-//  private static String txServer = "http://local.healthintersections.com.au:960/open";
+//  private static String txServer = "http://local.fhir.org:960/open";
   private String igPack = "";
   private boolean watch;
 
@@ -583,6 +583,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private String ostr(JsonObject obj, String name) throws Exception {
+    if (obj == null)
+      return null;
     if (!obj.has(name))
       return null;
     if (!(obj.get(name) instanceof JsonPrimitive))
@@ -655,15 +657,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
       }
     }
-    if (!"jekyll".equals(str(configuration, "tool")))
+    if (configuration.has("tool") && !"jekyll".equals(str(configuration, "tool")))
       throw new Exception("Error: At present, configuration file must include a \"tool\" property with a value of 'jekyll'");
     tool = GenerationTool.Jekyll;
     version = ostr(configuration, "version");
     if (Utilities.noString(version))
       version = Constants.VERSION;
 
-    if (!configuration.has("paths") || !(configuration.get("paths") instanceof JsonObject))
-      throw new Exception("Error: configuration file must include a \"paths\" object");
+    if (configuration.has("paths") && !(configuration.get("paths") instanceof JsonObject))
+      throw new Exception("Error: if configuration file has a \"paths\", it must be an object");
     JsonObject paths = configuration.getAsJsonObject("paths");
     String root;
     if (fetcher instanceof ZipFetcher) {
@@ -679,12 +681,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     markdownEngine = new MarkDownProcessor(Dialect.DARING_FIREBALL);
     
     log("Root directory: "+root);
-    if (paths.get("resources") instanceof JsonArray) {
+    if (paths != null && paths.get("resources") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("resources"))
         resourceDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));
     } else
       resourceDirs.add(Utilities.path(root, str(paths, "resources", "resources")));
-    if (paths.get("pages") instanceof JsonArray) {
+    if (paths != null && paths.get("pages") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("pages"))
         pagesDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));
     } else
@@ -700,7 +702,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     else
       vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
 
-    specPath = str(paths, "specification");
+    specPath = str(paths, "specification", "http://hl7.org/fhir/");
     if (configuration.has("pre-process")) {
       if (configuration.get("pre-process") instanceof JsonArray) {
         for (JsonElement e : (JsonArray) configuration.get("pre-process")) {
@@ -710,7 +712,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         handlePreProcess(configuration.getAsJsonObject("pre-process"), root);
     }
 
-    igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
+    igName = Utilities.path(resourceDirs.get(0), str(configuration, "source", "ig.xml"));
 
     inspector = new HTLMLInspector(outputDir, specMaps, this);
     historyPage = ostr(paths, "history");
@@ -807,9 +809,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("Connect to Terminology Server at "+txServer);
     context.setExpansionProfile(makeExpProfile());
     context.initTS(vsCache, txServer);
-    String sct = str(configuration, "sct-edition", "");
-    if (Utilities.noString(sct))
-      throw new Exception("Must specify which SNOMED CT edition ('sct-edition') to use in the config file");
+    String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
     context.getExpansionProfile().addFixedVersion().setSystem("http://snomed.info/sct").setVersion(sct);
     context.getExpansionProfile().setActiveOnly("true".equals(ostr(configuration, "activeOnly")));
     if (txServer == null || !txServer.contains(":")) {
