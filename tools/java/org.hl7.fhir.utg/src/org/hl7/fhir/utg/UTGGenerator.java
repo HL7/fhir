@@ -98,10 +98,10 @@ public class UTGGenerator extends BaseGenerator {
   private CDASourceGenerator cda;
 
   public UTGGenerator(String dest, String v2source, String v3source, String cdaSource, String nlmUsername, String nlmPassword) throws IOException, ClassNotFoundException, SQLException, FHIRException, SAXException, ParserConfigurationException {
-    super(dest, new HashMap<String, CodeSystem>());
-    v2 = new V2SourceGenerator(dest, csmap);
-    v3 = new V3SourceGenerator(dest, csmap);
-    cda = new CDASourceGenerator(dest, csmap, nlmUsername, nlmPassword);
+    super(dest, new HashMap<String, CodeSystem>(), new HashSet<String>());
+    v2 = new V2SourceGenerator(dest, csmap, knownCS);
+    v3 = new V3SourceGenerator(dest, csmap, knownCS);
+    cda = new CDASourceGenerator(dest, csmap, knownCS, nlmUsername, nlmPassword);
 
     v2.load(v2source);
     v3.load(v3source);
@@ -111,7 +111,6 @@ public class UTGGenerator extends BaseGenerator {
 
 
   private void execute() throws Exception {
-    cda.loadValueSets();
     v2.loadTables();
     v3.loadMif();
     v2.process();
@@ -119,6 +118,7 @@ public class UTGGenerator extends BaseGenerator {
     v2.generateCodeSystems();
     v3.generateCodeSystems();
     v3.generateValueSets();
+    cda.loadValueSetsSource();
     System.out.println("finished");
   }
 

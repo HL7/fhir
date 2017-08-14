@@ -3,6 +3,7 @@ package org.hl7.fhir.utg;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,12 +15,20 @@ public class BaseGenerator {
   
   protected String dest;
   protected Map<String, CodeSystem> csmap;
+  protected Set<String> knownCS;
   
   
-  public BaseGenerator(String dest, Map<String, CodeSystem> csmap) {
+  public BaseGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
     super();
     this.dest = dest;
     this.csmap = csmap;
+    this.knownCS = knownCS;
+    knownCS.add("http://snomed.info/sct");
+    knownCS.add("http://loinc.org");
+    knownCS.add("http://hl7.org/fhir/sid/cvx");
+    knownCS.add("http://phdsc.org/standards/payer-typology.asp");
+    knownCS.add("http://www.nlm.nih.gov/research/umls/rxnorm");
+    knownCS.add("http://ncimeta.nci.nih.gov");
   }
 
   protected List<String> sorted(Set<String> keys) {
@@ -46,6 +55,8 @@ public class BaseGenerator {
 
 
   protected String identifyOID(String oid) {
+    if (Utilities.noString(oid))
+      return null;
     if ("SNOMEDCT".equals(oid))
       return "http://snomed.info/sct";
     if ("2.16.840.1.113883.6.96".equals(oid))

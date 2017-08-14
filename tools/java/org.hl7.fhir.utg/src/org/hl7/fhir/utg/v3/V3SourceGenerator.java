@@ -52,14 +52,14 @@ import org.xml.sax.SAXException;
 
 public class V3SourceGenerator extends BaseGenerator {
 
-  public V3SourceGenerator(String dest, Map<String, CodeSystem> csmap) {
-    super(dest, csmap);
+  public V3SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
+    super(dest, csmap, knownCS);
   }
 
   private Element mif;
   private List<ConceptDomain> v3ConceptDomains = new ArrayList<ConceptDomain>();
   private Set<String> notations = new HashSet<String>();
-
+  private Set<String> systems = new HashSet<String>();
 
   public class ConceptDomain {
     private String name; 
@@ -163,6 +163,7 @@ public class V3SourceGenerator extends BaseGenerator {
     CodeSystem cs = new CodeSystem();
     cs.setId("v3-"+makeSafeId(item.getAttribute("name")));
     cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    knownCS.add(cs.getUrl());
     cs.setName(item.getAttribute("name"));
     cs.setTitle(item.getAttribute("title"));
     cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+item.getAttribute("codeSystemId"));
@@ -674,6 +675,10 @@ public class V3SourceGenerator extends BaseGenerator {
     for (ValueSet vs : vsmap.values())
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v3", "valueSets", vs.getId())+".xml"), vs);
     System.out.println("Save v3 value sets ("+Integer.toString(vsmap.size())+" found)");
+    System.out.println("Unknown systems");
+    for (String s : sorted(systems)) 
+      if (!knownCS.contains(s)) 
+        System.out.println(" ..unknown.. "+s);
   }
 
   private void postProcess(HashMap<String, ValueSet> vsmap) throws Exception {
@@ -720,10 +725,18 @@ public class V3SourceGenerator extends BaseGenerator {
         throw new Exception("Unprocessed element "+child.getNodeName());
       child = XMLUtil.getNextSibling(child);
     }    
+    for (ConceptSetComponent cmp : vs.getCompose().getInclude()) 
+      checkCompose(vs.getId(), cmp);
+    for (ConceptSetComponent cmp : vs.getCompose().getExclude()) 
+      checkCompose(vs.getId(), cmp);
     return vs;
   }
-
-
+  
+  private void checkCompose(String string, ConceptSetComponent cmp) {
+    if (cmp.hasSystem())
+      systems.add(cmp.getSystem());
+  }
+  
   private void processHeader(Element item, ValueSet vs) throws Exception {
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {

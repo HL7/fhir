@@ -21,11 +21,15 @@ import java.util.Set;
 
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
+import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
+import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
@@ -38,8 +42,8 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class V2SourceGenerator extends BaseGenerator {
 
-  public V2SourceGenerator(String dest, Map<String, CodeSystem> csmap) {
-    super(dest, csmap);
+  public V2SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
+    super(dest, csmap, knownCS);
   }
 
   private Connection source;
@@ -100,7 +104,15 @@ public class V2SourceGenerator extends BaseGenerator {
     private String csoid;
     private String csversion;
     private String vsoid;
+   
+    private String description;
+    private int type;
+    private boolean generate;
+    private String section;
+    private String anchor;
+    private boolean caseInsensitive;
     private String steward;
+    
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
       this.version = version;
@@ -139,6 +151,48 @@ public class V2SourceGenerator extends BaseGenerator {
     }
     public void setVsoid(String vsoid) {
       this.vsoid = vsoid;
+    }
+    public String getDescription() {
+      return description;
+    }
+    public void setDescription(String description) {
+      this.description = description;
+    }
+    public int getType() {
+      return type;
+    }
+    public void setType(int type) {
+      this.type = type;
+    }
+    public boolean isGenerate() {
+      return generate;
+    }
+    public void setGenerate(boolean generate) {
+      this.generate = generate;
+    }
+    public String getSection() {
+      return section;
+    }
+    public void setSection(String section) {
+      this.section = section;
+    }
+    public String getAnchor() {
+      return anchor;
+    }
+    public void setAnchor(String anchor) {
+      this.anchor = anchor;
+    }
+    public boolean isCaseInsensitive() {
+      return caseInsensitive;
+    }
+    public void setCaseInsensitive(boolean caseInsensitive) {
+      this.caseInsensitive = caseInsensitive;
+    }
+    public String getSteward() {
+      return steward;
+    }
+    public void setSteward(String steward) {
+      this.steward = steward;
     }
 
   }
@@ -367,6 +421,7 @@ public class V2SourceGenerator extends BaseGenerator {
     String sql = "Select oid, symbolicName, object_description, Object_type from HL7Objects";
     ResultSet query = stmt.executeQuery(sql);
     while (query.next()) {
+        
       ObjectInfo oi = new ObjectInfo(query.getString("oid"), query.getString("symbolicName"), query.getString("object_description"), query.getInt("Object_type"));
       objects.put(oi.getOid(), oi);
     }
@@ -383,7 +438,8 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation from HL7Tables order by version_id");
+    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward  from HL7Tables order by version_id");
+        
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
       String vid = vers.get(Integer.toString(query.getInt("version_id"))).getVersion();
@@ -407,6 +463,13 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setCsoid(query.getString("cs_oid"));
       tv.setCsversion(query.getString("cs_version"));
       tv.setVsoid(query.getString("vs_oid"));
+      tv.setDescription(query.getString("description_as_pub"));
+      tv.setType(query.getInt("table_type"));
+      tv.setGenerate(query.getBoolean("generate"));
+      tv.setSection(query.getString("section"));
+      tv.setAnchor(query.getString("anchor"));
+      tv.setCaseInsensitive(query.getBoolean("case_insensitive"));
+      tv.setSteward(query.getString("steward"));
     }
     int i = 0;
     query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub  from HL7TableValues");
@@ -503,6 +566,7 @@ public class V2SourceGenerator extends BaseGenerator {
       cs.setId("v2-"+t.id+"-"+tv.version);
     }
     cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    knownCS.add(cs.getUrl());
     cs.setValueSet("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+cs.getId());
       
     cs.setVersion(tv.csversion);
@@ -516,11 +580,24 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
     cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+")");
     cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
-    cs.setCaseSensitive(false); // not that it matters, since they are all numeric
+    if (tv.isCaseInsensitive())
+      cs.setCaseSensitive(false);
+    else
+      cs.setCaseSensitive(true); 
     cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this correct
     cs.setCompositional(false);
     cs.setVersionNeeded(false);
     cs.setContent(CodeSystemContentMode.COMPLETE);
+    if (!Utilities.noString(tv.getSteward()))
+        cs.getExtension().add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new CodeType(tv.getSteward())));
+    if (!Utilities.noString(tv.getAnchor()))
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new UriType("http://hl7.org/v2/"+tv.getAnchor())));
+    if (!Utilities.noString(tv.getSection()))
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new StringType(tv.getSection())));
+    if (tv.getType() > 0)
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new CodeType(codeForType(tv.getType()))));
+    if (tv.isGenerate())
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
@@ -544,6 +621,7 @@ public class V2SourceGenerator extends BaseGenerator {
     CodeSystem cs = new CodeSystem();
     cs.setId("v2-"+t.id+"-"+tv.version);
     cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    knownCS.add(cs.getUrl());
     cs.setValueSet("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+cs.getId());
       
     cs.setVersion(tv.csversion);
@@ -557,11 +635,24 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
     cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+")");
     cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
-    cs.setCaseSensitive(false); // not that it matters, since they are all numeric
+    if (tv.isCaseInsensitive())
+      cs.setCaseSensitive(false);
+    else
+      cs.setCaseSensitive(true); // not that it matters, since they are all numeric
     cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); // todo - is this correct
     cs.setCompositional(false);
     cs.setVersionNeeded(false);
     cs.setContent(CodeSystemContentMode.COMPLETE);
+    if (!Utilities.noString(tv.getSteward()))
+      cs.getExtension().add(new Extension().setUrl("http://hl7.org/fhir/StructureDefinition/structuredefinition-wg").setValue(new CodeType(tv.getSteward())));
+    if (!Utilities.noString(tv.getAnchor()))
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdref").setValue(new UriType("http://hl7.org/v2/"+tv.getAnchor())));
+    if (!Utilities.noString(tv.getSection()))
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-stdsection").setValue(new StringType(tv.getSection())));
+    if (tv.getType() > 0)
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-v2type").setValue(new CodeType(codeForType(tv.getType()))));
+    if (tv.isGenerate())
+      cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
@@ -581,6 +672,27 @@ public class V2SourceGenerator extends BaseGenerator {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "vs-"+cs.getId())+".xml"), produceValueSet("Master", cs, t, tv));
   }
   
+  private String codeForType(int type) {
+    if (type == 0)
+      return  "undefined";
+    if (type == 1)
+      return  "User";
+    if (type == 2)
+      return  "HL7";
+    if (type == 4)
+      return  "no longer used";
+    if (type == 5)
+      return  "replaced";
+    if (type == 6)
+      return  "User Group /National Defined";
+    if (type == 7)
+      return  "Imported";
+    if (type == 8)
+      return  "Externally defined";
+    
+    throw new Error("not done yet: "+Integer.toString(type));
+  }
+
   private ValueSet produceValueSet(String vid, CodeSystem cs, Table t, TableVersion tv) {
     ValueSet vs = new ValueSet();
     vs.setId(cs.getId());

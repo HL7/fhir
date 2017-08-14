@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/implementations/java/imports/jackcess-2.1.6.jar"/>
 	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/implementations/java/imports/ucanaccess-4.0.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
