@@ -1703,3 +1703,31 @@
   Filename = claim-example-cms1500-medical.xml
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = submit
+  Use = Resource
+  Documentation = This operation is used to submit a Claim, Pre-Authorization or Pre-Determination (all instances of Claim resources) for adjudication either as a single Claim resource instance or as a Bundle containing the Claim and other referenced resources, or Bundle containing a batch of Claim resources, either as single Claims resources or Bundle resources, for processing. The only input parameter is the single Claim or Bundle resource and the only output is a single ClaimResponse, Bundle of ClaimResponses or an OperationOutcome resource.
+  Type = operation
+  Example.Request = $submit-request.txt
+  Example.Response = $submit-response.txt
+  Title = Submit a Claim resource for adjudication
+  Idempotent = False
+
+ -- Row 2 -----------------------------------
+  Name = submit.resource
+  Use = in
+  Documentation = A Claim resource or Bundle of claims, either as individual Claim resources or as Bundles each containing a single Claim plus referenced resources.
+  Type = Resource
+  Title = The Claim(s) to be adjudicated
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = submit.return
+  Use = out
+  Documentation = A Claim resource or Bundle of claim responses, either as individual ClaimResponse resources or as Bundles each containing a single ClaimResponse plus referenced resources.
+  Type = Resource
+  Title = The adjudicated responses to the Claim(s)
+  Min = 1
+  Max = 1
