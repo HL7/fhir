@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"> </a>
@@ -138,8 +138,8 @@ make rules about what signatures are required, and how they are to be shared and
 <a name="bnc"> </a>
 <h2>Background and Context</h2>
 <p>
-The Consent resource is structured with a base policy which is either opt-in or opt-out, 
-followed by a listing of exceptions to that policy.  The exceptions can be additional positive 
+Change to
+"The Consent resource is structured with a base policy (represented as Consent.policy/Consent.policyRule) which is either opt-in or opt-out, followed by a listing of exceptions to that policy (represented as Consent.provision(s)). The exceptions can be additional positive 
 or negative exceptions upon the base policy. The set of exceptions include a list of data objects, 
 list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
 </p>
