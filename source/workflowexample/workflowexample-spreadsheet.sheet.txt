@@ -419,21 +419,21 @@
   Definition = What happens in each alternative option
 
  -- Row 64 -----------------------------------
-  Element = WorkflowExample.process.step.alternative.option.process
+  Element = !WorkflowExample.process.step.alternative.option.process
   Card. = 0..*
   Type = @WorkflowExample.process
   Short Name = Nested processes in an option branch
   Definition = Nested processes in an option branch
 
  -- Row 65 -----------------------------------
-  Element = WorkflowExample.process.step.alternative.option.alternative
+  Element = !WorkflowExample.process.step.alternative.option.alternative
   Card. = 0..*
   Type = @WorkflowExample.process.step.alternative
   Short Name = Nested alternatives in an option branch
   Definition = Nested alternatives in an option branch
 
  -- Row 66 -----------------------------------
-  Element = WorkflowExample.process.step.alternative.option.operation
+  Element = !WorkflowExample.process.step.alternative.option.operation
   Card. = 0..*
   Type = @WorkflowExample.process.step.operation
   Short Name = Nested operations in an option branch

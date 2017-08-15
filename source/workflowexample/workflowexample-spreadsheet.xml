@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10152</WindowHeight>
-  <WindowWidth>30912</WindowWidth>
+  <WindowHeight>7356</WindowHeight>
+  <WindowWidth>12720</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -2819,7 +2819,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="String">WorkflowExample.process.step.alternative.option.process</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">!WorkflowExample.process.step.alternative.option.process</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2849,7 +2849,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="String">WorkflowExample.process.step.alternative.option.alternative</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">!WorkflowExample.process.step.alternative.option.alternative</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2879,7 +2879,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="String">WorkflowExample.process.step.alternative.option.operation</Data><NamedCell
+    <Cell ss:StyleID="s85"><Data ss:Type="String">!WorkflowExample.process.step.alternative.option.operation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">0..*</Data><NamedCell
@@ -4311,7 +4311,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>31</TopRowBottomPane>
+   <TopRowBottomPane>49</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4328,9 +4328,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>63</ActiveRow>
+     <ActiveRow>66</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R64</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
