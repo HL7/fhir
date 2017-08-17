@@ -7305,7 +7305,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The adjudicated responses to the Claim(s)</Data></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">A Claim resource or Bundle of claim responses, either as individual ClaimResponse resources or as Bundles each containing a single ClaimResponse plus referenced resources.</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">A ClaimResponse resource or Bundle of claim responses, either as individual ClaimResponse resources or as Bundles each containing a single ClaimResponse plus referenced resources.</Data></Cell>
     <Cell ss:StyleID="s138"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7890,8 +7890,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
