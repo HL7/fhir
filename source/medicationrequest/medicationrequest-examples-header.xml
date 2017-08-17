@@ -3,7 +3,7 @@
     <p>The following examples are MedicationRequest resources for Oral Dosage Forms that reference Medication Resources for generic formulations:
     </p>
     <ul>
-        <li><a href="medicationrequest0302.html">Active Order with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin</a></li>
+        <li><a href="medicationrequest0302.html">Active Order with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin.  Also includes non-clinical supportingInformation</a></li>
         <li><a href="medicationrequest0301.html">Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
         <li><a href="medicationrequest0303.html">Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
         <li><a href="medicationrequest0304.html">Order for Oral Drops - Nystatin Suspension - completed - with Dispense Request</a></li>

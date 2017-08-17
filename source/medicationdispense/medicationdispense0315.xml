@@ -45,7 +45,7 @@
     </type>
     <quantity>
         <value value="30"/>
-        <system value="http://unitsofmeasure.org"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
         <code value="TAB"/>
     </quantity>
     <daysSupply>

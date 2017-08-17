@@ -14,7 +14,7 @@
                   </coding>
           </code>
       </Medication>
-  </contained>
+    </contained>
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
@@ -34,6 +34,9 @@
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </context>
+    <supportingInformation>
+        <reference value="Coverage/SP1234"/>
+    </supportingInformation>
     <authoredOn value="2015-01-15"/>
     <requester>
         <agent>

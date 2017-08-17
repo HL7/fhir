@@ -26,7 +26,7 @@
             <numerator>
               <value value="2"/>
               <system value="http://unitsofmeasure.org"/>
-              <code value="mEq"/>
+              <code value="meq"/>
             </numerator>
             <denominator>
               <value value="1"/>
@@ -127,9 +127,9 @@
     </method>
     <dose>
       <value value="20"/>
-      <unit value="mEq"/>
+      <unit value="meq"/>
       <system value="http://unitsofmeasure.org"/>
-      <code value="mEq"/>
+      <code value="meq"/>
     </dose>
     <rateRatio>
       <numerator>

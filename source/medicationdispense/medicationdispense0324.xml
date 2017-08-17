@@ -36,7 +36,7 @@
     <quantity>
         <value value="30"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="gm"/>
+        <code value="g"/>
     </quantity>
     <daysSupply>
         <value value="10"/>
