@@ -37,6 +37,18 @@
   Definition = Codes identifying groupings of parameters; e.g. Cardiovascular.
   Conformance = extensible
 
+ -- Row 6 -----------------------------------
+  Binding Name = DeiviceComponentPropertyCode
+  Binding = code list
+  Reference = #device-component-property
+  Definition = MDC codes for device properties
+  Conformance = extensible
+
+ -- Row 7 -----------------------------------
+  Binding Name = DeiviceComponentPropertyValue
+  Binding = unbound
+  Definition = Property value codes for device properties
+
 === Sheet measurement-principle =====================================
 
  -- Row 1 -----------------------------------
@@ -255,6 +267,74 @@
   Display = Miscellaneous Parameter Group
   Definition = Miscellaneous Parameter Group - MDC_PGRP_MISC
 
+=== Sheet device-component-property =====================================
+
+ -- Row 1 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 8221
+  Display = MDC_TIME_SYNC_ACCURACY
+  Definition = todo
+
+ -- Row 2 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 68219
+  Display = MDC_TIME_CAP_STATE
+  Definition = todo
+
+ -- Row 3 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 68220
+  Display = MDC_TIME_SYNC_PROTOCOL
+  Definition = todo
+
+ -- Row 4 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 68222
+  Display = MDC_TIME_RES_ABS
+  Definition = todo
+
+ -- Row 5 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 68223
+  Display = MDC_TIME_RES_REL
+  Definition = todo
+
+ -- Row 6 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 68224
+  Display = MDC_TIME_RES_REL_HI_RES
+  Definition = todo
+
+ -- Row 7 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 68226
+  Display = MDC_TIME_RES_BO
+  Definition = todo
+
+ -- Row 8 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 531981
+  Display = MDC_MOC_VMS_MDS_AHD
+  Definition = todo
+
+ -- Row 9 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 532353
+  Display = MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST
+  Definition = todo
+
+ -- Row 10 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 532354
+  Display = MDC_REG_CERT_DATA_CONTINUA_REG_STATUS
+  Definition = todo
+
+ -- Row 11 -----------------------------------
+  System = urn:iso:std:iso:11073:10101
+  Code = 532355
+  Display = MDC_REG_CERT_DATA_CONTINUA_PHG_CERT_LIST
+  Definition = todo
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -270,10 +350,10 @@
 
  -- Row 2 -----------------------------------
   Element = DeviceComponent.identifier
-  Card. = 1..1
+  Card. = 0..*
   Type = Identifier
-  Short Name = Instance id assigned by the software stack
-  Definition = The locally assigned unique identification by the software. For example: handle ID.
+  Short Name = Instance identifier
+  Definition = Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID.
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -369,6 +449,37 @@
   Binding = Language
   Short Name = Language code for the human-readable text strings produced by the device
   Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+
+ -- Row 15 -----------------------------------
+  Element = DeviceComponent.property
+  Card. = 0..*
+  Short Name = Language code for the human-readable text strings produced by the device
+  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+
+ -- Row 16 -----------------------------------
+  Element = DeviceComponent.property.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = DeiviceComponentPropertyCode
+  Short Name = Language code for the human-readable text strings produced by the device
+  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+  Committee Notes = complete the valueset definitions/ verify conform to the IEEE IP policy for publishing these codes in FHIR spec.
+
+ -- Row 17 -----------------------------------
+  Element = DeviceComponent.property.valueQuantity
+  Card. = 0..*
+  Type = Quantity
+  Short Name = Language code for the human-readable text strings produced by the device
+  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+
+ -- Row 18 -----------------------------------
+  Element = DeviceComponent.property.valueCode
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = DeiviceComponentPropertyValue
+  Short Name = Language code for the human-readable text strings produced by the device
+  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+  Committee Notes = define at least an example valueset.
 
 === Sheet Search =====================================
 

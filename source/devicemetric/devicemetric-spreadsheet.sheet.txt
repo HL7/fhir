@@ -220,10 +220,11 @@
 
  -- Row 2 -----------------------------------
   Element = DeviceMetric.identifier
-  Card. = 1..1
+  Card. = 0..*
   Type = Identifier
-  Short Name = Unique identifier of this DeviceMetric
-  Definition = Describes the unique identification of this metric that has been assigned by the device or gateway software. For example: handle ID.  It should be noted that in order to make the identifier unique, the system element of the identifier should be set to the unique identifier of the device.
+  Short Name = Instance identifier
+  Definition = Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID.
+  Comments = For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to the unique identifier of the device.
   w5 = id
 
  -- Row 3 -----------------------------------
