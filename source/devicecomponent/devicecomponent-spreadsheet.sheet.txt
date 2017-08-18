@@ -453,32 +453,32 @@
  -- Row 15 -----------------------------------
   Element = DeviceComponent.property
   Card. = 0..*
-  Short Name = Language code for the human-readable text strings produced by the device
-  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+  Short Name = Property key value pairs
+  Definition = Other device properties as key value pairs.
 
  -- Row 16 -----------------------------------
   Element = DeviceComponent.property.code
   Card. = 1..1
   Type = CodeableConcept
   Binding = DeiviceComponentPropertyCode
-  Short Name = Language code for the human-readable text strings produced by the device
-  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+  Short Name = Property device key
+  Definition = Key as for the device properties.   This is based upon IEEE/HCD specified codes
   Committee Notes = complete the valueset definitions/ verify conform to the IEEE IP policy for publishing these codes in FHIR spec.
 
  -- Row 17 -----------------------------------
   Element = DeviceComponent.property.valueQuantity
   Card. = 0..*
   Type = Quantity
-  Short Name = Language code for the human-readable text strings produced by the device
-  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+  Short Name = Property value as a quantity
+  Definition = Quantity value for the device properties key
 
  -- Row 18 -----------------------------------
   Element = DeviceComponent.property.valueCode
   Card. = 0..*
   Type = CodeableConcept
   Binding = DeiviceComponentPropertyValue
-  Short Name = Language code for the human-readable text strings produced by the device
-  Definition = The language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.
+  Short Name = Property value as a code
+  Definition = Coded value for the device properties key
   Committee Notes = define at least an example valueset.
 
 === Sheet Search =====================================
