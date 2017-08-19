@@ -345,9 +345,9 @@
   Inv. = 1
   Type = uri
   Short Name = Policy that this consents to
-  Definition = A reference to the specific base computable policy
+  Definition = A referece to the specific computable policy.
   Requirements = Might be a unique identifier of a policy set in XACML, or other rules engine
-  Comments = If the policyRule is absent, computable consent would need to be constructed from the elements of the Consent resource
+  Comments = If the policy reference is not known, the resource cannot be processed. Where the reference is absent, there is no particular policy other than what is expressed directly in the consent resource
 
  -- Row 19 -----------------------------------
   Element = !Consent.securityLabel
@@ -440,7 +440,7 @@
   Summary = Y
   UML = right
   Type = =provision
-  Short Name = Constraints to the base Consent.policyRule
+  Short Name = Consent provision - addition or removal of permissions
   Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 
  -- Row 30 -----------------------------------
