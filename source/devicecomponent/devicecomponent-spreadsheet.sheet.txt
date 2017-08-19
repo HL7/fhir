@@ -41,7 +41,7 @@
   Binding Name = DeiviceComponentPropertyCode
   Binding = code list
   Reference = #device-component-property
-  Definition = MDC codes for device properties
+  Definition = Codes for identifying device properties.   This is based upon IEEE/HCD specified codes
   Conformance = extensible
 
  -- Row 7 -----------------------------------
@@ -447,16 +447,16 @@
  -- Row 15 -----------------------------------
   Element = DeviceComponent.property
   Card. = 0..*
-  Short Name = Property key value pairs
-  Definition = Other device properties as key value pairs.
+  Short Name = Device property
+  Definition = Other device properties expressed as a `type` which identifies the property and a value(s) either as a quantity or a code.
 
  -- Row 16 -----------------------------------
-  Element = DeviceComponent.property.code
+  Element = DeviceComponent.property.type
   Card. = 1..1
   Type = CodeableConcept
   Binding = DeiviceComponentPropertyCode
-  Short Name = Property device key
-  Definition = Key as for the device properties.   This is based upon IEEE/HCD specified codes
+  Short Name = Code that specifies the property
+  Definition = The code for the device property identifying the property being reported such as \'time capability\'.
   Committee Notes = complete the valueset definitions/ verify conform to the IEEE IP policy for publishing these codes in FHIR spec.
 
  -- Row 17 -----------------------------------
@@ -464,7 +464,7 @@
   Card. = 0..*
   Type = Quantity
   Short Name = Property value as a quantity
-  Definition = Quantity value for the device properties key
+  Definition = The property value when the property being reported is a quantity such as the resolution of a real time clock.
 
  -- Row 18 -----------------------------------
   Element = DeviceComponent.property.valueCode
@@ -472,7 +472,8 @@
   Type = CodeableConcept
   Binding = DeiviceComponentPropertyValue
   Short Name = Property value as a code
-  Definition = Coded value for the device properties key
+  Definition = The property value when the property being reported is a code, such as the code indicating that the device supports a real time clock using absolute time.
+  Comments = An example of a case with mulitple coded values would be the set of specializations for which the device has been certified.
   Committee Notes = define at least an example valueset.
 
 === Sheet Search =====================================
