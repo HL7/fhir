@@ -447,7 +447,7 @@
  -- Row 15 -----------------------------------
   Element = DeviceComponent.property
   Card. = 0..*
-  Short Name = Device property
+  Short Name = Other Attributes
   Definition = Other device properties expressed as a `type` which identifies the property and a value(s) either as a quantity or a code.
 
  -- Row 16 -----------------------------------
