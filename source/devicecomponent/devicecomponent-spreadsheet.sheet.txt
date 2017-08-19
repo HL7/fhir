@@ -271,69 +271,63 @@
 
  -- Row 1 -----------------------------------
   System = urn:iso:std:iso:11073:10101
-  Code = 8221
-  Display = MDC_TIME_SYNC_ACCURACY
-  Definition = todo
+  Code = 68219
+  Display = MDC_TIME_CAP_STATE
+  Definition = Time capability
 
  -- Row 2 -----------------------------------
   System = urn:iso:std:iso:11073:10101
-  Code = 68219
-  Display = MDC_TIME_CAP_STATE
-  Definition = todo
+  Code = 68220
+  Display = MDC_TIME_SYNC_PROTOCOL
+  Definition = Time synchronization method
 
  -- Row 3 -----------------------------------
   System = urn:iso:std:iso:11073:10101
-  Code = 68220
-  Display = MDC_TIME_SYNC_PROTOCOL
-  Definition = todo
+  Code = 68221
+  Display = MDC_TIME_SYNC_ACCURACY
+  Definition = The accuracy of the time synchronization
 
  -- Row 4 -----------------------------------
   System = urn:iso:std:iso:11073:10101
   Code = 68222
   Display = MDC_TIME_RES_ABS
-  Definition = todo
+  Definition = The resolution of the absolute time clock
 
  -- Row 5 -----------------------------------
   System = urn:iso:std:iso:11073:10101
   Code = 68223
   Display = MDC_TIME_RES_REL
-  Definition = todo
+  Definition = The resolution of the relative time clock
 
  -- Row 6 -----------------------------------
   System = urn:iso:std:iso:11073:10101
   Code = 68224
   Display = MDC_TIME_RES_REL_HI_RES
-  Definition = todo
+  Definition = The resolution of the high resolution time clock
 
  -- Row 7 -----------------------------------
   System = urn:iso:std:iso:11073:10101
   Code = 68226
   Display = MDC_TIME_RES_BO
-  Definition = todo
+  Definition = The resolution of the base offset time clock
 
  -- Row 8 -----------------------------------
   System = urn:iso:std:iso:11073:10101
-  Code = 531981
-  Display = MDC_MOC_VMS_MDS_AHD
-  Definition = todo
+  Code = 532353
+  Display = MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST
+  Definition = The specializations this device is certified for
 
  -- Row 9 -----------------------------------
   System = urn:iso:std:iso:11073:10101
-  Code = 532353
-  Display = MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST
-  Definition = todo
+  Code = 532354
+  Display = MDC_REG_CERT_DATA_CONTINUA_REG_STATUS
+  Definition = The regulation type and status this device has
 
  -- Row 10 -----------------------------------
   System = urn:iso:std:iso:11073:10101
-  Code = 532354
-  Display = MDC_REG_CERT_DATA_CONTINUA_REG_STATUS
-  Definition = todo
-
- -- Row 11 -----------------------------------
-  System = urn:iso:std:iso:11073:10101
   Code = 532355
   Display = MDC_REG_CERT_DATA_CONTINUA_PHG_CERT_LIST
-  Definition = todo
+  Definition = The upload transactions this gateway has been certified for
 
 === Sheet Invariants =====================================
 
