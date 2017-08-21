@@ -65,7 +65,7 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.ucum.UcumService;
+import org.fhir.ucum.UcumService;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 

@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/ST4-4.0.7.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/ucum-1.0-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

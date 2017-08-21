@@ -39,8 +39,8 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.utilities.CSVReader;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.ucum.UcumEssenceService;
-import org.hl7.fhir.utilities.ucum.UcumService;
+import org.fhir.ucum.UcumEssenceService;
+import org.fhir.ucum.UcumService;
 
 public class IEEE11073Convertor {
 

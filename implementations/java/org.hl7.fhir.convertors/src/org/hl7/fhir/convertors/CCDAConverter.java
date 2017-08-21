@@ -84,7 +84,7 @@ import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.utilities.ucum.UcumService;
+import org.fhir.ucum.UcumService;
 import org.w3c.dom.Element;
 
 /**

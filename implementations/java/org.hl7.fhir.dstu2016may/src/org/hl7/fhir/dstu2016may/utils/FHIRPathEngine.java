@@ -39,9 +39,9 @@ import org.hl7.fhir.dstu2016may.utils.FHIRPathEngine.IEvaluationContext.Function
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
-import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.ucum.Decimal;
+import org.fhir.ucum.Decimal;
+import org.fhir.ucum.UcumException;
 
 /**
  * 
