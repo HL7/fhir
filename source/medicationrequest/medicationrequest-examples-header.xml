@@ -33,7 +33,7 @@
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that reference a Medication Resource for a generic formulation
     </p>
     <ul>
-        <li><a href="medicationrequest0315.html">Order for an injectable medication - Lorazepam - active - with link to encounter, reasonCode and dosageInstruction</a></li>
+        <li><a href="medicationrequest0315.html">Order for an injectable medication - Lorazepam with Dosage Rate (as rateRange) - active - with link to encounter, reasonCode and dosageInstruction</a></li>
     </ul>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that reference a Medication Resource for a manufactured product:
     </p>
@@ -41,7 +41,7 @@
         <li><a href="medicationrequest0316.html">Order for Intravenous Chemotherapy (inpatient order) - Brentuximab Vedotin - completed</a></li>
         <li><a href="medicationrequest0317.html">Order for Intravenous Chemotherapy (inpatient order) - Alemtuzumab - completed with multiple dosageInstruction lines</a></li>
         <li><a href="medicationrequest0318.html">Order for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note</a></li>
-        <li><a href="medicationrequest0319.html">Order for Intravenous Antibiotic with a Dosage Rate - Piperacillin - completed with reason code</a></li>
+        <li><a href="medicationrequest0319.html">Order for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
         <li><a href="medicationrequest0321.html">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
     </ul>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that include a Medication Code:
@@ -53,8 +53,8 @@
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms  for Injectable Dosage Forms where the medication is a compounded (aka extemporaneous or magistral) product:
     </p>
     <ul>
-        <li><a href="medicationrequest0322.html">Order for Intravenous Admixture - Potassium Chloride in D5W - completed with reason code</a></li>
-        <li><a href="medicationrequest0323.html">Order for TPN Solution - completed</a></li>
+        <li><a href="medicationrequest0322.html">Order for Intravenous Admixture with Dosage Rate (as rateRatio) - Potassium Chloride in D5W - completed with reason code</a></li>
+        <li><a href="medicationrequest0323.html">Order for TPN Solution with Dosage Rate (as rateRatio) - completed</a></li>
     </ul>
     <p>MISCELLAENOUS DOSAGE FORMS</p>
     <p>The following examples of MedicationRequest resources including miscellaneous dosage forms:

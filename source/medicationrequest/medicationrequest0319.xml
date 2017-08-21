@@ -70,17 +70,10 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="g"/>
         </doseQuantity>
-        <rateRatio>
-            <numerator>
-                <value value="8"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="ml"/>
-            </numerator>
-            <denominator>
-                <value value="1"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="min"/>
-            </denominator>
-        </rateRatio>
+        <rateQuantity>
+            <value value="50"></value>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ml/hr"></code>
+        </rateQuantity>
     </dosageInstruction> 
 </MedicationRequest>
