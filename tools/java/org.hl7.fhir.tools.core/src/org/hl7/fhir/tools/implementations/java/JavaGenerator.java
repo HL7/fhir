@@ -739,6 +739,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "txtmark-0.11.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commonmark-0.9.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "antlr-runtime-3.5.2.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(Utilities.path(folders.rootDir,"implementations", "java", "org.hl7.fhir.r4",          "bin")), Utilities.path(folders.rootDir, "implementations", "java", "org.hl7.fhir.r4",          "src").length()+1, names);
