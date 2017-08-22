@@ -46,6 +46,7 @@
         <pathelement location="../../../tools/java/imports/jackson-core-2.5.2.jar"/>
         <pathelement location="../../../tools/java/imports/jackson-databind-2.5.2.jar"/>
         <pathelement location="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
+        <pathelement location="../../../tools/java/imports/ucum-1.0-SNAPSHOT.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
