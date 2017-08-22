@@ -31,9 +31,11 @@ import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r4.model.CodeSystem.PropertyType;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
@@ -41,6 +43,9 @@ import org.hl7.fhir.utg.BaseGenerator;
 import org.hl7.fhir.utilities.Utilities;
 
 public class V2SourceGenerator extends BaseGenerator {
+
+  
+  private static final String MASTER_VERSION = "2.9";
 
   public V2SourceGenerator(String dest, Map<String, CodeSystem> csmap, Set<String> knownCS) {
     super(dest, csmap, knownCS);
@@ -69,6 +74,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private int sortNo;
     private String first;
     private String last;
+    public String status;
 
     public boolean hasLang(String code) {
       return langs.containsKey(code);
@@ -112,6 +118,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String anchor;
     private boolean caseInsensitive;
     private String steward;
+    private String conceptDomainRef;
     
     private List<TableEntry> entries = new ArrayList<TableEntry>();
     public TableVersion(String version, String name) {
@@ -155,8 +162,8 @@ public class V2SourceGenerator extends BaseGenerator {
     public String getDescription() {
       return description;
     }
-    public void setDescription(String description) {
-      this.description = description;
+    public void setDescription(String string) throws SQLException {
+      this.description = string;
     }
     public int getType() {
       return type;
@@ -194,6 +201,13 @@ public class V2SourceGenerator extends BaseGenerator {
     public void setSteward(String steward) {
       this.steward = steward;
     }
+    public String getConceptDomainRef() {
+      return conceptDomainRef;
+    }
+
+    public void setConceptDomainRef(String conceptDomainRef) {
+      this.conceptDomainRef = conceptDomainRef;
+    }
 
   }
 
@@ -203,7 +217,6 @@ public class V2SourceGenerator extends BaseGenerator {
     private Map<String, String> langs = new HashMap<String, String>();
     private String name;
     private String oid;
-    private String conceptDomainRef;
     private Map<String, TableVersion> versions = new HashMap<String, TableVersion>();
     private TableVersion master;
 
@@ -239,15 +252,8 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
 
-    public String getConceptDomainRef() {
-      return conceptDomainRef;
-    }
-
-    public void setConceptDomainRef(String conceptDomainRef) {
-      this.conceptDomainRef = conceptDomainRef;
-    }
-
-    public void item(String version, String code, String display, String german, String table_name, String comments, int sno) {
+    
+    public void item(String version, String code, String display, String german, String table_name, String comments, int sno, String status) {
       if (!versions.containsKey(version))
         versions.put(version, new TableVersion(version, table_name));
       TableEntry entry = new TableEntry();
@@ -257,6 +263,7 @@ public class V2SourceGenerator extends BaseGenerator {
         entry.langs.put("de", german);
       entry.comments = comments;
       entry.sortNo = sno;
+      entry.status = status;
       versions.get(version).entries.add(entry);
     }
     public boolean hasLangName(String code) {
@@ -303,8 +310,13 @@ public class V2SourceGenerator extends BaseGenerator {
           master.vsoid = tv.vsoid;
           master.csoid = tv.csoid;
           master.csversion = tv.csversion;
+          master.description = tv.description;
           master.name = tv.name;
           master.steward = tv.steward;
+          master.section = tv.section;
+          master.anchor = tv.anchor;
+          master.generate = tv.generate;
+          master.type = tv.type;
           for (TableEntry te : tv.entries) {
             TableEntry tem = master.find(te.code);
             if (tem == null) {
@@ -319,6 +331,7 @@ public class V2SourceGenerator extends BaseGenerator {
               for (String c : te.langs.keySet())
                 tem.langs.put(c, te.langs.get(c));
               tem.sortNo = te.sortNo;
+              tem.status = te.status;
               tem.setLast(null);
             }
           }
@@ -451,15 +464,16 @@ public class V2SourceGenerator extends BaseGenerator {
       t.setName(query.getString("display_name"));
       if (!Utilities.noString(query.getString("interpretation")))
         t.addLang("de", query.getString("interpretation"));
-      if (!Utilities.noString(query.getString("oid_table")))
+      if (!Utilities.noString(query.getString("oid_table"))) {
         t.setOid(query.getString("oid_table"));
-      if (!Utilities.noString(query.getString("vocab_domain")))
-        t.setConceptDomainRef(query.getString("vocab_domain"));
+      }
       TableVersion tv = t.versions.get(vid);
       if (tv == null) {
         tv = new TableVersion(vid, query.getString("display_name"));
         t.versions.put(vid, tv);
       }
+      if (!Utilities.noString(query.getString("vocab_domain")))
+        tv.setConceptDomainRef(query.getString("vocab_domain"));
       tv.setCsoid(query.getString("cs_oid"));
       tv.setCsversion(query.getString("cs_version"));
       tv.setVsoid(query.getString("vs_oid"));
@@ -472,7 +486,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setSteward(query.getString("steward"));
     }
     int i = 0;
-    query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub  from HL7TableValues");
+    query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues");
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
       VersionInfo vid = vers.get(Integer.toString(query.getInt("version_id")));
@@ -484,7 +498,9 @@ public class V2SourceGenerator extends BaseGenerator {
       String display = query.getString("display_name");
       String german = query.getString("interpretation");
       String comment = query.getString("comment_as_pub");
-      tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid+"/"+vid), comment, sno == null ? 0 : sno);
+      String status = readStatusColumns(query.getString("active"), query.getString("modification"));
+      
+      tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid+"/"+vid), comment, sno == null ? 0 : sno, status);
       i++;
     }
     System.out.println(Integer.toString(i)+" entries loaded");
@@ -493,6 +509,22 @@ public class V2SourceGenerator extends BaseGenerator {
         v.sort();
       }
     }
+  }
+
+  private String readStatusColumns(String active, String modification) {
+    if (Utilities.noString(active))
+      return null;
+    if ("0".equals(active))
+      return "Active";
+    if ("1".equals(active))
+      return "Deprecated";
+    if ("2".equals(active))
+      return "Retired";
+    if ("3".equals(active))
+      return "New";
+    if ("4".equals(active))
+      return "Backwards-compatible only";
+    return null;
   }
 
   public void process() {
@@ -507,24 +539,27 @@ public class V2SourceGenerator extends BaseGenerator {
     for (String n : sorted(tables.keySet())) {
       if (!n.equals("0000")) {
         Table t = tables.get(n);
-        ObjectInfo oi = objects.get(t.getConceptDomainRef());
-        if (oi != null) {
-          ConceptDefinitionComponent c = cs.addConcept();
-          c.setCode(oi.getDisplay());
-          count++;
-          String name = t.getName();
-          c.setDisplay(name+" ("+t.id+")");
-          c.setDefinition(oi.description);
-          if (codes.containsKey(c.getCode())) {
-            System.out.println("Name clash for Domain \""+c.getCode()+": used on "+codes.get(c.getCode())+" and on table "+t.id);
-            if (codes.get(c.getCode()).equals("v3"))
-              c.setCode(c.getCode()+"V2");
-            else
-              c.setCode(c.getCode()+"SNAFU");
-            codes.put(c.getCode(), "table "+t.id);
-          } else
-            codes.put(c.getCode(), "table "+t.id);
-          c.addProperty().setCode("source").setValue(new CodeType("v2"));
+        TableVersion tv = t.versions.get(MASTER_VERSION);
+        if (tv != null) {
+          ObjectInfo oi = objects.get(tv.getConceptDomainRef());
+          if (oi != null) {
+            ConceptDefinitionComponent c = cs.addConcept();
+            c.setCode(oi.getDisplay());
+            count++;
+            String name = t.getName();
+            c.setDisplay(name+" ("+t.id+")");
+            c.setDefinition(oi.description);
+            if (codes.containsKey(c.getCode())) {
+              System.out.println("Name clash for Domain \""+c.getCode()+": used on "+codes.get(c.getCode())+" and on table "+t.id);
+              if (codes.get(c.getCode()).equals("v3"))
+                c.setCode(c.getCode()+"V2");
+              else
+                c.setCode(c.getCode()+"SNAFU");
+              codes.put(c.getCode(), "table "+t.id);
+            } else
+              codes.put(c.getCode(), "table "+t.id);
+            c.addProperty().setCode("source").setValue(new CodeType("v2"));
+          }
         }
       }
     }        
@@ -574,11 +609,21 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setTitle("V2 Table: "+t.name);
     cs.setStatus(PublicationStatus.ACTIVE);
     cs.setExperimental(false);
-    cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
+    if (tv.csoid != null) {
+      cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
+      if (objects.containsKey(tv.csoid))
+        cs.getIdentifier().getValueElement().addExtension("http://healthintersections.com.au/fhir/StructureDefinition/identifier-display", new StringType(objects.get(tv.csoid).display));
+    }
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
     cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
-    cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+")");
+    if (tv.csoid != null && objects.containsKey(tv.csoid))
+      cs.setDescription(objects.get(tv.csoid).description);
+    else if (!Utilities.noString(tv.description))
+      cs.setDescription(tv.description);
+    else 
+      cs.setDescription("Underlying Master Code System for V2 table "+t.id+" ("+t.name+")");
+    cs.setPurpose("Underlying Master Code System for V2 table "+t.id+" ("+t.name+")");
     cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
     if (tv.isCaseInsensitive())
       cs.setCaseSensitive(false);
@@ -599,18 +644,23 @@ public class V2SourceGenerator extends BaseGenerator {
     if (tv.isGenerate())
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
+    cs.addProperty().setCode("status").setUri("http://healthintersections.com.au/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
+
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
       c.setCode(te.code);
       String name = te.display;
       c.setDisplay(name);
       c.setDefinition(name);
+      c.setId(Integer.toString(te.sortNo));
       if (!Utilities.noString(te.comments))
         ToolingExtensions.addCSComment(c, te.comments);
       if (te.getFirst() != null && !"2.1".equals(te.getFirst()))
         c.addExtension(csext("versionIntroduced"), Factory.newString_(te.getFirst()));
       if (!Utilities.noString(te.getLast()))
         c.addExtension(csext("versionDeprecated"), Factory.newString_(te.getLast()));   
+      if (!Utilities.noString(te.status))
+        c.addProperty().setCode("status").setValue(new CodeType(te.status));
     }    
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "cs-"+cs.getId())+".xml"), cs);
@@ -633,7 +683,13 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
     cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
-    cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+")");
+    if (tv.csoid != null && objects.containsKey(tv.csoid))
+      cs.setDescription(objects.get(tv.csoid).description);
+    else if (!Utilities.noString(tv.description))
+      cs.setDescription(tv.description);
+    else 
+      cs.setDescription("Underlying Code System for V2 table "+t.id+" ("+t.name+" "+tv.version+")");
+    cs.setPurpose("Underlying Code System for V2 table "+t.id+" ("+t.name+", version "+tv.version+")");
     cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
     if (tv.isCaseInsensitive())
       cs.setCaseSensitive(false);
@@ -660,12 +716,15 @@ public class V2SourceGenerator extends BaseGenerator {
       String name = te.display;
       c.setDisplay(name);
       c.setDefinition(name);
+      c.setId(Integer.toString(te.sortNo));
       if (!Utilities.noString(te.comments))
         ToolingExtensions.addCSComment(c, te.comments);
       if (te.getFirst() != null && !"2.1".equals(te.getFirst()))
         c.addExtension("http://hl7.org/fhir/StructureDefinition/v2-version-defined", Factory.newString_(te.getFirst()));
       if (!Utilities.noString(te.getLast()))
         c.addExtension("http://hl7.org/fhir/StructureDefinition/v2-version-deprecated", Factory.newString_(te.getLast()));   
+      if (!Utilities.noString(te.status))
+        c.addProperty().setCode("status").setValue(new CodeType(te.status));
     }    
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
@@ -712,6 +771,70 @@ public class V2SourceGenerator extends BaseGenerator {
 
     vs.getCompose().addInclude().setSystem(cs.getUrl()).setVersion(cs.getVersion());
     return vs;
+  }
+
+  public void generateTables() throws FileNotFoundException, IOException {
+    CodeSystem cs = new CodeSystem();
+    cs.setId("v2-tables");
+    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
+    cs.setName("V2Tables");
+    cs.setTitle("V2 Table List");
+    cs.setStatus(PublicationStatus.ACTIVE);
+    cs.setExperimental(false);
+    
+    cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
+    cs.setPublisher("HL7, Inc");
+    cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");
+    cs.setDescription("Master List of V2 Tables");
+    cs.setCopyright("Copyright HL7. Licensed under creative commons public domain");
+    cs.setCaseSensitive(true); 
+    cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA); 
+    cs.setCompositional(false);
+    cs.setVersionNeeded(false);
+    cs.setContent(CodeSystemContentMode.COMPLETE);
+
+    cs.addProperty().setCode("oid").setUri("http://healthintersections.com.au/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
+    cs.addProperty().setCode("csoid").setUri("http://healthintersections.com.au/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
+    cs.addProperty().setCode("vsoid").setUri("http://healthintersections.com.au/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
+    cs.addProperty().setCode("stdref").setUri("http://healthintersections.com.au/csprop/stdref").setType(PropertyType.STRING).setDescription("Reference in standard");
+    cs.addProperty().setCode("stdsection").setUri("http://healthintersections.com.au/csprop/stdsection").setType(PropertyType.STRING).setDescription("Anchor reference for table");
+    cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
+    cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
+    
+    Map<String, String> codes = new HashMap<String, String>();
+    int count = 0;
+    for (String n : sorted(tables.keySet())) {
+      if (!n.equals("0000")) {
+        Table t = tables.get(n);
+        TableVersion tv = t.master;
+        if (tv != null) {
+          ConceptDefinitionComponent c = cs.addConcept();
+          c.setCode(t.id);
+          count++;
+          String name = t.getName();
+          c.setDisplay(t.name);
+          c.setDefinition(tv.description);
+          c.addProperty().setCode("oid").setValue(new StringType(t.oid));
+          if (!Utilities.noString(tv.csoid))
+            c.addProperty().setCode("csoid").setValue(new StringType(tv.csoid));
+          if (!Utilities.noString(tv.vsoid))
+            c.addProperty().setCode("vsoid").setValue(new StringType(tv.vsoid));
+          if (!Utilities.noString(tv.getAnchor()))
+            c.addProperty().setCode("stdref").setValue(new StringType(tv.getAnchor()));
+          if (!Utilities.noString(tv.getSection()))
+            c.addProperty().setCode("stdsection").setValue(new StringType(tv.getSection()));
+          if (tv.getType() > 0)
+            c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
+          if (tv.isGenerate())
+            c.addProperty().setCode("generate").setValue(new BooleanType(true));
+        }
+      }
+    }        
+
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v2-tables.xml")), cs);
+    System.out.println("Save tables ("+Integer.toString(count)+" found)");
+
+    
   }
 
 }

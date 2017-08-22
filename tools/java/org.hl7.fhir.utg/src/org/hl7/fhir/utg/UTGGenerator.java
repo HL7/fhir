@@ -115,10 +115,11 @@ public class UTGGenerator extends BaseGenerator {
     v3.loadMif();
     v2.process();
     generateConceptDomains();
+    v2.generateTables();
     v2.generateCodeSystems();
     v3.generateCodeSystems();
     v3.generateValueSets();
-    cda.loadValueSetsSource();
+//    cda.loadValueSetsSource();
     System.out.println("finished");
   }
 
@@ -128,7 +129,7 @@ public class UTGGenerator extends BaseGenerator {
   private void generateConceptDomains() throws FileNotFoundException, IOException {
     CodeSystem cs = new CodeSystem();
     cs.setId("conceptdomains");
-    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/ValueSet/"+cs.getId());
+    cs.setUrl("http://hl7.org/fhir/ig/vocab-poc/CodeSystem/"+cs.getId());
     cs.setName("ConceptDomains");
     cs.setTitle("Concept Domains");
     cs.setStatus(PublicationStatus.ACTIVE);
