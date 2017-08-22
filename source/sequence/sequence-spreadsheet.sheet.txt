@@ -1050,10 +1050,10 @@
   Description = Sequence example for vcf and Hap.py comparison on precisionFDA
   Filename = sequence-example-fda-vcfeval.xml
 
- -- Row 17 -----------------------------------							
-  Name = patient with breast cancer gene variant							
-  Identity = breastcancer							
-  Description = Sequence example for patient with breast cancer gene variant							
-  Filename = sequence-genetics-example-breastcancer.xml		
+ -- Row 17 -----------------------------------
+  Name = patient with breast cancer gene variant
+  Identity = breastcancer
+  Description = Sequence example for patient with breast cancer gene variant
+  Filename = sequence-genetics-example-breastcancer.xml
 
 === Sheet Examples =====================================
