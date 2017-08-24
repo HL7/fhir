@@ -63,7 +63,7 @@
   Type = string
   Short Name = Free text dosage instructions e.g. SIG
   Definition = Free text dosage instructions e.g. SIG
-  Requirements = Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
+  Requirements = Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.  Additional information about administration or preparation of the medication should be included as text.
   RIM Mapping = .text
 
  -- Row 4 -----------------------------------
@@ -72,9 +72,10 @@
   UML = //element(*,SIGType)/Timing
   Type = CodeableConcept
   Binding = AdditionalInstruction
-  Short Name = Supplemental instruction - e.g. \"with meals\"
-  Definition = Supplemental instruction - e.g. \"with meals\"
-  Requirements = Additional instruction such as \"Swallow with plenty of water\" which may or may not be coded.
+  Short Name = Supplemental instruction or warnings to the patient - e.g. \"with meals\", \"may cause drowsiness\"
+  Definition = Supplemental instructions to the patient on how to take the medication  (e.g. \"with meals\" or\"take half to one hour before food\") or warnings for the patient about the medication (e.g. \"may cause drowsiness\" or \"avoid exposure of skin to direct sunlight or sunlamps\")
+  Requirements = Additional instruction is intended to be coded, but where no code exists, the element could include text.  For example, \"Swallow with plenty of water\" which may or may not be coded.
+  Comments = Information about administration or preparation of the medication (e.g. \"infuse as rapidly as possibly via intraperitoneal port\" or \"immediately following drug x\") should be populated in dosage.text
   RIM Mapping = .text
 
  -- Row 5 -----------------------------------
