@@ -452,11 +452,11 @@
   Card. = 0..1
   Aliases = Occurrence
   Summary = Y
-  Type = dateTime | Period
+  Type = dateTime | Period | Timing
   Short Name = Clinically relevant time/time-period for observation
   Definition = The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself
   Requirements = Knowing when an observation was deemed true is important to its relevance as well as determining trends
-  Comments = At least a date should be present unless this observation is a historical report
+  Comments = At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.
   Workflow Mapping = Event.occurrence[x]
   v2 Mapping = OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)
   RIM Mapping = effectiveTime

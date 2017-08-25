@@ -36,7 +36,7 @@
   Binding Name = DeviceSafety
   Binding = value set
   Reference = valueset-device-safety
-  Definition = Codes used to identify medical devices safety characterics. These codes are derived in part from the [United States Food and Drug Administration recommendations](http://www.fda.gov/downloads/medicaldevices/deviceregulationandguidance/guidancedocuments/ucm107708.pdf) and are provided here as a suggestive example.
+  Definition = Codes used to identify medical devices safety characterics. These codes are derived in part from the United States Food and Drug Administration recommendations (http://www.fda.gov/downloads/medicaldevices/deviceregulationandguidance/guidancedocuments/ucm107708.pdf) and are provided here as a suggestive example.
   Conformance = example
 
 === Sheet device-status =====================================
