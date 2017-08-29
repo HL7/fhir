@@ -13,6 +13,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.hl7.fhir.igweb.builder.BuilderService;
 import org.hl7.fhir.igweb.builder.Job;
+import org.hl7.fhir.igweb.template.TemplateBuilder;
 
 import ca.uhn.fhir.util.UrlUtil;
 
@@ -46,6 +47,8 @@ public class FinishedServlet extends HttpServlet {
     StrSubstitutor subs = new StrSubstitutor(vars);
     page = subs.replace(page);
 
+    page = new TemplateBuilder().process("Finished", page);
+    
     theResp.getOutputStream().write(page.getBytes(Charsets.UTF_8));
     IOUtils.closeQuietly(theResp.getOutputStream());
   }

@@ -1,12 +1,17 @@
 package org.hl7.fhir.igweb.builder;
 
+import java.net.URISyntaxException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.*;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.hl7.fhir.igtools.publisher.Publisher;
 import org.hl7.fhir.igtools.publisher.SpecificationPackage;
+import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
 import org.hl7.fhir.igweb.Slf4jLogger;
+import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 
 public class BuilderService {
   /** Singleton instance */
@@ -15,10 +20,15 @@ public class BuilderService {
   static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(BuilderService.class);
 
   private String myJekyllCommand;
+  private String logPath;
   private ConcurrentHashMap<String, Job> myJobs;
   private ScheduledExecutorService myScheduler;
   private TreeMap<String, SpecificationPackage> mySpecifications;
   private ExecutorService myWorkerThreadPool;
+  private int counter;
+  private FHIRToolingClient txServer;
+
+  private String sessionId;
   
   /**
    * Constructor
@@ -27,6 +37,13 @@ public class BuilderService {
     myWorkerThreadPool = Executors.newCachedThreadPool();
     myScheduler = Executors.newSingleThreadScheduledExecutor();
     myJobs = new ConcurrentHashMap<>();
+    sessionId = new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
+    
+    try {
+      txServer = new FHIRToolingClient("http://tx.fhir.org/r3");
+      txServer.setTimeout(30000);
+    } catch (URISyntaxException e) {
+    }
 
     myScheduler.scheduleAtFixedRate(new Cleanup(), 0L, 1, TimeUnit.MINUTES);
   }
@@ -42,17 +59,28 @@ public class BuilderService {
   public void setSpecifications(TreeMap<String, SpecificationPackage> theSpecifications) {
     mySpecifications = theSpecifications;
   }
+  
+  public String getLogPath() {
+    return logPath;
+  }
+
+  public void setLogPath(String logPath) {
+    this.logPath = logPath;
+  }
 
   public String submit(byte[] theInput) {
-    String workId = UUID.randomUUID().toString();
+    String workId = Integer.toString(counter++);// UUID.randomUUID().toString();
 
     Publisher pub = new Publisher();
+    pub.setMode(IGBuildMode.WEBSERVER);
     pub.setSpecifications(mySpecifications);
     pub.setLogger(new Slf4jLogger());
     pub.setJekyllCommand(myJekyllCommand);
+    pub.setWebTxServer(txServer);
     
-    Job job = new Job(workId, theInput, pub);
+    Job job = new Job(workId, theInput, pub, sessionId);
     job.setLatestVersion(mySpecifications.lastKey());
+    job.setLogPath(logPath);
     myJobs.put(workId, job);
 
     myWorkerThreadPool.submit(job);

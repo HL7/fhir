@@ -6,7 +6,9 @@ import java.io.InputStream;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
+import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.igweb.template.TemplateBuilder;
 
 public class HomeServlet extends HttpServlet {
 
@@ -18,7 +20,10 @@ public class HomeServlet extends HttpServlet {
     theResp.setCharacterEncoding("utf-8");
 
     InputStream inputStream = HomeServlet.class.getResourceAsStream("/org/hl7/fhir/igweb/webres/home.html");
-    IOUtils.copy(inputStream, theResp.getOutputStream());
+    String page = IOUtils.toString(inputStream);
+    page = new TemplateBuilder().process("IGWeb: Online IG Builder", page);
+    
+    theResp.getOutputStream().write(page.getBytes(Charsets.UTF_8));
     IOUtils.closeQuietly(theResp.getOutputStream());
   }
 

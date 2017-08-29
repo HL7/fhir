@@ -489,7 +489,11 @@ public class Utilities {
   public static String path(String... args) throws IOException {
     StringBuilder s = new StringBuilder();
     boolean d = false;
+    boolean first = true;
     for(String arg: args) {
+      if (first && arg == null)
+        continue;
+      first = false;
       if (!d)
         d = !noString(arg);
       else if (!s.toString().endsWith(File.separator))

@@ -11,6 +11,7 @@ import javax.servlet.http.*;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
+import org.hl7.fhir.igweb.template.TemplateBuilder;
 
 public class FailedServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -29,7 +30,9 @@ public class FailedServlet extends HttpServlet {
     vars.put("message", message);
     StrSubstitutor subs = new StrSubstitutor(vars);
     page = subs.replace(page);
-    
+   
+    page = new TemplateBuilder().process("Failed", page);
+        
     theResp.getOutputStream().write(page.getBytes(Charsets.UTF_8));
     IOUtils.closeQuietly(theResp.getOutputStream());
   }

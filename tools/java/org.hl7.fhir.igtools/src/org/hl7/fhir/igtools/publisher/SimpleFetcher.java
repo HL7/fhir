@@ -2,6 +2,7 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SimpleFetcher implements IFetchFile {
@@ -272,6 +274,32 @@ public class SimpleFetcher implements IFetchFile {
 
   public void setLogger(ILoggingService log) {
     this.log = log;
+  }
+
+  @Override
+  public FetchState check(String path) {
+    File f = new File(path);
+    if (!f.exists())
+      return FetchState.NOT_FOUND;
+    else if (f.isDirectory())
+      return FetchState.DIR;
+    else
+      return FetchState.FILE;
+  }
+
+  @Override
+  public String pathForFile(String path) {
+    return Utilities.getDirectoryForFile(path);
+  }
+
+  @Override
+  public InputStream openAsStream(String filename) throws FileNotFoundException {
+    return new FileInputStream(filename);
+  }
+
+  @Override
+  public String openAsString(String filename) throws IOException {
+    return TextFile.fileToString(filename);
   }
 
   

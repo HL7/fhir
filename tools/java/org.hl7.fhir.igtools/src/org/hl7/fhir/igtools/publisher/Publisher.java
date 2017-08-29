@@ -118,12 +118,15 @@ import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities.StructureMapAnalysis;
+import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.r4.utils.formats.Turtle;
 import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
+import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
 import org.hl7.fhir.igtools.publisher.Publisher.LinkTargetType;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
@@ -196,6 +199,9 @@ import com.google.gson.JsonPrimitive;
 
 public class Publisher implements IWorkerContext.ILoggingService, IReferenceResolver {
 
+  public enum IGBuildMode { MANUAL, AUTOBUILD, WEBSERVER }
+
+
   public enum LinkTargetType {
 
   }
@@ -219,6 +225,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String configFile;
   private String sourceDir;
   private String destDir;
+  private FHIRToolingClient webTxServer;
   private static String txServer = "http://tx.fhir.org/r3";
 //  private static String txServer = "http://local.fhir.org:960/open";
   private String igPack = "";
@@ -236,7 +243,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private List<String> suppressedMessages = new ArrayList<String>();
 
   private String igName;
-  private boolean autoBuildMode; // for the IG publication infrastructure
+  private IGBuildMode mode; // for the IG publication infrastructure
 
   private IFetchFile fetcher = new SimpleFetcher(this);
   private SimpleWorkerContext context; // 
@@ -691,13 +698,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         pagesDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));
     } else
       pagesDirs.add(Utilities.path(root, str(paths, "pages", "pages")));
-    tempDir = Utilities.path(root, str(paths, "temp", "temp"));
-    outputDir = Utilities.path(root, str(paths, "output", "output"));
+    if (mode != IGBuildMode.WEBSERVER){
+      tempDir = Utilities.path(root, str(paths, "temp", "temp"));
+      outputDir = Utilities.path(root, str(paths, "output", "output"));
+    }
     qaDir = Utilities.path(root, str(paths, "qa"));
     vsCache = ostr(paths, "txCache");
     if (vsCache != null)
       vsCache = Utilities.path(root, vsCache);
-    else if (autoBuildMode)
+    else if (mode == IGBuildMode.AUTOBUILD)
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
     else
       vsCache = Utilities.path(System.getProperty("user.home"), "fhircache");
@@ -720,7 +729,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       inspector.getManual().add(historyPage);
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
     inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
-    makeQA = !"true".equals(ostr(configuration, "suppress-qa"));
+    makeQA = mode == IGBuildMode.WEBSERVER ? false : !"true".equals(ostr(configuration, "suppress-qa"));
 
     dlog(LogCategory.INIT, "Check folders");
     for (String s : resourceDirs) {
@@ -743,7 +752,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     forceDir(qaDir);
 
     Utilities.createDirectory(vsCache);
-    if (cacheOption == CacheOption.CLEAR_ALL || autoBuildMode) {
+    if (cacheOption == CacheOption.CLEAR_ALL || (mode == IGBuildMode.AUTOBUILD)) {
       log("Terminology Cache is at "+vsCache+". Clearing now");
       Utilities.clearDirectory(vsCache);
     } else if (cacheOption == CacheOption.CLEAR_ERRORS) {
@@ -806,17 +815,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("Definitions "+context.getVersion());
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
-    log("Connect to Terminology Server at "+txServer);
     context.setExpansionProfile(makeExpProfile());
-    context.initTS(vsCache, txServer);
+    log("Load Terminology Cache from "+vsCache);
+    context.initTS(vsCache);
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
     context.getExpansionProfile().addFixedVersion().setSystem("http://snomed.info/sct").setVersion(sct);
     context.getExpansionProfile().setActiveOnly("true".equals(ostr(configuration, "activeOnly")));
-    if (txServer == null || !txServer.contains(":")) {
-      log("WARNING: Running without terminology server - terminology content will likely not publish correctly");
-      context.setCanRunWithoutTerminology(true);
-    } else
-      checkTSVersion(vsCache, context.connectToTSServer(txServer));
+    if (mode != IGBuildMode.WEBSERVER) {
+      if (txServer == null || !txServer.contains(":")) {
+        log("WARNING: Running without terminology server - terminology content will likely not publish correctly");
+        context.setCanRunWithoutTerminology(true);
+      } else {
+        log("Connect to Terminology Server at "+txServer);
+        checkTSVersion(vsCache, context.connectToTSServer(txServer));
+      }
+    } else 
+      checkTSVersion(vsCache, context.connectToTSServer(webTxServer));
     
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
@@ -1167,11 +1181,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       filename = fetchFromURL(source, name);
     else if (Utilities.isAbsoluteFileName(source))
       filename = Utilities.path(source, "definitions.json.zip");
-    else
-      filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.json.zip");
+    else 
+      filename = Utilities.path(fetcher.pathForFile(configFile), source, "definitions.json.zip");
+    InputStream stream = fetcher.openAsStream(filename);
     ZipInputStream zip = null;
     try {
-      zip = new ZipInputStream(new FileInputStream(filename));
+      zip = new ZipInputStream(stream);
     } catch (Exception e) {
       if (source.startsWith("http:") || source.startsWith("https:"))
         throw e;
@@ -1230,18 +1245,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void checkDir(String dir) throws Exception {
-    File f = new File(dir);
-    if (!f.exists())
+    FetchState state = fetcher.check(dir);
+    if (state == FetchState.NOT_FOUND)
       throw new Exception(String.format("Error: folder %s not found", dir));
-    else if (!f.isDirectory())
+    else if (state == FetchState.FILE)
       throw new Exception(String.format("Error: Output must be a folder (%s)", dir));
   }
 
   private void checkFile(String fn) throws Exception {
-    File f = new File(fn);
-    if (!f.exists())
-      throw new Exception(String.format("Error: folder %s not found", fn));
-    else if (f.isDirectory())
+    FetchState state = fetcher.check(fn);
+    if (state == FetchState.NOT_FOUND)
+      throw new Exception(String.format("Error: file %s not found", fn));
+    else if (state == FetchState.DIR)
       throw new Exception(String.format("Error: Output must be a file (%s)", fn));
   }
 
@@ -2108,7 +2123,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     String parseVersion = version;
     if (!file.getResources().isEmpty())
       parseVersion = str(file.getResources().get(0).getConfig(), "version", version);
-    if (parseVersion.equals("3.0.1")) {
+    if (parseVersion.equals("3.0.1") || parseVersion.equals("3.0.0")) {
       org.hl7.fhir.dstu3.model.Resource res;
       if (file.getContentType().contains("json"))
         res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(file.getSource());
@@ -2319,11 +2334,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void cleanOutput(String folder) throws IOException {
     for (File f : new File(folder).listFiles()) {
-// Lloyd this was changed from getPath
-      if (!isValidFile(f.getCanonicalPath())) {
-        if (!f.isDirectory()) {
-          f.delete();
-        }
+      cleanOutputFile(f);
+    }
+  }
+
+
+  public void cleanOutputFile(File f) {
+ // Lloyd: this was changed from getPath to getCanonicalPath, but 
+ // Grahame: changed it back because this was achange that broke everything, and with no reason provided
+    if (!isValidFile(f.getPath())) {
+      if (!f.isDirectory()) {
+        f.delete();
       }
     }
   }
@@ -3365,7 +3386,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
       }
       if (!existsAsPage) {
-        template = TextFile.fileToString(Utilities.path(Utilities.getDirectoryForFile(configFile), template));
+        template = fetcher.openAsString(Utilities.path(fetcher.pathForFile(configFile), template));
         template = igpkp.doReplacements(template, r, vars, format);
 
         outputName = determineOutputName(outputName, r, vars, format, extension);
@@ -3604,7 +3625,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void fragment(String name, String content, Set<String> outputTracker, FetchedResource r, Map<String, String> vars, String format) throws IOException {
     String fixedContent = (r==null? content : igpkp.doReplacements(content, r, vars, format));
     if (checkMakeFile(fixedContent.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
-      if (!autoBuildMode && makeQA)
+      if (mode != IGBuildMode.AUTOBUILD && makeQA)
         TextFile.stringToFile(pageWrap(fixedContent, name), Utilities.path(qaDir, name+".html"), true);
     }
   }
@@ -3709,7 +3730,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   @Override
   public void logMessage(String msg) {
     System.out.println(msg);
-    if (!autoBuildMode) {
+    if (mode == IGBuildMode.MANUAL) {
       try {
         String logPath = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log");
         if (filelog==null) {
@@ -3873,7 +3894,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       self.setJekyllCommand(getNamedParam(args, "-jekyll"));
       self.setIgPack(getNamedParam(args, "-spec"));
       self.setTxServer(getNamedParam(args, "-tx"));
-      self.setAutoBuildMode(hasNamedParam(args, "-auto-ig-build"));
+      if (hasNamedParam(args, "-auto-ig-build"))
+      self.setMode(IGBuildMode.AUTOBUILD);
       self.watch = hasParam(args, "-watch");
       if (hasParam(args, "-resetTx"))
         self.setCacheOption(CacheOption.CLEAR_ALL);
@@ -3896,7 +3918,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
         exitCode = 1;
       } finally {
-        if (!self.autoBuildMode) {
+        if (self.mode == IGBuildMode.MANUAL) {
           TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), getNamedParam(args, "-source"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
         }
       }
@@ -3937,10 +3959,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  private void setAutoBuildMode(boolean value) {
-    autoBuildMode = value;
-
+  public IGBuildMode getMode() {
+    return mode;
   }
+
+
+  public void setMode(IGBuildMode mode) {
+    this.mode = mode;
+  }
+
 
   private static String nowAsString() {
     Calendar cal = Calendar.getInstance();
@@ -3978,6 +4005,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     tempDir = theTempDir;
   }
 
+  public void setOutputDir(String theDir) {
+    outputDir = theDir;
+  }
+
 
   public void setIgName(String theIgName) {
     igName = theIgName;
@@ -3992,4 +4023,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     configuration = theConfiguration;
   }
 
+
+  public FHIRToolingClient getWebTxServer() {
+    return webTxServer;
+  }
+
+
+  public void setWebTxServer(FHIRToolingClient webTxServer) {
+    this.webTxServer = webTxServer;
+  }
+
+  
 }

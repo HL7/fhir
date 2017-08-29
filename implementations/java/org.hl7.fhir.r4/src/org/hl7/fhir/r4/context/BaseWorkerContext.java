@@ -773,9 +773,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-  public void initTS(String cachePath, String tsServer) throws Exception {
+  public void initTS(String cachePath) throws Exception {
     cache = cachePath;
-    this.tsServer = tsServer;
     expansionCache = new ValueSetExpansionCache(this, null);
     validationCachePath = Utilities.path(cachePath, "validation.cache");
     try {

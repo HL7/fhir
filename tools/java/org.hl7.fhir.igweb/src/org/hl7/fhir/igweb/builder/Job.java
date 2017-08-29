@@ -4,6 +4,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 
 import java.io.*;
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.ServletOutputStream;
 
@@ -11,6 +12,9 @@ import org.apache.commons.codec.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.igtools.publisher.*;
 import org.hl7.fhir.igweb.Slf4jLogger;
+import org.hl7.fhir.r4.model.DateTimeType;
+import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.*;
 
@@ -25,12 +29,15 @@ public class Job implements Runnable {
   private Publisher myPublisher;
   private String myLatestVersion;
   private File myCreatedFile;
+  private String logPath;
+  private String mySessionId;
 
-  public Job(String theJobId, byte[] theInput, Publisher thePublisher) {
+  public Job(String theJobId, byte[] theInput, Publisher thePublisher, String sessionId) {
     myJobId = theJobId;
     myInput = theInput;
     myCreated = new Date();
     myPublisher = thePublisher;
+    mySessionId = sessionId;
   }
 
   public void destroy() {
@@ -49,11 +56,21 @@ public class Job implements Runnable {
     return myFinished;
   }
 
+  public String getLogPath() {
+    return logPath;
+  }
+
+  public void setLogPath(String logPath) {
+    this.logPath = logPath;
+  }
+
   @Override
   public void run() {
     ourLog.info("Beginning conversion job: {}", myJobId);
 
     try {
+      saveToFile("in", myInput);
+      
       ZipFetcher fetcher = new ZipFetcher(myInput);
 
       FetchedFile def = fetcher.findDefinitionFile();
@@ -97,10 +114,14 @@ public class Job implements Runnable {
       myPublisher.setSpecPath("/");
       myPublisher.setConfigFileRootPath(def.getPath().substring(0, def.getPath().lastIndexOf('/')+1));
 
-      File tempFile = File.createTempFile("igweb", "igweb");
+      File tempFile = File.createTempFile("igweb", "temp");
       tempFile.delete();
       tempFile.mkdirs();
       myPublisher.setTempDir(tempFile.getAbsolutePath());
+      File outFile = File.createTempFile("igweb", "out");
+      outFile.delete();
+      outFile.mkdirs();
+      myPublisher.setOutputDir(outFile.getAbsolutePath());
 
       myPublisher.initialize();
 
@@ -112,15 +133,28 @@ public class Job implements Runnable {
       if (!createdFile.exists()) {
         throw new Exception("Failed to create IG Zip");
       }
+      saveToFile("out", createdFile);
       
       createdFile.deleteOnExit();
       
       myCreatedFile = createdFile;
       myFinished = true;
+//      Utilities.clearDirectory(tempFile.getAbsolutePath());
+//      Utilities.clearDirectory(outFile.getAbsolutePath());
     } catch (Exception e) {
       ourLog.error("Failure during conversion", e);
       myFailureMessage = e.toString();
     }
+  }
+
+  private void saveToFile(String op, File file) throws FileNotFoundException, IOException {
+    byte[] cnt = TextFile.fileToBytes(file.getAbsolutePath());
+    saveToFile(op, cnt);
+  }
+
+  private void saveToFile(String op, byte[] cnt) throws IOException {
+    String filename = Utilities.path(logPath, "cnt"+mySessionId+"-"+myJobId+"-"+op+".zip");
+    TextFile.bytesToFile(cnt, filename);    
   }
 
   public void setLatestVersion(String theLatestVersion) {

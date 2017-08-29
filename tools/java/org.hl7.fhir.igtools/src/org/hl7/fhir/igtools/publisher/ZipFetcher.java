@@ -11,6 +11,7 @@ import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.model.*;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ZipFetcher implements IFetchFile {
@@ -24,6 +25,7 @@ public class ZipFetcher implements IFetchFile {
 
     try (ZipInputStream zis = new ZipInputStream(new ByteArrayInputStream(theZipFile))) {
 
+      Map<String, FetchedFile> dirs = new HashMap<String, FetchedFile>();
       while (true) {
         ZipEntry entry = zis.getNextEntry();
         if (entry == null) {
@@ -43,6 +45,7 @@ public class ZipFetcher implements IFetchFile {
             entryName = entryName.substring(0, entryName.length() - 1);
             ff.setPath(entryName);
           }
+          dirs.put(entryName, ff);
           
           // TODO: work this in
           // for (File fl : f.listFiles())
@@ -56,10 +59,11 @@ public class ZipFetcher implements IFetchFile {
           }
           byte[] bytes = IOUtils.toByteArray(zis);
           ff.setSource(bytes);
-
         }
+        if (entryName.contains("/"))
+          dirs.get(entryName.substring(0, entryName.lastIndexOf("/"))).getFiles().add(entryName);
 
-        myFiles.put(entryName, ff);
+        myFiles.put(normalisePath(entryName), ff);
       }
 
     } catch (IOException e) {
@@ -70,7 +74,7 @@ public class ZipFetcher implements IFetchFile {
 
   @Override
   public FetchedFile fetch(String thePath) throws Exception {
-    FetchedFile retVal = myFiles.get(thePath);
+    FetchedFile retVal = myFiles.get(normalisePath(thePath));
     if (retVal == null) {
       throw new Exception("Unknown resource: " + thePath);
     }
@@ -148,7 +152,7 @@ public class ZipFetcher implements IFetchFile {
           throw new Exception("Unable to find the source file for "+type+"/"+id+": not specified, so tried "+type.toLowerCase()+"-"+id+".xml, "+type.toLowerCase()+"-"+id+".json, "+type.toLowerCase()+"/"+id+".xml, "+type.toLowerCase()+"/"+id+".json, "+id+".xml, and "+id+".json in dirs "+dirs.toString());
       } else {
         fn = findFile(dirs, fn);
-        if (!myFiles.containsKey(fn))
+        if (!myFiles.containsKey(normalisePath(fn)))
           throw new Exception("Unable to find the source file for "+type+"/"+id+" at "+fn);
       }
       return fetch(fn); 
@@ -164,7 +168,7 @@ public class ZipFetcher implements IFetchFile {
   String findFile(List<String> dirs, String name) throws IOException {
     for (String dir : dirs) {
       String fn = Utilities.path(dir, name);
-      if (myFiles.containsKey(fn))
+      if (myFiles.containsKey(normalisePath(fn)))
         return fn;
     }
     return null;
@@ -182,7 +186,7 @@ public class ZipFetcher implements IFetchFile {
   private FetchedFile findResourceFileOrNull(String theName) {
     FetchedFile retVal = null;
     for (String next : myResourceDirs) {
-      FetchedFile file = myFiles.get(next + "/" + theName);
+      FetchedFile file = myFiles.get(normalisePath(next + "/" + theName));
       if (file != null) {
         retVal = file;
       }
@@ -213,6 +217,42 @@ public class ZipFetcher implements IFetchFile {
   @Override
   public void setResourceDirs(List<String> theResourceDirs) {
     myResourceDirs = theResourceDirs;
+  }
+
+  @Override
+  public FetchState check(String path) {
+    FetchedFile ff = myFiles.get(normalisePath(path));
+    if (ff == null)
+      return FetchState.NOT_FOUND;
+    else if (ff.getContentType().equals("application/directory"))
+      return FetchState.DIR;
+    else
+      return FetchState.FILE;
+  }
+
+  @Override
+  public String pathForFile(String path) {
+    return path == null ? null : Utilities.getDirectoryForFile(path);
+  }
+
+  @Override
+  public InputStream openAsStream(String filename) throws FileNotFoundException {
+    FetchedFile ff = myFiles.get(normalisePath(filename));
+    if (ff == null)
+      throw new FileNotFoundException("Unable to find file "+filename+" in the uploaded content");
+    return new ByteArrayInputStream(ff.getSource());
+  }
+
+  @Override
+  public String openAsString(String filename) throws IOException {
+    FetchedFile ff = myFiles.get(normalisePath(filename));
+    if (ff == null)
+      throw new FileNotFoundException("Unable to find file "+filename+" in the uploaded content");
+    return TextFile.bytesToString(ff.getSource());
+  }
+
+  private String normalisePath(String filename) {
+    return filename.replace("\\", "/");
   }
 
 }
