@@ -1183,9 +1183,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       filename = Utilities.path(source, "definitions.json.zip");
     else 
       filename = Utilities.path(fetcher.pathForFile(configFile), source, "definitions.json.zip");
-    InputStream stream = fetcher.openAsStream(filename);
     ZipInputStream zip = null;
     try {
+      InputStream stream = fetcher.openAsStream(filename);
       zip = new ZipInputStream(stream);
     } catch (Exception e) {
       if (source.startsWith("http:") || source.startsWith("https:"))
