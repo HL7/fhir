@@ -73,7 +73,7 @@ public class BaseRenderer extends TranslatingUtilities {
 	      while (i > 0) {
 	        if (text.substring(i, i+2).equals("](") && i+7 <= text.length()) {
 	          // The following can go horribly wrong if i+7 > text.length(), thus the check on i+7 above and the Throwable catch around the whole method just in case. 
-	          if (!text.substring(i, i+7).equals("](http:") && !text.substring(i, i+8).equals("](https:")) { 
+	          if (!text.substring(i, i+7).equals("](http:") && !text.substring(i, i+8).equals("](https:") && !text.substring(i, i+3).equals("](.")) { 
 	            text = text.substring(0, i)+"]("+prefix+text.substring(i+2);
 	          }
 	        }
