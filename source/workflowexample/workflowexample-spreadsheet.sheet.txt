@@ -195,258 +195,279 @@
   Definition = The description of the resource version
 
  -- Row 31 -----------------------------------
+  Element = WorkflowExample.instance.containedInstance
+  Card. = 0..*
+  Short Name = Resources contained in the instance
+  Definition = Resources contained in the instance (e.g. the observations contained in a bundle)
+
+ -- Row 32 -----------------------------------
+  Element = WorkflowExample.instance.containedInstance.resourceId
+  Card. = 1..1
+  Type = string
+  Short Name = Each resource contained in the instance
+  Definition = Each resource contained in the instance
+
+ -- Row 33 -----------------------------------
+  Element = WorkflowExample.instance.containedInstance.versionId
+  Card. = 0..1
+  Type = string
+  Short Name = A specific version of a resource contained in the instance
+  Definition = A specific version of a resource contained in the instance
+
+ -- Row 34 -----------------------------------
   Element = WorkflowExample.process
   Card. = 0..1
   Short Name = Each major process - a group of operations
   Definition = Each major process - a group of operations
 
- -- Row 32 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = WorkflowExample.process.title
   Card. = 1..1
   Type = string
   Short Name = The diagram title of the group of operations
   Definition = The diagram title of the group of operations
 
- -- Row 33 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = WorkflowExample.process.description
   Card. = 0..1
   Type = markdown
   Short Name = A longer description of the group of operations
   Definition = A longer description of the group of operations
 
- -- Row 34 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = WorkflowExample.process.preConditions
   Card. = 0..1
   Type = markdown
   Short Name = Description of initial status before the process starts
   Definition = Description of initial status before the process starts
 
- -- Row 35 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = WorkflowExample.process.postConditions
   Card. = 0..1
   Type = markdown
   Short Name = Description of final status after the process ends
   Definition = Description of final status after the process ends
 
- -- Row 36 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = WorkflowExample.process.step
   Card. = 0..*
   Short Name = Each step of the process
   Definition = Each step of the process
 
- -- Row 37 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = WorkflowExample.process.step.process
   Card. = 0..*
   Type = @WorkflowExample.process
   Short Name = Nested process
   Definition = Nested process
 
- -- Row 38 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = WorkflowExample.process.step.pause
   Card. = 0..1
   Type = boolean
   Short Name = If there is a pause in the flow
   Definition = If there is a pause in the flow
 
- -- Row 39 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = !WorkflowExample.process.operation
   Card. = 0..*
   Short Name = An operation or sequence of actions
   Definition = An operation or sequence of actions
 
- -- Row 40 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = !WorkflowExample.process.operation.number
   Card. = 0..1
   Type = string
   Short Name = The sequential number of the operation
   Definition = The sequential number of the operation
 
- -- Row 41 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = !WorkflowExample.process.operation.type
   Card. = 0..1
   Type = string
   Short Name = The type of operation - CRUD
   Definition = The type of operation - CRUD
 
- -- Row 42 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = !WorkflowExample.process.operation.name
   Card. = 1..1
   Type = string
   Short Name = The name of the operation
   Definition = The name of the operation
 
- -- Row 43 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = !WorkflowExample.process.operation.description
   Card. = 0..1
   Type = markdown
   Short Name = A description of the operation
   Definition = A description of the operation
 
- -- Row 44 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = !WorkflowExample.process.operation.group
   Card. = 1..1
   Type = boolean
   Short Name = This determines if there is a group in these interactions (like in the diagram)
   Definition = This determines if there is a group in these interactions (like in the diagram)
 
- -- Row 45 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = WorkflowExample.process.step.operation
   Card. = 0..1
   Short Name = Each interaction or action
   Definition = Each interaction or action
 
- -- Row 46 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = WorkflowExample.process.step.operation.number
   Card. = 1..1
   Type = string
   Short Name = The sequential number of the interaction
   Definition = The sequential number of the interaction
 
- -- Row 47 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = WorkflowExample.process.step.operation.type
   Card. = 0..1
   Type = string
   Short Name = The type of operation - CRUD
   Definition = The type of operation - CRUD
 
- -- Row 48 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = WorkflowExample.process.step.operation.name
   Card. = 0..1
   Type = string
   Short Name = The human-friendly name of the interaction
   Definition = The human-friendly name of the interaction
 
- -- Row 49 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = WorkflowExample.process.step.operation.initiator
   Card. = 0..1
   Type = string
   Short Name = Who starts the transaction
   Definition = Who starts the transaction
 
- -- Row 50 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = WorkflowExample.process.step.operation.receiver
   Card. = 0..1
   Type = string
   Short Name = Who receives the transaction
   Definition = Who receives the transaction
 
- -- Row 51 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = !WorkflowExample.process.operation.isDataExchange
   Card. = 0..1
   Type = boolean
   Short Name = Whether the interaction is data exchange or other (e.g. manual action, item transport, other handover)
   Definition = Whether the interaction is data exchange or other (e.g. manual action, item transport, other handover)
 
- -- Row 52 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = WorkflowExample.process.step.operation.description
   Card. = 0..1
   Type = markdown
   Short Name = A comment to be inserted in the diagram
   Definition = A comment to be inserted in the diagram
 
- -- Row 53 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = !WorkflowExample.process.operation.contentDescription
   Card. = 0..1
   Type = string
   Short Name = A text or link to the content of the interaction
   Definition = A text or link to the content of the interaction
 
- -- Row 54 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = WorkflowExample.process.step.operation.initiatorActive
   Card. = 0..1
   Type = boolean
   Short Name = Whether the initiator is deactivated right after the transaction
   Definition = Whether the initiator is deactivated right after the transaction
 
- -- Row 55 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = WorkflowExample.process.step.operation.receiverActive
   Card. = 0..1
   Type = boolean
   Short Name = Whether the receiver is deactivated right after the transaction
-  Definition = Whether the initiator is deactivated right after the transaction
+  Definition = Whether the receiver is deactivated right after the transaction
 
- -- Row 56 -----------------------------------
-  Element = WorkflowExample.process.step.operation.instance
-  Card. = 0..*
-  Short Name = Each resource instance used in this transaction
-  Definition = Each resource instance used in this transaction
-
- -- Row 57 -----------------------------------
-  Element = WorkflowExample.process.step.operation.instance.instanceId
+ -- Row 59 -----------------------------------
+  Element = WorkflowExample.process.step.operation.request
   Card. = 0..1
-  Type = string
-  Short Name = The resource names used here
-  Definition = The resource names used here
+  Type = @WorkflowExample.instance.containedInstance
+  Short Name = Each resource instance used by the initiator
+  Definition = Each resource instance used by the initiator
 
- -- Row 58 -----------------------------------
+ -- Row 60 -----------------------------------
+  Element = WorkflowExample.process.step.operation.response
+  Card. = 0..1
+  Type = @WorkflowExample.instance.containedInstance
+  Short Name = Each resource instance used by the responder
+  Definition = Each resource instance used by the responder
+
+ -- Row 61 -----------------------------------
   Element = !WorkflowExample.process.operation.instance.versionId
   Card. = 0..1
   Type = string
   Short Name = The resource versions used here
   Definition = The resource versions used here
 
- -- Row 59 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = WorkflowExample.process.step.alternative
   Card. = 0..1
   Short Name = Each interaction in the process
   Definition = Each interaction in the workflow
 
- -- Row 60 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = WorkflowExample.process.step.alternative.name
   Card. = 0..1
   Type = string
   Short Name = The name of each alternative
   Definition = The name of each alternative
 
- -- Row 61 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option
   Card. = 1..*
   Short Name = Each of the possible options in an alternative
   Definition = Each of the possible options in an alternative
 
- -- Row 62 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.description
   Card. = 1..1
   Type = markdown
   Short Name = A human-readable description of each option
   Definition = A human-readable description of each option
 
- -- Row 63 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.step
   Card. = 0..*
   Type = @WorkflowExample.process.step
   Short Name = What happens in each alternative option
   Definition = What happens in each alternative option
 
- -- Row 64 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = !WorkflowExample.process.step.alternative.option.process
   Card. = 0..*
   Type = @WorkflowExample.process
   Short Name = Nested processes in an option branch
   Definition = Nested processes in an option branch
 
- -- Row 65 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = !WorkflowExample.process.step.alternative.option.alternative
   Card. = 0..*
   Type = @WorkflowExample.process.step.alternative
   Short Name = Nested alternatives in an option branch
   Definition = Nested alternatives in an option branch
 
- -- Row 66 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = !WorkflowExample.process.step.alternative.option.operation
   Card. = 0..*
   Type = @WorkflowExample.process.step.operation
   Short Name = Nested operations in an option branch
   Definition = Nested operations in an option branch
 
- -- Row 67 -----------------------------------
+ -- Row 70 -----------------------------------
   Element = WorkflowExample.process.step.alternative.option.pause
   Card. = 0..*
   Type = boolean
   Short Name = If there is a pause in the flow
   Definition = If there is a pause in the flow
 
- -- Row 68 -----------------------------------
+ -- Row 71 -----------------------------------
   Element = WorkflowExample.workflow
   Card. = 0..*
   Type = Reference (WorkflowExample)

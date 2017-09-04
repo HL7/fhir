@@ -82,14 +82,6 @@
 
 
 	<instance>
-		<resourceId value="iherx001.999" />
-		<resourceType value="Bundle"/>
-		<name value="Response: Bundle[MedicationRequest]" />
-		<description value="The server response in a bundle of resources" />
-	</instance>	
-
-
-	<instance>
 		<resourceId value="iheadm001a" />
 		<resourceType value="MedicationAdministration"/>
 		<name value="Morning meds - taken" />
@@ -101,6 +93,31 @@
 		<resourceType value="MedicationAdministration"/>
 		<name value="Morning meds - not taken" />
 		<description value="Administration report for day 1, morning: NOT Taken" />
+	</instance>
+
+	<instance>
+		<resourceId value="iherx001bundle" />
+		<resourceType value="MedicationRequest"/>
+		<name value="Bundle of Medication Requests" />
+		<description value="All the medication Requests for Day 1" />
+		<containedInstance>
+			<resourceId value="iherx001.001" />
+		</containedInstance>
+		<containedInstance>
+			<resourceId value="iherx001.002" />
+		</containedInstance>
+		<containedInstance>
+			<resourceId value="iherx001.003" />
+		</containedInstance>
+		<containedInstance>
+			<resourceId value="iherx001.004" />
+		</containedInstance>
+		<containedInstance>
+			<resourceId value="iherx001.005" />
+		</containedInstance>
+		<containedInstance>
+			<resourceId value="iherx001.006" />
+		</containedInstance>
 	</instance>
 
 
@@ -124,7 +141,7 @@
 
 	<!-- QUESTION: How to define search actions?-->		
 	<instance>
-		<resourceId value="ihesearchparam_rx.performer"/>
+		<resourceId value="iherxqry"/>
 		<resourceType value="SearchParameter"/>
 		<name value="Search query1" />
 		<description value="The search administration request for day 1, morning" />
@@ -142,9 +159,6 @@
 				<name value="1. Get today's schedule"/> 
 				<initiator value="Nurse"/> 
 				<receiver value="MAP"/> 
-				<instance>
-					<instanceId value="iherx001.001"/>
-				</instance>
 			</operation>		
 		</step>
 
@@ -159,14 +173,17 @@
 						<name value="2.Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
 						<initiator value="MAP"/> 
 						<receiver value="OP"/> 
-						<instance>
-							<instanceId value="ihesearchparam_rx.performer"/>
-						</instance>
+						<request>
+							<resourceId value="iherxqry"/>
+						</request>
+						<response>
+							<resourceId value="iherx001bundle"/>
+						</response>
 					</operation>
 				</step>
 
 
-
+				<!--
 				<step>
 					<operation>
 						<number value="3"/> 
@@ -194,7 +211,7 @@
 						</instance>
 					</operation>
 				</step>
-
+-->
 
 			</process>	
 		</step>
@@ -327,9 +344,9 @@
 						<initiator value="Nurse"/> 
 						<receiver value="MAP"/> 
 						<initiatorActive value="true"/>
-						<instance>
-							<instanceId value="iheadm001.002" />
-						</instance>
+						<request>
+							<resourceId value="iheadm002"/>
+						</request>
 					</operation>
 				</step>
 			</process>
@@ -349,13 +366,15 @@
 						<name value="Refresh"/> 
 						<initiator value="MAP"/> 
 						<receiver value="MAC"/> 
-						<instance>
-							<instanceId value="iheadm001.001" />
-						</instance>	
-						<instance>
-							<instanceId value="iheadm001.002" />
-						</instance>
-
+						<request>
+							<resourceId value="iheadm001"/>
+						</request>
+<!-- should we allow 2 requests? How can we send 2 instances in one request, not bundled? 						
+						<request>
+							<resourceId value="iheadm002"/>
+							<versionId value="1"/>
+						</request>
+-->
 					</operation>		
 				</step>
 			</process>
