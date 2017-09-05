@@ -32,6 +32,7 @@
  26. Test differential sorting for polymorphic references
  27. Walking into a type for Contract
  28. Test children of a polymorphic type
+ 29. Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)
 -->
   <contained>
     <!-- fixture for #1: no change in the differential -->
@@ -1325,6 +1326,60 @@
     </StructureDefinition>
   </contained>
 
+  <contained>
+    <!-- fixture for #29: Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part) -->
+    <StructureDefinition>
+      <id value="t29"/>
+      <url value="urn:uuid:8371f159-76b3-41f7-a66f-bde129e7e603"/>
+      <name value="t29"/>
+      <status value="draft"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="OperationOutcome"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element>
+          <path value="Parameters"/>
+        </element>
+        <element>
+          <path value="Parameters.parameter"/>
+        </element>
+        <element>
+          <path value="Parameters.parameter.part"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="name"/>
+            </discriminator>
+            <rules value="closed"/>
+          </slicing>
+        </element>
+        <element>
+          <path value="Parameters.parameter.part"/>
+          <sliceName value="foo"/>
+          <min value="1"/>
+          <max value="1"/>
+        </element>
+        <element>
+          <path value="Parameters.parameter.part.name"/>
+          <fixedString value="foo"/>
+          <mustSupport value="true"/>
+        </element>
+        <element>
+          <path value="Parameters.parameter.part.valueCoding"/>
+          <min value="1"/>
+          <type>
+            <code value="Coding"/>
+          </type>
+        </element>
+        <element>
+          <path value="Parameters.parameter.part.valueCoding.code"/>
+          <min value="1"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
   
   <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
@@ -1352,6 +1407,11 @@
   <fixture id="operationoutcome">
     <resource>
       <reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+    </resource>
+  </fixture>
+  <fixture id="parameters">
+    <resource>
+      <reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
     </resource>
   </fixture>
   <!-- test #1: no change in the differential -->
@@ -2677,6 +2737,31 @@
         <!-- This number may not be correct -->
         <direction value="response"/>
         <expression value="fixture('t28o').snapshot.element.count().trace('t28o') = fixture('operationoutcome').snapshot.element.count().trace('t28') + 16"/>
+      </assert>
+    </action>
+  </test>
+  <test>
+    <name value="Test29"/>
+    <description value="TTest recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <params value="sort=true"/>
+        <responseId value="t29o"/>
+        <sourceId value="t29"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test29-1"/>
+        <description value="Element count must be increased by 16"/>
+        <!-- This number may not be correct -->
+        <direction value="response"/>
+        <expression value="fixture('t29o').snapshot.element.count().trace('t29o') = fixture('parameters').snapshot.element.count().trace('t29') + 15"/>
       </assert>
     </action>
   </test>
