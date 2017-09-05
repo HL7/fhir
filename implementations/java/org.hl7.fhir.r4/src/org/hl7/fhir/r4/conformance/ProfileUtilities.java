@@ -1227,19 +1227,21 @@ public class ProfileUtilities extends TranslatingUtilities {
 
     // Before applying changes, apply them to what's in the profile
     // TODO: follow Chris's rules
-    StructureDefinition profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile()) : null;
-    if (profile != null) {
-      ElementDefinition e = profile.getSnapshot().getElement().get(0);
-      base.setDefinition(e.getDefinition());
-      base.setShort(e.getShort());
-      if (e.hasCommentElement())
-        base.setCommentElement(e.getCommentElement());
-      if (e.hasRequirementsElement())
-        base.setRequirementsElement(e.getRequirementsElement());
-      base.getAlias().clear();
-      base.getAlias().addAll(e.getAlias());
-      base.getMapping().clear();
-      base.getMapping().addAll(e.getMapping());
+    if (base.hasSliceName()) {
+      StructureDefinition profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile()) : null;
+      if (profile != null) {
+        ElementDefinition e = profile.getSnapshot().getElement().get(0);
+        base.setDefinition(e.getDefinition());
+        base.setShort(e.getShort());
+        if (e.hasCommentElement())
+          base.setCommentElement(e.getCommentElement());
+        if (e.hasRequirementsElement())
+          base.setRequirementsElement(e.getRequirementsElement());
+        base.getAlias().clear();
+        base.getAlias().addAll(e.getAlias());
+        base.getMapping().clear();
+        base.getMapping().addAll(e.getMapping());
+      }
     }
     
     if (derived != null) {

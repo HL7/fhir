@@ -797,19 +797,20 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         return def.getDescription();
       String ref = def.getValueSet() instanceof UriType ? ((UriType) def.getValueSet()).asStringValue() : ((Reference) def.getValueSet()).getReference();
       ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(ref));
+      String defDesc = def.getDescription()==null ? "" : def.getDescription() + "<br/>";
       if (vs != null) {
         String pp = (String) vs.getUserData("path");
         if (pp == null) {
           return null;
         } else if (pp.startsWith("http:") || pp.startsWith("https:"))
-          return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp+"\">"+gt(vs.getNameElement())+"</a>"+confTail(def);
+          return defDesc+conf(def)+ "<a href=\""+pp+"\">"+gt(vs.getNameElement())+"</a>"+confTail(def);
         else
-          return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
+          return defDesc+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
       }
       if (ref.startsWith("http:") || ref.startsWith("https:"))
-        return def.getDescription()+"<br/>"+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
+        return defDesc+conf(def)+" <a href=\""+ref+"\">"+ref+"</a>"+confTail(def);
       else
-        return def.getDescription()+"<br/>"+conf(def)+" ?? Broken Reference to "+ref+" ??"+confTail(def);
+        return defDesc+conf(def)+" ?? Broken Reference to "+ref+" ??"+confTail(def);
 
     }
   }
