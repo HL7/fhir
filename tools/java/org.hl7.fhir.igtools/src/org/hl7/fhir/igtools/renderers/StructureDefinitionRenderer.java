@@ -1296,7 +1296,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       int l = lastChild(extchildren);
       for (ElementDefinition child : extchildren)
         if (child.hasSlicing())
-          generateCoreElemSliced(b, elements, child, children, indent+2, pathName+"."+en, false, child.getType().get(0), ++cc == l, extcomplex);
+          generateCoreElemSliced(b, elements, child, children, indent+2, pathName+"."+en, false, child.getType().isEmpty() ? null : child.getType().get(0), ++cc == l, extcomplex);
         else if (wasSliced(child, children))
           ; // nothing
         else if (child.getType().size() == 1)

@@ -2823,7 +2823,14 @@ public class ProfileUtilities extends TranslatingUtilities {
           return i;
         }
         if (path.startsWith(p+".") && snapshot.get(i).hasContentReference()) {
-          actual = base+(snapshot.get(i).getContentReference().substring(1)+"."+path.substring(p.length()+1)).substring(prefixLength);
+          String ref = snapshot.get(i).getContentReference();
+          if (ref.substring(1, 2).toUpperCase().equals(ref.substring(1,2)))
+            actual = base+(ref.substring(1)+"."+path.substring(p.length()+1)).substring(prefixLength);
+          else {
+            // Older versions of FHIR (e.g. 2016May) had reference of the style #parameter instead of #Parameters.parameter, so we have to handle that
+            actual = base+(path.substring(0,  path.indexOf(".")+1) + ref.substring(1)+"."+path.substring(p.length()+1)).substring(prefixLength);
+          }
+            
           i = 0;
         }
       }
