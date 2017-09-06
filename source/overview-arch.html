@@ -346,7 +346,7 @@ FHIR Transactions
 As mentioned, FHIR resources are optimized for stateless transactions with RESTful APIs. Although this is not the only way FHIR resources can be used, these types or transactions are the only ones with defined interfaces and behaviors in the FHIR specification.
 </p>
 <p>
-FHIR transactions follow a simple request and response transaction pattern. The request and response can be for be for a single payload or can operate as batch. The payload or a request and response consists of a header and the content of interest. See diagram below for details.
+FHIR transactions follow a simple request and response transaction pattern. The request and response can be for a single payload or can operate as batch. The payload or a request and response consists of a header and the content of interest. See diagram below for details.
 </p>
 <p>
 <img src="arch-uml2.png" width="600" height="502" style="float: none"/>
@@ -433,7 +433,7 @@ There is potential for ambiguity, duplication, inaccurate and/or conflicting inf
 Imagine the scenario where Resource Type A (e.g., procedure) references Resource Type B (e.g., encounter) and Resource Type C (e.g., patient), and Resource Type B (e.g., encounter)
 also references Resource Type C (e.g., patient). In this scenario, is a reference to Resource A to Resource C meant to provide the same information as the reference
 from Resource B to Resource C? If so, is this duplication of information problematic? Note that this is not unique to FHIR - it is an innate property of information systems.
-If an actual instances of A, and the B that a references, reference different instances of Resource C (e.g. the procedure references patient X and an encounter for patient Y),
+If an actual instance of A, and the B that it references, reference different instances of Resource C (e.g. the procedure references patient X and an encounter for patient Y),
 how does the system know that the references are intentionally different versus an error or data anomaly? The problem is that there is limited ability to describe the
 intent of the reference which leads to the possibility of ambiguity and error. The <a href="linkage.html">Linkage resource</a> can be used to help with this problem,
 but additional capabilities may be considered in the future to allow systems to address referential integrity.

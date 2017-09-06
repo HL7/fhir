@@ -345,9 +345,9 @@ The following list specifies that transforms that can be specified. Each transfo
    In the concrete syntax, there is a short hand for this operation, by supplying () around the parameter. In this case, there is no context for the FHIRPath expression, and it must start with a reference to one of the defined variables</td></tr>
  <tr><td>cc</td> <td>(text) or (system. Code[, display])</td> <td>Create a CodeableConcept from the parameters provided</td></tr>
  <tr><td>c</td> <td>system. Code[, display]</td> <td>Create a Coding from the parameters provided</td></tr>
- <tr><td>qty</td> <td>(text) or (value, unit, [system, code])</td> <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit</td></tr>
+ <tr><td>qty</td> <td>(text) or (value, unit, [system, code])</td> <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural representation e.g. [comparator]value[space]unit</td></tr>
  <tr><td>id</td> <td>system, value[, type]</td> <td>Create an identifier. where type is a code from the identifier type value set</td></tr>
- <tr><td>cp</td> <td>(value) or (system, value)</td> <td>Create a contact details. If no system is provided, the system should be inferred from the content of the value</td></tr>
+ <tr><td>cp</td> <td>(value) or (system, value)</td> <td>Create a contact detail. If no system is provided, the system should be inferred from the content of the value</td></tr>
 </table>
 
 <p>
@@ -357,7 +357,7 @@ TODO: explain how optional parameters work with transforms (append only?), docum
 <h4>Dependent Rules</h4>
 
 <p>
-Once the source elements are evaluated, and any specifed targets created, the engine has a set of variables that represent source and target
+Once the source elements are evaluated, and any specified targets created, the engine has a set of variables that represent source and target
 contexts in which further mapping may occur. The set of variables includes those provided to the group that contains the rule, and those
 created by the application of the rule. For some created elements that are primitive types, that's the end of the road - there's nothing more
 to do with them. But if either or both the source and target types are complex, there are usually additional mapping rules that need to apply
@@ -382,13 +382,13 @@ and then a set of parameters are provided.
 </pre>
 
 <p>
-The parameters provided must match the parameters required by the dependenct rule, in order. In addition, the mode
+The parameters provided must match the parameters required by the dependent rule, in order. In addition, the mode
 of the variable must match - inputs that are targets must be target variables. Note, though, that target variables
 can be treated as source for a group.
 </p>
 <p>
 Groups are resolved by name by looking through all the groups in all the available maps
-referened by the uses (see above) statements. The name must be unique within the scope
+referenced by the uses (see above) statements. The name must be unique within the scope
 of these maps.
 </p>
 
@@ -396,7 +396,7 @@ of these maps.
 <h3>Simple Form + Implicit Type Dependencies</h3>
 <p>
 If no dependent rules are specified, and if the is only one source and target, and
-they both speecify a variable, the rule can be written in an abbreviated form:
+they both specify a variable, the rule can be written in an abbreviated form:
 </p>
 <pre>
  "name" : for src.element make tgt.element

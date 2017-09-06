@@ -48,7 +48,7 @@ Using this format:
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespace that occurs in FHIR resources is the XHTML namespace (<a href="narrative.html">XHTML is found in most resources</a>)</li>
- <li>Infrastructural elements that are common to all resources are not shown in the xml representation. These must appear prior to any other defined child elements in the following order:
+ <li>Infrastructural elements that are common to all resources are not shown in the XML representation. These must appear prior to any other defined child elements in the following order:
 	<ul>
 		<li>First, the elements from the <a href="resource.html">base resource</a>, in order</li>
 		<li>Second, the elements from the <a href="domainresource.html">domain resource</a>, in order</li>
@@ -165,7 +165,7 @@ Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bund
 </p>
 <p>
 This specification defines the following method for canonicalizing FHIR resources, when represented as 
-xml:
+XML:
 </p>
 <ul>
  <li>No whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>

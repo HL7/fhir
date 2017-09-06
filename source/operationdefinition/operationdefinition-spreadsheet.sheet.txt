@@ -191,7 +191,7 @@
   Card. = 1..1
   Summary = Y
   Type = boolean
-  Short Name = Invole at the type level?
+  Short Name = Invoke at the type level?
   Definition = Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)
 
  -- Row 22 -----------------------------------

@@ -35,7 +35,7 @@ This page and the RDF forms are jointly maintained by the HL7 FHIR project and t
 </div>
 
 <p>
-FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF graph</a> serialised in the
+FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF graph</a>serialised in the
 <a href="https://www.w3.org/TR/turtle/">Turtle format</a>, or as <a href="http://json-ld.org">JSON-LD</a>.
 The RDF format is defined to assist the process of bridging between operational data exchange and formal
 knowledge processing systems. While the RDF form offers a fully functional representation of FHIR
@@ -110,14 +110,14 @@ Using this format:
 <p>
 Each resource is represented as a set of RDF triples represented using the Turtle syntax.
 When a resource has a persistent identity (e.g. it can be found at a particular URL - usually a FHIR RESTful server),
-then that URL is its identity. Resources with no persistent identity (e.g. bundles from search results) have the the identity of the root document -   "&lt;&gt;" in turtle syntax.
+then that URL is its identity. Resources with no persistent identity (e.g. bundles from search results) have the identity of the root document -   "&lt;&gt;" in turtle syntax.
 </p>
 <p>
 Some resources can contain other resources. Given that the relationships can appear in any order, it
 cannot be assumed that the first encountered element represents the resource of interest that is being
 represented by the set of turtle statements. The focal resource - where to start when parsing - is the
 resource with the relationship <code>fhir:nodeRole</code> to <code>fhir:treeRoot</code>. if there is
-more than one node labeled as a 'treeRoot' in a set of turtle statements, it cannot be determined how
+more than one node labelled as a 'treeRoot' in a set of turtle statements, it cannot be determined how
 to parse them as a single resource.
 </p>
 
@@ -134,7 +134,7 @@ where [n] is a zero-based integer offset (ie.g the first element has an index of
 Lists are never sparse; it is an error if there are missing items in the repeat sequence.
 </p>
 <p>
-Note: this measn that the rdf:list structure is not used.
+Note: this means that the rdf:list structure is not used.
 </p>
 
 <a name="primitive"> </a>
