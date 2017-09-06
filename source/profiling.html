@@ -83,7 +83,7 @@ resources are known as the conformance resources. These conformance resources al
 <ul>
  <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular situation, and provide additional details about how API calls are used (<a href="capabilitystatement.html">Capability Statement</a>)</li>
  <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification
-   (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource</li>
+   (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource)</li>
  <li>Define how a particular structure (Resource, Extension or Data Type) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
     <ul>
       <li>Describe how existing elements in resources are used</li>
@@ -474,7 +474,7 @@ discriminator is based is a restricted FHIRPath statement that is allowed to inc
 <ul>
  <li>Element selections (e.g. FHIRPath statements without "()" such as <code>component.value</code>)</li>
  <li>The function <code>extension(url)</code> to allow selection of a particular extension</li>
- <li>The function <code>resolve()</code> to allow slicing to across resource boundaries</li>
+ <li>The function <code>resolve()</code> to allow slicing across resource boundaries</li>
 </ul>
 <p>
 Each slice must use the <a href="elementdefinition.html">element definition</a> for the

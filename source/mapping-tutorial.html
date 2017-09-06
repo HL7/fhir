@@ -291,7 +291,7 @@ of s_aa and t_aa.
 An alternate approach is to move the dependent rules to their own group:
 </p>
 <pre>
-rule_aa : for source.aa as s_aa make target.aa as t_aa then ab_content{s_aa, t_aa) // make aa exist
+rule_aa : for source.aa as s_aa make target.aa as t_aa then ab_content(s_aa, t_aa) // make aa exist
 
 group ab_content
   input src as source
