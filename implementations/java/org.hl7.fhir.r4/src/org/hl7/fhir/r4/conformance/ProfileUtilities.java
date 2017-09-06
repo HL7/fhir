@@ -476,7 +476,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     while (baseCursor <= baseLimit) {
       // get the current focus of the base, and decide what to do
       ElementDefinition currentBase = base.getElement().get(baseCursor);
-      String cpath = fixedPath(contextPathSrc, currentBase.getPath(), redirector);
+      String cpath = fixedPathSource(contextPathSrc, currentBase.getPath(), redirector);
       if (DEBUG) 
         System.out.println(indent+" - "+cpath+": base = "+baseCursor+" to "+baseLimit+", diff = "+diffCursor+" to "+diffLimit+" (slicingDone = "+slicingDone+")");
       List<ElementDefinition> diffMatches = getDiffMatches(differential, cpath, diffCursor, diffLimit, profileName, url); // get a list of matching elements in scope
@@ -486,7 +486,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         if (diffMatches.isEmpty()) { // the differential doesn't say anything about this item
           // so we just copy it in
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
-          outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+          outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
           updateFromBase(outcome, currentBase);
           markDerived(outcome);
           if (resultPathBase == null)
@@ -541,7 +541,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             template = overWriteWithCurrent(template, currentBase);
           
           ElementDefinition outcome = updateURLs(url, template);
-          outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+          outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
           res = outcome;
           updateFromBase(outcome, currentBase);
           if (diffMatches.get(0).hasSliceName())
@@ -622,7 +622,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           } else {
             // we're just going to accept the differential slicing at face value
             ElementDefinition outcome = updateURLs(url, currentBase.copy());
-            outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+            outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
             updateFromBase(outcome, currentBase);
 
             if (!diffMatches.get(0).hasSlicing())
@@ -680,7 +680,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           // copy across the currentbase, and all of its children and siblings
           while (baseCursor < base.getElement().size() && base.getElement().get(baseCursor).getPath().startsWith(path)) {
             ElementDefinition outcome = updateURLs(url, base.getElement().get(baseCursor).copy());
-            outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+            outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
             if (!outcome.getPath().startsWith(resultPathBase))
               throw new DefinitionException("Adding wrong path in profile " + profileName + ": "+outcome.getPath()+" vs " + resultPathBase);
             result.getElement().add(outcome); // so we just copy it in
@@ -704,7 +704,7 @@ public class ProfileUtilities extends TranslatingUtilities {
              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - rule @ "+path+" ("+contextName+")");
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
-          outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+          outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
           updateFromBase(outcome, currentBase);
           if (diffMatches.get(0).hasSlicing() || !diffMatches.get(0).hasSliceName()) {
             updateFromSlicing(outcome.getSlicing(), diffMatches.get(0).getSlicing());
@@ -731,7 +731,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             baseCursor = base.getElement().indexOf(baseItem);
             outcome = updateURLs(url, baseItem.copy());
             updateFromBase(outcome, currentBase);
-            outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+            outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
             outcome.setSlicing(null);
             if (!outcome.getPath().startsWith(resultPathBase))
               throw new DefinitionException("Adding wrong path");
@@ -754,7 +754,7 @@ public class ProfileUtilities extends TranslatingUtilities {
               // just copy any children on the base
               while (baseCursor < base.getElement().size() && base.getElement().get(baseCursor).getPath().startsWith(path) && !base.getElement().get(baseCursor).getPath().equals(path)) {
                 outcome = updateURLs(url, base.getElement().get(baseCursor).copy());
-                outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+                outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
                 if (!outcome.getPath().startsWith(resultPathBase))
                   throw new DefinitionException("Adding wrong path");
                 result.getElement().add(outcome);
@@ -778,7 +778,7 @@ public class ProfileUtilities extends TranslatingUtilities {
                   throw new DefinitionException("Named items are out of order in the slice");
               outcome = updateURLs(url, currentBase.copy());
               //            outcome = updateURLs(url, diffItem.copy());
-              outcome.setPath(fixedPath(contextPathDst, outcome.getPath(), null));
+              outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
               updateFromBase(outcome, currentBase);
               outcome.setSlicing(null);
               if (!outcome.getPath().startsWith(resultPathBase))
@@ -815,7 +815,7 @@ public class ProfileUtilities extends TranslatingUtilities {
                       // We only want the children that aren't the root
                       if (extEd.getPath().contains(".")) {
                         ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
-                        extUrlEd.setPath(fixedPath(outcome.getPath(), extUrlEd.getPath(), null));
+                        extUrlEd.setPath(fixedPathDest(outcome.getPath(), extUrlEd.getPath(), null));
                         //                      updateFromBase(extUrlEd, currentBase);
                         markDerived(extUrlEd);
                         result.getElement().add(extUrlEd);
@@ -997,7 +997,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private String fixedPath(String contextPath, String pathSimple, ElementDefinition redirector) {
+  private String fixedPathSource(String contextPath, String pathSimple, ElementDefinition redirector) {
     if (contextPath == null)
       return pathSimple;
     String ptail = pathSimple.substring(pathSimple.indexOf(".")+1);
@@ -1006,8 +1006,18 @@ public class ProfileUtilities extends TranslatingUtilities {
     else
       return contextPath+"."+ptail;
   }
- // context path = PlanDefinition.action, pathSimple = PlanDefinition.action.id, redirector path = PlanDefinition.action.action, return PlanDefinition.action.action.id
- // context path = Parameters.parameter , pathSimple = Parameter.parameter.id  , redirector path = Parameters.parameter.part   , return Parameters.parameter.part.id
+  
+  private String fixedPathDest(String contextPath, String pathSimple, ElementDefinition redirector) {
+    if (contextPath == null)
+      return pathSimple;
+    String ptail = pathSimple.substring(pathSimple.indexOf(".")+1);
+    if (redirector != null) {
+      ptail = ptail.substring(ptail.indexOf(".")+1);
+//      ptail = ptail.substring(ptail.indexOf(".")+1);
+      return contextPath+"."+/*tail(redirector.getPath())+"."+*/ptail;
+    } else
+      return contextPath+"."+ptail;
+  }
   
 
   private StructureDefinition getProfileForDataType(TypeRefComponent type)  {
