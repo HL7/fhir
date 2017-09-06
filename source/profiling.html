@@ -561,7 +561,7 @@ Note that extensions are always sliced by the <code>url</code> element, though t
 <h3>Default Slice</h3>
 <p>
 There is a special slice, called the default slice. This allows
-a profile to describe a set if specific slices, and then make a set of rules that apply to all the remaining
+a profile to describe a set of specific slices, and then make a set of rules that apply to all the remaining
 content that is not in one of the defined slices. Some rules about the default slice:
 </p>
 <ul>
@@ -575,7 +575,7 @@ One use of a default slice would be the case where the profile slices
 an identifier element to require a set of known identifiers, where
 the <code>type</code> element is prohibited (since they are known identifiers) but requires
 <code>type</code> on all other identifiers if any are present. In this case, the
-default slice makes no rules about the identiifer.system (which is the slicing discriminator),
+default slice makes no rules about the identifer.system (which is the slicing discriminator),
 but fixes the cardinality of type to 1..1 in the @default slice.
 </p>
 
@@ -584,7 +584,7 @@ but fixes the cardinality of type to 1..1 in the @default slice.
 <p>
 Profiles can be based on other profiles, and apply further constraints to those already
 specified. This is a useful technique, but implementers should be wary of over-use - humans
-have understanding the implications of deep stacks of constraining profiles.
+have trouble understanding the implications of deep stacks of constraining profiles.
 </p>
 <p>
 When a profile constrains another profile, it can make additional constrainta, including

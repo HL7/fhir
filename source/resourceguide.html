@@ -387,13 +387,13 @@ their time of participation, associated study arm, status within the study, etc.
 <p>
 <code>Encounter</code> tracks an interaction between a patient and healthcare provider(s).
 Specifically, this resource tracks the administrative details of the interaction, not the
-clinical details (though these usual link to it). Aliases for this include
+clinical details (though these usually link to it). Aliases for this include
 'admission', 'consultation', and sometimes 'appointment'. Encounters may be nested - e.g.
 when the patient goes to physiotherapy as part of a hospital admission.
 </p>
 <p>
 An <code>EpisodeOfCare</code> is an association between a patient and a care provider
-that may last over several encounters. The purpose of EpisodeOfCare is track a provider
+that may last over several encounters. The purpose of EpisodeOfCare is to track a provider
 (person or organization) that has an interest in the ongoing care of the patient.
 </p>
 <p>
@@ -421,7 +421,7 @@ These resources are concerned with planning times and locations for future deliv
 <ul>
  <li>A <code>Schedule</code> describes a set of times in the future that a service or individual may be available</li>
  <li>A <code>Slot</code> is an instance of a time in a schedule that may be reserved</li>
- <li>An <code>Appointment</code> is proposed or confirmed future event, with a list of participants who may or may not have confirmed their attendance</li>
+ <li>An <code>Appointment</code> is a proposed or confirmed future event, with a list of participants who may or may not have confirmed their attendance</li>
  <li>An <code>AppointmentResponse</code> is an individual's acceptance or rejection of an appointment</li>
 </ul>
 <p>
@@ -565,7 +565,7 @@ This specification is a base platform specification that defines a set of
 general capabilities. Specific systems build on top of that to create
 interoperable solutions by <a href="profiling.html">making a set of
 conformance rules</a>. These conformance rules are supported by a
-this set of "conformance" resources.
+set of "conformance" resources.
 </p>
 
 <h4>Terminology</h4>
@@ -649,7 +649,7 @@ systems, if the tests are carefully constructed and vetted.
 A <code>TestReport</code> contains the test execution results of a TestScript
 against a series of operations and outcomes that a system is expected to meet.
 TestReports provide a static recording of TestScript results for subsequent
-retrieval and review..
+retrieval and review.
 </p>
 
 <table class="grid">
