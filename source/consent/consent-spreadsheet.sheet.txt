@@ -64,6 +64,13 @@
   Definition = What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels
   Conformance = extensible
 
+ -- Row 10 -----------------------------------
+  Binding Name = ConsentDirective
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-ActConsentDirective
+  Definition = Specifies the type of Consent Directive to which a Consent Directive Act conforms
+  Conformance = extensible
+
 === Sheet consent-state-codes =====================================
 
  -- Row 1 -----------------------------------
@@ -343,11 +350,12 @@
   Card. = 0..1
   Summary = Y
   Inv. = 1
-  Type = uri
+  Type = CodeableConcept
+  Binding = ConsentDirective
   Short Name = Policy that this consents to
-  Definition = A referece to the specific computable policy.
+  Definition = A reference to the specific base computable policy
   Requirements = Might be a unique identifier of a policy set in XACML, or other rules engine
-  Comments = If the policy reference is not known, the resource cannot be processed. Where the reference is absent, there is no particular policy other than what is expressed directly in the consent resource
+  Comments = If the policyRule is absent, computable consent would need to be constructed from the elements of the Consent resource
 
  -- Row 19 -----------------------------------
   Element = !Consent.securityLabel
@@ -440,7 +448,7 @@
   Summary = Y
   UML = right
   Type = =provision
-  Short Name = Consent provision - addition or removal of permissions
+  Short Name = Constraints to the base Consent.policyRule
   Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 
  -- Row 30 -----------------------------------
@@ -503,8 +511,8 @@
   Type = Coding
   Binding = SecurityLabels
   Short Name = Security Labels that define affected resources
-  Definition = A set of security labels that define which resources are controlled by this rule. If more than one label is specified, all resources must have all the specified labels
-  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+  Definition = A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this exception.
+  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict.
 
  -- Row 37 -----------------------------------
   Element = Consent.provision.purpose
@@ -514,7 +522,7 @@
   Binding = PurposeOfUse
   Short Name = Context of activities covered by this rule
   Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this rule
-  Comments = E.g. if the purpose is \'research\', then the operational context must be research, in order for the consent to apply. Not all of the security labels make sense for use in this element (may define a narrower value set?)
+  Comments = When the purpose of use tag is on the data, access request purpose of use shall not conflict.
 
  -- Row 38 -----------------------------------
   Element = Consent.provision.class

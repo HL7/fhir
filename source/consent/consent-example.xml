@@ -28,7 +28,12 @@
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is plain out opt-in with no exceptions -->
-  <policyRule value="http://goodhealth.org/consent/policy/opt-in"/>
+<policyRule>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="OPTIN"/>
+    </coding>
+</policyRule>
   <provision>
         <!-- bound by a timeframe between 1964 and 2016 - consent.applies -->
     <period>

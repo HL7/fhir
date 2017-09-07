@@ -49,7 +49,12 @@
   <!-- there's no source record for a Smart on FHIR consent -->
   <!-- now the consent details itself start -->
   <!-- smart on fhir is always the base opt-in policy -->
-  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+<policyRule>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="OPTIN"/>
+    </coding>
+</policyRule>
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
   <provision>
     <period>

@@ -34,7 +34,13 @@
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
-  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+<policyRule>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="OPTIN"/>
+    </coding>
+</policyRule>
+
   <provision>
     <!-- no read or write access for this individual -->
     <actor>
