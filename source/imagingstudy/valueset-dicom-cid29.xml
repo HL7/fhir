@@ -12,7 +12,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://medical.nema.org/medical/dicom/current/output/html/part16.html#sect_CID_29"/>
+      <value value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html"/>
     </telecom>
   </contact>
   <description value="This Value Set includes codes that may be used to identify an image or waveform acquisition modality, as used in the ImagingStudy resource, Dicom  Attribute Modality (0008,0060) or HL7 v2 Table 0259 (see HL7 v2.6 Chapter 8 Section 8.8.8.47). It generally corresponds to a class of diagnostic equipment, or to a specific acquisition function or technique in a device."/>

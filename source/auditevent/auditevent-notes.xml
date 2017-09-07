@@ -27,7 +27,7 @@ This table summarizes common event scenarios, and the codes that should be used 
      <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged-in user.</td></tr>
   <tr><td>User Logout (<a href="auditevent-examples.html">example</a>)</td><td><a href="codesystem-dicom-dcim.html#110114">110114</a> User Authentication</td><td><a href="codesystem-dicom-dcim.html#110123">110123</a> User Logout</td>
      <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>One participant which contains the details of the logged-out user.</td></tr>
-  <tr><td>REST operation logged on server (<a href="auditevent-examples.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
+  <tr><td>REST operation logged on server (<a href="audit-event-example-vread.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
      <td><a href="valueset-audit-event-action.html">*</a> (see below)</td><td>Participant for logged in user, if available, and one object with a reference, if at least the type is known as part of the operation. Reference.url should be provided to the granularity known.</td></tr>
   <tr><td>Search operation logged on server (<a href="audit-event-example-search.html">example</a>)</td><td><a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td><td><a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
      <td><a href="valueset-audit-event-action.html">E</a> Execute</td><td>Participant for logged in user, if available, and one object with a query element.</td></tr>
@@ -43,6 +43,25 @@ Audit Event Actions for RESTful operations:
  <tr><td>delete</td><td>D</td></tr>
  <tr><td>transaction, operation, conformance, validate, search, search-type, search-system</td><td>E</td></tr>
 </table>
+
+<a name="operationoutcome"> </a>
+<h3>Encoding a FHIR operation outcome</h3>
+<p>FHIR interactions can result in a rich description of the outcome using 
+the <a href="operationoutcome.html">OperationOutcome</a>. 
+The <a href="operationoutcome.html">OperationOutcome</a> Resource is a collection of error, warning 
+or information messages that result from a system action.
+This describes in detail the outcome of some operation, such as when 
+an <a href="http.html#operations">RESTful operation</a> fails.</p>
+<p>When recording into an AuditEvent that some FHIR interaction has happened, the AuditEvent should include 
+the <a href="operationoutcome.html">OperationOutcome</a> from that FHIR interaction. 
+This is done by placing the OperationOutcome into an AuditEvent.entity. 
+Likely as a <a href="references.html#contained">contained</a> resource, given that OperationOutcome resources often are not persisted.</p>
+<p><code>entity.reference</code> is the OperationOutcome -- Likely <a href="references.html#contained">contained</a> </p>
+<p><code>entity.type</code> is code <code><a href="codesystem-resource-types.html#resource-types-OperationOutcome">OperationOutcome</a></code></p>
+<p><code>entity.description</code> explains why this OperationOutcome was included.</p>
+<p>See <a href="auditevent-example-error.html">transaction failure example</a>: When a client attempts to post (create) a <code>Observation</code> Resource, 
+using a server <code>Patient</code> endpoint; 
+this would result in an error with an OperationOutcome.</p>
 
 <h3>PurposeOfEvent and PurposeOfUse </h3>
 <p>
@@ -78,5 +97,4 @@ and would omit this element in those cases.
 <p>
 When the same event is reported from multiple perspectives, the reports can have different knowledge regarding the purpose. 
 </p>
-
 </div>

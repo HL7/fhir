@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+	<id value="example-error"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Recording that an error has happened due to a client requesting that an Observation resource be Created on the Patient endpoint. Note that the OperationOutcome from failed transaction is recorded as an AuditEvent.entity.</div>
+	</text>  
+	<contained>
+		<!-- contained OperationOutcome from failed transaction -->
+		<OperationOutcome xmlns="http://hl7.org/fhir">
+			<id value="o1"/>
+
+			<issue>
+				<severity value="error"/>
+				<code value="invalid"/>
+				<details>
+					<text value="Invalid pointer operation"/>
+				</details>
+			</issue>
+		</OperationOutcome>
+	</contained>
+	<type>
+		<system value="http://hl7.org/fhir/audit-event-type"/>
+		<code value="rest"/>
+		<display value="Restful Operation"/>
+	</type>
+	<subtype>
+		<system value="http://hl7.org/fhir/restful-interaction"/>
+		<code value="create"/>
+		<display value="create"/>
+	</subtype>
+	<action value="C"/>
+	<recorded value="2017-09-07T23:42:24Z"/>
+	<outcome value="8"/>
+	<!-- Serious (500) failure -->
+	<outcomeDesc value="Invalid request to create an Operation resource on the Patient endpoint."/>
+
+	<agent>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/extra-security-role-type"/>
+				<code value="humanuser"/>
+				<display value="human user"/>
+			</coding>
+		</type> 
+
+		<userId>
+			<value value="95"/>
+		</userId>
+		<altId value="601847123"/>
+		<name value="Grahame Grieve"/>
+		<requestor value="true"/>
+	</agent>
+	<agent>
+		<!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
+		<type>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110153"/>
+				<display value="Source Role ID"/>
+			</coding>
+		</type> 
+		<userId>
+			<value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/>
+		</userId> 
+		<altId value="6580"/> 
+		<requestor value="false"/> 
+		<network>
+			<address value="Workstation1.ehr.familyclinic.com"/>
+			<type value="1"/>
+		</network> 
+	</agent>
+	<source>
+		<site value="Cloud"/>
+		<identifier>
+			<value value="hl7connect.healthintersections.com.au"/>
+		</identifier>
+		<type>
+			<system value="http://hl7.org/fhir/security-source-type"/>
+			<code value="3"/>
+			<display value="Web Server"/>
+		</type>
+	</source>
+	<entity>
+		<!-- record the original transaction parameters -->
+		<type>
+			<system value="http://hl7.org/fhir/object-type"/>
+			<code value="2"/>
+			<display value="System Object"/>
+		</type>
+		<detail>
+			<type value="requested transaction"/>
+			<valueString value="http POST ..... "/>
+			<!-- or better to have a pointer to the propritary log files from the API gateway or web server -->
+		</detail>
+	</entity>
+	<entity>
+		<!-- record the OperationOutcome returned to the client -->
+		<reference>
+			<reference value="#o1"/>
+		</reference>
+		<type>
+			<system value="http://hl7.org/fhir/resource-types"/>
+			<code value="OperationOutcome"/>
+			<display value="OperationOutcome"/>
+		</type>
+		<description value="transaction failed"/>
+	</entity>
+</AuditEvent>

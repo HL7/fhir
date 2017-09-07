@@ -178,7 +178,7 @@
   Id = 2
   Code = 4
   Display = Minor failure
-  Definition = The action was not successful due to some kind of catered for error (often equivalent to an HTTP 400 response).
+  Definition = The action was not successful due to some kind of minor failure (often equivalent to an HTTP 400 response).
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -907,6 +907,7 @@
   Short Name = Query parameters
   Definition = The query parameters for a query-type entities
   Requirements = For query events, it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing
+  Comments = The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example if auditing a Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.
   RIM Mapping = No mapping
   DICOM Mapping = ParticipantObjectQuery
   w5 = context
@@ -939,7 +940,7 @@
   Short Name = Property value
   Definition = The details value
   Requirements = Should not duplicate the entity value unless absolutely necessary
-  Comments = The value can be string when known to be a string, else base64 encoding should be used to protect binary or undefined content.
+  Comments = The value can be string when known to be a string, else base64 encoding should be used to protect binary or undefined content.  The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example if auditing a Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.
   RIM Mapping = .value
   DICOM Mapping = ParticipantObjectDetail.value
   w5 = context
@@ -1104,5 +1105,11 @@
   Identity = example-media
   Description = Export of DocumentManifest to Media
   Filename = audit-event-example-media.xml
+
+ -- Row 9 -----------------------------------
+  Name = Transaction Failure
+  Identity = example-error
+  Description = Audit of a transaction that was failed resulting in OperationOutcome
+  Filename = auditevent-example-error.xml
 
 === Sheet Examples =====================================
