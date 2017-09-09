@@ -1,0 +1,47 @@
+<?xml version="1.0" ?> 
+<project name="igweb" default="war">
+
+	<path id="compile.classpath">
+		<pathelement path="../org.hl7.fhir.igtools/bin/"/>
+		<pathelement location="../imports/commons-lang3-3.3.2.jar"/>
+		<pathelement location="../imports/commons-cli-1.4.jar"/>
+		<pathelement location="../imports/slf4j-api-1.7.22.jar"/>
+		<pathelement location="../imports/hapi-fhir-base-1.6.jar"/>
+		<pathelement location="../imports/commons-codec-1.9.jar"/>
+		<pathelement location="../imports/commons-io-1.2.jar"/>
+		<pathelement location="../imports/commons-lang3-3.3.2.jar"/>
+		<pathelement location="../imports/gson-2.3.jar"/>
+	</path>
+	
+  <path id="provided.classpath">
+		<fileset dir="../imports">
+      	<include name="javax.servlet-api-3.1.0.jar"/>
+		</fileset>
+	</path>
+
+	<target name="init">
+		<mkdir dir="build/classes"/>
+		<mkdir dir="dist" />
+	</target>
+	
+	<target name="compile" depends="init" >
+		<javac destdir="build/classes" debug="true" srcdir="src">
+			<classpath refid="compile.classpath"/>
+      <classpath refid="provided.classpath"/>
+		</javac>
+	</target>
+	
+	<target name="war" depends="compile">
+		<war destfile="dist/igweb.war" webxml="src/WEB-INF/web.xml">
+			<fileset dir="WebContent"/>
+			<!--<lib dir="WebContent/WEB-INF/lib"/>-->
+			<classes dir="build/classes"/>
+		</war>
+	</target>
+	
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+	</target>
+	
+</project>
