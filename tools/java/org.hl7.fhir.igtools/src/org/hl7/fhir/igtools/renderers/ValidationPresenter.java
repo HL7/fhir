@@ -44,9 +44,22 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     int err = 0;
     int warn = 0;
     int info = 0;
+    
+    for (FetchedFile f : files) {
+      for (ValidationMessage vm : removeDupMessages(f.getErrors())) {
+        if (vm.getLevel().equals(ValidationMessage.IssueSeverity.FATAL)||vm.getLevel().equals(ValidationMessage.IssueSeverity.ERROR))
+          err++;
+        else if (vm.getLevel().equals(ValidationMessage.IssueSeverity.WARNING))
+          warn++;
+        else
+          info++;
+      }
+    }    
+    
+    
     List<ValidationMessage> linkErrors = removeDupMessages(allErrors); 
     StringBuilder b = new StringBuilder();
-    b.append(genHeader(title));
+    b.append(genHeader(title, err, warn, info));
     b.append(genSummaryRowInteral(linkErrors));
     files = sorted(files);
     for (FetchedFile f : files) 
@@ -141,6 +154,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private final String headerTemplate = 
       "<!DOCTYPE HTML>\r\n"+
       "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n"+
+      "<!-- err = $err$, warn = $warn$, info = $info$ -->\r\n"+
       "<head>\r\n"+
       "  <title>$title$ : Validation Results</title>\r\n"+
       "  <link href=\"fhir.css\" rel=\"stylesheet\"/>\r\n"+
@@ -188,6 +202,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private final String headerTemplateText = 
       "$title$ : Validation Results\r\n"+
       "=========================================\r\n\r\n"+
+      "err = $err$, warn = $warn$, info = $info$\r\n"+
       "Generated $time$. FHIR version $version$ for $igversion$\r\n\r\n";
   
   private final String summaryTemplateText = 
@@ -209,12 +224,15 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return new ST(t, '$', '$');
   }
 
-  private String genHeader(String title) {
+  private String genHeader(String title, int err, int warn, int info) {
     ST t = template(headerTemplate);
     t.add("version", Constants.VERSION);
     t.add("igversion", statedVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
+    t.add("err", Integer.toString(err));
+    t.add("warn", Integer.toString(warn));
+    t.add("info", Integer.toString(info));
     return t.render();
   }
 
