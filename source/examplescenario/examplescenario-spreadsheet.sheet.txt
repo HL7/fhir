@@ -1,0 +1,483 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ExampleScenarioActorType
+  Binding = code list
+  Reference = #examplescenario-actor-type
+  Definition = The type of actor - system or human
+
+ -- Row 2 -----------------------------------
+  Binding Name = FHIRResourceType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/resource-types
+  Definition = The type of resource
+
+=== Sheet examplescenario-actor-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = person
+  Display = Person
+  Definition = A person
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = entity
+  Display = System
+  Definition = A system
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ExampleScenario
+  Type = MetadataResource
+  Short Name = Example of workflow instance
+  Definition = Example of workflow instance
+  w5 = infrastructure.information
+
+ -- Row 2 -----------------------------------
+  Element = ExampleScenario.url
+
+ -- Row 3 -----------------------------------
+  Element = ExampleScenario.identifier
+
+ -- Row 4 -----------------------------------
+  Element = ExampleScenario.version
+
+ -- Row 5 -----------------------------------
+  Element = ExampleScenario.name
+  To Do = & A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name
+
+ -- Row 6 -----------------------------------
+  Element = ExampleScenario.title
+  Short Name = Name of example
+  Definition = The name of the example as showin in the title page
+  To Do = See Metadata resources inheritance: e.g.valueset
+
+ -- Row 7 -----------------------------------
+  Element = ExampleScenario.status
+
+ -- Row 8 -----------------------------------
+  Element = ExampleScenario.experimental
+
+ -- Row 9 -----------------------------------
+  Element = ExampleScenario.date
+  Definition = & (e.g. the \'content logical definition\')
+
+ -- Row 10 -----------------------------------
+  Element = ExampleScenario.publisher
+
+ -- Row 11 -----------------------------------
+  Element = ExampleScenario.contact
+
+ -- Row 12 -----------------------------------
+  Element = ExampleScenario.useContext
+
+ -- Row 13 -----------------------------------
+  Element = ExampleScenario.jurisdiction
+
+ -- Row 14 -----------------------------------
+  Element = !ExampleScenario.immutable
+  Short Name = Indicates whether or not any change to the content logical definition may occur
+  Definition = If this is set to \'true\', then no new versions of the content logical definition can be created.  Note: Other metadata might still change
+  Comments = Normally immutability is set to \'false\', which is the default assumption if it is not populated.  Note that the implication is that if this is set to \'true\', there may be only one ValueSet version for this definition. Immutability tends to be set to \'true\' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example \"All specializations of ACT in ActClassCode\" - Where there\'s no safe way to express the \"Purpose\" such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition
+
+ -- Row 15 -----------------------------------
+  Element = ExampleScenario.copyright
+  Comments = & Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required
+
+ -- Row 16 -----------------------------------
+  Element = ExampleScenario.description
+  Short Name = Description of behaviour of the workflow example
+  Definition = Description of behaviour of the workflow example
+
+ -- Row 17 -----------------------------------
+  Element = ExampleScenario.purpose
+  Short Name = What is the example supposed to resolve
+  Definition = What is the example supposed to resolve
+
+ -- Row 18 -----------------------------------
+  Element = ExampleScenario.actor
+  Card. = 0..*
+  Short Name = Actor participating in the resource
+  Definition = Actor participating in the resource
+
+ -- Row 19 -----------------------------------
+  Element = ExampleScenario.actor.actorId
+  Card. = 1..1
+  Type = string
+  Short Name = ID or acronym of the actor
+  Definition = ID or acronym of actor
+  Comments = should this be called ID or acronym?
+
+ -- Row 20 -----------------------------------
+  Element = ExampleScenario.actor.type
+  Card. = 1..1
+  Type = code
+  Binding = ExampleScenarioActorType
+  Short Name = person | entity
+  Definition = The type of actor - person or system
+
+ -- Row 21 -----------------------------------
+  Element = ExampleScenario.actor.name
+  Card. = 0..1
+  Type = string
+  Short Name = The name of the actor as shown in the page
+  Definition = The name of the actor as shown in the page
+  Comments = Cardinality: is name and description 1..1?
+
+ -- Row 22 -----------------------------------
+  Element = ExampleScenario.actor.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = The description of the actor
+  Definition = The description of the actor
+  Comments = Cardinality: is name and description 1..1?
+
+ -- Row 23 -----------------------------------
+  Element = ExampleScenario.instance
+  Card. = 0..*
+  Short Name = Each resource and each version that is present in the workflow
+  Definition = Each resource and each version that is present in the workflow
+
+ -- Row 24 -----------------------------------
+  Element = ExampleScenario.instance.resourceId
+  Card. = 1..1
+  Type = string
+  Short Name = The id of the resource for referencing
+  Definition = The id of the resource for referencing
+
+ -- Row 25 -----------------------------------
+  Element = ExampleScenario.instance.resourceType
+  Card. = 1..1
+  Type = code
+  Binding = FHIRResourceType
+  Short Name = The type of the resource
+  Definition = The type of the resource
+
+ -- Row 26 -----------------------------------
+  Element = ExampleScenario.instance.name
+  Card. = 0..1
+  Type = string
+  Short Name = A short name for the resource instance
+  Definition = A short name for the resource instance
+  To Do = Should name and description be 1..1?
+
+ -- Row 27 -----------------------------------
+  Element = ExampleScenario.instance.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = Human-friendly description of the resource instance
+  Definition = Human-friendly description of the resource instance
+  To Do = Should name and description be 1..1?
+
+ -- Row 28 -----------------------------------
+  Element = ExampleScenario.instance.version
+  Card. = 0..*
+  Short Name = A specific version of the resource
+  Definition = A specific version of the resource
+
+ -- Row 29 -----------------------------------
+  Element = ExampleScenario.instance.version.versionId
+  Card. = 1..1
+  Type = string
+  Short Name = The identifier of a specific version of a resource
+  Definition = The identifier of a specific version of a resource
+
+ -- Row 30 -----------------------------------
+  Element = ExampleScenario.instance.version.description
+  Card. = 1..1
+  Type = markdown
+  Short Name = The description of the resource version
+  Definition = The description of the resource version
+
+ -- Row 31 -----------------------------------
+  Element = ExampleScenario.instance.containedInstance
+  Card. = 0..*
+  Short Name = Resources contained in the instance
+  Definition = Resources contained in the instance (e.g. the observations contained in a bundle)
+
+ -- Row 32 -----------------------------------
+  Element = ExampleScenario.instance.containedInstance.resourceId
+  Card. = 1..1
+  Type = string
+  Short Name = Each resource contained in the instance
+  Definition = Each resource contained in the instance
+
+ -- Row 33 -----------------------------------
+  Element = ExampleScenario.instance.containedInstance.versionId
+  Card. = 0..1
+  Type = string
+  Short Name = A specific version of a resource contained in the instance
+  Definition = A specific version of a resource contained in the instance
+
+ -- Row 34 -----------------------------------
+  Element = ExampleScenario.process
+  Card. = 0..1
+  Short Name = Each major process - a group of operations
+  Definition = Each major process - a group of operations
+
+ -- Row 35 -----------------------------------
+  Element = ExampleScenario.process.title
+  Card. = 1..1
+  Type = string
+  Short Name = The diagram title of the group of operations
+  Definition = The diagram title of the group of operations
+
+ -- Row 36 -----------------------------------
+  Element = ExampleScenario.process.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = A longer description of the group of operations
+  Definition = A longer description of the group of operations
+
+ -- Row 37 -----------------------------------
+  Element = ExampleScenario.process.preConditions
+  Card. = 0..1
+  Type = markdown
+  Short Name = Description of initial status before the process starts
+  Definition = Description of initial status before the process starts
+
+ -- Row 38 -----------------------------------
+  Element = ExampleScenario.process.postConditions
+  Card. = 0..1
+  Type = markdown
+  Short Name = Description of final status after the process ends
+  Definition = Description of final status after the process ends
+
+ -- Row 39 -----------------------------------
+  Element = ExampleScenario.process.step
+  Card. = 0..*
+  Short Name = Each step of the process
+  Definition = Each step of the process
+
+ -- Row 40 -----------------------------------
+  Element = ExampleScenario.process.step.process
+  Card. = 0..*
+  Type = @ExampleScenario.process
+  Short Name = Nested process
+  Definition = Nested process
+
+ -- Row 41 -----------------------------------
+  Element = ExampleScenario.process.step.pause
+  Card. = 0..1
+  Type = boolean
+  Short Name = If there is a pause in the flow
+  Definition = If there is a pause in the flow
+
+ -- Row 42 -----------------------------------
+  Element = !ExampleScenario.process.operation
+  Card. = 0..*
+  Short Name = An operation or sequence of actions
+  Definition = An operation or sequence of actions
+
+ -- Row 43 -----------------------------------
+  Element = !ExampleScenario.process.operation.number
+  Card. = 0..1
+  Type = string
+  Short Name = The sequential number of the operation
+  Definition = The sequential number of the operation
+
+ -- Row 44 -----------------------------------
+  Element = !ExampleScenario.process.operation.type
+  Card. = 0..1
+  Type = string
+  Short Name = The type of operation - CRUD
+  Definition = The type of operation - CRUD
+
+ -- Row 45 -----------------------------------
+  Element = !ExampleScenario.process.operation.name
+  Card. = 1..1
+  Type = string
+  Short Name = The name of the operation
+  Definition = The name of the operation
+
+ -- Row 46 -----------------------------------
+  Element = !ExampleScenario.process.operation.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = A description of the operation
+  Definition = A description of the operation
+
+ -- Row 47 -----------------------------------
+  Element = !ExampleScenario.process.operation.group
+  Card. = 1..1
+  Type = boolean
+  Short Name = This determines if there is a group in these interactions (like in the diagram)
+  Definition = This determines if there is a group in these interactions (like in the diagram)
+
+ -- Row 48 -----------------------------------
+  Element = ExampleScenario.process.step.operation
+  Card. = 0..1
+  Short Name = Each interaction or action
+  Definition = Each interaction or action
+
+ -- Row 49 -----------------------------------
+  Element = ExampleScenario.process.step.operation.number
+  Card. = 1..1
+  Type = string
+  Short Name = The sequential number of the interaction
+  Definition = The sequential number of the interaction
+
+ -- Row 50 -----------------------------------
+  Element = ExampleScenario.process.step.operation.type
+  Card. = 0..1
+  Type = string
+  Short Name = The type of operation - CRUD
+  Definition = The type of operation - CRUD
+
+ -- Row 51 -----------------------------------
+  Element = ExampleScenario.process.step.operation.name
+  Card. = 0..1
+  Type = string
+  Short Name = The human-friendly name of the interaction
+  Definition = The human-friendly name of the interaction
+
+ -- Row 52 -----------------------------------
+  Element = ExampleScenario.process.step.operation.initiator
+  Card. = 0..1
+  Type = string
+  Short Name = Who starts the transaction
+  Definition = Who starts the transaction
+
+ -- Row 53 -----------------------------------
+  Element = ExampleScenario.process.step.operation.receiver
+  Card. = 0..1
+  Type = string
+  Short Name = Who receives the transaction
+  Definition = Who receives the transaction
+
+ -- Row 54 -----------------------------------
+  Element = !ExampleScenario.process.operation.isDataExchange
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the interaction is data exchange or other (e.g. manual action, item transport, other handover)
+  Definition = Whether the interaction is data exchange or other (e.g. manual action, item transport, other handover)
+
+ -- Row 55 -----------------------------------
+  Element = ExampleScenario.process.step.operation.description
+  Card. = 0..1
+  Type = markdown
+  Short Name = A comment to be inserted in the diagram
+  Definition = A comment to be inserted in the diagram
+
+ -- Row 56 -----------------------------------
+  Element = !ExampleScenario.process.operation.contentDescription
+  Card. = 0..1
+  Type = string
+  Short Name = A text or link to the content of the interaction
+  Definition = A text or link to the content of the interaction
+
+ -- Row 57 -----------------------------------
+  Element = ExampleScenario.process.step.operation.initiatorActive
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the initiator is deactivated right after the transaction
+  Definition = Whether the initiator is deactivated right after the transaction
+
+ -- Row 58 -----------------------------------
+  Element = ExampleScenario.process.step.operation.receiverActive
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the receiver is deactivated right after the transaction
+  Definition = Whether the receiver is deactivated right after the transaction
+
+ -- Row 59 -----------------------------------
+  Element = ExampleScenario.process.step.operation.request
+  Card. = 0..1
+  Type = @ExampleScenario.instance.containedInstance
+  Short Name = Each resource instance used by the initiator
+  Definition = Each resource instance used by the initiator
+
+ -- Row 60 -----------------------------------
+  Element = ExampleScenario.process.step.operation.response
+  Card. = 0..1
+  Type = @ExampleScenario.instance.containedInstance
+  Short Name = Each resource instance used by the responder
+  Definition = Each resource instance used by the responder
+
+ -- Row 61 -----------------------------------
+  Element = !ExampleScenario.process.operation.instance.versionId
+  Card. = 0..1
+  Type = string
+  Short Name = The resource versions used here
+  Definition = The resource versions used here
+
+ -- Row 62 -----------------------------------
+  Element = ExampleScenario.process.step.alternative
+  Card. = 0..1
+  Short Name = Each interaction in the process
+  Definition = Each interaction in the workflow
+
+ -- Row 63 -----------------------------------
+  Element = ExampleScenario.process.step.alternative.name
+  Card. = 0..1
+  Type = string
+  Short Name = The name of each alternative
+  Definition = The name of each alternative
+
+ -- Row 64 -----------------------------------
+  Element = ExampleScenario.process.step.alternative.option
+  Card. = 1..*
+  Short Name = Each of the possible options in an alternative
+  Definition = Each of the possible options in an alternative
+
+ -- Row 65 -----------------------------------
+  Element = ExampleScenario.process.step.alternative.option.description
+  Card. = 1..1
+  Type = markdown
+  Short Name = A human-readable description of each option
+  Definition = A human-readable description of each option
+
+ -- Row 66 -----------------------------------
+  Element = ExampleScenario.process.step.alternative.option.step
+  Card. = 0..*
+  Type = @ExampleScenario.process.step
+  Short Name = What happens in each alternative option
+  Definition = What happens in each alternative option
+
+ -- Row 67 -----------------------------------
+  Element = !ExampleScenario.process.step.alternative.option.process
+  Card. = 0..*
+  Type = @ExampleScenario.process
+  Short Name = Nested processes in an option branch
+  Definition = Nested processes in an option branch
+
+ -- Row 68 -----------------------------------
+  Element = !ExampleScenario.process.step.alternative.option.alternative
+  Card. = 0..*
+  Type = @ExampleScenario.process.step.alternative
+  Short Name = Nested alternatives in an option branch
+  Definition = Nested alternatives in an option branch
+
+ -- Row 69 -----------------------------------
+  Element = !ExampleScenario.process.step.alternative.option.operation
+  Card. = 0..*
+  Type = @ExampleScenario.process.step.operation
+  Short Name = Nested operations in an option branch
+  Definition = Nested operations in an option branch
+
+ -- Row 70 -----------------------------------
+  Element = ExampleScenario.process.step.alternative.option.pause
+  Card. = 0..*
+  Type = boolean
+  Short Name = If there is a pause in the flow
+  Definition = If there is a pause in the flow
+
+ -- Row 71 -----------------------------------
+  Element = ExampleScenario.workflow
+  Card. = 0..*
+  Type = Reference (ExampleScenario)
+  Short Name = Another nested workflow
+  Definition = Another nested workflow
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

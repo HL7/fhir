@@ -1839,8 +1839,8 @@
         <translation lang="nl">Deze resource</translation>
         <translation lang="fr">Cette ressource</translation>
     </item>
-     <item id="WorkflowExample">
-        <translation lang="en">WorkflowExample</translation>
+     <item id="ExampleScenario">
+        <translation lang="en">ExampleScenario</translation>
     </item> 
     <item id="CatalogEntry">
         <translation lang="en">CatalogEntry</translation>

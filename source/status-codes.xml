@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7722</WindowHeight>
-  <WindowWidth>30600</WindowWidth>
+  <WindowHeight>6636</WindowHeight>
+  <WindowWidth>15498</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -4007,7 +4007,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">WorkflowExample.status</Data></Cell>
+    <Cell><Data ss:Type="String">ExampleScenario.status</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell><Data ss:Type="String">draft</Data></Cell>
@@ -4033,7 +4033,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>93</TopRowBottomPane>
+   <TopRowBottomPane>99</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4051,8 +4051,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>101</ActiveRow>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>102</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
