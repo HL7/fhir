@@ -1,7 +1,6 @@
 <map id="diagram_map" name="diagram_map">
-<area shape="rect" id="id1" href="#I" title="#I" alt="" coords="318,1231,328,1247"/>
-<area shape="rect" id="id2" href="#I" title="#I" alt="" coords="318,266,402,283"/>
-<area shape="rect" id="id3" href="#I" title="#I" alt="" coords="318,1247,433,1264"/>
-<area shape="rect" id="id4" href="#I" title="#I" alt="" coords="78,1096,193,1112"/>
-<area shape="rect" id="id5" href="#I" title="#I" alt="" coords="318,283,498,299"/>
+<area shape="rect" id="id1" href="example-instances.html#iherxqry" title="example-instances.html#iherxqry" alt="" coords="295,252,379,269"/>
+<area shape="rect" id="id2" href="example-instances.html#iheadm002" title="example-instances.html#iheadm002" alt="" coords="65,986,180,1002"/>
+<area shape="rect" id="id3" href="example-instances.html#iherx001bundle" title="example-instances.html#iherx001bundle" alt="" coords="295,269,475,285"/>
+<area shape="rect" id="id4" href="example-instances.html#iheadm001" title="example-instances.html#iheadm001" alt="" coords="295,1109,503,1126"/>
 </map>

@@ -1,11 +1,11 @@
 <?xml version="1.0" standalone="no"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html"/>
 	<xsl:template match="/">
 		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 			<head>
 				<title>
-					<xsl:value-of select="/WorkflowExample/title/@value"/>
+					<xsl:value-of select="/ExampleScenario/title/@value"/>
 				</title>
 <!--				<meta http-equiv="refresh" content="5"/>  -->
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -121,7 +121,7 @@
 							</li>
 							<li>
 								<b>
-									<xsl:value-of select="/WorkflowExample/process/title/@value"/>
+									<xsl:value-of select="/ExampleScenario/process/title/@value"/>
 								</b>
 							</li>
 							<!-- account.html / resource / Account -->
@@ -157,7 +157,7 @@
 									<h1 class="self-link-parent">
 										<span class="sectioncount">???8.12???<a name="8.12"> </a>
 										</span>
-										<xsl:value-of select="/WorkflowExample/process/title/@value"/>
+										<xsl:value-of select="/ExampleScenario/process/title/@value"/>
 										<a href="account.html#8.12" title="link to here" class="self-link">
 											<img src="assets/images/link.svg" width="20" class="self-link" height="20"/>
 										</a>
@@ -165,16 +165,16 @@
 
 									<table class="cols">
 										<tr>
-											<td>Publisher: (link?) <xsl:value-of select="/WorkflowExample/publisher/@value"/>
+											<td>Publisher: (link?) <xsl:value-of select="/ExampleScenario/publisher/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Status</a>: <xsl:value-of select="/WorkflowExample/status/@value"/>
+												<a href="versions.html#maturity">Status</a>: <xsl:value-of select="/ExampleScenario/status/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Experimental</a>: <xsl:value-of select="/WorkflowExample/experimental/@value"/>
+												<a href="versions.html#maturity">Experimental</a>: <xsl:value-of select="/ExampleScenario/experimental/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Copyright</a>: <xsl:value-of select="/WorkflowExample/copyright/@value"/>
+												<a href="versions.html#maturity">Copyright</a>: <xsl:value-of select="/ExampleScenario/copyright/@value"/>
 											</td>
 										</tr>
 
@@ -182,7 +182,7 @@
 									<table  class="cols">
 										<tr>
 											<td>
-												<a href="versions.html#maturity">Purpose</a>: <xsl:value-of select="/WorkflowExample/purpose/@value"/>
+												<a href="versions.html#maturity">Purpose</a>: <xsl:value-of select="/ExampleScenario/purpose/@value"/>
 											</td>
 										</tr>
 									</table>
@@ -190,40 +190,25 @@
 									<br/>
 									<h2>Description</h2>
 									<p>
-										<xsl:value-of select="/WorkflowExample/description/@value"/>
+										<xsl:value-of select="/ExampleScenario/description/@value"/>
 									</p>
 									<h4>Pre-Conditions</h4>
 									<p>
-										<xsl:value-of select="/WorkflowExample/process/preConditions/@value"/>
+										<xsl:value-of select="/ExampleScenario/process/preConditions/@value"/>
 									</p>
 
 									<h4>Post Conditions</h4>
 									<p>
-										<xsl:value-of select="/WorkflowExample/process/postConditions/@value"/>
+										<xsl:value-of select="/ExampleScenario/process/postConditions/@value"/>
 									</p>
 									<br/>
 
 
 									<h2>Workflow Sequence</h2>
 
-									<img alt="Interaction diagram showing flow" src="diagram.png" usemap="#diagram-mma_map"/>
+									<img alt="Interaction diagram showing flow" src="diagram.png" usemap="#diagram_map"/>
 
-									<map id="diagram-mma_map" name="diagram-mma_map">
-										<area shape="rect" id="id1" href="workflowexample-mma-details.html#P2" title="workflowexample-mma-details.html#P2" alt="" coords="200,187,207,203"/>
-										<area shape="rect" id="id2" href="workflowexample-mma-details.html#P1" title="workflowexample-mma-details.html#P1" alt="" coords="36,131,43,148"/>
-										<area shape="rect" id="id3" href="workflowexample-mma-details.html#P3" title="workflowexample-mma-details.html#P3" alt="" coords="205,307,212,323"/>
-										<area shape="rect" id="id4" href="ihesearchparam_rx.performer" title="ihesearchparam_rx.performer" alt="" coords="204,272,288,289"/>
-										<area shape="rect" id="id5" href="ihesearchparam_rx.performer" title="ihesearchparam_rx.performer" alt="" coords="204,236,288,252"/>
-										<area shape="rect" id="id6" href="iherx001.002" title="iherx001.002" alt="" coords="335,392,476,409"/>
-										<area shape="rect" id="id7" href="iherx001.002" title="iherx001.002" alt="" coords="205,340,346,356"/>
-										<area shape="rect" id="id8" href="iherx001.001" title="iherx001.001" alt="" coords="335,376,491,392"/>
-										<area shape="rect" id="id9" href="iherx001.001" title="iherx001.001" alt="" coords="209,323,365,340"/>
-										<area shape="rect" id="id10" href="iheadm001.002" title="iheadm001.002" alt="" coords="655,735,854,751"/>
-										<area shape="rect" id="id11" href="iheadm001.002" title="iheadm001.002" alt="" coords="651,682,850,698"/>
-										<area shape="rect" id="id12" href="iheadm001.001" title="iheadm001.001" alt="" coords="655,718,869,735"/>
-										<area shape="rect" id="id13" href="iheadm001.001" title="iheadm001.001" alt="" coords="655,666,869,682"/>
-									</map>
-
+<xsl:value-of select="unparsed-text('./diagram.cmapx')" disable-output-escaping="yes"/>
 
 
 

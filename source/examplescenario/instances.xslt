@@ -5,7 +5,7 @@
 		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 			<head>
 				<title>
-					<xsl:value-of select="/WorkflowExample/title/@value"/>
+					<xsl:value-of select="/ExampleScenario/title/@value"/>
 				</title>
 <!--				<meta http-equiv="refresh" content="5"/>  -->
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -123,7 +123,7 @@
 							</li>
 							<li>
 								<b>
-									<xsl:value-of select="/WorkflowExample/process/title/@value"/>
+									<xsl:value-of select="/ExampleScenario/process/title/@value"/>
 								</b>
 							</li>
 							<!-- account.html / resource / Account -->
@@ -159,7 +159,7 @@
 									<h1 class="self-link-parent">
 										<span class="sectioncount">???8.12???<a name="8.12"> </a>
 										</span>
-										<xsl:value-of select="/WorkflowExample/process/title/@value"/>
+										<xsl:value-of select="/ExampleScenario/process/title/@value"/>
 										<a href="account.html#8.12" title="link to here" class="self-link">
 											<img src="assets/images/link.svg" width="20" class="self-link" height="20"/>
 										</a>
@@ -167,16 +167,16 @@
 
 									<table class="cols">
 										<tr>
-											<td>Publisher: (link?) <xsl:value-of select="/WorkflowExample/publisher/@value"/>
+											<td>Publisher: (link?) <xsl:value-of select="/ExampleScenario/publisher/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Status</a>: <xsl:value-of select="/WorkflowExample/status/@value"/>
+												<a href="versions.html#maturity">Status</a>: <xsl:value-of select="/ExampleScenario/status/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Experimental</a>: <xsl:value-of select="/WorkflowExample/experimental/@value"/>
+												<a href="versions.html#maturity">Experimental</a>: <xsl:value-of select="/ExampleScenario/experimental/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Copyright</a>: <xsl:value-of select="/WorkflowExample/copyright/@value"/>
+												<a href="versions.html#maturity">Copyright</a>: <xsl:value-of select="/ExampleScenario/copyright/@value"/>
 											</td>
 										</tr>
 
@@ -184,7 +184,7 @@
 									<table  class="cols">
 										<tr>
 											<td>
-												<a href="versions.html#maturity">Purpose</a>: <xsl:value-of select="/WorkflowExample/purpose/@value"/>
+												<a href="versions.html#maturity">Purpose</a>: <xsl:value-of select="/ExampleScenario/purpose/@value"/>
 											</td>
 										</tr>
 									</table>
@@ -234,24 +234,10 @@
 
 
 										<h2>Resources</h2>
-<xsl:for-each-group select="WorkflowExample/instance/resourceType" group-by="@value">
+<xsl:for-each-group select="ExampleScenario/instance/resourceType" group-by="@value">
 <xsl:apply-templates select="../resourceType"/>
 </xsl:for-each-group>
-										
-										
-										<!--
-
-  <object><xsl:value-of select="current-grouping-key()"/></object>
-
-
-										<xsl:for-each select="distinct-nodes(/WorkflowExample/instance/resourceType/@value)">
-												<xsl:value-of select="WorkflowExample/instance/resourceType"/>
-											<object> 
-											</object>
-										</xsl:for-each>
-
--->
-
+					
 
 
 									</div>
@@ -392,13 +378,22 @@
 
 	<xsl:template  match="instance">
 		<tr>
+		
+<!--		
+&lt;a name=&quot;
+<xsl:value-of select="resourceId/@value"/>
+&quot;&gt;
+&lt;/a&gt;
+-->
+
+
 			<td>
-				<b><xsl:value-of select="name/@value"/></b>
+ <a name="{resourceId/@value}"></a><b><xsl:value-of select="name/@value"/></b>
 			</td>
 			<td><xsl:value-of select="description/@value"/></td>
 			<td style="background-color:whitesmoke" colspan="3"/>
 		</tr>
-
+		
 	</xsl:template>
 
 

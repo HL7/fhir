@@ -3,27 +3,27 @@
 	<xsl:output method="text"/>
 	<xsl:template match="/">
 <xsl:text>@startuml</xsl:text>
-!include fhirskin.iuml
-<xsl:apply-templates select="/WorkflowExample/process/title"/>
+<!--!include fhirskin.iuml-->
+<xsl:apply-templates select="/ExampleScenario/process/title"/>
 <xsl:text>&#13;&#10;</xsl:text>
-<xsl:apply-templates select="/WorkflowExample/actor"/>
+<xsl:apply-templates select="/ExampleScenario/actor"/>
 <xsl:text>&#13;&#10;</xsl:text>
 <xsl:text>&#13;&#10;</xsl:text>
-<xsl:apply-templates select="/WorkflowExample/process"/>
+<xsl:apply-templates select="/ExampleScenario/process"/>
 
 @enduml
 </xsl:template>
 
 
 
-<xsl:template match="/WorkflowExample/process">
+<xsl:template match="/ExampleScenario/process">
 <xsl:apply-templates select="./step"/>
 </xsl:template>
 
 
 
 
-<xsl:template match="/WorkflowExample/process/title">
+<xsl:template match="/ExampleScenario/process/title">
 title <xsl:value-of select="./@value"/>
 </xsl:template>
 
@@ -38,10 +38,8 @@ title <xsl:value-of select="./@value"/>
 
 
 <xsl:template match="operation">
-<xsl:value-of select="initiator/@value"/> <xsl:if test="dotted/@value='true'">-</xsl:if>-<xsl:text disable-output-escaping="yes">&gt; </xsl:text> <xsl:value-of select="receiver/@value"/> : <xsl:value-of select="name/@value"/>\n<xsl:apply-templates select="request"/>
-<xsl:apply-templates select="response"/>
+<xsl:value-of select="initiator/@value"/> <xsl:if test="dotted/@value='true'">-</xsl:if>-<xsl:text disable-output-escaping="yes">&gt; </xsl:text> <xsl:value-of select="receiver/@value"/> : <xsl:value-of select="name/@value"/>\n<xsl:apply-templates select="request"/> <xsl:apply-templates select="response"/>
 <xsl:text>&#13;&#10;</xsl:text>
-
 <!--
 <xsl:variable name="areThereInstances" select="boolean(./instance)"/>
 <xsl:if test="$areThereInstances='true'">note right
@@ -59,7 +57,7 @@ group <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</xsl:text>
 
 
 <xsl:template match="option/process">
-group <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</xsl:text>
+group#A9CCEF #A9CCEF <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</xsl:text>
 <xsl:apply-templates select="./step"/>end</xsl:template>
 
 
@@ -82,7 +80,7 @@ group <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</xsl:text>
 <xsl:template match="alternative/option"> 
 <xsl:choose>
 <xsl:when test="position() &lt; 2"> 
-alt </xsl:when>
+alt#blue #A9DCDF </xsl:when>
 <xsl:otherwise> 
 else </xsl:otherwise>
 </xsl:choose>
@@ -123,19 +121,11 @@ participant</xsl:if>
 
 <xsl:template  match="request">
 <xsl:variable name="iid" select="./resourceId/@value"/>
-
-<xsl:text> [[#I </xsl:text>
-<xsl:value-of select="/WorkflowExample/instance[resourceId/@value=$iid]/name/@value"/> 
-<xsl:text>]] \n</xsl:text>
-</xsl:template>
+<xsl:text> [[example-instances.html#</xsl:text><xsl:value-of select="./resourceId/@value"/>  <xsl:text>  </xsl:text><xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> ]]<xsl:text>\n</xsl:text></xsl:template>
 
 <xsl:template  match="response">
 <xsl:variable name="iid" select="./resourceId/@value"/>
-
-<xsl:text> [[#I </xsl:text>
-<xsl:value-of select="/WorkflowExample/instance[resourceId/@value=$iid]/name/@value"/> 
-<xsl:text>]] \n</xsl:text>
-</xsl:template>
+<xsl:text> [[example-instances.html#</xsl:text><xsl:value-of select="./resourceId/@value"/> <xsl:text>  </xsl:text><xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> ]]<xsl:text>\n</xsl:text></xsl:template>
 
 
 

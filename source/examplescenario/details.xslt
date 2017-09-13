@@ -5,8 +5,9 @@
 		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 			<head>
 				<title>
-					<xsl:value-of select="/WorkflowExample/title/@value"/>
+					<xsl:value-of select="/ExampleScenario/title/@value"/>
 				</title>
+<!--				<meta http-equiv="refresh" content="5"/> -->
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<meta name="author" content="http://hl7.org/fhir"/>
 
@@ -42,7 +43,7 @@
 
 
 				<link rel="stylesheet" href="./assets/js/jquery-ui.min.css"/>
-				<script src="./assets/js/external/jquery/jquery.js"/>
+				<script src="./assets/js/jquery.js"/>
 				<script src="./assets/js/jquery-ui.js"/>
 				<script>
   $( function() {
@@ -150,7 +151,7 @@
 							</li>
 							<li>
 								<b>
-									<xsl:value-of select="/WorkflowExample/process/title/@value"/>
+									<xsl:value-of select="/ExampleScenario/process/title/@value"/>
 								</b>
 							</li>
 							<!-- account.html / resource / Account -->
@@ -186,7 +187,7 @@
 									<h1 class="self-link-parent">
 										<span class="sectioncount">???8.12???<a name="8.12"> </a>
 										</span>
-										<xsl:value-of select="/WorkflowExample/process/title/@value"/>
+										<xsl:value-of select="/ExampleScenario/process/title/@value"/>
 										<a href="account.html#8.12" title="link to here" class="self-link">
 											<img src="assets/images/link.svg" width="20" class="self-link" height="20"/>
 										</a>
@@ -194,16 +195,16 @@
 
 									<table class="cols">
 										<tr>
-											<td>Publisher: (link?) <xsl:value-of select="/WorkflowExample/publisher/@value"/>
+											<td>Publisher: (link?) <xsl:value-of select="/ExampleScenario/publisher/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Status</a>: <xsl:value-of select="/WorkflowExample/status/@value"/>
+												<a href="versions.html#maturity">Status</a>: <xsl:value-of select="/ExampleScenario/status/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Experimental</a>: <xsl:value-of select="/WorkflowExample/experimental/@value"/>
+												<a href="versions.html#maturity">Experimental</a>: <xsl:value-of select="/ExampleScenario/experimental/@value"/>
 											</td>
 											<td>
-												<a href="versions.html#maturity">Copyright</a>: <xsl:value-of select="/WorkflowExample/copyright/@value"/>
+												<a href="versions.html#maturity">Copyright</a>: <xsl:value-of select="/ExampleScenario/copyright/@value"/>
 											</td>
 										</tr>
 
@@ -211,7 +212,7 @@
 									<table  class="cols">
 										<tr>
 											<td>
-												<a href="versions.html#maturity">Purpose</a>: <xsl:value-of select="/WorkflowExample/purpose/@value"/>
+												<a href="versions.html#maturity">Purpose</a>: <xsl:value-of select="/ExampleScenario/purpose/@value"/>
 											</td>
 										</tr>
 									</table>
@@ -228,10 +229,10 @@
 												</tr>
 
 
-												<xsl:apply-templates select="/WorkflowExample/actor"/>
+												<xsl:apply-templates select="/ExampleScenario/actor"/>
 
 												<!--
-<xsl:for-each-group select="WorkflowExample/actor" group-by="type/@value">
+<xsl:for-each-group select="ExampleScenario/actor" group-by="type/@value">
 
 </xsl:for-each-group>
 -->											
@@ -243,7 +244,7 @@
 
 									<div>
 										<br/>
-										<h2>Process Flow - <xsl:value-of select="/WorkflowExample/process/title/@value"/>
+										<h2>Process Flow - <xsl:value-of select="/ExampleScenario/process/title/@value"/>
 										</h2>
 
 
@@ -256,7 +257,7 @@
 												Steps:<xsl:apply-templates select="./step"/>
 -->
 
-										<xsl:apply-templates select="/WorkflowExample/process"/>
+										<xsl:apply-templates select="/ExampleScenario/process"/>
 
 
 
@@ -391,7 +392,7 @@ $( '#tabs' ).tabs({
 	</xsl:template>	
 
 
-	<xsl:template  match="/WorkflowExample/process">
+	<xsl:template  match="/ExampleScenario/process">
 		<!--		<h3><xsl:value-of select="title/@value"/></h3> <br/>  -->
 		<xsl:value-of select="description/@value"/>
 		<br/>
@@ -468,8 +469,8 @@ $( '#tabs' ).tabs({
 	
 	<xsl:template  match="resourceId">
 <xsl:variable name="iid" select="./@value"/>
-<a href="instances.html#{resourceId/@value}">
-<xsl:value-of select="/WorkflowExample/instance[resourceId/@value=$iid]/name/@value"/> </a>
+<a href="example-instances.html#{/ExampleScenario/instance[resourceId/@value=$iid]/resourceId/@value}">
+<xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> </a>
 	</xsl:template> 	
 
 	
