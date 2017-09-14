@@ -116,12 +116,11 @@
 
  -- Row 20 -----------------------------------
   Element = MessageDefinition.event
-  Card. = 1..1
+  Card. = 0..1
   Summary = Y
-  Type = Coding
-  Binding = MessageEvent
-  Short Name = Event type
-  Definition = A coded identifier of a supported messaging event
+  Type = uri
+  Short Name = Link to the Event type
+  Definition = Link to the defined event type
   To Do = May need a profile id as well if profiles can define message events
 
  -- Row 21 -----------------------------------
@@ -210,7 +209,7 @@
 
  -- Row 1 -----------------------------------
   Name = event
-  Type = token
+  Type = uri
   Description = The event that triggers the message
   Path = MessageDefinition.event
 

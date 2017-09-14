@@ -19,10 +19,7 @@
 		</telecom>
 	</contact>
 	<purpose value="Defines a base example for other MessageDefintion instances."/>
-	<event>
-		<system value="http://hl7.org/fhir/message-events"/>
-		<code value="communication-request"/>
-	</event>
+	<event value="http://acme.com/ehr/fhir/event"/>
 	<category value="Notification"/>
 	<responseRequired value="false"/>
 </MessageDefinition>
