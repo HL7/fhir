@@ -320,7 +320,8 @@
   Card. = 0..1
   Type = uri
   Short Name = Link to the definition for this message
-  Definition = This is the permanent link to the MessageDefinition for this message.
+  Definition = Permanent link to the MessageDefinition for this message.
+  Requirements = Allows sender to define the expected contents of the message.
 
 === Sheet Search =====================================
 
@@ -398,11 +399,6 @@
   Name = focus
   Type = reference
   Path = MessageHeader.focus
-
- -- Row 16 -----------------------------------
-  Name = definition
-  Type = uri
-  Path = MessageHeader.definition
 
 === Sheet Profiles =====================================
 
