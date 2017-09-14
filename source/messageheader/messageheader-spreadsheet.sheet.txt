@@ -322,6 +322,7 @@
   Short Name = Link to the definition for this message
   Definition = Permanent link to the MessageDefinition for this message.
   Requirements = Allows sender to define the expected contents of the message.
+  RIM Mapping = Not directly supported.
 
 === Sheet Search =====================================
 
