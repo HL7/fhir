@@ -1,0 +1,303 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProductPharmaceutical
+  UML = 40;130
+  Type = DomainResource
+  Short Name = A pharmaceutical product shall be described in terms of its qualitative and quantitative composition and the pharmaceutical dose form approved for administration (administrable dose form) in line with the regulated product information
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProductPharmaceutical.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Business identifier for the Pharmaceutical Medicinal Product
+  Definition = The identifier(s) of this Pharmaceutical Medicinal Product that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductPharmaceutical.administrableDoseForm
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This shall describe the administrable dose form in accordance with the regulated product information This is after it has undergone any necessary reconstitution, where applicable The administrable dose form shall be specified in accordance with ISO 11239 and ISO / TS 20440 and the resulting terminology The term and the term identifier shall be specified In certain instances the administrable dose form differs from the manufactured dose form when a transformation of the manufactured dose form has been carried out The manufactured dose forms of two manufactured items are described as “powder for solution for injection” and “solvent for solution for injection” which after transformation correspond to the administrable dose form “solution for injection”
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductPharmaceutical.unitOfPresentation
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The unit of presentation is a qualitative term describing the discrete unit in which a pharmaceutical product is presented to describe strength or quantity in cases where a quantitative unit of measurement is not appropriate It is a term and a term identifier as defined in ISO 11239 and ISO / TS 20440 and the resulting terminology For pharmaceutical products whose strength is measured as a quantity of weight or volume, the “unit of presentation” can be specified as the immediate (lowest level) container For solid dose forms and other items whose strength is described on the basis of the amount in the unit of presentation, and which are counted in integer quantities, the unit for quantity shall be “1 unit” and the unit of presentation shall be the item that is counted, specified as a term and a term identifier as defined in ISO 11239 and ISO / TS 20440 and the resulting terminology
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductPharmaceutical.ingredient
+  Card. = 0..*
+  Type = Reference(MedicinalProductIngredient)
+  Short Name = Ingredient
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device
+  Card. = 0..*
+  UML = 381;100
+  Type = Backbone Element
+  Short Name = Medicinal products may be authorised with a device(s), which may be described using the Device class Devices may be of several types such as separate administration devices, an integral administration device or a part of a Medicinal Product Where a Medicinal Product is combined with a medical device and where the pharmacological, immunological or metabolic action should be considered as the principal mode of action, the medical device is presented as part of the Pharmaceutical Product
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of device shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceTradeName
+  Card. = 0..1
+  Type = string
+  Short Name = This can be used to specify the trade name of the device, where applicable, as text
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceQuantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The quantity of the device present in the pack shall be specified
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceListingNumber
+  Card. = 0..1
+  Type = string
+  Short Name = This can be used to specify the listing number of the device, where applicable, in text
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = A unique device identifier needs to be specified
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.modelNumber
+  Card. = 0..1
+  Type = string
+  Short Name = This can be used to specify the device model or reference number, where applicable, in text
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.sterilityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where applicable, this can be used to specify whether the device is supplied as sterile using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.sterilisationRequirementIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where applicable, this can be used to specify whether the device shall be sterilised before use based on an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceUsage
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The number of times that the device may be used as described in the regulated product information may be specified
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceBatchIdentifier
+  Card. = 0..*
+  UML = 750;150
+  Type = Backbone Element
+  Short Name = This class can be used to describe the batch number and/or expiry date of a device in a packaged Medicinal Product NOTE At implementation, any batch number and expiry date for a device in a packaged Medicinal Product will be related to a particular batch or batches of that packaged Medicinal Product (as described using the BAID1), but for simplification at a conceptual level, the “many-to-many” relationship that this would give has been omitted
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceBatchIdentifier.batchNumber
+  Card. = 1..1
+  Type = string
+  Short Name = Where applicable, the batch number for the device can be specified, in text
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceBatchIdentifier.expirationDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = Where applicable, the expiration date for the batch can be specified
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceMaterial
+  Card. = 0..*
+  UML = 750;300
+  Type = Backbone Element
+  Short Name = This class is used to list the substances that are used to create the material(s) of which the device is made and also for indicating if the substance is representing an alternate material and if the substance is a known allergen
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceMaterial.substance
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The substance that compose the material of the device shall be described in accordance with ISO 11238 as applicable and its resulting terminology
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceMaterial.alternate
+  Card. = 0..1
+  Type = boolean
+  Short Name = This flag indicates if the substance represents an alternative material of the device NOTE Alternate is used when alternative specific material(s) are allowed to be used for the manufacturing of the package (eg different types of plastic for a spoon)
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceMaterial.allergenicIndicator
+  Card. = 0..1
+  Type = boolean
+  Short Name = This flag indicates if the substance is a known or suspected allergen
+
+ -- Row 23 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceNomenclature
+  Card. = 0..*
+  UML = 750;0
+  Type = Backbone Element
+  Short Name = There are a variety of nomenclature systems available to identify devices This structure supports the description of the device in these nomenclature systems
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.deviceNomenclature.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The term for the device from the specified nomenclature system shall be specified
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.otherCharacteristics
+  Card. = 0..*
+  UML = 430;0
+  Type = Backbone Element
+  Short Name = Where applicable for a package item, a manufactured item or a device, other characteristics can be specified This facility is useful for capturing unusual details not explicitly catered for in the other attributes
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.otherCharacteristics.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The individual value from the Characteristics code system that applies shall be specified using a controlled term and a controlled term identifier
+
+ -- Row 27 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics
+  Card. = 0..1
+  UML = 420;330
+  Type = Backbone Element
+  Short Name = Where applicable for a package item (container), package (component), manufactured item or device, its physical characteristics can be specified One or more images can be provided as applicable
+
+ -- Row 28 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.height
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the height can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 29 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.width
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the width can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 30 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.depth
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the depth can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 31 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.weight
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the weight can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 32 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.nominalVolume
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the nominal volume can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 33 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.externalDiameter
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the external diameter can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 34 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.shape
+  Card. = 0..1
+  Type = string
+  Short Name = Where applicable, the shape can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+
+ -- Row 35 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.colour
+  Card. = 0..*
+  Type = string
+  Short Name = Where applicable, the colour can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+
+ -- Row 36 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.imprint
+  Card. = 0..*
+  Type = string
+  Short Name = Where applicable, the imprint can be specified as text
+
+ -- Row 37 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.image
+  Card. = 0..*
+  Type = string
+  Short Name = Where applicable, the image can be provided The format of the image attachment shall be specified by regional implementations
+
+ -- Row 38 -----------------------------------
+  Element = MedicinalProductPharmaceutical.device.physicalCharacteristics.scoring
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where applicable, the scoring can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+
+ -- Row 39 -----------------------------------
+  Element = MedicinalProductPharmaceutical.pharmProductCharacteristics
+  Card. = 0..*
+  UML = 0;300
+  Type = Backbone Element
+  Short Name = This class can be used to describe various characteristics of the pharmaceutical product, such as its onset of action
+
+ -- Row 40 -----------------------------------
+  Element = MedicinalProductPharmaceutical.pharmProductCharacteristics.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The individual value from the code system that describes the actual characteristic shall be specified using a controlled term and a controlled term identifier
+
+ -- Row 41 -----------------------------------
+  Element = MedicinalProductPharmaceutical.pharmProductCharacteristics.status
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The status of the pharmaceutical product characteristic should be listed here, eg assigned, not assigned or pending
+
+ -- Row 42 -----------------------------------
+  Element = MedicinalProductPharmaceutical.phPIDSet
+  Card. = 1..*
+  UML = 220;300
+  Type = Backbone Element
+  Short Name = This class shall carry the relevant identifiers as defined by ISO 11616 and ISO / TS 20451  This provides a uniform representation of the pharmaceutical product using the substance(s)/specified substance(s), their (reference) strength(s), the administrable dose form and, where applicable, the integral device
+
+ -- Row 43 -----------------------------------
+  Element = MedicinalProductPharmaceutical.phPIDSet.phPIDIdentifierSets
+  Card. = 1..1
+  Type = Identifier
+  Short Name = This class shall carry the relevant identifiers as defined by ISO 11616 and ISO / TS 20451 This provides a uniform representation of the pharmaceutical product using the substance(s)/specified substance(s), their (reference) strength(s), the administrable dose form and, where applicable, the integral device
+
+ -- Row 44 -----------------------------------
+  Element = MedicinalProductPharmaceutical.routeOfAdministration
+  Card. = 1..*
+  UML = 150;0
+  Type = Backbone Element
+  Short Name = The route of administration is a concept that is used to describe the path by which the pharmaceutical product is taken into or makes contact with the body The route of administration shall be specified using terms and a term identifiers as defined in ISO 11239 and ISO/TS 20440 and its resulting terminology
+
+ -- Row 45 -----------------------------------
+  Element = MedicinalProductPharmaceutical.routeOfAdministration.routeOfAdministration
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The route of administration is a concept that is used to describe the path by which the pharmaceutical product is taken into or makes contact with the body The route of administration shall be specified using terms and a term identifiers as defined in ISO 11239 and ISO/TS 20440 and its resulting terminology
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

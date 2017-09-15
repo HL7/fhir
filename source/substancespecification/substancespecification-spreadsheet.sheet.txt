@@ -1,0 +1,678 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = SubstanceSpecification
+  UML = 628;477
+  Type = DomainResource
+  Short Name = Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = SubstanceSpecification.comment
+  Card. = 0..1
+  Type = string
+  Short Name = Any comment can be provided in this field, if necessary
+
+ -- Row 3 -----------------------------------
+  Element = SubstanceSpecification.substanceId
+  Card. = 0..1
+  Type = Identifier
+  Short Name = ID to be used in all electronic submissions to identify a substance. Generated when sufficient information is available to unambiguously define a substance. ID will be permanently associated with a given substance and each substance at the substance level shall have one and only one ID. NOTE If a unique “Substance ID” has been assigned, this “Substance ID” is specified based on the Substance Name controlled vocabulary. In the absence of a unique “Substance ID”, e. g. for the initial submission of the substance, this data element is not mandator
+
+ -- Row 4 -----------------------------------
+  Element = SubstanceSpecification.substanceType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Information about the substance type as described in and in accordance with ISO 11238 definition
+
+ -- Row 5 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric
+  Card. = 0..1
+  UML = 560;620
+  Type = Backbone Element
+  Short Name = The subclause applies to chemical substances that do not have defined stoichiometry
+
+ -- Row 6 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.numberOfMoieties
+  Card. = 0..1
+  Type = integer
+  Short Name = The number of moieties specified shall be provided. Non-stoichiometric chemical substances shall have at least two moieties. Each moiety shall be represented by a chemical structure
+
+ -- Row 7 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety
+  Card. = 0..*
+  UML = 762;743
+  Type = Backbone Element
+  Short Name = For structural modifications, the moiety shall be provided based on the specifications provided in 5.1.5.2
+
+ -- Row 8 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.moietyRole
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The role of the moiety should be specified if there is a specific role the moiety is playing
+
+ -- Row 9 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.moietyId
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The unique identifier assigned to the substance representing the moiety based on the ISO 11238 substance controlled vocabulary
+
+ -- Row 10 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.moietyName
+  Card. = 0..1
+  Type = string
+  Short Name = The name of the moiety shall be provided
+
+ -- Row 11 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.stereochemistry
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Stereochemistry shall be captured as described in 4.7.1
+
+ -- Row 12 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.opticalActivity
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Optical activity shall be captured as described in 4.7.2
+
+ -- Row 13 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.molecularFormula
+  Card. = 0..1
+  Type = string
+  Short Name = Molecular formula shall be captured as described in 4.7.3
+
+ -- Row 14 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount
+  Card. = 0..1
+  UML = 683;941
+  Type = Backbone Element
+  Short Name = To do
+
+ -- Row 15 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount.amountType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Most elements that require a quantitative value will also have a field called amount type. Amount type should always be specified because the actual value of the amount is often dependent on it. EXAMPLE: In capturing the actual relative amounts of substances or molecular fragments it is essential to indicate whether the amount refers to a mole ratio or weight ratio. For any given element an effort should be made to use same the amount type for all related definitional elements
+
+ -- Row 16 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount.average
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
+
+ -- Row 17 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount.lowLimit
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Lower limit for a given quantitative value
+
+ -- Row 18 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount.highLimit
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Higher limit for a given quantitative value
+
+ -- Row 19 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount.unit
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The unit of measure
+
+ -- Row 20 -----------------------------------
+  Element = SubstanceSpecification.nonStoichiometric.moiety.amount.nonNumericValue
+  Card. = 0..1
+  Type = string
+  Short Name = Qualitative value or general description to capture information related to a characteristic attribute or constituent
+
+ -- Row 21 -----------------------------------
+  Element = SubstanceSpecification.property
+  Card. = 0..*
+  UML = 549;743
+  Type = Backbone Element
+  Short Name = To do
+
+ -- Row 22 -----------------------------------
+  Element = SubstanceSpecification.property.propertyType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Type of the property for which the information is provided
+
+ -- Row 23 -----------------------------------
+  Element = SubstanceSpecification.property.propertyName
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The name of the property shall be specified based on a controlled vocabulary
+
+ -- Row 24 -----------------------------------
+  Element = SubstanceSpecification.property.propertyParameters
+  Card. = 0..1
+  Type = string
+  Short Name = A field that should be used to capture parameters that were used in the measurement of a property
+
+ -- Row 25 -----------------------------------
+  Element = SubstanceSpecification.property.propertySubstanceId
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Substance ID of a substance upon which a defining property depends; the identifier of the substance related to a defining property shall be described where applicable
+
+ -- Row 26 -----------------------------------
+  Element = SubstanceSpecification.property.propertySubstanceName
+  Card. = 0..1
+  Type = string
+  Short Name = To be used to identify a substance related to a defining property, for example: cell surface antigens (the Substance ID for CD4 would be captured to defined CD4 positive cells)
+
+ -- Row 27 -----------------------------------
+  Element = SubstanceSpecification.property.amount
+  Card. = 0..1
+  Type = @SubstanceSpecification.nonStoichiometric.moiety.amount
+  Short Name = To do
+
+ -- Row 28 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation
+  Card. = 0..1
+  UML = 300;490
+  Type = Backbone Element
+  Short Name = Reference information should be captured for all types of substances and specified Group 1 substances. According to ISO 11238, this subclause captures additional types of informative reference information for each type of substance. This information shall not affect the generation of a new unique identifier; it may include both classification and target information for active substances but it does not provide any guidance on the classification of pharmacological effects or the determination of the putative targets for any Substance or Specified Substance
+
+ -- Row 29 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.comment
+  Card. = 0..1
+  Type = string
+  Short Name = Any comment can be provided in this field, if necessary
+
+ -- Row 30 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification
+  Card. = 0..*
+  UML = 288;354
+  Type = Backbone Element
+  Short Name = The standard should have the ability to capture a variety of classification systems. Classification systems are typically based on molecular structure, chemical properties, pharmacological effects, mechanism of action, therapeutic targets or indication
+
+ -- Row 31 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.domain
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The domain of the substance classification shall be provided
+
+ -- Row 32 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.classification
+  Card. = 0..1
+  Type = string
+  Short Name = Substance Classification terms based on a controlled vocabulary that is controlled by the system or type of substance classification. The system should be capable of capturing a variety of classification systems and each system should be identified. All active ingredients are typically classified in multiple systems. Ad-hoc classification may be created as necessary
+
+ -- Row 33 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.substanceClassificationCode
+  Card. = 0..1
+  Type = string
+  Short Name = Code from the classifying code system. The code should be tied to the substance(…)
+
+ -- Row 34 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.substanceClassificationType
+  Card. = 0..1
+  Type = string
+  Short Name = The initial type or highest level of a classification system
+
+ -- Row 35 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource
+  Card. = 0..*
+  UML = 726;303
+  Type = Backbone Element
+  Short Name = All data elements associated with a Substance or Specified Substance should have a reference source. These sources could be regulatory submissions, publications by naming authorities such as INN or USAN, pharmacopoeias, books, journals, web sites, meeting materials of public databases such as chemical abstracts. A source can refer to multiple data elements and a given element can have multiple sources
+
+ -- Row 36 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.publicDomain
+  Card. = 0..1
+  Type = boolean
+  Short Name = Indication of whether the source is in the public domain. Company codes will only be released if the defining information is associated with the code in a public source such as chemical abstracts (CAS), a journal article, or a poster at scientific meeting attributable to the company
+
+ -- Row 37 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The reference source type in which the data elements were actually found
+
+ -- Row 38 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceClass
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Useful for classification of sources
+
+ -- Row 39 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceId
+  Card. = 0..1
+  Type = string
+  Short Name = An ID associated with reference source
+
+ -- Row 40 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceCitation
+  Card. = 0..1
+  Type = string
+  Short Name = The actual reference source or citation in which the name was found
+
+ -- Row 41 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceUrl
+  Card. = 0..1
+  Type = string
+  Short Name = The reference source document URL in which the document was found. The URL can be captured here
+
+ -- Row 42 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceDocument
+  Card. = 0..1
+  UML = 847;146
+  Type = Backbone Element
+  Short Name = The elements of the \'Reference Source Document\" class are provided in Figure 5
+
+ -- Row 43 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceDocument.publicDomain
+  Card. = 0..1
+  Type = boolean
+  Short Name = Indication of whether the source is in the public domain
+
+ -- Row 44 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceDocument.document
+  Card. = 0..1
+  Type = Attachment
+  Short Name = Documents that contain relevant information on data elements and are referenced should be stored if available
+
+ -- Row 45 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceDocument.referenceSourceDocumentType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The type of the document
+
+ -- Row 46 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceDocument.referenceSourceDocumentId
+  Card. = 0..1
+  Type = string
+  Short Name = An ID associated with reference source document
+
+ -- Row 47 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.referenceSource.referenceSourceDocument.classification
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The reference document should be classified according to the information contained within
+
+ -- Row 48 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.substanceClassificationSubtype
+  Card. = 0..*
+  UML = 288;270
+  Type = Backbone Element
+  Short Name = 4.6.2.5.1 Substance class subtype (Optional
+
+ -- Row 49 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceClassification.substanceClassificationSubtype.substanceClassSubtype
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Many classification systems will have multiple subtypes of classification this field will attempt to capture this information
+
+ -- Row 50 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship
+  Card. = 0..*
+  UML = 289;743
+  Type = Backbone Element
+  Short Name = Table 35 — Substance Relationship
+
+ -- Row 51 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.relatedSubstanceId
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Substance ID associated with the related substance. All related substances should have a Substance ID
+
+ -- Row 52 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.relatedSubstanceName
+  Card. = 0..1
+  Type = string
+  Short Name = Preferred term or primary name of related substance
+
+ -- Row 53 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.relationship
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Relationship between substances. NOTE: Target and gene elements are not to be specified in this subclause
+
+ -- Row 54 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.relationshipType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The Type of interaction between the substances
+
+ -- Row 55 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.isDefining
+  Card. = 0..1
+  Type = boolean
+  Short Name = There are cases that the substance relationship is a defining element for the substance pharmacodynamic action. For example, if an enzyme has a strong binding with substance A, then the relationship of Substance A with the enzyme (Related Substance) is defining information
+
+ -- Row 56 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.amount
+  Card. = 0..1
+  Type = @SubstanceSpecification.nonStoichiometric.moiety.amount
+  Short Name = To do
+
+ -- Row 57 -----------------------------------
+  Element = SubstanceSpecification.referenceInformation.substanceRelationship.referenceSource
+  Card. = 0..*
+  Type = @SubstanceSpecification.referenceInformation.substanceClassification.referenceSource
+  Short Name = All data elements associated with a Substance or Specified Substance should have a reference source. These sources could be regulatory submissions, publications by naming authorities such as INN or USAN, pharmacopoeias, books, journals, web sites, meeting materials of public databases such as chemical abstracts. A source can refer to multiple data elements and a given element can have multiple sources
+
+ -- Row 58 -----------------------------------
+  Element = SubstanceSpecification.referenceSource
+  Card. = 0..*
+  Type = @SubstanceSpecification.referenceInformation.substanceClassification.referenceSource
+  Short Name = All data elements associated with a Substance or Specified Substance should have a reference source. These sources could be regulatory submissions, publications by naming authorities such as INN or USAN, pharmacopoeias, books, journals, web sites, meeting materials of public databases such as chemical abstracts. A source can refer to multiple data elements and a given element can have multiple sources
+
+ -- Row 59 -----------------------------------
+  Element = SubstanceSpecification.stoichiometric
+  Card. = 0..1
+  UML = 776;620
+  Type = Backbone Element
+  Short Name = As described above, stoichiometric chemical substances are substances that contain complete chemical structures and definite stoichiometric ratios among moieties. Stoichiometric ratios between moieties should be whole integers and not fractions. They can be defined by a single representation of the complete molecular structure and a stereochemistry descriptor. The representation can be of one of the four types listed above. The following examples of defining elements for various types of chemical substances help illustrate the information needed to define substances. There are a variety of drawing tools that can generate any of the formats described
+
+ -- Row 60 -----------------------------------
+  Element = SubstanceSpecification.stoichiometric.numberOfMoieties
+  Card. = 0..1
+  Type = integer
+  Short Name = To do
+
+ -- Row 61 -----------------------------------
+  Element = SubstanceSpecification.stoichiometric.moiety
+  Card. = 0..*
+  Type = @SubstanceSpecification.nonStoichiometric.moiety
+  Short Name = For structural modifications, the moiety shall be provided based on the specifications provided in 5.1.5.2
+
+ -- Row 62 -----------------------------------
+  Element = SubstanceSpecification.stoichiometric.property
+  Card. = 0..*
+  Type = @SubstanceSpecification.property
+  Short Name = To do
+
+ -- Row 63 -----------------------------------
+  Element = SubstanceSpecification.structure
+  Card. = 0..1
+  UML = 983;467
+  Type = Backbone Element
+  Short Name = Structural information of a substance shall be provided as described in Figure 9
+
+ -- Row 64 -----------------------------------
+  Element = SubstanceSpecification.structure.stereochemistry
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The stereochemistry of the substance shall be indicated in the structure and is captured here. Special cases of stereochemistry that can’t be indicated in the structure shall be described based on a controlled vocabulary. Mixtures of stereoisomers shall be represented explicitly as a mixture of substances with absolute stereochemistry. In case the absolute stereochemistry is unknown the substance definition should be marked as “Incomplete”
+
+ -- Row 65 -----------------------------------
+  Element = SubstanceSpecification.structure.opticalActivity
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The optical activity shall be described based on a controlled vocabulary
+
+ -- Row 66 -----------------------------------
+  Element = SubstanceSpecification.structure.molecularFormula
+  Card. = 0..1
+  Type = string
+  Short Name = Molecular formula is written as a sequence of pairs of atom symbol and stoichiometric number without any text formatting or special characters. This formal notation is essentially a code system. Specified according to the Hill system, i.e. first C, then H, then alphabetical
+
+ -- Row 67 -----------------------------------
+  Element = SubstanceSpecification.structure.molecularFormulaByMoiety
+  Card. = 0..1
+  Type = string
+  Short Name = Specified per moiety according to the Hill system, i.e. first C, then H, then alphabetical. and each moiety separated by a dot
+
+ -- Row 68 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope
+  Card. = 0..*
+  UML = 1196;743
+  Type = Backbone Element
+  Short Name = Applicable for single substances that contain a radionuclide or a non-natural isotopic ratio, . C-13 enriched material. All radionuclide and non-natural isotopes will also be represented in the structural representation for chemical substances. For other types of substances, a structural representation could be created to indicate the position of substitution
+
+ -- Row 69 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.nuclideId
+  Card. = 0..1
+  Type = Identifier
+  Short Name = A Substance ID for each non-natural or radioisotope is created. The ID is linked to a single atom zero valence element
+
+ -- Row 70 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.nuclideName
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The name for each isotope shall be provided
+
+ -- Row 71 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.substitutionType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The type of isotopic substitution present in a single substance: - specific if the site of attachment/substitution indicated in structure; - non-specific if the nuclide is distributed throughout molecule or substance; - Unknown if site unknown. Substitution refers to the relationship between the nuclide and the rest of the substance
+
+ -- Row 72 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.nuclideHalfLife
+  Card. = 0..1
+  Type = Quantity
+  Short Name = The half life of a non natural nuclide
+
+ -- Row 73 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.amount
+  Card. = 0..1
+  Type = @SubstanceSpecification.nonStoichiometric.moiety.amount
+  Short Name = To do
+
+ -- Row 74 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.molecularWeight
+  Card. = 0..1
+  UML = 972;743
+  Type = Backbone Element
+  Short Name = The molecular weight or a molecular weight range for proteins, polymers or nucleic acids should be provided if known. Multiple molecular weights that either depend on the method or type should also be provided
+
+ -- Row 75 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.molecularWeight.molecularWeightMethod
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The method by which the molecular weight was determined
+
+ -- Row 76 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.molecularWeight.molecularWeightType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Type of molecular weight such as exact, average (also known as. number average), weight average
+
+ -- Row 77 -----------------------------------
+  Element = SubstanceSpecification.structure.isotope.molecularWeight.amount
+  Card. = 0..1
+  Type = @SubstanceSpecification.nonStoichiometric.moiety.amount
+  Short Name = To do
+
+ -- Row 78 -----------------------------------
+  Element = SubstanceSpecification.structure.molecularWeight
+  Card. = 0..1
+  Type = @SubstanceSpecification.structure.isotope.molecularWeight
+  Short Name = The molecular weight or a molecular weight range for proteins, polymers or nucleic acids should be provided if known. Multiple molecular weights that either depend on the method or type should also be provided
+
+ -- Row 79 -----------------------------------
+  Element = SubstanceSpecification.structure.referenceSource
+  Card. = 0..*
+  Type = @SubstanceSpecification.referenceInformation.substanceClassification.referenceSource
+  Short Name = All data elements associated with a Substance or Specified Substance should have a reference source. These sources could be regulatory submissions, publications by naming authorities such as INN or USAN, pharmacopoeias, books, journals, web sites, meeting materials of public databases such as chemical abstracts. A source can refer to multiple data elements and a given element can have multiple sources
+
+ -- Row 80 -----------------------------------
+  Element = SubstanceSpecification.structure.structuralRepresentation
+  Card. = 0..*
+  UML = 1221;477
+  Type = Backbone Element
+  Short Name = Structural information is an essential element for all chemical substances and for other types of substances that have structurally definable elements or modifications. The representation should contain structural information in one or more of the standardised formats as indicated below. A graphical image of the molecular structure should also be provided if available. A complete representation of the structure should be provided and is usually sufficient to define chemical substances. Structural representations can be in a variety of formats or even multiple formats. The commonly used formats include molfile, SMILES, InChI, and cdx. Indication of a preferred structural representation may be defined at regional level. Although most chemical substances may be represented by a single unambiguous structural representation, there are also many substances that can be represented by multiple structural representations or as a mixture of single substances. For the initial implementation and the transmittal of data for substance definitions, an approach that limits submissions to a single or a limited number of unambiguous structural representations is recommended. There are several examples below that illustrate the process in choosing a defining structural representation to submit. A more detailed structural representation guide is provided as part of the Annex B
+
+ -- Row 81 -----------------------------------
+  Element = SubstanceSpecification.structure.structuralRepresentation.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = This field indicates the type of structure. A FULL structure is a structure in which the complete connectivity of the substance is known and the substance is monodisperse. A PARTIAL structure is a structure in which either complete connectivity or stereochemistry is not defined. A REPRESENTATIVE structure is used when the connectivity of the underlying material is diverse and a single structure is needed to represent that material
+
+ -- Row 82 -----------------------------------
+  Element = SubstanceSpecification.structure.structuralRepresentation.representation
+  Card. = 0..1
+  Type = string
+  Short Name = The structural representation shall be provided as text string, the following formats are acceptable: InChI, SMILES, MOLFILE, CDX
+
+ -- Row 83 -----------------------------------
+  Element = SubstanceSpecification.structure.structuralRepresentation.attachment
+  Card. = 0..1
+  Type = Attachment
+  Short Name = An attached file that may contain the structural representation should be provided for complex data formats, e.g. CDX, MOLFILE
+
+ -- Row 84 -----------------------------------
+  Element = SubstanceSpecification.substanceCode
+  Card. = 0..*
+  UML = 1040;303
+  Type = Backbone Element
+  Short Name = This subclause of reference information allows the capture of codes that are typically associated with a substance. The capture of these codes typically facilitates the defining and mapping of substances and linking of substances to a variety of information sources. Codes should be communicated if known but are not necessary or mandatory. The terminology should have the ability to capture, store and distribute codes as necessary. All the codes that are captured should be associated with a publicly recognised code system and map directly to a given substance. It should be noted that company codes are not captured in this subclause but are considered a type of name for a given substance. Commonly used public codes such as CAS registry numbers with a given substance should be provided and associated to the substance
+
+ -- Row 85 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.code
+  Card. = 0..1
+  Type = string
+  Short Name = The specific code (the value) with regard to a referenced code system. NOTE InChI is not considered a code and is specified within the structure description
+
+ -- Row 86 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.codeSystem
+  Card. = 0..1
+  Type = string
+  Short Name = Name of the code system
+
+ -- Row 87 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.codeSystemId
+  Card. = 0..1
+  Type = string
+  Short Name = The ID of the code system
+
+ -- Row 88 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.codeSystemStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The status of the code assignment
+
+ -- Row 89 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.codeChangeDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date at which the code status is changed as part of the terminology maintenance
+
+ -- Row 90 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.comment
+  Card. = 0..1
+  Type = string
+  Short Name = Any comment can be provided in this field, if necessary
+
+ -- Row 91 -----------------------------------
+  Element = SubstanceSpecification.substanceCode.referenceSource
+  Card. = 0..*
+  Type = @SubstanceSpecification.referenceInformation.substanceClassification.referenceSource
+  Short Name = All data elements associated with a Substance or Specified Substance should have a reference source. These sources could be regulatory submissions, publications by naming authorities such as INN or USAN, pharmacopoeias, books, journals, web sites, meeting materials of public databases such as chemical abstracts. A source can refer to multiple data elements and a given element can have multiple sources
+
+ -- Row 92 -----------------------------------
+  Element = SubstanceSpecification.substanceName
+  Card. = 0..*
+  UML = 552;144
+  Type = Backbone Element
+  Short Name = Although ISO 11238 does not provide any guidance on substance nomenclature, it does provide a structure for the capture of names and codes that are used to refer to a substance. For the purpose of ISO 11238 there are basically eleven types of names, Official names, systematic names, other names, brand names, company codes, homeopathic names, specified homeopathic names, plasma-derived names, specified substance group 1,2 and 3 names
+
+ -- Row 93 -----------------------------------
+  Element = SubstanceSpecification.substanceName.substanceName
+  Card. = 0..1
+  Type = string
+  Short Name = The Name or company code associated with the Substance shall be specified. For substances originated from Plants the Substance is always a single species, or infraspecies, or is occasionally a single genus. It will have a Name which is composed of: [Scientific genus/binomial/trinomial with Author] [Part(s)] The scientific element of the name is usually a binomial, but may be a trinomial or a genus, as appropriate, together with the author of the name. The Name is not an official name in any pharmacopoeia or other legislation, and the inclusion of the author is to ensure that it is not confused with the official names for specified substances that are derived from a single species substance. It can be written in any language and its jurisdiction can be restricted using Name Status
+
+ -- Row 94 -----------------------------------
+  Element = SubstanceSpecification.substanceName.substanceNameType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Each name shall be associated with a type
+
+ -- Row 95 -----------------------------------
+  Element = SubstanceSpecification.substanceName.language
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The language used to provide the structured substance information shall be specified according to the XML standard’s xml:lang attribute specification, which is based on ISO 639-1, alpha-2 code
+
+ -- Row 96 -----------------------------------
+  Element = SubstanceSpecification.substanceName.substanceNameDomain
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Specifies when and for what purpose the name is to be used. All substance names can have at least one domain. This is useful to differentiate different names for the same substance as used for a drug active ingredient as opposed to a food colour additive
+
+ -- Row 97 -----------------------------------
+  Element = SubstanceSpecification.substanceName.jurisdiction
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The jurisdiction of the official name shall be provided
+
+ -- Row 98 -----------------------------------
+  Element = SubstanceSpecification.substanceName.officialName
+  Card. = 0..*
+  UML = 267;163
+  Type = Backbone Element
+  Short Name = Each official name shall have one or more official name types. The official name type reflects the organisation that assigns or recognises the name associated with the substance. These names are typically non-proprietary names that are used in the labelling of pharmaceuticals. The domains and jurisdictions in which the official name is used are also captured, tracked and maintained within the terminology. Although most official names will refer to material at the substance level there will be instances where an official name will refer to material at the Specified Substances Group 1 level [ . Simeticone (BAN, INN) or Simethicone (USAN)]. The official name class is optional and shall be repeated as necessary
+
+ -- Row 99 -----------------------------------
+  Element = SubstanceSpecification.substanceName.officialName.officialNameType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Designation of which authority assigned the Official Name of the Substance. All official names need to have at least one such designation. The name type is the name of the authority or authorities that have assigned or have adopted the name
+
+ -- Row 100 -----------------------------------
+  Element = SubstanceSpecification.substanceName.officialName.officialNameStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The status of the official name
+
+ -- Row 101 -----------------------------------
+  Element = SubstanceSpecification.substanceName.officialName.officialNameStatusChangeDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Date of official name change if known
+
+ -- Row 102 -----------------------------------
+  Element = SubstanceSpecification.substanceName.referenceSource
+  Card. = 0..*
+  Type = @SubstanceSpecification.referenceInformation.substanceClassification.referenceSource
+  Short Name = All data elements associated with a Substance or Specified Substance should have a reference source. These sources could be regulatory submissions, publications by naming authorities such as INN or USAN, pharmacopoeias, books, journals, web sites, meeting materials of public databases such as chemical abstracts. A source can refer to multiple data elements and a given element can have multiple sources
+
+ -- Row 103 -----------------------------------
+  Element = SubstanceSpecification.version
+  Card. = 0..*
+  UML = 398;550
+  Type = Backbone Element
+  Short Name = This subclause shall provide information on the version of the substance. Where no “Version Number” and “Effective Date” have been assigned by an authority source, the version number shall be set as 0 with the date set as the date of initial submission of the substance. Any changes or updates to a given substance will result in a new version. This could include changes in the definition of the substance or the addition of names, codes. The version of substances should be tracked. Submitters should also indicate if it is a new version of a previous submission
+
+ -- Row 104 -----------------------------------
+  Element = SubstanceSpecification.version.versionNumber
+  Card. = 0..1
+  Type = integer
+  Short Name = The number of the version of the substance shall be provided
+
+ -- Row 105 -----------------------------------
+  Element = SubstanceSpecification.version.effectiveDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date when the substance was effective should be provided in line with the ISO 8601 date format. This shall be defined when the substance is generated or modified
+
+ -- Row 106 -----------------------------------
+  Element = SubstanceSpecification.version.changeMade
+  Card. = 0..1
+  Type = string
+  Short Name = The description of the updates or changes of the substance should be specified. The field will be left empty when first insert of substance
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

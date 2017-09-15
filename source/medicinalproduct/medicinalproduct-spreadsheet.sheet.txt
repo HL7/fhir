@@ -1,0 +1,423 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProduct
+  UML = 330;200
+  Type = DomainResource
+  Short Name = This represents the Medicinal Product as authorised by a Medicines Regulatory Agency in a region and has the following attributes
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProduct.identifier
+  Card. = 1..1
+  Aliases = MPID
+  Type = Identifier
+  Short Name = The MPID for the Medicinal Product, which shall be always specified. It is specified as text
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProduct.combinedPharmaceuticalDoseForm
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The combined pharmaceutical dose form is a single term to describe two or more manufactured items that are intended to be combined in a specific way to produce a single pharmaceutical product. It includes information on the manufactured dose form of each manufactured item and the administrable dose form of the pharmaceutical product. If the Medicinal Product requires description of a combined pharmaceutical dose form, it can be specified here using a term and a term identifier as defined in ISO 11239 and the resulting terminology
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProduct.additionalMonitoringIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = If the Medicinal Product is subject to additional mnitoring, this can be specified using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProduct.specialMeasures
+  Card. = 0..*
+  Type = string
+  Short Name = If the Medicinal Product is subject to specific special measures, these can be specified using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProduct.paediatricUseIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Indicates if the Medicinal Product is also authorised for use in children
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProduct.orphanDesignationStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The description if the medicinal product is subject to orphan designation and intended for the treatment of a rare disease
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProduct.marketingAuthorization
+  Card. = 0..1
+  Type = Reference(MedicinalProductAuthorization)
+  Short Name = The Marketing Authorization
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProduct.packagedMedicinalProduct
+  Card. = 0..*
+  Type = Reference(MedicinalProductPackaged)
+  Short Name = The packaged version(s) of the Medicinal Product
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProduct.pharmaceuticalProduct
+  Card. = 0..*
+  Type = Reference(MedicinalProductPharmaceutical)
+  Short Name = The phramaceutical product aspects of the Medicinal Product
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProduct.clinicalParticulars
+  Card. = 0..*
+  Type = Reference(MedicinalProductClinicals)
+  Short Name = The clinical particulars for the Medicinal Product
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProduct.attachedDocument
+  Card. = 1..*
+  UML = 500;0
+  Type = Backbone Element
+  Short Name = Any document(s) officially submitted to a medicines regulatory agency shall be specified as a regulated document
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = The reference to the regulatory decision document related to the granting of the authorisation or the latest update of the regulated product information shall be specified in text
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.effectiveDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date corresponding to a version of a regulated document containing regulated medicinal product information (e.g. elements related to the Summary of Product Characteristics, product labelling). A complete date consisting of day, month and year shall be specified using the ISO 8601 date format. NOTE: Document version date corresponds to the tracking versions of a regulated document. It does not correspond to the actual revisions or regulatory timelines that may be captured within a regulated document
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of document that is supporting a version increment shall be specified using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.content
+  Card. = 1..1
+  Type = string
+  Short Name = The actual document that is supporting a version increment shall be attached. The format of the document attachment shall be specified by regional implementations
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.language
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = This attribute defines the language used for the information related to the regulatory submission
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.mediaType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = This attribute is used to define the graphic media type of the attached document
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.versionNumber
+  Card. = 0..1
+  Type = string
+  Short Name = A number identifying a specific version of the attached regulatory document
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProduct.attachedDocument.versionSetIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = A number used to group together a set of specific versions of the same regulatory document
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProduct.header
+  Card. = 1..1
+  UML = 300;20
+  Type = Backbone Element
+  Short Name = The characteristics of an authorised medicinal product as defined in this International Standard shall be versioned within a regulated document, as applicable. For a given version, some characteristics of the medicinal product have changed but are not different to a sufficient extent to warrant the assignment of a new primary identifier as specified in the “Identifying Characteristics for Authorised Medicinal Products” section within this International Standard. However, the difference(s) are required to be recorded and tracked against the MPID/PCID
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProduct.header.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = This attribute is for the unique code identifying the regulatory information submission
+
+ -- Row 23 -----------------------------------
+  Element = MedicinalProduct.header.effectiveDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date specified in the regulatory decision document by which the authorisation or the updates to the regulated product information become effective shall be specified. A complete point in time date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProduct.header.language
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = This attribute defines the language used for the information related to the regulatory submission
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProduct.header.versionNumber
+  Card. = 0..1
+  Type = string
+  Short Name = A number identifying a specific version of the regulatory information submission
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProduct.header.versionSetIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = A number used to group together a set of specific versions of the regulatory information submission
+
+ -- Row 27 -----------------------------------
+  Element = MedicinalProduct.masterFile
+  Card. = 0..*
+  UML = 700;500
+  Type = Backbone Element
+  Short Name = This class is used to identify any type of master file related to the medicinal product, for instance Pharmacovigilance System Master File
+
+ -- Row 28 -----------------------------------
+  Element = MedicinalProduct.masterFile.fileType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This attribute is to define which kind of master file is indicated
+
+ -- Row 29 -----------------------------------
+  Element = MedicinalProduct.masterFile.fileCode
+  Card. = 1..1
+  Type = Identifier
+  Short Name = This attribute is for a code to uniquely identify a master file
+
+ -- Row 30 -----------------------------------
+  Element = MedicinalProduct.masterFile.holderOrganisation
+  Card. = 0..1
+  UML = 800;350
+  Type = Backbone Element
+  Short Name = A set of classes that are used to describe the custodian organisation of the master file and the location where the master file is located. Please use the same set of classes as used for describing Organisations
+
+ -- Row 31 -----------------------------------
+  Element = MedicinalProduct.masterFile.holderOrganisation.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = The unique identifier of the organisation shall be provided. An international coding system for unique organisation identifiers can be used
+
+ -- Row 32 -----------------------------------
+  Element = MedicinalProduct.masterFile.holderOrganisation.name
+  Card. = 1..1
+  Type = string
+  Short Name = The name of the organisation shall be provided in text
+
+ -- Row 33 -----------------------------------
+  Element = MedicinalProduct.masterFile.holderOrganisation.address
+  Card. = 1..1
+  Type = string
+  Short Name = The address of the organisation shall be provided using a standardised structured address format. The format is specified in ISO/TS 20443
+
+ -- Row 34 -----------------------------------
+  Element = MedicinalProduct.masterFile.holderOrganisation.confidentialityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The confidentiality level of the organisation information can be specified using an appropriate controlled vocabulary. The controlled term and a term identifier shall be specified
+
+ -- Row 35 -----------------------------------
+  Element = MedicinalProduct.masterFile.holderOrganisation.geographicCoordinates
+  Card. = 0..1
+  Type = string
+  Short Name = These are coordinates that identify precisely the location where the organisation is set. Please see ISO/TS 20443 for more information and example
+
+ -- Row 36 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName
+  Card. = 1..*
+  UML = 0;190
+  Type = Backbone Element
+  Short Name = The Medicinal Product Name, represented in one or more languages, is one of the defining characteristics of a Medicinal Product and its MPID
+
+ -- Row 37 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.fullName
+  Card. = 1..1
+  Type = string
+  Short Name = The full and complete Medicinal Product Name as approved by the Medicines Regulatory Agency in a regions shall be specified, as text
+
+ -- Row 38 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.inventedNamePart
+  Card. = 0..*
+  Type = string
+  Short Name = The invented name (i.e. trade name) of the Medicinal Product without the trademark or any other similar designations reflected in the Medicinal Product Name can be specified as text, where applicable
+
+ -- Row 39 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.scientificNamePart
+  Card. = 0..*
+  Type = string
+  Short Name = The scientific or common (i.e. generic) name of the Medicinal Product without any other descriptors can be specified as text, where applicable
+
+ -- Row 40 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.strengthPart
+  Card. = 0..*
+  Type = string
+  Short Name = The strength, if reflected in the Medicinal Product Name, can be specified as text, where applicable. This strength name part can differ from the concept of product strength itself
+
+ -- Row 41 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.pharmaceuticalDoseFormPart
+  Card. = 0..*
+  Type = string
+  Short Name = The pharmaceutical dose form, if reflected in the Medicinal Product Name, can be specified as text, where applicable. This pharmaceutical dose form name part can differ from the concept of administrable dose form and manufactured dose form as described in ISO / TS 20443
+
+ -- Row 42 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.formulationPart
+  Card. = 0..*
+  Type = string
+  Short Name = The formulation, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 43 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.intendedUsePart
+  Card. = 0..*
+  Type = string
+  Short Name = The intended use, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 44 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.targetPopulationPart
+  Card. = 0..*
+  Type = string
+  Short Name = The target population, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 45 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.containerOrPackPart
+  Card. = 0..*
+  Type = string
+  Short Name = The container or pack, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 46 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.devicePart
+  Card. = 0..*
+  Type = string
+  Short Name = The device, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 47 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.trademarkOrCompanyNamePart
+  Card. = 0..*
+  Type = string
+  Short Name = The trademark, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 48 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.timePeriodPart
+  Card. = 0..*
+  Type = string
+  Short Name = The time/period, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 49 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.flavourPart
+  Card. = 0..*
+  Type = string
+  Short Name = The flavour, if reflected in the Medicinal Product Name, can be specified as text, where applicable
+
+ -- Row 50 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.delimiterPart
+  Card. = 0..*
+  Type = string
+  Short Name = A delimiter separates one composite in a segment from another, or separates one sub-composite from another
+
+ -- Row 51 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.countryLanguage
+  Card. = 1..*
+  UML = 14;50
+  Type = Backbone Element
+  Short Name = The country and optionally the region where the Medicinal Product Name of a Medicinal Product is authorised shall be specified in the official language as applicable
+
+ -- Row 52 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.countryLanguage.country
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The country where the Medicinal Product Name is applicable shall be described using ISO 3166 ‑ 1 alpha-2 code elements
+
+ -- Row 53 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.countryLanguage.jurisdiction
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The jurisdiction within the country where the Medicinal Product Name is applicable can be described using an appropriate controlled vocabulary, if appropriate. Thecontrolled term and the controlled term identifier shall be specified
+
+ -- Row 54 -----------------------------------
+  Element = MedicinalProduct.medicinalProductName.countryLanguage.language
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The language of the Medicinal Product Name as applicable in the specified country and jurisdiction if appropriate shall be specified using ISO 639-1 (Codes for the representation of names of languages)
+
+ -- Row 55 -----------------------------------
+  Element = MedicinalProduct.orphanDesignation
+  Card. = 0..*
+  UML = 800;100
+  Type = Backbone Element
+  Short Name = This class includes several attributes required to have all the information related to a product with an orphan designation status
+
+ -- Row 56 -----------------------------------
+  Element = MedicinalProduct.orphanDesignation.indicationType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This attribute is for the type of intended use of the medicinal product, for instance disease prevention, treatment or diagnostic
+
+ -- Row 57 -----------------------------------
+  Element = MedicinalProduct.orphanDesignation.procedureNumber
+  Card. = 0..1
+  Type = Identifier
+  Short Name = This attribute is the procedure number for the orphan designation authorisation application
+
+ -- Row 58 -----------------------------------
+  Element = MedicinalProduct.orphanDesignation.authorisationStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This attribute is for describing the status of the Orphan Designation authorisation, for instance granted, pending, expired or withdrawn
+
+ -- Row 59 -----------------------------------
+  Element = MedicinalProduct.orphanDesignation.authorisationDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = This attribute is for the date in which the orphan designation status was granted
+
+ -- Row 60 -----------------------------------
+  Element = MedicinalProduct.orphanDesignation.number
+  Card. = 0..1
+  Type = Identifier
+  Short Name = This field is to indicate the orphan designation decision number
+
+ -- Row 61 -----------------------------------
+  Element = MedicinalProduct.productClassification
+  Card. = 0..*
+  UML = 800;280
+  Type = Backbone Element
+  Short Name = The Medicinal Product can be classified according to various classification systems, which may be regional or international. One or more of these various classifications of the product can be specified in this section
+
+ -- Row 62 -----------------------------------
+  Element = MedicinalProduct.productClassification.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The individual value from the classification system that applies to the Medicinal Product shall be specified using a controlled term and a controlled term identifier
+
+ -- Row 63 -----------------------------------
+  Element = MedicinalProduct.productCrossReference
+  Card. = 0..*
+  UML = 380;500
+  Type = Backbone Element
+  Short Name = There can be a cross-reference between the MPIDs/PCIDs of the authorised medicinal product(s) and the related IMPIDs/IPCIDs of an investigational medicinal product(s) assigned during the development phase and clinical investigation of that medicinal product. In addition, there may be references between authorised medicinal products and there corresponding identifiers. The related medicinal products, and investigational medicinal products can be specified with their corresponding identifiers
+
+ -- Row 64 -----------------------------------
+  Element = MedicinalProduct.productCrossReference.crossReference
+  Card. = 1..1
+  Type = Identifier
+  Short Name = Used to reference other IMPID(s) or MPID(s) related to the medicinal. Please see more information and examples on the use of this attribute in ISO/TS 20443
+
+ -- Row 65 -----------------------------------
+  Element = MedicinalProduct.productCrossReference.referencedProductType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = To identify which kind of medicinal product is cross-referenced. Please see more information and examples on the use of this attribute in ISO/TS 20443
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

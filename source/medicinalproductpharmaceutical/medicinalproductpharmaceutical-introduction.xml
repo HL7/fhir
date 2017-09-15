@@ -1,0 +1,12 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<p>
+			Qualitative and quantitative composition of a Medicinal Product in the dose form approved for administration in line with the regulated product information 
+		</p>
+		<p>
+			Note that in many instances, the pharmaceutical product is equal to the manufactured item. However, there are instances where the manufactured item must undergo a transformation before being administered to the patient (as the pharmaceutical product) and the two are not equal.
+		</p>
+	</div>
+</div>

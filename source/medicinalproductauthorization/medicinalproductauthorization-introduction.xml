@@ -1,0 +1,10 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<p>
+			MedicinalProductAuthorization is a resource covering the Marketing Authorization of a Medicinal Product, from a regulatory point of view.
+		</p>
+	</div>
+
+</div>

@@ -1,0 +1,160 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProductIngredient
+  UML = 0;105
+  Type = DomainResource
+  Short Name = There shall be one instance of the Ingredient class for each actual ingredient of either the manufactured item or pharmaceutical product, as appropriate
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProductIngredient.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Business identifier for the ingredient
+  Definition = The identifier(s) of this Ingredient t that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductIngredient.ingredientRole
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The role of the ingredient as part of the manufactured item/pharmaceutical product shall be specified using an appropriate controlled vocabulary The controlled term and a term identifier shall be specified
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductIngredient.allergenicIndicator
+  Card. = 0..1
+  Type = boolean
+  Short Name = This flag indicates if the ingredient is a known or suspected allergen
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance
+  Card. = 0..*
+  UML = 170;240
+  Type = Backbone Element
+  Short Name = One or more specified substances shall be associated to a substance
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.specifiedSubstance
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = When a specified substance is described, it shall be presented in accordance with ISO 11238 and ISO / TS 19844 and its resulting terminology A term and a term identifier shall be used
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.specifiedSubstanceGroup
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The group to which a specified substance is assigned in accordance with ISO 11238 and ISO/TS 19844 and its resulting terminology can be used A term and a term identifier shall be used
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.confidentialityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The confidentiality level of the specified substance information described for the ingredient can be specified using an appropriate controlled vocabulary The controlled term and a term identifier shall be used
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength
+  Card. = 0..*
+  UML = 350;100
+  Type = Backbone Element
+  Short Name = The strength of the substance or specified substance shall be specified as a quantity of the substance/specified substance present in a given manufactured item or pharmaceutical product A numerator value and numerator unit as well as a denominator value and denominator unit shall be used Strength can be expressed in two ways: strength (presentation) and strength (concentration) NOTE When the strength of a pharmaceutical product that has undergone a transformation (eg reconstitution) is to be specified, it shall be specified using the strength resulting from transformation undertaken exactly in accordance with the regulated product information
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.strengthPresentation
+  Card. = 1..1
+  Type = Ratio
+  Short Name = The strength (presentation) shall be specified It is defined as the quantity or range of quantities of the substance/specified substance present in the unit of presentation of or in the volume (or mass) of the single pharmaceutical product or manufactured item When required for expression of strength, the unit of presentation shall be specified in accordance with ISO 11239 and ISO / TS 20440 , and its resulting terminology The controlled term and a term identifier for the unit of presentation shall be specified in the associated manufactured item or pharmaceutical product For strength expressed using standard units, the unit of measure symbol and the symbol identifier as defined in ISO 11240 and its resulting controlled vocabulary shall be specified
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.strengthConcentration
+  Card. = 0..1
+  Type = Ratio
+  Short Name = The strength (concentration) can be specified It is defined as a quantity or range of quantities of the substance/specified substance present per unitary volume (or mass) NOTE1 This attribute is only required when the strength (presentation) attribute is valued with the denominator as a non-unitary amount NOTE2 For solid dose forms, strength (concentration) is generally the same as strength (presentation) and therefore is not required to be expressed separately; the strength (presentation) only is required When required for expression of strength, the unit of presentation shall be specified in accordance with ISO 11239 and its resulting terminology The controlled term and a term identifier for the unit of presentation shall be specified in the associated manufactured item or pharmaceutical product For strength expressed using standard units, the unit of measure symbol and the symbol identifier as defined in ISO 11240 and its resulting controlled vocabulary shall be specified
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.measurementPoint
+  Card. = 0..1
+  Type = string
+  Short Name = There are Medicinal Products in jurisdictions where strength is measured at a particular point (for example the strength of the ingredient in some inhalers is measured at a particular distance from the point of aerosolisation) In these instances, the measurement point can be described using text, as applicable
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.country
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The country or countries for which the strength range (presentation) and (concentration) and associated measurement point are valid can be specified using values from the ISO 3166 ‑ 1 alpha-2 codes If a measurement point is specified, one or more countries shall be described as applicable
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength
+  Card. = 0..*
+  UML = 650;95
+  Type = Backbone Element
+  Short Name = Strength can be further described by a reference strength with respect to a reference substance (ie active moiety) In case of an active substance the reference strength shall be specified A reference strength is an expression of the strength in terms of either a reference substance or a reference specified substance, or both
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.referenceSubstance
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = If a reference strength substance needs to be specified based on the regulated product information, it shall be described in accordance with ISO 11238 and its controlled vocabulary A controlled term and a controlled term identifier shall be used In case of active substances a reference substance shall be specified
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.referenceSpecifiedSubstance
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = If a reference strength specified substance needs to be described based on the regulated product information, it shall be described in accordance with ISO 11238 and its resulting terminology A term and a term identifier shall be used
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.referenceStrength
+  Card. = 1..1
+  Type = Ratio
+  Short Name = The reference strength shall be specified A numerator value and numerator unit as well as a denominator value and denominator unit shall be specified The reference strength can be expressed in two ways: strength (presentation) and strength (concentration)
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.referenceStrengthMeasurementPoint
+  Card. = 0..1
+  Type = string
+  Short Name = The reference strength measurement point, if applicable, can be described as in section 97243
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.referenceStrengthCountry
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Where a reference strength country is applicable, it shall be specified based on the ISO 3166 ‑ 1 alpha-2 code elements Please see section 97243
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductIngredient.substance
+  Card. = 0..1
+  UML = 180;0
+  Type = Backbone Element
+  Short Name = This class is for allowing the specification of one or more substances
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProductIngredient.substance.substance
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = A substance can be specified for an ingredient in the role described The substance shall be described in accordance with ISO 11238 and ISO / TS 19844 and its resulting terminology A term and a term identifier shall be used
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProductIngredient.substance.strength
+  Card. = 1..*
+  Type = @MedicinalProductIngredient.specifiedSubstance.strength
+  Short Name = The strength of the substance or specified substance shall be specified as a quantity of the substance/specified substance present in a given manufactured item or pharmaceutical product A numerator value and numerator unit as well as a denominator value and denominator unit shall be used Strength can be expressed in two ways: strength (presentation) and strength (concentration) NOTE When the strength of a pharmaceutical product that has undergone a transformation (eg reconstitution) is to be specified, it shall be specified using the strength resulting from transformation undertaken exactly in accordance with the regulated product information
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

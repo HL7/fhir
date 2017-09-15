@@ -1,0 +1,270 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProductClinicals
+  UML = 314;0
+  Type = DomainResource
+  Short Name = MedicinalProductClinicalParticulars
+  Definition = The clinical particulars - indications, contraindications etc of the Medicinal Product for regulatory purposes
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects
+  Card. = 0..*
+  UML = 334;145
+  Type = Backbone Element
+  Short Name = This class shall be used to describe the undesirable effects of the Medicinal Product as described in the regulated product information. A jurisdiction may further refine the requirements in relation to the undesirable effects information at implementation so that this information is to be specified only if required
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.undesirableEffectText
+  Card. = 1..1
+  Type = string
+  Short Name = The text of the undesirable effect shall be given
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.symptomConditionEffect
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The symptom, condition or effect in relation to the undesirable effect as described in the regulated product information can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.effectClassification
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The classification of the “symptom/condition/effect” can be specified The controlled term and the controlled term identifier shall be specified using an appropriate controlled vocabulary
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.frequencyOfOccurrence
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The frequency of occurrence of the “symptom/condition/effect” can be specified, using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics
+  Card. = 0..*
+  UML = 334;330
+  Type = Backbone Element
+  Short Name = This class can be used to describe the population for which a particular indication or contraindication applies as authorised for the Medicinal Product in accordance with the regulated product information
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics.age
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The age of the specific population for an indication or a contraindication as authorised for the Medicinal Product in accordance with the regulated product information can be specified Either age or age range should be specified for a single indication/contraindication; both should not be specified
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics.ageRangeLow
+  Card. = 0..1
+  Type = Quantity
+  Short Name = The lower limit of the age range of the specific population for an indication or a contraindication as authorised for the Medicinal Product in accordance with the regulated product information can be specified Either age or age range should be specified for a single indication/contraindication; both should not be specified
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics.ageRangeHigh
+  Card. = 0..1
+  Type = Quantity
+  Short Name = The upper limit of the age range of the specific population for an indication or a contraindication as authorised for the Medicinal Product in accordance with the regulated product information can be specified Either age or age range should be specified for a single indication/contraindication; both should not be specified
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics.gender
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The gender of the specific population for an indication or a contraindication in accordance with the regulated product information shall be specified using ISO/IEC 5218
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics.race
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The race of the specific population for an indication or a contraindication in accordance with the regulated product information can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductClinicals.undesirableEffects.populationSpecifics.physiologicalCondition
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Various aspects of the physiological conditions of the specific population for an indication or contraindication in accordance with the regulated product information can be specified using an appropriate controlled reference terminology The controlled term and the controlled term identifier shall be specified
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication
+  Card. = 1..*
+  UML = 0;200
+  Type = Backbone Element
+  Short Name = This class shall be used to describe the authorised indication(s) for the Medicinal Product in accordance with the regulated product information. A region may further refine the requirements in relation to the therapeutic indication(s) information at implementation so that this information is to be specified only if required
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.indicationText
+  Card. = 1..1
+  Type = string
+  Short Name = The authorised therapeutic indication(s) shall be described in text
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.asDiseaseSymptomProcedure
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The underlying disease, symptom or procedure that is the indication for treatment can be specified as it is referenced in the regulated product information using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.diseaseStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The status of the disease or symptom of the indication can be specified as it is referenced in the regulated product information using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.comorbidity
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = If there is any comorbidity (concurrent condition) or co-infection described as part of the indication as it is referenced in the regulated product information, it can be specified here using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.intendedEffect
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The intended effect, aim or strategy to be achieved by the indication can be specified as it is referenced in the regulated product information using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified NOTE The Intended Effect is specifically the part of the Indication that describes the type of outcome or result intended for the target condition, whereas the Indication is the full text description of the benefits from the medicine for the target condition in the target population
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.timingDuration
+  Card. = 0..1
+  Type = Quantity
+  Short Name = If there is timing or duration information described as part of the indication as it is referenced in the regulated product information, it can be specified here
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.undesirableEffects
+  Card. = 0..*
+  Type = @MedicinalProductClinicals.undesirableEffects
+  Short Name = If there is information about the use of the Medicinal Product in relation to other therapies described as part of the indication or contraindication in accordance with the regulated product information, this can be specified using this class
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.otherTherapySpecifics
+  Card. = 0..*
+  UML = 335;530
+  Type = Backbone Element
+  Short Name = If there is information about the use of the Medicinal Product in relation to other therapies described as part of the indication or contraindication in accordance with the regulated product information, this can be specified using this class
+
+ -- Row 23 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.otherTherapySpecifics.therapyRelationshipType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of relationship between the Medicinal Product indication or contraindication and a specific other therapy shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.otherTherapySpecifics.medication
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = Reference to a specific medication, which can be expressed as an active substance, Medicinal Product or class of Medicinal Products, as part of a specific indication or contraindication in accordance with the regulated product information shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProductClinicals.therapeuticIndication.populationSpecifics
+  Card. = 1..*
+  Type = @MedicinalProductClinicals.undesirableEffects.populationSpecifics
+  Short Name = This class can be used to describe the population for which a particular indication or contraindication applies as authorised for the Medicinal Product in accordance with the regulated product information
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication
+  Card. = 0..*
+  UML = 605;213
+  Type = Backbone Element
+  Short Name = This class shall be used to describe the authorised contraindication(s) for the Medicinal Product as described in the regulated product information. A jurisdiction may further refine the requirements in relation to the contraindications information at implementation so that this information is to be specified only if required
+
+ -- Row 27 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.text
+  Card. = 1..1
+  Type = string
+  Short Name = The text of the contraindication(s) in line with the regulated product information shall be described
+
+ -- Row 28 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.asDiseaseSymptomProcedure
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The underlying disease, symptom or procedure of the contraindication can be specified as it is referenced in the regulated product information using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 29 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.diseaseStatus
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The status of the disease or symptom of the contraindication can be specified as it is referenced in the regulated product information using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 30 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.comorbidity
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The comorbidity (concurrent condition) or coinfection shall be specified
+
+ -- Row 31 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.therapeuticIndication
+  Card. = 0..*
+  Type = @MedicinalProductClinicals.therapeuticIndication
+  Short Name = If there is information about the use of the Medicinal Product in relation to other therapies described as part of the indication or contraindication in accordance with the regulated product information, this can be specified using this class
+
+ -- Row 32 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.otherTherapySpecifics
+  Card. = 0..*
+  Type = @MedicinalProductClinicals.therapeuticIndication.otherTherapySpecifics
+  Short Name = If there is information about the use of the Medicinal Product in relation to other therapies described as part of the indication or contraindication in accordance with the regulated product information, this can be specified using this class
+
+ -- Row 33 -----------------------------------
+  Element = MedicinalProductClinicals.interactions
+  Card. = 0..*
+  UML = 650;40
+  Type = Backbone Element
+  Short Name = This class can be used to describe the interactions of the Medicinal Product (with other Medicinal Products) and other forms of interactions as described in the regulated product information
+
+ -- Row 34 -----------------------------------
+  Element = MedicinalProductClinicals.interactions.interactionsText
+  Card. = 1..1
+  Type = string
+  Short Name = The text of the interaction in accordance with the regulated product information shall be provided
+
+ -- Row 35 -----------------------------------
+  Element = MedicinalProductClinicals.interactions.interactant
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = This element can be used to describe the specific medication, food or laboratory test that is the secondary interactant of the interaction as described in the regulated product information For more information refer to regional implementation guides
+
+ -- Row 36 -----------------------------------
+  Element = MedicinalProductClinicals.interactions.interactionsType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The type of interaction in line with the regulated product information can be described using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 37 -----------------------------------
+  Element = MedicinalProductClinicals.interactions.interactionsEffect
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The effect of the interaction in line with the regulated product information can be described using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 38 -----------------------------------
+  Element = MedicinalProductClinicals.interactions.interactionsIncidence
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The incidence of the interaction in accordance with the regulated product information can be described using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 39 -----------------------------------
+  Element = MedicinalProductClinicals.interactions.managementActions
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The actions to provide management of the interaction in accordance with the regulated product information can be described using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 40 -----------------------------------
+  Element = MedicinalProductClinicals.contraindication.populationSpecifics
+  Card. = 0..*
+  Type = @MedicinalProductClinicals.undesirableEffects.populationSpecifics
+  Short Name = This class can be used to describe the population for which a particular indication or contraindication applies as authorised for the Medicinal Product in accordance with the regulated product information
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

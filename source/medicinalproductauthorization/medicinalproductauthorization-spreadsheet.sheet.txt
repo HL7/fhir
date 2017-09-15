@@ -1,0 +1,412 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProductAuthorization
+  UML = 240;210
+  Type = DomainResource
+  Short Name = The regulatory authorization of a medicinal product
+  Definition = The regulatory authorization of a medicinal product
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProductAuthorization.identifier
+  Card. = 0..1
+  Aliases = MPID
+  Type = Identifier
+  Short Name = Business identifier for the marketing authorization
+  Definition = The identifier(s) of this Marketing Authorization that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationNumber
+  Card. = 1..1
+  Type = Identifier
+  Short Name = The number as assigned to a Medicinal Product by the Regulatory Medicines Agency of a country or jurisdiction shall be specified in text For Medicinal Products which allow distribution without a marketing authorisation by legislation, the licensing number as it appears on the package, the container or the package insert shall be specified in the absence of a formal marketing authorisation number (eg for “grandfather” drugs in the US)
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductAuthorization.country
+  Card. = 1..*
+  Type = CodeableConcept
+  Short Name = The country in which the marketing authorisation has been granted shall be provided in accordance with the ISO 3166 ‑ 1 alpha-2 code elements
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductAuthorization.legalStatusOfSupply
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The legal status of supply of the Medicinal Product as classified by the Regulatory Medicines Agency shall be specified (eg subject to medical prescription or not) The legal status of supply shall be described using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified Legal Status of Supply may be a defining element for the medicinal product within a region to support regulatory, compliance and pharmacovigilance activities
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductAuthorization.authorizationStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The status of the marketing authorisation changes throughout the lifecycle of a Medicinal Product depending on the regulatory process applicable in a region This shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductAuthorization.authorizationStatusDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date at which the given status has become applicable shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductAuthorization.validityPeriodStart
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The beginning of the time period in which the marketing authorisation is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductAuthorization.validityPeriodEnd
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The end of the time period in which the marketing authorisation is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductAuthorization.dataExclusivityStartDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The “data exclusivity period” is a period of time from initial authorisation of the reference product after which valid applications for generic product can be submitted and lead to the granting of a marketing authorisation The beginning of the data exclusivity period for the relevant status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductAuthorization.dataExclusivityEndDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The “data exclusivity period” is a period of time from initial authorisation of the reference product after which valid applications for generic product can be submitted and lead to the granting of a marketing authorisation The end of the data exclusivity period for the relevant status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductAuthorization.dateOfFirstAuthorization
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date when the first authorisation was granted by a Medicines Regulatory Agency
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductAuthorization.internationalBirthDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = Date of first marketing authorisation for a company\'s new medicinal product in any country in the World
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization
+  Card. = 0..*
+  UML = 650;415
+  Type = Backbone Element
+  Short Name = This class is used to provide more information when a marketing activity is undertaken in multiple subdivisions within a country
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.country
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This attribute define the country to which the jurisdictional marketing authorisation refers to
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.jurisdiction
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = This attribute is to indicate to which jurisdiction the jurisdictional marketing authorisation is related to
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.marketingAuthorizationNumber
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The number for the marketing authorisation assigned by a Medicines Regulatory Authority in the jurisdiction can be specified in text
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.legalStatusOfSupply
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The legal status of supply for the Medicinal Product as applicable in a region/jurisdiction can be described, using a suitable controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder
+  Card. = 1..1
+  UML = 0;470
+  Type = Backbone Element
+  Short Name = Details in relation to the Marketing Authorisation Holder to which a marketing authorisation in a region was granted shall be specified using an Organisation class as described in paragraph 94  For Medicinal Products which allow for distribution without a marketing authorisation under regional/jurisdictional law, the details of the distributor, as appearing on the package, the container or the package insert shall be provided in place of the details of the Marketing Authorisation Holder
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = The unique identifier of the organisation shall be provided An international coding system for unique organisation identifiers can be used
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.name
+  Card. = 1..1
+  Type = string
+  Short Name = The name of the organisation shall be provided in text
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.address
+  Card. = 1..1
+  Type = string
+  Short Name = The address of the organisation shall be provided using a standardised structured address format The format is specified in ISO/TS 20443
+
+ -- Row 23 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.confidentialityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The confidentiality level of the organisation information can be specified using an appropriate controlled vocabulary The controlled term and a term identifier shall be specified
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.geographicCoordinates
+  Card. = 0..1
+  Type = string
+  Short Name = These are coordinates that identify precisely the location where the organisation is set Please see ISO/TS 20443 for more information and example
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.sME
+  Card. = 0..1
+  UML = 350;478
+  Type = Backbone Element
+  Short Name = Small or Medium Sized Enterprise
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.sME.smeFlag
+  Card. = 1..1
+  Type = boolean
+  Short Name = Flag to indicate if the organisation is an SME
+
+ -- Row 27 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.sME.size
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The size of the SME needs to be specified, ie Micro, Small or Medium For the definition of the values please refer to ISO/TS 20443
+
+ -- Row 28 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.sME.smeNumber
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Unique number that it is uniquely identifying an SME
+
+ -- Row 29 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationHolder.sME.statusDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Date when the SME Status was granted
+
+ -- Row 30 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure
+  Card. = 1..1
+  UML = 590;0
+  Type = Backbone Element
+  Short Name = The regulatory procedure applied to grant or amend a marketing authorisation for a Medicinal Product shall be specified A region may further refine the requirements in relation to the marketing authorisation procedure (and the associated marketing authorisation application) at implementation such that this information is to be specified only if required
+
+ -- Row 31 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.procedureIdentifierNumber
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The unique identifier for the specific instance of a procedure undertaken shall be provided in text
+
+ -- Row 32 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.procedureType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of procedure that is followed to grant or update a marketing authorisation shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 33 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.procedureDateStart
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The initial date when the procedure commenced shall be described A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 34 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.procedureDateEnd
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The end date when the procedure completed shall be described A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 35 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.marketingAuthorizationApplication
+  Card. = 0..*
+  UML = 650;140
+  Type = Backbone Element
+  Short Name = A marketing authorisation shall be supported by an application(s), which may comprise of a number of submissions (regulatory activities): initial marketing application and subsequent applications for changes to an existing marketing authorisation (eg to renew, vary or withdraw)
+
+ -- Row 36 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.marketingAuthorizationApplication.applicationIdentifierNumber
+  Card. = 1..1
+  Type = Identifier
+  Short Name = A unique identifier for the specific instance of an application shall be provided in text. The application identifier/number is usually assigned by a Medicines Regulatory Agency
+
+ -- Row 37 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.marketingAuthorizationApplication.applicationType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of the application shall be described using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified
+
+ -- Row 38 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingAuthorizationProcedure.marketingAuthorizationApplication.applicationDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date on which the marketing authorisation application was made shall be specified. A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 39 -----------------------------------
+  Element = MedicinalProductAuthorization.medicinesRegulatoryAgency
+  Card. = 1..1
+  UML = 700;260
+  Type = Backbone Element
+  Short Name = Details in relation to the Medicines Regulatory Agency that granted the marketing authorisation for a Medicinal Product shall be specified using an Organisation class as described in in paragraph 94  The Medicines Regulatory Agency which oversees a specific manufacturing operation shall be described using the pattern for organisation described in section 94
+
+ -- Row 40 -----------------------------------
+  Element = MedicinalProductAuthorization.medicinesRegulatoryAgency.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = The unique identifier of the organisation shall be provided An international coding system for unique organisation identifiers can be used
+
+ -- Row 41 -----------------------------------
+  Element = MedicinalProductAuthorization.medicinesRegulatoryAgency.name
+  Card. = 1..1
+  Type = string
+  Short Name = The name of the organisation shall be provided in text
+
+ -- Row 42 -----------------------------------
+  Element = MedicinalProductAuthorization.medicinesRegulatoryAgency.address
+  Card. = 1..1
+  Type = string
+  Short Name = The address of the organisation shall be provided using a standardised structured address format The format is specified in ISO/TS 20443
+
+ -- Row 43 -----------------------------------
+  Element = MedicinalProductAuthorization.medicinesRegulatoryAgency.confidentialityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The confidentiality level of the organisation information can be specified using an appropriate controlled vocabulary The controlled term and a term identifier shall be specified
+
+ -- Row 44 -----------------------------------
+  Element = MedicinalProductAuthorization.medicinesRegulatoryAgency.geographicCoordinates
+  Card. = 0..1
+  Type = string
+  Short Name = These are coordinates that identify precisely the location where the organisation is set Please see ISO/TS 20443 for more information and example
+
+ -- Row 45 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons
+  Card. = 0..1
+  UML = 260;0
+  Type = Backbone Element
+  Short Name = This class can describe the reason for a legal action taken on the marketing or on the marketing authorisation and in reference to the status of these elements
+
+ -- Row 46 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.reason
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The reason for a legal action taken on the marketing or on the marketing authorisation can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 47 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.reasonComment
+  Card. = 0..1
+  Type = string
+  Short Name = Additional comment(s) on the reason for a legal action taken on the marketing or on the marketing authorisation
+
+ -- Row 48 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.legalGrounds
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The legal grounds of the action taken on the marketing or on the marketing authorisation can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 49 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.legalGroundsComment
+  Card. = 0..1
+  Type = string
+  Short Name = Any additional description of the action taken on the marketing or on the marketing authorisation
+
+ -- Row 50 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.restoreDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date when the marketing or the marketing authorisation of the product is anticipated to be restored A complete point in time date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 51 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.conditionToRestore
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The condition under which the marketing authorisation or the marketing is restored can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 52 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.conditionToRestoreComment
+  Card. = 0..1
+  Type = string
+  Short Name = Additional comments on the condition to restore the marketing or the marketing authorisation of the product
+
+ -- Row 53 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.changeRequestOrganisationType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The organisation that triggered the legal action taken on the marketing or on the marketing authorisation (eg marketing authorisation revoked by the Competent Authority, marketing authorisation not renewed by the MAH) can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 54 -----------------------------------
+  Element = MedicinalProductAuthorization.statusReasons.geographicAreaForActionTaken
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The geographic area where the legal action taken on the marketing or the on marketing authorisation is having effect can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 55 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus
+  Card. = 0..*
+  UML = 0;0
+  Type = Backbone Element
+  Short Name = This class provide information on the status of the marketing of the medicinal product
+
+ -- Row 56 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.country
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The country in which the marketing authorisation has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements
+
+ -- Row 57 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.jurisdiction
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where a Medicines Regulatory Agency has granted a marketing authorisation for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified
+
+ -- Row 58 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.marketingStatus
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples
+
+ -- Row 59 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.marketingDateStart
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date when the Medicinal Product is placed on the market by the Marketing Authorisation Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
+
+ -- Row 60 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.marketingDateStop
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date when the Medicinal Product is no longer available on the market in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “No longer available on the market” can refer to the fact that the Marketing Authorisation Holder has taken a decision to no longer market the Medicinal Product or that the marketing authorisation is no longer valid
+
+ -- Row 61 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.riskOfSupplyShortage
+  Card. = 0..1
+  Type = boolean
+  Short Name = Indication on whether there is a risk of a product shortage in a region
+
+ -- Row 62 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.riskOfSupplyShortageComment
+  Card. = 0..1
+  Type = string
+  Short Name = Any additional comment on supply shortage
+
+ -- Row 63 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus.statusReasons
+  Card. = 0..1
+  Type = @MedicinalProductAuthorization.statusReasons
+  Short Name = This class can describe the reason for a legal action taken on the marketing or on the marketing authorisation and in reference to the status of these elements
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

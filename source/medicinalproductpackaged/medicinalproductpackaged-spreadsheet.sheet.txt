@@ -1,0 +1,434 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProductPackaged
+  UML = 0;200
+  Type = DomainResource
+  Short Name = A Medicinal Product in a container being part of a package, representing the entirety that has been packaged for sale or supply
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProductPackaged.identifier
+  Card. = 1..1
+  Aliases = PCID
+  Type = Identifier
+  Short Name = Unique identifier for the packaged Medicinal Product
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductPackaged.packageDescription
+  Card. = 1..1
+  Type = string
+  Short Name = A textual description of the packaged Medicinal Product shall be provided
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductPackaged.batchIdentifier
+  Card. = 0..*
+  UML = 49;50
+  Type = Backbone Element
+  Short Name = Batch Identifier
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductPackaged.batchIdentifier.baid1
+  Card. = 1..1
+  Type = Identifier
+  Short Name = The BAID1, which appears on the outer packaging of a specific batch of the Medicinal Product, shall be specified Since there will be many different batches of any one packaged Medicinal Product, and since the specification of batch identification might not always be required for each type of packaged Medicinal Product, the cardinality of the relationship between the packaged Medicinal Product and the Batch Identifier is given as 0* In situations where a packaged Medicinal Product contains more than one manufactured item and/or includes a device, this batch number refers to the one given on the outermost packaging
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductPackaged.batchIdentifier.baid2
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The BAID2, which appears on the immediate packaging and is not the outer packaging, shall be specified
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductPackaged.batchIdentifier.expirationDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date the manufacturer guarantees the full potency and safety of a particular batch/lot of medicinal product The complete point in time date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer
+  Card. = 1..*
+  UML = 305;200
+  Type = Backbone Element
+  Short Name = A package item can be either a single item or package of multiple items Those items can be of the same kind or of different kinds There shall be at least one package item for each distinct kind of packaged item in a packaged Medicinal Product Where there are several identical package items, the number of them shall be given Subsequent, more detailed, descriptions in related classes shall be related to the single item only Where a package item contains a further package, that package item shall be nested to provide the correct representation
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageItemContainerType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The Package Item (Container) type shall be specified to describe the physical type of the container of the medicine in accordance with ISO 11239 and ISO/TS 20440 and its resulting terminology A term and a term identifier shall be specified
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageItemContainerQuantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The quantity (or count number) of the package item shall be specified NOTE Because the Package Item class recurses to describe containers within containers, the first (outermost) container shall always have a quantity of “1”
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.material
+  Card. = 1..*
+  Type = CodeableConcept
+  Short Name = The material(s) of the package item shall be described in accordance with ISO 11238 and ISO/TS 19844 and its resulting terminology as applicable A term and a term identifier shall be specified
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.alternateMaterial
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The alternate material(s) of the package item shall be described in accordance with ISO 11238 and ISO/TS 19844 and its resulting terminology as applicable A term and a term identifier shall be specified Alternate material is used when alternative specific material(s) are allowed to be used for the manufacturing of the package (eg different types of plastic for a blister sleeve)
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.dataCarrierIdentifier
+  Card. = 0..*
+  UML = 0;300
+  Type = Backbone Element
+  Short Name = Data carrier identifiers such as barcodes can be presented at each packaging level Regional regulatory requirements can specify the data carrier(s) to be used The data carrier identifier shall be specified as required
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.dataCarrierIdentifier.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The individual value from the identification system that applies to the packaged Medicinal Product shall be specified
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device
+  Card. = 0..*
+  UML = 620;250
+  Type = Backbone Element
+  Short Name = Medicinal products may be authorised with a device(s), which may be described using the Device class Devices may be of several types such as separate administration devices, an integral administration device or a part of a Medicinal Product Where a Medicinal Product is combined with a medical device and where the pharmacological, immunological or metabolic action should be considered as the principal mode of action, the medical device is presented as part of the Pharmaceutical Product
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of device shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceTradeName
+  Card. = 0..1
+  Type = string
+  Short Name = This can be used to specify the trade name of the device, where applicable, as text
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceQuantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The quantity of the device present in the pack shall be specified
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceListingNumber
+  Card. = 0..1
+  Type = string
+  Short Name = This can be used to specify the listing number of the device, where applicable, in text
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = A unique device identifier needs to be specified
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.modelNumber
+  Card. = 0..1
+  Type = string
+  Short Name = This can be used to specify the device model or reference number, where applicable, in text
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.sterilityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where applicable, this can be used to specify whether the device is supplied as sterile using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 23 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.sterilisationRequirementIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where applicable, this can be used to specify whether the device shall be sterilised before use based on an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceUsage
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The number of times that the device may be used as described in the regulated product information may be specified
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceBatchIdentifier
+  Card. = 0..*
+  UML = 1000;200
+  Type = Backbone Element
+  Short Name = This class can be used to describe the batch number and/or expiry date of a device in a packaged Medicinal Product NOTE At implementation, any batch number and expiry date for a device in a packaged Medicinal Product will be related to a particular batch or batches of that packaged Medicinal Product (as described using the BAID1), but for simplification at a conceptual level, the “many-to-many” relationship that this would give has been omitted
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceBatchIdentifier.batchNumber
+  Card. = 1..1
+  Type = string
+  Short Name = Where applicable, the batch number for the device can be specified, in text
+
+ -- Row 27 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceBatchIdentifier.expirationDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = Where applicable, the expiration date for the batch can be specified
+
+ -- Row 28 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceMaterial
+  Card. = 0..*
+  UML = 1000;300
+  Type = Backbone Element
+  Short Name = This class is used to list the substances that are used to create the material(s) of which the device is made and also for indicating if the substance is representing an alternate material and if the substance is a known allergen
+
+ -- Row 29 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceMaterial.substance
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The substance that compose the material of the device shall be described in accordance with ISO 11238 as applicable and its resulting terminology
+
+ -- Row 30 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceMaterial.alternate
+  Card. = 0..1
+  Type = boolean
+  Short Name = This flag indicates if the substance represents an alternative material of the device NOTE Alternate is used when alternative specific material(s) are allowed to be used for the manufacturing of the package (eg different types of plastic for a spoon)
+
+ -- Row 31 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceMaterial.allergenicIndicator
+  Card. = 0..1
+  Type = boolean
+  Short Name = This flag indicates if the substance is a known or suspected allergen
+
+ -- Row 32 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceNomenclature
+  Card. = 0..*
+  UML = 1000;100
+  Type = Backbone Element
+  Short Name = There are a variety of nomenclature systems available to identify devices This structure supports the description of the device in these nomenclature systems
+
+ -- Row 33 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.deviceNomenclature.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The term for the device from the specified nomenclature system shall be specified
+
+ -- Row 34 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.otherCharacteristics
+  Card. = 0..*
+  UML = 666;472
+  Type = Backbone Element
+  Short Name = Where applicable for a package item, a manufactured item or a device, other characteristics can be specified This facility is useful for capturing unusual details not explicitly catered for in the other attributes
+
+ -- Row 35 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.otherCharacteristics.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The individual value from the Characteristics code system that applies shall be specified using a controlled term and a controlled term identifier
+
+ -- Row 36 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics
+  Card. = 0..1
+  UML = 663;0
+  Type = Backbone Element
+  Short Name = Where applicable for a package item (container), package (component), manufactured item or device, its physical characteristics can be specified One or more images can be provided as applicable
+
+ -- Row 37 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.height
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the height can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 38 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.width
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the width can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 39 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.depth
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the depth can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 40 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.weight
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the weight can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 41 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.nominalVolume
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the nominal volume can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 42 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.externalDiameter
+  Card. = 0..1
+  Type = Quantity
+  Short Name = Where applicable, the external diameter can be specified using a numerical value and its unit of measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 43 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.shape
+  Card. = 0..1
+  Type = string
+  Short Name = Where applicable, the shape can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+
+ -- Row 44 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.colour
+  Card. = 0..*
+  Type = string
+  Short Name = Where applicable, the colour can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+
+ -- Row 45 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.imprint
+  Card. = 0..*
+  Type = string
+  Short Name = Where applicable, the imprint can be specified as text
+
+ -- Row 46 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.image
+  Card. = 0..*
+  Type = string
+  Short Name = Where applicable, the image can be provided The format of the image attachment shall be specified by regional implementations
+
+ -- Row 47 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics.scoring
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where applicable, the scoring can be specified An appropriate controlled vocabulary shall be used The term and the term identifier shall be used
+
+ -- Row 48 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.shelfLifeStorage
+  Card. = 0..*
+  UML = 0;400
+  Type = Backbone Element
+  Short Name = The Shelf Life / Storage information can be described using the Shelf Life/Storage class
+
+ -- Row 49 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.shelfLifeStorage.shelfLifeType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 50 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.shelfLifeStorage.shelfLifeTimePeriod
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 51 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.device.shelfLifeStorage.specialPrecautionsForStorage
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 52 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem
+  Card. = 0..*
+  UML = 285;420
+  Type = Backbone Element
+  Short Name = The manufactured item(s) as contained in the packaged Medicinal Product shall be described. This is the actual manufactured item (the tablet, liquid, cream contained within the package) as it is delivered from the manufacturer but before any transformation, if applicable, for administration to or use by the patient. NOTE The relationship between a package item (container) and a manufactured item is 0...* despite the fact that every packaged Medicinal Product will have at least one manufactured item. The “zero” is present because the Package Item (Container) class recurses, and, in the common situation where there is an outer and immediate package item, the outer package item does not immediately relate to a manufactured item. The multiplicity is present for the rare cases where a single immediate package item holds more than one manufactured item, as is the case, for example, for phased combined oral contraceptives and some hormone replacement therapies
+
+ -- Row 53 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.manufacturedDoseForm
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This describes the pharmaceutical dose form of the manufactured item, where applicable, before transformation into the pharmaceutical product The manufactured dose form shall be specified in accordance with ISO 11239 and ISO/TS 20 440 and its resulting terminology The controlled term and the controlled term identifier shall be specified A Medicinal Product may have two package items, eg one with a manufactured dose form of powder for solution for injection and the other with a manufactured dose form of solvent for solution for injection These are then to be transformed to a solution for injection before the medicine can be administered to a patient Powder and solvent for solution for injection is the \"combined pharmaceutical dose form\", which is an attribute of \"medicinal product\" and solution for injection is the \"administrable dose form\", which is an attribute of \"pharmaceutical product\"
+
+ -- Row 54 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.unitOfPresentation
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = This specifies the “real world” units in which the quantity of the manufactured item is described The unit of presentation can be specified in accordance with ISO 11239 and ISO / TS 20440 and its resulting terminology The controlled term and the controlled term identifier shall be specified For items where their quantity is a measured quantity of weight or volume, the “unit of presentation” shall not be given since it is the same as the units of that quantity (that is ml, mg or %) For solid dose forms and other items that are measured by counting integer quantities, the unit for quantity shall be “unit” and the “unit of presentation” shall be the item that is counted
+
+ -- Row 55 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.manufacturedItemQuantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The quantity (or count number) of the manufactured item shall be described It shall be specified as a value and units, and the units shall be specified as a symbol and a symbol identifier as defined in ISO 11240 and the resulting terminology For solid dose forms and other items that are measured by counting integer quantities, the unit for quantity shall be “unit” and the “unit of presentation” shall be the item that is counted
+
+ -- Row 56 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.ingredient
+  Card. = 1..*
+  Type = Reference(MedicinalProductIngredient)
+  Short Name = There shall be one instance of the Ingredient class for each actual ingredient of either the manufactured item or pharmaceutical product, as appropriate
+
+ -- Row 57 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.otherCharacteristics
+  Card. = 0..*
+  Type = @MedicinalProductPackaged.packageItemContainer.device.otherCharacteristics
+  Short Name = There shall be one instance of the Ingredient class for each actual ingredient of either the manufactured item or pharmaceutical product, as appropriate
+
+ -- Row 58 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.physicalCharacteristics
+  Card. = 0..1
+  Type = @MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics
+  Short Name = There shall be one instance of the Ingredient class for each actual ingredient of either the manufactured item or pharmaceutical product, as appropriate
+
+ -- Row 59 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.otherCharacteristics
+  Card. = 0..*
+  UML = 645;472
+  Type = @MedicinalProductPackaged.packageItemContainer.device.otherCharacteristics
+  Short Name = Where applicable for a package item, a manufactured item or a device, other characteristics can be specified This facility is useful for capturing unusual details not explicitly catered for in the other attributes
+
+ -- Row 60 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageComponent
+  Card. = 0..*
+  UML = 300;50
+  Type = Backbone Element
+  Short Name = Any part of the packaging of a packaged Medicinal Product can be further described using the Package (Component) class The description can be of a complete container or a part of a container, such as a closure
+
+ -- Row 61 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.componentType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of component whose material is being described may be specified, using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 62 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.componentMaterial
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = The material(s) of the component can be specified Materials may be described in accordance with ISO 11238 and its resulting terminology as applicable A controlled term and a controlled term identifier shall be specified
+
+ -- Row 63 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.componentAlternateMaterial
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Alternative Materials for the component can be specified Materials shall be described in accordance with ISO 11238 and its resulting terminology as applicable A controlled term and a controlled term identifier shall be specified Alternate Material is used when alternative specific material(s) are allowed to be used for the manufacturing of the package (eg different types of rubber for a stopper)
+
+ -- Row 64 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.physicalCharacteristics
+  Card. = 0..1
+  Type = @MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics
+  Short Name = Where applicable for a package item (container), package (component), manufactured item or device, its physical characteristics can be specified One or more images can be provided as applicable
+
+ -- Row 65 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.physicalCharacteristics
+  Card. = 0..1
+  UML = 644;0
+  Type = @MedicinalProductPackaged.packageItemContainer.device.physicalCharacteristics
+  Short Name = Where applicable for a package item (container), package (component), manufactured item or device, its physical characteristics can be specified One or more images can be provided as applicable
+
+ -- Row 66 -----------------------------------
+  Element = MedicinalProductPackaged.packageItemContainer.shelfLifeStorage
+  Card. = 0..*
+  Type = @MedicinalProductPackaged.packageItemContainer.device.shelfLifeStorage
+  Short Name = The Shelf Life / Storage information can be described using the Shelf Life/Storage class
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
