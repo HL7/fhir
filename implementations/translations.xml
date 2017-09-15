@@ -422,6 +422,24 @@
         <translation lang="es">ResumenMedicación</translation>
         <translation lang="fr">ÉtatMédication</translation>
     </item>
+    <item id="MedicinalProduct">
+        <translation lang="en">MedicinalProduct</translation>
+    </item>
+    <item id="MedicinalProductAuthorization">
+        <translation lang="en">MedicinalProductAuthorization</translation>
+    </item>
+    <item id="MedicinalProductClinicals">
+        <translation lang="en">MedicinalProductClinicals</translation>
+    </item>
+    <item id="MedicinalProductIngredient">
+        <translation lang="en">MedicinalProductIngredient</translation>
+    </item>
+    <item id="MedicinalProductPackaged">
+        <translation lang="en">MedicinalProductPackaged</translation>
+    </item>
+    <item id="MedicinalProductPharmaceutical">
+        <translation lang="en">MedicinalProductPharmaceutical</translation>
+    </item>
     <item id="MessageDefinition">
         <translation lang="en">MessageDefinition</translation>
     </item>
@@ -668,6 +686,9 @@
         <translation lang="zh">物质</translation>
         <translation lang="es">Sustancia</translation>
         <translation lang="fr">Substance</translation>
+    </item>
+    <item id="SubstanceSpecification">
+        <translation lang="en">SubstanceSpecification</translation>
     </item>
     <item id="SupplyDelivery">
         <translation lang="en">SupplyDelivery</translation>
