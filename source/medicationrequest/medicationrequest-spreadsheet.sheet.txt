@@ -87,8 +87,8 @@
   Binding Name = MedicationRequestCategory
   Binding = code list
   Reference = #medication-request-category
-  Definition = A coded concept identifying where the medication ordered is expected to be consumed or administered
-  Conformance = preferred
+  Definition = A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment).
+  Conformance = example
 
  -- Row 14 -----------------------------------
   Binding Name = MedicationRequestPriority
@@ -179,6 +179,12 @@
   Code = instance-order
   Display = Instance Order
   Definition = The request represents an instance for the particular order, for example a medication administration record.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = option
+  Display = Option
+  Definition = The request represents a component or opiton for a RequestGroup that establishes timing, conditionality and/or  other constraints among a set of requests.
 
 === Sheet medication-request-category =====================================
 
@@ -313,20 +319,21 @@
   Summary = y
   Type = code
   Binding = MedicationRequestIntent
-  Short Name = proposal | plan | order | instance-order
+  Short Name = proposal | plan | order | instance-order | option
   Definition = Whether the request is a proposal, plan, or an original order
-  Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\n\nThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable
+  Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\r\rThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable
   Workflow Mapping = Request.intent
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   w5 = class
 
  -- Row 8 -----------------------------------
   Element = MedicationRequest.category
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = MedicationRequestCategory
   Short Name = Type of medication usage
-  Definition = Indicates the type of medication order and where the medication is expected to be consumed or administered
+  Definition = Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient) or the type of treatment (i.e. chemotherapy or endocrine).
+  Comments = The category can be used to include treatment types (e.g. chemotherapy or endocrine) or where the medication is expected to be consumed or other types of requests.  Invariants can be used to bind to different value sets when profiling to bind.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value
   w5 = class
