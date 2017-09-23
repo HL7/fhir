@@ -4,13 +4,19 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p> 
-A document manifest gathers a set of <a href="documentreference.html">DocumentReference</a> resources 
-into a single package that may be the subject of workflow such as access control, auditing, and 
+A document manifest gathers a set of Resources 
+into a single package with some clinical context that may be the subject of workflow such as access control, auditing, and 
 targeted delivery. 
+The useage of "document" in the case of DocumentManifest, covers the broader scope of "document" as defined in REST and HTTP. 
+This use is not limited to the formal "Document" model used for <a href="documents.html">FHIR documents</a> or <a href="documentreference.html">DocumentReference</a> resources.
 </p>
 <p>
 Typically, DocumentManifest resources are used in document indexing systems, such as <a href="http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing">IHE XDS</a>.
+Such as profiled in <a href="http://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)">IHE Mobile access to Health Documents</a>.
+When used as a Manifest of "Documents" in this way, the DocumentManifest will point exclusively to <a href="documentreference.html">DocumentReference</a> resources.
 </p>
+<p>
+A DocumentManifest resource could be used to bring clinical context grouping to a broader set of Resources.</p>
 </div>
 
 </div>

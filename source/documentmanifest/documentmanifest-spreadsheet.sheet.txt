@@ -6,7 +6,14 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-doc-typecodes
   Definition = Precise type of clinical document.
-  Conformance = Preferred
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = AgentType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/participation-role-type
+  Definition = The Participation type of the agent to the event
+  Conformance = extensible
 
 === Sheet Invariants =====================================
 
@@ -23,6 +30,7 @@
  -- Row 2 -----------------------------------
   Element = DocumentManifest.masterIdentifier
   Card. = 0..1
+  Summary = y
   Type = Identifier
   Short Name = Unique Identifier for the set of documents
   Definition = A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts
@@ -33,6 +41,7 @@
  -- Row 3 -----------------------------------
   Element = DocumentManifest.identifier
   Card. = 0..*
+  Summary = y
   Type = Identifier
   Short Name = Other identifiers for the manifest
   Definition = Other identifiers associated with the document manifest, including version independent  identifiers
@@ -45,6 +54,7 @@
   Element = DocumentManifest.status
   Card. = 1..1
   Is Modifier = Y
+  Summary = y
   Type = code
   Binding = DocumentReferenceStatus
   Short Name = current | superseded | entered-in-error
@@ -57,6 +67,7 @@
  -- Row 5 -----------------------------------
   Element = DocumentManifest.type
   Card. = 0..1
+  Summary = y
   Type = CodeableConcept
   Binding = DocumentC80Type
   Short Name = Kind of document set
@@ -68,6 +79,7 @@
  -- Row 6 -----------------------------------
   Element = DocumentManifest.subject
   Card. = 0..1
+  Summary = y
   Type = Reference(Patient|Practitioner|Group|Device)
   Short Name = The subject of the set of documents
   Definition = Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)
@@ -87,20 +99,40 @@
   w5 = when.done
 
  -- Row 8 -----------------------------------
-  Element = DocumentManifest.author
+  Element = DocumentManifest.agent
   Card. = 0..*
-  Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
-  Short Name = Who and/or what authored the manifest
-  Definition = Identifies who is responsible for creating the manifest, and adding  documents to it
-  Comments = Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)
-  RIM Mapping = .participation[typeCode=AUT].role
-  XDS Mapping = SubmissionSet.author
+  Summary = y
+  Short Name = Agent involved
+  Definition = An actor taking an active role in the manifest
+  Comments = Several agents may be associated with the manifest
+  RIM Mapping = .participation
   w5 = who.author
 
  -- Row 9 -----------------------------------
+  Element = DocumentManifest.agent.type
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = AgentType
+  Short Name = How agent participated
+  Definition = Specification of the participation type the agent played.
+  RIM Mapping = .participation.typeCode
+
+ -- Row 10 -----------------------------------
+  Element = DocumentManifest.agent.who
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Practitioner|PractitionerRole|Organization|Device|Patient|RelatedPerson)
+  Short Name = Who and/or what had an agent participation
+  Definition = Identifies who is the agent. Such as the author of the manifest, and adding  documents to it
+  Comments = Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)
+  RIM Mapping = .participation[typeCode=AUT].role
+  XDS Mapping = SubmissionSet.author
+
+ -- Row 11 -----------------------------------
   Element = DocumentManifest.recipient
   Card. = 0..*
-  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Type = Reference(Patient|Practitioner|PractitionerRole|RelatedPerson|Organization)
   Short Name = Intended to get notified about this set of documents
   Definition = A patient, practitioner, or organization for which this set of documents is intended
   Comments = How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent. If the recipient is a person, and it is not known whether the person is a patient or a practitioner, RelatedPerson would be the default choice
@@ -108,7 +140,7 @@
   XDS Mapping = SubmissionSet.intendedRecipient
   w5 = who.cause
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DocumentManifest.source
   Card. = 0..1
   Type = uri
@@ -117,7 +149,7 @@
   RIM Mapping = .participation[typeCode=PFM].time
   XDS Mapping = SubmissionSet.sourceId
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !DocumentManifest.supersedes
   Card. = 0..1
   Is Modifier = Y
@@ -127,9 +159,10 @@
   RIM Mapping = .outboundRelationship[typeCode=RPLC].target
   To Do = is this 80%? Specifically how is this to be used? How is it different than normal resource versioning?
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = DocumentManifest.description
   Card. = 0..1
+  Summary = y
   Type = string
   Short Name = Human-readable description (title)
   Definition = Human-readable description of the source document. This is sometimes known as the \"title\"
@@ -138,7 +171,7 @@
   RIM Mapping = .title
   XDS Mapping = SubmissionSet.title
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = !DocumentManifest.confidentiality
   Card. = 0..1
   Is Modifier = Y
@@ -150,25 +183,18 @@
   RIM Mapping = .confidentialityCode
   To Do = is this 80%? Specifically how is this to be used? How is it different than the security tags in the Base Resource Definition.
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DocumentManifest.content
   Card. = 1..*
-  UML = right
-  Short Name = The items included
-  Definition = The list of Documents included in the manifest.
-  RIM Mapping = n/a
-
- -- Row 15 -----------------------------------
-  Element = DocumentManifest.content.p[x]
-  Card. = 1..1
-  Type = Attachment|Reference(Any)
-  Short Name = Contents of this set of documents
-  Definition = The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed
-  Comments = The intended focus of the DocumentManifest is for the reference to target either DocumentReference or Media Resources, and most implementation guides will restrict to these resources. The reference is to \"Any\" to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources
+  Type = Reference(Any)
+  Short Name = Items in manifest
+  Definition = The list of Resources that consist of the parts of this manifest.
+  Requirements = Any Resources are allowed to be grouped in a Manifest. The manifest brings context to the group.
+  Comments = When used for XDS the intended focus of the DocumentManifest is for the reference to target to be a set of DocumentReference Resources. The reference is to \"Any\" to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
   XDS Mapping = SubmissionSet DocumentEntry(s)
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DocumentManifest.related
   Card. = 0..*
   UML = right
@@ -177,7 +203,7 @@
   Comments = May be identifiers or resources that caused the DocumentManifest to be created.
   RIM Mapping = n/a
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DocumentManifest.related.identifier
   Card. = 0..1
   Type = Identifier
@@ -185,7 +211,7 @@
   Definition = Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.
   Comments = If both identifier and ref elements are present they shall refer to the same thing.
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DocumentManifest.related.ref
   Card. = 0..1
   Type = Reference(Any)
@@ -216,9 +242,9 @@
   Path = DocumentManifest.recipient
 
  -- Row 5 -----------------------------------
-  Name = author
+  Name = agent
   Type = reference
-  Path = DocumentManifest.author
+  Path = DocumentManifest.agent.who
 
  -- Row 6 -----------------------------------
   Name = created
@@ -236,9 +262,9 @@
   Path = DocumentManifest.description
 
  -- Row 9 -----------------------------------
-  Name = content-ref
+  Name = item
   Type = reference
-  Path = DocumentManifest.content.pReference
+  Path = DocumentManifest.content
 
  -- Row 10 -----------------------------------
   Name = patient
@@ -266,15 +292,15 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = FM-Attachments
-  Identity = 654789
-  Description = Financial Supporting Documentation
-  Filename = documentmanifest-fm-attachment.xml
-
- -- Row 2 -----------------------------------
   Name = XDS-Example
   Identity = example
   Description = XDS SubmissionSet example
   Filename = documentmanifest-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = FM-Example
+  Identity = 654789
+  Description = Example of FM attachment
+  Filename = documentmanifest-fm-attachment.xml
 
 === Sheet Examples =====================================

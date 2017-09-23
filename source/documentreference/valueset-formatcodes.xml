@@ -22,12 +22,8 @@
     <include>
       <system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
       <concept>
-        <code value="urn:ihe:pcc:handp:2008"/>
-        <display value="History and Physical Specification"/>
-      </concept>
-      <concept>
         <code value="urn:ihe:pcc:xphr:2007"/>
-        <display value="HL7 CCD Document"/>
+        <display value="Personal Health Records. Also known as HL7 CCD and HITSP C32"/>
       </concept>
       <concept>
         <code value="urn:ihe:pcc:aps:2007"/>
@@ -36,10 +32,6 @@
       <concept>
         <code value="urn:ihe:pcc:xds-ms:2007"/>
         <display value="XDS Medical Summaries"/>
-      </concept>
-      <concept>
-        <code value="urn:ihe:pcc:xphr:2007"/>
-        <display value="Personal Health Records"/>
       </concept>
       <concept>
         <code value="urn:ihe:pcc:edr:2007"/>
@@ -62,10 +54,6 @@
         <display value="Antepartum Record (APR) - Education"/>
       </concept>
       <concept>
-        <code value="urn:ihe:pcc:irc:2008"/>
-        <display value="Immunization Registry Content (IRC)"/>
-      </concept>
-      <concept>
         <code value="urn:ihe:pcc:crc:2008"/>
         <display value="Cancer Registry Content (CRC)"/>
       </concept>
@@ -74,7 +62,7 @@
         <display value="Care Management (CM)"/>
       </concept>
       <concept>
-        <code value="urn:ihe:pcc:ic:2009"/>
+        <code value="urn:ihe:pcc:ic:2008"/>
         <display value="Immunization Content (IC)"/>
       </concept>
       <concept>
@@ -129,6 +117,10 @@
         <code value="urn:ihe:pcc:its:2011"/>
         <display value="PCC ITS"/>
       </concept>
+      <concept>
+        <code value="urn:ihe:pcc:ript:2017"/>
+        <display value="Routine Interfacility Patient Transport (RIPT)"/>
+      </concept>
     <!--   IT Infrastructure   -->
       <concept>
         <code value="urn:ihe:iti:bppc:2007"/>
@@ -137,6 +129,14 @@
       <concept>
         <code value="urn:ihe:iti:bppc-sd:2007"/>
         <display value="Basic Patient Privacy Consents with Scanned Document"/>
+      </concept>
+      <concept>
+        <code value="urn:ihe:iti:xds-sd:pdf:2008"/>
+        <display value="PDF embedded in CDA per XDS-SD profile"/>
+      </concept>
+      <concept>
+        <code value="urn:ihe:iti:xds-sd:text:2008"/>
+        <display value="Text embedded in CDA per XDS-SD profile"/>
       </concept>
       <concept>
         <code value="urn:ihe:iti:xdw:2011:workflowDoc"/>
@@ -151,12 +151,8 @@
         <display value="DSG Enveloping Document"/>
       </concept>
       <concept>
-        <code value="urn:ihe:iti:xds-sd:pdf:2008"/>
-        <display value="PDF embedded in CDA per XDS-SD profile"/>
-      </concept>
-      <concept>
-        <code value="urn:ihe:iti:xds-sd:text:2008"/>
-        <display value="Text embedded in CDA per XDS-SD profile"/>
+        <code value="urn:ihe:iti:appc:2016:consent"/>
+        <display value="Advanced Patient Privacy Consents"/>
       </concept>
     <!--   Laboratory   -->
       <concept>
