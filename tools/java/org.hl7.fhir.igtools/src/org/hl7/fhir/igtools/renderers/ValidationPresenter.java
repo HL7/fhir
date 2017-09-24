@@ -106,7 +106,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     s.close();
 
     b = new StringBuilder();
-    b.append(genHeaderTxt(title));
+    b.append(genHeaderTxt(title, err, warn, info));
     b.append(genSummaryRowTxtInternal(linkErrors));
     files = sorted(files);
     for (FetchedFile f : files) 
@@ -237,12 +237,15 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return t.render();
   }
 
-  private String genHeaderTxt(String title) {
+  private String genHeaderTxt(String title, int err, int warn, int info) {
     ST t = template(headerTemplateText);
     t.add("version", Constants.VERSION);
     t.add("igversion", statedVersion);
     t.add("title", title);
     t.add("time", new Date().toString());
+    t.add("err",  Integer.toString(err));
+    t.add("warn",  Integer.toString(warn));
+    t.add("info",  Integer.toString(info));
     return t.render();
   }
 

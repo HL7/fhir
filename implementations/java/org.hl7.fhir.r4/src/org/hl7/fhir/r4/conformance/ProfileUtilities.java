@@ -3734,17 +3734,21 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  public static ElementDefinitionSlicingDiscriminatorComponent interpretR2Discriminator(String discriminator) {
+  public static ElementDefinitionSlicingDiscriminatorComponent interpretR2Discriminator(String discriminator, boolean isExists) {
     if (discriminator.endsWith("@profile"))
       return makeDiscriminator(DiscriminatorType.PROFILE, discriminator.length() == 8 ? "" : discriminator.substring(discriminator.length()-9)); 
     if (discriminator.endsWith("@type")) 
-      return makeDiscriminator(DiscriminatorType.TYPE, discriminator.length() == 5 ? "" : discriminator.substring(discriminator.length()-6)); 
+      return makeDiscriminator(DiscriminatorType.TYPE, discriminator.length() == 5 ? "" : discriminator.substring(discriminator.length()-6));
+    if (discriminator.endsWith("@exists"))
+      return makeDiscriminator(DiscriminatorType.EXISTS, discriminator.length() == 7 ? "" : discriminator.substring(discriminator.length()-8)); 
+    if (isExists)
+      return makeDiscriminator(DiscriminatorType.EXISTS, discriminator); 
     return new ElementDefinitionSlicingDiscriminatorComponent().setType(DiscriminatorType.VALUE).setPath(discriminator);
   }
 
 
-  private static ElementDefinitionSlicingDiscriminatorComponent makeDiscriminator(DiscriminatorType profile, String str) {
-    return new ElementDefinitionSlicingDiscriminatorComponent().setType(DiscriminatorType.VALUE).setPath(Utilities.noString(str)? "$this" : str);
+  private static ElementDefinitionSlicingDiscriminatorComponent makeDiscriminator(DiscriminatorType dType, String str) {
+    return new ElementDefinitionSlicingDiscriminatorComponent().setType(dType).setPath(Utilities.noString(str)? "$this" : str);
   }
 
 

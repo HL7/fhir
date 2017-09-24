@@ -209,6 +209,8 @@ public class IgSpreadsheetParser {
 
   private void supplementMappings(String name) {
     sheet = loadSheet(name);
+    if (sheet==null)
+      throw new Error("Unable to load sheet " + name);
     List<String> mappingNames = sheet.getColumnNamesBySuffix(" Mapping");
     List<String> loadedMappings = new ArrayList<String>();
     for (MappingSpace m : mappings.values()) {
@@ -706,7 +708,7 @@ public class IgSpreadsheetParser {
       e.getSlicing().setRules(SlicingRules.OPEN);
       for (String d : discriminator.split("\\,"))
         if (!Utilities.noString(d))
-          e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d.trim()));
+          e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d.trim(), false));
     }
     doAliases(sheet, row, e);
 

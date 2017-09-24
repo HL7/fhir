@@ -918,7 +918,7 @@ public class VersionConvertor_10_40 {
     }
   }
 
-  public org.hl7.fhir.r4.model.ElementDefinition convertElementDefinition(org.hl7.fhir.dstu2.model.ElementDefinition src, List<String> slicePaths) throws FHIRException {
+  public org.hl7.fhir.r4.model.ElementDefinition convertElementDefinition(org.hl7.fhir.dstu2.model.ElementDefinition src, List<String> slicePaths, List<org.hl7.fhir.dstu2.model.ElementDefinition> context, int pos) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.r4.model.ElementDefinition tgt = new org.hl7.fhir.r4.model.ElementDefinition();
@@ -936,7 +936,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.Coding t : src.getCode())
       tgt.addCode(convertCoding(t));
     if (src.hasSlicing())
-      tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing()));
+      tgt.setSlicing(convertElementDefinitionSlicingComponent(src.getSlicing(), context, pos));
     if (src.hasShort())
       tgt.setShort(src.getShort());
     if (src.hasDefinition())
@@ -1062,13 +1062,36 @@ public class VersionConvertor_10_40 {
     }
   }
 
-  public org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent convertElementDefinitionSlicingComponent(org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionSlicingComponent src) throws FHIRException {
+  public org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent convertElementDefinitionSlicingComponent(org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionSlicingComponent src, List<org.hl7.fhir.dstu2.model.ElementDefinition> context, int pos) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent tgt = new org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu2.model.StringType t : src.getDiscriminator())
-      tgt.addDiscriminator(ProfileUtilities.interpretR2Discriminator(t.getValue()));
+    org.hl7.fhir.dstu2.model.ElementDefinition slicingElement = context.get(pos);
+    for (org.hl7.fhir.dstu2.model.StringType t : src.getDiscriminator()) {
+      boolean isExists = false;
+      if (!t.asStringValue().contains("@")) {
+        int slices = 0;
+        boolean existsSlicePresent = false;
+        boolean notExistsSlicePresent = false;
+        String existsPath = slicingElement.getPath() + "." + t.asStringValue();
+        for (int i = pos + 1; i < context.size(); i++) {
+          org.hl7.fhir.dstu2.model.ElementDefinition e = context.get(i);
+          if (e.getPath().equals(slicingElement.getPath()))
+            slices++;
+          else if (!e.getPath().startsWith(slicingElement.getPath() + "."))
+            break;
+          else if (e.getPath().equals(existsPath)) {
+            if (e.hasMin() && e.getMin() > 0)
+              existsSlicePresent = true;
+            else if (e.hasMax() && e.getMax().equals("0"))
+              notExistsSlicePresent = true;
+          }
+        }
+        isExists = slices==2 && existsSlicePresent && notExistsSlicePresent;
+      }
+      tgt.addDiscriminator(ProfileUtilities.interpretR2Discriminator(t.getValue(), isExists));
+    }
     tgt.setDescription(src.getDescription());
     tgt.setOrdered(src.getOrdered());
     tgt.setRules(convertSlicingRules(src.getRules()));
@@ -1766,7 +1789,7 @@ public class VersionConvertor_10_40 {
     if (src instanceof org.hl7.fhir.dstu2.model.ContactPoint)
       return convertContactPoint((org.hl7.fhir.dstu2.model.ContactPoint) src);
     if (src instanceof org.hl7.fhir.dstu2.model.ElementDefinition)
-      return convertElementDefinition((org.hl7.fhir.dstu2.model.ElementDefinition) src, new ArrayList<String>());
+      return convertElementDefinition((org.hl7.fhir.dstu2.model.ElementDefinition) src, new ArrayList<String>(), new ArrayList<org.hl7.fhir.dstu2.model.ElementDefinition>(), 0);
     if (src instanceof org.hl7.fhir.dstu2.model.HumanName)
       return convertHumanName((org.hl7.fhir.dstu2.model.HumanName) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Meta)
@@ -5086,7 +5109,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement()) {
       if (t.hasSlicing())
         slicePaths.add(t.getPath());
-      tgt.getSnapshot().addElement(convertElementDefinition(t, slicePaths));
+      tgt.getSnapshot().addElement(convertElementDefinition(t, slicePaths, src.getElement(), src.getElement().indexOf(t)));
     }
     tgt.setKind(StructureDefinitionKind.LOGICAL);
     tgt.setAbstract(false);
@@ -11216,7 +11239,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement()) {
       if (t.hasSlicing())
         slicePaths.add(t.getPath());
-      tgt.addElement(convertElementDefinition(t, slicePaths));
+      tgt.addElement(convertElementDefinition(t, slicePaths, src.getElement(), src.getElement().indexOf(t)));
     }
     return tgt;
   }
@@ -11240,7 +11263,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement()) {
       if (t.hasSlicing())
         slicePaths.add(t.getPath());
-      tgt.addElement(convertElementDefinition(t, slicePaths));
+      tgt.addElement(convertElementDefinition(t, slicePaths, src.getElement(), src.getElement().indexOf(t)));
     }
     return tgt;
   }
