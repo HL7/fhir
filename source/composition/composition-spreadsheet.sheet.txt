@@ -160,6 +160,7 @@
   Definition = A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained
   Requirements = To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement
   Comments = While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical
+  Workflow Mapping = Event
   RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\" and isNormalAct()]
   CDA Mapping = ClinicalDocument
   w5 = infrastructure.documents
@@ -172,6 +173,7 @@
   Short Name = Logical identifier of composition (version-independent)
   Definition = Logical identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time
   Comments = See discussion in resource definition for how these relate
+  Workflow Mapping = Event.identifier
   RIM Mapping = Document.id / Document.setId
   CDA Mapping = .setId
   w5 = id
@@ -198,6 +200,7 @@
   Definition = The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document
   Requirements = Need to be able to mark interim, amended, or withdrawn compositions or documents
   Comments = If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag \"entered-in-error\" is why this element is labeled as a modifier of other elements. \n\nSome reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required
+  Workflow Mapping = Event.status
   RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
   CDA Mapping = n/a
   w5 = status
@@ -212,6 +215,7 @@
   Definition = Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition
   Requirements = Key metadata element describing the composition, used in searching/filtering.
   Comments = For Composition type, LOINC is ubiquitous and strongly endorsed by HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding
+  Workflow Mapping = Event.code
   RIM Mapping = ./code
   CDA Mapping = .code
   w5 = class
@@ -226,6 +230,7 @@
   Definition = A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type
   Requirements = Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents
   Comments = This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD))
+  Workflow Mapping = Event.subject
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   CDA Mapping = n/a
   w5 = class
@@ -251,6 +256,7 @@
   Short Name = Context of the Composition
   Definition = Describes the clinical encounter or type of care this documentation is associated with.
   Requirements = Provides context for the composition and supports searching.
+  Workflow Mapping = Event.context
   RIM Mapping = unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])
   CDA Mapping = .componentOf.encompassingEncounter
   w5 = context
@@ -264,6 +270,7 @@
   Definition = The composition editing time, when the composition was last logically changed by the author
   Requirements = dateTime is used for tracking, organizing versions and searching.
   Comments = The Last Modified Date on the composition may be after the date of the document was attested without being changed
+  Workflow Mapping = Event.occurrenceDateTime
   RIM Mapping = .effectiveTime[type=\"TS\"]
   CDA Mapping = .effectiveTime
   w5 = when.done
@@ -276,6 +283,7 @@
   Short Name = Who and/or what authored the composition
   Definition = Identifies who is responsible for the information in the composition, not necessarily who typed it in.
   Requirements = Identifies who is responsible for the content.
+  Workflow Mapping = Event.performer
   RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
   CDA Mapping = .author.assignedAuthor
   w5 = who.author
@@ -539,6 +547,7 @@
  -- Row 33 -----------------------------------
   Element = Composition.section.entry
   Card. = 0..*
+  UML = right
   Inv. = 2
   Type = Reference(Any)
   Short Name = A reference to data that supports this section

@@ -145,7 +145,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = FamilyMemberHistory.definition
+  Element = FamilyMemberHistory.instantiates
   Card. = 0..*
   Summary = Y
   Type = Reference(PlanDefinition|Questionnaire)
@@ -168,20 +168,6 @@
   w5 = status
 
  -- Row 5 -----------------------------------
-  Element = !FamilyMemberHistory.notDone
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = Y
-  Type = boolean
-  Short Name = The taking of a family member\'s history did not occur
-  Definition = If true, indicates the taking of an individual family member\'s history did not occur. The notDone element should not be used to document negated conditions, such as a family member that did not have a condition.
-  Requirements = Creating a FamilyMemberHistory where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
-  Comments = This element is labeled as a modifier because it marks the family member history as a family member history that did not occur.  The more attributes are populated, the more constrained the negated statement is.  This notDone element is being evaluated and will likely be removed in a subsequent release.
-  Workflow Mapping = Event.notDone
-  RIM Mapping = .actionNegationInd
-  Default Value = False
-
- -- Row 6 -----------------------------------
   Element = FamilyMemberHistory.dataAbsentReason
   Card. = 0..1
   Summary = Y
@@ -192,7 +178,7 @@
   Requirements = This is a separate element to allow it to have a distinct binding from reasonCode
   RIM Mapping = .reasonCode
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = FamilyMemberHistory.patient
   Card. = 1..1
   Aliases = Proband
@@ -205,7 +191,7 @@
   Committee Notes = [#3703]
   w5 = who.focus
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = FamilyMemberHistory.date
   Card. = 0..1
   Summary = y
@@ -214,11 +200,11 @@
   Definition = The date (and possibly time) when the family member history was taken
   Requirements = Allows determination of how current the summary is
   Comments = This should be captured even if the same as the date on the List aggregating the full family history
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrenceDateTime
   RIM Mapping = participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = FamilyMemberHistory.name
   Card. = 0..1
   Summary = y
@@ -228,7 +214,7 @@
   Requirements = Allows greater ease in ensuring the same person is being talked about
   RIM Mapping = name
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = FamilyMemberHistory.relationship
   Card. = 1..1
   Summary = y
@@ -238,7 +224,7 @@
   Definition = The type of relationship this person has to the patient (father, mother, brother etc.)
   RIM Mapping = code
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = FamilyMemberHistory.gender
   Card. = 0..1
   Summary = Y
@@ -248,7 +234,7 @@
   Definition = Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
   Requirements = Not all relationship codes imply gender and the relative\'s gender can be relevant for risk assessments
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.born[x]
   Card. = 0..1
   Inv. = 1
@@ -258,7 +244,7 @@
   Requirements = Allows calculation of the relative\'s age
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE]. birthDate (could be URG)
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = FamilyMemberHistory.age[x]
   Card. = 0..1
   Summary = Y
@@ -270,7 +256,7 @@
   Comments = use estimatedAge to indicate whether the age is actual or not
   RIM Mapping = participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=\"age\"].value
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.estimatedAge
   Card. = 0..1
   Summary = Y
@@ -283,7 +269,7 @@
   Committee Notes = Removed modifier, per GF#13078
   Missing Meaning = It is unknown whether the age is an estimate or not
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.deceased[x]
   Card. = 0..1
   Summary = Y
@@ -292,7 +278,7 @@
   Definition = Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you\'d hang an observation off the role
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = FamilyMemberHistory.reasonCode
   Card. = 0..*
   Summary = Y
@@ -305,7 +291,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = FamilyMemberHistory.reasonReference
   Card. = 0..*
   Summary = Y
@@ -316,7 +302,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = FamilyMemberHistory.note
   Card. = 0..*
   Type = Annotation
@@ -325,7 +311,7 @@
   Workflow Mapping = Event.note
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = FamilyMemberHistory.condition
   Card. = 0..*
   UML = right
@@ -334,7 +320,7 @@
   Comments = If none of the conditions listed have an outcome of \"death\" specified, that indicates that none of the specified conditions are known to have been the primary cause of death
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value<Diagnosis]
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = FamilyMemberHistory.condition.code
   Card. = 1..1
   Type = CodeableConcept
@@ -343,7 +329,7 @@
   Definition = The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like \'cancer\' depending on how much is known about the condition and the capabilities of the creating system
   RIM Mapping = .value
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = FamilyMemberHistory.condition.outcome
   Card. = 0..1
   Type = CodeableConcept
@@ -352,7 +338,7 @@
   Definition = Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
   RIM Mapping = outboundRelationship[typeCode=OUTC)].target[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION].value
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = FamilyMemberHistory.condition.onset[x]
   Card. = 0..1
   Type = Age | Range | Period | string
@@ -361,7 +347,7 @@
   Requirements = Age of onset of a condition in relatives is predictive of risk for the patient
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']  Use originalText for string
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = FamilyMemberHistory.condition.note
   Card. = 0..*
   Type = Annotation
@@ -408,9 +394,9 @@
   Path = FamilyMemberHistory.gender
 
  -- Row 7 -----------------------------------
-  Name = definition
+  Name = instantiates
   Type = reference
-  Path = FamilyMemberHistory.definition
+  Path = FamilyMemberHistory.instantiates
 
  -- Row 8 -----------------------------------
   Name = status

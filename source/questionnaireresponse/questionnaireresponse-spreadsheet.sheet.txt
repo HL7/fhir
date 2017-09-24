@@ -69,6 +69,7 @@
   Definition = A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to
   Requirements = To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires.
   Comments = The QuestionnaireResponse contains enough information about the questions asked and their organization that it can be interpreted somewhat independently from the Questionnaire it is based on.  I.e. You don\'t need access to the Questionnaire in order to extract basic information from a QuestionnaireResponse.
+  Workflow Mapping = Event
   RIM Mapping = Observation[moodCode=EVN]
   w5 = infrastructure.information
 
@@ -80,6 +81,7 @@
   Short Name = Unique id for this set of answers
   Definition = A business identifier assigned to a particular completed (or partially completed) questionnaire
   Requirements = Used for tracking, registration and other business purposes
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   w5 = id
 
@@ -92,16 +94,18 @@
   Short Name = Request fulfilled by this QuestionnaireResponse
   Definition = The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ProcedureRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression
   Requirements = Supports traceability of responsibility for the action and allows linkage of an action to the recommendations acted upon
+  Workflow Mapping = Event.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
 
  -- Row 4 -----------------------------------
-  Element = QuestionnaireResponse.parent
+  Element = QuestionnaireResponse.partOf
   Card. = 0..*
   Summary = Y
   Type = Reference(Observation|Procedure)
   Short Name = Part of this action
   Definition = A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of.
   Comments = Composition of questionnaire responses will be handled by the parent questionnaire having answers that reference the child questionnaire.  For relationships to referrals, and other types of requests, use basedOn.
+  Workflow Mapping = Event.partOf
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
 
  -- Row 5 -----------------------------------
@@ -114,6 +118,7 @@
   Definition = The Questionnaire that defines and organizes the questions for which answers are being provided
   Requirements = Needed to allow editing of the questionnaire response in a manner that enforces the constraints of the original form.
   Comments = If a QuestionnaireResponse references a Questionnaire, then the QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.)
+  Workflow Mapping = Event.instantiatesReference
   RIM Mapping = ./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]
 
  -- Row 6 -----------------------------------
@@ -127,6 +132,7 @@
   Definition = The position of the questionnaire response within its overall lifecycle
   Requirements = The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished.
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Workflow Mapping = Event.status
   RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
   Committee Notes = GF#12315
   w5 = status
@@ -141,6 +147,7 @@
   Definition = The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.
   Requirements = Allows linking the answers to the individual the answers describe.  May also affect access control.
   Comments = If the Questionnaire declared a subjectType, the resource pointed to by this element must be an instance of one of the listed types.
+  Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
@@ -153,6 +160,7 @@
   Definition = The encounter or episode of care with primary association to the questionnaire response
   Requirements = Provides context for the information that was captured.  May also affect access control.
   Comments = A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter.
+  Workflow Mapping = Event.context
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
@@ -166,6 +174,7 @@
   Definition = The date and/or time that this set of answers were last changed
   Requirements = Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers.
   Comments = May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.\n\nThis element is optional to allow for systems that may not know the value, however it SHOULD be populated if possible.
+  Workflow Mapping = Event.occurrence[x]
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
@@ -179,6 +188,7 @@
   Definition = Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system
   Requirements = Need to know who interpreted the subject\'s answers to the questions in the questionnaire, and selected the appropriate options for answers.
   Comments = Mapping a subject\'s answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.  Authoring by device would indicate that some portion of the questionnaire had been auto-populated.
+  Workflow Mapping = Event.performer
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
@@ -343,10 +353,10 @@
   Path = QuestionnaireResponse.basedOn
 
  -- Row 11 -----------------------------------
-  Name = parent
+  Name = part-of
   Type = reference
   Description = Procedure or observation this questionnaire response was performed as a part of
-  Path = QuestionnaireResponse.parent
+  Path = QuestionnaireResponse.partOf
 
 === Sheet Profiles =====================================
 

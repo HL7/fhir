@@ -20,12 +20,12 @@
   <version value="1.0.0"/>
   <title value="Patient Health Questionnaire (PHQ-9)"/>
   <status value="draft"/>
+  <subjectType value="Patient"/>
   <code>
     <system value="http://loinc.org"/>
     <code value="44249-1"/>
     <display value="PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9"/>
   </code>
-  <subjectType value="Patient"/>
   <item>
     <linkId value="LittleInterest"/>
     <code>

@@ -2742,7 +2742,7 @@
   </test>
   <test>
     <name value="Test29"/>
-    <description value="TTest recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)"/>
+    <description value="Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)"/>
     <action>
       <operation>
         <type>
@@ -2758,10 +2758,17 @@
     <action>
       <assert>
         <label value="test29-1"/>
-        <description value="Element count must be increased by 16"/>
-        <!-- This number may not be correct -->
+        <description value="Element count must be increased by 15"/>
         <direction value="response"/>
         <expression value="fixture('t29o').snapshot.element.count().trace('t29o') = fixture('parameters').snapshot.element.count().trace('t29') + 15"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <label value="test29-2"/>
+        <description value="There is an element with id 'Parameters.parameter.part:foo.id'"/>
+        <direction value="response"/>
+        <expression value="fixture('t29o').snapshot.element.where(id = 'Parameters.parameter.part:foo.id').count()=1"/>
       </assert>
     </action>
   </test>

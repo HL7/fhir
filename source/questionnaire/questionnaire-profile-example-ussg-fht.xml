@@ -249,12 +249,15 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<title value="US Surgeon General - Family Health Portrait"/>
 				<status value="active"/>
 				<experimental value="true"/>
+				<subjectType value="Patient"/>
 				<date value="2015"/>
 				<publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
-				<description value="This represents an implementation of the &quot;US Surgeon General family health portrait&quot; form found at https://lforms-demo.nlm.nih.gov"/>
-				<purpose value="Captures basic family history information"/>
-				<approvalDate value="2015-10-31"/>
-				<lastReviewDate value="2017-03-15"/>
+				<contact>
+          <telecom>
+            <system value="url"/>
+            <value value="http://loinc.org"/>
+          </telecom>
+				</contact>
 				<useContext>
           <code>
             <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -274,19 +277,16 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
             <code value="US"/>
           </coding>
 				</jurisdiction>
-				<contact>
-          <telecom>
-            <system value="url"/>
-            <value value="http://loinc.org"/>
-          </telecom>
-				</contact>
+				<description value="This represents an implementation of the &quot;US Surgeon General family health portrait&quot; form found at https://lforms-demo.nlm.nih.gov"/>
+				<purpose value="Captures basic family history information"/>
 				<copyright value="(c) 2015 Regenstrief Institute"/>
+				<approvalDate value="2015-10-31"/>
+				<lastReviewDate value="2017-03-15"/>
 				<code>
           <system value="http://loinc.org"/>
 					<code value="54127-6"/>
 					<display value="US Surgeon General family health portrait [USSG-FHT]"/>
 				</code>
-				<subjectType value="Patient"/>
 				<item>
 					<linkId value="0"/>
 					<type value="group"/>

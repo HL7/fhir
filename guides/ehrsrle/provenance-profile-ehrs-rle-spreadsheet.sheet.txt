@@ -13,7 +13,7 @@
   Must Support = Y
 
  -- Row 3 -----------------------------------
-  Element = Provenance.occured[x]
+  Element = Provenance.occurred[x]
   Card. = !0..1
   Must Support = Y
 

@@ -46,6 +46,7 @@
   Type = DomainResource
   Short Name = Guidance or advice relating to an immunization
   Definition = A patient\'s point-in-time immunization and recommendation (i.e. forecasting a patient\'s immunization eligibility according to a published schedule) with optional supporting justification.
+  Workflow Mapping = Request
   v2 Mapping = VXU_V04
   RIM Mapping = SubstanceAdministration[moodCode=RMD]
   w5 = clinical.medication
@@ -57,6 +58,7 @@
   Type = Identifier
   Short Name = Business identifier
   Definition = A unique identifier assigned to this particular recommendation record.
+  Workflow Mapping = Request.identifier
   RIM Mapping = .id
   w5 = id
 
@@ -67,6 +69,7 @@
   Type = Reference(Patient)
   Short Name = Who this profile is for
   Definition = The patient the recommendations are for.
+  Workflow Mapping = Request.subject
   v2 Mapping = PID-3
   RIM Mapping = .partipication[typeCode=SUBJ].role
   Committee Notes = PID, PD1, NK1 | #3706
@@ -88,6 +91,7 @@
   Type = dateTime
   Short Name = Date recommendation created
   Definition = The date the immunization recommendation was created.
+  Workflow Mapping = Request.authoredOn
   v2 Mapping = OBX-15
   RIM Mapping = .partipication[typeCode=AUTH].time
 
@@ -99,6 +103,7 @@
   Binding = VaccineCode
   Short Name = Vaccine recommendation applies to
   Definition = Vaccine that pertains to the recommendation
+  Workflow Mapping = Request.code
   v2 Mapping = OBX-5 : OBX-3 = ( 30956-7 | 38890-0 )
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
   Committee Notes = #12484
@@ -143,6 +148,7 @@
   UML = 350;0
   Short Name = Dates governing proposed immunization
   Definition = Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.
+  Workflow Mapping = Request.effective[x]
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
   RIM Mapping = .outboundRelationship[typeCode=\'LIMIT\'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]
 
@@ -171,6 +177,7 @@
   UML = 0;150
   Short Name = Protocol used by recommendation
   Definition = Contains information about the protocol under which the vaccine was administered
+  Workflow Mapping = Request.instantiates
   RIM Mapping = .inboundRelationship[typeCode=INST].source[classCode=SBADM, moodCode=DEF]
 
  -- Row 14 -----------------------------------
@@ -224,6 +231,7 @@
   Type = Reference(Observation | AllergyIntolerance)
   Short Name = Patient observations supporting recommendation
   Definition = Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
+  Workflow Mapping = Request.supportingInformation
   v2 Mapping = OBX If OBX is associated with ( RXA : RXA-5-administered code = \'998^No vaccine administered^CVX\'), could contain the reason the vaccine was not administered
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
 

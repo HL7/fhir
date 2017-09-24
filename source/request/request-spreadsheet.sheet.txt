@@ -8,27 +8,32 @@
   Definition = Codes identifying the stage lifecycle stage of a request
 
  -- Row 2 -----------------------------------
+  Binding Name = RequestStatusReason
+  Binding = unbound
+  Definition = Codes identifying the reason for the current state of a request
+
+ -- Row 3 -----------------------------------
   Binding Name = RequestIntent
   Binding = code list
   Reference = #request-intent
   Definition = Codes indicating the degree of authority/intentionality associated with a request
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = RequestCode
   Binding = unbound
   Definition = Codes indicating the details of what is being requested.  These will vary significantly based on the type of request resource and will often be example/preferred rather than extensible/required.
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = PerformerType
   Binding = unbound
   Definition = Identifies types of practitioners, devices or others that should fulfill a request.  While the detailed constraints of relevant providers will vary by resource, some degree of consistency around recommended codes across request and definition resources would be desirable
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = RequestReason
   Binding = unbound
   Definition = Codes identifying why this request was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable.
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = RequestPriority
   Binding = code list
   Reference = #request-priority
@@ -47,7 +52,7 @@
   Id = 2
   Code = active
   Display = Active
-  Definition = The request is ready to be acted upon
+  Definition = The request is in force and ready to be acted upon
   v3 = =ActStatus.active
 
  -- Row 3 -----------------------------------
@@ -199,22 +204,21 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifier for request/order
-  Definition = Identifiers assigned to this request by the requester, performer and other systems
-  Requirements = Allows identification of the request as it is known by various participating systems and in a way that remains consistent across servers
+  Short Name = Business Identifier for {{title}}
+  Definition = Identifiers assigned to this {{title}} by the requester, performer and other systems
+  Requirements = Allows identification of the {{title}} as it is known by various participating systems and in a way that remains consistent across servers
   Comments = The identifier.type element is used to distinguish between the identifiers assigned by the requester/placer and the performer/filler.
   v2 Mapping = ORC.2, ORC.3
   RIM Mapping = .identifier
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Request.definition
+  Element = Request.instantiates
   Card. = 0..*
   Summary = Y
-  Type = Reference(Definition)
+  Type = uri
   Short Name = Instantiates protocol or definition
-  Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request
-  Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
+  Definition = The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this {{title}}
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
@@ -225,7 +229,7 @@
   Summary = Y
   Type = Reference(Request)
   Short Name = Fulfills plan, proposal or order
-  Definition = A plan, proposal or order that is fulfilled in whole or in part by this request
+  Definition = A plan, proposal or order that is fulfilled in whole or in part by this {{title}}
   Requirements = Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon
   Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
   v2 Mapping = ORC.8 (plus others)
@@ -237,8 +241,8 @@
   Aliases = supersedes, prior, renewed order
   Summary = Y
   Type = Reference(Request)
-  Short Name = Request(s) replaced by this request
-  Definition = Completed or terminated request(s) whose function is taken by this new request
+  Short Name = Request(s) replaced by this {{title}}
+  Definition = Completed or terminated request(s) whose function is taken by this new {{title}}
   Requirements = Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests
   Comments = The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing.
   v2 Mapping = Handled by message location of ORC (ORC.1=RO or RU)
@@ -265,14 +269,25 @@
   Type = code
   Binding = RequestStatus
   Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
-  Definition = The current state of the request
-  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.\n\nA nominal state-transition diagram can be found in the [[request.html#statemachine | Request pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+  Definition = The current state of the {{title}}
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.\n\nA nominal state-transition diagram can be found in the [[request.html#statemachine | Request pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.\n\nA status of \'active\' when doNotPerform is true means that the request to not perform is currently in force.
   v2 Mapping = ORC.5
   RIM Mapping = .status
   To Do = Should this be a common code system for all requests?
   w5 = status
 
  -- Row 8 -----------------------------------
+  Element = Request.statusReason
+  Card. = 0..1
+  Aliases = Suspended Reason, Cancelled Reason
+  Type = CodeableConcept
+  Binding = RequestStatusReason
+  Short Name = Reason for current status
+  Definition = Captures the reason for the current state of the {{title}}.
+  Comments = This is generally only used for \"exception\" statuses such as \"suspended\" or \"cancelled\".  The reason why the {{title}} was created at all is captured in reasonCode, not here.\n\n[distinct reason codes for different statuses can be enforced using invariants if they are universal bindings]
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde
+
+ -- Row 9 -----------------------------------
   Element = Request.intent
   Card. = 1..1
   Aliases = category
@@ -281,7 +296,7 @@
   Type = code
   Binding = RequestIntent
   Short Name = proposal | plan | order
-  Definition = Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
+  Definition = Indicates the level of authority/intentionality associated with the {{title}} and where the request fits into the workflow chain.
   Requirements = Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain.
   Comments = When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to \"proposal, plan or order\".  Can have multiple codes that map to one of these.  E.g. \"original order\", \"encoded order\", \"reflex order\" would all map to \"order\".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
   v2 Mapping = N/A
@@ -289,7 +304,7 @@
   To Do = Should this be a common code system for all requests?
   w5 = class
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Request.priority
   Card. = 0..1
   Summary = Y
@@ -302,7 +317,20 @@
   Missing Meaning = If missing, this task should be performed with normal priority
   w5 = grade
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
+  Element = Request.doNotPerform
+  Card. = 0..1
+  Aliases = prohibited
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Name = true if request is prohibiting action
+  Definition = If true indicates that the {{title}} is asking for the specified action to *not* occur.
+  Requirements = Supports things like Do Not Recussitate, Nothing by mouth, etc.
+  Comments = The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the \"do not\" request only applies within the specified time.  If a performerType is specified then the \"do not\" request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, perormerType and performer
+  Default Value = false
+
+ -- Row 12 -----------------------------------
   Element = Request.code
   Card. = 0..1
   Aliases = type
@@ -310,12 +338,12 @@
   Type = CodeableConcept
   Binding = RequestCode
   Short Name = What\'s being requested/ordered
-  Definition = A code that identifies the specific service or action being requested
+  Definition = A code that identifies the specific service or action being asked to be done (or not done)
   v2 Mapping = Varies by domain
   RIM Mapping = .code
   w5 = what
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Request.subject
   Card. = 1..1
   Aliases = patient
@@ -330,7 +358,7 @@
   To Do = For mapping, is it better if we make this Any and then constrain it down?
   w5 = who.focus
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Request.context
   Card. = 0..1
   Aliases = encounter
@@ -344,7 +372,7 @@
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Request.occurrence[x]
   Card. = 0..1
   Aliases = timing
@@ -357,52 +385,31 @@
   RIM Mapping = .effectiveTime
   w5 = when.planned
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Request.authoredOn
   Card. = 0..1
   Aliases = createdOn, signedOn
   Summary = Y
   Type = dateTime
   Short Name = When request transitioned to being actionable
-  Definition = For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation.
+  Definition = For draft {{title}}s, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation.
   v2 Mapping = ORC.9
   RIM Mapping = .participation[typeCode=AUT].time
   To Do = Do we need a \"status date\" too (for when the request was suspended, cancelled, etc.)
   w5 = when.recorded
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Request.requester
   Card. = 0..1
   Aliases = author
   Summary = Y
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)
   Short Name = Who/what is requesting service
-  Definition = The individual who initiated the request and has responsibility for its activation
-  Comments = [Resources may choose to replace this with just a single requester where there\'s no need to responsible organization]
+  Definition = Who initiated the {{request}} and has responsibility for its activation
+  Comments = [Resources may choose to constrain potential requesters, though should consider proposals and plans as well as orders]
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
-
- -- Row 16 -----------------------------------
-  Element = Request.requester.agent
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
-  Short Name = Individual making the request
-  Definition = The device, practitioner, etc. who initiated the request
-  v2 Mapping = ORC.12
-  RIM Mapping = .player
   w5 = who.author
-
- -- Row 17 -----------------------------------
-  Element = Request.requester.onBehalfOf
-  Card. = 0..1
-  Summary = Y
-  Inv. = 1
-  Type = Reference(Organization)
-  Short Name = Organization agent is acting for
-  Definition = The organization the device or practitioner was acting on behalf of
-  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
-  v2 Mapping = N/A
-  RIM Mapping = .scoper
 
  -- Row 18 -----------------------------------
   Element = Request.performerType
@@ -411,7 +418,7 @@
   Type = CodeableConcept
   Binding = PerformerType
   Short Name = Desired kind of service performer
-  Definition = The type of individual that is desired to act upon the request
+  Definition = The type of individual that is desired to act upon the {{request}}
   Comments = If performer is also specified, this indicates what type of performer is desired in the event the requested performer is not available.\n\nIf specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
@@ -422,9 +429,9 @@
   Element = Request.performer
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
+  Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)
   Short Name = Specific desired performer
-  Definition = Indicates who or what is being asked to perform the request
+  Definition = Indicates who or what is being asked to perform (or not perform) the {{request}}
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
@@ -437,7 +444,7 @@
   Binding = RequestReason
   Short Name = Why is service needed?
   Definition = Describes why the request is being made in coded or textual form.
-  Comments = Textual reasons can be caprued using reasonCode.text
+  Comments = Textual reasons can be caprued using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act.
   v2 Mapping = ORC.16
   RIM Mapping = .reasonCode
   w5 = why
@@ -446,7 +453,7 @@
   Element = Request.reasonReference
   Card. = 0..*
   Summary = Y
-  Type = Reference(Condition|Observation)
+  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
   Short Name = Why is service needed?
   Definition = Indicates another resource whose existence justifies this request
   Comments = [Additional resources may be added as appropriate]
@@ -455,30 +462,39 @@
   w5 = why
 
  -- Row 22 -----------------------------------
+  Element = Request.insurance
+  Card. = 0..*
+  Type = Reference(Coverage|ClaimResponse)
+  Short Name = Associated insurance coverage
+  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be rin delivering the requested service.
+  v2 Mapping = IN1/IN2
+  RIM Mapping = .outboundRelationship[typeCode=COVBY].target
+
+ -- Row 23 -----------------------------------
   Element = Request.supportingInfo
   Card. = 0..*
   Type = Reference(Any)
   Short Name = Extra information to use in performing request
-  Definition = Information that may be needed by/relevant to the performer in their execution of this request
+  Definition = Information that may be needed by/relevant to the performer in their execution of this {{title}}
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Request.note
   Card. = 0..*
   Type = Annotation
-  Short Name = Comments made about service request
-  Definition = Comments made about the request by the requester, performer, subject or other participants.
+  Short Name = Comments made about {{title}}
+  Definition = Comments made about the {{title}} by the requester, performer, subject or other participants.
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Request.relevantHistory
   Card. = 0..*
   Aliases = eventHistory
   Type = Reference(Provenance)
-  Short Name = Key events in history of request
+  Short Name = Key events in history of {{title}}
   Definition = Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
-  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
+  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.\n\nReferenced provenances should adhere to the provenance-relevant-history profile.
   v2 Mapping = N/A
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]

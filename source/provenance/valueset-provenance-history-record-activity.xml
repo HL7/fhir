@@ -20,45 +20,58 @@
 			<system value="http://hl7.org/fhir/v3/DataOperation"/>
 			<concept>
 				<code value="CREATE"/>
-			</concept>
-			<concept>
-				<code value="DELETE"/>
+				<display value="Created"/>
 			</concept>
 			<concept>
 				<code value="UPDATE"/>
+				<display value="Updated"/>
+			</concept>
+			<concept>
+				<code value="DELETE"/>
+				<display value="Deleted"/>
 			</concept>
 			<concept>
 				<code value="ABORT"/>
-			</concept>
-			<concept>
-				<code value="ACTIVATE"/>
-			</concept>
-			<concept>
-				<code value="CANCEL"/>
-			</concept>
-			<concept>
-				<code value="COMPLETE"/>
+				<display value="Stopped/Ended/Aborted"/>
 			</concept>
 			<concept>
 				<code value="HOLD"/>
-			</concept>
-			<concept>
-				<code value="NULLIFY"/>
-			</concept>
-			<concept>
-				<code value="OBSOLETE"/>
-			</concept>
-			<concept>
-				<code value="REACTIVATE"/>
+				<display value="Held"/>
 			</concept>
 			<concept>
 				<code value="RELEASE"/>
+				<display value="Released"/>
+			</concept>
+			<concept>
+				<code value="CANCEL"/>
+				<display value="Cancelled"/>
+			</concept>
+			<concept>
+				<code value="ACTIVATE"/>
+				<display value="Activated"/>
+			</concept>
+			<concept>
+				<code value="SUSPEND"/>
+				<display value="Suspended"/>
 			</concept>
 			<concept>
 				<code value="RESUME"/>
 			</concept>
 			<concept>
-				<code value="SUSPEND"/>
+				<code value="COMPLETE"/>
+				<display value="Completed"/>
+			</concept>
+			<concept>
+				<code value="NULLIFY"/>
+				<display value="Mark Entered-in-error"/>
+			</concept>
+			<concept>
+				<code value="OBSOLETE"/>
+				<display value="Replaced"/>
+			</concept>
+			<concept>
+				<code value="REACTIVATE"/>
+				<display value="Reactivated"/>
 			</concept>
 		</include>
 	</compose>

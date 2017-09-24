@@ -113,7 +113,8 @@
           </xsl:for-each>
           <xsl:if test="fhirVersion/@value|acceptUnknown/@value|format/@value|profile/@value">
             <h2>General</h2>
-            <table>
+            <div class="table-wrapper">
+              <table>
               <tbody>
                 <xsl:for-each select="fhirVersion/@value">
                   <tr>
@@ -153,6 +154,7 @@
                 </xsl:if>
               </tbody>
             </table>
+            </div>
           </xsl:if>
           <xsl:for-each select="rest">
             <h2>
@@ -167,7 +169,8 @@
             </xsl:for-each>
             <xsl:if test="resource">
               <h3>Resource summary</h3>
-              <table class="grid">
+              <div class="table-wrapper">              
+                <table class="grid">
                 <thead>
                   <tr>
                     <th>Resource</th>
@@ -206,7 +209,7 @@
                         <xsl:for-each select="interaction[code/@value='vread']">
                           <xsl:call-template name="doCapabilityStatement"/>
                         </xsl:for-each>
-                        <xsl:if test="readHistory/@value='false'">(current only)</xsl:if>
+                        <xsl:if test="readHistory/@value=false()">(current only)</xsl:if>
                       </td>
                       <td>
                         <xsl:for-each select="interaction[code/@value='history-instance']">
@@ -241,6 +244,7 @@
                   </xsl:for-each>
                 </tbody>
               </table>
+              </div>
             </xsl:if>
             <xsl:if test="operation">
               <p>
@@ -267,7 +271,8 @@
             <xsl:if test="interaction">
               <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
               <h3>General interactions</h3>
-              <table class="list">
+              <div class="table-wrapper">
+                <table class="list">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -283,6 +288,7 @@
                   </xsl:apply-templates>
                 </tbody>
               </table>
+              </div>
             </xsl:if>
             <xsl:for-each select="resource">
               <br/>
@@ -304,7 +310,8 @@
                 <!-- This doesn't exist yet -->
               </xsl:copy-of>
               <h4>Interactions</h4>
-              <table class="list">
+              <div class="table-wrapper">
+                <table class="list">
                 <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
                 <thead>
                   <tr>
@@ -321,6 +328,7 @@
                   </xsl:apply-templates>
                 </tbody>
               </table>
+              </div>
               <xsl:if test="searchInclude or searchParam">
                 <h4>Search</h4>
                 <xsl:if test="searchInclude">
@@ -343,7 +351,8 @@
               <p>
                 <b>End point(s): </b>
               </p>
-              <table>
+              <div class="table-wrapper">
+                <table>
                 <tbody>
                   <tr>
                     <th>Address</th>
@@ -364,9 +373,11 @@
                   </xsl:for-each>
                 </tbody>
               </table>
+              </div>
             </xsl:if>
             <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-            <table class="grid">
+            <div class="table-wrapper">
+              <table class="grid">
               <thead>
                 <tr>
                   <th>Event</th>
@@ -414,6 +425,7 @@
                 </xsl:for-each>
               </tbody>
             </table>
+            </div>
           </xsl:for-each>
           <xsl:if test="document">
             <br/>
@@ -422,7 +434,8 @@
             <xsl:for-each select="rest/documentMailbox/@value">
               <xsl:value-of select="concat('Mailbox: ', .)"/>
             </xsl:for-each>
-            <table class="grid">
+            <div class="table-wrapper">
+              <table class="grid">
               <thead>
                 <tr>
                   <th>Mode</th>
@@ -450,15 +463,17 @@
                 </xsl:for-each>
               </tbody>
             </table>
+            </div>
           </xsl:if>
         </div>
       </text>
       <xsl:copy-of select="node()[not(self::text or self::id)]"/>
     </xsl:copy>
   </xsl:template>
-  <xsl:template name="doParams" as="element(xhtml:table)">
+  <xsl:template name="doParams" as="element(xhtml:div)">
     <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(*[self::searchParam or self::parameter]/extension[@url='http://hl7.org/fhir/StructureDefinition/conformance-expectation']/valueCode/@value)"/>
-    <table class="list">
+    <div class="table-wrapper">
+      <table class="list">
       <thead>
         <tr>
           <th>Parameter</th>
@@ -506,6 +521,7 @@
         </xsl:for-each>
       </tbody>
     </table>
+    </div>
   </xsl:template>
   <xsl:template match="interaction">
     <xsl:param name="doCapabilityStatement" as="xs:boolean" required="yes"/>

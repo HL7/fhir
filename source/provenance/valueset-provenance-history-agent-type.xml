@@ -20,15 +20,19 @@
 			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
 			<concept>
 				<code value="AUT"/>
+				<display value="Author"/>
 			</concept>
 			<concept>
 				<code value="INF"/>
+				<display value="Informant"/>
 			</concept>
 			<concept>
 				<code value="VRF"/>
+				<display value="Verifier"/>
 			</concept>
 			<concept>
 				<code value="ENT"/>
+				<display value="Data Enterer"/>
 			</concept>
 		</include>
 	</compose>

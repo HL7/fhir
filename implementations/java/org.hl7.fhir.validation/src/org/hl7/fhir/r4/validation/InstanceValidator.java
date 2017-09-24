@@ -667,9 +667,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       try {
         if (context.fetchResourceWithException(ValueSet.class, system) != null) {
           rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Invalid System URI: "+system+" - cannot use a value set URI as a system");
-          return false;
-        } else
-          return true;
+          // Lloyd: This error used to prohibit checking for downstream issues, but there are some cases where that checking needs to occur.  Please talk to me before changing the code back. 
+        }
+        return true;
       }
       catch (Exception e) {
         return true;

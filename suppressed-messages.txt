@@ -29,7 +29,7 @@ WARNING: Observation.comment: MnM must have confirmed this should not be an Anno
 WARNING: OperationDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: OperationDefinition.overload.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Parameters: All resources should have an identifier
-WARNING: Provenance: Resource elements are out of order. The correct order is '[target(=what), occured[x](=when.done), recorded(=when.recorded), agent(=who), location(=where), reason(=why), activity(=why)]' but the actual order is '[target(=what), occured[x](=when.done), recorded(=when.recorded), location(=where), reason(=why), activity(=why), agent(=who)]'
+WARNING: Provenance: Resource elements are out of order. The correct order is '[target(=what), occurred[x](=when.done), recorded(=when.recorded), agent(=who), location(=where), reason(=why), activity(=why)]' but the actual order is '[target(=what), occurred[x](=when.done), recorded(=when.recorded), location(=where), reason(=why), activity(=why), agent(=who)]'
 WARNING: Signature.contentType: Unable to resolve value set on 'code' Binding
 WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))

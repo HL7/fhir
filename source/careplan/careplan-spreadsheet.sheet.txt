@@ -476,7 +476,7 @@
   Definition = Notes about the adherence/status/progress of the activity
   Requirements = Can be used to capture information about adherence, progress, concerns, etc.
   Comments = This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description
-  Workflow Mapping = Event.status {Annotation instead of CodableConcept}
+  Workflow Mapping = Request.status {Annotation instead of CodableConcept}
   v2 Mapping = NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 

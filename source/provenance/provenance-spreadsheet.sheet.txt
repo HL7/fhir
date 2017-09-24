@@ -109,7 +109,7 @@
   w5 = what
 
  -- Row 3 -----------------------------------
-  Element = Provenance.occured[x]
+  Element = Provenance.occurred[x]
   Card. = 0..1
   Type = Period|dateTime
   Short Name = When the activity occurred
@@ -294,3 +294,129 @@
   Short Name = Signature on target
   Definition = A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.
   RIM Mapping = ./signatureText
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = target
+  Type = reference
+  Path = Provenance.target
+
+ -- Row 2 -----------------------------------
+  Name = !start
+  Type = date
+  Path = Provenance.occurredPeriod.start
+
+ -- Row 3 -----------------------------------
+  Name = !end
+  Type = date
+  Path = Provenance.occurredPeriod.end
+
+ -- Row 4 -----------------------------------
+  Name = location
+  Type = reference
+  Path = Provenance.location
+
+ -- Row 5 -----------------------------------
+  Name = agent
+  Type = reference
+  Path = Provenance.agent.who[x]
+
+ -- Row 6 -----------------------------------
+  Name = !userid
+  Type = token
+  Path = Provenance.agent.userId
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Provenance.target
+  Target Types = Patient
+
+ -- Row 8 -----------------------------------
+  Name = signature-type
+  Type = token
+  Path = Provenance.signature.type
+
+ -- Row 9 -----------------------------------
+  Name = !entity-type
+  Type = token
+  Path = Provenance.entity.type
+
+ -- Row 10 -----------------------------------
+  Name = entity-ref
+  Type = reference
+  Path = Provenance.entity.whatReference
+
+ -- Row 11 -----------------------------------
+  Name = recorded
+  Type = date
+  Path = Provenance.recorded
+
+ -- Row 12 -----------------------------------
+  Name = entity-id
+  Type = token
+  Path = Provenance.entity.whatIdentifier
+
+ -- Row 13 -----------------------------------
+  Name = agent-type
+  Type = token
+  Path = Provenance.agent.type
+
+ -- Row 14 -----------------------------------
+  Name = agent-role
+  Type = token
+  Path = Provenance.agent.role
+
+ -- Row 15 -----------------------------------
+  Name = when
+  Type = date
+  Path = Provenance.occurredDateTime
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !Provenance HL7 Extensions
+  IG Name = core
+  Filename = !provenance-extensions-spreadsheet.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Provenance Relevant History
+  IG Name = core
+  Filename = relevant-history.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Provenance Example
+  Filename = provenance-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Signature
+  Identity = signature
+  Description = Provenance holding a signature
+  Filename = provenance-example-sig.xml
+
+ -- Row 3 -----------------------------------
+  Name = Consent Signature
+  Identity = consent-signature
+  Description = Provenance with signature for a Consent example
+  Filename = provenance-consent-signature.xml
+
+ -- Row 4 -----------------------------------
+  Name = Biocompute Object
+  Identity = example-biocompute-object
+  Description = Provenance  example for Biocompute objects
+  Filename = provenance-example-biocompute-object.xml
+
+ -- Row 5 -----------------------------------
+  Name = CWL Workflow
+  Identity = example-cwl
+  Description = Provenance  example for cwl workflow project
+  Filename = provenance-example-cwl.xml
+
+=== Sheet Examples =====================================

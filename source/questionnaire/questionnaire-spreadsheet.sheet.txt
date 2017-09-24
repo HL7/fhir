@@ -215,21 +215,25 @@
   Short Name = A structured set of questions
   Definition = A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection
   Requirements = To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)
+  Workflow Mapping = Definition
   RIM Mapping = Observation[moodCode=DEF]
   w5 = infrastructure.information
 
  -- Row 2 -----------------------------------
   Element = Questionnaire.url
   Requirements = …  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for.
+  Workflow Mapping = Definition.url
   RIM Mapping = .identifier[scope=BUSN;reliability=ISS]
 
  -- Row 3 -----------------------------------
   Element = Questionnaire.identifier
+  Workflow Mapping = Definition.identifier
   RIM Mapping = .identifier
   Committee Notes = Is this 80%?
 
  -- Row 4 -----------------------------------
   Element = Questionnaire.version
+  Workflow Mapping = Definition.version
   RIM Mapping = N/A (to add?)
 
  -- Row 5 -----------------------------------
@@ -238,61 +242,97 @@
 
  -- Row 6 -----------------------------------
   Element = Questionnaire.title
+  Workflow Mapping = Definition.title
   RIM Mapping = .title
 
  -- Row 7 -----------------------------------
-  Element = Questionnaire.status
-  RIM Mapping = .status
+  Element = Questionnaire.derivedFrom
+  Card. = 0..*
+  Type = uri
+  Short Name = Instantiates protocol or definition
+  Definition = The URL of a Questionnaire that this Questionnaire is based on.
+  Requirements = Allows a Questionnaire to be created based on another Questionnaire
+  Workflow Mapping = Definition.derivedFrom
+  RIM Mapping = .outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]
 
  -- Row 8 -----------------------------------
-  Element = Questionnaire.experimental
-  RIM Mapping = N/A
+  Element = Questionnaire.status
+  Workflow Mapping = Definition.status
+  RIM Mapping = .status
 
  -- Row 9 -----------------------------------
-  Element = Questionnaire.date
-  RIM Mapping = .participation[typeCode=AUT].time
+  Element = Questionnaire.experimental
+  Workflow Mapping = Definition.experimental
+  RIM Mapping = N/A
 
  -- Row 10 -----------------------------------
-  Element = Questionnaire.publisher
-  RIM Mapping = .participation[typeCode=AUT].role
+  Element = Questionnaire.subjectType
+  Card. = 0..*
+  Summary = y
+  Type = code
+  Binding = ResourceType
+  Short Name = Resource that can be subject of QuestionnaireResponse
+  Definition = The types of subjects that can be the subject of responses created for the questionnaire.
+  Comments = If none are specified, then the subject is unlimited
+  Workflow Mapping = Definition.subjectCodeableConcept
+  RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
 
  -- Row 11 -----------------------------------
-  Element = Questionnaire.description
-  RIM Mapping = .text
+  Element = Questionnaire.date
+  Workflow Mapping = Definition.date
+  RIM Mapping = .participation[typeCode=AUT].time
 
  -- Row 12 -----------------------------------
-  Element = Questionnaire.purpose
-  RIM Mapping = .reasonCode.text
+  Element = Questionnaire.publisher
+  Workflow Mapping = Definition.publisher
+  RIM Mapping = .participation[typeCode=AUT].role
 
  -- Row 13 -----------------------------------
-  Element = Questionnaire.approvalDate
-  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].act[classCode=CACT;moodCode=EVN;code=\"approval\"].effectiveTime
+  Element = Questionnaire.contact
+  Workflow Mapping = Definition.contact
+  RIM Mapping = .participation[typeCode=CALLBCK].role
 
  -- Row 14 -----------------------------------
-  Element = Questionnaire.lastReviewDate
-  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"; subsetCode=\"RECENT\"].act[classCode=CACT;moodCode=EVN;code=\"review\"].effectiveTime
+  Element = Questionnaire.useContext
+  Workflow Mapping = Definition.useContext
+  RIM Mapping = N/A (to add?)
 
  -- Row 15 -----------------------------------
-  Element = Questionnaire.effectivePeriod
+  Element = Questionnaire.jurisdiction
+  Workflow Mapping = Definition.jurisdiction
   RIM Mapping = N/A (to add?)
 
  -- Row 16 -----------------------------------
-  Element = Questionnaire.useContext
-  RIM Mapping = N/A (to add?)
+  Element = Questionnaire.description
+  Workflow Mapping = Definition.description
+  RIM Mapping = .text
 
  -- Row 17 -----------------------------------
-  Element = Questionnaire.jurisdiction
-  RIM Mapping = N/A (to add?)
+  Element = Questionnaire.purpose
+  Workflow Mapping = Definition.purpose
+  RIM Mapping = .reasonCode.text
 
  -- Row 18 -----------------------------------
-  Element = Questionnaire.contact
-  RIM Mapping = .participation[typeCode=CALLBCK].role
-
- -- Row 19 -----------------------------------
   Element = Questionnaire.copyright
+  Workflow Mapping = Definition.copyright
   RIM Mapping = N/A (to add?)
 
+ -- Row 19 -----------------------------------
+  Element = Questionnaire.approvalDate
+  Workflow Mapping = Definition.approvalDate
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].act[classCode=CACT;moodCode=EVN;code=\"approval\"].effectiveTime
+
  -- Row 20 -----------------------------------
+  Element = Questionnaire.lastReviewDate
+  Workflow Mapping = Definition.lastReviewDate
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"; subsetCode=\"RECENT\"].act[classCode=CACT;moodCode=EVN;code=\"review\"].effectiveTime
+
+ -- Row 21 -----------------------------------
+  Element = Questionnaire.effectivePeriod
+  Workflow Mapping = Definition.effectivePeriod
+  RIM Mapping = N/A (to add?)
+
+ -- Row 22 -----------------------------------
   Element = Questionnaire.code
   Card. = 0..*
   Summary = Y
@@ -303,18 +343,7 @@
   Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"panels\" of questions to be identified by a code.
   RIM Mapping = .code
 
- -- Row 21 -----------------------------------
-  Element = Questionnaire.subjectType
-  Card. = 0..*
-  Summary = y
-  Type = code
-  Binding = ResourceType
-  Short Name = Resource that can be subject of QuestionnaireResponse
-  Definition = The types of subjects that can be the subject of responses created for the questionnaire.
-  Comments = If none are specified, then the subject is unlimited
-  RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
-
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Questionnaire.item
   Card. = 0..*
   UML = right
@@ -324,7 +353,7 @@
   Comments = The content of the questionnaire is constructed from an ordered, hierarchical collection of items
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Questionnaire.item.linkId
   Card. = 1..1
   Type = string
@@ -334,7 +363,7 @@
   Comments = This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Questionnaire.item.definition
   Card. = 0..1
   Type = uri
@@ -344,7 +373,7 @@
   Comments = the URI refers to an ElementDefinition in [[[StructureDefinition]]] and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](element-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition.
   RIM Mapping = .outboundRelationship[typeCode=INST].target[classCode=OBS, moodCode=DEF]
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Questionnaire.item.code
   Card. = 0..*
   Summary = Y
@@ -357,7 +386,7 @@
   Comments = The value may come from the ElementDefinition referred to by .definition
   RIM Mapping = .code
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Questionnaire.item.prefix
   Card. = 0..1
   Aliases = label
@@ -368,7 +397,7 @@
   Comments = These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.\n\nTypically these won\'t be used for \"display\" items, though such use is not prohibited.\n\nSystems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.
   RIM Mapping = Not supported
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Questionnaire.item.text
   Card. = 0..1
   Summary = Y
@@ -377,7 +406,7 @@
   Definition = The name of a section, the text of a question or text content for a display item
   RIM Mapping = .text
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Questionnaire.item.type
   Card. = 1..1
   Type = code
@@ -388,7 +417,7 @@
   Comments = Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Questionnaire.item.enableWhen
   Card. = 0..*
   Is Modifier = Y
@@ -400,7 +429,7 @@
   Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nThis element is a modifier because if enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Questionnaire.item.enableWhen.question
   Card. = 1..1
   Type = string
@@ -409,7 +438,7 @@
   Comments = If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the \"ancestor\" axis and then the \"preceding\" axis and then the \"following\" axis
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Questionnaire.item.enableWhen.hasAnswer
   Card. = 0..1
   Inv. = 7
@@ -419,7 +448,7 @@
   Comments = If answered=false and answer values are also provided, then they are treated as \"or\".  I.e. \"Enable if the question is unanswered or the answer is one of the specified values\".  If answered=true and answers are present, one of the specified answers must be met. (So there\'s little reason to specify answered=true if answers are present.)
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Questionnaire.item.enableWhen.answer[x]
   Card. = 0..1
   Inv. = 7
@@ -430,7 +459,7 @@
   Comments = Multiple answers are treated as \"or\".  E.g. Enable if question 1 = A, C or E.  \n\nComponents not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it is ok if the answer has a \"display\" element.  I.e. treat the answer as a \'pattern\'.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Questionnaire.item.required
   Card. = 0..1
   Inv. = 6
@@ -441,7 +470,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Questionnaire.item.repeats
   Card. = 0..1
   Inv. = 6
@@ -453,7 +482,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Questionnaire.item.readOnly
   Card. = 0..1
   Inv. = 9
@@ -464,7 +493,7 @@
   Comments = The value of readOnly elements can be established by asserting  extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Questionnaire.item.maxLength
   Card. = 0..1
   Inv. = 10
@@ -475,7 +504,7 @@
   v2 Mapping = N/A
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Questionnaire.item.options
   Card. = 0..1
   Inv. = 4,5
@@ -485,7 +514,7 @@
   Comments = LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](loinc.html#alist). The value may come from the ElementDefinition referred to by .definition
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Questionnaire.item.option
   Card. = 0..*
   UML = 100;400
@@ -496,7 +525,7 @@
   Comments = This element can be used when the value set machinery of options is deemed too cumbersome or when there\'s a need to capture options that are not codes.
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Questionnaire.item.option.value[x]
   Card. = 1..1
   Type = integer | date | time | string | Coding
@@ -506,7 +535,7 @@
   Comments = The data type of the value must agree with the item.type
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Questionnaire.item.initial[x]
   Card. = 0..1
   Inv. = 8
@@ -519,7 +548,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Committee Notes = GF#11003
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Questionnaire.item.item
   Card. = 0..*
   Inv. = 1

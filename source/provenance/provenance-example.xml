@@ -13,10 +13,10 @@
 	<target>
 		<reference value="Procedure/example/_history/1"/>
 	</target>
-	<occuredPeriod>
+	<occurredPeriod>
 		<start value="2015-06-27"/>
 		<end value="2015-06-28"/>
-	</occuredPeriod>
+	</occurredPeriod>
 	<recorded value="2015-06-27T08:39:24+10:00"/>
 	<!-- reference to a patient consent to share inforamtion -->
 	<policy value="http://acme.com/fhir/Consent/25"/>

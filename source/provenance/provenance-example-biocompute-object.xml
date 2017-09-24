@@ -1,4 +1,4 @@
-<Provenance xmlns="http://hl7.org/fhir">
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
   <id value="example-biocompute-object"/>
   <text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example-biocompute-object</p><p><b>target</b>: <a href="http://build.fhir.org/sequence-example.html">Sequence/example</a></p><p><b>period</b>: 2017-6-6 --&gt; (ongoing)</p><p><b>recorded</b>: 2016-6-9 8:12:14</p><p><b>reason</b>: antiviral resistance detection (Details: [not stated] code null = 'null', stated as
          'antiviral resistance detection')</p><h3>Agents</h3><table><tr><td>-</td><td><b>Role</b></td><td><b>Who[x]</b></td></tr><tr><td>*</td><td>Author (Details: http://hl7.org/fhir/provenance-participant-role code author = 'Author',
@@ -6,9 +6,9 @@
   <target>
     <reference value="Sequence/example"/>
   </target>
-  <occuredPeriod>
+  <occurredPeriod>
     <start value="2017-06-06"/>
-  </occuredPeriod>
+  </occurredPeriod>
   <recorded value="2016-06-09T08:12:14+10:00"/>
   <reason>
       <text value="antiviral resistance detection"/>

@@ -139,7 +139,7 @@
 
  -- Row 7 -----------------------------------
   Element = ActivityDefinition.status
-  Workflow Mapping = Definitition.status {different ValueSet}
+  Workflow Mapping = Definition.status {different ValueSet}
   RIM Mapping = .status
 
  -- Row 8 -----------------------------------
@@ -351,7 +351,6 @@
   Definition = Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in the code found in ProcedureRequest.type
-  Workflow Mapping = Procedure.targetBodySite
   RIM Mapping = .targetSiteCode {for classCode=PROC, SBADM}
 
  -- Row 36 -----------------------------------

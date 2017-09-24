@@ -115,13 +115,13 @@
   <url value="http://hl7.org/fhir/Questionnaire/gcs"/>
   <title value="Glasgow Coma Score"/>
   <status value="draft"/>
+  <subjectType value="Patient"/>
   <date value="2015-08-03"/>
   <publisher value="FHIR Project team"/>
   <code>
     <system value="http://loinc.org"/>
     <code value="9269-2"/>
   </code>
-  <subjectType value="Patient"/>
   <item>
     <linkId value="1.1"/>
     <code>

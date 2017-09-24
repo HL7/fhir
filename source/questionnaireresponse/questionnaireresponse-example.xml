@@ -99,9 +99,9 @@
   <basedOn>
     <reference value="#order"/>
   </basedOn>
-  <parent>
+  <partOf>
     <reference value="Procedure/f201"/>
-  </parent>
+  </partOf>
   <status value="completed"/>
   <subject>
     <reference value="#patsub"/>

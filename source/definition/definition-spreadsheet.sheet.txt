@@ -102,14 +102,14 @@
   RIM Mapping = .title
 
  -- Row 6 -----------------------------------
-  Element = Definition.definition
+  Element = Definition.derivedFrom
   Card. = 0..*
   Summary = Y
-  Type = Reference(Definition)
-  Short Name = Instantiates protocol or definition
-  Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition
+  Type = uri
+  Short Name = Based on protocol or definition
+  Definition = The URL pointing to another protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition
   Requirements = Protocols and order sets may be refinements of more generic protocols and order sets
-  Comments = [The allowed reference resources may be adjusted as appropriate for the request resource]
+  v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 7 -----------------------------------
@@ -165,7 +165,7 @@
  -- Row 11 -----------------------------------
   Element = Definition.subject[x]
   Card. = 0..1
-  Aliases = patient
+  Aliases = Subject type
   Summary = Y
   Type = CodeableConcept | Reference(Group)
   Binding = DefinitionSubject
@@ -191,7 +191,7 @@
   Card. = 0..1
   Aliases = author
   Summary = Y
-  Type = Reference(Practitioner|Organization)
+  Type = Reference(Practitioner|PractitionerRole|Organization)
   Short Name = The name of the individual or organization that published the {{title}}
   Definition = Helps establish the \"authority/credibility\" of the {{title}}.  May also allow for contact
   Requirements = Usually an organization, but may be an individual. The publisher (or steward) of the {{title}} is the organization or individual primarily responsible for the maintenance and upkeep of the {{title}}. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the {{title}}. This item SHOULD be populated unless the information is available from context.
