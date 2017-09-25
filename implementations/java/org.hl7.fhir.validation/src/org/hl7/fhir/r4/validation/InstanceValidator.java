@@ -1445,7 +1445,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         refType = "bundle";
       }
     }
-    ReferenceValidationPolicy pol = refType.equals("contained") ? ReferenceValidationPolicy.CHECK_VALID : fetcher == null ? ReferenceValidationPolicy.IGNORE : fetcher.validationPolicy(hostContext.appContext, path, ref);
+    ReferenceValidationPolicy pol = refType.equals("contained") ? ReferenceValidationPolicy.CHECK_VALID : fetcher == null ? (we == null ? ReferenceValidationPolicy.IGNORE : ReferenceValidationPolicy.CHECK_VALID) : fetcher.validationPolicy(hostContext.appContext, path, ref);
 
     if (pol.checkExists()) {
       if (we == null) {
