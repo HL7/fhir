@@ -2925,9 +2925,22 @@ public class FHIRPathEngine {
         if (sd == null)
           throw new DefinitionException("Problem with use of resolve() - profile '"+element.getType().get(0).getTargetProfile()+"' on "+element.getId()+" could not be resolved");
         focus = sd.getSnapshot().getElementFirstRep();
-      } else if ("extension".equals(expr.getName()))
-        throw new DefinitionException("Not supported yet");
-      else 
+      } else if ("extension".equals(expr.getName())) {
+        String targetUrl = expr.getParameters().get(0).getConstant();
+        targetUrl = targetUrl.substring(1,targetUrl.length()-1);
+        List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(sd, element);
+        for (ElementDefinition t : childDefinitions) {
+          if (t.getPath().endsWith(".extension") && t.hasSliceName()) {
+           sd = worker.fetchResource(StructureDefinition.class, t.getType().get(0).getProfile());
+           while (sd!=null && !sd.getBaseDefinition().equals("http://hl7.org/fhir/StructureDefinition/Extension"))
+             sd = worker.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+           if (sd.getUrl().equals(targetUrl)) {
+             focus = t;
+             break;
+           }
+          }
+        }
+      } else 
         throw new DefinitionException("illegal function name "+expr.getName()+"() in discriminator");
     } else if (expr.getKind() == Kind.Group) {
       throw new DefinitionException("illegal expression syntax in discriminator (group)");
