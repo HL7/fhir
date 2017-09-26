@@ -105,11 +105,11 @@
 		I've set this file up to bring in that library explicitly (in order to
 		control the version) instead of using logback.
 		JA / Jan 2017
+		-->
 
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.1.8" />
 		<dependency org="ch.qos.logback" name="logback-core" rev="1.1.8" />
 		<dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.22" />
-		-->
 		<dependency org="org.slf4j" name="slf4j-jdk14" rev="1.7.22"/>
 		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.22"/>
 	</dependencies>
