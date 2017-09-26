@@ -2907,8 +2907,10 @@ public class FHIRPathEngine {
           throw new DefinitionException("Problem with use of resolve() - profile '"+element.getType().get(0).getProfile()+"' on "+element.getId()+" could not be resolved");
         childDefinitions = ProfileUtilities.getChildMap(sd, sd.getSnapshot().getElementFirstRep());
       }
+      // Lloyd: When parsing, foo[x] gets turned into foo.[x] which doesn't work with tail matches.  Not sure if this is intended or not, but adding this as a work-around for now
+      String match = expr.toString().endsWith(".[x]") ? expr.toString().substring(0,expr.toString().length()-4) + "[x]" : expr.getName();
       for (ElementDefinition t : childDefinitions) {
-        if (tailMatches(t, expr.getName())) {
+        if (tailMatches(t, match)) {
           focus = t;
           break;
         }
@@ -2952,6 +2954,11 @@ public class FHIRPathEngine {
       throw new DefinitionException("Unable to resolve discriminator");      
     else if (expr.getInner() == null)
       return focus;
+    else if (expr.getInner().parameterCount() ==1 && expr.getInner().getParameters().get(0).getName().equals("x"))
+      if (expr.getInner().getInner() == null)
+        return focus;
+      else
+        return evaluateDefinition(expr.getInner().getInner(), sd, focus);
     else
       return evaluateDefinition(expr.getInner(), sd, focus);
   }
