@@ -1532,7 +1532,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
   private boolean hasBindableType(ElementDefinition ed) {
     for (TypeRefComponent tr : ed.getType()) {
-      if (Utilities.existsInList(tr.getCode(), "Coding", "CodeableConcept", "Quantity", "url", "string", "code"))
+      if (Utilities.existsInList(tr.getCode(), "Coding", "CodeableConcept", "Quantity", "uri", "string", "code"))
         return true;
     }
     return false;
