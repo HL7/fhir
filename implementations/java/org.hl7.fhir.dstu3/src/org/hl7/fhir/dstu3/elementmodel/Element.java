@@ -2,24 +2,13 @@ package org.hl7.fhir.dstu3.elementmodel;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.commons.lang3.Validate;
-import org.hl7.fhir.dstu3.elementmodel.Element.ElementSortComparator;
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.*;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 /**
@@ -600,7 +589,7 @@ public class Element extends Base {
           remove.add(child);
       }
       children.removeAll(remove);
-      children.sort(new ElementSortComparator(this, this.property));
+      Collections.sort(children, new ElementSortComparator(this, this.property));
     }
   }
 
@@ -619,7 +608,7 @@ public class Element extends Base {
     public int compare(Element e0, Element e1) {
       int i0 = find(e0);
       int i1 = find(e1);
-      return Integer.compare(i0, i1);
+      return (i0 < i1) ? -1 : ((i0 == i1) ? 0 : 1);
     }
     private int find(Element e0) {
       int i =  e0.elementProperty != null ? children.indexOf(e0.elementProperty.getDefinition()) :  children.indexOf(e0.property.getDefinition());

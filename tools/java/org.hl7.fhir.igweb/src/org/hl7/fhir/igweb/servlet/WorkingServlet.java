@@ -27,17 +27,17 @@ public class WorkingServlet extends HttpServlet {
 
     Job job = BuilderService.INSTANCE.getJob(jobId);
     if (job == null) {
-      theResp.sendRedirect("/failed?message=" + UrlUtil.escape("Job has expired, please try again."));
+      theResp.sendRedirect("/igweb/failed?message=" + UrlUtil.escape("Job has expired, please try again."));
       return;
     }
 
     if (job.getFailureMessage() != null) {
-      theResp.sendRedirect("/failed?message=" + UrlUtil.escape(job.getFailureMessage()));
+      theResp.sendRedirect("/igweb/failed?message=" + UrlUtil.escape(job.getFailureMessage()));
       return;
     }
 
     if (job.isFinished()) {
-      theResp.sendRedirect("/finished?jobid=" + jobId);
+      theResp.sendRedirect("/igweb/finished?jobid=" + jobId);
       return;
     }
 

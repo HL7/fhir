@@ -47,54 +47,16 @@ public class Runner {
     if (isBlank(configPath)) {
       throw new ParseException("Missing required argument -config");
     }
-    
-    FileReader configReader = new FileReader(configPath);
-    String configString = IOUtils.toString(configReader);
-    Gson gson = new GsonBuilder().create();
-    JsonObject configObject = gson.fromJson(configString, JsonObject.class);
 
-    /*
-     * Load specifications (igpack.zip files)
-     */
-    TreeMap<String, SpecificationPackage> specifications = new TreeMap<>();
-    addVersionIfPresent(configObject, "3.0", specifications);
-    addVersionIfPresent(configObject, "3.1", specifications);
-    if (specifications.isEmpty()) {
-      throw new ParseException("No specifications specified");
-    }
-    BuilderService.INSTANCE.setSpecifications(specifications);
+    ConfigLoader.loadConfig(configPath);
     
     IgWebServer server = new IgWebServer();
     
-    JsonPrimitive portObject = configObject.getAsJsonPrimitive("port");
-    if (portObject == null) {
-      throw new ParseException("Config does not contain a port");
-    }
-    int port = Integer.parseInt(portObject.getAsString());
-    server.setPort(port);
+    server.setPort(ConfigLoader.getPort());
     
     server.start();
 
   }
 
-  private static void addVersionIfPresent(JsonObject configObject, String version, Map<String, SpecificationPackage> specifications) throws FileNotFoundException, IOException, FHIRException {
-    JsonPrimitive specObj = configObject.getAsJsonPrimitive("spec-" + version);
-    if (specObj != null) {
-      String path = specObj.getAsString();
-      ourLog.info("Loading IGPack: {}", path);
-      SpecificationPackage pack;
-      if (ourPathToSpec.containsKey(path)) {
-        pack = ourPathToSpec.get(path);  
-      } else {
-        if ("3.0".equals(version))
-          pack = SpecificationPackage.fromPath(path, new R3ToR4Loader());
-        else
-          pack = SpecificationPackage.fromPath(path);
-        ourPathToSpec.put(path, pack);
-      }
-      specifications.put(version, pack);
-    }
-  }
   
-  private static Map<String, SpecificationPackage> ourPathToSpec = new HashMap<>();
 }

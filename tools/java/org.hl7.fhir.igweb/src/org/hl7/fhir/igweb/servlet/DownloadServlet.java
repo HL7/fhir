@@ -43,6 +43,7 @@ public class DownloadServlet extends HttpServlet {
     }
     
     theResp.setContentType("application/zip");
+	 theResp.addHeader("Content-Disposition", "attachment; filename=\"ig.zip\"");
     job.streamOutputTo(theResp.getOutputStream());
     IOUtils.closeQuietly(theResp.getOutputStream());
 

@@ -13,14 +13,12 @@ public class TemplateBuilder {
    }
 
    public String process(String title, String body) throws IOException {
-      InputStream inputStream = HomeServlet.class.getResourceAsStream("/org/hl7/fhir/igweb/webres/template.html");
-      String page = IOUtils.toString(inputStream);
       Map<String, String> vars = new HashMap();
       vars.put("title", title);
       vars.put("body", body);
       vars.put("version", "3.1.0-12293");
       StrSubstitutor subs = new StrSubstitutor(vars);
-      return subs.replace(page);
+      return subs.replace(body);
    }
 }
 

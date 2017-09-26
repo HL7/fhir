@@ -698,13 +698,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         pagesDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));
     } else
       pagesDirs.add(Utilities.path(root, str(paths, "pages", "pages")));
+    
     if (mode != IGBuildMode.WEBSERVER){
       tempDir = Utilities.path(root, str(paths, "temp", "temp"));
       outputDir = Utilities.path(root, str(paths, "output", "output"));
     }
-    qaDir = Utilities.path(root, str(paths, "qa"));
+    
+	 qaDir = Utilities.path(root, str(paths, "qa"));
     vsCache = ostr(paths, "txCache");
-    if (vsCache != null)
+    
+	 if (mode == IGBuildMode.WEBSERVER) 
+      vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
+    else if (vsCache != null)
       vsCache = Utilities.path(root, vsCache);
     else if (mode == IGBuildMode.AUTOBUILD)
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");

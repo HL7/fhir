@@ -41,7 +41,7 @@ public class Job implements Runnable {
   }
 
   public void destroy() {
-    BuilderService.ourLog.info("Expiring job: {}", myJobId);
+    ourLog.info("Expiring job: {}", myJobId);
   }
 
   public Date getCreated() {
@@ -66,7 +66,7 @@ public class Job implements Runnable {
 
   @Override
   public void run() {
-    ourLog.info("Beginning conversion job: {}", myJobId);
+    ourLog.info("Beginning conversion job {} (input file has {} bytes)", myJobId, myInput.length);
 
     try {
       saveToFile("in", myInput);
@@ -112,7 +112,9 @@ public class Job implements Runnable {
       myPublisher.setFetcher(fetcher);
       myPublisher.setConfiguration(igFile);
       myPublisher.setSpecPath("/");
-      myPublisher.setConfigFileRootPath(def.getPath().substring(0, def.getPath().lastIndexOf('/')+1));
+      String configFileRootPath = def.getPath().substring(0, def.getPath().lastIndexOf('/')+1);
+		ourLog.info("Config file root path: {}", configFileRootPath);
+      myPublisher.setConfigFileRootPath(configFileRootPath);
 
       File tempFile = File.createTempFile("igweb", "temp");
       tempFile.delete();
@@ -141,7 +143,7 @@ public class Job implements Runnable {
       myFinished = true;
 //      Utilities.clearDirectory(tempFile.getAbsolutePath());
 //      Utilities.clearDirectory(outFile.getAbsolutePath());
-    } catch (Exception e) {
+    } catch (Throwable e) {
       ourLog.error("Failure during conversion", e);
       myFailureMessage = e.toString();
     }
@@ -154,6 +156,7 @@ public class Job implements Runnable {
 
   private void saveToFile(String op, byte[] cnt) throws IOException {
     String filename = Utilities.path(logPath, "cnt"+mySessionId+"-"+myJobId+"-"+op+".zip");
+	 ourLog.info("Saving file: {}", filename);
     TextFile.bytesToFile(cnt, filename);    
   }
 

@@ -16,26 +16,25 @@ public class UploadServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest theReq, HttpServletResponse theResp) throws ServletException, IOException {
-    String mimeType = theReq.getContentType();
-    InputStream fileInputStream;
-    //if (mimeType.equals("application/zip")) {
-      fileInputStream = theReq.getInputStream();
-    //} else {
-    //  // Required in order for Jetty to allow the multipart file upload
-    //  MultipartConfigElement multipartConfigElement = new MultipartConfigElement((String)null);
-    //  theReq.setAttribute(Request.__MULTIPART_CONFIG_ELEMENT, multipartConfigElement);
-    //  
-    //  final Part filePart = theReq.getPart("file");
-    //
-    //  fileInputStream = filePart.getInputStream();
-    //}
-    
+    //String mimeType = theReq.getContentType();
+    InputStream fileInputStream = null;
+
+    for (Part part : theReq.getParts()) {
+      if (part.getName().equals("file")) {
+        fileInputStream = part.getInputStream();
+      }
+    }
+   
+    if (fileInputStream == null) {
+      throw new ServletException("Mossing part 'file'");
+    } 
+
     byte[] fileBytes = IOUtils.toByteArray(fileInputStream);
     ourLog.info("User uploaded {} bytes", fileBytes.length);
     
     String jobId = BuilderService.INSTANCE.submit(fileBytes);
     
-    theResp.sendRedirect("/working?jobid=" + jobId);
+    theResp.sendRedirect("/igweb/working?jobid=" + jobId);
   }
 
 }
