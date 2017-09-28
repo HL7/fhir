@@ -229,6 +229,13 @@
 				"errorCount": 1,
 				"errors": ["Error reported by XML parser processing null: Scanner State 24 not Recognized "]
 			},
+			"slice-by-polymorphic-type.xml": {
+			  "errorCount": 0,
+        "profile" : {
+          "source" : "slice-by-polymorphic-type-profile.xml", 
+          "errorCount": 0          
+        }
+			},
       "code-correct.xml" : {
         "tx-dependent" : true,
         "errorCount": 0
