@@ -12,7 +12,14 @@
   <actuality value="actual"/>
 
   <!-- high level categorision. The "event" below will say more -->
-  <category value="ProductUseError"/>
+  <category> 
+    <coding> 
+      <system value="http://hl7.org/fhir/adverse-event-category"/> 
+      <code value="ProductUseError"/> 
+      <display value="Product Use Error"/> 
+    </coding> 
+  </category> 
+
   
   <!-- more precise details of the event -->
   <event>

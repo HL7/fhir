@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-07-28T15:25:38Z</LastSaved>
+  <LastSaved>2017-09-29T13:45:09Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,12 +20,13 @@
    <Path>\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>12795</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>5655</WindowHeight>
+  <WindowWidth>17970</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>777</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1574,7 +1575,8 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Links plan to the conditions it manages.  The element can identify risks addressed by the plan as well as active conditions.  (The Condition resource can include things like &quot;at risk for hypertension&quot; or &quot;fall risk&quot;.)  Also scopes plans - multiple plans may exist addressing different concerns.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">When the diagnosis is related to an allergy or intolerance, the Condition and AllergyIntolerance resources can both be used. However, to be actionable for decision support, using Condition alone is not sufficient as the allergy or intolerance condition needs to be represented as an AllergyIntolerance.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.actRelationship[typeCode=SUBJ].target[classCode=CONC, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4186,13 +4188,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4200,7 +4201,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4208,8 +4208,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6264,7 +6264,7 @@
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s136" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s136" ss:Width="89.25"/>
+   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="147"/>
    <Column ss:StyleID="s136" ss:Width="29.25"/>
    <Column ss:StyleID="s136" ss:Width="329.25"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="163.5"/>
@@ -6305,7 +6305,7 @@
     <Cell ss:StyleID="s138"><Data ss:Type="String">Weight Loss</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">General Person Example</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Care plan to address obesity that has a goal of weight loss</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">example</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6318,7 +6318,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Pregnancy</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Patient 1 for linking</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan to address pregnancy</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">preg</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-pregnancy.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6327,7 +6327,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Integrated</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Simple integrated care plan with multiple goals &amp; conditions (from Mayo)</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Integrated care plan with multiple goals &amp; conditions (from Mayo)</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">integrate</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-integrated.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6336,7 +6336,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">GPVisit</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Encounter to GP (Primary care Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Encounter-specific care plan for GP visit</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">gpvisit</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-GPVisit.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6345,7 +6345,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Operative procedure on heart</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan for an operative procedure on heart</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f001</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-f001-heart.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6354,7 +6354,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Partial lobectomy of lung</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan for a partial lobectomy of lung</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f002</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-f002-lung.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6363,7 +6363,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Incision of retropharyngeal abscess</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan with goal of retropharyngeal abscess removal</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f003</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-f003-pharynx.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6372,7 +6372,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Cure of renal insufficiency</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan to address renal insufficiency</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f201</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-f201-renal.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6381,7 +6381,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Sphenoid bone tumor demission</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan to address head-neck tumor by chemotherapy</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f202</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-f202-malignancy.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6390,7 +6390,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Sepsis treatment</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Real-world patient example</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan to address sepsis</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">f203</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-f203-sepsis.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6399,7 +6399,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">Narrative</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Care plan to address obesity that is primarily narrative</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Primarily narrative care plan to address obesity</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">obesity-narrative</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">careplan-example-obesity-narrative.xml</Data></Cell>
     <Cell ss:StyleID="s126"/>
@@ -6666,6 +6666,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6685,8 +6686,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

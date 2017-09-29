@@ -13,7 +13,7 @@
   Binding = code list
   Reference = #adverse-event-category
   Definition = Overall categorization of the event, e.g. product related or situational
-  Conformance = required
+  Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = AdverseEventType
@@ -341,8 +341,8 @@
 
  -- Row 4 -----------------------------------
   Element = AdverseEvent.category
-  Card. = 0..1
-  Type = code
+  Card. = 0..*
+  Type = CodeableConcept
   Binding = AdverseEventCategory
   Short Name = ProductProblem | ProductQuality | ProductUseError | WrongDose | IncorrectPrescribingInformation | WrongTechnique | WrongRouteOfAdministration | WrongRate | WrongDuration | WrongTime | ExpiredDrug | MedicalDeviceUseError | ProblemDifferentManufacturer | UnsafePhysicalEnvironment
   Definition = The overall type of event, intended for search and filtering purposes.
@@ -361,9 +361,11 @@
   Element = AdverseEvent.subject
   Card. = 0..1
   Aliases = patient
-  Type = Reference(Patient|ResearchSubject|Practitioner|RelatedPerson)
+  Type = Reference(Patient|Group|Practitioner|RelatedPerson)
   Short Name = Subject impacted by event
   Definition = This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
+  Comments = If AdverseEvent.resultingCondition differs among members of the group, then use Patient as the subject.
+  Committee Notes = GF#13890
   w5 = who
 
  -- Row 7 -----------------------------------

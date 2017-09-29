@@ -84,21 +84,21 @@
         <value value="123456"/>
       </identifier>
   </recipient>
-  <!-- Example using topic 0..* Resource(Any) to provide focal resources -->
-  <topic>
+  <!-- Example using about 0..* Resource(Any) to provide focal resources -->
+  <about>
     <!-- reference value="#claim"/ -->
       <identifier>
 	    <system value="http://happyvalley.com/claim"/>
         <value value="12345"/>
       </identifier>
-  </topic>
-  <topic>
+  </about>
+  <about>
     <!-- reference value="#claimresponse"/ -->
       <identifier>
 	    <system value="http://www.BenefitsInc.com/fhir/claimresponse"/>
         <value value="R3500"/>
       </identifier>
-  </topic>
+  </about>
   
   <sent value="2016-06-12T18:01:10-08:00"/>
   <sender>
@@ -122,7 +122,7 @@
   <payload>
     <contentAttachment>
 	  <contentType value="application/pdf" />
-	  <url value="http://happyvalley.com/docs/AB12345" />
+	  <url value="http://example.org/docs/AB12345" />
 	  <size value="104274" />
 	  <hash value="SGVsbG8gdGhlcmU=" />
 	  <creation value="2010-02-01T10:57:34+01:00"/>

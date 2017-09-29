@@ -167,13 +167,14 @@
   w5 = who.focus
 
  -- Row 12 -----------------------------------
-  Element = CommunicationRequest.topic
+  Element = CommunicationRequest.about
   Card. = 0..*
   Type = Reference(Any)
-  Short Name = Focal resources
-  Definition = The resources which were related to producing this communication request.
+  Short Name = Resources that pertain to this communication request
+  Definition = Other resources that pertain to this communication request and to which this communication request should be associated
+  Comments = Don\'t use CommunicationRequest.about element when a more specific element exists, such as basedOn, reasonReference, or replaces.
   Workflow Mapping = Request.supportingInfo
-  Committee Notes = GF#11381
+  Committee Notes = GF#11381, 13705
   w5 = context
 
  -- Row 13 -----------------------------------

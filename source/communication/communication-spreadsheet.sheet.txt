@@ -43,6 +43,11 @@
   Definition = Codes indicating the relative importance of a communication.
   Conformance = required
 
+ -- Row 7 -----------------------------------
+  Binding Name = CommunicationTopic
+  Binding = unbound
+  Definition = Codes describing the purpose or content of the communication.
+
 === Sheet communication-category =====================================
 
  -- Row 1 -----------------------------------
@@ -262,13 +267,26 @@
 
  -- Row 15 -----------------------------------
   Element = Communication.topic
-  Card. = 0..*
-  Type = Reference(Any)
-  Short Name = Focal resources
-  Definition = The resources which were responsible for or related to producing this communication.
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CommunicationTopic
+  Short Name = Description of the purpose/content
+  Definition = Description of the purpose/content, similar to a subject line in an email.
+  Comments = Communication.topic.text can be used without any codings.
+  Committee Notes = GF#13705
   w5 = context
 
  -- Row 16 -----------------------------------
+  Element = Communication.about
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Resources that pertain to this communication
+  Definition = Other resources that pertain to this communication and to which this communication should be associated
+  Comments = Don\'t use Communication.about element when a more specific element exists, such as basedOn or reasonReference.
+  Committee Notes = GF#13705
+  w5 = context
+
+ -- Row 17 -----------------------------------
   Element = Communication.context
   Card. = 0..1
   Aliases = encounter
@@ -279,7 +297,7 @@
   Workflow Mapping = Event.context
   w5 = context
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
@@ -288,7 +306,7 @@
   Workflow Mapping = Event.occurrenceDateTime {Invariant: maps to either sent OR received}
   w5 = when.init
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
@@ -297,7 +315,7 @@
   Workflow Mapping = Event.occurrenceDateTime {Invariant: maps to either sent OR received}
   w5 = when.done
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Communication.sender
   Card. = 0..1
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
@@ -306,7 +324,7 @@
   Workflow Mapping = Event.performer.actor
   w5 = who.actor
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Communication.reasonCode
   Card. = 0..*
   Summary = Y
@@ -319,7 +337,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Communication.reasonReference
   Card. = 0..*
   Summary = Y
@@ -330,21 +348,21 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Communication.payload
   Card. = 0..*
   UML = 380;50
   Short Name = Message payload
   Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Communication.payload.content[x]
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Name = Message part content
   Definition = A communicated content (or for multi-part communications, one portion of the communication)
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Communication.note
   Card. = 0..*
   Type = Annotation

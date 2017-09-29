@@ -409,6 +409,7 @@
   Short Name = Health issues this plan addresses
   Definition = Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
   Requirements = Links plan to the conditions it manages.  The element can identify risks addressed by the plan as well as active conditions.  (The Condition resource can include things like \"at risk for hypertension\" or \"fall risk\".)  Also scopes plans - multiple plans may exist addressing different concerns.
+  Comments = When the diagnosis is related to an allergy or intolerance, the Condition and AllergyIntolerance resources can both be used. However, to be actionable for decision support, using Condition alone is not sufficient as the allergy or intolerance condition needs to be represented as an AllergyIntolerance.
   Workflow Mapping = Request.reasonReference
   v2 Mapping = PRB-4
   RIM Mapping = .actRelationship[typeCode=SUBJ].target[classCode=CONC, moodCode=EVN]
@@ -809,67 +810,67 @@
  -- Row 1 -----------------------------------
   Name = Weight Loss
   Identity = example
-  Description = General Person Example
+  Description = Care plan to address obesity that has a goal of weight loss
   Filename = careplan-example.xml
 
  -- Row 2 -----------------------------------
   Name = Pregnancy
   Identity = preg
-  Description = Patient 1 for linking
+  Description = Care plan to address pregnancy
   Filename = careplan-example-pregnancy.xml
 
  -- Row 3 -----------------------------------
   Name = Integrated
   Identity = integrate
-  Description = Simple integrated care plan with multiple goals & conditions (from Mayo)
+  Description = Integrated care plan with multiple goals & conditions (from Mayo)
   Filename = careplan-example-integrated.xml
 
  -- Row 4 -----------------------------------
   Name = GPVisit
   Identity = gpvisit
-  Description = Encounter to GP (Primary care Practitioner)
+  Description = Encounter-specific care plan for GP visit
   Filename = careplan-example-GPVisit.xml
 
  -- Row 5 -----------------------------------
   Name = Operative procedure on heart
   Identity = f001
-  Description = Real-world patient example
+  Description = Care plan for an operative procedure on heart
   Filename = careplan-example-f001-heart.xml
 
  -- Row 6 -----------------------------------
   Name = Partial lobectomy of lung
   Identity = f002
-  Description = Real-world patient example
+  Description = Care plan for a partial lobectomy of lung
   Filename = careplan-example-f002-lung.xml
 
  -- Row 7 -----------------------------------
   Name = Incision of retropharyngeal abscess
   Identity = f003
-  Description = Real-world patient example
+  Description = Care plan with goal of retropharyngeal abscess removal
   Filename = careplan-example-f003-pharynx.xml
 
  -- Row 8 -----------------------------------
   Name = Cure of renal insufficiency
   Identity = f201
-  Description = Real-world patient example
+  Description = Care plan to address renal insufficiency
   Filename = careplan-example-f201-renal.xml
 
  -- Row 9 -----------------------------------
   Name = Sphenoid bone tumor demission
   Identity = f202
-  Description = Real-world patient example
+  Description = Care plan to address head-neck tumor by chemotherapy
   Filename = careplan-example-f202-malignancy.xml
 
  -- Row 10 -----------------------------------
   Name = Sepsis treatment
   Identity = f203
-  Description = Real-world patient example
+  Description = Care plan to address sepsis
   Filename = careplan-example-f203-sepsis.xml
 
  -- Row 11 -----------------------------------
   Name = Narrative
   Identity = obesity-narrative
-  Description = Care plan to address obesity that is primarily narrative
+  Description = Primarily narrative care plan to address obesity
   Filename = careplan-example-obesity-narrative.xml
 
 === Sheet Examples =====================================
