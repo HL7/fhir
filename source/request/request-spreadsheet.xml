@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-09-16T01:39:20Z</LastSaved>
+  <LastSaved>2017-10-04T18:20:56Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,12 +20,12 @@
    <Path>\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>11205</WindowHeight>
-  <WindowWidth>17100</WindowWidth>
+  <WindowHeight>12795</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1701,7 +1701,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="180">
+   <Row ss:Height="105">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Request.performerType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1725,7 +1725,7 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">The type of individual that is desired to act upon the {{request}}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">If performer is also specified, this indicates what type of performer is desired in the event the requested performer is not available.&#10;&#10;If specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">If specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Need to define who.performer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1939,7 +1939,7 @@
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="165">
+   <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell ss:StyleID="s90"><Data ss:Type="String">Request.relevantHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">eventHistory</Data><NamedCell
@@ -2161,12 +2161,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2174,6 +2175,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -2181,8 +2183,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2896,7 +2898,6 @@
     <HorizontalResolution>1200</HorizontalResolution>
     <VerticalResolution>1200</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
