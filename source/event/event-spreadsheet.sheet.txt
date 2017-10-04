@@ -30,6 +30,11 @@
   Definition = Codes describing the types of functional roles performers can take on when performing events
   Conformance = example
 
+ -- Row 6 -----------------------------------
+  Binding Name = EventPerformerFunction
+  Binding = unbound
+  Definition = Codes that describe the specific involvement of a performer in an event.  E.g. Primary vs. secondary vs. supervising, etc.
+
 === Sheet event-status =====================================
 
  -- Row 1 -----------------------------------
@@ -239,14 +244,32 @@
   Element = Event.performer
   Card. = 0..*
   Summary = Y
+  Short Name = Who performed {{title}} and what they did
+  Definition = Indicates who or what performed the {{title}} and how they were involved
+  Comments = [Resources may choose to replace this with just a single performer or repeating where there\'s no need to distinguish the function performed]
+
+ -- Row 13 -----------------------------------
+  Element = Event.performer.function
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = EventPerformerFunction
+  Short Name = Type of performance
+  Definition = Distinguishes the type of involvement of the performer in the {{title}}. [Consider adding examples]
+  Requirements = Allows disambiguation of the types of involvement of different performers
+
+ -- Row 14 -----------------------------------
+  Element = Event.performer.actor
+  Card. = 1..1
+  Summary = Y
   Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)
   Short Name = Who performed {{title}}
   Definition = Indicates who or what performed the {{title}}
-  Comments = [Resources may choose to replace this with just a single performer or repeating where there\'s no need to distinguish role and/or responsible organization]
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Event.location
   Card. = 0..1
   Summary = Y
@@ -258,7 +281,7 @@
   RIM Mapping = .participation[typeCode=LOC].role
   w5 = where
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Event.reasonCode
   Card. = 0..*
   Summary = Y
@@ -271,7 +294,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Event.reasonReference
   Card. = 0..*
   Summary = Y
@@ -283,7 +306,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Event.note
   Card. = 0..*
   Type = Annotation
