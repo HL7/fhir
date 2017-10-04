@@ -2604,6 +2604,13 @@ public class ProfileUtilities extends TranslatingUtilities {
               }
             }
           }
+          if (definition.hasDefinition()) {
+            if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
+            c.getPieces().add(gen.new Piece(null, "Definition: ", null).addStyle("font-weight:bold"));
+            c.addPiece(gen.new Piece("br"));
+            c.addMarkdown(definition.getDefinition());
+//            c.getPieces().add(checkForNoChange(definition.getCommentElement(), gen.new Piece(null, definition.getComment(), null)));
+          }
           if (definition.getComment()!=null) {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
             c.getPieces().add(gen.new Piece(null, "Comments: ", null).addStyle("font-weight:bold"));

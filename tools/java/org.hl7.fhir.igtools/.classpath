@@ -27,5 +27,8 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr-runtime-3.5.2.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.r4"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commonmark-0.9.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-log4j12-1.7.22.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.22.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.22.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
