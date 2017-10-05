@@ -36,6 +36,13 @@
   Definition = The meaning of the hierarchy of concepts in a code system
   Conformance = required
 
+ -- Row 6 -----------------------------------
+  Binding Name = AlternativeCodeKind
+  Binding = code list
+  Reference = #codesystem-altcode-kind
+  Definition = Indicates the type of use for which the code is defined
+  Conformance = extensible
+
 === Sheet concept-property-type =====================================
 
  -- Row 1 -----------------------------------
@@ -125,6 +132,38 @@
   Code = classified-with
   Display = Classified With
   Definition = Child concepts in the hierarchy may have only one parent, and there is a presumption that the code system is a \"closed world\" meaning all things must be in the hierarchy. This results in concepts such as \"not otherwise classified.\"
+
+=== Sheet codesystem-altcode-kind =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = alternate
+  Display = Alternate Code
+  Definition = The code is an alternative code that can be used in in any of the circumstances that the primary code can be used
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = deprecated
+  Display = Deprecated
+  Definition = The code should no longer be used, but was used in the past
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = case-insensitive
+  Display = Case Insensitive
+  Definition = The code is an alternative to be used when a case insensitive code is required (when the primary codes are case sensitive)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = case-sensitive
+  Display = Case Sensitive
+  Definition = The code is an alternative to be used when a case sensitive code is required (when the primary codes are case insensitive)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = expression
+  Display = Expression
+  Definition = The code is an alternative for the primary code that is built using the expression grammar defined by the code system
 
 === Sheet Invariants =====================================
 
@@ -436,6 +475,30 @@
   Definition = The value of this property
 
  -- Row 45 -----------------------------------
+  Element = CodeSystem.concept.alternate
+  Card. = 0..*
+  Short Name = Alternate code to use for the concept
+  Definition = Alternate code that can be used to represent this concept
+  Comments = Most concepts are represented by a single code. However some code systems define multiple codes for a concept for various reasons. The alternate codes may be used to represent the concept under some conditions
+
+ -- Row 46 -----------------------------------
+  Element = CodeSystem.concept.alternate.kind
+  Card. = 1..1
+  Type = Coding
+  Binding = AlternativeCodeKind
+  Short Name = Type of use for the code
+  Definition = Indicates the type of use for which the code is defined
+  Comments = The base value set defines common structural reasons for alternative codes, but many code systems define their own additional alternative codes
+
+ -- Row 47 -----------------------------------
+  Element = CodeSystem.concept.alternate.code
+  Card. = 1..1
+  Type = code
+  Binding = !
+  Short Name = Actual alternate code
+  Definition = An alternative code that can be used to identify the concept
+
+ -- Row 48 -----------------------------------
   Element = CodeSystem.concept.concept
   Card. = 0..*
   Type = @CodeSystem.concept
