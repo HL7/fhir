@@ -2783,6 +2783,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     List<Element> entries = new ArrayList<Element>();
     bundle.getNamedChildren("entry", entries);
     String type = bundle.getNamedChildValue("type");
+    type = StringUtils.defaultString(type);
+
     if (entries.size() == 0) {
       rule(errors, IssueType.INVALID, stack.getLiteralPath(), !(type.equals("document") || type.equals("message")), "Documents or Messages must contain at least one entry");
     } else {

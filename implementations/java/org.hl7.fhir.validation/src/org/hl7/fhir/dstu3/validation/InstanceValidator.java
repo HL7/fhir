@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.lang3.StringUtils;
 
-import org.hl7.fhir.dstu2.model.api.IBaseFhirEnum;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
@@ -2808,6 +2808,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     List<Element> entries = new ArrayList<Element>();
     bundle.getNamedChildren("entry", entries);
     String type = bundle.getNamedChildValue("type");
+    type = StringUtils.defaultString(type);
+
     if (entries.size() == 0) {
       rule(errors, IssueType.INVALID, stack.getLiteralPath(), !(type.equals("document") || type.equals("message")), "Documents or Messages must contain at least one entry");
     } else {
@@ -3222,12 +3224,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   if (goodProfiles.size()==1) {
                     errors.addAll(goodProfiles.get(0));
                   } else if (goodProfiles.size()==0) {
-                    rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + String.join("; ", profiles));
+                    rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
                     for (List<ValidationMessage> messages : badProfiles) {
                       errors.addAll(messages);
                     }
                   } else {
-                    warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + String.join("; ", goodProfiles.keySet()));
+                    warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
                     for (List<ValidationMessage> messages : goodProfiles.values()) {
                       errors.addAll(messages);
                     }                    
