@@ -15,6 +15,7 @@
    </div>
   </text>
   <status value="active"/>
+  <scope value="privacy"/>
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>

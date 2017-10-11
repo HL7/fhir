@@ -28,6 +28,7 @@
 <Consent xmlns="http://hl7.org/fhir">
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
+  <scope value="privacy"/>
   <!-- 
    In this SMART on FHIR login, the user consents for data sharing 
    for their elderly parent's record

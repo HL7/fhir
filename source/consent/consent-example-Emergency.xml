@@ -3,6 +3,7 @@
   <id value="consent-example-Emergency"/>
   <text>
     <status value="generated"/>
+  
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
 	Withhold Authorization for Treatment rule for Emegency Treatment
@@ -16,6 +17,7 @@
     </div>
   </text>
   <status value="active"/>
+  <scope value="privacy"/>
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>

@@ -16,6 +16,7 @@
     </div>
   </text>
   <status value="active"/>
+  <scope value="privacy"/>
   <patient>
     <reference value="Patient/example"/>
     <display value="...example patient..."/>
@@ -58,7 +59,7 @@
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
       <code value="N"/>
     </securityLabel>
-  </provision>
+  
   <provision>
     <!-- we permit -->
     <actor>
@@ -322,5 +323,6 @@
       <system value="http://hl7.org/fhir/v3/Confidentiality"/>
       <code value="N"/>
     </securityLabel>
+  </provision>
   </provision>
 </Consent>

@@ -17,6 +17,7 @@
     </div>
   </text>
   <status value="active"/>
+  <scope value="privacy"/>
   <dateTime value="2015-11-18"/>
   <!-- not bound by a timeframe - Consent.period -->
   <patient>
