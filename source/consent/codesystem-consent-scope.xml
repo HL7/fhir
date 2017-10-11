@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/consentscope"/>
+  <name value="Consent Action Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes the current scopes for the Consent resources."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="ADR"/>
+    <display value="Advanced Care Directive"/>
+    <definition value="Actions to be taken if they are no longer able to make decisions for themselves"/>
+  </concept>
+  <concept>
+    <code value="research"/>
+    <display value="Research"/>
+    <definition value="Consent to participate in research protocol and information sharing required"/>
+  </concept>
+  <concept>
+    <code value="privacy"/>
+    <display value="Privacy Consent"/>
+    <definition value="Agreement to collect, access, use or disclose (share) information"/>
+  </concept>
+  <concept>
+    <code value="treatment"/>
+    <display value="Treatment"/>
+    <definition value="Consent to undergo a specific treatment"/>
+  </concept>
+</CodeSystem>
